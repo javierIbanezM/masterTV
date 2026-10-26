@@ -1,0 +1,26 @@
+<module>()  line 1
+    _maybe_compile(compiler, source, filename, symbol, flags)  line 50
+    _compile(source, filename, symbol, incomplete_input, flags)  line 77
+    compile_command(source, filename, symbol, flags)  line 83
+    Compile()  line 104
+        Compile.__init__(self)  line 109
+        Compile.__call__(self, source, filename, symbol, flags)  line 112
+    CommandCompiler()  line 125
+        CommandCompiler.__init__(self)  line 132
+        CommandCompiler.__call__(self, source, filename, symbol)  line 135
+
+--- strings ---
+"Utilities to compile possibly incomplete Python source code.\n\nThis module provides two interfaces, broadly similar to the builtin\nfunction compile(), which take program text, a filename and a 'mode'\nand:\n\n- Return code object if the command is complete and valid\n- Return None if the command is incomplete\n- Raise SyntaxError, ValueError or OverflowError if the command is a\n  syntax error (OverflowError and ValueError can be produced by\n  malformed literals).\n\nThe two interfaces are:\n\ncompile_command(source, filename, symbol):\n\n    Compiles a single command in the manner described above.\n\nCommandCompiler():\n\n    Instances of this class have __call__ methods identical in\n    signature to compile_command; the difference is that if the\n    instance compiles program text containing a __future__ statement,\n    the instance 'remembers' and compiles all subsequent program texts\n    with the statement in force.\n\nThe module also provides another class:\n\nCompile():\n\n    Instances of this class act like the built-in function compile,\n    but with 'memory' in the sense described above.\n"
+'Compile'
+'CommandCompiler'
+'eval'
+'pass'
+'ignore'
+'flags'
+'Compile a command and determine whether it is incomplete.\n\nArguments:\n\nsource -- the source string; may contain \\n characters\nfilename -- optional filename from which source was read; default\n            "<input>"\nsymbol -- optional grammar start symbol; "single" (default), "exec"\n          or "eval"\n\nReturn value / exceptions raised:\n\n- Return a code object if the command is complete and valid\n- Return None if the command is incomplete\n- Raise SyntaxError, ValueError or OverflowError if the command is a\n  syntax error (OverflowError and ValueError can be produced by\n  malformed literals).\n'
+'Compile'
+'Instances of this class behave much like the built-in compile\nfunction, but if one is used to compile text containing a future\nstatement, it "remembers" and compiles all subsequent program texts\nwith the statement in force.'
+'incomplete_input'
+'CommandCompiler'
+"Instances of this class have __call__ methods identical in\nsignature to compile_command; the difference is that if the\ninstance compiles program text containing a __future__ statement,\nthe instance 'remembers' and compiles all subsequent program texts\nwith the statement in force."
+'Compile a command and determine whether it is incomplete.\n\nArguments:\n\nsource -- the source string; may contain \\n characters\nfilename -- optional filename from which source was read;\n            default "<input>"\nsymbol -- optional grammar start symbol; "single" (default) or\n          "eval"\n\nReturn value / exceptions raised:\n\n- Return a code object if the command is complete and valid\n- Return None if the command is incomplete\n- Raise SyntaxError, ValueError or OverflowError if the command is a\n  syntax error (OverflowError and ValueError can be produced by\n  malformed literals).\n'

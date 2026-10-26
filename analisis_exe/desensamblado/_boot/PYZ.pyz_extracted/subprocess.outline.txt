@@ -1,0 +1,286 @@
+<module>()  line 1
+    _del_safe()  line 108
+    _del_safe()  line 116
+    SubprocessError()  line 129
+    CalledProcessError()  line 132
+        CalledProcessError.__init__(self, returncode, cmd, output, stderr)  line 139
+        CalledProcessError.__str__(self)  line 145
+        CalledProcessError.stdout(self)  line 157
+        CalledProcessError.stdout(self, value)  line 162
+    TimeoutExpired()  line 169
+        TimeoutExpired.__init__(self, cmd, timeout, output, stderr)  line 176
+        TimeoutExpired.__str__(self)  line 182
+        TimeoutExpired.stdout(self)  line 186
+        TimeoutExpired.stdout(self, value)  line 190
+    STARTUPINFO()  line 198
+        STARTUPINFO.__init__(self, dwFlags, hStdInput, hStdOutput, hStdError, wShowWindow, lpAttributeList)  line 199
+        STARTUPINFO.copy(self)  line 208
+    Handle()  line 221
+        Handle.Close(self, CloseHandle)  line 224
+        Handle.Detach(self)  line 229
+        Handle.__repr__(self)  line 235
+    _cleanup()  line 265
+    _cleanup()  line 274
+    _optim_args_from_interpreter_flags()  line 296
+    _args_from_interpreter_flags()  line 306
+    _text_encoding()  line 367
+    call(timeout)  line 387
+    check_call()  line 404
+    check_output(timeout)  line 423
+    CompletedProcess()  line 476
+        CompletedProcess.__init__(self, args, returncode, stdout, stderr)  line 487
+        CompletedProcess.__repr__(self)  line 493
+        CompletedProcess.check_returncode(self)  line 505
+    run(input, capture_output, timeout, check)  line 512
+    list2cmdline(seq)  line 582
+    getstatusoutput(cmd, encoding, errors)  line 655
+    getoutput(cmd, encoding, errors)  line 687
+    _use_posix_spawn()  line 701
+    Popen()  line 758
+        Popen.__init__(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask, pipesize, process_group)  line 816
+        Popen.__repr__(self)  line 1076
+        Popen.universal_newlines(self)  line 1087
+        Popen.universal_newlines(self, universal_newlines)  line 1093
+        Popen._translate_newlines(self, data, encoding, errors)  line 1097
+        Popen.__enter__(self)  line 1101
+        Popen.__exit__(self, exc_type, value, traceback)  line 1104
+        Popen.__del__(self, _maxsize, _warn)  line 1131
+        Popen._get_devnull(self)  line 1146
+        Popen._stdin_write(self, input)  line 1151
+        Popen.communicate(self, input, timeout)  line 1176
+        Popen.poll(self)  line 1247
+        Popen._remaining_time(self, endtime)  line 1253
+        Popen._check_timeout(self, endtime, orig_timeout, stdout_seq, stderr_seq, skip_check_and_raise)  line 1261
+        Popen.wait(self, timeout)  line 1273
+        Popen._close_pipe_fds(self, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite)  line 1296
+        Popen._on_error_fd_closer(self)  line 1325
+        Popen._get_handles(self, stdin, stdout, stderr)  line 1349
+        Popen._make_inheritable(self, handle)  line 1428
+        Popen._filter_handle_list(self, handle_list)  line 1437
+        Popen._execute_child(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, unused_restore_signals, unused_gid, unused_gids, unused_uid, unused_umask, unused_start_new_session, unused_process_group)  line 1450
+        Popen._internal_poll(self, _deadstate, _WaitForSingleObject, _WAIT_OBJECT_0, _GetExitCodeProcess)  line 1577
+        Popen._wait(self, timeout)  line 1594
+        Popen._readerthread(self, fh, buffer)  line 1612
+        Popen._communicate(self, input, endtime, orig_timeout)  line 1617
+        Popen.send_signal(self, sig)  line 1667
+        Popen.terminate(self)  line 1681
+        Popen._get_handles(self, stdin, stdout, stderr)  line 1702
+        Popen._posix_spawn(self, args, executable, env, restore_signals, close_fds, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite)  line 1766
+        Popen._execute_child(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, gid, gids, uid, umask, start_new_session, process_group)  line 1806
+            Popen._execute_child.<locals>.<genexpr>(.0)  line 1895
+        Popen._handle_exitstatus(self, sts, _del_safe)  line 1976
+        Popen._internal_poll(self, _deadstate, _del_safe)  line 1985
+        Popen._try_wait(self, wait_flags)  line 2019
+        Popen._wait(self, timeout)  line 2032
+        Popen._communicate(self, input, endtime, orig_timeout)  line 2073
+        Popen._save_input(self, input)  line 2178
+        Popen.send_signal(self, sig)  line 2190
+        Popen.terminate(self)  line 2222
+        Popen.kill(self)  line 2227
+
+--- strings ---
+'Subprocesses with accessible I/O streams\n\nThis module allows you to spawn processes, connect to their\ninput/output/error pipes, and obtain their return codes.\n\nFor a complete description of this module see the Python documentation.\n\nMain API\n========\nrun(...): Runs a command, waits for it to complete, then returns a\n          CompletedProcess instance.\nPopen(...): A class for flexibly executing a command in a new process\n\nConstants\n---------\nDEVNULL: Special value that indicates that os.devnull should be used\nPIPE:    Special value that indicates a pipe should be created\nSTDOUT:  Special value that indicates that stderr should go to stdout\n\n\nOlder API\n=========\ncall(...): Runs a command, waits for it to complete, then returns\n    the return code.\ncheck_call(...): Same as call() but raises CalledProcessError()\n    if return code is not 0\ncheck_output(...): Same as check_call() but returns the contents of\n    stdout instead of a return code\ngetoutput(...): Runs a command in the shell, waits for it to complete,\n    then returns the output\ngetstatusoutput(...): Runs a command in the shell, waits for it to complete,\n    then returns a (exitcode, output) tuple\n'
+'Popen'
+'CalledProcessError'
+'SubprocessError'
+'TimeoutExpired'
+'CompletedProcess'
+'STARTUPINFO'
+'_del_safe'
+'_del_safe'
+'_del_safe'
+'SubprocessError'
+'CalledProcessError'
+'Raised when run() is called with check=True and the process\nreturns a non-zero exit status.\n\nAttributes:\n  cmd, returncode, stdout, stderr, output\n'
+"Command '"
+"' died with "
+"Command '%s' died with unknown signal %d."
+"Command '%s' returned non-zero exit status %d."
+'Alias for output attribute, to match stderr'
+'TimeoutExpired'
+'This exception is raised when the timeout expires while waiting for a\nchild process.\n\nAttributes:\n    cmd, output, stdout, stderr, timeout\n'
+"Command '"
+"' timed out after "
+' seconds'
+'STARTUPINFO'
+'dwFlags'
+'hStdInput'
+'hStdOutput'
+'hStdError'
+'wShowWindow'
+'lpAttributeList'
+'handle_list'
+'handle_list'
+'Handle'
+'already closed'
+'%s(%d)'
+'Handle'
+'PIPE_BUF'
+'PollSelector'
+'Return a list of command-line arguments reproducing the current\noptimization settings in sys.flags.'
+'Return a list of command-line arguments reproducing the current\nsettings in sys.flags, sys.warnoptions and sys._xoptions.'
+'debug'
+'dont_write_bytecode'
+'no_site'
+'verbose'
+'bytes_warning'
+'quiet'
+'-I'
+'-E'
+'-s'
+'-P'
+'_xoptions'
+'error::BytesWarning'
+'default::BytesWarning'
+'default'
+'-W'
+'-X'
+"'encoding' argument not specified."
+'utf-8'
+'timeout'
+'Run command with arguments.  Wait for command to complete or\nfor timeout seconds, then return the returncode attribute.\n\nThe arguments are the same as for the Popen constructor.  Example:\n\nretcode = call(["ls", "-l"])\n'
+'Run command with arguments.  Wait for command to complete.  If\nthe exit code was zero then return, otherwise raise\nCalledProcessError.  The CalledProcessError object will have the\nreturn code in the returncode attribute.\n\nThe arguments are the same as for the call function.  Example:\n\ncheck_call(["ls", "-l"])\n'
+'args'
+'Run command with arguments and return its output.\n\nIf the exit code was non-zero it raises a CalledProcessError.  The\nCalledProcessError object will have the return code in the returncode\nattribute and output in the output attribute.\n\nThe arguments are the same as for the Popen constructor.  Example:\n\n>>> check_output(["ls", "-l", "/dev/null"])\nb\'crw-rw-rw- 1 root root 1, 3 Oct 18  2007 /dev/null\\n\'\n\nThe stdout argument is not allowed as it is used internally.\nTo capture standard error in the result, use stderr=STDOUT.\n\n>>> check_output(["/bin/sh", "-c",\n...               "ls -l non_existent_file ; exit 0"],\n...              stderr=STDOUT)\nb\'ls: non_existent_file: No such file or directory\\n\'\n\nThere is an additional optional argument, "input", allowing you to\npass a string to the subprocess\'s stdin.  If you use this argument\nyou may not also use the Popen constructor\'s "stdin" argument, as\nit too will be used internally.  Example:\n\n>>> check_output(["sed", "-e", "s/foo/bar/"],\n...              input=b"when in the course of fooman events\\n")\nb\'when in the course of barman events\\n\'\n\nBy default, all communication is in bytes, and therefore any "input"\nshould be bytes, and the return value will be bytes.  If in text mode,\nany "input" should be a string, and the return value will be a string\ndecoded according to locale encoding, or by "encoding" if set. Text mode\nis triggered by setting any of text, encoding, errors or universal_newlines.\n'
+'stdout'
+'check'
+' argument not allowed, it will be overridden.'
+'input'
+'universal_newlines'
+'text'
+'encoding'
+'errors'
+'timeout'
+'CompletedProcess'
+'A process that has finished running.\n\nThis is returned by run().\n\nAttributes:\n  args: The list or str args passed to run().\n  returncode: The exit code of the process, negative for signals.\n  stdout: The standard output (None if not captured).\n  stderr: The standard error (None if not captured).\n'
+'args={!r}'
+'returncode={!r}'
+'stdout={!r}'
+'stderr={!r}'
+'{}({})'
+', '
+'Raise CalledProcessError if the exit code is non-zero.'
+'input'
+'capture_output'
+'check'
+'Run command with arguments and return a CompletedProcess instance.\n\nThe returned instance will have attributes args, returncode, stdout and\nstderr. By default, stdout and stderr are not captured, and those attributes\nwill be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,\nor pass capture_output=True to capture both.\n\nIf check is True and the exit code was non-zero, it raises a\nCalledProcessError. The CalledProcessError object will have the return code\nin the returncode attribute, and output & stderr attributes if those streams\nwere captured.\n\nIf timeout (seconds) is given and the process takes too long,\n a TimeoutExpired exception will be raised.\n\nThere is an optional argument "input", allowing you to\npass bytes or a string to the subprocess\'s stdin.  If you use this argument\nyou may not also use the Popen constructor\'s "stdin" argument, as\nit will be used internally.\n\nBy default, all communication is in bytes, and therefore any "input" should\nbe bytes, and the stdout and stderr will be bytes. If in text mode, any\n"input" should be a string, and stdout and stderr will be strings decoded\naccording to locale encoding, or by "encoding" if set. Text mode is\ntriggered by setting any of text, encoding, errors or universal_newlines.\n\nThe other arguments are the same as for the Popen constructor.\n'
+'stdin'
+'stdin and input arguments may not both be used.'
+'stdout'
+'stderr'
+'stdout and stderr arguments may not be used with capture_output.'
+'\nTranslate a sequence of arguments into a command line\nstring, using the same rules as the MS C runtime:\n\n1) Arguments are delimited by white space, which is either a\n   space or a tab.\n\n2) A string surrounded by double quotation marks is\n   interpreted as a single argument, regardless of white space\n   contained within.  A quoted string can be embedded in an\n   argument.\n\n3) A double quotation mark preceded by a backslash is\n   interpreted as a literal double quotation mark.\n\n4) Backslashes are interpreted literally, unless they\n   immediately precede a double quotation mark.\n\n5) If backslashes immediately precede a double quotation mark,\n   every pair of backslashes is interpreted as a literal\n   backslash.  If the number of backslashes is odd, the last\n   backslash escapes the next double quotation mark as\n   described in rule 3.\n'
+'\\"'
+'encoding'
+'errors'
+"Return (exitcode, output) of executing cmd in a shell.\n\nExecute the string 'cmd' in a shell with 'check_output' and\nreturn a 2-tuple (status, output). The locale encoding is used\nto decode the output and process newlines.\n\nA trailing newline is stripped from the output.\nThe exit status for the command can be interpreted\naccording to the rules for the function 'wait'. Example:\n\n>>> import subprocess\n>>> subprocess.getstatusoutput('ls /bin/ls')\n(0, '/bin/ls')\n>>> subprocess.getstatusoutput('cat /bin/junk')\n(1, 'cat: /bin/junk: No such file or directory')\n>>> subprocess.getstatusoutput('/bin/junk')\n(127, 'sh: /bin/junk: not found')\n>>> subprocess.getstatusoutput('/bin/kill $$')\n(-15, '')\n"
+"Return output (stdout or stderr) of executing cmd in a shell.\n\nLike getstatusoutput(), except the exit status is ignored and the return\nvalue is a string containing the command's output.  Example:\n\n>>> import subprocess\n>>> subprocess.getoutput('ls /bin/ls')\n'/bin/ls'\n"
+'Check if posix_spawn() can be used for subprocess.\n\nsubprocess requires a posix_spawn() implementation that properly reports\nerrors to the parent process, & sets errno on the following failures:\n\n* Process attribute actions failed.\n* File actions failed.\n* exec() failed.\n\nPrefer an implementation which can use vfork() in some cases for best\nperformance.\n'
+'posix_spawn'
+'_PYTHON_SUBPROCESS_USE_POSIX_SPAWN'
+'CS_GNU_LIBC_VERSION'
+'linux'
+'glibc'
+'POSIX_SPAWN_CLOSEFROM'
+'Popen'
+"Execute a child program in a new process.\n\nFor a complete description of the arguments see the Python documentation.\n\nArguments:\n  args: A string, or a sequence of program arguments.\n\n  bufsize: supplied as the buffering argument to the open() function when\n      creating the stdin/stdout/stderr pipe file objects\n\n  executable: A replacement program to execute.\n\n  stdin, stdout and stderr: These specify the executed programs' standard\n      input, standard output and standard error file handles, respectively.\n\n  preexec_fn: (POSIX only) An object to be called in the child process\n      just before the child is executed.\n\n  close_fds: Controls closing or inheriting of file descriptors.\n\n  shell: If true, the command will be executed through the shell.\n\n  cwd: Sets the current directory before the child is executed.\n\n  env: Defines the environment variables for the new process.\n\n  text: If true, decode stdin, stdout and stderr using the given encoding\n      (if set) or the system default otherwise.\n\n  universal_newlines: Alias of text, provided for backwards compatibility.\n\n  startupinfo and creationflags (Windows only)\n\n  restore_signals (POSIX only)\n\n  start_new_session (POSIX only)\n\n  process_group (POSIX only)\n\n  group (POSIX only)\n\n  extra_groups (POSIX only)\n\n  user (POSIX only)\n\n  umask (POSIX only)\n\n  pass_fds (POSIX only)\n\n  encoding and errors: Text mode encoding and error handling to use for\n      file objects stdin, stdout and stderr.\n\nAttributes:\n    stdin, stdout, stderr, pid, returncode\n"
+'user'
+'group'
+'extra_groups'
+'encoding'
+'errors'
+'text'
+'umask'
+'pipesize'
+'process_group'
+'Create new Popen instance.'
+' does not support processes.'
+'bufsize must be an integer'
+'STDOUT can only be used for stderr'
+'pipesize must be an integer'
+'preexec_fn is not supported on Windows platforms'
+'pass_fds overriding close_fds.'
+'startupinfo is only supported on Windows platforms'
+'creationflags is only supported on Windows platforms'
+'Cannot disambiguate when both text and universal_newlines are supplied but different. Pass one or the other.'
+'setregid'
+"The 'group' parameter is not supported on the current platform"
+'The group parameter cannot be a string on systems without the grp module'
+'Group must be a string or an integer, not {}'
+'Group ID cannot be negative, got '
+'setgroups'
+"The 'extra_groups' parameter is not supported on the current platform"
+'Groups must be a list, not a string'
+'Items in extra_groups cannot be strings on systems without the grp module'
+'Items in extra_groups must be a string or integer, not {}'
+'setreuid'
+"The 'user' parameter is not supported on the current platform"
+'The user parameter cannot be a string on systems without the pwd module'
+'User must be a string or an integer'
+'User ID cannot be negative, got '
+'wb'
+'rb'
+'_devnull'
+': returncode: '
+' args: '
+'...>'
+'\r\n'
+'subprocess %s is still running'
+'_devnull'
+'Interact with process: Send data to stdin and close it.\nRead data from stdout and stderr, until end-of-file is\nreached.  Wait for process to terminate.\n\nThe optional "input" argument should be data to be sent to the\nchild process, or None, if no data should be sent to the child.\ncommunicate() returns a tuple (stdout, stderr).\n\nBy default, all communication is in bytes, and therefore any\n"input" should be bytes, and the (stdout, stderr) will be bytes.\nIf in text mode (indicated by self.text_mode), any "input" should\nbe a string, and (stdout, stderr) will be strings decoded\naccording to locale encoding, or by "encoding" if set. Text mode\nis triggered by setting any of text, encoding, errors or\nuniversal_newlines.\n'
+'Cannot send input after starting communication'
+'Check if child process has terminated. Set and return returncode\nattribute.'
+'Convenience for _communicate when computing timeouts.'
+'Convenience for checking if a timeout has expired.'
+'Wait for child process to terminate; returns self.returncode.'
+'_devnull'
+'Helper to ensure file descriptors opened in _get_handles are closed'
+'_devnull'
+'Construct and return tuple with IO objects:\np2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite\n'
+'Return a duplicate of handle, which is inheritable'
+'Filter out console handles that can\'t be used\nin lpAttributeList["handle_list"] and make sure the list\nisn\'t empty. This also removes duplicate handles.'
+'Execute program (MS Windows version)'
+'pass_fds not supported on Windows.'
+'bytes args is not allowed on Windows'
+'path-like args is not allowed when shell is true'
+'handle_list'
+"startupinfo.lpAttributeList['handle_list'] overriding close_fds"
+'ComSpec'
+'SystemRoot'
+'System32'
+'cmd.exe'
+'shell not found: neither %ComSpec% nor %SystemRoot% is set'
+'{} /c "{}"'
+'subprocess.Popen'
+'Check if child process has terminated.  Returns returncode\nattribute.\n\nThis method is called by __del__, so it can only refer to objects\nin its local scope.\n\n'
+'Internal implementation of wait() on Windows.'
+'_stdout_buff'
+'_stderr_buff'
+'Send a signal to the process.'
+'Unsupported signal: {}'
+'Terminates the process.'
+'Construct and return tuple with IO objects:\np2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite\n'
+'F_SETPIPE_SZ'
+'Execute program using os.posix_spawn().'
+'setsigdef'
+'file_actions'
+'Execute program (POSIX version)'
+'path-like args is not allowed when shell is true'
+'getandroidapilevel'
+'/system/bin/sh'
+'/bin/sh'
+'-c'
+'subprocess.Popen'
+'illegal environment variable name'
+'Bad exception data from child: {!r}'
+'ascii'
+'noexec:chdir'
+'noexec'
+'All callers to this function MUST hold self._waitpid_lock.'
+'Check if child process has terminated.  Returns returncode\nattribute.\n\nThis method is called by __del__, so it cannot reference anything\noutside of the local scope (nor can any methods it calls).\n\n'
+'All callers to this function MUST hold self._waitpid_lock.'
+'Internal implementation of wait() on POSIX.'
+'_check_timeout(..., skip_check_and_raise=True) failed to raise TimeoutExpired.'
+'Send a signal to the process.'
+'Terminate the process with SIGTERM\n            '
+'Kill the process with SIGKILL\n            '

@@ -1,0 +1,905 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Filename matching with shell patterns.\n\nfnmatch(FILENAME, PATTERN) matches according to the local convention.\nfnmatchcase(FILENAME, PATTERN) always takes case in account.\n\nThe functions operate by translating the pattern into a regular\nexpression.  They cache the compiled regular expressions for speed.\n\nThe function translate(PATTERN) returns a regular expression\ncorresponding to PATTERN.  (It does not compile it.)\n')
+              STORE_NAME               0 (__doc__)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (functools)
+              STORE_NAME               1 (functools)
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (itertools)
+              STORE_NAME               2 (itertools)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (os)
+              STORE_NAME               3 (os)
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (posixpath)
+              STORE_NAME               4 (posixpath)
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              5 (re)
+              STORE_NAME               5 (re)
+
+ 19           BUILD_LIST               0
+              LOAD_CONST              16 (('filter', 'filterfalse', 'fnmatch', 'fnmatchcase', 'translate'))
+              LIST_EXTEND              1
+              STORE_NAME               6 (__all__)
+
+ 22           LOAD_CONST               2 (<code object fnmatch at 0x00000204B9FF3E00, file "fnmatch.py", line 22>)
+              MAKE_FUNCTION
+              STORE_NAME               7 (fnmatch)
+
+ 42           LOAD_NAME                1 (functools)
+              LOAD_ATTR               16 (lru_cache)
+              PUSH_NULL
+              LOAD_CONST               3 (32768)
+              LOAD_CONST               4 (True)
+              LOAD_CONST               5 (('maxsize', 'typed'))
+              CALL_KW                  2
+
+ 43           LOAD_CONST               6 (<code object _compile_pattern at 0x00000204B9F6F290, file "fnmatch.py", line 42>)
+              MAKE_FUNCTION
+
+ 42           CALL                     0
+
+ 43           STORE_NAME               9 (_compile_pattern)
+
+ 53           LOAD_CONST               7 (<code object filter at 0x00000204BA357090, file "fnmatch.py", line 53>)
+              MAKE_FUNCTION
+              STORE_NAME              10 (filter)
+
+ 70           LOAD_CONST               8 (<code object filterfalse at 0x00000204BA3E09F0, file "fnmatch.py", line 70>)
+              MAKE_FUNCTION
+              STORE_NAME              11 (filterfalse)
+
+ 85           LOAD_CONST               9 (<code object fnmatchcase at 0x00000204BA08AD30, file "fnmatch.py", line 85>)
+              MAKE_FUNCTION
+              STORE_NAME              12 (fnmatchcase)
+
+ 95           LOAD_CONST              10 (<code object translate at 0x00000204BA083110, file "fnmatch.py", line 95>)
+              MAKE_FUNCTION
+              STORE_NAME              13 (translate)
+
+105           LOAD_NAME                5 (re)
+              LOAD_ATTR               28 (compile)
+              PUSH_NULL
+              LOAD_CONST              11 ('([&~|])')
+              CALL                     1
+              LOAD_ATTR               30 (sub)
+              STORE_NAME              16 (_re_setops_sub)
+
+106           LOAD_NAME                1 (functools)
+              LOAD_ATTR               16 (lru_cache)
+              PUSH_NULL
+              LOAD_CONST              12 (512)
+              LOAD_CONST              13 (('maxsize',))
+              CALL_KW                  1
+              PUSH_NULL
+              LOAD_NAME                5 (re)
+              LOAD_ATTR               34 (escape)
+              CALL                     1
+              STORE_NAME              18 (_re_escape)
+
+109           LOAD_CONST              14 (<code object _translate at 0x00000204BA3ACB20, file "fnmatch.py", line 109>)
+              MAKE_FUNCTION
+              STORE_NAME              19 (_translate)
+
+186           LOAD_CONST              15 (<code object _join_translated_parts at 0x00000204BA36BF80, file "fnmatch.py", line 186>)
+              MAKE_FUNCTION
+              STORE_NAME              20 (_join_translated_parts)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object fnmatch at 0x00000204B9FF3E00, file "fnmatch.py", line 22>:
+ 22           RESUME                   0
+
+ 37           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (normcase + NULL|self)
+              LOAD_FAST_BORROW         0 (name)
+              CALL                     1
+              STORE_FAST               0 (name)
+
+ 38           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (normcase + NULL|self)
+              LOAD_FAST_BORROW         1 (pat)
+              CALL                     1
+              STORE_FAST               1 (pat)
+
+ 39           LOAD_GLOBAL              7 (fnmatchcase + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (name, pat)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _compile_pattern at 0x00000204B9F6F290, file "fnmatch.py", line 42>:
+ 42           RESUME                   0
+
+ 44           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (pat)
+              LOAD_GLOBAL              2 (bytes)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       37 (to L1)
+              NOT_TAKEN
+
+ 45           LOAD_GLOBAL              5 (str + NULL)
+              LOAD_FAST_BORROW         0 (pat)
+              LOAD_CONST               0 ('ISO-8859-1')
+              CALL                     2
+              STORE_FAST               1 (pat_str)
+
+ 46           LOAD_GLOBAL              7 (translate + NULL)
+              LOAD_FAST_BORROW         1 (pat_str)
+              CALL                     1
+              STORE_FAST               2 (res_str)
+
+ 47           LOAD_GLOBAL              3 (bytes + NULL)
+              LOAD_FAST_BORROW         2 (res_str)
+              LOAD_CONST               0 ('ISO-8859-1')
+              CALL                     2
+              STORE_FAST               3 (res)
+              JUMP_FORWARD            11 (to L2)
+
+ 49   L1:     LOAD_GLOBAL              7 (translate + NULL)
+              LOAD_FAST_BORROW         0 (pat)
+              CALL                     1
+              STORE_FAST               3 (res)
+
+ 50   L2:     LOAD_GLOBAL              8 (re)
+              LOAD_ATTR               10 (compile)
+              PUSH_NULL
+              LOAD_FAST_BORROW         3 (res)
+              CALL                     1
+              LOAD_ATTR               12 (match)
+              RETURN_VALUE
+
+Disassembly of <code object filter at 0x00000204BA357090, file "fnmatch.py", line 53>:
+ 53           RESUME                   0
+
+ 55           BUILD_LIST               0
+              STORE_FAST               2 (result)
+
+ 56           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (normcase + NULL|self)
+              LOAD_FAST_BORROW         1 (pat)
+              CALL                     1
+              STORE_FAST               1 (pat)
+
+ 57           LOAD_GLOBAL              7 (_compile_pattern + NULL)
+              LOAD_FAST_BORROW         1 (pat)
+              CALL                     1
+              STORE_FAST               3 (match)
+
+ 58           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_GLOBAL              8 (posixpath)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       45 (to L4)
+              NOT_TAKEN
+
+ 60           LOAD_FAST_BORROW         0 (names)
+              GET_ITER
+      L1:     FOR_ITER                36 (to L3)
+              STORE_FAST               4 (name)
+
+ 61           LOAD_FAST_BORROW         3 (match)
+              PUSH_NULL
+              LOAD_FAST_BORROW         4 (name)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           19 (to L1)
+
+ 62   L2:     LOAD_FAST_BORROW         2 (result)
+              LOAD_ATTR               11 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (name)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           38 (to L1)
+
+ 60   L3:     END_FOR
+              POP_ITER
+
+ 67           LOAD_FAST_BORROW         2 (result)
+              RETURN_VALUE
+
+ 64   L4:     LOAD_FAST_BORROW         0 (names)
+              GET_ITER
+      L5:     FOR_ITER                65 (to L7)
+              STORE_FAST               4 (name)
+
+ 65           LOAD_FAST_BORROW         3 (match)
+              PUSH_NULL
+              LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (normcase + NULL|self)
+              LOAD_FAST_BORROW         4 (name)
+              CALL                     1
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L6)
+              NOT_TAKEN
+              JUMP_BACKWARD           48 (to L5)
+
+ 66   L6:     LOAD_FAST_BORROW         2 (result)
+              LOAD_ATTR               11 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (name)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           67 (to L5)
+
+ 64   L7:     END_FOR
+              POP_ITER
+
+ 67           LOAD_FAST_BORROW         2 (result)
+              RETURN_VALUE
+
+Disassembly of <code object filterfalse at 0x00000204BA3E09F0, file "fnmatch.py", line 70>:
+ 70           RESUME                   0
+
+ 72           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (normcase + NULL|self)
+              LOAD_FAST_BORROW         1 (pat)
+              CALL                     1
+              STORE_FAST               1 (pat)
+
+ 73           LOAD_GLOBAL              7 (_compile_pattern + NULL)
+              LOAD_FAST_BORROW         1 (pat)
+              CALL                     1
+              STORE_FAST               2 (match)
+
+ 74           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_GLOBAL              8 (posixpath)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       32 (to L1)
+              NOT_TAKEN
+
+ 76           LOAD_GLOBAL             11 (list + NULL)
+              LOAD_GLOBAL             12 (itertools)
+              LOAD_ATTR               14 (filterfalse)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (match, names)
+              CALL                     2
+              CALL                     1
+              RETURN_VALUE
+
+ 78   L1:     BUILD_LIST               0
+              STORE_FAST               3 (result)
+
+ 79           LOAD_FAST_BORROW         0 (names)
+              GET_ITER
+      L2:     FOR_ITER                61 (to L4)
+              STORE_FAST               4 (name)
+
+ 80           LOAD_FAST_BORROW         2 (match)
+              PUSH_NULL
+              LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (normcase + NULL|self)
+              LOAD_FAST_BORROW         4 (name)
+              CALL                     1
+              CALL                     1
+              POP_JUMP_IF_NONE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           44 (to L2)
+
+ 81   L3:     LOAD_FAST_BORROW         3 (result)
+              LOAD_ATTR               17 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (name)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           63 (to L2)
+
+ 79   L4:     END_FOR
+              POP_ITER
+
+ 82           LOAD_FAST_BORROW         3 (result)
+              RETURN_VALUE
+
+Disassembly of <code object fnmatchcase at 0x00000204BA08AD30, file "fnmatch.py", line 85>:
+ 85           RESUME                   0
+
+ 91           LOAD_GLOBAL              1 (_compile_pattern + NULL)
+              LOAD_FAST_BORROW         1 (pat)
+              CALL                     1
+              STORE_FAST               2 (match)
+
+ 92           LOAD_FAST_BORROW         2 (match)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (name)
+              CALL                     1
+              LOAD_CONST               1 (None)
+              IS_OP                    1 (is not)
+              RETURN_VALUE
+
+Disassembly of <code object translate at 0x00000204BA083110, file "fnmatch.py", line 95>:
+ 95           RESUME                   0
+
+101           LOAD_GLOBAL              1 (_translate + NULL)
+              LOAD_FAST_BORROW         0 (pat)
+              LOAD_CONST               1 ('*')
+              LOAD_CONST               2 ('.')
+              CALL                     3
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   18 (parts, star_indices)
+
+102           LOAD_GLOBAL              3 (_join_translated_parts + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (parts, star_indices)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _translate at 0x00000204BA3ACB20, file "fnmatch.py", line 109>:
+109            RESUME                   0
+
+110            BUILD_LIST               0
+               STORE_FAST               3 (res)
+
+111            LOAD_FAST_BORROW         3 (res)
+               LOAD_ATTR                0 (append)
+               STORE_FAST               4 (add)
+
+112            BUILD_LIST               0
+               STORE_FAST               5 (star_indices)
+
+114            LOAD_SMALL_INT           0
+               LOAD_GLOBAL              3 (len + NULL)
+               LOAD_FAST_BORROW         0 (pat)
+               CALL                     1
+               STORE_FAST_STORE_FAST  118 (n, i)
+
+115    L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (i, n)
+               COMPARE_OP              18 (bool(<))
+               EXTENDED_ARG             2
+               POP_JUMP_IF_FALSE      701 (to L28)
+               NOT_TAKEN
+
+116            LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (pat, i)
+               BINARY_OP               26 ([])
+               STORE_FAST               8 (c)
+
+117            LOAD_FAST_BORROW         6 (i)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               STORE_FAST               6 (i)
+
+118            LOAD_FAST_BORROW         8 (c)
+               LOAD_CONST               1 ('*')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       69 (to L5)
+               NOT_TAKEN
+
+120            LOAD_FAST_BORROW         5 (star_indices)
+               LOAD_ATTR                1 (append + NULL|self)
+               LOAD_GLOBAL              3 (len + NULL)
+               LOAD_FAST_BORROW         3 (res)
+               CALL                     1
+               CALL                     1
+               POP_TOP
+
+121            LOAD_FAST_BORROW         4 (add)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (star)
+               CALL                     1
+               POP_TOP
+
+123    L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (i, n)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       27 (to L4)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (pat, i)
+               BINARY_OP               26 ([])
+               LOAD_CONST               1 ('*')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       12 (to L3)
+               NOT_TAKEN
+
+124            LOAD_FAST_BORROW         6 (i)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               STORE_FAST               6 (i)
+               JUMP_BACKWARD           30 (to L2)
+
+123    L3:     JUMP_BACKWARD           97 (to L1)
+       L4:     JUMP_BACKWARD           99 (to L1)
+
+125    L5:     LOAD_FAST_BORROW         8 (c)
+               LOAD_CONST               2 ('?')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       11 (to L6)
+               NOT_TAKEN
+
+126            LOAD_FAST_BORROW         4 (add)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (question_mark)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD          116 (to L1)
+
+127    L6:     LOAD_FAST_BORROW         8 (c)
+               LOAD_CONST               3 ('[')
+               COMPARE_OP              88 (bool(==))
+               EXTENDED_ARG             2
+               POP_JUMP_IF_FALSE      564 (to L27)
+               NOT_TAKEN
+
+128            LOAD_FAST                6 (i)
+               STORE_FAST               9 (j)
+
+129            LOAD_FAST_BORROW_LOAD_FAST_BORROW 151 (j, n)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       23 (to L7)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 9 (pat, j)
+               BINARY_OP               26 ([])
+               LOAD_CONST               4 ('!')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       10 (to L7)
+               NOT_TAKEN
+
+130            LOAD_FAST_BORROW         9 (j)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               STORE_FAST               9 (j)
+
+131    L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 151 (j, n)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       23 (to L8)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 9 (pat, j)
+               BINARY_OP               26 ([])
+               LOAD_CONST               5 (']')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       10 (to L8)
+               NOT_TAKEN
+
+132            LOAD_FAST_BORROW         9 (j)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               STORE_FAST               9 (j)
+
+133    L8:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 151 (j, n)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       25 (to L9)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 9 (pat, j)
+               BINARY_OP               26 ([])
+               LOAD_CONST               5 (']')
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       12 (to L9)
+               NOT_TAKEN
+
+134            LOAD_FAST_BORROW         9 (j)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               STORE_FAST               9 (j)
+               JUMP_BACKWARD           30 (to L8)
+
+135    L9:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 151 (j, n)
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE       11 (to L10)
+               NOT_TAKEN
+
+136            LOAD_FAST_BORROW         4 (add)
+               PUSH_NULL
+               LOAD_CONST               6 ('\\[')
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD          228 (to L1)
+
+138   L10:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (pat, i)
+               LOAD_FAST_BORROW         9 (j)
+               BINARY_SLICE
+               STORE_FAST              10 (stuff)
+
+139            LOAD_CONST               7 ('-')
+               LOAD_FAST_BORROW        10 (stuff)
+               CONTAINS_OP              1 (not in)
+               POP_JUMP_IF_FALSE       21 (to L11)
+               NOT_TAKEN
+
+140            LOAD_FAST_BORROW        10 (stuff)
+               LOAD_ATTR                5 (replace + NULL|self)
+               LOAD_CONST               8 ('\\')
+               LOAD_CONST               9 ('\\\\')
+               CALL                     2
+               STORE_FAST              10 (stuff)
+               EXTENDED_ARG             1
+               JUMP_FORWARD           301 (to L22)
+
+142   L11:     BUILD_LIST               0
+               STORE_FAST              11 (chunks)
+
+143            LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (pat, i)
+               BINARY_OP               26 ([])
+               LOAD_CONST               4 ('!')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       10 (to L12)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         6 (i)
+               LOAD_SMALL_INT           2
+               BINARY_OP                0 (+)
+               JUMP_FORWARD             8 (to L13)
+      L12:     LOAD_FAST_BORROW         6 (i)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+      L13:     STORE_FAST              12 (k)
+
+144   L14:     NOP
+
+145            LOAD_FAST_BORROW         0 (pat)
+               LOAD_ATTR                7 (find + NULL|self)
+               LOAD_CONST               7 ('-')
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 201 (k, j)
+               CALL                     3
+               STORE_FAST              12 (k)
+
+146            LOAD_FAST_BORROW        12 (k)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE        2 (to L15)
+               NOT_TAKEN
+
+147            JUMP_FORWARD            39 (to L16)
+
+148   L15:     LOAD_FAST_BORROW        11 (chunks)
+               LOAD_ATTR                1 (append + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (pat, i)
+               LOAD_FAST_BORROW        12 (k)
+               BINARY_SLICE
+               CALL                     1
+               POP_TOP
+
+149            LOAD_FAST_BORROW        12 (k)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               STORE_FAST               6 (i)
+
+150            LOAD_FAST_BORROW        12 (k)
+               LOAD_SMALL_INT           3
+               BINARY_OP                0 (+)
+               STORE_FAST              12 (k)
+               JUMP_BACKWARD           66 (to L14)
+
+151   L16:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (pat, i)
+               LOAD_FAST_BORROW         9 (j)
+               BINARY_SLICE
+               STORE_FAST              13 (chunk)
+
+152            LOAD_FAST_BORROW        13 (chunk)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       19 (to L17)
+               NOT_TAKEN
+
+153            LOAD_FAST_BORROW        11 (chunks)
+               LOAD_ATTR                1 (append + NULL|self)
+               LOAD_FAST_BORROW        13 (chunk)
+               CALL                     1
+               POP_TOP
+               JUMP_FORWARD            21 (to L18)
+
+155   L17:     LOAD_FAST_BORROW        11 (chunks)
+               LOAD_CONST              17 (-1)
+               COPY                     2
+               COPY                     2
+               BINARY_OP               26 ([])
+               LOAD_CONST               7 ('-')
+               BINARY_OP               13 (+=)
+               SWAP                     3
+               SWAP                     2
+               STORE_SUBSCR
+
+157   L18:     LOAD_GLOBAL              9 (range + NULL)
+               LOAD_GLOBAL              3 (len + NULL)
+               LOAD_FAST_BORROW        11 (chunks)
+               CALL                     1
+               LOAD_SMALL_INT           1
+               BINARY_OP               10 (-)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              17 (-1)
+               CALL                     3
+               GET_ITER
+      L19:     FOR_ITER                94 (to L21)
+               STORE_FAST              12 (k)
+
+158            LOAD_FAST_BORROW_LOAD_FAST_BORROW 188 (chunks, k)
+               LOAD_SMALL_INT           1
+               BINARY_OP               10 (-)
+               BINARY_OP               26 ([])
+               LOAD_CONST              17 (-1)
+               BINARY_OP               26 ([])
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 188 (chunks, k)
+               BINARY_OP               26 ([])
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_TRUE         3 (to L20)
+               NOT_TAKEN
+               JUMP_BACKWARD           45 (to L19)
+
+159   L20:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 188 (chunks, k)
+               LOAD_SMALL_INT           1
+               BINARY_OP               10 (-)
+               BINARY_OP               26 ([])
+               LOAD_CONST              10 (None)
+               LOAD_CONST              17 (-1)
+               BINARY_SLICE
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 188 (chunks, k)
+               BINARY_OP               26 ([])
+               LOAD_CONST              11 (slice(1, None, None))
+               BINARY_OP               26 ([])
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 188 (chunks, k)
+               LOAD_SMALL_INT           1
+               BINARY_OP               10 (-)
+               STORE_SUBSCR
+
+160            LOAD_FAST_BORROW_LOAD_FAST_BORROW 188 (chunks, k)
+               DELETE_SUBSCR
+               JUMP_BACKWARD           96 (to L19)
+
+157   L21:     END_FOR
+               POP_ITER
+
+163            LOAD_CONST               7 ('-')
+               LOAD_ATTR               11 (join + NULL|self)
+               LOAD_CONST              12 (<code object <genexpr> at 0x00000204BA0A9BB0, file "fnmatch.py", line 163>)
+               MAKE_FUNCTION
+
+164            LOAD_FAST_BORROW        11 (chunks)
+               GET_ITER
+
+163            CALL                     0
+               CALL                     1
+               STORE_FAST              10 (stuff)
+
+165   L22:     LOAD_FAST_BORROW         9 (j)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               STORE_FAST               6 (i)
+
+166            LOAD_FAST_BORROW        10 (stuff)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L23)
+               NOT_TAKEN
+
+168            LOAD_FAST_BORROW         4 (add)
+               PUSH_NULL
+               LOAD_CONST              13 ('(?!)')
+               CALL                     1
+               POP_TOP
+               EXTENDED_ARG             2
+               JUMP_BACKWARD          588 (to L1)
+
+169   L23:     LOAD_FAST_BORROW        10 (stuff)
+               LOAD_CONST               4 ('!')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       12 (to L24)
+               NOT_TAKEN
+
+171            LOAD_FAST_BORROW         4 (add)
+               PUSH_NULL
+               LOAD_CONST              14 ('.')
+               CALL                     1
+               POP_TOP
+               EXTENDED_ARG             2
+               JUMP_BACKWARD          606 (to L1)
+
+174   L24:     LOAD_GLOBAL             13 (_re_setops_sub + NULL)
+               LOAD_CONST              15 ('\\\\\\1')
+               LOAD_FAST_BORROW        10 (stuff)
+               CALL                     2
+               STORE_FAST              10 (stuff)
+
+175            LOAD_FAST_BORROW        10 (stuff)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               LOAD_CONST               4 ('!')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       18 (to L25)
+               NOT_TAKEN
+
+176            LOAD_CONST              16 ('^')
+               LOAD_FAST_BORROW        10 (stuff)
+               LOAD_CONST              11 (slice(1, None, None))
+               BINARY_OP               26 ([])
+               BINARY_OP                0 (+)
+               STORE_FAST              10 (stuff)
+               JUMP_FORWARD            23 (to L26)
+
+177   L25:     LOAD_FAST_BORROW        10 (stuff)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               LOAD_CONST              18 (('^', '['))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       10 (to L26)
+               NOT_TAKEN
+
+178            LOAD_CONST               8 ('\\')
+               LOAD_FAST_BORROW        10 (stuff)
+               BINARY_OP                0 (+)
+               STORE_FAST              10 (stuff)
+
+179   L26:     LOAD_FAST_BORROW         4 (add)
+               PUSH_NULL
+               LOAD_CONST               3 ('[')
+               LOAD_FAST_BORROW        10 (stuff)
+               FORMAT_SIMPLE
+               LOAD_CONST               5 (']')
+               BUILD_STRING             3
+               CALL                     1
+               POP_TOP
+               EXTENDED_ARG             2
+               JUMP_BACKWARD          687 (to L1)
+
+181   L27:     LOAD_FAST_BORROW         4 (add)
+               PUSH_NULL
+               LOAD_GLOBAL             15 (_re_escape + NULL)
+               LOAD_FAST_BORROW         8 (c)
+               CALL                     1
+               CALL                     1
+               POP_TOP
+               EXTENDED_ARG             2
+               JUMP_BACKWARD          707 (to L1)
+
+182   L28:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (i, n)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_TRUE         3 (to L29)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+               RAISE_VARARGS            1
+
+183   L29:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (res, star_indices)
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A9BB0, file "fnmatch.py", line 163>:
+ 163           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+
+ 164   L2:     FOR_ITER                39 (to L3)
+               STORE_FAST               1 (s)
+
+ 163           LOAD_FAST_BORROW         1 (s)
+               LOAD_ATTR                1 (replace + NULL|self)
+               LOAD_CONST               0 ('\\')
+               LOAD_CONST               1 ('\\\\')
+               CALL                     2
+               LOAD_ATTR                1 (replace + NULL|self)
+               LOAD_CONST               2 ('-')
+               LOAD_CONST               3 ('\\-')
+               CALL                     2
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           41 (to L2)
+
+ 164   L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object _join_translated_parts at 0x00000204BA36BF80, file "fnmatch.py", line 186>:
+186           RESUME                   0
+
+187           LOAD_FAST_BORROW         1 (star_indices)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        22 (to L1)
+              NOT_TAKEN
+
+188           LOAD_CONST               0 ('(?s:')
+              LOAD_CONST               1 ('')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_FAST_BORROW         0 (parts)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (')\\z')
+              BUILD_STRING             3
+              RETURN_VALUE
+
+189   L1:     LOAD_GLOBAL              3 (iter + NULL)
+              LOAD_FAST_BORROW         1 (star_indices)
+              CALL                     1
+              STORE_FAST               2 (iter_star_indices)
+
+190           LOAD_GLOBAL              5 (next + NULL)
+              LOAD_FAST_BORROW         2 (iter_star_indices)
+              CALL                     1
+              STORE_FAST               3 (j)
+
+191           LOAD_FAST_BORROW         0 (parts)
+              LOAD_CONST               3 (None)
+              LOAD_FAST_BORROW         3 (j)
+              BINARY_SLICE
+              STORE_FAST               4 (buffer)
+
+192           LOAD_FAST_BORROW         4 (buffer)
+              LOAD_ATTR                6 (append)
+              LOAD_FAST_BORROW         4 (buffer)
+              LOAD_ATTR                8 (extend)
+              STORE_FAST_STORE_FAST  101 (extend, append)
+
+193           LOAD_FAST_BORROW         3 (j)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               7 (i)
+
+194           LOAD_FAST_BORROW         2 (iter_star_indices)
+              GET_ITER
+      L2:     FOR_ITER                38 (to L3)
+              STORE_FAST               3 (j)
+
+202           LOAD_FAST_BORROW         5 (append)
+              PUSH_NULL
+              LOAD_CONST               4 ('(?>.*?')
+              CALL                     1
+              POP_TOP
+
+203           LOAD_FAST_BORROW         6 (extend)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 7 (parts, i)
+              LOAD_FAST_BORROW         3 (j)
+              BINARY_SLICE
+              CALL                     1
+              POP_TOP
+
+204           LOAD_FAST_BORROW         5 (append)
+              PUSH_NULL
+              LOAD_CONST               5 (')')
+              CALL                     1
+              POP_TOP
+
+205           LOAD_FAST_BORROW         3 (j)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               7 (i)
+              JUMP_BACKWARD           40 (to L2)
+
+194   L3:     END_FOR
+              POP_ITER
+
+206           LOAD_FAST_BORROW         5 (append)
+              PUSH_NULL
+              LOAD_CONST               6 ('.*')
+              CALL                     1
+              POP_TOP
+
+207           LOAD_FAST_BORROW         6 (extend)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 7 (parts, i)
+              LOAD_CONST               3 (None)
+              BINARY_SLICE
+              CALL                     1
+              POP_TOP
+
+208           LOAD_CONST               1 ('')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_FAST_BORROW         4 (buffer)
+              CALL                     1
+              STORE_FAST               8 (res)
+
+209           LOAD_CONST               0 ('(?s:')
+              LOAD_FAST_BORROW         8 (res)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (')\\z')
+              BUILD_STRING             3
+              RETURN_VALUE

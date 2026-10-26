@@ -1,0 +1,15 @@
+<module>()  line 1
+    _Feature()  line 81
+        _Feature.__init__(self, optionalRelease, mandatoryRelease, compiler_flag)  line 83
+        _Feature.getOptionalRelease(self)  line 88
+        _Feature.getMandatoryRelease(self)  line 95
+        _Feature.__repr__(self)  line 103
+
+--- strings ---
+'Record of phased-in incompatible language changes.\n\nEach line is of the form:\n\n    FeatureName = "_Feature(" OptionalRelease "," MandatoryRelease ","\n                              CompilerFlag ")"\n\nwhere, normally, OptionalRelease < MandatoryRelease, and both are 5-tuples\nof the same form as sys.version_info:\n\n    (PY_MAJOR_VERSION, # the 2 in 2.1.0a3; an int\n     PY_MINOR_VERSION, # the 1; an int\n     PY_MICRO_VERSION, # the 0; an int\n     PY_RELEASE_LEVEL, # "alpha", "beta", "candidate" or "final"; string\n     PY_RELEASE_SERIAL # the 3; an int\n    )\n\nOptionalRelease records the first release in which\n\n    from __future__ import FeatureName\n\nwas accepted.\n\nIn the case of MandatoryReleases that have not yet occurred,\nMandatoryRelease predicts the release in which the feature will become part\nof the language.\n\nElse MandatoryRelease records when the feature became part of the language;\nin releases at or after that, modules no longer need\n\n    from __future__ import FeatureName\n\nto use the feature in question, but may continue to use such imports.\n\nMandatoryRelease may also be None, meaning that a planned feature got\ndropped or that the release version is undetermined.\n\nInstances of class _Feature have two corresponding methods,\n.getOptionalRelease() and .getMandatoryRelease().\n\nCompilerFlag is the (bitfield) flag that should be passed in the fourth\nargument to the builtin function compile() to enable the feature in\ndynamically compiled code.  This flag is stored in the .compiler_flag\nattribute on _Future instances.  These values must match the appropriate\n#defines of CO_xxx flags in Include/cpython/compile.h.\n\nNo feature line is ever to be deleted from this file.\n'
+'all_feature_names'
+'_Feature'
+'Return first release in which this feature was recognized.\n\nThis is a 5-tuple, of the same form as sys.version_info.\n'
+'Return release in which this feature will become mandatory.\n\nThis is a 5-tuple, of the same form as sys.version_info, or, if\nthe feature was dropped, or the release date is undetermined, is None.\n'
+'_Feature'
+'_Feature'

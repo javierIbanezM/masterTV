@@ -1,0 +1,1201 @@
+  0           RESUME                   0
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (os)
+              STORE_NAME               0 (os)
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (sys)
+              STORE_NAME               1 (sys)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (runpy)
+              STORE_NAME               2 (runpy)
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (types)
+              STORE_NAME               3 (types)
+
+ 16           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('get_start_method', 'set_start_method'))
+              IMPORT_NAME              4
+              IMPORT_FROM              5 (get_start_method)
+              STORE_NAME               5 (get_start_method)
+              IMPORT_FROM              6 (set_start_method)
+              STORE_NAME               6 (set_start_method)
+              POP_TOP
+
+ 17           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('process',))
+              IMPORT_NAME              4
+              IMPORT_FROM              7 (process)
+              STORE_NAME               7 (process)
+              POP_TOP
+
+ 18           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('reduction',))
+              IMPORT_NAME              8 (context)
+              IMPORT_FROM              9 (reduction)
+              STORE_NAME               9 (reduction)
+              POP_TOP
+
+ 19           LOAD_SMALL_INT           1
+              LOAD_CONST               5 (('util',))
+              IMPORT_NAME              4
+              IMPORT_FROM             10 (util)
+              STORE_NAME              10 (util)
+              POP_TOP
+
+ 21           BUILD_LIST               0
+              LOAD_CONST              24 (('_main', 'freeze_support', 'set_executable', 'get_executable', 'get_preparation_data', 'get_command_line', 'import_main_path'))
+              LIST_EXTEND              1
+              STORE_NAME              11 (__all__)
+
+ 29           LOAD_NAME                1 (sys)
+              LOAD_ATTR               24 (platform)
+              LOAD_CONST               6 ('win32')
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+
+ 30           LOAD_CONST               7 (False)
+              STORE_NAME              13 (WINEXE)
+
+ 31           LOAD_CONST               7 (False)
+              STORE_NAME              14 (WINSERVICE)
+              JUMP_FORWARD            71 (to L3)
+
+ 33   L1:     LOAD_NAME               15 (getattr)
+              PUSH_NULL
+              LOAD_NAME                1 (sys)
+              LOAD_CONST               8 ('frozen')
+              LOAD_CONST               7 (False)
+              CALL                     3
+              STORE_NAME              13 (WINEXE)
+
+ 34           LOAD_NAME                1 (sys)
+              LOAD_ATTR               32 (executable)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       42 (to L2)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_NAME                1 (sys)
+              LOAD_ATTR               32 (executable)
+              LOAD_ATTR               35 (lower + NULL|self)
+              CALL                     0
+              LOAD_ATTR               37 (endswith + NULL|self)
+              LOAD_CONST               9 ('pythonservice.exe')
+              CALL                     1
+      L2:     STORE_NAME              14 (WINSERVICE)
+
+ 36   L3:     LOAD_CONST              10 (<code object set_executable at 0x00000204B9FF3E00, file "multiprocessing\spawn.py", line 36>)
+              MAKE_FUNCTION
+              STORE_NAME              19 (set_executable)
+
+ 45           LOAD_CONST              11 (<code object get_executable at 0x00000204BA0C2170, file "multiprocessing\spawn.py", line 45>)
+              MAKE_FUNCTION
+              STORE_NAME              20 (get_executable)
+
+ 48           LOAD_NAME               14 (WINSERVICE)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       46 (to L4)
+              NOT_TAKEN
+
+ 49           LOAD_NAME               19 (set_executable)
+              PUSH_NULL
+              LOAD_NAME                0 (os)
+              LOAD_ATTR               42 (path)
+              LOAD_ATTR               45 (join + NULL|self)
+              LOAD_NAME                1 (sys)
+              LOAD_ATTR               46 (exec_prefix)
+              LOAD_CONST              12 ('python.exe')
+              CALL                     2
+              CALL                     1
+              POP_TOP
+              JUMP_FORWARD            18 (to L5)
+
+ 51   L4:     LOAD_NAME               19 (set_executable)
+              PUSH_NULL
+              LOAD_NAME                1 (sys)
+              LOAD_ATTR               32 (executable)
+              CALL                     1
+              POP_TOP
+
+ 57   L5:     LOAD_CONST              13 (<code object is_forking at 0x00000204BA0A7750, file "multiprocessing\spawn.py", line 57>)
+              MAKE_FUNCTION
+              STORE_NAME              24 (is_forking)
+
+ 67           LOAD_CONST              14 (<code object freeze_support at 0x00000204B9F5AA30, file "multiprocessing\spawn.py", line 67>)
+              MAKE_FUNCTION
+              STORE_NAME              25 (freeze_support)
+
+ 83           LOAD_CONST              15 (<code object get_command_line at 0x00000204BA592D70, file "multiprocessing\spawn.py", line 83>)
+              MAKE_FUNCTION
+              STORE_NAME              26 (get_command_line)
+
+ 98           LOAD_CONST              25 ((None, None))
+              LOAD_CONST              16 (<code object spawn_main at 0x00000204BA33C310, file "multiprocessing\spawn.py", line 98>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              27 (spawn_main)
+
+126           LOAD_CONST              17 (<code object _main at 0x00000204BA38BBC0, file "multiprocessing\spawn.py", line 126>)
+              MAKE_FUNCTION
+              STORE_NAME              28 (_main)
+
+138           LOAD_CONST              18 (<code object _check_not_importing_main at 0x00000204BA0A8DF0, file "multiprocessing\spawn.py", line 138>)
+              MAKE_FUNCTION
+              STORE_NAME              29 (_check_not_importing_main)
+
+160           LOAD_CONST              19 (<code object get_preparation_data at 0x00000204BA57F010, file "multiprocessing\spawn.py", line 160>)
+              MAKE_FUNCTION
+              STORE_NAME              30 (get_preparation_data)
+
+210           BUILD_LIST               0
+              STORE_NAME              31 (old_main_modules)
+
+212           LOAD_CONST              20 (<code object prepare at 0x00000204BA3735D0, file "multiprocessing\spawn.py", line 212>)
+              MAKE_FUNCTION
+              STORE_NAME              32 (prepare)
+
+250           LOAD_CONST              21 (<code object _fixup_main_from_name at 0x00000204BA35BFC0, file "multiprocessing\spawn.py", line 250>)
+              MAKE_FUNCTION
+              STORE_NAME              33 (_fixup_main_from_name)
+
+275           LOAD_CONST              22 (<code object _fixup_main_from_path at 0x00000204BA35C260, file "multiprocessing\spawn.py", line 275>)
+              MAKE_FUNCTION
+              STORE_NAME              34 (_fixup_main_from_path)
+
+303           LOAD_CONST              23 (<code object import_main_path at 0x00000204BA0935A0, file "multiprocessing\spawn.py", line 303>)
+              MAKE_FUNCTION
+              STORE_NAME              35 (import_main_path)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object set_executable at 0x00000204B9FF3E00, file "multiprocessing\spawn.py", line 36>:
+ 36           RESUME                   0
+
+ 38           LOAD_FAST_BORROW         0 (exe)
+              POP_JUMP_IF_NOT_NONE     5 (to L1)
+              NOT_TAKEN
+
+ 39           LOAD_FAST_BORROW         0 (exe)
+              STORE_GLOBAL             0 (_python_exe)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+ 40   L1:     LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (platform)
+              LOAD_CONST               1 ('win32')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       25 (to L2)
+              NOT_TAKEN
+
+ 41           LOAD_GLOBAL              6 (os)
+              LOAD_ATTR                8 (fsdecode)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (exe)
+              CALL                     1
+              STORE_GLOBAL             0 (_python_exe)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+ 43   L2:     LOAD_GLOBAL              6 (os)
+              LOAD_ATTR               10 (fsencode)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (exe)
+              CALL                     1
+              STORE_GLOBAL             0 (_python_exe)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_executable at 0x00000204BA0C2170, file "multiprocessing\spawn.py", line 45>:
+ 45           RESUME                   0
+
+ 46           LOAD_GLOBAL              0 (_python_exe)
+              RETURN_VALUE
+
+Disassembly of <code object is_forking at 0x00000204BA0A7750, file "multiprocessing\spawn.py", line 57>:
+ 57           RESUME                   0
+
+ 61           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (argv)
+              CALL                     1
+              LOAD_SMALL_INT           2
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (argv)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              LOAD_CONST               1 ('--multiprocessing-fork')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+ 62           LOAD_CONST               2 (True)
+              RETURN_VALUE
+
+ 64   L1:     LOAD_CONST               3 (False)
+              RETURN_VALUE
+
+Disassembly of <code object freeze_support at 0x00000204B9F5AA30, file "multiprocessing\spawn.py", line 67>:
+ 67           RESUME                   0
+
+ 71           LOAD_GLOBAL              1 (is_forking + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (argv)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE      112 (to L4)
+              NOT_TAKEN
+
+ 72           BUILD_MAP                0
+              STORE_FAST               0 (kwds)
+
+ 73           LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (argv)
+              LOAD_CONST               1 (slice(2, None, None))
+              BINARY_OP               26 ([])
+              GET_ITER
+      L1:     FOR_ITER                48 (to L3)
+              STORE_FAST               1 (arg)
+
+ 74           LOAD_FAST_BORROW         1 (arg)
+              LOAD_ATTR                7 (split + NULL|self)
+              LOAD_CONST               2 ('=')
+              CALL                     1
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   35 (name, value)
+
+ 75           LOAD_FAST_BORROW         3 (value)
+              LOAD_CONST               3 ('None')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        7 (to L2)
+              NOT_TAKEN
+
+ 76           LOAD_CONST               4 (None)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (kwds, name)
+              STORE_SUBSCR
+              JUMP_BACKWARD           35 (to L1)
+
+ 78   L2:     LOAD_GLOBAL              9 (int + NULL)
+              LOAD_FAST_BORROW         3 (value)
+              CALL                     1
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (kwds, name)
+              STORE_SUBSCR
+              JUMP_BACKWARD           50 (to L1)
+
+ 73   L3:     END_FOR
+              POP_ITER
+
+ 79           LOAD_GLOBAL             11 (spawn_main + NULL)
+              LOAD_CONST               5 (())
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (kwds)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              POP_TOP
+
+ 80           LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR               12 (exit)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+ 71   L4:     LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_command_line at 0x00000204BA592D70, file "multiprocessing\spawn.py", line 83>:
+  83           RESUME                   0
+
+  87           LOAD_GLOBAL              1 (getattr + NULL)
+               LOAD_GLOBAL              2 (sys)
+               LOAD_CONST               1 ('frozen')
+               LOAD_CONST               2 (False)
+               CALL                     3
+               TO_BOOL
+               POP_JUMP_IF_FALSE       63 (to L5)
+               NOT_TAKEN
+
+  88           LOAD_GLOBAL              2 (sys)
+               LOAD_ATTR                4 (executable)
+               LOAD_CONST               3 ('--multiprocessing-fork')
+               BUILD_LIST               2
+
+  89           LOAD_FAST_BORROW         0 (kwds)
+               LOAD_ATTR                7 (items + NULL|self)
+               CALL                     0
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      1 (item)
+               SWAP                     2
+       L1:     BUILD_LIST               0
+               SWAP                     2
+       L2:     FOR_ITER                12 (to L3)
+               STORE_FAST               1 (item)
+               LOAD_CONST               4 ('%s=%r')
+               LOAD_FAST_BORROW         1 (item)
+               BINARY_OP                6 (%)
+               LIST_APPEND              2
+               JUMP_BACKWARD           14 (to L2)
+       L3:     END_FOR
+               POP_ITER
+       L4:     SWAP                     2
+               STORE_FAST               1 (item)
+
+  88           BINARY_OP                0 (+)
+               RETURN_VALUE
+
+  91   L5:     LOAD_CONST               5 ('from multiprocessing.spawn import spawn_main; spawn_main(%s)')
+               STORE_FAST               2 (prog)
+
+  92           LOAD_FAST_BORROW         2 (prog)
+               LOAD_CONST               6 (', ')
+               LOAD_ATTR                9 (join + NULL|self)
+               LOAD_CONST               7 (<code object <genexpr> at 0x00000204BA083110, file "multiprocessing\spawn.py", line 92>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         0 (kwds)
+               LOAD_ATTR                7 (items + NULL|self)
+               CALL                     0
+               GET_ITER
+               CALL                     0
+               CALL                     1
+               BINARY_OP               19 (%=)
+               STORE_FAST               2 (prog)
+
+  93           LOAD_GLOBAL             10 (util)
+               LOAD_ATTR               12 (_args_from_interpreter_flags)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               3 (opts)
+
+  94           LOAD_GLOBAL             15 (get_executable + NULL)
+               CALL                     0
+               STORE_FAST               4 (exe)
+
+  95           LOAD_FAST_BORROW         4 (exe)
+               BUILD_LIST               1
+               LOAD_FAST_BORROW         3 (opts)
+               BINARY_OP                0 (+)
+               LOAD_CONST               8 ('-c')
+               LOAD_FAST_BORROW         2 (prog)
+               LOAD_CONST               3 ('--multiprocessing-fork')
+               BUILD_LIST               3
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+  --   L6:     SWAP                     2
+               POP_TOP
+
+  89           SWAP                     2
+               STORE_FAST               1 (item)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L6 [3]
+
+Disassembly of <code object <genexpr> at 0x00000204BA083110, file "multiprocessing\spawn.py", line 92>:
+  92           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                14 (to L3)
+               STORE_FAST               1 (item)
+               LOAD_CONST               0 ('%s=%r')
+               LOAD_FAST_BORROW         1 (item)
+               BINARY_OP                6 (%)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           16 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object spawn_main at 0x00000204BA33C310, file "multiprocessing\spawn.py", line 98>:
+ 98           RESUME                   0
+
+102           LOAD_GLOBAL              1 (is_forking + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (argv)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         8 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              LOAD_CONST               1 ('Not forking')
+              CALL                     0
+              RAISE_VARARGS            1
+
+103   L1:     LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                6 (platform)
+              LOAD_CONST               2 ('win32')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE      121 (to L4)
+              NOT_TAKEN
+
+104           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (None)
+              IMPORT_NAME              4 (msvcrt)
+              STORE_FAST               3 (msvcrt)
+
+105           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (None)
+              IMPORT_NAME              5 (_winapi)
+              STORE_FAST               4 (_winapi)
+
+107           LOAD_FAST_BORROW         1 (parent_pid)
+              POP_JUMP_IF_NONE        48 (to L2)
+              NOT_TAKEN
+
+108           LOAD_FAST_BORROW         4 (_winapi)
+              LOAD_ATTR               13 (OpenProcess + NULL|self)
+
+109           LOAD_FAST_BORROW         4 (_winapi)
+              LOAD_ATTR               14 (SYNCHRONIZE)
+              LOAD_FAST_BORROW         4 (_winapi)
+              LOAD_ATTR               16 (PROCESS_DUP_HANDLE)
+              BINARY_OP                7 (|)
+
+110           LOAD_CONST               4 (False)
+              LOAD_FAST_BORROW         1 (parent_pid)
+
+108           CALL                     3
+              STORE_FAST               5 (source_process)
+              JUMP_FORWARD             2 (to L3)
+
+112   L2:     LOAD_CONST               3 (None)
+              STORE_FAST               5 (source_process)
+
+113   L3:     LOAD_GLOBAL             18 (reduction)
+              LOAD_ATTR               20 (duplicate)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (pipe_handle)
+
+114           LOAD_FAST_BORROW         5 (source_process)
+
+113           LOAD_CONST               5 (('source_process',))
+              CALL_KW                  2
+              STORE_FAST               6 (new_handle)
+
+115           LOAD_FAST_BORROW         3 (msvcrt)
+              LOAD_ATTR               23 (open_osfhandle + NULL|self)
+              LOAD_FAST_BORROW         6 (new_handle)
+              LOAD_GLOBAL             24 (os)
+              LOAD_ATTR               26 (O_RDONLY)
+              CALL                     2
+              STORE_FAST               7 (fd)
+
+116           LOAD_FAST                5 (source_process)
+              STORE_FAST               8 (parent_sentinel)
+              JUMP_FORWARD            46 (to L5)
+
+118   L4:     LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('resource_tracker',))
+              IMPORT_NAME             14
+              IMPORT_FROM             15 (resource_tracker)
+              STORE_FAST               9 (resource_tracker)
+              POP_TOP
+
+119           LOAD_FAST_BORROW_LOAD_FAST_BORROW 41 (tracker_fd, resource_tracker)
+              LOAD_ATTR               32 (_resource_tracker)
+              STORE_ATTR              17 (_fd)
+
+120           LOAD_FAST                0 (pipe_handle)
+              STORE_FAST               7 (fd)
+
+121           LOAD_GLOBAL             24 (os)
+              LOAD_ATTR               36 (dup)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (pipe_handle)
+              CALL                     1
+              STORE_FAST               8 (parent_sentinel)
+
+122   L5:     LOAD_GLOBAL             39 (_main + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 120 (fd, parent_sentinel)
+              CALL                     2
+              STORE_FAST              10 (exitcode)
+
+123           LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR               40 (exit)
+              PUSH_NULL
+              LOAD_FAST_BORROW        10 (exitcode)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _main at 0x00000204BA38BBC0, file "multiprocessing\spawn.py", line 126>:
+ 126            RESUME                   0
+
+ 127            LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (fdopen)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (fd)
+                LOAD_CONST               0 ('rb')
+                LOAD_CONST               1 (True)
+                LOAD_CONST               2 (('closefd',))
+                CALL_KW                  3
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     STORE_FAST               2 (from_parent)
+
+ 128            LOAD_CONST               1 (True)
+                LOAD_GLOBAL              4 (process)
+                LOAD_ATTR                6 (current_process)
+                PUSH_NULL
+                CALL                     0
+                STORE_ATTR               4 (_inheriting)
+
+ 129    L2:     NOP
+
+ 130    L3:     LOAD_GLOBAL             10 (reduction)
+                LOAD_ATTR               12 (pickle)
+                LOAD_ATTR               15 (load + NULL|self)
+                LOAD_FAST_BORROW         2 (from_parent)
+                CALL                     1
+                STORE_FAST               3 (preparation_data)
+
+ 131            LOAD_GLOBAL             17 (prepare + NULL)
+                LOAD_FAST_BORROW         3 (preparation_data)
+                CALL                     1
+                POP_TOP
+
+ 132            LOAD_GLOBAL             10 (reduction)
+                LOAD_ATTR               12 (pickle)
+                LOAD_ATTR               15 (load + NULL|self)
+                LOAD_FAST_BORROW         2 (from_parent)
+                CALL                     1
+                STORE_FAST               4 (self)
+
+ 134    L4:     LOAD_GLOBAL              4 (process)
+                LOAD_ATTR                6 (current_process)
+                PUSH_NULL
+                CALL                     0
+                DELETE_ATTR              4 (_inheriting)
+        L5:     NOP
+
+ 127            LOAD_CONST               3 (None)
+                LOAD_CONST               3 (None)
+                LOAD_CONST               3 (None)
+                CALL                     3
+                POP_TOP
+
+ 135    L6:     LOAD_FAST_CHECK          4 (self)
+                LOAD_ATTR               19 (_bootstrap + NULL|self)
+                LOAD_FAST_BORROW         1 (parent_sentinel)
+                CALL                     1
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 134            LOAD_GLOBAL              4 (process)
+                LOAD_ATTR                6 (current_process)
+                PUSH_NULL
+                CALL                     0
+                DELETE_ATTR              4 (_inheriting)
+                RERAISE                  0
+
+  --    L8:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 127    L9:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L10)
+                NOT_TAKEN
+                RERAISE                  2
+       L10:     POP_TOP
+       L11:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 59 (to L6)
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L9 [2] lasti
+  L3 to L4 -> L7 [2]
+  L4 to L5 -> L9 [2] lasti
+  L7 to L8 -> L8 [3] lasti
+  L8 to L9 -> L9 [2] lasti
+  L9 to L11 -> L12 [4] lasti
+
+Disassembly of <code object _check_not_importing_main at 0x00000204BA0A8DF0, file "multiprocessing\spawn.py", line 138>:
+138           RESUME                   0
+
+139           LOAD_GLOBAL              1 (getattr + NULL)
+              LOAD_GLOBAL              2 (process)
+              LOAD_ATTR                4 (current_process)
+              PUSH_NULL
+              CALL                     0
+              LOAD_CONST               0 ('_inheriting')
+              LOAD_CONST               1 (False)
+              CALL                     3
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+140           LOAD_GLOBAL              7 (RuntimeError + NULL)
+              LOAD_CONST               2 ('\n        An attempt has been made to start a new process before the\n        current process has finished its bootstrapping phase.\n\n        This probably means that you are not using fork to start your\n        child processes and you have forgotten to use the proper idiom\n        in the main module:\n\n            if __name__ == \'__main__\':\n                freeze_support()\n                ...\n\n        The "freeze_support()" line can be omitted if the program\n        is not going to be frozen to produce an executable.\n\n        To fix this issue, refer to the "Safe importing of main module"\n        section in https://docs.python.org/3/library/multiprocessing.html\n        ')
+              CALL                     1
+              RAISE_VARARGS            1
+
+139   L1:     LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_preparation_data at 0x00000204BA57F010, file "multiprocessing\spawn.py", line 160>:
+ 160            RESUME                   0
+
+ 164            LOAD_GLOBAL              1 (_check_not_importing_main + NULL)
+                CALL                     0
+                POP_TOP
+
+ 165            LOAD_GLOBAL              3 (dict + NULL)
+
+ 166            LOAD_GLOBAL              4 (util)
+                LOAD_ATTR                6 (_log_to_stderr)
+
+ 167            LOAD_GLOBAL              8 (process)
+                LOAD_ATTR               10 (current_process)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR               12 (authkey)
+
+ 165            LOAD_CONST               1 (('log_to_stderr', 'authkey'))
+                CALL_KW                  2
+                STORE_FAST               1 (d)
+
+ 170            LOAD_GLOBAL              4 (util)
+                LOAD_ATTR               14 (_logger)
+                POP_JUMP_IF_NONE        34 (to L1)
+                NOT_TAKEN
+
+ 171            LOAD_GLOBAL              4 (util)
+                LOAD_ATTR               14 (_logger)
+                LOAD_ATTR               17 (getEffectiveLevel + NULL|self)
+                CALL                     0
+                LOAD_FAST_BORROW         1 (d)
+                LOAD_CONST               3 ('log_level')
+                STORE_SUBSCR
+
+ 173    L1:     LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               23 (copy + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (sys_path)
+
+ 174            NOP
+
+ 175    L2:     LOAD_FAST_BORROW         2 (sys_path)
+                LOAD_ATTR               25 (index + NULL|self)
+                LOAD_CONST               4 ('')
+                CALL                     1
+                STORE_FAST               3 (i)
+
+ 179    L3:     LOAD_GLOBAL              8 (process)
+                LOAD_ATTR               26 (ORIGINAL_DIR)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (sys_path, i)
+                STORE_SUBSCR
+
+ 181    L4:     LOAD_FAST_BORROW         1 (d)
+                LOAD_ATTR               31 (update + NULL|self)
+
+ 182            LOAD_FAST_BORROW         0 (name)
+
+ 183            LOAD_FAST_BORROW         2 (sys_path)
+
+ 184            LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               32 (argv)
+
+ 185            LOAD_GLOBAL              8 (process)
+                LOAD_ATTR               26 (ORIGINAL_DIR)
+
+ 186            LOAD_GLOBAL             34 (os)
+                LOAD_ATTR               36 (getcwd)
+                PUSH_NULL
+                CALL                     0
+
+ 187            LOAD_GLOBAL             39 (get_start_method + NULL)
+                CALL                     0
+
+ 181            LOAD_CONST               5 (('name', 'sys_path', 'sys_argv', 'orig_dir', 'dir', 'start_method'))
+                CALL_KW                  6
+                POP_TOP
+
+ 192            LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               40 (modules)
+                LOAD_CONST               6 ('__main__')
+                BINARY_OP               26 ([])
+                STORE_FAST               4 (main_module)
+
+ 193            LOAD_GLOBAL             43 (getattr + NULL)
+                LOAD_FAST_BORROW         4 (main_module)
+                LOAD_ATTR               44 (__spec__)
+                LOAD_CONST               7 ('name')
+                LOAD_CONST               2 (None)
+                CALL                     3
+                STORE_FAST               5 (main_mod_name)
+
+ 194            LOAD_FAST_BORROW         5 (main_mod_name)
+                POP_JUMP_IF_NONE         7 (to L5)
+                NOT_TAKEN
+
+ 195            LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (main_mod_name, d)
+                LOAD_CONST               8 ('init_main_from_name')
+                STORE_SUBSCR
+
+ 204            LOAD_FAST_BORROW         1 (d)
+                RETURN_VALUE
+
+ 196    L5:     LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               46 (platform)
+                LOAD_CONST               9 ('win32')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_TRUE        25 (to L6)
+                NOT_TAKEN
+                LOAD_GLOBAL             48 (WINEXE)
+                TO_BOOL
+                POP_JUMP_IF_TRUE       165 (to L8)
+                NOT_TAKEN
+                LOAD_GLOBAL             50 (WINSERVICE)
+                TO_BOOL
+                POP_JUMP_IF_TRUE       153 (to L8)
+                NOT_TAKEN
+
+ 197    L6:     LOAD_GLOBAL             43 (getattr + NULL)
+                LOAD_FAST_BORROW         4 (main_module)
+                LOAD_CONST              10 ('__file__')
+                LOAD_CONST               2 (None)
+                CALL                     3
+                STORE_FAST               6 (main_path)
+
+ 198            LOAD_FAST_BORROW         6 (main_path)
+                POP_JUMP_IF_NONE       136 (to L8)
+                NOT_TAKEN
+
+ 199            LOAD_GLOBAL             34 (os)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               53 (isabs + NULL|self)
+                LOAD_FAST_BORROW         6 (main_path)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        65 (to L7)
+                NOT_TAKEN
+
+ 200            LOAD_GLOBAL              8 (process)
+                LOAD_ATTR               26 (ORIGINAL_DIR)
+                POP_JUMP_IF_NONE        47 (to L7)
+                NOT_TAKEN
+
+ 201            LOAD_GLOBAL             34 (os)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               55 (join + NULL|self)
+                LOAD_GLOBAL              8 (process)
+                LOAD_ATTR               26 (ORIGINAL_DIR)
+                LOAD_FAST_BORROW         6 (main_path)
+                CALL                     2
+                STORE_FAST               6 (main_path)
+
+ 202    L7:     LOAD_GLOBAL             34 (os)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               57 (normpath + NULL|self)
+                LOAD_FAST_BORROW         6 (main_path)
+                CALL                     1
+                LOAD_FAST_BORROW         1 (d)
+                LOAD_CONST              11 ('init_main_from_path')
+                STORE_SUBSCR
+
+ 204    L8:     LOAD_FAST_BORROW         1 (d)
+                RETURN_VALUE
+
+  --    L9:     PUSH_EXC_INFO
+
+ 176            LOAD_GLOBAL             28 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L11)
+                NOT_TAKEN
+                POP_TOP
+
+ 177   L10:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 347 (to L4)
+
+ 176   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L9 [0]
+  L9 to L10 -> L12 [1] lasti
+  L11 to L12 -> L12 [1] lasti
+
+Disassembly of <code object prepare at 0x00000204BA3735D0, file "multiprocessing\spawn.py", line 212>:
+212            RESUME                   0
+
+216            LOAD_CONST               1 ('name')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       34 (to L1)
+               NOT_TAKEN
+
+217            LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               1 ('name')
+               BINARY_OP               26 ([])
+               LOAD_GLOBAL              0 (process)
+               LOAD_ATTR                2 (current_process)
+               PUSH_NULL
+               CALL                     0
+               STORE_ATTR               2 (name)
+
+219    L1:     LOAD_CONST               2 ('authkey')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       34 (to L2)
+               NOT_TAKEN
+
+220            LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               2 ('authkey')
+               BINARY_OP               26 ([])
+               LOAD_GLOBAL              0 (process)
+               LOAD_ATTR                2 (current_process)
+               PUSH_NULL
+               CALL                     0
+               STORE_ATTR               3 (authkey)
+
+222    L2:     LOAD_CONST               3 ('log_to_stderr')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       37 (to L3)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               3 ('log_to_stderr')
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_FALSE       22 (to L3)
+               NOT_TAKEN
+
+223            LOAD_GLOBAL              8 (util)
+               LOAD_ATTR               10 (log_to_stderr)
+               PUSH_NULL
+               CALL                     0
+               POP_TOP
+
+225    L3:     LOAD_CONST               4 ('log_level')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       44 (to L4)
+               NOT_TAKEN
+
+226            LOAD_GLOBAL              8 (util)
+               LOAD_ATTR               12 (get_logger)
+               PUSH_NULL
+               CALL                     0
+               LOAD_ATTR               15 (setLevel + NULL|self)
+               LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               4 ('log_level')
+               BINARY_OP               26 ([])
+               CALL                     1
+               POP_TOP
+
+228    L4:     LOAD_CONST               5 ('sys_path')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       19 (to L5)
+               NOT_TAKEN
+
+229            LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               5 ('sys_path')
+               BINARY_OP               26 ([])
+               LOAD_GLOBAL             16 (sys)
+               STORE_ATTR               9 (path)
+
+231    L5:     LOAD_CONST               6 ('sys_argv')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       19 (to L6)
+               NOT_TAKEN
+
+232            LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               6 ('sys_argv')
+               BINARY_OP               26 ([])
+               LOAD_GLOBAL             16 (sys)
+               STORE_ATTR              10 (argv)
+
+234    L6:     LOAD_CONST               7 ('dir')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       30 (to L7)
+               NOT_TAKEN
+
+235            LOAD_GLOBAL             22 (os)
+               LOAD_ATTR               24 (chdir)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               7 ('dir')
+               BINARY_OP               26 ([])
+               CALL                     1
+               POP_TOP
+
+237    L7:     LOAD_CONST               8 ('orig_dir')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       19 (to L8)
+               NOT_TAKEN
+
+238            LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               8 ('orig_dir')
+               BINARY_OP               26 ([])
+               LOAD_GLOBAL              0 (process)
+               STORE_ATTR              13 (ORIGINAL_DIR)
+
+240    L8:     LOAD_CONST               9 ('start_method')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       21 (to L9)
+               NOT_TAKEN
+
+241            LOAD_GLOBAL             29 (set_start_method + NULL)
+               LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST               9 ('start_method')
+               BINARY_OP               26 ([])
+               LOAD_CONST              10 (True)
+               LOAD_CONST              11 (('force',))
+               CALL_KW                  2
+               POP_TOP
+
+243    L9:     LOAD_CONST              12 ('init_main_from_name')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       21 (to L10)
+               NOT_TAKEN
+
+244            LOAD_GLOBAL             31 (_fixup_main_from_name + NULL)
+               LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST              12 ('init_main_from_name')
+               BINARY_OP               26 ([])
+               CALL                     1
+               POP_TOP
+               LOAD_CONST              14 (None)
+               RETURN_VALUE
+
+245   L10:     LOAD_CONST              13 ('init_main_from_path')
+               LOAD_FAST_BORROW         0 (data)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       21 (to L11)
+               NOT_TAKEN
+
+246            LOAD_GLOBAL             33 (_fixup_main_from_path + NULL)
+               LOAD_FAST_BORROW         0 (data)
+               LOAD_CONST              13 ('init_main_from_path')
+               BINARY_OP               26 ([])
+               CALL                     1
+               POP_TOP
+               LOAD_CONST              14 (None)
+               RETURN_VALUE
+
+245   L11:     LOAD_CONST              14 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _fixup_main_from_name at 0x00000204BA35BFC0, file "multiprocessing\spawn.py", line 250>:
+250           RESUME                   0
+
+255           LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (modules)
+              LOAD_CONST               0 ('__main__')
+              BINARY_OP               26 ([])
+              STORE_FAST               1 (current_main)
+
+256           LOAD_FAST_BORROW         0 (mod_name)
+              LOAD_CONST               0 ('__main__')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_TRUE        24 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (mod_name)
+              LOAD_ATTR                5 (endswith + NULL|self)
+              LOAD_CONST               1 ('.__main__')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+257   L1:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+260   L2:     LOAD_GLOBAL              7 (getattr + NULL)
+              LOAD_FAST_BORROW         1 (current_main)
+              LOAD_ATTR                8 (__spec__)
+              LOAD_CONST               3 ('name')
+              LOAD_CONST               2 (None)
+              CALL                     3
+              LOAD_FAST_BORROW         0 (mod_name)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+261           LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+266   L3:     LOAD_GLOBAL             10 (old_main_modules)
+              LOAD_ATTR               13 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (current_main)
+              CALL                     1
+              POP_TOP
+
+267           LOAD_GLOBAL             14 (types)
+              LOAD_ATTR               16 (ModuleType)
+              PUSH_NULL
+              LOAD_CONST               4 ('__mp_main__')
+              CALL                     1
+              STORE_FAST               2 (main_module)
+
+268           LOAD_GLOBAL             18 (runpy)
+              LOAD_ATTR               20 (run_module)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (mod_name)
+
+269           LOAD_CONST               4 ('__mp_main__')
+
+270           LOAD_CONST               5 (True)
+
+268           LOAD_CONST               6 (('run_name', 'alter_sys'))
+              CALL_KW                  3
+              STORE_FAST               3 (main_content)
+
+271           LOAD_FAST_BORROW         2 (main_module)
+              LOAD_ATTR               22 (__dict__)
+              LOAD_ATTR               25 (update + NULL|self)
+              LOAD_FAST_BORROW         3 (main_content)
+              CALL                     1
+              POP_TOP
+
+272           LOAD_FAST_BORROW         2 (main_module)
+              COPY                     1
+              LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (modules)
+              LOAD_CONST               0 ('__main__')
+              STORE_SUBSCR
+              LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (modules)
+              LOAD_CONST               4 ('__mp_main__')
+              STORE_SUBSCR
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _fixup_main_from_path at 0x00000204BA35C260, file "multiprocessing\spawn.py", line 275>:
+275           RESUME                   0
+
+277           LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (modules)
+              LOAD_CONST               0 ('__main__')
+              BINARY_OP               26 ([])
+              STORE_FAST               1 (current_main)
+
+283           LOAD_GLOBAL              4 (os)
+              LOAD_ATTR                6 (path)
+              LOAD_ATTR                9 (splitext + NULL|self)
+              LOAD_GLOBAL              4 (os)
+              LOAD_ATTR                6 (path)
+              LOAD_ATTR               11 (basename + NULL|self)
+              LOAD_FAST_BORROW         0 (main_path)
+              CALL                     1
+              CALL                     1
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              STORE_FAST               2 (main_name)
+
+284           LOAD_FAST_BORROW         2 (main_name)
+              LOAD_CONST               1 ('ipython')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+285           LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+289   L1:     LOAD_GLOBAL             13 (getattr + NULL)
+              LOAD_FAST_BORROW         1 (current_main)
+              LOAD_CONST               3 ('__file__')
+              LOAD_CONST               2 (None)
+              CALL                     3
+              LOAD_FAST_BORROW         0 (main_path)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+290           LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+295   L2:     LOAD_GLOBAL             14 (old_main_modules)
+              LOAD_ATTR               17 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (current_main)
+              CALL                     1
+              POP_TOP
+
+296           LOAD_GLOBAL             18 (types)
+              LOAD_ATTR               20 (ModuleType)
+              PUSH_NULL
+              LOAD_CONST               4 ('__mp_main__')
+              CALL                     1
+              STORE_FAST               3 (main_module)
+
+297           LOAD_GLOBAL             22 (runpy)
+              LOAD_ATTR               24 (run_path)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (main_path)
+
+298           LOAD_CONST               4 ('__mp_main__')
+
+297           LOAD_CONST               5 (('run_name',))
+              CALL_KW                  2
+              STORE_FAST               4 (main_content)
+
+299           LOAD_FAST_BORROW         3 (main_module)
+              LOAD_ATTR               26 (__dict__)
+              LOAD_ATTR               29 (update + NULL|self)
+              LOAD_FAST_BORROW         4 (main_content)
+              CALL                     1
+              POP_TOP
+
+300           LOAD_FAST_BORROW         3 (main_module)
+              COPY                     1
+              LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (modules)
+              LOAD_CONST               0 ('__main__')
+              STORE_SUBSCR
+              LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (modules)
+              LOAD_CONST               4 ('__mp_main__')
+              STORE_SUBSCR
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object import_main_path at 0x00000204BA0935A0, file "multiprocessing\spawn.py", line 303>:
+303           RESUME                   0
+
+307           LOAD_GLOBAL              1 (_fixup_main_from_path + NULL)
+              LOAD_FAST_BORROW         0 (main_path)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

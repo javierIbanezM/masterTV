@@ -1,0 +1,221 @@
+<module>()  line 1
+    _init_timeout(timeout)  line 62
+    _check_timeout(t)  line 65
+    arbitrary_address(family)  line 72
+    _validate_family(family)  line 86
+    address_type(address)  line 98
+    _ConnectionBase()  line 117
+        _ConnectionBase.__init__(self, handle, readable, writable)  line 120
+        _ConnectionBase.__del__(self)  line 133
+        _ConnectionBase._check_closed(self)  line 137
+        _ConnectionBase._check_readable(self)  line 141
+        _ConnectionBase._check_writable(self)  line 145
+        _ConnectionBase._bad_message_length(self)  line 149
+        _ConnectionBase.closed(self)  line 156
+        _ConnectionBase.readable(self)  line 161
+        _ConnectionBase.writable(self)  line 166
+        _ConnectionBase.fileno(self)  line 171
+        _ConnectionBase.close(self)  line 176
+        _ConnectionBase._detach(self)  line 184
+        _ConnectionBase.send_bytes(self, buf, offset, size)  line 188
+        _ConnectionBase.send(self, obj)  line 208
+        _ConnectionBase.recv_bytes(self, maxlength)  line 214
+        _ConnectionBase.recv_bytes_into(self, buf, offset)  line 227
+        _ConnectionBase.recv(self)  line 252
+        _ConnectionBase.poll(self, timeout)  line 259
+        _ConnectionBase.__enter__(self)  line 265
+        _ConnectionBase.__exit__(self, exc_type, exc_value, exc_tb)  line 268
+    PipeConnection()  line 274
+        PipeConnection._close(self, _CloseHandle)  line 283
+        PipeConnection._send_bytes(self, buf)  line 290
+        PipeConnection._recv_bytes(self, maxsize)  line 316
+        PipeConnection._poll(self, timeout)  line 358
+        PipeConnection._get_more_data(self, ov, maxsize)  line 364
+    Connection()  line 380
+        Connection._close(self, _close)  line 387
+        Connection._close(self, _close)  line 392
+        Connection._send(self, buf, write)  line 397
+        Connection._recv(self, size, read)  line 406
+        Connection._send_bytes(self, buf)  line 423
+        Connection._recv_bytes(self, maxsize)  line 446
+        Connection._poll(self, timeout)  line 456
+    Listener()  line 465
+        Listener.__init__(self, address, family, backlog, authkey)  line 472
+        Listener.accept(self)  line 488
+        Listener.close(self)  line 503
+        Listener.address(self)  line 512
+        Listener.last_accepted(self)  line 516
+        Listener.__enter__(self)  line 520
+        Listener.__exit__(self, exc_type, exc_value, exc_tb)  line 523
+    Client(address, family, authkey)  line 527
+    Pipe(duplex)  line 550
+    Pipe(duplex)  line 569
+    SocketListener()  line 613
+        SocketListener.__init__(self, address, family, backlog)  line 617
+        SocketListener.accept(self)  line 642
+        SocketListener.close(self)  line 647
+    SocketClient(address)  line 657
+    PipeListener()  line 673
+        PipeListener.__init__(self, address, backlog)  line 677
+        PipeListener._new_handle(self, first)  line 688
+        PipeListener.accept(self)  line 700
+        PipeListener._finalize_pipe_listener(queue, address)  line 723
+    PipeClient(address)  line 729
+    <genexpr>(.0)  line 855
+    _get_digest_name_and_payload(message)  line 866
+    _create_response(authkey, message)  line 892
+    _verify_challenge(authkey, message, response)  line 920
+    __annotate__(format)  line 945
+    deliver_challenge(connection, authkey, digest_name)  line 945
+    __annotate__(format)  line 966
+    answer_challenge(connection, authkey)  line 966
+    ConnectionWrapper()  line 987
+        ConnectionWrapper.__init__(self, conn, dumps, loads)  line 988
+        ConnectionWrapper.send(self, obj)  line 995
+        ConnectionWrapper.recv(self)  line 998
+    _xml_dumps(obj)  line 1002
+    _xml_loads(s)  line 1005
+    XmlListener()  line 1009
+        XmlListener.accept(self)  line 1010
+    XmlClient()  line 1016
+    _exhaustive_wait(handles, timeout)  line 1027
+        _exhaustive_wait.<locals>.<genexpr>(.0)  line 1039
+    wait(object_list, timeout)  line 1061
+        wait.<locals>.<genexpr>(.0)  line 1136
+    wait(object_list, timeout)  line 1151
+    reduce_connection(conn)  line 1179
+    rebuild_connection(ds, readable, writable)  line 1185
+    reduce_pipe_connection(conn)  line 1190
+    rebuild_pipe_connection(dh, readable, writable)  line 1195
+    reduce_connection(conn)  line 1201
+    rebuild_connection(df, readable, writable)  line 1204
+
+--- strings ---
+'Client'
+'Listener'
+'win32'
+'AF_INET'
+'AF_UNIX'
+'AF_PIPE'
+'\nReturn an arbitrary free address for the given family\n'
+'AF_INET'
+'AF_UNIX'
+'sock-'
+'AF_PIPE'
+'\\\\.\\pipe\\pyc-%d-%d-'
+'unrecognized family'
+'\nChecks if the family is valid for the current environment.\n'
+'win32'
+'AF_PIPE'
+'Family %s is not recognized.'
+'AF_UNIX'
+"\nReturn the types of the address\n\nThis can be 'AF_INET', 'AF_UNIX', or 'AF_PIPE'\n"
+'AF_INET'
+'\\\\'
+'AF_PIPE'
+'AF_UNIX'
+'address type of %r unrecognized'
+'_ConnectionBase'
+'invalid handle'
+'at least one of `readable` and `writable` must be True'
+'handle is closed'
+'connection is write-only'
+'connection is read-only'
+'bad message length'
+'True if the connection is closed'
+'True if the connection is readable'
+'True if the connection is writable'
+'File descriptor or handle of the connection'
+'Close the connection'
+'Stop managing the underlying file descriptor or handle.'
+'Send the bytes data from a bytes-like object'
+'offset is negative'
+'buffer length < offset'
+'size is negative'
+'buffer length < offset + size'
+'Send a (picklable) object'
+'\nReceive bytes data as a bytes object.\n'
+'negative maxlength'
+'\nReceive bytes data into a writeable bytes-like object.\nReturn the number of bytes read.\n'
+'negative offset'
+'offset too large'
+'Receive a (picklable) object'
+'Whether there is any input available to be read'
+'_ConnectionBase'
+'PipeConnection'
+'\nConnection class based on a Windows named pipe.\nOverlapped I/O is used, so the handles must have been created\nwith FILE_FLAG_OVERLAPPED.\n'
+'concurrent send_bytes() calls are not supported'
+'handle is closed'
+"shouldn't get here; expected KeyboardInterrupt"
+'PipeConnection'
+'Connection'
+'\nConnection class based on an arbitrary file descriptor (Unix only), or\na socket handle (Windows).\n'
+'got end of file during message'
+'!i'
+'!Q'
+'!i'
+'!Q'
+'Connection'
+'Listener'
+"\nReturns a listener object.\n\nThis is a wrapper for a bound socket which is 'listening' for\nconnections, or for a Windows named pipe.\n"
+'AF_PIPE'
+'authkey should be a byte string'
+'\nAccept a connection on the bound socket or named pipe of `self`.\n\nReturns a `Connection` object.\n'
+'listener is closed'
+'\nClose the bound socket or named pipe of `self`.\n'
+'\nReturns a connection to the address of a `Listener`\n'
+'AF_PIPE'
+'authkey should be a byte string'
+'\nReturns pair of connection objects at either end of a pipe\n'
+'\nReturns pair of connection objects at either end of a pipe\n'
+'AF_PIPE'
+'SocketListener'
+'\nRepresentation of a socket which is bound to an address and listening\n'
+'posix'
+'AF_UNIX'
+'SocketListener'
+'\nReturn a connection object connected to the socket given by `address`\n'
+'PipeListener'
+'\nRepresentation of a named pipe\n'
+'listener created with address=%r'
+'closing listener with address=%r'
+'PipeListener'
+'\nReturn a connection object connected to the pipe given by `address`\n'
+'Returns a digest name and the payload for a response hash.\n\nIf a legacy protocol is detected based on the message length\nor contents the digest name returned will be empty to indicate\nlegacy mode where MD5 and no digest prefix should be sent.\n'
+'ascii'
+'unsupported message length, missing digest prefix, or unsupported digest: message='
+"Create a MAC based on authkey and message\n\nThe MAC algorithm defaults to HMAC-MD5, unless MD5 is not available or\nthe message has a '{digest_name}' prefix. For legacy HMAC-MD5, the response\nis the raw MAC, otherwise the response is prefixed with '{digest_name}',\ne.g. b'{sha256}abcdefg...'\n\nNote: The MAC protects the entire message including the digest_name prefix.\n"
+'md5'
+'sha256'
+'ascii'
+"Verify MAC challenge\n\nIf our message did not include a digest_name prefix, the client is allowed\nto select a stronger digest_name from _ALLOWED_DIGESTS.\n\nIn case our message is prefixed, a client cannot downgrade to a weaker\nalgorithm, because the MAC is calculated over the entire message\nincluding the '{digest_name}' prefix.\n"
+'md5'
+'response_digest='
+' unsupported'
+'expected '
+' of length '
+' got '
+'digest received was wrong'
+'authkey'
+'Authkey must be bytes, not {0!s}'
+'protocol constraint'
+'ascii'
+'authkey'
+'Authkey must be bytes, not {0!s}'
+'Protocol error, expected challenge: message='
+'challenge too short: '
+' bytes'
+'digest sent was rejected'
+'ConnectionWrapper'
+'fileno'
+'ConnectionWrapper'
+'utf-8'
+'utf-8'
+'XmlListener'
+'XmlListener'
+'Should not get here'
+'\nWait till an object in object_list is ready/readable.\n\nReturns list of those objects in object_list which are ready/readable.\n'
+'fileno'
+'_got_empty_message'
+'PollSelector'
+'\nWait till an object in object_list is ready/readable.\n\nReturns list of those objects in object_list which are ready/readable.\n'

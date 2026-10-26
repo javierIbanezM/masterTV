@@ -1,0 +1,759 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Routines for manipulating RFC2047 encoded words.\n\nThis is currently a package-private API, but will be considered for promotion\nto a public API if there is demand.\n\n')
+              STORE_NAME               0 (__doc__)
+
+ 42           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (re)
+              STORE_NAME               1 (re)
+
+ 43           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (base64)
+              STORE_NAME               2 (base64)
+
+ 44           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (binascii)
+              STORE_NAME               3 (binascii)
+
+ 45           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (functools)
+              STORE_NAME               4 (functools)
+
+ 46           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('ascii_letters', 'digits'))
+              IMPORT_NAME              5 (string)
+              IMPORT_FROM              6 (ascii_letters)
+              STORE_NAME               6 (ascii_letters)
+              IMPORT_FROM              7 (digits)
+              STORE_NAME               7 (digits)
+              POP_TOP
+
+ 47           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('errors',))
+              IMPORT_NAME              8 (email)
+              IMPORT_FROM              9 (errors)
+              STORE_NAME               9 (errors)
+              POP_TOP
+
+ 49           BUILD_LIST               0
+              LOAD_CONST              20 (('decode_q', 'encode_q', 'decode_b', 'encode_b', 'len_q', 'len_b', 'decode', 'encode'))
+              LIST_EXTEND              1
+              STORE_NAME              10 (__all__)
+
+ 64           LOAD_NAME                4 (functools)
+              LOAD_ATTR               22 (partial)
+              PUSH_NULL
+              LOAD_NAME                1 (re)
+              LOAD_ATTR               24 (compile)
+              PUSH_NULL
+              LOAD_CONST               4 (b'=([a-fA-F0-9]{2})')
+              CALL                     1
+              LOAD_ATTR               26 (sub)
+
+ 65           LOAD_CONST               5 (<code object <lambda> at 0x00000204BA0A9BB0, file "email\_encoded_words.py", line 65>)
+              MAKE_FUNCTION
+
+ 64           CALL                     2
+              STORE_NAME              14 (_q_byte_subber)
+
+ 67           LOAD_CONST               6 (<code object decode_q at 0x00000204BA0FFCC0, file "email\_encoded_words.py", line 67>)
+              MAKE_FUNCTION
+              STORE_NAME              15 (decode_q)
+
+ 73           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object _QByteMap at 0x00000204B9F73890, file "email\_encoded_words.py", line 73>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('_QByteMap')
+              LOAD_NAME               16 (dict)
+              CALL                     3
+              STORE_NAME              17 (_QByteMap)
+
+ 84           LOAD_NAME               17 (_QByteMap)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              18 (_q_byte_map)
+
+ 87           LOAD_CONST               9 ('_')
+              LOAD_NAME               18 (_q_byte_map)
+              LOAD_NAME               19 (ord)
+              PUSH_NULL
+              LOAD_CONST              10 (' ')
+              CALL                     1
+              STORE_SUBSCR
+
+ 89           LOAD_CONST              11 (<code object encode_q at 0x00000204BA0FD020, file "email\_encoded_words.py", line 89>)
+              MAKE_FUNCTION
+              STORE_NAME              20 (encode_q)
+
+ 92           LOAD_CONST              12 (<code object len_q at 0x00000204BA08B330, file "email\_encoded_words.py", line 92>)
+              MAKE_FUNCTION
+              STORE_NAME              21 (len_q)
+
+100           LOAD_CONST              13 (<code object decode_b at 0x00000204BA590010, file "email\_encoded_words.py", line 100>)
+              MAKE_FUNCTION
+              STORE_NAME              22 (decode_b)
+
+138           LOAD_CONST              14 (<code object encode_b at 0x00000204BA0A6D30, file "email\_encoded_words.py", line 138>)
+              MAKE_FUNCTION
+              STORE_NAME              23 (encode_b)
+
+141           LOAD_CONST              15 (<code object len_b at 0x00000204BA0AB230, file "email\_encoded_words.py", line 141>)
+              MAKE_FUNCTION
+              STORE_NAME              24 (len_b)
+
+148           LOAD_CONST              16 ('q')
+              LOAD_NAME               15 (decode_q)
+
+149           LOAD_CONST              17 ('b')
+              LOAD_NAME               22 (decode_b)
+
+147           BUILD_MAP                2
+              STORE_NAME              25 (_cte_decoders)
+
+152           LOAD_CONST              18 (<code object decode at 0x00000204BA338F90, file "email\_encoded_words.py", line 152>)
+              MAKE_FUNCTION
+              STORE_NAME              26 (decode)
+
+195           LOAD_CONST              16 ('q')
+              LOAD_NAME               20 (encode_q)
+
+196           LOAD_CONST              17 ('b')
+              LOAD_NAME               23 (encode_b)
+
+194           BUILD_MAP                2
+              STORE_NAME              27 (_cte_encoders)
+
+200           LOAD_CONST              16 ('q')
+              LOAD_NAME               21 (len_q)
+
+201           LOAD_CONST              17 ('b')
+              LOAD_NAME               24 (len_b)
+
+199           BUILD_MAP                2
+              STORE_NAME              28 (_cte_encode_length)
+
+204           LOAD_CONST              21 (('utf-8', None, ''))
+              LOAD_CONST              19 (<code object encode at 0x00000204BA445C10, file "email\_encoded_words.py", line 204>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              29 (encode)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA0A9BB0, file "email\_encoded_words.py", line 65>:
+ 65           RESUME                   0
+              LOAD_GLOBAL              0 (bytes)
+              LOAD_ATTR                3 (fromhex + NULL|self)
+              LOAD_FAST_BORROW         0 (m)
+              LOAD_ATTR                5 (group + NULL|self)
+              LOAD_SMALL_INT           1
+              CALL                     1
+              LOAD_ATTR                7 (decode + NULL|self)
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object decode_q at 0x00000204BA0FFCC0, file "email\_encoded_words.py", line 67>:
+ 67           RESUME                   0
+
+ 68           LOAD_FAST_BORROW         0 (encoded)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               0 (b'_')
+              LOAD_CONST               1 (b' ')
+              CALL                     2
+              STORE_FAST               0 (encoded)
+
+ 69           LOAD_GLOBAL              3 (_q_byte_subber + NULL)
+              LOAD_FAST_BORROW         0 (encoded)
+              CALL                     1
+              BUILD_LIST               0
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _QByteMap at 0x00000204B9F73890, file "email\_encoded_words.py", line 73>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  73           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_QByteMap')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          73
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  75           LOAD_CONST               1 (b'-!*+/')
+               LOAD_NAME                4 (ascii_letters)
+               LOAD_ATTR               10 (encode)
+               PUSH_NULL
+               LOAD_CONST               2 ('ascii')
+               CALL                     1
+               BINARY_OP                0 (+)
+               LOAD_NAME                6 (digits)
+               LOAD_ATTR               10 (encode)
+               PUSH_NULL
+               LOAD_CONST               2 ('ascii')
+               CALL                     1
+               BINARY_OP                0 (+)
+               STORE_NAME               7 (safe)
+
+  77           LOAD_CONST               3 (<code object __missing__ at 0x00000204B9F72550, file "email\_encoded_words.py", line 77>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__missing__)
+               LOAD_CONST               4 (())
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __missing__ at 0x00000204B9F72550, file "email\_encoded_words.py", line 77>:
+ 77           RESUME                   0
+
+ 78           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (key, self)
+              LOAD_ATTR                0 (safe)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       22 (to L1)
+              NOT_TAKEN
+
+ 79           LOAD_GLOBAL              3 (chr + NULL)
+              LOAD_FAST_BORROW         1 (key)
+              CALL                     1
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, key)
+              STORE_SUBSCR
+
+ 82           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, key)
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+ 81   L1:     LOAD_CONST               0 ('={:02X}')
+              LOAD_ATTR                5 (format + NULL|self)
+              LOAD_FAST_BORROW         1 (key)
+              CALL                     1
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, key)
+              STORE_SUBSCR
+
+ 82           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, key)
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object encode_q at 0x00000204BA0FD020, file "email\_encoded_words.py", line 89>:
+ 89           RESUME                   0
+
+ 90           LOAD_CONST               0 ('')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0FF550, file "email\_encoded_words.py", line 90>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (bstring)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FF550, file "email\_encoded_words.py", line 90>:
+  90           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                18 (to L3)
+               STORE_FAST               1 (x)
+               LOAD_GLOBAL              0 (_q_byte_map)
+               LOAD_FAST_BORROW         1 (x)
+               BINARY_OP               26 ([])
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           20 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object len_q at 0x00000204BA08B330, file "email\_encoded_words.py", line 92>:
+ 92           RESUME                   0
+
+ 93           LOAD_GLOBAL              1 (sum + NULL)
+              LOAD_CONST               0 (<code object <genexpr> at 0x00000204BA0A6550, file "email\_encoded_words.py", line 93>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (bstring)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A6550, file "email\_encoded_words.py", line 93>:
+  93           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                27 (to L3)
+               STORE_FAST               1 (x)
+               LOAD_GLOBAL              1 (len + NULL)
+               LOAD_GLOBAL              2 (_q_byte_map)
+               LOAD_FAST_BORROW         1 (x)
+               BINARY_OP               26 ([])
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           29 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object decode_b at 0x00000204BA590010, file "email\_encoded_words.py", line 100>:
+ 100            RESUME                   0
+
+ 103            LOAD_GLOBAL              1 (len + NULL)
+                LOAD_FAST_BORROW         0 (encoded)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                BINARY_OP                6 (%)
+                STORE_FAST               1 (pad_err)
+
+ 104            LOAD_FAST_BORROW         1 (pad_err)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L1)
+                NOT_TAKEN
+                LOAD_CONST               1 (b'===')
+                LOAD_CONST               2 (None)
+                LOAD_SMALL_INT           4
+                LOAD_FAST_BORROW         1 (pad_err)
+                BINARY_OP               10 (-)
+                BINARY_SLICE
+                JUMP_FORWARD             1 (to L2)
+        L1:     LOAD_CONST               3 (b'')
+        L2:     STORE_FAST               2 (missing_padding)
+
+ 105            NOP
+
+ 107    L3:     LOAD_GLOBAL              2 (base64)
+                LOAD_ATTR                4 (b64decode)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (encoded, missing_padding)
+                BINARY_OP                0 (+)
+                LOAD_CONST               4 (True)
+                LOAD_CONST               5 (('validate',))
+                CALL_KW                  2
+
+ 108            LOAD_FAST_BORROW         1 (pad_err)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       24 (to L5)
+                NOT_TAKEN
+                LOAD_GLOBAL              6 (errors)
+                LOAD_ATTR                8 (InvalidBase64PaddingDefect)
+                PUSH_NULL
+                CALL                     0
+                BUILD_LIST               1
+
+ 106            BUILD_TUPLE              2
+        L4:     RETURN_VALUE
+
+ 108    L5:     BUILD_LIST               0
+
+ 106            BUILD_TUPLE              2
+        L6:     RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 110            LOAD_GLOBAL             10 (binascii)
+                LOAD_ATTR               12 (Error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE      209 (to L26)
+                NOT_TAKEN
+                POP_TOP
+
+ 116    L8:     NOP
+
+ 118    L9:     LOAD_GLOBAL              2 (base64)
+                LOAD_ATTR                4 (b64decode)
+                PUSH_NULL
+                LOAD_FAST                0 (encoded)
+                LOAD_CONST               6 (False)
+                LOAD_CONST               5 (('validate',))
+                CALL_KW                  2
+
+ 119            LOAD_GLOBAL              6 (errors)
+                LOAD_ATTR               14 (InvalidBase64CharactersDefect)
+                PUSH_NULL
+                CALL                     0
+                BUILD_LIST               1
+
+ 117            BUILD_TUPLE              2
+       L10:     SWAP                     2
+       L11:     POP_EXCEPT
+                RETURN_VALUE
+
+  --   L12:     PUSH_EXC_INFO
+
+ 121            LOAD_GLOBAL             10 (binascii)
+                LOAD_ATTR               12 (Error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE      135 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 124   L13:     NOP
+
+ 126   L14:     LOAD_GLOBAL              2 (base64)
+                LOAD_ATTR                4 (b64decode)
+                PUSH_NULL
+                LOAD_FAST                0 (encoded)
+                LOAD_CONST               7 (b'==')
+                BINARY_OP                0 (+)
+                LOAD_CONST               6 (False)
+                LOAD_CONST               5 (('validate',))
+                CALL_KW                  2
+
+ 127            LOAD_GLOBAL              6 (errors)
+                LOAD_ATTR               14 (InvalidBase64CharactersDefect)
+                PUSH_NULL
+                CALL                     0
+
+ 128            LOAD_GLOBAL              6 (errors)
+                LOAD_ATTR                8 (InvalidBase64PaddingDefect)
+                PUSH_NULL
+                CALL                     0
+
+ 127            BUILD_LIST               2
+
+ 125            BUILD_TUPLE              2
+       L15:     SWAP                     2
+       L16:     POP_EXCEPT
+                SWAP                     2
+       L17:     POP_EXCEPT
+                RETURN_VALUE
+
+  --   L18:     PUSH_EXC_INFO
+
+ 130            LOAD_GLOBAL             10 (binascii)
+                LOAD_ATTR               12 (Error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       32 (to L22)
+                NOT_TAKEN
+                POP_TOP
+
+ 136            LOAD_FAST                0 (encoded)
+                LOAD_GLOBAL              6 (errors)
+                LOAD_ATTR               16 (InvalidBase64LengthDefect)
+                PUSH_NULL
+                CALL                     0
+                BUILD_LIST               1
+                BUILD_TUPLE              2
+                SWAP                     2
+       L19:     POP_EXCEPT
+                SWAP                     2
+       L20:     POP_EXCEPT
+                SWAP                     2
+       L21:     POP_EXCEPT
+                RETURN_VALUE
+
+ 130   L22:     RERAISE                  0
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 121   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 110   L26:     RERAISE                  0
+
+  --   L27:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L7 [0]
+  L5 to L6 -> L7 [0]
+  L7 to L8 -> L27 [1] lasti
+  L9 to L10 -> L12 [1]
+  L10 to L11 -> L27 [1] lasti
+  L12 to L13 -> L25 [2] lasti
+  L14 to L15 -> L18 [2]
+  L15 to L16 -> L25 [2] lasti
+  L16 to L17 -> L27 [1] lasti
+  L18 to L19 -> L23 [3] lasti
+  L19 to L20 -> L25 [2] lasti
+  L20 to L21 -> L27 [1] lasti
+  L22 to L23 -> L23 [3] lasti
+  L23 to L25 -> L25 [2] lasti
+  L25 to L27 -> L27 [1] lasti
+
+Disassembly of <code object encode_b at 0x00000204BA0A6D30, file "email\_encoded_words.py", line 138>:
+138           RESUME                   0
+
+139           LOAD_GLOBAL              0 (base64)
+              LOAD_ATTR                2 (b64encode)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (bstring)
+              CALL                     1
+              LOAD_ATTR                5 (decode + NULL|self)
+              LOAD_CONST               0 ('ascii')
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object len_b at 0x00000204BA0AB230, file "email\_encoded_words.py", line 141>:
+141           RESUME                   0
+
+142           LOAD_GLOBAL              1 (divmod + NULL)
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (bstring)
+              CALL                     1
+              LOAD_SMALL_INT           3
+              CALL                     2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   18 (groups_of_3, leftover)
+
+144           LOAD_FAST_BORROW         1 (groups_of_3)
+              LOAD_SMALL_INT           4
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         2 (leftover)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        9 (to L1)
+              NOT_TAKEN
+              LOAD_SMALL_INT           4
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+      L1:     LOAD_SMALL_INT           0
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object decode at 0x00000204BA338F90, file "email\_encoded_words.py", line 152>:
+ 152            RESUME                   0
+
+ 173            LOAD_FAST_BORROW         0 (ew)
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST               1 ('?')
+                CALL                     1
+                UNPACK_SEQUENCE          5
+                STORE_FAST_STORE_FAST   18 (_, charset)
+                STORE_FAST_STORE_FAST   52 (cte, cte_string)
+                STORE_FAST               1 (_)
+
+ 174            LOAD_FAST_BORROW         2 (charset)
+                LOAD_ATTR                3 (partition + NULL|self)
+                LOAD_CONST               2 ('*')
+                CALL                     1
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   33 (charset, _)
+                STORE_FAST               5 (lang)
+
+ 175            LOAD_FAST_BORROW         3 (cte)
+                LOAD_ATTR                5 (lower + NULL|self)
+                CALL                     0
+                STORE_FAST               3 (cte)
+
+ 177            LOAD_FAST_BORROW         4 (cte_string)
+                LOAD_ATTR                7 (encode + NULL|self)
+                LOAD_CONST               3 ('ascii')
+                LOAD_CONST               4 ('surrogateescape')
+                CALL                     2
+                STORE_FAST               6 (bstring)
+
+ 178            LOAD_GLOBAL              8 (_cte_decoders)
+                LOAD_FAST_BORROW         3 (cte)
+                BINARY_OP               26 ([])
+                PUSH_NULL
+                LOAD_FAST_BORROW         6 (bstring)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  103 (bstring, defects)
+
+ 180            NOP
+
+ 181    L1:     LOAD_FAST_BORROW         6 (bstring)
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_FAST_BORROW         2 (charset)
+                CALL                     1
+                STORE_FAST               8 (string)
+
+ 191    L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 130 (string, charset)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 87 (lang, defects)
+                BUILD_TUPLE              4
+                RETURN_VALUE
+
+  --    L3:     PUSH_EXC_INFO
+
+ 182            LOAD_GLOBAL             12 (UnicodeDecodeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       64 (to L5)
+                NOT_TAKEN
+                POP_TOP
+
+ 183            LOAD_FAST                7 (defects)
+                LOAD_ATTR               15 (append + NULL|self)
+                LOAD_GLOBAL             16 (errors)
+                LOAD_ATTR               18 (UndecodableBytesDefect)
+                PUSH_NULL
+                LOAD_CONST               5 ('Encoded word contains bytes not decodable using ')
+
+ 184            LOAD_FAST                2 (charset)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               6 (' charset')
+
+ 183            BUILD_STRING             3
+                CALL                     1
+                CALL                     1
+                POP_TOP
+
+ 185            LOAD_FAST                6 (bstring)
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_FAST                2 (charset)
+                LOAD_CONST               4 ('surrogateescape')
+                CALL                     2
+                STORE_FAST               8 (string)
+        L4:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 77 (to L2)
+
+ 186    L5:     LOAD_GLOBAL             20 (LookupError)
+                LOAD_GLOBAL             22 (UnicodeEncodeError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       85 (to L9)
+        L6:     NOT_TAKEN
+        L7:     POP_TOP
+
+ 187            LOAD_FAST                6 (bstring)
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_CONST               3 ('ascii')
+                LOAD_CONST               4 ('surrogateescape')
+                CALL                     2
+                STORE_FAST               8 (string)
+
+ 188            LOAD_FAST                2 (charset)
+                LOAD_ATTR                5 (lower + NULL|self)
+                CALL                     0
+                LOAD_CONST               7 ('unknown-8bit')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       43 (to L8)
+                NOT_TAKEN
+
+ 189            LOAD_FAST                7 (defects)
+                LOAD_ATTR               15 (append + NULL|self)
+                LOAD_GLOBAL             16 (errors)
+                LOAD_ATTR               24 (CharsetError)
+                PUSH_NULL
+                LOAD_CONST               8 ('Unknown charset ')
+                LOAD_FAST                2 (charset)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               9 (' in encoded word; decoded as unknown bytes')
+                BUILD_STRING             3
+                CALL                     1
+                CALL                     1
+                POP_TOP
+
+  --    L8:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 176 (to L2)
+
+ 186    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L10 [1] lasti
+  L5 to L6 -> L10 [1] lasti
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+
+Disassembly of <code object encode at 0x00000204BA445C10, file "email\_encoded_words.py", line 204>:
+204           RESUME                   0
+
+221           LOAD_FAST_BORROW         1 (charset)
+              LOAD_CONST               1 ('unknown-8bit')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       20 (to L1)
+              NOT_TAKEN
+
+222           LOAD_FAST_BORROW         0 (string)
+              LOAD_ATTR                1 (encode + NULL|self)
+              LOAD_CONST               2 ('ascii')
+              LOAD_CONST               3 ('surrogateescape')
+              CALL                     2
+              STORE_FAST               4 (bstring)
+              JUMP_FORWARD            17 (to L2)
+
+224   L1:     LOAD_FAST_BORROW         0 (string)
+              LOAD_ATTR                1 (encode + NULL|self)
+              LOAD_FAST_BORROW         1 (charset)
+              CALL                     1
+              STORE_FAST               4 (bstring)
+
+225   L2:     LOAD_FAST_BORROW         2 (encoding)
+              POP_JUMP_IF_NOT_NONE    56 (to L5)
+              NOT_TAKEN
+
+226           LOAD_GLOBAL              2 (_cte_encode_length)
+              LOAD_CONST               4 ('q')
+              BINARY_OP               26 ([])
+              PUSH_NULL
+              LOAD_FAST_BORROW         4 (bstring)
+              CALL                     1
+              STORE_FAST               5 (qlen)
+
+227           LOAD_GLOBAL              2 (_cte_encode_length)
+              LOAD_CONST               5 ('b')
+              BINARY_OP               26 ([])
+              PUSH_NULL
+              LOAD_FAST_BORROW         4 (bstring)
+              CALL                     1
+              STORE_FAST               6 (blen)
+
+229           LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (qlen, blen)
+              BINARY_OP               10 (-)
+              LOAD_SMALL_INT           5
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+              LOAD_CONST               4 ('q')
+              JUMP_FORWARD             1 (to L4)
+      L3:     LOAD_CONST               5 ('b')
+      L4:     STORE_FAST               2 (encoding)
+
+230   L5:     LOAD_GLOBAL              4 (_cte_encoders)
+              LOAD_FAST_BORROW         2 (encoding)
+              BINARY_OP               26 ([])
+              PUSH_NULL
+              LOAD_FAST_BORROW         4 (bstring)
+              CALL                     1
+              STORE_FAST               7 (encoded)
+
+231           LOAD_FAST_BORROW         3 (lang)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       10 (to L6)
+              NOT_TAKEN
+
+232           LOAD_CONST               6 ('*')
+              LOAD_FAST_BORROW         3 (lang)
+              BINARY_OP                0 (+)
+              STORE_FAST               3 (lang)
+
+233   L6:     LOAD_CONST               7 ('=?{}{}?{}?{}?=')
+              LOAD_ATTR                7 (format + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (charset, lang)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 39 (encoding, encoded)
+              CALL                     4
+              RETURN_VALUE

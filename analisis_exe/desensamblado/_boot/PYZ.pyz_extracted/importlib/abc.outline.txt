@@ -1,0 +1,62 @@
+<module>()  line 1
+    _register(abstract_cls)  line 25
+    MetaPathFinder()  line 36
+        MetaPathFinder.invalidate_caches(self)  line 43
+    PathEntryFinder()  line 52
+        PathEntryFinder.invalidate_caches(self)  line 56
+    ResourceLoader()  line 64
+        ResourceLoader.get_data(self, path)  line 76
+    InspectLoader()  line 83
+        InspectLoader.is_package(self, fullname)  line 92
+        InspectLoader.get_code(self, fullname)  line 100
+        InspectLoader.get_source(self, fullname)  line 113
+        InspectLoader.source_to_code(data, path)  line 122
+    ExecutionLoader()  line 136
+        ExecutionLoader.get_filename(self, fullname)  line 145
+        ExecutionLoader.get_code(self, fullname)  line 154
+    FileLoader()  line 177
+    SourceLoader()  line 186
+        SourceLoader.path_mtime(self, path)  line 203
+        SourceLoader.path_stats(self, path)  line 213
+        SourceLoader.set_data(self, path, data)  line 224
+
+--- strings ---
+'Abstract base classes related to import.'
+'_frozen_importlib'
+'MetaPathFinder'
+'PathEntryFinder'
+'ResourceLoader'
+'InspectLoader'
+'ExecutionLoader'
+'FileLoader'
+'SourceLoader'
+'MetaPathFinder'
+'Abstract base class for import finders on sys.meta_path.'
+"An optional method for clearing the finder's cache, if any.\nThis method is used by importlib.invalidate_caches().\n"
+'PathEntryFinder'
+'Abstract base class for path entry finders used by PathFinder.'
+"An optional method for clearing the finder's cache, if any.\nThis method is used by PathFinder.invalidate_caches().\n"
+'ResourceLoader'
+'Abstract base class for loaders which can return data from their\nback-end storage to facilitate reading data to perform an import.\n\nThis ABC represents one of the optional protocols specified by PEP 302.\n\nFor directly loading resources, use TraversableResources instead. This class\nprimarily exists for backwards compatibility with other ABCs in this module.\n\n'
+'Abstract method which when implemented should return the bytes for\nthe specified path.  The path must be a str.'
+'InspectLoader'
+'Abstract base class for loaders which support inspection about the\nmodules they can load.\n\nThis ABC represents one of the optional protocols specified by PEP 302.\n\n'
+'Optional method which when implemented should return whether the\nmodule is a package.  The fullname is a str.  Returns a bool.\n\nRaises ImportError if the module cannot be found.\n'
+'Method which returns the code object for the module.\n\nThe fullname is a str.  Returns a types.CodeType if possible, else\nreturns None if a code object does not make sense\n(e.g. built-in module). Raises ImportError if the module cannot be\nfound.\n'
+'Abstract method which should return the source code for the\nmodule.  The fullname is a str.  Returns a str.\n\nRaises ImportError if the module cannot be found.\n'
+"Compile 'data' into a code object.\n\nThe 'data' argument can be anything that compile() can handle. The'path'\nargument should be where the data was retrieved (when applicable)."
+'exec'
+'ExecutionLoader'
+'Abstract base class for loaders that wish to support the execution of\nmodules as scripts.\n\nThis ABC represents one of the optional protocols specified in PEP 302.\n\n'
+'Abstract method which should return the value that __file__ is to be\nset to.\n\nRaises ImportError if the module cannot be found.\n'
+'Method to return the code object for fullname.\n\nShould return None if not applicable (e.g. built-in module).\nRaise ImportError if the module cannot be found.\n'
+'FileLoader'
+'Abstract base class partially implementing the ResourceLoader and\nExecutionLoader ABCs.'
+'SourceLoader'
+'Abstract base class for loading source code (and optionally any\ncorresponding bytecode).\n\nTo support loading from source code, the abstractmethods inherited from\nResourceLoader and ExecutionLoader need to be implemented. To also support\nloading from bytecode, the optional methods specified directly by this ABC\nis required.\n\nInherited abstractmethods not implemented in this ABC:\n\n    * ResourceLoader.get_data\n    * ExecutionLoader.get_filename\n\n'
+'Return the (int) modification time for the path (str).'
+'SourceLoader.path_mtime is deprecated in favour of SourceLoader.path_stats().'
+'mtime'
+"Return a metadata dict for the source pointed to by the path (str).\nPossible keys:\n- 'mtime' (mandatory) is the numeric timestamp of last source\n  code modification;\n- 'size' (optional) is the size in bytes of the source code.\n"
+'mtime'
+'Write the bytes to the path (if possible).\n\nAccepts a str path and data as bytes.\n\nAny needed intermediary directories are to be created. If for some\nreason the file cannot be written because of permissions, fail\nsilently.\n'

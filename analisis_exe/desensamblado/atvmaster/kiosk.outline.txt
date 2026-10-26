@@ -1,0 +1,148 @@
+<module>()  line 1
+    __annotate__(format)  line 26
+    normalize_url(url)  line 26
+        normalize_url.<locals>.<genexpr>(.0)  line 35
+    __annotate__(format)  line 40
+    split_url(url)  line 40
+    __annotate__(format)  line 47
+    pc_resolve(host)  line 47
+    __annotate__(format)  line 56
+    fully_rest(ip, cmd, password, timeout)  line 56
+        fully_rest.<locals>.<genexpr>(.0)  line 67
+    KioskService()  line 72
+        KioskService.__annotate__(format)  line 73
+        KioskService.__init__(self, adb, log)  line 73
+        KioskService.__annotate__(format)  line 78
+        KioskService.try_begin(self, dev_id)  line 78
+        KioskService.__annotate__(format)  line 85
+        KioskService.end(self, dev_id)  line 85
+        KioskService.__annotate__(format)  line 90
+        KioskService.apply(self, d)  line 90
+        KioskService.__annotate__(format)  line 118
+        KioskService.wait_online(self, d, timeout)  line 118
+        KioskService.__annotate__(format)  line 126
+        KioskService.when_ready(self, d, wait_adb)  line 126
+        KioskService.__annotate__(format)  line 143
+        KioskService.watchdog_check(self, d)  line 143
+        KioskService.__annotate__(format)  line 158
+        KioskService.diagnose(self, d)  line 158
+
+--- strings ---
+'Modo kiosco: mantener una URL a pantalla completa en cada TV.\n\nMecanismos (de más a menos persistente):\n 1. Fully Kiosk con Administración remota activa (puerto 2323): se guarda la «URL de inicio» y\n    «Lanzar al arrancar» dentro de Fully, de modo que la TV arranca el kiosco sola.\n 2. Intent VIEW por ADB: abre la URL en Fully (o en la app indicada) a pantalla completa.\n    Lo dispara esta aplicación: al encender la TV, al detectar que arranca, o con el vigilante.\n'
+'de.ozerov.fully'
+'url'
+'str'
+'return'
+'La URL está vacía'
+'://'
+'http://'
+'La URL debe empezar por http:// o https:// e incluir un servidor'
+'La URL no puede contener espacios'
+'url'
+'str'
+'return'
+'tuple[str, str, int, str]'
+'https'
+'host'
+'str'
+'return'
+'tuple[str, str] | None'
+'(FQDN, IP) según el DNS del PC, que sí conoce los sufijos de búsqueda.'
+'ip'
+'str'
+'cmd'
+'password'
+'timeout'
+'float'
+'return'
+'cmd'
+'password'
+'http://'
+'/?'
+'utf-8'
+'replace'
+'Fully REST: '
+'Fully REST rechazó el comando (¿contraseña de administración incorrecta?)'
+'KioskService'
+'adb'
+'Adb'
+'log'
+'Callable[[str], None]'
+'dev_id'
+'str'
+'return'
+'bool'
+'dev_id'
+'str'
+'return'
+'None'
+'Device'
+'return'
+'list[str]'
+'Pone la URL del kiosco en pantalla. Devuelve mensajes para el registro.'
+'current_dpi'
+'Zoom: densidad '
+' → '
+' dpi'
+'setStringSetting'
+'startURL'
+'setBooleanSetting'
+'launchOnBoot'
+'true'
+'keepScreenOn'
+'loadStartURL'
+'toForeground'
+'Fully: URL de inicio y «lanzar al arrancar» guardadas en la TV'
+'; se usa el intent por ADB'
+'Kiosco lanzado por ADB ('
+') → '
+'Device'
+'timeout'
+'float'
+'return'
+'bool'
+'device'
+'Device'
+'wait_adb'
+'bool'
+'return'
+'str'
+'Espera a que la TV termine de arrancar y aplica el kiosco.'
+'ya hay un arranque de kiosco en curso'
+'la TV no respondió por ADB a tiempo; kiosco no lanzado'
+'; '
+'error: '
+'Device'
+'return'
+'str | None'
+'Relanza el kiosco si la TV está despierta y otra app tiene el primer plano.'
+'Awake'
+'Vigilante: en pantalla estaba '
+'; '
+'Vigilante: error: '
+'Device'
+'return'
+'tuple[str, bool]'
+'Informe de red hecho DESDE LA TV. Devuelve (texto, dns_falla).'
+'URL: '
+'Servidor: '
+'✖ La TV NO resuelve «'
+'».'
+'  El PC sí lo resuelve: '
+' → '
+'  La TV no usa el sufijo DNS del PC. Prueba con el nombre completo: '
+'settings get global private_dns_mode'
+'  DNS privado de la TV: '
+'automático (por defecto)'
+'  → El DNS privado automático envía las consultas a un DNS público y puede ignorar el DNS interno. Desactivarlo suele solucionarlo.'
+'✔ La TV resuelve '
+'1 received'
+'bytes from'
+'✔ Ping a la IP del servidor: responde'
+'⚠ Ping sin respuesta (puede estar filtrado por el firewall)'
+'http'
+'HTTP'
+' Respuesta HTTP desde la TV: '
+'sin respuesta'
+'ℹ HTTPS: no se comprueba la respuesta HTTP desde la TV.'
+'KioskService'

@@ -1,0 +1,169 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('filterfalse',))
+              IMPORT_NAME              0 (itertools)
+              IMPORT_FROM              1 (filterfalse)
+              STORE_NAME               1 (filterfalse)
+              POP_TOP
+
+  4           LOAD_CONST               5 ((None,))
+              LOAD_CONST               3 (<code object unique_everseen at 0x00000204B9F9E6B0, file "importlib\metadata\_itertools.py", line 4>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               2 (unique_everseen)
+
+ 23           LOAD_NAME                3 (str)
+              LOAD_NAME                4 (bytes)
+              BUILD_TUPLE              2
+              BUILD_TUPLE              1
+              LOAD_CONST               4 (<code object always_iterable at 0x00000204BA0B7230, file "importlib\metadata\_itertools.py", line 23>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               5 (always_iterable)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object unique_everseen at 0x00000204B9F9E6B0, file "importlib\metadata\_itertools.py", line 4>:
+   4           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+
+   8           LOAD_GLOBAL              1 (set + NULL)
+               CALL                     0
+               STORE_FAST               2 (seen)
+
+   9           LOAD_FAST_BORROW         2 (seen)
+               LOAD_ATTR                2 (add)
+               STORE_FAST               3 (seen_add)
+
+  10           LOAD_FAST_BORROW         1 (key)
+               POP_JUMP_IF_NOT_NONE    44 (to L4)
+               NOT_TAKEN
+
+  11           LOAD_GLOBAL              5 (filterfalse + NULL)
+               LOAD_FAST_BORROW         2 (seen)
+               LOAD_ATTR                6 (__contains__)
+               LOAD_FAST_BORROW         0 (iterable)
+               CALL                     2
+               GET_ITER
+       L2:     FOR_ITER                15 (to L3)
+               STORE_FAST               4 (element)
+
+  12           LOAD_FAST_BORROW         3 (seen_add)
+               PUSH_NULL
+               LOAD_FAST_BORROW         4 (element)
+               CALL                     1
+               POP_TOP
+
+  13           LOAD_FAST_BORROW         4 (element)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           17 (to L2)
+
+  11   L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  15   L4:     LOAD_FAST_BORROW         0 (iterable)
+               GET_ITER
+       L5:     FOR_ITER                31 (to L8)
+               STORE_FAST               4 (element)
+
+  16           LOAD_FAST_BORROW         1 (key)
+               PUSH_NULL
+               LOAD_FAST_BORROW         4 (element)
+               CALL                     1
+               STORE_FAST               5 (k)
+
+  17           LOAD_FAST_BORROW_LOAD_FAST_BORROW 82 (k, seen)
+               CONTAINS_OP              1 (not in)
+       L6:     POP_JUMP_IF_TRUE         3 (to L7)
+               NOT_TAKEN
+               JUMP_BACKWARD           19 (to L5)
+
+  18   L7:     LOAD_FAST_BORROW         3 (seen_add)
+               PUSH_NULL
+               LOAD_FAST_BORROW         5 (k)
+               CALL                     1
+               POP_TOP
+
+  19           LOAD_FAST_BORROW         4 (element)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           33 (to L5)
+
+  15   L8:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L9:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L6 -> L9 [0] lasti
+  L7 to L9 -> L9 [0] lasti
+
+Disassembly of <code object always_iterable at 0x00000204BA0B7230, file "importlib\metadata\_itertools.py", line 23>:
+  23           RESUME                   0
+
+  64           LOAD_FAST_BORROW         0 (obj)
+               POP_JUMP_IF_NOT_NONE    12 (to L1)
+               NOT_TAKEN
+
+  65           LOAD_GLOBAL              1 (iter + NULL)
+               LOAD_CONST               1 (())
+               CALL                     1
+               RETURN_VALUE
+
+  67   L1:     LOAD_FAST_BORROW         1 (base_type)
+               POP_JUMP_IF_NONE        30 (to L2)
+               NOT_TAKEN
+               LOAD_GLOBAL              3 (isinstance + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (obj, base_type)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       13 (to L2)
+               NOT_TAKEN
+
+  68           LOAD_GLOBAL              1 (iter + NULL)
+               LOAD_FAST_BORROW         0 (obj)
+               BUILD_TUPLE              1
+               CALL                     1
+               RETURN_VALUE
+
+  70   L2:     NOP
+
+  71   L3:     LOAD_GLOBAL              1 (iter + NULL)
+               LOAD_FAST_BORROW         0 (obj)
+               CALL                     1
+       L4:     RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+  72           LOAD_GLOBAL              4 (TypeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       16 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+  73           LOAD_GLOBAL              1 (iter + NULL)
+               LOAD_FAST                0 (obj)
+               BUILD_TUPLE              1
+               CALL                     1
+               SWAP                     2
+       L6:     POP_EXCEPT
+               RETURN_VALUE
+
+  72   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti

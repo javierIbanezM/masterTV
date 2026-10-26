@@ -1,0 +1,72 @@
+<module>()  line 1
+    BZ2File()  line 26
+        BZ2File.__init__(self, filename, mode, compresslevel)  line 37
+        BZ2File.close(self)  line 97
+        BZ2File.closed(self)  line 120
+        BZ2File.name(self)  line 125
+        BZ2File.mode(self)  line 130
+        BZ2File.fileno(self)  line 134
+        BZ2File.seekable(self)  line 139
+        BZ2File.readable(self)  line 143
+        BZ2File.writable(self)  line 148
+        BZ2File.peek(self, n)  line 153
+        BZ2File.read(self, size)  line 165
+        BZ2File.read1(self, size)  line 174
+        BZ2File.readinto(self, b)  line 186
+        BZ2File.readline(self, size)  line 194
+        BZ2File.readlines(self, size)  line 208
+        BZ2File.write(self, data)  line 222
+        BZ2File.writelines(self, seq)  line 243
+        BZ2File.seek(self, offset, whence)  line 253
+        BZ2File.tell(self)  line 271
+    open(filename, mode, compresslevel, encoding, errors, newline)  line 279
+    compress(data, compresslevel)  line 321
+    decompress(data)  line 332
+
+--- strings ---
+'Interface to the libbzip2 compression library.\n\nThis module provides a file interface, classes for incremental\n(de)compression, and functions for one-shot (de)compression.\n'
+'BZ2File'
+'Nadeem Vawda <nadeem.vawda@gmail.com>'
+'BZ2File'
+'A file object providing transparent bzip2 (de)compression.\n\nA BZ2File can act as a wrapper for an existing file object, or refer\ndirectly to a named file on disk.\n\nNote that BZ2File provides a *binary* file interface - data read is\nreturned as bytes, and data to be written should be given as bytes.\n'
+'compresslevel'
+"Open a bzip2-compressed file.\n\nIf filename is a str, bytes, or PathLike object, it gives the\nname of the file to be opened. Otherwise, it should be a file\nobject, which will be used to read or write the compressed data.\n\nmode can be 'r' for reading (default), 'w' for (over)writing,\n'x' for creating exclusively, or 'a' for appending. These can\nequivalently be given as 'rb', 'wb', 'xb', and 'ab'.\n\nIf mode is 'w', 'x' or 'a', compresslevel can be a number between 1\nand 9 specifying the level of compression: 1 produces the least\ncompression, and 9 (default) produces the most compression.\n\nIf mode is 'r', the input file may be the concatenation of\nmultiple compressed streams.\n"
+'compresslevel must be between 1 and 9'
+'rb'
+'wb'
+'xb'
+'ab'
+'Invalid mode: '
+'read'
+'write'
+'filename must be a str, bytes, file or PathLike object'
+'Flush and close the file.\n\nMay be called more than once without error. Once the file is\nclosed, any other operation on it will raise a ValueError.\n'
+'True if this file is closed.'
+'wb'
+'rb'
+'Return the file descriptor for the underlying file.'
+'Return whether the file supports seeking.'
+'Return whether the file was opened for reading.'
+'Return whether the file was opened for writing.'
+'Return buffered data without advancing the file position.\n\nAlways returns at least one byte of data, unless at EOF.\nThe exact number of bytes returned is unspecified.\n'
+"Read up to size uncompressed bytes from the file.\n\nIf size is negative or omitted, read until EOF is reached.\nReturns b'' if the file is already at EOF.\n"
+"Read up to size uncompressed bytes, while trying to avoid\nmaking multiple reads from the underlying stream. Reads up to a\nbuffer's worth of data if size is negative.\n\nReturns b'' if the file is at EOF.\n"
+'Read bytes into b.\n\nReturns the number of bytes read (0 for EOF).\n'
+"Read a line of uncompressed bytes from the file.\n\nThe terminating newline (if present) is retained. If size is\nnon-negative, no more than size bytes will be read (in which\ncase the line may be incomplete). Returns b'' if already at EOF.\n"
+'__index__'
+'Integer argument expected'
+'Read a list of lines of uncompressed bytes from the file.\n\nsize can be specified to control the number of lines read: no\nfurther lines will be read once the total size of the lines read\nso far equals or exceeds size.\n'
+'__index__'
+'Integer argument expected'
+'Write a byte string to the file.\n\nReturns the number of uncompressed bytes written, which is\nalways the length of data in bytes. Note that due to buffering,\nthe file on disk may not reflect the data written until close()\nis called.\n'
+'Write a sequence of byte strings to the file.\n\nReturns the number of uncompressed bytes written.\nseq can be any iterable yielding byte strings.\n\nLine separators are not added between the written byte strings.\n'
+'Change the file position.\n\nThe new position is specified by offset, relative to the\nposition indicated by whence. Values for whence are:\n\n    0: start of stream (default); offset must not be negative\n    1: current stream position\n    2: end of stream; offset must not be positive\n\nReturns the new file position.\n\nNote that seeking is emulated, so depending on the parameters,\nthis operation may be extremely slow.\n'
+'Return the current file position.'
+'Open a bzip2-compressed file in binary or text mode.\n\nThe filename argument can be an actual filename (a str, bytes, or\nPathLike object), or an existing file object to read from or write\nto.\n\nThe mode argument can be "r", "rb", "w", "wb", "x", "xb", "a" or\n"ab" for binary mode, or "rt", "wt", "xt" or "at" for text mode.\nThe default mode is "rb", and the default compresslevel is 9.\n\nFor binary mode, this function is equivalent to the BZ2File\nconstructor: BZ2File(filename, mode, compresslevel). In this case,\nthe encoding, errors and newline arguments must not be provided.\n\nFor text mode, a BZ2File object is created, and wrapped in an\nio.TextIOWrapper instance with the specified encoding, error\nhandling behavior, and line ending(s).\n\n'
+'Invalid mode: '
+"Argument 'encoding' not supported in binary mode"
+"Argument 'errors' not supported in binary mode"
+"Argument 'newline' not supported in binary mode"
+'Compress a block of data.\n\ncompresslevel, if given, must be a number between 1 and 9.\n\nFor incremental compression, use a BZ2Compressor object instead.\n'
+'Decompress a block of data.\n\nFor incremental decompression, use a BZ2Decompressor object instead.\n'
+'Compressed data ended before the end-of-stream marker was reached'

@@ -1,0 +1,1514 @@
+  0           RESUME                   0
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (bisect)
+              STORE_NAME               0 (bisect)
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('defaultdict',))
+              IMPORT_NAME              1 (collections)
+              IMPORT_FROM              2 (defaultdict)
+              STORE_NAME               2 (defaultdict)
+              POP_TOP
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (mmap)
+              STORE_NAME               3 (mmap)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (os)
+              STORE_NAME               4 (os)
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              5 (sys)
+              STORE_NAME               5 (sys)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              6 (tempfile)
+              STORE_NAME               6 (tempfile)
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              7 (threading)
+              STORE_NAME               7 (threading)
+
+ 18           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('reduction', 'assert_spawning'))
+              IMPORT_NAME              8 (context)
+              IMPORT_FROM              9 (reduction)
+              STORE_NAME               9 (reduction)
+              IMPORT_FROM             10 (assert_spawning)
+              STORE_NAME              10 (assert_spawning)
+              POP_TOP
+
+ 19           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('util',))
+              IMPORT_NAME             11
+              IMPORT_FROM             12 (util)
+              STORE_NAME              12 (util)
+              POP_TOP
+
+ 21           LOAD_CONST               5 ('BufferWrapper')
+              BUILD_LIST               1
+              STORE_NAME              13 (__all__)
+
+ 27           LOAD_NAME                5 (sys)
+              LOAD_ATTR               28 (platform)
+              LOAD_CONST               6 ('win32')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+ 29           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME             15 (_winapi)
+              STORE_NAME              15 (_winapi)
+
+ 31           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object Arena at 0x00000204B9FEF0E0, file "multiprocessing\heap.py", line 31>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('Arena')
+              LOAD_NAME               16 (object)
+              CALL                     3
+              STORE_NAME              17 (Arena)
+              JUMP_FORWARD            36 (to L2)
+
+ 67   L1:     LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object Arena at 0x00000204BA0AA470, file "multiprocessing\heap.py", line 67>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('Arena')
+              LOAD_NAME               16 (object)
+              CALL                     3
+              STORE_NAME              17 (Arena)
+
+100           LOAD_CONST              10 (<code object reduce_arena at 0x00000204BA6D41A0, file "multiprocessing\heap.py", line 100>)
+              MAKE_FUNCTION
+              STORE_NAME              18 (reduce_arena)
+
+106           LOAD_CONST              11 (<code object rebuild_arena at 0x00000204BA0FF550, file "multiprocessing\heap.py", line 106>)
+              MAKE_FUNCTION
+              STORE_NAME              19 (rebuild_arena)
+
+109           LOAD_NAME                9 (reduction)
+              LOAD_ATTR               40 (register)
+              PUSH_NULL
+              LOAD_NAME               17 (Arena)
+              LOAD_NAME               18 (reduce_arena)
+              CALL                     2
+              POP_TOP
+
+115   L2:     LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              12 (<code object Heap at 0x00000204BA6D4310, file "multiprocessing\heap.py", line 115>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 ('Heap')
+              LOAD_NAME               16 (object)
+              CALL                     3
+              STORE_NAME              21 (Heap)
+
+322           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              14 (<code object BufferWrapper at 0x00000204BA0FFCC0, file "multiprocessing\heap.py", line 322>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('BufferWrapper')
+              LOAD_NAME               16 (object)
+              CALL                     3
+              STORE_NAME              22 (BufferWrapper)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Arena at 0x00000204B9FEF0E0, file "multiprocessing\heap.py", line 31>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  31           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Arena')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          31
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  32           LOAD_CONST               1 ('\nA shared memory area backed by anonymous memory (Windows).\n')
+               STORE_NAME               4 (__doc__)
+
+  36           LOAD_NAME                5 (tempfile)
+               LOAD_ATTR               12 (_RandomNameSequence)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME               7 (_rand)
+
+  38           LOAD_CONST               2 (<code object __init__ at 0x00000204BA593950, file "multiprocessing\heap.py", line 38>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__init__)
+
+  53           LOAD_CONST               3 (<code object __getstate__ at 0x00000204BA088330, file "multiprocessing\heap.py", line 53>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__getstate__)
+
+  57           LOAD_CONST               4 (<code object __setstate__ at 0x00000204BA6D4030, file "multiprocessing\heap.py", line 57>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__setstate__)
+               LOAD_CONST               5 (('_state', 'buffer', 'name', 'size'))
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA593950, file "multiprocessing\heap.py", line 38>:
+ 38           RESUME                   0
+
+ 39           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (size, self)
+              STORE_ATTR               0 (size)
+
+ 40           LOAD_GLOBAL              3 (range + NULL)
+              LOAD_SMALL_INT         100
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER               120 (to L3)
+              STORE_FAST               2 (i)
+
+ 41           LOAD_CONST               1 ('pym-%d-%s')
+              LOAD_GLOBAL              4 (os)
+              LOAD_ATTR                6 (getpid)
+              PUSH_NULL
+              CALL                     0
+              LOAD_GLOBAL              9 (next + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_rand)
+              CALL                     1
+              BUILD_TUPLE              2
+              BINARY_OP                6 (%)
+              STORE_FAST               3 (name)
+
+ 42           LOAD_GLOBAL             12 (mmap)
+              LOAD_ATTR               12 (mmap)
+              PUSH_NULL
+              LOAD_CONST               5 (-1)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (size, name)
+              LOAD_CONST               2 (('tagname',))
+              CALL_KW                  3
+              STORE_FAST               4 (buf)
+
+ 43           LOAD_GLOBAL             14 (_winapi)
+              LOAD_ATTR               16 (GetLastError)
+              PUSH_NULL
+              CALL                     0
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+ 44           POP_TOP
+              JUMP_FORWARD            31 (to L4)
+
+ 46   L2:     LOAD_FAST_BORROW         4 (buf)
+              LOAD_ATTR               19 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+              JUMP_BACKWARD          122 (to L1)
+
+ 40   L3:     END_FOR
+              POP_ITER
+
+ 48           LOAD_GLOBAL             21 (FileExistsError + NULL)
+              LOAD_CONST               3 ('Cannot find name for new mmap')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 49   L4:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (name, self)
+              STORE_ATTR              11 (name)
+
+ 50           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (buf, self)
+              STORE_ATTR              12 (buffer)
+
+ 51           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (size)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               22 (name)
+              BUILD_TUPLE              2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              13 (_state)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __getstate__ at 0x00000204BA088330, file "multiprocessing\heap.py", line 53>:
+ 53           RESUME                   0
+
+ 54           LOAD_GLOBAL              1 (assert_spawning + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+ 55           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_state)
+              RETURN_VALUE
+
+Disassembly of <code object __setstate__ at 0x00000204BA6D4030, file "multiprocessing\heap.py", line 57>:
+ 57           RESUME                   0
+
+ 58           LOAD_FAST_BORROW         1 (state)
+              COPY                     1
+              UNPACK_SEQUENCE          2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (size)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (name)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_state)
+
+ 60           LOAD_GLOBAL              6 (mmap)
+              LOAD_ATTR                6 (mmap)
+              PUSH_NULL
+              LOAD_CONST               3 (-1)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (size)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (name)
+              LOAD_CONST               1 (('tagname',))
+              CALL_KW                  3
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (buffer)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Arena at 0x00000204BA0AA470, file "multiprocessing\heap.py", line 67>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  67           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Arena')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          67
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  68           LOAD_CONST               1 ('\nA shared memory area backed by a temporary file (POSIX).\n')
+               STORE_NAME               4 (__doc__)
+
+  72           LOAD_NAME                5 (sys)
+               LOAD_ATTR               12 (platform)
+               LOAD_CONST               2 ('linux')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        5 (to L1)
+               NOT_TAKEN
+
+  73           LOAD_CONST               3 ('/dev/shm')
+               BUILD_LIST               1
+               STORE_NAME               7 (_dir_candidates)
+               JUMP_FORWARD             2 (to L2)
+
+  75   L1:     BUILD_LIST               0
+               STORE_NAME               7 (_dir_candidates)
+
+  77   L2:     LOAD_CONST               8 ((-1,))
+               LOAD_CONST               4 (<code object __init__ at 0x00000204BA338F90, file "multiprocessing\heap.py", line 77>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               8 (__init__)
+
+  91           LOAD_CONST               5 (<code object _choose_dir at 0x00000204B9F6FDF0, file "multiprocessing\heap.py", line 91>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_choose_dir)
+               LOAD_CONST               6 (('buffer', 'fd', 'size'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA338F90, file "multiprocessing\heap.py", line 77>:
+ 77           RESUME                   0
+
+ 78           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (size, self)
+              STORE_ATTR               0 (size)
+
+ 79           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (fd, self)
+              STORE_ATTR               1 (fd)
+
+ 80           LOAD_FAST_BORROW         2 (fd)
+              LOAD_CONST               4 (-1)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE      178 (to L1)
+              NOT_TAKEN
+
+ 83           LOAD_GLOBAL              4 (tempfile)
+              LOAD_ATTR                6 (mkstemp)
+              PUSH_NULL
+
+ 84           LOAD_CONST               1 ('pym-%d-')
+              LOAD_GLOBAL              8 (os)
+              LOAD_ATTR               10 (getpid)
+              PUSH_NULL
+              CALL                     0
+              BINARY_OP                6 (%)
+
+ 85           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (_choose_dir + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+
+ 83           LOAD_CONST               2 (('prefix', 'dir'))
+              CALL_KW                  2
+              UNPACK_SEQUENCE          2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (fd)
+              STORE_FAST               3 (name)
+
+ 86           LOAD_GLOBAL              8 (os)
+              LOAD_ATTR               14 (unlink)
+              PUSH_NULL
+              LOAD_FAST_BORROW         3 (name)
+              CALL                     1
+              POP_TOP
+
+ 87           LOAD_GLOBAL             16 (util)
+              LOAD_ATTR               18 (Finalize)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_GLOBAL              8 (os)
+              LOAD_ATTR               20 (close)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (fd)
+              BUILD_TUPLE              1
+              CALL                     3
+              POP_TOP
+
+ 88           LOAD_GLOBAL              8 (os)
+              LOAD_ATTR               22 (ftruncate)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (fd)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     2
+              POP_TOP
+
+ 89   L1:     LOAD_GLOBAL             24 (mmap)
+              LOAD_ATTR               24 (mmap)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (fd)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (size)
+              CALL                     2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              13 (buffer)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _choose_dir at 0x00000204B9F6FDF0, file "multiprocessing\heap.py", line 91>:
+ 91           RESUME                   0
+
+ 94           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_dir_candidates)
+              GET_ITER
+      L1:     FOR_ITER                63 (to L3)
+              STORE_FAST               2 (d)
+
+ 95           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                4 (statvfs)
+              PUSH_NULL
+              LOAD_FAST_BORROW         2 (d)
+              CALL                     1
+              STORE_FAST               3 (st)
+
+ 96           LOAD_FAST_BORROW         3 (st)
+              LOAD_ATTR                6 (f_bavail)
+              LOAD_FAST_BORROW         3 (st)
+              LOAD_ATTR                8 (f_frsize)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         1 (size)
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           61 (to L1)
+
+ 97   L2:     LOAD_FAST_BORROW         2 (d)
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+ 94   L3:     END_FOR
+              POP_ITER
+
+ 98           LOAD_GLOBAL             10 (util)
+              LOAD_ATTR               12 (get_temp_dir)
+              PUSH_NULL
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object reduce_arena at 0x00000204BA6D41A0, file "multiprocessing\heap.py", line 100>:
+100           RESUME                   0
+
+101           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (fd)
+              LOAD_CONST               2 (-1)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+102           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               1 ('Arena is unpicklable because forking was enabled when it was created')
+              CALL                     1
+              RAISE_VARARGS            1
+
+104   L1:     LOAD_GLOBAL              4 (rebuild_arena)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                6 (size)
+              LOAD_GLOBAL              8 (reduction)
+              LOAD_ATTR               10 (DupFd)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (fd)
+              CALL                     1
+              BUILD_TUPLE              2
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object rebuild_arena at 0x00000204BA0FF550, file "multiprocessing\heap.py", line 106>:
+106           RESUME                   0
+
+107           LOAD_GLOBAL              1 (Arena + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (size, dupfd)
+              LOAD_ATTR                3 (detach + NULL|self)
+              CALL                     0
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object Heap at 0x00000204BA6D4310, file "multiprocessing\heap.py", line 115>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 115           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Heap')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         115
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 118           LOAD_SMALL_INT           8
+               STORE_NAME               4 (_alignment)
+
+ 120           LOAD_CONST              14 (4194304)
+               STORE_NAME               5 (_DISCARD_FREE_SPACE_LARGER_THAN)
+
+ 121           LOAD_CONST              14 (4194304)
+               STORE_NAME               6 (_DOUBLE_ARENA_SIZE_UNTIL)
+
+ 123           LOAD_NAME                7 (mmap)
+               LOAD_ATTR               16 (PAGESIZE)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object __init__ at 0x00000204B9FA7860, file "multiprocessing\heap.py", line 123>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               9 (__init__)
+
+ 152           LOAD_NAME               10 (staticmethod)
+
+ 153           LOAD_CONST               2 (<code object _roundup at 0x00000204BA0FD020, file "multiprocessing\heap.py", line 152>)
+               MAKE_FUNCTION
+
+ 152           CALL                     0
+
+ 153           STORE_NAME              11 (_roundup)
+
+ 158           LOAD_CONST               3 (<code object _new_arena at 0x00000204BA3E0360, file "multiprocessing\heap.py", line 158>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (_new_arena)
+
+ 170           LOAD_CONST               4 (<code object _discard_arena at 0x00000204BA369050, file "multiprocessing\heap.py", line 170>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (_discard_arena)
+
+ 188           LOAD_CONST               5 (<code object _malloc at 0x00000204BA365C00, file "multiprocessing\heap.py", line 188>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (_malloc)
+
+ 205           LOAD_CONST               6 (<code object _add_free_block at 0x00000204BA33B170, file "multiprocessing\heap.py", line 205>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (_add_free_block)
+
+ 235           LOAD_CONST               7 (<code object _absorb at 0x00000204B9FC23D0, file "multiprocessing\heap.py", line 235>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (_absorb)
+
+ 250           LOAD_CONST               8 (<code object _remove_allocated_block at 0x00000204B9F73E10, file "multiprocessing\heap.py", line 250>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (_remove_allocated_block)
+
+ 258           LOAD_CONST               9 (<code object _free_pending_blocks at 0x00000204B9FB6A30, file "multiprocessing\heap.py", line 258>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (_free_pending_blocks)
+
+ 268           LOAD_CONST              10 (<code object free at 0x00000204BA387780, file "multiprocessing\heap.py", line 268>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (free)
+
+ 296           LOAD_CONST              11 (<code object malloc at 0x00000204BA35BFC0, file "multiprocessing\heap.py", line 296>)
+               MAKE_FUNCTION
+               STORE_NAME              20 (malloc)
+               LOAD_CONST              12 (('_allocated_blocks', '_arenas', '_lastpid', '_len_to_seq', '_lengths', '_lock', '_n_frees', '_n_mallocs', '_pending_free_blocks', '_size', '_start_to_block', '_stop_to_block'))
+               STORE_NAME              21 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              22 (__classdictcell__)
+               LOAD_CONST              13 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FA7860, file "multiprocessing\heap.py", line 123>:
+123           RESUME                   0
+
+124           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (getpid)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_lastpid)
+
+125           LOAD_GLOBAL              6 (threading)
+              LOAD_ATTR                8 (Lock)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_lock)
+
+127           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (size, self)
+              STORE_ATTR               6 (_size)
+
+129           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_lengths)
+
+133           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_len_to_seq)
+
+136           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               9 (_start_to_block)
+
+139           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              10 (_stop_to_block)
+
+142           LOAD_GLOBAL             23 (defaultdict + NULL)
+              LOAD_GLOBAL             24 (set)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              13 (_allocated_blocks)
+
+143           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              14 (_arenas)
+
+146           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              15 (_pending_free_blocks)
+
+149           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              16 (_n_mallocs)
+
+150           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              17 (_n_frees)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _roundup at 0x00000204BA0FD020, file "multiprocessing\heap.py", line 152>:
+152           RESUME                   0
+
+155           LOAD_FAST_BORROW         1 (alignment)
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+              STORE_FAST               2 (mask)
+
+156           LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (n, mask)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         2 (mask)
+              UNARY_INVERT
+              BINARY_OP                1 (&)
+              RETURN_VALUE
+
+Disassembly of <code object _new_arena at 0x00000204BA3E0360, file "multiprocessing\heap.py", line 158>:
+158           RESUME                   0
+
+160           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_roundup + NULL|self)
+              LOAD_GLOBAL              3 (max + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_size)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     2
+              LOAD_GLOBAL              6 (mmap)
+              LOAD_ATTR                8 (PAGESIZE)
+              CALL                     2
+              STORE_FAST               2 (length)
+
+163           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_size)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_DOUBLE_ARENA_SIZE_UNTIL)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       26 (to L1)
+              NOT_TAKEN
+
+164           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                4 (_size)
+              LOAD_SMALL_INT           2
+              BINARY_OP               18 (*=)
+              SWAP                     2
+              STORE_ATTR               2 (_size)
+
+165   L1:     LOAD_GLOBAL             12 (util)
+              LOAD_ATTR               14 (info)
+              PUSH_NULL
+              LOAD_CONST               1 ('allocating a new mmap of length %d')
+              LOAD_FAST_BORROW         2 (length)
+              CALL                     2
+              POP_TOP
+
+166           LOAD_GLOBAL             17 (Arena + NULL)
+              LOAD_FAST_BORROW         2 (length)
+              CALL                     1
+              STORE_FAST               3 (arena)
+
+167           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (_arenas)
+              LOAD_ATTR               21 (append + NULL|self)
+              LOAD_FAST_BORROW         3 (arena)
+              CALL                     1
+              POP_TOP
+
+168           LOAD_FAST_BORROW         3 (arena)
+              LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         2 (length)
+              BUILD_TUPLE              3
+              RETURN_VALUE
+
+Disassembly of <code object _discard_arena at 0x00000204BA369050, file "multiprocessing\heap.py", line 170>:
+170           RESUME                   0
+
+172           LOAD_FAST_BORROW         1 (arena)
+              LOAD_ATTR                0 (size)
+              STORE_FAST               2 (length)
+
+175           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (length, self)
+              LOAD_ATTR                2 (_DISCARD_FREE_SPACE_LARGER_THAN)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+176           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+177   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_allocated_blocks)
+              LOAD_ATTR                7 (pop + NULL|self)
+              LOAD_FAST_BORROW         1 (arena)
+              CALL                     1
+              STORE_FAST               3 (blocks)
+
+178           LOAD_FAST_BORROW         3 (blocks)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+179   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_start_to_block)
+              LOAD_FAST_BORROW         1 (arena)
+              LOAD_SMALL_INT           0
+              BUILD_TUPLE              2
+              DELETE_SUBSCR
+
+180           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_stop_to_block)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (arena, length)
+              BUILD_TUPLE              2
+              DELETE_SUBSCR
+
+181           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_arenas)
+              LOAD_ATTR               15 (remove + NULL|self)
+              LOAD_FAST_BORROW         1 (arena)
+              CALL                     1
+              POP_TOP
+
+182           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (_len_to_seq)
+              LOAD_FAST_BORROW         2 (length)
+              BINARY_OP               26 ([])
+              STORE_FAST               4 (seq)
+
+183           LOAD_FAST_BORROW         4 (seq)
+              LOAD_ATTR               15 (remove + NULL|self)
+              LOAD_FAST_BORROW         1 (arena)
+              LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         2 (length)
+              BUILD_TUPLE              3
+              CALL                     1
+              POP_TOP
+
+184           LOAD_FAST_BORROW         4 (seq)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        43 (to L3)
+              NOT_TAKEN
+
+185           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (_len_to_seq)
+              LOAD_FAST_BORROW         2 (length)
+              DELETE_SUBSCR
+
+186           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (_lengths)
+              LOAD_ATTR               15 (remove + NULL|self)
+              LOAD_FAST_BORROW         2 (length)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+184   L3:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _malloc at 0x00000204BA365C00, file "multiprocessing\heap.py", line 188>:
+188           RESUME                   0
+
+190           LOAD_GLOBAL              0 (bisect)
+              LOAD_ATTR                2 (bisect_left)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_lengths)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     2
+              STORE_FAST               2 (i)
+
+191           LOAD_FAST_BORROW         2 (i)
+              LOAD_GLOBAL              7 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_lengths)
+              CALL                     1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       18 (to L1)
+              NOT_TAKEN
+
+192           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (_new_arena + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+194   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_lengths)
+              LOAD_FAST_BORROW         2 (i)
+              BINARY_OP               26 ([])
+              STORE_FAST               3 (length)
+
+195           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_len_to_seq)
+              LOAD_FAST_BORROW         3 (length)
+              BINARY_OP               26 ([])
+              STORE_FAST               4 (seq)
+
+196           LOAD_FAST_BORROW         4 (seq)
+              LOAD_ATTR               13 (pop + NULL|self)
+              CALL                     0
+              STORE_FAST               5 (block)
+
+197           LOAD_FAST_BORROW         4 (seq)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        27 (to L2)
+              NOT_TAKEN
+
+198           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_len_to_seq)
+              LOAD_FAST_BORROW         3 (length)
+              DELETE_SUBSCR
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_lengths)
+              LOAD_FAST_BORROW         2 (i)
+              DELETE_SUBSCR
+
+200   L2:     LOAD_FAST_BORROW         5 (block)
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST  103 (arena, start)
+              STORE_FAST               8 (stop)
+
+201           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (_start_to_block)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (arena, start)
+              BUILD_TUPLE              2
+              DELETE_SUBSCR
+
+202           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (_stop_to_block)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 104 (arena, stop)
+              BUILD_TUPLE              2
+              DELETE_SUBSCR
+
+203           LOAD_FAST_BORROW         5 (block)
+              RETURN_VALUE
+
+Disassembly of <code object _add_free_block at 0x00000204BA33B170, file "multiprocessing\heap.py", line 205>:
+ 205            RESUME                   0
+
+ 207            LOAD_FAST_BORROW         1 (block)
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   35 (arena, start)
+                STORE_FAST               4 (stop)
+
+ 209            NOP
+
+ 210    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_stop_to_block)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (arena, start)
+                BUILD_TUPLE              2
+                BINARY_OP               26 ([])
+                STORE_FAST               5 (prev_block)
+
+ 214    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (_absorb + NULL|self)
+                LOAD_FAST_BORROW         5 (prev_block)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   54 (start, _)
+
+ 216    L3:     NOP
+
+ 217    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_start_to_block)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (arena, stop)
+                BUILD_TUPLE              2
+                BINARY_OP               26 ([])
+                STORE_FAST               7 (next_block)
+
+ 221    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (_absorb + NULL|self)
+                LOAD_FAST_BORROW         7 (next_block)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  100 (_, stop)
+
+ 223    L6:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (arena, start)
+                LOAD_FAST_BORROW         4 (stop)
+                BUILD_TUPLE              3
+                STORE_FAST               1 (block)
+
+ 224            LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (stop, start)
+                BINARY_OP               10 (-)
+                STORE_FAST               8 (length)
+
+ 226            NOP
+
+ 227    L7:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_len_to_seq)
+                LOAD_FAST_BORROW         8 (length)
+                BINARY_OP               26 ([])
+                LOAD_ATTR               11 (append + NULL|self)
+                LOAD_FAST_BORROW         1 (block)
+                CALL                     1
+                POP_TOP
+
+ 232    L8:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (block, self)
+                LOAD_ATTR                6 (_start_to_block)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (arena, start)
+                BUILD_TUPLE              2
+                STORE_SUBSCR
+
+ 233            LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (block, self)
+                LOAD_ATTR                0 (_stop_to_block)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (arena, stop)
+                BUILD_TUPLE              2
+                STORE_SUBSCR
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --    L9:     PUSH_EXC_INFO
+
+ 211            LOAD_GLOBAL              4 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L11)
+                NOT_TAKEN
+                POP_TOP
+
+ 212   L10:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 132 (to L3)
+
+ 211   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L13:     PUSH_EXC_INFO
+
+ 218            LOAD_GLOBAL              4 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L15)
+                NOT_TAKEN
+                POP_TOP
+
+ 219   L14:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 109 (to L6)
+
+ 218   L15:     RERAISE                  0
+
+  --   L16:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L17:     PUSH_EXC_INFO
+
+ 228            LOAD_GLOBAL              4 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       53 (to L19)
+                NOT_TAKEN
+                POP_TOP
+
+ 229            LOAD_FAST                1 (block)
+                BUILD_LIST               1
+                LOAD_FAST                0 (self)
+                LOAD_ATTR                8 (_len_to_seq)
+                LOAD_FAST                8 (length)
+                STORE_SUBSCR
+
+ 230            LOAD_GLOBAL             12 (bisect)
+                LOAD_ATTR               14 (insort)
+                PUSH_NULL
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               16 (_lengths)
+                LOAD_FAST                8 (length)
+                CALL                     2
+                POP_TOP
+       L18:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 128 (to L8)
+
+ 228   L19:     RERAISE                  0
+
+  --   L20:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L9 [0]
+  L4 to L5 -> L13 [0]
+  L7 to L8 -> L17 [0]
+  L9 to L10 -> L12 [1] lasti
+  L11 to L12 -> L12 [1] lasti
+  L13 to L14 -> L16 [1] lasti
+  L15 to L16 -> L16 [1] lasti
+  L17 to L18 -> L20 [1] lasti
+  L19 to L20 -> L20 [1] lasti
+
+Disassembly of <code object _absorb at 0x00000204B9FC23D0, file "multiprocessing\heap.py", line 235>:
+235           RESUME                   0
+
+237           LOAD_FAST_BORROW         1 (block)
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   35 (arena, start)
+              STORE_FAST               4 (stop)
+
+238           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_start_to_block)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (arena, start)
+              BUILD_TUPLE              2
+              DELETE_SUBSCR
+
+239           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_stop_to_block)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (arena, stop)
+              BUILD_TUPLE              2
+              DELETE_SUBSCR
+
+241           LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (stop, start)
+              BINARY_OP               10 (-)
+              STORE_FAST               5 (length)
+
+242           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_len_to_seq)
+              LOAD_FAST_BORROW         5 (length)
+              BINARY_OP               26 ([])
+              STORE_FAST               6 (seq)
+
+243           LOAD_FAST_BORROW         6 (seq)
+              LOAD_ATTR                7 (remove + NULL|self)
+              LOAD_FAST_BORROW         1 (block)
+              CALL                     1
+              POP_TOP
+
+244           LOAD_FAST_BORROW         6 (seq)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        41 (to L1)
+              NOT_TAKEN
+
+245           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_len_to_seq)
+              LOAD_FAST_BORROW         5 (length)
+              DELETE_SUBSCR
+
+246           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_lengths)
+              LOAD_ATTR                7 (remove + NULL|self)
+              LOAD_FAST_BORROW         5 (length)
+              CALL                     1
+              POP_TOP
+
+248   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (start, stop)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _remove_allocated_block at 0x00000204B9F73E10, file "multiprocessing\heap.py", line 250>:
+250           RESUME                   0
+
+251           LOAD_FAST_BORROW         1 (block)
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   35 (arena, start)
+              STORE_FAST               4 (stop)
+
+252           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_allocated_blocks)
+              LOAD_FAST_BORROW         2 (arena)
+              BINARY_OP               26 ([])
+              STORE_FAST               5 (blocks)
+
+253           LOAD_FAST_BORROW         5 (blocks)
+              LOAD_ATTR                3 (remove + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (start, stop)
+              BUILD_TUPLE              2
+              CALL                     1
+              POP_TOP
+
+254           LOAD_FAST_BORROW         5 (blocks)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        20 (to L1)
+              NOT_TAKEN
+
+256           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_discard_arena + NULL|self)
+              LOAD_FAST_BORROW         2 (arena)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+254   L1:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _free_pending_blocks at 0x00000204B9FB6A30, file "multiprocessing\heap.py", line 258>:
+ 258           RESUME                   0
+
+ 260   L1:     NOP
+
+ 261           NOP
+
+ 262   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_pending_free_blocks)
+               LOAD_ATTR                3 (pop + NULL|self)
+               CALL                     0
+               STORE_FAST               1 (block)
+
+ 265   L3:     LOAD_FAST                0 (self)
+               LOAD_ATTR                7 (_add_free_block + NULL|self)
+               LOAD_FAST                1 (block)
+               CALL                     1
+               POP_TOP
+
+ 266           LOAD_FAST                0 (self)
+               LOAD_ATTR                9 (_remove_allocated_block + NULL|self)
+               LOAD_FAST                1 (block)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD           64 (to L1)
+
+  --   L4:     PUSH_EXC_INFO
+
+ 263           LOAD_GLOBAL              4 (IndexError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 264   L5:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 263   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object free at 0x00000204BA387780, file "multiprocessing\heap.py", line 268>:
+ 268           RESUME                   0
+
+ 278           LOAD_GLOBAL              0 (os)
+               LOAD_ATTR                2 (getpid)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_lastpid)
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       57 (to L1)
+               NOT_TAKEN
+
+ 279           LOAD_GLOBAL              7 (ValueError + NULL)
+
+ 280           LOAD_CONST               0 ('My pid ({0:n}) is not last pid {1:n}')
+               LOAD_ATTR                9 (format + NULL|self)
+
+ 281           LOAD_GLOBAL              0 (os)
+               LOAD_ATTR                2 (getpid)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_lastpid)
+
+ 280           CALL                     2
+
+ 279           CALL                     1
+               RAISE_VARARGS            1
+
+ 282   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_lock)
+               LOAD_ATTR               13 (acquire + NULL|self)
+               LOAD_CONST               1 (False)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE        30 (to L2)
+               NOT_TAKEN
+
+ 285           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               14 (_pending_free_blocks)
+               LOAD_ATTR               17 (append + NULL|self)
+               LOAD_FAST_BORROW         1 (block)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+ 288   L2:     NOP
+
+ 289   L3:     LOAD_FAST_BORROW         0 (self)
+               COPY                     1
+               LOAD_ATTR               18 (_n_frees)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               SWAP                     2
+               STORE_ATTR               9 (_n_frees)
+
+ 290           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               21 (_free_pending_blocks + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 291           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               23 (_add_free_block + NULL|self)
+               LOAD_FAST_BORROW         1 (block)
+               CALL                     1
+               POP_TOP
+
+ 292           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               25 (_remove_allocated_block + NULL|self)
+               LOAD_FAST_BORROW         1 (block)
+               CALL                     1
+               POP_TOP
+
+ 294   L4:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_lock)
+               LOAD_ATTR               27 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 294           LOAD_FAST                0 (self)
+               LOAD_ATTR               10 (_lock)
+               LOAD_ATTR               27 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object malloc at 0x00000204BA35BFC0, file "multiprocessing\heap.py", line 296>:
+ 296            RESUME                   0
+
+ 298            LOAD_FAST_BORROW         1 (size)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       27 (to L1)
+                NOT_TAKEN
+
+ 299            LOAD_GLOBAL              1 (ValueError + NULL)
+                LOAD_CONST               1 ('Size {0:n} out of range')
+                LOAD_ATTR                3 (format + NULL|self)
+                LOAD_FAST_BORROW         1 (size)
+                CALL                     1
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 300    L1:     LOAD_GLOBAL              4 (sys)
+                LOAD_ATTR                6 (maxsize)
+                LOAD_FAST_BORROW         1 (size)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       27 (to L2)
+                NOT_TAKEN
+
+ 301            LOAD_GLOBAL              9 (OverflowError + NULL)
+                LOAD_CONST               2 ('Size {0:n} too large')
+                LOAD_ATTR                3 (format + NULL|self)
+                LOAD_FAST_BORROW         1 (size)
+                CALL                     1
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 302    L2:     LOAD_GLOBAL             10 (os)
+                LOAD_ATTR               12 (getpid)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_lastpid)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       17 (to L3)
+                NOT_TAKEN
+
+ 303            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               17 (__init__ + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 304    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               18 (_lock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L4:     POP_TOP
+
+ 305            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR               20 (_n_mallocs)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR              10 (_n_mallocs)
+
+ 307            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               23 (_free_pending_blocks + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 308            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               25 (_roundup + NULL|self)
+                LOAD_GLOBAL             27 (max + NULL)
+                LOAD_FAST_BORROW         1 (size)
+                LOAD_SMALL_INT           1
+                CALL                     2
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               28 (_alignment)
+                CALL                     2
+                STORE_FAST               1 (size)
+
+ 309            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               31 (_malloc + NULL|self)
+                LOAD_FAST_BORROW         1 (size)
+                CALL                     1
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   35 (arena, start)
+                STORE_FAST               4 (stop)
+
+ 310            LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (start, size)
+                BINARY_OP                0 (+)
+                STORE_FAST               5 (real_stop)
+
+ 311            LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (real_stop, stop)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       20 (to L5)
+                NOT_TAKEN
+
+ 314            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               33 (_add_free_block + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (arena, real_stop)
+                LOAD_FAST_BORROW         4 (stop)
+                BUILD_TUPLE              3
+                CALL                     1
+                POP_TOP
+
+ 315    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               34 (_allocated_blocks)
+                LOAD_FAST_BORROW         2 (arena)
+                BINARY_OP               26 ([])
+                LOAD_ATTR               37 (add + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (start, real_stop)
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+
+ 316            LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (arena, start)
+                LOAD_FAST_BORROW         5 (real_stop)
+                BUILD_TUPLE              3
+
+ 304    L6:     SWAP                     3
+                SWAP                     2
+                LOAD_CONST               3 (None)
+                LOAD_CONST               3 (None)
+                LOAD_CONST               3 (None)
+                CALL                     3
+                POP_TOP
+                RETURN_VALUE
+        L7:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L8)
+                NOT_TAKEN
+                RERAISE                  2
+        L8:     POP_TOP
+        L9:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               3 (None)
+                RETURN_VALUE
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L6 -> L7 [2] lasti
+  L7 to L9 -> L10 [4] lasti
+
+Disassembly of <code object BufferWrapper at 0x00000204BA0FFCC0, file "multiprocessing\heap.py", line 322>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 322           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BufferWrapper')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (322)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 324           LOAD_NAME                4 (Heap)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME               5 (_heap)
+
+ 326           LOAD_CONST               2 (<code object __init__ at 0x00000204BA3E0590, file "multiprocessing\heap.py", line 326>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__init__)
+
+ 335           LOAD_CONST               3 (<code object create_memoryview at 0x00000204BA102E80, file "multiprocessing\heap.py", line 335>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (create_memoryview)
+               LOAD_CONST               4 (('_state',))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA3E0590, file "multiprocessing\heap.py", line 326>:
+326           RESUME                   0
+
+327           LOAD_FAST_BORROW         1 (size)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+328           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('Size {0:n} out of range')
+              LOAD_ATTR                3 (format + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              CALL                     1
+              RAISE_VARARGS            1
+
+329   L1:     LOAD_GLOBAL              4 (sys)
+              LOAD_ATTR                6 (maxsize)
+              LOAD_FAST_BORROW         1 (size)
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE       27 (to L2)
+              NOT_TAKEN
+
+330           LOAD_GLOBAL              9 (OverflowError + NULL)
+              LOAD_CONST               2 ('Size {0:n} too large')
+              LOAD_ATTR                3 (format + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              CALL                     1
+              RAISE_VARARGS            1
+
+331   L2:     LOAD_GLOBAL             10 (BufferWrapper)
+              LOAD_ATTR               12 (_heap)
+              LOAD_ATTR               15 (malloc + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              STORE_FAST               2 (block)
+
+332           LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (block, size)
+              BUILD_TUPLE              2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_state)
+
+333           LOAD_GLOBAL             18 (util)
+              LOAD_ATTR               20 (Finalize)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_GLOBAL             10 (BufferWrapper)
+              LOAD_ATTR               12 (_heap)
+              LOAD_ATTR               22 (free)
+              LOAD_FAST_BORROW         2 (block)
+              BUILD_TUPLE              1
+              LOAD_CONST               3 (('args',))
+              CALL_KW                  3
+              POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object create_memoryview at 0x00000204BA102E80, file "multiprocessing\heap.py", line 335>:
+335           RESUME                   0
+
+336           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_state)
+              UNPACK_SEQUENCE          2
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   18 (arena, start)
+              STORE_FAST_STORE_FAST   52 (stop, size)
+
+337           LOAD_GLOBAL              3 (memoryview + NULL)
+              LOAD_FAST_BORROW         1 (arena)
+              LOAD_ATTR                4 (buffer)
+              CALL                     1
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 34 (start, start)
+              LOAD_FAST_BORROW         4 (size)
+              BINARY_OP                0 (+)
+              BINARY_SLICE
+              RETURN_VALUE

@@ -1,0 +1,436 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (os)
+              STORE_NAME               0 (os)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (re)
+              STORE_NAME               1 (re)
+
+  4           LOAD_NAME                0 (os)
+              LOAD_ATTR                4 (sep)
+              LOAD_NAME                3 (str)
+              PUSH_NULL
+              LOAD_NAME                0 (os)
+              LOAD_ATTR                8 (altsep)
+              CALL                     1
+              LOAD_NAME                5 (bool)
+              PUSH_NULL
+              LOAD_NAME                0 (os)
+              LOAD_ATTR                8 (altsep)
+              CALL                     1
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              STORE_NAME               6 (_default_seps)
+
+  7           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               2 (<code object Translator at 0x00000204BA0BB210, file "zipfile\_path\glob.py", line 7>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('Translator')
+              CALL                     2
+              STORE_NAME               7 (Translator)
+
+104           LOAD_CONST               4 (<code object separate at 0x00000204BA10AD30, file "zipfile\_path\glob.py", line 104>)
+              MAKE_FUNCTION
+              STORE_NAME               8 (separate)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Translator at 0x00000204BA0BB210, file "zipfile\_path\glob.py", line 7>:
+  --           MAKE_CELL                0 (__classdict__)
+
+   7           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Translator')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT           7
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+   8           LOAD_CONST               1 ("\n>>> Translator('xyz')\nTraceback (most recent call last):\n...\nAssertionError: Invalid separators\n\n>>> Translator('')\nTraceback (most recent call last):\n...\nAssertionError: Invalid separators\n")
+               STORE_NAME               4 (__doc__)
+
+  22           LOAD_NAME                5 (_default_seps)
+               BUILD_TUPLE              1
+               LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __annotate__ at 0x00000204BA092B50, file "zipfile\_path\glob.py", line 22>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0A9570, file "zipfile\_path\glob.py", line 22>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__init__)
+
+  26           LOAD_CONST               4 (<code object translate at 0x00000204BA103210, file "zipfile\_path\glob.py", line 26>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (translate)
+
+  32           LOAD_CONST               5 (<code object extend at 0x00000204BA730AB0, file "zipfile\_path\glob.py", line 32>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (extend)
+
+  43           LOAD_CONST               6 (<code object match_dirs at 0x00000204BA730B90, file "zipfile\_path\glob.py", line 43>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (match_dirs)
+
+  51           LOAD_CONST               7 (<code object translate_core at 0x00000204BA7292E0, file "zipfile\_path\glob.py", line 51>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (translate_core)
+
+  66           LOAD_CONST               8 (<code object replace at 0x00000204BA720030, file "zipfile\_path\glob.py", line 66>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (replace)
+
+  77           LOAD_CONST               9 (<code object restrict_rglob at 0x00000204B9FC3870, file "zipfile\_path\glob.py", line 77>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (restrict_rglob)
+
+  91           LOAD_CONST              10 (<code object star_not_empty at 0x00000204BA0BBC90, file "zipfile\_path\glob.py", line 91>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (star_not_empty)
+
+   7           LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST              11 (<code object __annotate__ at 0x00000204BA10A530, file "zipfile\_path\glob.py", line 7>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              14 (__annotate_func__)
+               LOAD_CONST              12 (('seps',))
+               STORE_NAME              15 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              16 (__classdictcell__)
+               LOAD_CONST              13 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092B50, file "zipfile\_path\glob.py", line 22>:
+  --           COPY_FREE_VARS           1
+
+  22           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('seps')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               BUILD_MAP                1
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A9570, file "zipfile\_path\glob.py", line 22>:
+ 22           RESUME                   0
+
+ 23           LOAD_FAST_BORROW         1 (seps)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       30 (to L1)
+              NOT_TAKEN
+              LOAD_GLOBAL              1 (set + NULL)
+              LOAD_FAST_BORROW         1 (seps)
+              CALL                     1
+              LOAD_GLOBAL              1 (set + NULL)
+              LOAD_GLOBAL              2 (_default_seps)
+              CALL                     1
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_TRUE         8 (to L2)
+              NOT_TAKEN
+      L1:     LOAD_COMMON_CONSTANT     0 (AssertionError)
+              LOAD_CONST               0 ('Invalid separators')
+              CALL                     0
+              RAISE_VARARGS            1
+
+ 24   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (seps, self)
+              STORE_ATTR               2 (seps)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object translate at 0x00000204BA103210, file "zipfile\_path\glob.py", line 26>:
+ 26           RESUME                   0
+
+ 30           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (extend + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (match_dirs + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (translate_core + NULL|self)
+              LOAD_FAST_BORROW         1 (pattern)
+              CALL                     1
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object extend at 0x00000204BA730AB0, file "zipfile\_path\glob.py", line 32>:
+ 32           RESUME                   0
+
+ 41           LOAD_CONST               1 ('(?s:')
+              LOAD_FAST_BORROW         1 (pattern)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (')\\z')
+              BUILD_STRING             3
+              RETURN_VALUE
+
+Disassembly of <code object match_dirs at 0x00000204BA730B90, file "zipfile\_path\glob.py", line 43>:
+ 43           RESUME                   0
+
+ 49           LOAD_FAST_BORROW         1 (pattern)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('[/]?')
+              BUILD_STRING             2
+              RETURN_VALUE
+
+Disassembly of <code object translate_core at 0x00000204BA7292E0, file "zipfile\_path\glob.py", line 51>:
+ 51           RESUME                   0
+
+ 63           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (restrict_rglob + NULL|self)
+              LOAD_FAST_BORROW         1 (pattern)
+              CALL                     1
+              POP_TOP
+
+ 64           LOAD_CONST               1 ('')
+              LOAD_ATTR                3 (join + NULL|self)
+              LOAD_GLOBAL              5 (map + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (replace)
+              LOAD_GLOBAL              9 (separate + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (star_not_empty + NULL|self)
+              LOAD_FAST_BORROW         1 (pattern)
+              CALL                     1
+              CALL                     1
+              CALL                     2
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object replace at 0x00000204BA720030, file "zipfile\_path\glob.py", line 66>:
+ 66           RESUME                   0
+
+ 70           LOAD_FAST_BORROW         1 (match)
+              LOAD_ATTR                1 (group + NULL|self)
+              LOAD_CONST               1 ('set')
+              CALL                     1
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE       120 (to L1)
+              NOT_TAKEN
+              POP_TOP
+
+ 71           LOAD_GLOBAL              2 (re)
+              LOAD_ATTR                4 (escape)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (match)
+              LOAD_ATTR                1 (group + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              CALL                     1
+
+ 72           LOAD_ATTR                7 (replace + NULL|self)
+              LOAD_CONST               2 ('\\*\\*')
+              LOAD_CONST               3 ('.*')
+              CALL                     2
+
+ 73           LOAD_ATTR                7 (replace + NULL|self)
+              LOAD_CONST               4 ('\\*')
+              LOAD_CONST               5 ('[^')
+              LOAD_GLOBAL              2 (re)
+              LOAD_ATTR                4 (escape)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (seps)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               6 (']*')
+              BUILD_STRING             3
+              CALL                     2
+
+ 74           LOAD_ATTR                7 (replace + NULL|self)
+              LOAD_CONST               7 ('\\?')
+              LOAD_CONST               8 ('[^/]')
+              CALL                     2
+
+ 70   L1:     RETURN_VALUE
+
+Disassembly of <code object restrict_rglob at 0x00000204B9FC3870, file "zipfile\_path\glob.py", line 77>:
+ 77           RESUME                   0
+
+ 86           LOAD_CONST               1 ('[')
+              LOAD_GLOBAL              0 (re)
+              LOAD_ATTR                2 (escape)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (seps)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (']+')
+              BUILD_STRING             3
+              STORE_FAST               2 (seps_pattern)
+
+ 87           LOAD_GLOBAL              0 (re)
+              LOAD_ATTR                6 (split)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (seps_pattern, pattern)
+              CALL                     2
+              STORE_FAST               3 (segments)
+
+ 88           LOAD_GLOBAL              8 (any)
+              COPY                     1
+              LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       28 (to L4)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA0A7AB0, file "zipfile\_path\glob.py", line 88>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         3 (segments)
+              GET_ITER
+              CALL                     0
+      L1:     FOR_ITER                12 (to L3)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           11 (to L1)
+      L2:     POP_ITER
+              LOAD_CONST               4 (True)
+              JUMP_FORWARD            17 (to L5)
+      L3:     END_FOR
+              POP_ITER
+              LOAD_CONST               5 (False)
+              JUMP_FORWARD            13 (to L5)
+      L4:     PUSH_NULL
+              LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA0A7AB0, file "zipfile\_path\glob.py", line 88>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         3 (segments)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+      L5:     TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L6)
+              NOT_TAKEN
+
+ 89           LOAD_GLOBAL             11 (ValueError + NULL)
+              LOAD_CONST               6 ('** must appear alone in a path segment')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 88   L6:     LOAD_CONST               7 (None)
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A7AB0, file "zipfile\_path\glob.py", line 88>:
+  88           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                23 (to L6)
+               STORE_FAST               1 (segment)
+               LOAD_CONST               0 ('**')
+               LOAD_FAST_BORROW         1 (segment)
+               CONTAINS_OP              0 (in)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        6 (to L5)
+       L3:     NOT_TAKEN
+       L4:     POP_TOP
+               LOAD_FAST_BORROW         1 (segment)
+               LOAD_CONST               0 ('**')
+               COMPARE_OP             103 (!=)
+       L5:     YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           25 (to L2)
+       L6:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L7:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L7 [0] lasti
+  L4 to L7 -> L7 [0] lasti
+
+Disassembly of <code object star_not_empty at 0x00000204BA0BBC90, file "zipfile\_path\glob.py", line 91>:
+ 91           RESUME                   0
+
+ 96           LOAD_CONST               1 (<code object handle_segment at 0x00000204BA718580, file "zipfile\_path\glob.py", line 96>)
+              MAKE_FUNCTION
+              STORE_FAST               2 (handle_segment)
+
+100           LOAD_CONST               2 ('[^')
+              LOAD_GLOBAL              0 (re)
+              LOAD_ATTR                2 (escape)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (seps)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (']+')
+              BUILD_STRING             3
+              STORE_FAST               3 (not_seps_pattern)
+
+101           LOAD_GLOBAL              0 (re)
+              LOAD_ATTR                6 (sub)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (not_seps_pattern, handle_segment)
+              LOAD_FAST_BORROW         1 (pattern)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object handle_segment at 0x00000204BA718580, file "zipfile\_path\glob.py", line 96>:
+ 96           RESUME                   0
+
+ 97           LOAD_FAST_BORROW         0 (match)
+              LOAD_ATTR                1 (group + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              STORE_FAST               1 (segment)
+
+ 98           LOAD_FAST_BORROW         1 (segment)
+              LOAD_CONST               1 ('*')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               2 ('?*')
+              RETURN_VALUE
+      L1:     LOAD_FAST                1 (segment)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10A530, file "zipfile\_path\glob.py", line 7>:
+  --           COPY_FREE_VARS           1
+
+   7           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     BUILD_MAP                0
+
+  20           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               1 ('seps')
+
+   7           STORE_SUBSCR
+               RETURN_VALUE
+
+Disassembly of <code object separate at 0x00000204BA10AD30, file "zipfile\_path\glob.py", line 104>:
+104           RESUME                   0
+
+113           LOAD_GLOBAL              0 (re)
+              LOAD_ATTR                2 (finditer)
+              PUSH_NULL
+              LOAD_CONST               1 ('([^\\[]+)|(?P<set>[\\[].*?[\\]])|([\\[][^\\]]*$)')
+              LOAD_FAST_BORROW         0 (pattern)
+              CALL                     2
+              RETURN_VALUE

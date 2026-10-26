@@ -1,0 +1,168 @@
+   0           RESUME                   0
+
+   4           LOAD_CONST               0 ('Execute computations asynchronously using threads or processes.')
+               STORE_NAME               0 (__doc__)
+
+   6           LOAD_CONST               1 ('Brian Quinlan (brian@sweetapp.com)')
+               STORE_NAME               1 (__author__)
+
+   8           LOAD_SMALL_INT           0
+               LOAD_CONST               2 (('FIRST_COMPLETED', 'FIRST_EXCEPTION', 'ALL_COMPLETED', 'CancelledError', 'TimeoutError', 'InvalidStateError', 'BrokenExecutor', 'Future', 'Executor', 'wait', 'as_completed'))
+               IMPORT_NAME              2 (concurrent.futures._base)
+               IMPORT_FROM              3 (FIRST_COMPLETED)
+               STORE_NAME               3 (FIRST_COMPLETED)
+               IMPORT_FROM              4 (FIRST_EXCEPTION)
+               STORE_NAME               4 (FIRST_EXCEPTION)
+               IMPORT_FROM              5 (ALL_COMPLETED)
+               STORE_NAME               5 (ALL_COMPLETED)
+               IMPORT_FROM              6 (CancelledError)
+               STORE_NAME               6 (CancelledError)
+               IMPORT_FROM              7 (TimeoutError)
+               STORE_NAME               7 (TimeoutError)
+               IMPORT_FROM              8 (InvalidStateError)
+               STORE_NAME               8 (InvalidStateError)
+               IMPORT_FROM              9 (BrokenExecutor)
+               STORE_NAME               9 (BrokenExecutor)
+               IMPORT_FROM             10 (Future)
+               STORE_NAME              10 (Future)
+               IMPORT_FROM             11 (Executor)
+               STORE_NAME              11 (Executor)
+               IMPORT_FROM             12 (wait)
+               STORE_NAME              12 (wait)
+               IMPORT_FROM             13 (as_completed)
+               STORE_NAME              13 (as_completed)
+               POP_TOP
+
+  20           BUILD_LIST               0
+               LOAD_CONST               7 (('FIRST_COMPLETED', 'FIRST_EXCEPTION', 'ALL_COMPLETED', 'CancelledError', 'TimeoutError', 'InvalidStateError', 'BrokenExecutor', 'Future', 'Executor', 'wait', 'as_completed', 'ProcessPoolExecutor', 'ThreadPoolExecutor'))
+               LIST_EXTEND              1
+               STORE_NAME              14 (__all__)
+
+  37           NOP
+
+  38   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               3 (None)
+               IMPORT_NAME             15 (_interpreters)
+               STORE_NAME              15 (_interpreters)
+
+  42   L2:     LOAD_NAME               15 (_interpreters)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       18 (to L3)
+               NOT_TAKEN
+
+  43           LOAD_NAME               14 (__all__)
+               LOAD_ATTR               35 (append + NULL|self)
+               LOAD_CONST               4 ('InterpreterPoolExecutor')
+               CALL                     1
+               POP_TOP
+
+  46   L3:     LOAD_CONST               5 (<code object __dir__ at 0x00000204BA092970, file "concurrent\futures\__init__.py", line 46>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (__dir__)
+
+  50           LOAD_CONST               6 (<code object __getattr__ at 0x00000204BA129930, file "concurrent\futures\__init__.py", line 50>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (__getattr__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  39           LOAD_NAME               16 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  40           LOAD_CONST               3 (None)
+               STORE_NAME              15 (_interpreters)
+       L5:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 44 (to L2)
+
+  39   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object __dir__ at 0x00000204BA092970, file "concurrent\futures\__init__.py", line 46>:
+ 46           RESUME                   0
+
+ 47           LOAD_GLOBAL              0 (__all__)
+              LOAD_CONST               0 ('__author__')
+              LOAD_CONST               1 ('__doc__')
+              BUILD_LIST               2
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x00000204BA129930, file "concurrent\futures\__init__.py", line 50>:
+ 50           RESUME                   0
+
+ 53           LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               0 ('ProcessPoolExecutor')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+ 54           LOAD_SMALL_INT           1
+              LOAD_CONST               1 (('ProcessPoolExecutor',))
+              IMPORT_NAME              0 (process)
+              IMPORT_FROM              1 (ProcessPoolExecutor)
+              STORE_GLOBAL             1 (ProcessPoolExecutor)
+              POP_TOP
+
+ 55           LOAD_GLOBAL              2 (ProcessPoolExecutor)
+              RETURN_VALUE
+
+ 57   L1:     LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               2 ('ThreadPoolExecutor')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L2)
+              NOT_TAKEN
+
+ 58           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('ThreadPoolExecutor',))
+              IMPORT_NAME              2 (thread)
+              IMPORT_FROM              3 (ThreadPoolExecutor)
+              STORE_GLOBAL             3 (ThreadPoolExecutor)
+              POP_TOP
+
+ 59           LOAD_GLOBAL              6 (ThreadPoolExecutor)
+              RETURN_VALUE
+
+ 61   L2:     LOAD_GLOBAL              8 (_interpreters)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               4 ('InterpreterPoolExecutor')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L3)
+              NOT_TAKEN
+
+ 62           LOAD_SMALL_INT           1
+              LOAD_CONST               5 (('InterpreterPoolExecutor',))
+              IMPORT_NAME              5 (interpreter)
+              IMPORT_FROM              6 (InterpreterPoolExecutor)
+              STORE_GLOBAL             6 (InterpreterPoolExecutor)
+              POP_TOP
+
+ 63           LOAD_GLOBAL             12 (InterpreterPoolExecutor)
+              RETURN_VALUE
+
+ 65   L3:     LOAD_GLOBAL             15 (AttributeError + NULL)
+              LOAD_CONST               6 ('module ')
+              LOAD_GLOBAL             16 (__name__)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               7 (' has no attribute ')
+              LOAD_FAST_BORROW         0 (name)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              CALL                     1
+              RAISE_VARARGS            1

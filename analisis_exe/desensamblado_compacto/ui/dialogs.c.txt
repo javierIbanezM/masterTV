@@ -1,0 +1,143 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME re; STORE_NAME re
+5: LOAD_SMALL_INT 0; LOAD_CONST ('QCheckBox', 'QDialog', 'QDialogButtonBox', 'QFileDialog', 'QFormLayout', 'QHBoxLayout', 'QLineEdit', 'QPushButton', 'QSpinBox', 'QWidget'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QCheckBox; STORE_NAME QCheckBox; IMPORT_FROM QDialog; STORE_NAME QDialog; IMPORT_FROM QDialogButtonBox; STORE_NAME QDialogButtonBox; IMPORT_FROM QFileDialog; STORE_NAME QFileDialog; IMPORT_FROM QFormLayout; STORE_NAME QFormLayout; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLineEdit; STORE_NAME QLineEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QSpinBox; STORE_NAME QSpinBox; IMPORT_FROM QWidget; STORE_NAME QWidget
+8: LOAD_SMALL_INT 2; LOAD_CONST ('wol',); IMPORT_NAME; IMPORT_FROM wol; STORE_NAME wol
+9: LOAD_SMALL_INT 2; LOAD_CONST ('Device',); IMPORT_NAME store; IMPORT_FROM Device; STORE_NAME Device
+10: LOAD_SMALL_INT 1; LOAD_CONST ('warn',); IMPORT_NAME common; IMPORT_FROM warn; STORE_NAME warn
+12: LOAD_NAME re; LOAD_ATTR compile; LOAD_CONST '^[A-Za-z0-9]([A-Za-z0-9.\\-]*[A-Za-z0-9])?$'; CALL; STORE_NAME _HOST_RE
+15: LOAD_BUILD_CLASS; LOAD_CONST <code DeviceDialog>; MAKE_FUNCTION; LOAD_CONST 'DeviceDialog'; LOAD_NAME QDialog; CALL; STORE_NAME DeviceDialog
+58: LOAD_BUILD_CLASS; LOAD_CONST <code PairDialog>; MAKE_FUNCTION; LOAD_CONST 'PairDialog'; LOAD_NAME QDialog; CALL; STORE_NAME PairDialog
+77: LOAD_BUILD_CLASS; LOAD_CONST <code SettingsDialog>; MAKE_FUNCTION; LOAD_CONST 'SettingsDialog'; LOAD_NAME QDialog; CALL; STORE_NAME SettingsDialog; LOAD_CONST None; RETURN_VALUE
+
+  DEF DeviceDialog() @15
+  15: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'DeviceDialog'; STORE_NAME __qualname__; LOAD_SMALL_INT 15; STORE_NAME __firstlineno__
+  16: LOAD_CONST (None,); LOAD_CONST <code DeviceDialog.__annotate__>; MAKE_FUNCTION; LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code DeviceDialog.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME __init__
+  41: LOAD_CONST <code DeviceDialog._ok>; MAKE_FUNCTION; STORE_NAME _ok; LOAD_CONST ('device', 'group', 'host', 'mac', 'name', 'port'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF DeviceDialog.__init__(self,parent,device) @16
+    17: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW parent; CALL
+    18: LOAD_FAST self; LOAD_ATTR setWindowTitle + NULL|self; LOAD_FAST_BORROW device; TO_BOOL; POP_JUMP_IF_FALSE ->76; LOAD_CONST 'Editar TV'; JUMP_FORWARD ->78; <L76>; LOAD_CONST 'Añadir TV'; <L78>; CALL
+    19: LOAD_FAST_BORROW_LOAD_FAST_BORROW device, self; STORE_ATTR device
+    20: LOAD_GLOBAL QFormLayout + NULL; LOAD_FAST_BORROW self; CALL; STORE_FAST f
+    21: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW device; TO_BOOL; POP_JUMP_IF_FALSE ->172; LOAD_FAST_BORROW device; LOAD_ATTR name; JUMP_FORWARD ->174; <L172>; LOAD_CONST ''; <L174>; CALL; LOAD_FAST_BORROW self; STORE_ATTR name
+    22: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW device; TO_BOOL; POP_JUMP_IF_FALSE ->244; LOAD_FAST_BORROW device; LOAD_ATTR host; JUMP_FORWARD ->246; <L244>; LOAD_CONST ''; <L246>; CALL; LOAD_FAST_BORROW self; STORE_ATTR host
+    23: LOAD_FAST_BORROW self; LOAD_ATTR host; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST '192.168.1.50'; CALL
+    24: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR port
+    25: LOAD_FAST_BORROW self; LOAD_ATTR port; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 1; LOAD_CONST 65535; CALL
+    26: LOAD_FAST_BORROW self; LOAD_ATTR port; LOAD_ATTR setValue + NULL|self; LOAD_FAST_BORROW device; TO_BOOL; POP_JUMP_IF_FALSE ->488; LOAD_FAST_BORROW device; LOAD_ATTR port; JUMP_FORWARD ->490; <L488>; LOAD_CONST 5555; <L490>; CALL
+    27: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW device; TO_BOOL; POP_JUMP_IF_FALSE ->550; LOAD_FAST_BORROW device; LOAD_ATTR mac; JUMP_FORWARD ->552; <L550>; LOAD_CONST ''; <L552>; CALL; LOAD_FAST_BORROW self; STORE_ATTR mac
+    28: LOAD_FAST_BORROW self; LOAD_ATTR mac; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Opcional · AA:BB:CC:DD:EE:FF (para Wake-on-LAN)'; CALL
+    29: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW device; TO_BOOL; POP_JUMP_IF_FALSE ->676; LOAD_FAST_BORROW device; LOAD_ATTR group; JUMP_FORWARD ->678; <L676>; LOAD_CONST ''; <L678>; CALL; LOAD_FAST_BORROW self; STORE_ATTR group
+    30: LOAD_FAST_BORROW self; LOAD_ATTR group; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Opcional · p. ej. Planta 1'; CALL
+    31: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Nombre'; LOAD_FAST_BORROW self; LOAD_ATTR name; CALL
+    32: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'IP o host'; LOAD_FAST_BORROW self; LOAD_ATTR host; CALL
+    33: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Puerto ADB'; LOAD_FAST_BORROW self; LOAD_ATTR port; CALL
+    34: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'MAC'; LOAD_FAST_BORROW self; LOAD_ATTR mac; CALL
+    35: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Grupo'; LOAD_FAST_BORROW self; LOAD_ATTR group; CALL
+    36: LOAD_GLOBAL QDialogButtonBox + NULL; LOAD_GLOBAL QDialogButtonBox; LOAD_ATTR StandardButton; LOAD_ATTR Ok; LOAD_GLOBAL QDialogButtonBox; LOAD_ATTR StandardButton; LOAD_ATTR Cancel; BINARY_OP |; CALL; STORE_FAST bb
+    37: LOAD_FAST_BORROW bb; LOAD_ATTR accepted; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR _ok; CALL
+    38: LOAD_FAST_BORROW bb; LOAD_ATTR rejected; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR reject; CALL
+    39: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_FAST_BORROW bb; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceDialog._ok(self) @41
+    42: LOAD_FAST_BORROW self; LOAD_ATTR host; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; STORE_FAST host
+    43: LOAD_FAST_BORROW self; LOAD_ATTR name; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->228; LOAD_GLOBAL _HOST_RE; LOAD_ATTR match + NULL|self; LOAD_FAST_BORROW host; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->254
+    44: <L228>; LOAD_GLOBAL warn + NULL; LOAD_FAST_BORROW self; LOAD_CONST 'Datos incompletos'; LOAD_CONST 'Indica un nombre y una IP/host válidos.'; CALL; RETURN_VALUE
+    45: <L254>; LOAD_FAST_BORROW self; LOAD_ATTR mac; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; STORE_FAST mac
+    46: LOAD_FAST_BORROW mac; TO_BOOL; POP_JUMP_IF_FALSE ->396
+    48: LOAD_GLOBAL wol; LOAD_ATTR normalize_mac; LOAD_FAST_BORROW mac; CALL; STORE_FAST mac
+    51: <L396>; LOAD_FAST_BORROW self; LOAD_ATTR device; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->460; LOAD_GLOBAL Device + NULL; LOAD_CONST ''; LOAD_CONST ''; LOAD_CONST ('name', 'host'); CALL_KW; <L460>; STORE_FAST d
+    52: LOAD_FAST_BORROW self; LOAD_ATTR name; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; LOAD_FAST_BORROW_LOAD_FAST_BORROW host, self; LOAD_ATTR port; LOAD_ATTR value + NULL|self; CALL; SWAP; LOAD_FAST_BORROW d; STORE_ATTR name; LOAD_FAST_BORROW d; STORE_ATTR host; LOAD_FAST_BORROW d; STORE_ATTR port
+    53: LOAD_FAST_BORROW_LOAD_FAST_BORROW mac, self; LOAD_ATTR group; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; SWAP; LOAD_FAST_BORROW d; STORE_ATTR mac; LOAD_FAST_BORROW d; STORE_ATTR group
+    54: LOAD_FAST_BORROW_LOAD_FAST_BORROW d, self; STORE_ATTR device
+    55: LOAD_FAST_BORROW self; LOAD_ATTR accept + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    49: LOAD_GLOBAL ValueError; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->864; STORE_FAST e
+    50: LOAD_GLOBAL warn + NULL; LOAD_FAST self; LOAD_CONST 'MAC no válida'; LOAD_GLOBAL str + NULL; LOAD_FAST e; CALL; CALL; SWAP; POP_EXCEPT; LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RETURN_VALUE
+    None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+    49: <L864>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+  DEF PairDialog() @58
+  58: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'PairDialog'; STORE_NAME __qualname__; LOAD_SMALL_INT 58; STORE_NAME __firstlineno__
+  59: LOAD_CONST 'Emparejamiento inalámbrico (Android 11+): adb pair IP:PUERTO CÓDIGO.'; STORE_NAME __doc__
+  61: LOAD_CONST ('',); LOAD_CONST <code PairDialog.__annotate__>; MAKE_FUNCTION; LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code PairDialog.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME __init__; LOAD_CONST ('addr', 'code'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF PairDialog.__init__(self,parent,host) @61
+    62: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW parent; CALL
+    63: LOAD_FAST_BORROW self; LOAD_ATTR setWindowTitle + NULL|self; LOAD_CONST 'Emparejar con código'; CALL
+    64: LOAD_GLOBAL QFormLayout + NULL; LOAD_FAST_BORROW self; CALL; STORE_FAST f
+    65: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW host; TO_BOOL; POP_JUMP_IF_FALSE ->126; LOAD_FAST_BORROW host; FORMAT_SIMPLE; LOAD_CONST ':'; BUILD_STRING; JUMP_FORWARD ->128; <L126>; LOAD_CONST ''; <L128>; CALL; LOAD_FAST_BORROW self; STORE_ATTR addr
+    66: LOAD_FAST_BORROW self; LOAD_ATTR addr; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'IP:PUERTO que muestra la TV'; CALL
+    67: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR code
+    68: LOAD_FAST_BORROW self; LOAD_ATTR code; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Código de 6 dígitos'; CALL
+    69: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'IP:PUERTO de emparejamiento'; LOAD_FAST_BORROW self; LOAD_ATTR addr; CALL
+    70: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Código'; LOAD_FAST_BORROW self; LOAD_ATTR code; CALL
+    71: LOAD_GLOBAL QDialogButtonBox + NULL; LOAD_GLOBAL QDialogButtonBox; LOAD_ATTR StandardButton; LOAD_ATTR Ok; LOAD_GLOBAL QDialogButtonBox; LOAD_ATTR StandardButton; LOAD_ATTR Cancel; BINARY_OP |; CALL; STORE_FAST bb
+    72: LOAD_FAST_BORROW bb; LOAD_ATTR accepted; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR accept; CALL
+    73: LOAD_FAST_BORROW bb; LOAD_ATTR rejected; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR reject; CALL
+    74: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_FAST_BORROW bb; CALL; LOAD_CONST None; RETURN_VALUE
+
+  DEF SettingsDialog() @77
+  77: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'SettingsDialog'; STORE_NAME __qualname__; LOAD_SMALL_INT 77; STORE_NAME __firstlineno__
+  78: LOAD_CONST <code SettingsDialog.__annotate__>; MAKE_FUNCTION; LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code SettingsDialog.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME __init__
+  106: LOAD_CONST (False, ''); LOAD_CONST <code SettingsDialog.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code SettingsDialog._with_browse>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME _with_browse
+  126: LOAD_CONST <code SettingsDialog._save>; MAKE_FUNCTION; STORE_NAME _save; LOAD_CONST ('adb', 'auto', 'cap', 'poll', 's', 'scrcpy'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF SettingsDialog.__init__(self,parent,settings,adb_found,scrcpy_found) @78
+    79: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW parent; CALL
+    80: LOAD_FAST_BORROW self; LOAD_ATTR setWindowTitle + NULL|self; LOAD_CONST 'Configuración'; CALL
+    81: LOAD_FAST_BORROW self; LOAD_ATTR setMinimumWidth + NULL|self; LOAD_CONST 560; CALL
+    82: LOAD_FAST_BORROW_LOAD_FAST_BORROW settings, self; STORE_ATTR s
+    83: LOAD_GLOBAL QFormLayout + NULL; LOAD_FAST_BORROW self; CALL; STORE_FAST f
+    84: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'adb_path'; CALL; CALL; LOAD_FAST_BORROW self; STORE_ATTR adb
+    85: LOAD_FAST_BORROW self; LOAD_ATTR adb; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_FAST adb_found; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->262; LOAD_CONST 'No encontrado'; <L262>; CALL
+    86: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'scrcpy_path'; CALL; CALL; LOAD_FAST_BORROW self; STORE_ATTR scrcpy
+    87: LOAD_FAST_BORROW self; LOAD_ATTR scrcpy; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_FAST scrcpy_found; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->398; LOAD_CONST 'No encontrado'; <L398>; CALL
+    88: LOAD_GLOBAL QLineEdit + NULL; LOAD_FAST_BORROW settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'capture_dir'; CALL; CALL; LOAD_FAST_BORROW self; STORE_ATTR cap
+    89: LOAD_FAST_BORROW self; LOAD_ATTR cap; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Por defecto: Imágenes\\AndroidTvMaster'; CALL
+    90: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR poll
+    91: LOAD_FAST_BORROW self; LOAD_ATTR poll; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 3; LOAD_CONST 300; CALL
+    92: LOAD_FAST_BORROW self; LOAD_ATTR poll; LOAD_ATTR setSuffix + NULL|self; LOAD_CONST ' s'; CALL
+    93: LOAD_FAST_BORROW self; LOAD_ATTR poll; LOAD_ATTR setValue + NULL|self; LOAD_GLOBAL int + NULL; LOAD_FAST_BORROW settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'poll_seconds'; CALL; CALL; CALL
+    94: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Conectar automáticamente las TVs de la lista'; CALL; LOAD_FAST_BORROW self; STORE_ATTR auto
+    95: LOAD_FAST_BORROW self; LOAD_ATTR auto; LOAD_ATTR setChecked + NULL|self; LOAD_GLOBAL bool + NULL; LOAD_FAST_BORROW settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'auto_connect'; CALL; CALL; CALL
+    96: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'adb.exe'; LOAD_FAST_BORROW self; LOAD_ATTR _with_browse + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR adb; LOAD_CONST 'adb (adb.exe)'; LOAD_CONST ('file_filter',); CALL_KW; CALL
+    97: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'scrcpy.exe'; LOAD_FAST_BORROW self; LOAD_ATTR _with_browse + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR scrcpy; LOAD_CONST 'scrcpy (scrcpy.exe)'; LOAD_CONST ('file_filter',); CALL_KW; CALL
+    98: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Carpeta de capturas'; LOAD_FAST_BORROW self; LOAD_ATTR _with_browse + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR cap; LOAD_CONST True; LOAD_CONST ('folder',); CALL_KW; CALL
+    99: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Intervalo de sondeo'; LOAD_FAST_BORROW self; LOAD_ATTR poll; CALL
+    100: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR auto; CALL
+    101: LOAD_GLOBAL QDialogButtonBox + NULL; LOAD_GLOBAL QDialogButtonBox; LOAD_ATTR StandardButton; LOAD_ATTR Ok; LOAD_GLOBAL QDialogButtonBox; LOAD_ATTR StandardButton; LOAD_ATTR Cancel; BINARY_OP |; CALL; STORE_FAST bb
+    102: LOAD_FAST_BORROW bb; LOAD_ATTR accepted; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR _save; CALL
+    103: LOAD_FAST_BORROW bb; LOAD_ATTR rejected; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR reject; CALL
+    104: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_FAST_BORROW bb; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsDialog._with_browse(self,edit,folder,file_filter) @106
+    107: LOAD_GLOBAL QWidget + NULL; CALL; STORE_FAST w
+    108: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW w; CALL; STORE_FAST h
+    109: LOAD_FAST_BORROW h; LOAD_ATTR setContentsMargins + NULL|self; LOAD_SMALL_INT 0; LOAD_SMALL_INT 0; LOAD_SMALL_INT 0; LOAD_SMALL_INT 0; CALL
+    110: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '…'; CALL; STORE_FAST b
+    111: LOAD_FAST_BORROW b; LOAD_ATTR setFixedWidth + NULL|self; LOAD_SMALL_INT 32; CALL
+    113: LOAD_FAST_BORROW edit; LOAD_FAST_BORROW file_filter; LOAD_FAST_BORROW folder; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code SettingsDialog._with_browse.<locals>.pick>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST pick
+    121: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW pick; CALL
+    122: LOAD_FAST_BORROW h; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF edit; LOAD_SMALL_INT 1; CALL
+    123: LOAD_FAST_BORROW h; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL
+    124: LOAD_FAST_BORROW w; RETURN_VALUE
+
+      DEF SettingsDialog._with_browse.<locals>.pick() @113
+      114: LOAD_DEREF folder; TO_BOOL; POP_JUMP_IF_FALSE ->68
+      115: LOAD_GLOBAL QFileDialog; LOAD_ATTR getExistingDirectory; LOAD_DEREF self; LOAD_CONST 'Carpeta'; CALL; STORE_FAST p; JUMP_FORWARD ->128
+      117: <L68>; LOAD_GLOBAL QFileDialog; LOAD_ATTR getOpenFileName; LOAD_DEREF self; LOAD_CONST 'Ejecutable'; LOAD_CONST ''; LOAD_DEREF file_filter; FORMAT_SIMPLE; LOAD_CONST ';;Todos (*)'; BUILD_STRING; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST p, _
+      118: <L128>; LOAD_FAST_BORROW p; TO_BOOL; POP_JUMP_IF_FALSE ->182
+      119: LOAD_DEREF edit; LOAD_ATTR setText + NULL|self; LOAD_FAST_BORROW p; CALL; LOAD_CONST None; RETURN_VALUE
+      118: <L182>; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsDialog._save(self) @126
+    127: LOAD_FAST_BORROW self; LOAD_ATTR s; LOAD_ATTR values; LOAD_ATTR update + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR adb; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; LOAD_FAST_BORROW self; LOAD_ATTR scrcpy; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL
+    128: LOAD_FAST_BORROW self; LOAD_ATTR cap; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; LOAD_FAST_BORROW self; LOAD_ATTR poll; LOAD_ATTR value + NULL|self; CALL
+    129: LOAD_FAST_BORROW self; LOAD_ATTR auto; LOAD_ATTR isChecked + NULL|self; CALL
+    127: LOAD_CONST ('adb_path', 'scrcpy_path', 'capture_dir', 'poll_seconds', 'auto_connect'); CALL_KW
+    130: LOAD_FAST_BORROW self; LOAD_ATTR s; LOAD_ATTR save + NULL|self; CALL
+    131: LOAD_FAST_BORROW self; LOAD_ATTR accept + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE

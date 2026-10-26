@@ -1,0 +1,498 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Rutas de la aplicación y localización de ejecutables externos (adb, scrcpy).')
+              STORE_NAME               0 (__doc__)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              1 (__future__)
+              IMPORT_FROM              2 (annotations)
+              STORE_NAME               2 (annotations)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (os)
+              STORE_NAME               3 (os)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              4 (shutil)
+              STORE_NAME               4 (shutil)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              5 (sys)
+              STORE_NAME               5 (sys)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Path',))
+              IMPORT_NAME              6 (pathlib)
+              IMPORT_FROM              7 (Path)
+              STORE_NAME               7 (Path)
+              POP_TOP
+
+  9           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('APP_ID',))
+              IMPORT_NAME              8
+              IMPORT_FROM              9 (APP_ID)
+              STORE_NAME               9 (APP_ID)
+              POP_TOP
+
+ 11           LOAD_NAME                3 (os)
+              LOAD_ATTR               20 (name)
+              LOAD_CONST               5 ('nt')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               6 ('.exe')
+              JUMP_FORWARD             1 (to L2)
+      L1:     LOAD_CONST               7 ('')
+      L2:     STORE_NAME              11 (EXE)
+
+ 14           LOAD_CONST               8 (<code object __annotate__ at 0x00000204BA092880, file "atvmaster\paths.py", line 14>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 (<code object app_root at 0x00000204B9F4ED80, file "atvmaster\paths.py", line 14>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              12 (app_root)
+
+ 21           LOAD_CONST              10 (<code object __annotate__ at 0x00000204BA092C40, file "atvmaster\paths.py", line 21>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 (<code object data_dir at 0x00000204B9F9EA30, file "atvmaster\paths.py", line 21>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              13 (data_dir)
+
+ 28           LOAD_CONST              12 (<code object __annotate__ at 0x00000204BA092D30, file "atvmaster\paths.py", line 28>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 (<code object default_capture_dir at 0x00000204BA0BBB40, file "atvmaster\paths.py", line 28>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              14 (default_capture_dir)
+
+ 34           LOAD_CONST              14 (<code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\paths.py", line 34>)
+              MAKE_FUNCTION
+              LOAD_CONST              15 (<code object _first_existing at 0x00000204B9F718F0, file "atvmaster\paths.py", line 34>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              15 (_first_existing)
+
+ 41           LOAD_CONST              20 ((None,))
+              LOAD_CONST              16 (<code object __annotate__ at 0x00000204BA092970, file "atvmaster\paths.py", line 41>)
+              MAKE_FUNCTION
+              LOAD_CONST              17 (<code object find_adb at 0x00000204BA466EC0, file "atvmaster\paths.py", line 41>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              16 (find_adb)
+
+ 58           LOAD_CONST              20 ((None,))
+              LOAD_CONST              18 (<code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\paths.py", line 58>)
+              MAKE_FUNCTION
+              LOAD_CONST              19 (<code object find_scrcpy at 0x00000204BA36C400, file "atvmaster\paths.py", line 58>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              17 (find_scrcpy)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092880, file "atvmaster\paths.py", line 14>:
+ 14           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Path')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object app_root at 0x00000204B9F4ED80, file "atvmaster\paths.py", line 14>:
+ 14           RESUME                   0
+
+ 16           LOAD_GLOBAL              1 (getattr + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_CONST               1 ('frozen')
+              LOAD_CONST               2 (False)
+              CALL                     3
+              TO_BOOL
+              POP_JUMP_IF_FALSE       50 (to L1)
+              NOT_TAKEN
+
+ 17           LOAD_GLOBAL              5 (Path + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                6 (executable)
+              CALL                     1
+              LOAD_ATTR                9 (resolve + NULL|self)
+              CALL                     0
+              LOAD_ATTR               10 (parent)
+              RETURN_VALUE
+
+ 18   L1:     LOAD_GLOBAL              5 (Path + NULL)
+              LOAD_GLOBAL             12 (__file__)
+              CALL                     1
+              LOAD_ATTR                9 (resolve + NULL|self)
+              CALL                     0
+              LOAD_ATTR               10 (parent)
+              LOAD_ATTR               10 (parent)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092C40, file "atvmaster\paths.py", line 21>:
+ 21           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Path')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object data_dir at 0x00000204B9F9EA30, file "atvmaster\paths.py", line 21>:
+ 21           RESUME                   0
+
+ 22           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (environ)
+              LOAD_ATTR                5 (get + NULL|self)
+              LOAD_CONST               0 ('APPDATA')
+              CALL                     1
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        31 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_GLOBAL              7 (str + NULL)
+              LOAD_GLOBAL              8 (Path)
+              LOAD_ATTR               10 (home)
+              PUSH_NULL
+              CALL                     0
+              CALL                     1
+      L1:     STORE_FAST               0 (base)
+
+ 23           LOAD_GLOBAL              9 (Path + NULL)
+              LOAD_FAST_BORROW         0 (base)
+              CALL                     1
+              LOAD_GLOBAL             12 (APP_ID)
+              BINARY_OP               11 (/)
+              STORE_FAST               1 (d)
+
+ 24           LOAD_FAST_BORROW         1 (d)
+              LOAD_ATTR               15 (mkdir + NULL|self)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('parents', 'exist_ok'))
+              CALL_KW                  2
+              POP_TOP
+
+ 25           LOAD_FAST_BORROW         1 (d)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092D30, file "atvmaster\paths.py", line 28>:
+ 28           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Path')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object default_capture_dir at 0x00000204BA0BBB40, file "atvmaster\paths.py", line 28>:
+ 28           RESUME                   0
+
+ 29           LOAD_GLOBAL              0 (Path)
+              LOAD_ATTR                2 (home)
+              PUSH_NULL
+              CALL                     0
+              LOAD_CONST               0 ('Pictures')
+              BINARY_OP               11 (/)
+              LOAD_GLOBAL              4 (APP_ID)
+              BINARY_OP               11 (/)
+              STORE_FAST               0 (d)
+
+ 30           LOAD_FAST_BORROW         0 (d)
+              LOAD_ATTR                7 (mkdir + NULL|self)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('parents', 'exist_ok'))
+              CALL_KW                  2
+              POP_TOP
+
+ 31           LOAD_FAST_BORROW         0 (d)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\paths.py", line 34>:
+ 34           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('str | None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object _first_existing at 0x00000204B9F718F0, file "atvmaster\paths.py", line 34>:
+ 34           RESUME                   0
+
+ 35           LOAD_FAST_BORROW         0 (candidates)
+              GET_ITER
+      L1:     FOR_ITER                57 (to L4)
+              STORE_FAST               1 (c)
+
+ 36           LOAD_FAST_BORROW         1 (c)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           13 (to L1)
+      L2:     LOAD_GLOBAL              1 (Path + NULL)
+              LOAD_FAST_BORROW         1 (c)
+              CALL                     1
+              LOAD_ATTR                3 (is_file + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           46 (to L1)
+
+ 37   L3:     LOAD_GLOBAL              5 (str + NULL)
+              LOAD_FAST_BORROW         1 (c)
+              CALL                     1
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+ 35   L4:     END_FOR
+              POP_ITER
+
+ 38           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092970, file "atvmaster\paths.py", line 41>:
+ 41           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('configured')
+              LOAD_CONST               2 ('str | None')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str | None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object find_adb at 0x00000204BA466EC0, file "atvmaster\paths.py", line 41>:
+ 41           RESUME                   0
+
+ 42           LOAD_GLOBAL              1 (app_root + NULL)
+              CALL                     0
+              STORE_FAST               1 (root)
+
+ 44           LOAD_FAST_BORROW         0 (configured)
+
+ 45           LOAD_FAST_BORROW         1 (root)
+              LOAD_CONST               0 ('tools')
+              BINARY_OP               11 (/)
+              LOAD_CONST               1 ('platform-tools')
+              BINARY_OP               11 (/)
+              LOAD_CONST               2 ('adb')
+              LOAD_GLOBAL              2 (EXE)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BINARY_OP               11 (/)
+
+ 46           LOAD_FAST_BORROW         1 (root)
+              LOAD_CONST               1 ('platform-tools')
+              BINARY_OP               11 (/)
+              LOAD_CONST               2 ('adb')
+              LOAD_GLOBAL              2 (EXE)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BINARY_OP               11 (/)
+
+ 47           LOAD_GLOBAL              4 (shutil)
+              LOAD_ATTR                6 (which)
+              PUSH_NULL
+              LOAD_CONST               2 ('adb')
+              CALL                     1
+
+ 43           BUILD_LIST               4
+              STORE_FAST               2 (candidates)
+
+ 49           LOAD_GLOBAL              8 (os)
+              LOAD_ATTR               10 (environ)
+              LOAD_ATTR               13 (get + NULL|self)
+              LOAD_CONST               3 ('ANDROID_HOME')
+              CALL                     1
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        32 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_GLOBAL              8 (os)
+              LOAD_ATTR               10 (environ)
+              LOAD_ATTR               13 (get + NULL|self)
+              LOAD_CONST               4 ('ANDROID_SDK_ROOT')
+              CALL                     1
+      L1:     STORE_FAST               3 (sdk)
+
+ 50           LOAD_FAST_BORROW         3 (sdk)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       48 (to L2)
+              NOT_TAKEN
+
+ 51           LOAD_FAST_BORROW         2 (candidates)
+              LOAD_ATTR               15 (append + NULL|self)
+              LOAD_GLOBAL             17 (Path + NULL)
+              LOAD_FAST_BORROW         3 (sdk)
+              CALL                     1
+              LOAD_CONST               1 ('platform-tools')
+              BINARY_OP               11 (/)
+              LOAD_CONST               2 ('adb')
+              LOAD_GLOBAL              2 (EXE)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BINARY_OP               11 (/)
+              CALL                     1
+              POP_TOP
+
+ 52   L2:     LOAD_GLOBAL              8 (os)
+              LOAD_ATTR               10 (environ)
+              LOAD_ATTR               13 (get + NULL|self)
+              LOAD_CONST               5 ('LOCALAPPDATA')
+              CALL                     1
+              STORE_FAST               4 (local)
+
+ 53           LOAD_FAST_BORROW         4 (local)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       62 (to L3)
+              NOT_TAKEN
+
+ 54           LOAD_FAST_BORROW         2 (candidates)
+              LOAD_ATTR               15 (append + NULL|self)
+              LOAD_GLOBAL             17 (Path + NULL)
+              LOAD_FAST_BORROW         4 (local)
+              CALL                     1
+              LOAD_CONST               6 ('Android')
+              BINARY_OP               11 (/)
+              LOAD_CONST               7 ('Sdk')
+              BINARY_OP               11 (/)
+              LOAD_CONST               1 ('platform-tools')
+              BINARY_OP               11 (/)
+              LOAD_CONST               2 ('adb')
+              LOAD_GLOBAL              2 (EXE)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BINARY_OP               11 (/)
+              CALL                     1
+              POP_TOP
+
+ 55   L3:     LOAD_GLOBAL             19 (_first_existing + NULL)
+              LOAD_FAST_BORROW         2 (candidates)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\paths.py", line 58>:
+ 58           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('configured')
+              LOAD_CONST               2 ('str | None')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str | None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object find_scrcpy at 0x00000204BA36C400, file "atvmaster\paths.py", line 58>:
+ 58           RESUME                   0
+
+ 59           LOAD_GLOBAL              1 (app_root + NULL)
+              CALL                     0
+              STORE_FAST               1 (root)
+
+ 60           LOAD_FAST_BORROW         0 (configured)
+              LOAD_GLOBAL              2 (shutil)
+              LOAD_ATTR                4 (which)
+              PUSH_NULL
+              LOAD_CONST               0 ('scrcpy')
+              CALL                     1
+              BUILD_LIST               2
+              STORE_FAST               2 (candidates)
+
+ 61           LOAD_FAST_BORROW         1 (root)
+              LOAD_CONST               1 ('tools')
+              BINARY_OP               11 (/)
+              STORE_FAST               3 (tools)
+
+ 62           LOAD_FAST_BORROW         3 (tools)
+              LOAD_ATTR                7 (is_dir + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_FALSE      103 (to L3)
+              NOT_TAKEN
+
+ 63           LOAD_FAST_BORROW         2 (candidates)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         3 (tools)
+              LOAD_CONST               0 ('scrcpy')
+              BINARY_OP               11 (/)
+              LOAD_CONST               0 ('scrcpy')
+              LOAD_GLOBAL             10 (EXE)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BINARY_OP               11 (/)
+              CALL                     1
+              POP_TOP
+
+ 64           LOAD_GLOBAL             13 (sorted + NULL)
+              LOAD_FAST_BORROW         3 (tools)
+              LOAD_ATTR               15 (glob + NULL|self)
+              LOAD_CONST               2 ('scrcpy*')
+              CALL                     1
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER                34 (to L2)
+              STORE_FAST               4 (sub)
+
+ 65           LOAD_FAST_BORROW         2 (candidates)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (sub)
+              LOAD_CONST               0 ('scrcpy')
+              LOAD_GLOBAL             10 (EXE)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BINARY_OP               11 (/)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           36 (to L1)
+
+ 64   L2:     END_FOR
+              POP_ITER
+
+ 66   L3:     LOAD_GLOBAL             17 (_first_existing + NULL)
+              LOAD_FAST_BORROW         2 (candidates)
+              CALL                     1
+              RETURN_VALUE

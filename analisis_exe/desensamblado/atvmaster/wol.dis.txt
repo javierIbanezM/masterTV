@@ -1,0 +1,354 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Wake-on-LAN: paquete mágico UDP.')
+              STORE_NAME               0 (__doc__)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              1 (__future__)
+              IMPORT_FROM              2 (annotations)
+              STORE_NAME               2 (annotations)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (re)
+              STORE_NAME               3 (re)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              4 (socket)
+              STORE_NAME               4 (socket)
+
+  8           LOAD_CONST               3 (<code object __annotate__ at 0x0000023DFE6D13E0, file "atvmaster\wol.py", line 8>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 (<code object normalize_mac at 0x0000023DFE63A8B0, file "atvmaster\wol.py", line 8>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               5 (normalize_mac)
+
+ 15           LOAD_CONST               7 (('',))
+              LOAD_CONST               5 (<code object __annotate__ at 0x0000023DFE6CAD30, file "atvmaster\wol.py", line 15>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 (<code object send_magic_packet at 0x0000023DFE99D270, file "atvmaster\wol.py", line 15>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               6 (send_magic_packet)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x0000023DFE6D13E0, file "atvmaster\wol.py", line 8>:
+  8           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('mac')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object normalize_mac at 0x0000023DFE63A8B0, file "atvmaster\wol.py", line 8>:
+  --           MAKE_CELL                1 (hexs)
+
+   8           RESUME                   0
+
+   9           LOAD_GLOBAL              0 (re)
+               LOAD_ATTR                2 (sub)
+               PUSH_NULL
+               LOAD_CONST               0 ('[^0-9a-fA-F]')
+               LOAD_CONST               1 ('')
+               LOAD_FAST_BORROW         0 (mac)
+               CALL                     3
+               STORE_DEREF              1 (hexs)
+
+  10           LOAD_GLOBAL              5 (len + NULL)
+               LOAD_DEREF               1 (hexs)
+               CALL                     1
+               LOAD_SMALL_INT          12
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       16 (to L1)
+               NOT_TAKEN
+
+  11           LOAD_GLOBAL              7 (ValueError + NULL)
+               LOAD_CONST               2 ('MAC no válida: ')
+               LOAD_FAST_BORROW         0 (mac)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+  12   L1:     LOAD_CONST               3 (':')
+               LOAD_ATTR                9 (join + NULL|self)
+               LOAD_FAST_BORROW         1 (hexs)
+               BUILD_TUPLE              1
+               LOAD_CONST               4 (<code object <genexpr> at 0x0000023DFE73F550, file "atvmaster\wol.py", line 12>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_GLOBAL             11 (range + NULL)
+               LOAD_SMALL_INT           0
+               LOAD_SMALL_INT          12
+               LOAD_SMALL_INT           2
+               CALL                     3
+               GET_ITER
+               CALL                     0
+               CALL                     1
+               LOAD_ATTR               13 (lower + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x0000023DFE73F550, file "atvmaster\wol.py", line 12>:
+  --           COPY_FREE_VARS           1
+
+  12           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                16 (to L3)
+               STORE_FAST               1 (i)
+               LOAD_DEREF               2 (hexs)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 17 (i, i)
+               LOAD_SMALL_INT           2
+               BINARY_OP                0 (+)
+               BINARY_SLICE
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object __annotate__ at 0x0000023DFE6CAD30, file "atvmaster\wol.py", line 15>:
+ 15           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('mac')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('host_hint')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('list[str]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object send_magic_packet at 0x0000023DFE99D270, file "atvmaster\wol.py", line 15>:
+  15            RESUME                   0
+
+  18            LOAD_GLOBAL              0 (bytes)
+                LOAD_ATTR                3 (fromhex + NULL|self)
+                LOAD_GLOBAL              5 (normalize_mac + NULL)
+                LOAD_FAST_BORROW         0 (mac)
+                CALL                     1
+                LOAD_ATTR                7 (replace + NULL|self)
+                LOAD_CONST               1 (':')
+                LOAD_CONST               2 ('')
+                CALL                     2
+                CALL                     1
+                STORE_FAST               2 (mac_bytes)
+
+  19            LOAD_CONST              11 (b'\xff\xff\xff\xff\xff\xff')
+                LOAD_FAST_BORROW         2 (mac_bytes)
+                LOAD_SMALL_INT          16
+                BINARY_OP                5 (*)
+                BINARY_OP                0 (+)
+                STORE_FAST               3 (packet)
+
+  20            LOAD_CONST               3 ('255.255.255.255')
+                BUILD_LIST               1
+                STORE_FAST               4 (targets)
+
+  21            LOAD_FAST_BORROW         1 (host_hint)
+                LOAD_ATTR                9 (split + NULL|self)
+                LOAD_CONST               4 ('.')
+                CALL                     1
+                STORE_FAST               5 (parts)
+
+  22            LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         5 (parts)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      106 (to L6)
+                NOT_TAKEN
+                LOAD_GLOBAL             12 (all)
+                COPY                     1
+                LOAD_COMMON_CONSTANT     3 (<built-in function all>)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       28 (to L4)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST               5 (<code object <genexpr> at 0x0000023DFE73F440, file "atvmaster\wol.py", line 22>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         5 (parts)
+                GET_ITER
+                CALL                     0
+        L1:     FOR_ITER                12 (to L3)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L2)
+                NOT_TAKEN
+                JUMP_BACKWARD           11 (to L1)
+        L2:     POP_ITER
+                LOAD_CONST               6 (False)
+                JUMP_FORWARD            17 (to L5)
+        L3:     END_FOR
+                POP_ITER
+                LOAD_CONST               7 (True)
+                JUMP_FORWARD            13 (to L5)
+        L4:     PUSH_NULL
+                LOAD_CONST               5 (<code object <genexpr> at 0x0000023DFE73F440, file "atvmaster\wol.py", line 22>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         5 (parts)
+                GET_ITER
+                CALL                     0
+                CALL                     1
+        L5:     TO_BOOL
+                POP_JUMP_IF_FALSE       48 (to L6)
+                NOT_TAKEN
+
+  23            LOAD_FAST_BORROW         4 (targets)
+                LOAD_ATTR               15 (append + NULL|self)
+                LOAD_CONST               4 ('.')
+                LOAD_ATTR               17 (join + NULL|self)
+                LOAD_FAST_BORROW         5 (parts)
+                LOAD_CONST               8 (slice(None, 3, None))
+                BINARY_OP               26 ([])
+                LOAD_CONST               9 ('255')
+                BUILD_LIST               1
+                BINARY_OP                0 (+)
+                CALL                     1
+                CALL                     1
+                POP_TOP
+
+  24    L6:     BUILD_LIST               0
+                STORE_FAST               6 (sent)
+
+  25            LOAD_GLOBAL             18 (socket)
+                LOAD_ATTR               18 (socket)
+                PUSH_NULL
+                LOAD_GLOBAL             18 (socket)
+                LOAD_ATTR               20 (AF_INET)
+                LOAD_GLOBAL             18 (socket)
+                LOAD_ATTR               22 (SOCK_DGRAM)
+                CALL                     2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L7:     STORE_FAST               7 (s)
+
+  26            LOAD_FAST_BORROW         7 (s)
+                LOAD_ATTR               25 (setsockopt + NULL|self)
+                LOAD_GLOBAL             18 (socket)
+                LOAD_ATTR               26 (SOL_SOCKET)
+                LOAD_GLOBAL             18 (socket)
+                LOAD_ATTR               28 (SO_BROADCAST)
+                LOAD_SMALL_INT           1
+                CALL                     3
+                POP_TOP
+
+  27            LOAD_FAST_BORROW         4 (targets)
+                GET_ITER
+        L8:     FOR_ITER                48 (to L11)
+                STORE_FAST               8 (t)
+
+  28            LOAD_CONST              12 ((9, 7))
+                GET_ITER
+        L9:     FOR_ITER                22 (to L10)
+                STORE_FAST               9 (port)
+
+  29            LOAD_FAST_BORROW         7 (s)
+                LOAD_ATTR               31 (sendto + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 56 (packet, t)
+                LOAD_FAST_BORROW         9 (port)
+                BUILD_TUPLE              2
+                CALL                     2
+                POP_TOP
+                JUMP_BACKWARD           24 (to L9)
+
+  28   L10:     END_FOR
+                POP_ITER
+
+  30            LOAD_FAST_BORROW         6 (sent)
+                LOAD_ATTR               15 (append + NULL|self)
+                LOAD_FAST_BORROW         8 (t)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           50 (to L8)
+
+  27   L11:     END_FOR
+                POP_ITER
+
+  25   L12:     LOAD_CONST              10 (None)
+                LOAD_CONST              10 (None)
+                LOAD_CONST              10 (None)
+                CALL                     3
+                POP_TOP
+
+  31            LOAD_FAST_BORROW         6 (sent)
+                RETURN_VALUE
+
+  25   L13:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L14)
+                NOT_TAKEN
+                RERAISE                  2
+       L14:     POP_TOP
+       L15:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+
+  31            LOAD_FAST                6 (sent)
+                RETURN_VALUE
+
+  --   L16:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L7 to L12 -> L13 [2] lasti
+  L13 to L15 -> L16 [4] lasti
+
+Disassembly of <code object <genexpr> at 0x0000023DFE73F440, file "atvmaster\wol.py", line 22>:
+  22           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                20 (to L3)
+               STORE_FAST_LOAD_FAST    17 (p, p)
+               LOAD_ATTR                1 (isdigit + NULL|self)
+               CALL                     0
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           22 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti

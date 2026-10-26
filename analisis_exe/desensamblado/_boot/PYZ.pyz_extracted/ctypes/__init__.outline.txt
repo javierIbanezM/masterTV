@@ -1,0 +1,193 @@
+<module>()  line 1
+    create_string_buffer(init, size)  line 50
+    CFUNCTYPE(restype)  line 74
+        CFUNCTYPE.<locals>.CFunctionType()  line 103
+    WINFUNCTYPE(restype)  line 115
+        WINFUNCTYPE.<locals>.WinFunctionType()  line 130
+    _check_size(typ, typecode)  line 146
+    py_object()  line 158
+        py_object.__repr__(self)  line 160
+    c_short()  line 168
+    c_ushort()  line 172
+    c_long()  line 176
+    c_ulong()  line 180
+    c_int()  line 189
+    c_uint()  line 193
+    c_float()  line 197
+    c_double()  line 201
+    c_longdouble()  line 205
+    c_double_complex()  line 211
+    c_float_complex()  line 214
+    c_longdouble_complex()  line 217
+    c_longlong()  line 227
+    c_ulonglong()  line 231
+    c_ubyte()  line 238
+    c_byte()  line 245
+    c_char()  line 250
+    c_char_p()  line 255
+        c_char_p.__repr__(self)  line 257
+    c_void_p()  line 261
+    c_bool()  line 266
+    POINTER(cls)  line 269
+    pointer(obj)  line 295
+    _PointerTypeCache()  line 305
+        _PointerTypeCache.__setitem__(self, cls, pointer_type)  line 306
+        _PointerTypeCache.__getitem__(self, cls)  line 314
+        _PointerTypeCache.get(self, cls, default)  line 322
+        _PointerTypeCache.__contains__(self, cls)  line 330
+    c_wchar_p()  line 336
+        c_wchar_p.__repr__(self)  line 338
+    c_wchar()  line 341
+    _reset_cache()  line 344
+    create_unicode_buffer(init, size)  line 354
+        create_unicode_buffer.<locals>.<genexpr>(.0)  line 365
+    SetPointerType(pointer, cls)  line 383
+    ARRAY(typ, len)  line 388
+    CDLL()  line 394
+        CDLL.__init__(self, name, mode, handle, use_errno, use_last_error, winmode)  line 415
+            CDLL.__init__.<locals>._FuncPtr()  line 456
+        CDLL.__repr__(self)  line 466
+        CDLL.__getattr__(self, name)  line 472
+        CDLL.__getitem__(self, name_or_ordinal)  line 479
+    PyDLL()  line 485
+    WinDLL()  line 494
+    HRESULT()  line 503
+    OleDLL()  line 516
+    LibraryLoader()  line 525
+        LibraryLoader.__init__(self, dlltype)  line 526
+        LibraryLoader.__getattr__(self, name)  line 529
+        LibraryLoader.__getitem__(self, name)  line 539
+        LibraryLoader.LoadLibrary(self, name)  line 542
+    WinError(code, descr)  line 567
+    PYFUNCTYPE(restype)  line 595
+        PYFUNCTYPE.<locals>.CFunctionType()  line 596
+    cast(obj, typ)  line 603
+    string_at(ptr, size)  line 607
+    memoryview_at(ptr, size, readonly)  line 615
+    wstring_at(ptr, size)  line 627
+    DllGetClassObject(rclsid, riid, ppv)  line 635
+    DllCanUnloadNow()  line 643
+
+--- strings ---
+'create and manipulate C data types in Python'
+'1.1.0'
+'Version number mismatch'
+'nt'
+'posix'
+'darwin'
+'create_string_buffer(aBytes) -> character array\ncreate_string_buffer(anInteger) -> character array\ncreate_string_buffer(aBytes, anInteger) -> character array\n'
+'ctypes.create_string_buffer'
+'CFUNCTYPE(restype, *argtypes,\n             use_errno=False, use_last_error=False) -> function prototype.\n\nrestype: the result type\nargtypes: a sequence specifying the argument types\n\nThe function prototype can be called in different ways to create a\ncallable object:\n\nprototype(integer address) -> foreign function\nprototype(callable) -> create and return a C callable function from callable\nprototype(integer index, method name[, paramflags]) -> foreign function calling a COM method\nprototype((ordinal number, dll object)[, paramflags]) -> foreign function exported by ordinal\nprototype((function name, dll object)[, paramflags]) -> foreign function exported by name\n'
+'use_errno'
+'use_last_error'
+'unexpected keyword argument(s) %s'
+'CFUNCTYPE.<locals>.CFunctionType'
+'CFunctionType'
+'use_errno'
+'use_last_error'
+'unexpected keyword argument(s) %s'
+'WINFUNCTYPE.<locals>.WinFunctionType'
+'WinFunctionType'
+'CFUNCTYPE'
+'WINFUNCTYPE'
+'sizeof(%s) wrong: %d instead of %d'
+'py_object'
+'%s(<NULL>)'
+'py_object'
+'c_short'
+'c_short'
+'c_ushort'
+'c_ushort'
+'c_long'
+'c_long'
+'c_ulong'
+'c_ulong'
+'c_int'
+'c_int'
+'c_uint'
+'c_uint'
+'c_float'
+'c_float'
+'c_double'
+'c_double'
+'c_longdouble'
+'c_longdouble'
+'c_double_complex'
+'c_double_complex'
+'c_float_complex'
+'c_float_complex'
+'c_longdouble_complex'
+'c_longdouble_complex'
+'c_longlong'
+'c_longlong'
+'c_ulonglong'
+'c_ulonglong'
+'c_ubyte'
+'c_ubyte'
+'c_byte'
+'c_byte'
+'c_char'
+'c_char'
+'c_char_p'
+'c_char_p'
+'c_void_p'
+'c_void_p'
+'c_bool'
+'c_bool'
+'Create and return a new ctypes pointer type.\n\nPointer types are cached and reused internally,\nso calling this function repeatedly is cheap.\n'
+'ctypes.POINTER with string'
+'LP_'
+'_type_'
+"Create a new pointer instance, pointing to 'obj'.\n\nThe returned object is of the type POINTER(type(obj)). Note that if you\njust want to pass a pointer to an object to a foreign function call, you\nshould use byref(obj) which is much faster.\n"
+'_PointerTypeCache'
+'ctypes._pointer_type_cache'
+'ctypes._pointer_type_cache'
+'ctypes._pointer_type_cache'
+'__pointer_type__'
+'_PointerTypeCache'
+'c_wchar_p'
+'c_wchar_p'
+'c_wchar'
+'c_wchar'
+'nt'
+'create_unicode_buffer(aString) -> character array\ncreate_unicode_buffer(anInteger) -> character array\ncreate_unicode_buffer(aString, anInteger) -> character array\n'
+'ctypes.create_unicode_buffer'
+'ctypes.SetPointerType'
+'CDLL'
+"An instance of this class represents a loaded dll/shared\nlibrary, exporting functions using the standard C calling\nconvention (named 'cdecl' on Windows).\n\nThe exported functions can be accessed as attributes, or by\nindexing with the function name.  Examples:\n\n<obj>.qsort -> callable object\n<obj>['qsort'] -> callable object\n\nCalling the functions releases the Python GIL during the call and\nreacquires it afterwards.\n"
+'<uninitialized>'
+'.fwork'
+'aix'
+'.a('
+'nt'
+'CDLL.__init__.<locals>._FuncPtr'
+'_FuncPtr'
+"<%s '%s', handle %x at %#x>"
+'__'
+'CDLL'
+'PyDLL'
+'This class represents the Python library itself.  It allows\naccessing Python API functions.  The GIL is not released, and\nPython exceptions are handled correctly.\n'
+'PyDLL'
+'WinDLL'
+'This class represents a dll exporting functions using the\nWindows stdcall calling convention.\n'
+'WinDLL'
+'HRESULT'
+'HRESULT'
+'OleDLL'
+'This class represents a dll exporting functions using the\nWindows stdcall calling convention, and returning HRESULT.\nHRESULT error values are automatically raised as OSError\nexceptions.\n'
+'OleDLL'
+'LibraryLoader'
+'LibraryLoader'
+'python dll'
+'android'
+'libpython%d.%d.so'
+'cygwin'
+'libpython%d.%d.dll'
+'PYFUNCTYPE.<locals>.CFunctionType'
+'CFunctionType'
+'string_at(ptr[, size]) -> string\n\nReturn the byte string at void *ptr.'
+'memoryview_at(ptr, size[, readonly]) -> memoryview\n\nReturn a memoryview representing the memory at void *ptr.'
+'wstring_at(ptr[, size]) -> string\n\nReturn the wide-character string at void *ptr.'
+'comtypes.server.inprocserver'
+'comtypes.server.inprocserver'
+'Unexpected sizeof(time_t): SIZEOF_TIME_T='

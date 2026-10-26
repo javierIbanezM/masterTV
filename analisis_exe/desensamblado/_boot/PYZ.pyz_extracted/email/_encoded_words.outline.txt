@@ -1,0 +1,35 @@
+<module>()  line 1
+    <lambda>(m)  line 65
+    decode_q(encoded)  line 67
+    _QByteMap()  line 73
+        _QByteMap.__missing__(self, key)  line 77
+    encode_q(bstring)  line 89
+        encode_q.<locals>.<genexpr>(.0)  line 90
+    len_q(bstring)  line 92
+        len_q.<locals>.<genexpr>(.0)  line 93
+    decode_b(encoded)  line 100
+    encode_b(bstring)  line 138
+    len_b(bstring)  line 141
+    decode(ew)  line 152
+    encode(string, charset, encoding, lang)  line 204
+
+--- strings ---
+'Routines for manipulating RFC2047 encoded words.\n\nThis is currently a package-private API, but will be considered for promotion\nto a public API if there is demand.\n\n'
+'_QByteMap'
+'ascii'
+'={:02X}'
+'_QByteMap'
+'ascii'
+"Decode encoded word and return (string, charset, lang, defects) tuple.\n\nAn RFC 2047/2243 encoded word has the form:\n\n    =?charset*lang?cte?encoded_string?=\n\nwhere '*lang' may be omitted but the other parts may not be.\n\nThis function expects exactly such a string (that is, it does not check the\nsyntax and may raise errors if the string is not well formed), and returns\nthe encoded_string decoded first from its Content Transfer Encoding and\nthen from the resulting bytes into unicode using the specified charset.  If\nthe cte-decoded string does not successfully decode using the specified\ncharacter set, a defect is added to the defects list and the unknown octets\nare replaced by the unicode 'unknown' character \\uFDFF.\n\nThe specified charset and language are returned.  The default for language,\nwhich is rarely if ever encountered, is the empty string.\n\n"
+'ascii'
+'surrogateescape'
+'Encoded word contains bytes not decodable using '
+' charset'
+'unknown-8bit'
+'Unknown charset '
+' in encoded word; decoded as unknown bytes'
+"Encode string using the CTE encoding that produces the shorter result.\n\nProduces an RFC 2047/2243 encoded word of the form:\n\n    =?charset*lang?cte?encoded_string?=\n\nwhere '*lang' is omitted unless the 'lang' parameter is given a value.\nOptional argument charset (defaults to utf-8) specifies the charset to use\nto encode the string to binary before CTE encoding it.  Optional argument\n'encoding' is the cte specifier for the encoding that should be used ('q'\nor 'b'); if it is None (the default) the encoding which produces the\nshortest encoded sequence is used, except that 'q' is preferred if it is up\nto five characters longer.  Optional argument 'lang' (default '') gives the\nRFC 2243 language string to specify in the encoded word.\n\n"
+'unknown-8bit'
+'ascii'
+'surrogateescape'
+'=?{}{}?{}?{}?='

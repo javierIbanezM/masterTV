@@ -1,0 +1,114 @@
+<module>()  line 1
+    SemLock()  line 45
+        SemLock.__init__(self, kind, value, maxvalue, ctx)  line 49
+            SemLock.__init__.<locals>._after_fork(obj)  line 70
+        SemLock._cleanup(name)  line 83
+        SemLock._make_methods(self)  line 89
+        SemLock.locked(self)  line 93
+        SemLock.__enter__(self)  line 96
+        SemLock.__exit__(self)  line 99
+        SemLock.__getstate__(self)  line 102
+        SemLock.__setstate__(self, state)  line 116
+        SemLock._make_name()  line 123
+    Semaphore()  line 132
+        Semaphore.__init__(self, value, ctx)  line 134
+        Semaphore.get_value(self)  line 137
+        Semaphore.__repr__(self)  line 140
+    BoundedSemaphore()  line 151
+        BoundedSemaphore.__init__(self, value, ctx)  line 153
+        BoundedSemaphore.__repr__(self)  line 156
+    Lock()  line 168
+        Lock.__init__(self, ctx)  line 170
+        Lock.__repr__(self)  line 173
+    RLock()  line 193
+        RLock.__init__(self, ctx)  line 195
+        RLock.__repr__(self)  line 198
+    Condition()  line 219
+        Condition.__init__(self, lock, ctx)  line 221
+        Condition.__getstate__(self)  line 228
+        Condition.__setstate__(self, state)  line 233
+        Condition.__enter__(self)  line 238
+        Condition.__exit__(self)  line 241
+        Condition._make_methods(self)  line 244
+        Condition.__repr__(self)  line 248
+        Condition.wait(self, timeout)  line 256
+        Condition.notify(self, n)  line 279
+        Condition.notify_all(self)  line 305
+        Condition.wait_for(self, predicate, timeout)  line 308
+    Event()  line 330
+        Event.__init__(self, ctx)  line 332
+        Event.is_set(self)  line 336
+        Event.set(self)  line 343
+        Event.clear(self)  line 349
+        Event.wait(self, timeout)  line 353
+        Event.__repr__(self)  line 365
+    Barrier()  line 372
+        Barrier.__init__(self, parties, action, timeout, ctx)  line 374
+        Barrier.__setstate__(self, state)  line 383
+        Barrier.__getstate__(self)  line 388
+        Barrier._state(self)  line 392
+        Barrier._state(self, value)  line 396
+        Barrier._count(self)  line 400
+        Barrier._count(self, value)  line 404
+
+--- strings ---
+'Lock'
+'RLock'
+'Semaphore'
+'BoundedSemaphore'
+'Condition'
+'Event'
+'SemLock'
+'fork'
+'win32'
+'cannot find name for semaphore'
+'created semlock with handle %s'
+'semaphore'
+'semaphore'
+'win32'
+'A SemLock created in a fork context is being shared with a process in a spawn context. This is not supported. Please use the same context to create multiprocessing objects and Process.'
+'recreated blocker with handle %r'
+'semprefix'
+'SemLock'
+'Semaphore'
+'unknown'
+'(value='
+')>'
+'BoundedSemaphore'
+'unknown'
+'(value='
+', maxvalue='
+')>'
+'Lock'
+'MainThread'
+'None'
+'SomeOtherThread'
+'SomeOtherProcess'
+'unknown'
+'(owner='
+')>'
+'RLock'
+'MainThread'
+'None'
+'SomeOtherThread'
+'nonzero'
+'SomeOtherProcess'
+'unknown'
+', '
+')>'
+'Condition'
+'unknown'
+', '
+')>'
+'must acquire() condition before using wait()'
+'lock is not owned'
+'notify: Should not have been able to acquire _wait_semaphore'
+'notify: Bug in sleeping_count.acquire- res should not be False'
+'Event'
+'set'
+'unset'
+' at '
+'#x'
+'Barrier'
+'Barrier'
+'This platform lacks a functioning sem_open implementation. https://github.com/python/cpython/issues/48020.'

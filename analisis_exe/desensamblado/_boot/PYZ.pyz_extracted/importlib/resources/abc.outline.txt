@@ -1,0 +1,103 @@
+<module>()  line 1
+    ResourceReader()  line 16
+        ResourceReader.__annotate__(format)  line 20
+        ResourceReader.open_resource(self, resource)  line 19
+        ResourceReader.__annotate__(format)  line 32
+        ResourceReader.resource_path(self, resource)  line 31
+        ResourceReader.__annotate__(format)  line 45
+        ResourceReader.is_resource(self, path)  line 44
+        ResourceReader.__annotate__(format)  line 53
+        ResourceReader.contents(self)  line 52
+    TraversalError()  line 58
+    Traversable()  line 62
+        Traversable.__annotate__(format)  line 73
+        Traversable.iterdir(self)  line 72
+        Traversable.__annotate__(format)  line 78
+        Traversable.read_bytes(self)  line 78
+        Traversable.__annotate__(format)  line 85
+        Traversable.read_text(self, encoding)  line 85
+        Traversable.__annotate__(format)  line 93
+        Traversable.is_dir(self)  line 92
+        Traversable.__annotate__(format)  line 99
+        Traversable.is_file(self)  line 98
+        Traversable.__annotate__(format)  line 104
+        Traversable.joinpath(self)  line 104
+            Traversable.joinpath.<locals>.<genexpr>(.0)  line 114
+            Traversable.joinpath.<locals>.<genexpr>(.0)  line 118
+        Traversable.__annotate__(format)  line 129
+        Traversable.__truediv__(self, child)  line 129
+        Traversable.open(self, mode)  line 135
+        Traversable.__annotate__(format)  line 147
+        Traversable.name(self)  line 145
+    TraversableResources()  line 153
+        TraversableResources.__annotate__(format)  line 160
+        TraversableResources.files(self)  line 159
+        TraversableResources.__annotate__(format)  line 163
+        TraversableResources.open_resource(self, resource)  line 163
+        TraversableResources.__annotate__(format)  line 166
+        TraversableResources.resource_path(self, resource)  line 166
+        TraversableResources.__annotate__(format)  line 169
+        TraversableResources.is_resource(self, path)  line 169
+        TraversableResources.__annotate__(format)  line 172
+        TraversableResources.contents(self)  line 172
+            TraversableResources.contents.<locals>.<genexpr>(.0)  line 173
+
+--- strings ---
+'ResourceReader'
+'Traversable'
+'TraversableResources'
+'ResourceReader'
+'Abstract base class for loaders to provide resource reading support.'
+'resource'
+'return'
+"Return an opened, file-like object for binary reading.\n\nThe 'resource' argument is expected to represent only a file name.\nIf the resource cannot be found, FileNotFoundError is raised.\n"
+'resource'
+'return'
+"Return the file system path to the specified resource.\n\nThe 'resource' argument is expected to represent only a file name.\nIf the resource does not exist on the file system, raise\nFileNotFoundError.\n"
+'path'
+'return'
+"Return True if the named 'path' is a resource.\n\nFiles are resources, directories are not.\n"
+'return'
+'Return an iterable of entries in `package`.'
+'TraversalError'
+'TraversalError'
+'Traversable'
+'\nAn object with a subset of pathlib.Path methods suitable for\ntraversing directories and opening files.\n\nAny exceptions that occur when accessing the backing resource\nmay propagate unaltered.\n'
+'return'
+'Traversable'
+'\nYield Traversable objects in self\n'
+'return'
+'\nRead contents of self as bytes\n'
+'rb'
+'encoding'
+'return'
+'\nRead contents of self as text\n'
+'return'
+'\nReturn True if self is a directory\n'
+'return'
+'\nReturn True if self is a file\n'
+'descendants'
+'return'
+'Traversable'
+'\nReturn Traversable resolved with any descendants applied.\n\nEach descendant should be a path segment relative to self\nand each may contain multiple levels separated by\n``posixpath.sep`` (``/``).\n'
+'Target not found during traversal.'
+'child'
+'return'
+'Traversable'
+'\nReturn Traversable child in self\n'
+"\nmode may be 'r' or 'rb' to open as text or binary. Return a handle\nsuitable for reading (same as pathlib.Path.open).\n\nWhen opening as text, accepts encoding parameters such as those\naccepted by io.TextIOWrapper.\n"
+'return'
+'\nThe base name of this object without any parent references.\n'
+'TraversableResources'
+'\nThe required interface for providing traversable\nresources.\n'
+'return'
+'Traversable'
+'Return a Traversable object for the loaded package.'
+'resource'
+'return'
+'rb'
+'resource'
+'return'
+'path'
+'return'
+'return'

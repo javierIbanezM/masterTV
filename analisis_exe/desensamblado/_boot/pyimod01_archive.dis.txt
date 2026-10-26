@@ -1,0 +1,531 @@
+  0           RESUME                   0
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (os)
+              STORE_NAME               0 (os)
+
+ 18           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (struct)
+              STORE_NAME               1 (struct)
+
+ 19           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (marshal)
+              STORE_NAME               2 (marshal)
+
+ 20           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (zlib)
+              STORE_NAME               3 (zlib)
+
+ 24           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (_frozen_importlib)
+              STORE_NAME               4 (_frozen_importlib)
+
+ 26           LOAD_NAME                4 (_frozen_importlib)
+              LOAD_ATTR               10 (_bootstrap_external)
+              LOAD_ATTR               12 (MAGIC_NUMBER)
+              STORE_NAME               7 (PYTHON_MAGIC_NUMBER)
+
+ 29           LOAD_SMALL_INT           0
+              STORE_NAME               8 (PYZ_ITEM_MODULE)
+
+ 30           LOAD_SMALL_INT           1
+              STORE_NAME               9 (PYZ_ITEM_PKG)
+
+ 31           LOAD_SMALL_INT           2
+              STORE_NAME              10 (PYZ_ITEM_DATA)
+
+ 32           LOAD_SMALL_INT           3
+              STORE_NAME              11 (PYZ_ITEM_NSPKG)
+
+ 35           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               2 (<code object ArchiveReadError at 0x00000204BA0913E0, file "pyimod01_archive.py", line 35>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('ArchiveReadError')
+              LOAD_NAME               12 (RuntimeError)
+              CALL                     3
+              STORE_NAME              13 (ArchiveReadError)
+
+ 39           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object ZlibArchiveReader at 0x00000204BA0A45D0, file "pyimod01_archive.py", line 39>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('ZlibArchiveReader')
+              CALL                     2
+              STORE_NAME              14 (ZlibArchiveReader)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ArchiveReadError at 0x00000204BA0913E0, file "pyimod01_archive.py", line 35>:
+ 35           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ArchiveReadError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          35
+              STORE_NAME               3 (__firstlineno__)
+
+ 36           LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ZlibArchiveReader at 0x00000204BA0A45D0, file "pyimod01_archive.py", line 39>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  39           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ZlibArchiveReader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          39
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  40           LOAD_CONST               1 ("\nReader for PyInstaller's PYZ (ZlibArchive) archive. The archive is used to store collected byte-compiled Python\nmodules, as individually-compressed entries.\n")
+               STORE_NAME               4 (__doc__)
+
+  44           LOAD_CONST               2 (b'PYZ\x00')
+               STORE_NAME               5 (_PYZ_MAGIC_PATTERN)
+
+  46           LOAD_CONST               8 ((None, False))
+               LOAD_CONST               4 (<code object __init__ at 0x00000204BA387780, file "pyimod01_archive.py", line 46>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__init__)
+
+  79           LOAD_NAME                7 (staticmethod)
+
+  80           LOAD_CONST               5 (<code object _parse_offset_from_filename at 0x00000204B9FF3280, file "pyimod01_archive.py", line 79>)
+               MAKE_FUNCTION
+
+  79           CALL                     0
+
+  80           STORE_NAME               8 (_parse_offset_from_filename)
+
+  99           LOAD_CONST               9 ((False,))
+               LOAD_CONST               6 (<code object extract at 0x00000204BA3735D0, file "pyimod01_archive.py", line 99>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               9 (extract)
+               LOAD_CONST               7 (('_filename', '_start_offset', 'toc'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA387780, file "pyimod01_archive.py", line 46>:
+  46           RESUME                   0
+
+  47           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (filename, self)
+               STORE_ATTR               0 (_filename)
+
+  48           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (start_offset, self)
+               STORE_ATTR               1 (_start_offset)
+
+  50           BUILD_MAP                0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (toc)
+
+  53           LOAD_FAST_BORROW         2 (start_offset)
+               POP_JUMP_IF_NOT_NONE    31 (to L1)
+               NOT_TAKEN
+
+  54           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                7 (_parse_offset_from_filename + NULL|self)
+               LOAD_FAST_BORROW         1 (filename)
+               CALL                     1
+               UNPACK_SEQUENCE          2
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_filename)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_start_offset)
+
+  59   L1:     LOAD_GLOBAL              9 (open + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_filename)
+               LOAD_CONST               1 ('rb')
+               CALL                     2
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L2:     STORE_FAST               4 (fp)
+
+  61           LOAD_FAST_BORROW         4 (fp)
+               LOAD_ATTR               11 (seek + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_start_offset)
+               LOAD_GLOBAL             12 (os)
+               LOAD_ATTR               14 (SEEK_SET)
+               CALL                     2
+               POP_TOP
+
+  63           LOAD_FAST_BORROW         4 (fp)
+               LOAD_ATTR               17 (read + NULL|self)
+               LOAD_GLOBAL             19 (len + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               20 (_PYZ_MAGIC_PATTERN)
+               CALL                     1
+               CALL                     1
+               STORE_FAST               5 (magic)
+
+  64           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (magic, self)
+               LOAD_ATTR               20 (_PYZ_MAGIC_PATTERN)
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       12 (to L3)
+               NOT_TAKEN
+
+  65           LOAD_GLOBAL             23 (ArchiveReadError + NULL)
+               LOAD_CONST               2 ('PYZ magic pattern mismatch!')
+               CALL                     1
+               RAISE_VARARGS            1
+
+  68   L3:     LOAD_FAST_BORROW         4 (fp)
+               LOAD_ATTR               17 (read + NULL|self)
+               LOAD_GLOBAL             19 (len + NULL)
+               LOAD_GLOBAL             24 (PYTHON_MAGIC_NUMBER)
+               CALL                     1
+               CALL                     1
+               STORE_FAST               6 (pymagic)
+
+  69           LOAD_FAST_BORROW         3 (check_pymagic)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       23 (to L4)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         6 (pymagic)
+               LOAD_GLOBAL             24 (PYTHON_MAGIC_NUMBER)
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       12 (to L4)
+               NOT_TAKEN
+
+  70           LOAD_GLOBAL             23 (ArchiveReadError + NULL)
+               LOAD_CONST               3 ('Python magic pattern mismatch!')
+               CALL                     1
+               RAISE_VARARGS            1
+
+  73   L4:     LOAD_GLOBAL             26 (struct)
+               LOAD_ATTR               28 (unpack)
+               PUSH_NULL
+               LOAD_CONST               4 ('!i')
+               LOAD_FAST_BORROW         4 (fp)
+               LOAD_ATTR               17 (read + NULL|self)
+               LOAD_SMALL_INT           4
+               CALL                     1
+               CALL                     2
+               UNPACK_EX                1
+               STORE_FAST_STORE_FAST  120 (toc_offset, _)
+
+  76           LOAD_FAST_BORROW         4 (fp)
+               LOAD_ATTR               11 (seek + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_start_offset)
+               LOAD_FAST_BORROW         7 (toc_offset)
+               BINARY_OP                0 (+)
+               LOAD_GLOBAL             12 (os)
+               LOAD_ATTR               14 (SEEK_SET)
+               CALL                     2
+               POP_TOP
+
+  77           LOAD_GLOBAL             31 (dict + NULL)
+               LOAD_GLOBAL             32 (marshal)
+               LOAD_ATTR               34 (load)
+               PUSH_NULL
+               LOAD_FAST_BORROW         4 (fp)
+               CALL                     1
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (toc)
+
+  59   L5:     LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+       L6:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L7)
+               NOT_TAKEN
+               RERAISE                  2
+       L7:     POP_TOP
+       L8:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L5 -> L6 [2] lasti
+  L6 to L8 -> L9 [4] lasti
+
+Disassembly of <code object _parse_offset_from_filename at 0x00000204B9FF3280, file "pyimod01_archive.py", line 79>:
+  79           RESUME                   0
+
+  84           LOAD_SMALL_INT           0
+               STORE_FAST               1 (offset)
+
+  86           LOAD_FAST_BORROW         0 (filename)
+               LOAD_ATTR                1 (rfind + NULL|self)
+               LOAD_CONST               1 ('?')
+               CALL                     1
+               STORE_FAST               2 (idx)
+
+  87           LOAD_FAST_BORROW         2 (idx)
+               LOAD_CONST               3 (-1)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        4 (to L1)
+               NOT_TAKEN
+
+  88           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (filename, offset)
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+  90   L1:     NOP
+
+  91   L2:     LOAD_GLOBAL              3 (int + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (filename, idx)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               LOAD_CONST               2 (None)
+               BINARY_SLICE
+               CALL                     1
+               STORE_FAST               1 (offset)
+
+  92           LOAD_FAST_BORROW         0 (filename)
+               LOAD_CONST               2 (None)
+               LOAD_FAST_BORROW         2 (idx)
+               BINARY_SLICE
+               STORE_FAST               0 (filename)
+
+  97   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (filename, offset)
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  93           LOAD_GLOBAL              4 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  95   L5:     POP_EXCEPT
+
+  97           LOAD_FAST_LOAD_FAST      1 (filename, offset)
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+  93   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object extract at 0x00000204BA3735D0, file "pyimod01_archive.py", line 99>:
+  99            RESUME                   0
+
+ 107            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (toc)
+                LOAD_ATTR                3 (get + NULL|self)
+                LOAD_FAST_BORROW         1 (name)
+                CALL                     1
+                STORE_FAST               3 (entry)
+
+ 108            LOAD_FAST_BORROW         3 (entry)
+                POP_JUMP_IF_NOT_NONE    17 (to L1)
+                NOT_TAKEN
+
+ 109            LOAD_GLOBAL              5 (KeyError + NULL)
+                LOAD_CONST               2 ('No entry named ')
+                LOAD_FAST_BORROW         1 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               3 (' found in the archive!')
+                BUILD_STRING             3
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 111    L1:     LOAD_FAST_BORROW         3 (entry)
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   69 (typecode, entry_offset)
+                STORE_FAST               6 (entry_length)
+
+ 114            LOAD_FAST_BORROW         4 (typecode)
+                LOAD_GLOBAL              6 (PYZ_ITEM_NSPKG)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L2)
+                NOT_TAKEN
+
+ 115            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 118    L2:     NOP
+
+ 119    L3:     LOAD_GLOBAL              9 (open + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_filename)
+                LOAD_CONST               4 ('rb')
+                CALL                     2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L4:     STORE_FAST               7 (fp)
+
+ 120            LOAD_FAST_BORROW         7 (fp)
+                LOAD_ATTR               13 (seek + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_start_offset)
+                LOAD_FAST_BORROW         5 (entry_offset)
+                BINARY_OP                0 (+)
+                CALL                     1
+                POP_TOP
+
+ 121            LOAD_FAST_BORROW         7 (fp)
+                LOAD_ATTR               17 (read + NULL|self)
+                LOAD_FAST_BORROW         6 (entry_length)
+                CALL                     1
+                STORE_FAST               8 (obj)
+
+ 119    L5:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+
+ 133    L6:     NOP
+
+ 134    L7:     LOAD_GLOBAL             22 (zlib)
+                LOAD_ATTR               24 (decompress)
+                PUSH_NULL
+                LOAD_FAST_CHECK          8 (obj)
+                CALL                     1
+                STORE_FAST               8 (obj)
+
+ 135            LOAD_FAST                4 (typecode)
+                LOAD_GLOBAL             26 (PYZ_ITEM_MODULE)
+                LOAD_GLOBAL             28 (PYZ_ITEM_PKG)
+                BUILD_TUPLE              2
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       31 (to L10)
+                NOT_TAKEN
+                LOAD_FAST                2 (raw)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        23 (to L10)
+        L8:     NOT_TAKEN
+
+ 136    L9:     LOAD_GLOBAL             30 (marshal)
+                LOAD_ATTR               32 (loads)
+                PUSH_NULL
+                LOAD_FAST                8 (obj)
+                CALL                     1
+                STORE_FAST               8 (obj)
+
+ 140   L10:     LOAD_FAST                8 (obj)
+                RETURN_VALUE
+
+ 119   L11:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L12)
+                NOT_TAKEN
+                RERAISE                  2
+       L12:     POP_TOP
+       L13:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+       L14:     JUMP_BACKWARD_NO_INTERRUPT 88 (to L6)
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L16:     PUSH_EXC_INFO
+
+ 122            LOAD_GLOBAL             18 (FileNotFoundError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       27 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+ 128            LOAD_GLOBAL             21 (SystemExit + NULL)
+
+ 129            LOAD_CONST               5 ('ERROR: ')
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               10 (_filename)
+                FORMAT_SIMPLE
+                LOAD_CONST               6 (' appears to have been moved or deleted since this application was launched. Continouation from this state is impossible. Exiting now.')
+                BUILD_STRING             3
+
+ 128            CALL                     1
+                RAISE_VARARGS            1
+
+ 122   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L19:     PUSH_EXC_INFO
+
+ 137            LOAD_GLOBAL             34 (EOFError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       23 (to L22)
+                NOT_TAKEN
+                STORE_FAST               9 (e)
+
+ 138   L20:     LOAD_GLOBAL             37 (ImportError + NULL)
+                LOAD_CONST               7 ('Failed to unmarshal PYZ entry ')
+                LOAD_FAST                1 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               8 ('!')
+                BUILD_STRING             3
+                CALL                     1
+                LOAD_FAST                9 (e)
+                RAISE_VARARGS            2
+
+  --   L21:     LOAD_CONST               1 (None)
+                STORE_FAST               9 (e)
+                DELETE_FAST              9 (e)
+                RERAISE                  1
+
+ 137   L22:     RERAISE                  0
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L16 [0]
+  L4 to L5 -> L11 [2] lasti
+  L5 to L6 -> L16 [0]
+  L7 to L8 -> L19 [0]
+  L9 to L10 -> L19 [0]
+  L11 to L13 -> L15 [4] lasti
+  L13 to L14 -> L16 [0]
+  L15 to L16 -> L16 [0]
+  L16 to L18 -> L18 [1] lasti
+  L19 to L20 -> L23 [1] lasti
+  L20 to L21 -> L21 [1] lasti
+  L21 to L23 -> L23 [1] lasti

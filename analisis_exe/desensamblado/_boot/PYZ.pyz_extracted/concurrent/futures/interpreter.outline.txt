@@ -1,0 +1,30 @@
+<module>()  line 1
+    do_call(results, func, args, kwargs)  line 10
+    WorkerContext()  line 26
+        WorkerContext.prepare(cls, initializer, initargs)  line 28
+            WorkerContext.prepare.<locals>.resolve_task(fn, args, kwargs)  line 30
+            WorkerContext.prepare.<locals>.create_context()  line 47
+        WorkerContext.__init__(self, initdata)  line 51
+        WorkerContext.__del__(self)  line 56
+        WorkerContext.initialize(self)  line 60
+        WorkerContext.finalize(self)  line 73
+        WorkerContext.run(self, task)  line 83
+    BrokenInterpreterPool()  line 95
+    InterpreterPoolExecutor()  line 101
+        InterpreterPoolExecutor.prepare_context(cls, initializer, initargs)  line 105
+        InterpreterPoolExecutor.__init__(self, max_workers, thread_name_prefix, initializer, initargs)  line 109
+
+--- strings ---
+'Implements InterpreterPoolExecutor.'
+'exception is not shareable:'
+'WorkerContext'
+'scripts not supported'
+'an initializer script does not take args, got '
+'WorkerContext'
+'BrokenInterpreterPool'
+'\nRaised when a worker thread in an InterpreterPoolExecutor failed initializing.\n'
+'BrokenInterpreterPool'
+'InterpreterPoolExecutor'
+'Initializes a new InterpreterPoolExecutor instance.\n\nArgs:\n    max_workers: The maximum number of interpreters that can be used to\n        execute the given calls.\n    thread_name_prefix: An optional name prefix to give our threads.\n    initializer: A callable or script used to initialize\n        each worker interpreter.\n    initargs: A tuple of arguments to pass to the initializer.\n'
+'InterpreterPoolExecutor-'
+'InterpreterPoolExecutor'

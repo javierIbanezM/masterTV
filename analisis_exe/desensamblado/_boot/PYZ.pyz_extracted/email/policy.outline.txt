@@ -1,0 +1,40 @@
+<module>()  line 1
+    EmailPolicy()  line 32
+        EmailPolicy.__init__(self)  line 99
+        EmailPolicy.header_max_count(self, name)  line 106
+        EmailPolicy.header_source_parse(self, sourcelines)  line 124
+        EmailPolicy.header_store_parse(self, name, value)  line 137
+        EmailPolicy.header_fetch_parse(self, name, value)  line 157
+        EmailPolicy.fold(self, name, value)  line 172
+        EmailPolicy.fold_binary(self, name, value)  line 193
+        EmailPolicy._fold(self, name, value, refold_binary)  line 211
+            EmailPolicy._fold.<locals>.<genexpr>(.0)  line 220
+
+--- strings ---
+'This will be the home for the policy that hooks in the new\ncode that adds all the email6 features.\n'
+'EmailPolicy'
+'\\n|\\r\\n?'
+'EmailPolicy'
+"+\nPROVISIONAL\n\nThe API extensions enabled by this policy are currently provisional.\nRefer to the documentation for details.\n\nThis policy adds new header parsing and folding algorithms.  Instead of\nsimple strings, headers are custom objects with custom attributes\ndepending on the type of the field.  The folding algorithm fully\nimplements RFCs 2047 and 5322.\n\nIn addition to the settable attributes listed above that apply to\nall Policies, this policy adds the following additional attributes:\n\nutf8                -- if False (the default) message headers will be\n                       serialized as ASCII, using encoded words to encode\n                       any non-ASCII characters in the source strings.  If\n                       True, the message headers will be serialized using\n                       utf8 and will not contain encoded words (see RFC\n                       6532 for more on this serialization format).\n\nrefold_source       -- if the value for a header in the Message object\n                       came from the parsing of some source, this attribute\n                       indicates whether or not a generator should refold\n                       that value when transforming the message back into\n                       stream form.  The possible values are:\n\n                       none  -- all source values use original folding\n                       long  -- source values that have any line that is\n                                longer than max_line_length will be\n                                refolded\n                       all  -- all values are refolded.\n\n                       The default is 'long'.\n\nheader_factory      -- a callable that takes two arguments, 'name' and\n                       'value', where 'name' is a header field name and\n                       'value' is an unfolded header field value, and\n                       returns a string-like object that represents that\n                       header.  A default header_factory is provided that\n                       understands some of the RFC5322 header field types.\n                       (Currently address fields and date fields have\n                       special treatment, while all other fields are\n                       treated as unstructured.  This list will be\n                       completed before the extension is marked stable.)\n\ncontent_manager     -- an object with at least two methods: get_content\n                       and set_content.  When the get_content or\n                       set_content method of a Message object is called,\n                       it calls the corresponding method of this object,\n                       passing it the message object as its first argument,\n                       and any arguments or keywords that were passed to\n                       it as additional arguments.  The default\n                       content_manager is\n                       :data:`~email.contentmanager.raw_data_manager`.\n\n"
+'long'
+'header_factory'
+"+\nThe implementation for this class returns the max_count attribute from\nthe specialized header class that would be used to construct a header\nof type 'name'.\n"
+"+\nThe name is parsed as everything up to the ':' and returned unmodified.\nThe value is determined by stripping leading whitespace off the\nremainder of the first line joined with all subsequent lines, and\nstripping any trailing carriage return or linefeed characters.  (This\nis the same as Compat32).\n\n"
+' \t\r\n'
+'\r\n'
+"+\nThe name is returned unchanged.  If the input value has a 'name'\nattribute and it matches the name ignoring case, the value is returned\nunchanged.  Otherwise the name and value are passed to header_factory\nmethod, and the resulting custom header object is returned as the\nvalue.  In this case a ValueError is raised if the input value contains\nCR or LF characters.\n\n"
+'name'
+'Header values may not contain linefeed or carriage return characters'
+"+\nIf the value has a 'name' attribute, it is returned to unmodified.\nOtherwise the name and the value with any linesep characters removed\nare passed to the header_factory method, and the resulting custom\nheader object is returned.  Any surrogateescaped bytes get turned\ninto the unicode unknown-character glyph.\n\n"
+'name'
+"+\nHeader folding is controlled by the refold_source policy setting.  A\nvalue is considered to be a 'source value' if and only if it does not\nhave a 'name' attribute (having a 'name' attribute means it is a header\nobject of some sort).  If a source value needs to be refolded according\nto the policy, it is converted into a custom header object by passing\nthe name and the value with any linesep characters removed to the\nheader_factory method.  Folding of a custom header object is done by\ncalling its fold method with the current policy.\n\nSource values are split into lines using splitlines.  If the value is\nnot to be refolded, the lines are rejoined using the linesep from the\npolicy and returned.  The exception is lines containing non-ascii\nbinary data.  In that case the value is refolded regardless of the\nrefold_source setting, which causes the binary data to be CTE encoded\nusing the unknown-8bit charset.\n\n"
+'+\nThe same as fold if cte_type is 7bit, except that the returned value is\nbytes.\n\nIf cte_type is 8bit, non-ASCII binary data is converted back into\nbytes.  Headers with binary data are not refolded, regardless of the\nrefold_header setting, since there is no way to know whether the binary\ndata consists of single byte characters or multibyte characters.\n\nIf utf8 is true, headers are encoded to utf8, otherwise to ascii with\nnon-ASCII unicode rendered as encoded words.\n\n'
+'7bit'
+'utf8'
+'ascii'
+'surrogateescape'
+'name'
+'all'
+'long'
+': '
+'\r\n'

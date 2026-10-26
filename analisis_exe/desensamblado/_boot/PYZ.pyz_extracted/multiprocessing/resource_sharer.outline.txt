@@ -1,0 +1,40 @@
+<module>()  line 1
+    DupSocket()  line 27
+        DupSocket.__init__(self, sock)  line 29
+            DupSocket.__init__.<locals>.send(conn, pid)  line 31
+        DupSocket.detach(self)  line 36
+    DupFd()  line 45
+        DupFd.__init__(self, fd)  line 47
+            DupFd.__init__.<locals>.send(conn, pid)  line 49
+            DupFd.__init__.<locals>.close()  line 51
+        DupFd.detach(self)  line 55
+    _ResourceSharer()  line 61
+        _ResourceSharer.__init__(self)  line 63
+        _ResourceSharer.register(self, send, close)  line 72
+        _ResourceSharer.get_connection(ident)  line 81
+        _ResourceSharer.stop(self, timeout)  line 90
+        _ResourceSharer._afterfork(self)  line 111
+        _ResourceSharer._start(self)  line 122
+        _ResourceSharer._serve(self)  line 133
+
+--- strings ---
+'stop'
+'win32'
+'DupSocket'
+'DupSocket'
+'Picklable wrapper for a socket.'
+'Get the socket.  This should only be called once.'
+'DupFd'
+'DupFd'
+'Wrapper for fd which can be used at any time.'
+'Get the fd.  This should only be called once.'
+'_ResourceSharer'
+'Manager for resources using background thread.'
+'Register resource, returning an identifier.'
+'Return connection from which to receive identified resource.'
+'Stop the background thread and clear registered resources.'
+'_ResourceSharer thread did not stop when asked'
+'Already have Listener'
+'starting listener and thread for sending handles'
+'pthread_sigmask'
+'_ResourceSharer'

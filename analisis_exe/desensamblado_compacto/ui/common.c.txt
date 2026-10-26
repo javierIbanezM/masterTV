@@ -1,0 +1,128 @@
+
+DEF <module>() @1
+1: LOAD_CONST 'Infraestructura compartida por la UI: hilos, contexto de app y diálogos.'; STORE_NAME __doc__
+2: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+4: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME traceback; STORE_NAME traceback
+5: LOAD_SMALL_INT 0; LOAD_CONST ('Callable',); IMPORT_NAME typing; IMPORT_FROM Callable; STORE_NAME Callable
+7: LOAD_SMALL_INT 0; LOAD_CONST ('QObject', 'QRunnable', 'QThreadPool', 'pyqtSignal'); IMPORT_NAME PyQt6.QtCore; IMPORT_FROM QObject; STORE_NAME QObject; IMPORT_FROM QRunnable; STORE_NAME QRunnable; IMPORT_FROM QThreadPool; STORE_NAME QThreadPool; IMPORT_FROM pyqtSignal; STORE_NAME pyqtSignal
+8: LOAD_SMALL_INT 0; LOAD_CONST ('QMessageBox', 'QWidget'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QMessageBox; STORE_NAME QMessageBox; IMPORT_FROM QWidget; STORE_NAME QWidget
+10: LOAD_SMALL_INT 2; LOAD_CONST ('paths',); IMPORT_NAME; IMPORT_FROM paths; STORE_NAME paths
+11: LOAD_SMALL_INT 2; LOAD_CONST ('Adb',); IMPORT_NAME adb; IMPORT_FROM Adb; STORE_NAME Adb
+12: LOAD_SMALL_INT 2; LOAD_CONST ('FullyConfigurator',); IMPORT_NAME fully_config; IMPORT_FROM FullyConfigurator; STORE_NAME FullyConfigurator
+13: LOAD_SMALL_INT 2; LOAD_CONST ('KioskService',); IMPORT_NAME kiosk; IMPORT_FROM KioskService; STORE_NAME KioskService
+14: LOAD_SMALL_INT 2; LOAD_CONST ('Device', 'DeviceStore', 'Settings'); IMPORT_NAME store; IMPORT_FROM Device; STORE_NAME Device; IMPORT_FROM DeviceStore; STORE_NAME DeviceStore; IMPORT_FROM Settings; STORE_NAME Settings
+17: LOAD_BUILD_CLASS; LOAD_CONST <code _Signals>; MAKE_FUNCTION; LOAD_CONST '_Signals'; LOAD_NAME QObject; CALL; STORE_NAME _Signals
+22: LOAD_BUILD_CLASS; LOAD_CONST <code _Task>; MAKE_FUNCTION; LOAD_CONST '_Task'; LOAD_NAME QRunnable; CALL; STORE_NAME _Task
+36: LOAD_BUILD_CLASS; LOAD_CONST <code AppContext>; MAKE_FUNCTION; LOAD_CONST 'AppContext'; LOAD_NAME QObject; CALL; STORE_NAME AppContext
+92: LOAD_CONST ('',); LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code confirm>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME confirm
+107: LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code info>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME info
+111: LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code warn>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME warn; LOAD_CONST None; RETURN_VALUE
+
+  DEF _Signals() @17
+  17: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST '_Signals'; STORE_NAME __qualname__; LOAD_SMALL_INT 17; STORE_NAME __firstlineno__
+  18: LOAD_NAME pyqtSignal; LOAD_NAME object; CALL; STORE_NAME done
+  19: LOAD_NAME pyqtSignal; LOAD_NAME str; CALL; STORE_NAME failed; LOAD_CONST (); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+  DEF _Task() @22
+  22: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST '_Task'; STORE_NAME __qualname__; LOAD_SMALL_INT 22; STORE_NAME __firstlineno__
+  23: LOAD_CONST <code _Task.__annotate__>; MAKE_FUNCTION; LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code _Task.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME __init__
+  27: LOAD_CONST <code _Task.run>; MAKE_FUNCTION; STORE_NAME run; LOAD_CONST ('fn', 'signals'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF _Task.__init__(self,fn,signals) @23
+    24: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; CALL
+    25: LOAD_FAST_BORROW_LOAD_FAST_BORROW fn, signals; SWAP; LOAD_FAST_BORROW self; STORE_ATTR fn; LOAD_FAST_BORROW self; STORE_ATTR signals; LOAD_CONST None; RETURN_VALUE
+
+    DEF _Task.run(self) @27
+    29: LOAD_FAST_BORROW self; LOAD_ATTR fn + NULL|self; CALL; STORE_FAST res
+    33: LOAD_FAST_BORROW self; LOAD_ATTR signals; LOAD_ATTR done; LOAD_ATTR emit + NULL|self; LOAD_FAST_BORROW res; CALL; LOAD_CONST None; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    30: LOAD_GLOBAL Exception; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->294; STORE_FAST e
+    31: LOAD_FAST self; LOAD_ATTR signals; LOAD_ATTR failed; LOAD_ATTR emit + NULL|self; LOAD_FAST e; FORMAT_SIMPLE; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->264; LOAD_GLOBAL traceback; LOAD_ATTR format_exc; LOAD_SMALL_INT 1; LOAD_CONST ('limit',); CALL_KW; <L264>; CALL; POP_EXCEPT; LOAD_CONST None; STORE_FAST e; DELETE_FAST e; LOAD_CONST None; RETURN_VALUE
+    None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+    30: <L294>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+  DEF AppContext() @36
+  36: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'AppContext'; STORE_NAME __qualname__; LOAD_SMALL_INT 36; STORE_NAME __firstlineno__
+  37: LOAD_CONST 'Estado compartido: ADB, ajustes, dispositivos y dispositivo seleccionado.'; STORE_NAME __doc__
+  38: LOAD_NAME pyqtSignal; CALL; STORE_NAME device_changed
+  39: LOAD_NAME pyqtSignal; LOAD_NAME str; CALL; STORE_NAME log_line
+  40: LOAD_NAME pyqtSignal; CALL; STORE_NAME status_changed
+  42: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code AppContext.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  56: LOAD_NAME property
+  57: LOAD_CONST <code AppContext.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code AppContext.serial>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate
+  56: CALL
+  57: STORE_NAME serial
+  60: LOAD_CONST <code AppContext.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code AppContext.state_of>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME state_of
+  63: LOAD_CONST <code AppContext.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code AppContext.log>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME log
+  66: LOAD_CONST (None, None); LOAD_CONST <code AppContext.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code AppContext.run>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME run; LOAD_CONST ('_live', 'adb', 'current', 'fully', 'kiosk', 'kiosk_last', 'pool', 'settings', 'states', 'store'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF AppContext.__init__(self) @42
+    43: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_DEREF self; LOAD_SUPER_ATTR __init__ + NULL|self; CALL
+    44: LOAD_GLOBAL Settings + NULL; CALL; LOAD_DEREF self; STORE_ATTR settings
+    45: LOAD_GLOBAL DeviceStore + NULL; CALL; LOAD_DEREF self; STORE_ATTR store
+    46: LOAD_GLOBAL Adb + NULL; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppContext.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_DEREF self; STORE_ATTR adb
+    47: LOAD_GLOBAL KioskService + NULL; LOAD_DEREF self; LOAD_ATTR adb; LOAD_DEREF self; LOAD_ATTR log; CALL; LOAD_DEREF self; STORE_ATTR kiosk
+    48: LOAD_GLOBAL FullyConfigurator + NULL; LOAD_DEREF self; LOAD_ATTR adb; LOAD_DEREF self; LOAD_ATTR log; CALL; LOAD_DEREF self; STORE_ATTR fully
+    49: BUILD_MAP; LOAD_DEREF self; STORE_ATTR kiosk_last
+    50: LOAD_GLOBAL QThreadPool; LOAD_ATTR globalInstance; CALL; LOAD_DEREF self; STORE_ATTR pool
+    51: LOAD_DEREF self; LOAD_ATTR pool; LOAD_ATTR setMaxThreadCount + NULL|self; LOAD_SMALL_INT 16; CALL
+    52: LOAD_CONST None; LOAD_DEREF self; STORE_ATTR current
+    53: BUILD_MAP; LOAD_DEREF self; STORE_ATTR states
+    54: LOAD_GLOBAL set + NULL; CALL; LOAD_DEREF self; STORE_ATTR _live; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppContext.__init__.<locals>.<lambda>() @46
+      46: LOAD_GLOBAL paths; LOAD_ATTR find_adb; LOAD_DEREF self; LOAD_ATTR settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'adb_path'; CALL; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->108; LOAD_CONST None; <L108>; CALL; RETURN_VALUE
+
+    DEF AppContext.serial(self) @56
+    58: LOAD_FAST_BORROW self; LOAD_ATTR current; TO_BOOL; POP_JUMP_IF_FALSE ->82; LOAD_FAST_BORROW self; LOAD_ATTR current; LOAD_ATTR serial; RETURN_VALUE; <L82>; LOAD_CONST None; RETURN_VALUE
+
+    DEF AppContext.state_of(self,d) @60
+    61: LOAD_FAST_BORROW self; LOAD_ATTR states; LOAD_ATTR get + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR id; LOAD_CONST 'unknown'; CALL; RETURN_VALUE
+
+    DEF AppContext.log(self,msg) @63
+    64: LOAD_FAST_BORROW self; LOAD_ATTR log_line; LOAD_ATTR emit + NULL|self; LOAD_FAST_BORROW msg; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF AppContext.run(self,fn,on_ok,on_err) @66
+    69: LOAD_GLOBAL _Signals + NULL; CALL; STORE_DEREF sig
+    70: LOAD_DEREF self; LOAD_ATTR _live; LOAD_ATTR add + NULL|self; LOAD_DEREF sig; CALL
+    72: LOAD_FAST_BORROW self; LOAD_FAST_BORROW sig; BUILD_TUPLE; LOAD_CONST <code AppContext.run.<locals>.finish>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_DEREF finish
+    75: LOAD_FAST_BORROW finish; LOAD_FAST_BORROW on_ok; BUILD_TUPLE; LOAD_CONST <code AppContext.run.<locals>.ok>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST ok
+    80: LOAD_FAST_BORROW finish; LOAD_FAST_BORROW on_err; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppContext.run.<locals>.err>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST err
+    87: LOAD_DEREF sig; LOAD_ATTR done; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW ok; CALL
+    88: LOAD_DEREF sig; LOAD_ATTR failed; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW err; CALL
+    89: LOAD_DEREF self; LOAD_ATTR pool; LOAD_ATTR start + NULL|self; LOAD_GLOBAL _Task + NULL; LOAD_FAST_BORROW fn; LOAD_DEREF sig; CALL; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppContext.run.<locals>.finish() @72
+      73: LOAD_DEREF self; LOAD_ATTR _live; LOAD_ATTR discard + NULL|self; LOAD_DEREF sig; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppContext.run.<locals>.ok(res) @75
+      76: LOAD_DEREF finish; CALL
+      77: LOAD_DEREF on_ok; TO_BOOL; POP_JUMP_IF_FALSE ->54
+      78: LOAD_DEREF on_ok; LOAD_FAST_BORROW res; CALL; LOAD_CONST None; RETURN_VALUE
+      77: <L54>; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppContext.run.<locals>.err(msg) @80
+      81: LOAD_DEREF finish; CALL
+      82: LOAD_DEREF on_err; TO_BOOL; POP_JUMP_IF_FALSE ->54
+      83: LOAD_DEREF on_err; LOAD_FAST_BORROW msg; CALL; LOAD_CONST None; RETURN_VALUE
+      85: <L54>; LOAD_DEREF self; LOAD_ATTR log + NULL|self; LOAD_CONST '✖ '; LOAD_FAST_BORROW msg; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+
+  DEF confirm(parent,title,text,command) @92
+  94: LOAD_GLOBAL QMessageBox + NULL; LOAD_FAST_BORROW parent; CALL; STORE_FAST box
+  95: LOAD_FAST_BORROW box; LOAD_ATTR setIcon + NULL|self; LOAD_GLOBAL QMessageBox; LOAD_ATTR Icon; LOAD_ATTR Warning; CALL
+  96: LOAD_FAST_BORROW box; LOAD_ATTR setWindowTitle + NULL|self; LOAD_FAST_BORROW title; CALL
+  97: LOAD_FAST_BORROW box; LOAD_ATTR setText + NULL|self; LOAD_FAST_BORROW text; CALL
+  98: LOAD_FAST_BORROW command; TO_BOOL; POP_JUMP_IF_FALSE ->230
+  99: LOAD_FAST_BORROW box; LOAD_ATTR setInformativeText + NULL|self; LOAD_CONST 'Comando exacto:\n'; LOAD_FAST_BORROW command; FORMAT_SIMPLE; BUILD_STRING; CALL
+  100: <L230>; LOAD_FAST_BORROW box; LOAD_ATTR setStandardButtons + NULL|self; LOAD_GLOBAL QMessageBox; LOAD_ATTR StandardButton; LOAD_ATTR Yes; LOAD_GLOBAL QMessageBox; LOAD_ATTR StandardButton; LOAD_ATTR Cancel; BINARY_OP |; CALL
+  101: LOAD_FAST_BORROW box; LOAD_ATTR setDefaultButton + NULL|self; LOAD_GLOBAL QMessageBox; LOAD_ATTR StandardButton; LOAD_ATTR Cancel; CALL
+  102: LOAD_FAST_BORROW box; LOAD_ATTR button + NULL|self; LOAD_GLOBAL QMessageBox; LOAD_ATTR StandardButton; LOAD_ATTR Yes; CALL; LOAD_ATTR setText + NULL|self; LOAD_CONST 'Sí, ejecutar'; CALL
+  103: LOAD_FAST_BORROW box; LOAD_ATTR button + NULL|self; LOAD_GLOBAL QMessageBox; LOAD_ATTR StandardButton; LOAD_ATTR Cancel; CALL; LOAD_ATTR setText + NULL|self; LOAD_CONST 'Cancelar'; CALL
+  104: LOAD_FAST_BORROW box; LOAD_ATTR exec + NULL|self; CALL; LOAD_GLOBAL QMessageBox; LOAD_ATTR StandardButton; LOAD_ATTR Yes; COMPARE_OP ==; RETURN_VALUE
+
+  DEF info(parent,title,text) @107
+  108: LOAD_GLOBAL QMessageBox; LOAD_ATTR information; LOAD_FAST_BORROW_LOAD_FAST_BORROW parent, title; LOAD_FAST_BORROW text; CALL; LOAD_CONST None; RETURN_VALUE
+
+  DEF warn(parent,title,text) @111
+  112: LOAD_GLOBAL QMessageBox; LOAD_ATTR warning; LOAD_FAST_BORROW_LOAD_FAST_BORROW parent, title; LOAD_FAST_BORROW text; CALL; LOAD_CONST None; RETURN_VALUE

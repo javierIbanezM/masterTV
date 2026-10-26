@@ -1,0 +1,82 @@
+<module>()  line 1
+    Empty()  line 27
+    Full()  line 31
+    ShutDown()  line 36
+    Queue()  line 40
+        Queue.__init__(self, maxsize)  line 46
+        Queue.task_done(self)  line 72
+        Queue.join(self)  line 97
+        Queue.qsize(self)  line 110
+        Queue.empty(self)  line 115
+        Queue.full(self)  line 129
+        Queue.put(self, item, block, timeout)  line 140
+        Queue.get(self, block, timeout)  line 180
+        Queue.put_nowait(self, item)  line 220
+        Queue.get_nowait(self)  line 228
+        Queue.shutdown(self, immediate)  line 236
+        Queue._init(self, maxsize)  line 264
+        Queue._qsize(self)  line 267
+        Queue._put(self, item)  line 271
+        Queue._get(self)  line 275
+    PriorityQueue()  line 281
+        PriorityQueue._init(self, maxsize)  line 287
+        PriorityQueue._qsize(self)  line 290
+        PriorityQueue._put(self, item)  line 293
+        PriorityQueue._get(self)  line 296
+    LifoQueue()  line 300
+        LifoQueue._init(self, maxsize)  line 303
+        LifoQueue._qsize(self)  line 306
+        LifoQueue._put(self, item)  line 309
+        LifoQueue._get(self)  line 312
+    _PySimpleQueue()  line 316
+        _PySimpleQueue.__init__(self)  line 326
+        _PySimpleQueue.put(self, item, block, timeout)  line 330
+        _PySimpleQueue.get(self, block, timeout)  line 339
+        _PySimpleQueue.put_nowait(self, item)  line 356
+        _PySimpleQueue.get_nowait(self)  line 364
+        _PySimpleQueue.empty(self)  line 372
+        _PySimpleQueue.qsize(self)  line 376
+
+--- strings ---
+'A multi-producer, multi-consumer queue.'
+'Empty'
+'Full'
+'ShutDown'
+'Queue'
+'PriorityQueue'
+'LifoQueue'
+'Empty'
+'Exception raised by Queue.get(block=0)/get_nowait().'
+'Full'
+'Exception raised by Queue.put(block=0)/put_nowait().'
+'ShutDown'
+'Raised when put/get with shut-down queue.'
+'Queue'
+'Create a queue object with a given maximum size.\n\nIf maxsize is <= 0, the queue size is infinite.\n'
+'Indicate that a formerly enqueued task is complete.\n\nUsed by Queue consumer threads.  For each get() used to fetch a task,\na subsequent call to task_done() tells the queue that the processing\non the task is complete.\n\nIf a join() is currently blocking, it will resume when all items\nhave been processed (meaning that a task_done() call was received\nfor every item that had been put() into the queue).\n\nshutdown(immediate=True) calls task_done() for each remaining item in\nthe queue.\n\nRaises a ValueError if called more times than there were items\nplaced in the queue.\n'
+'task_done() called too many times'
+'Blocks until all items in the Queue have been gotten and processed.\n\nThe count of unfinished tasks goes up whenever an item is added to the\nqueue. The count goes down whenever a consumer thread calls task_done()\nto indicate the item was retrieved and all work on it is complete.\n\nWhen the count of unfinished tasks drops to zero, join() unblocks.\n'
+'Return the approximate size of the queue (not reliable!).'
+'Return True if the queue is empty, False otherwise (not reliable!).\n\nThis method is likely to be removed at some point.  Use qsize() == 0\nas a direct substitute, but be aware that either approach risks a race\ncondition where a queue can grow before the result of empty() or\nqsize() can be used.\n\nTo create code that needs to wait for all queued tasks to be\ncompleted, the preferred technique is to use the join() method.\n'
+'Return True if the queue is full, False otherwise (not reliable!).\n\nThis method is likely to be removed at some point.  Use qsize() >= n\nas a direct substitute, but be aware that either approach risks a race\ncondition where a queue can shrink before the result of full() or\nqsize() can be used.\n'
+"Put an item into the queue.\n\nIf optional args 'block' is true and 'timeout' is None (the default),\nblock if necessary until a free slot is available. If 'timeout' is\na non-negative number, it blocks at most 'timeout' seconds and raises\nthe Full exception if no free slot was available within that time.\nOtherwise ('block' is false), put an item on the queue if a free slot\nis immediately available, else raise the Full exception ('timeout'\nis ignored in that case).\n\nRaises ShutDown if the queue has been shut down.\n"
+"'timeout' must be a non-negative number"
+"Remove and return an item from the queue.\n\nIf optional args 'block' is true and 'timeout' is None (the default),\nblock if necessary until an item is available. If 'timeout' is\na non-negative number, it blocks at most 'timeout' seconds and raises\nthe Empty exception if no item was available within that time.\nOtherwise ('block' is false), return an item if one is immediately\navailable, else raise the Empty exception ('timeout' is ignored\nin that case).\n\nRaises ShutDown if the queue has been shut down and is empty,\nor if the queue has been shut down immediately.\n"
+"'timeout' must be a non-negative number"
+'Put an item into the queue without blocking.\n\nOnly enqueue the item if a free slot is immediately available.\nOtherwise raise the Full exception.\n'
+'Remove and return an item from the queue without blocking.\n\nOnly get an item if one is immediately available. Otherwise\nraise the Empty exception.\n'
+"Shut-down the queue, making queue gets and puts raise ShutDown.\n\nBy default, gets will only raise once the queue is empty. Set\n'immediate' to True to make gets raise immediately instead.\n\nAll blocked callers of put() and get() will be unblocked. If\n'immediate', a task is marked as done for each item remaining in\nthe queue, which may unblock callers of join().\n"
+'PriorityQueue'
+'Variant of Queue that retrieves open entries in priority order (lowest first).\n\nEntries are typically tuples of the form:  (priority number, data).\n'
+'LifoQueue'
+'Variant of Queue that retrieves most recently added entries first.'
+'_PySimpleQueue'
+'Simple, unbounded FIFO queue.\n\nThis pure Python implementation is not reentrant.\n'
+"Put the item on the queue.\n\nThe optional 'block' and 'timeout' arguments are ignored, as this method\nnever blocks.  They are provided for compatibility with the Queue class.\n"
+"Remove and return an item from the queue.\n\nIf optional args 'block' is true and 'timeout' is None (the default),\nblock if necessary until an item is available. If 'timeout' is\na non-negative number, it blocks at most 'timeout' seconds and raises\nthe Empty exception if no item was available within that time.\nOtherwise ('block' is false), return an item if one is immediately\navailable, else raise the Empty exception ('timeout' is ignored\nin that case).\n"
+"'timeout' must be a non-negative number"
+'Put an item into the queue without blocking.\n\nThis is exactly equivalent to `put(item, block=False)` and is only provided\nfor compatibility with the Queue class.\n'
+'Remove and return an item from the queue without blocking.\n\nOnly get an item if one is immediately available. Otherwise\nraise the Empty exception.\n'
+'Return True if the queue is empty, False otherwise (not reliable!).'
+'Return the approximate size of the queue (not reliable!).'
+'_PySimpleQueue'

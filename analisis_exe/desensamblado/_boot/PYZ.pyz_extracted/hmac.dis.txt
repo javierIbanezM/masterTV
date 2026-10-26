@@ -1,0 +1,1078 @@
+   0            RESUME                   0
+
+   1            LOAD_CONST               0 ('HMAC (Keyed-Hashing for Message Authentication) module.\n\nImplements the HMAC algorithm as described by RFC 2104.\n')
+                STORE_NAME               0 (__doc__)
+
+   6            NOP
+
+   7    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (_hashlib)
+                STORE_NAME               2 (_hashopenssl)
+
+  13    L2:     LOAD_NAME                2 (_hashopenssl)
+                LOAD_ATTR                6 (compare_digest)
+                STORE_NAME               3 (compare_digest)
+
+  14            LOAD_NAME                4 (type)
+                PUSH_NULL
+                LOAD_NAME                2 (_hashopenssl)
+                LOAD_ATTR               10 (openssl_sha256)
+                CALL                     1
+                STORE_NAME               6 (_functype)
+
+  16    L3:     NOP
+
+  17    L4:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME             10 (_hmac)
+                STORE_NAME              10 (_hmac)
+
+  21    L5:     LOAD_NAME               11 (bytes)
+                PUSH_NULL
+                LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA083110, file "hmac.py", line 21>)
+                MAKE_FUNCTION
+                LOAD_NAME               12 (range)
+                PUSH_NULL
+                LOAD_CONST               4 (256)
+                CALL                     1
+                GET_ITER
+                CALL                     0
+                CALL                     1
+                STORE_NAME              13 (trans_5C)
+
+  22            LOAD_NAME               11 (bytes)
+                PUSH_NULL
+                LOAD_CONST               5 (<code object <genexpr> at 0x00000204BA0FC250, file "hmac.py", line 22>)
+                MAKE_FUNCTION
+                LOAD_NAME               12 (range)
+                PUSH_NULL
+                LOAD_CONST               4 (256)
+                CALL                     1
+                GET_ITER
+                CALL                     0
+                CALL                     1
+                STORE_NAME              14 (trans_36)
+
+  26            LOAD_CONST               1 (None)
+                STORE_NAME              15 (digest_size)
+
+  29            LOAD_CONST               6 (<code object _get_digest_constructor at 0x00000204BA0BB0C0, file "hmac.py", line 29>)
+                MAKE_FUNCTION
+                STORE_NAME              16 (_get_digest_constructor)
+
+  42            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST               7 (<code object HMAC at 0x00000204BA0B9290, file "hmac.py", line 42>)
+                MAKE_FUNCTION
+                LOAD_CONST               8 ('HMAC')
+                CALL                     2
+                STORE_NAME              17 (HMAC)
+
+ 200            LOAD_CONST              12 ((None, ''))
+                LOAD_CONST               9 (<code object new at 0x00000204BA0912F0, file "hmac.py", line 200>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME              18 (new)
+
+ 220            LOAD_CONST              10 (<code object digest at 0x00000204BA3738B0, file "hmac.py", line 220>)
+                MAKE_FUNCTION
+                STORE_NAME              19 (digest)
+
+ 244            LOAD_CONST              11 (<code object _compute_digest_fallback at 0x00000204BA447550, file "hmac.py", line 244>)
+                MAKE_FUNCTION
+                STORE_NAME              20 (_compute_digest_fallback)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+   8            LOAD_NAME                7 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       14 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+   9            LOAD_CONST               1 (None)
+                STORE_NAME               2 (_hashopenssl)
+
+  10            LOAD_CONST               1 (None)
+                STORE_NAME               6 (_functype)
+
+  11            LOAD_SMALL_INT           0
+                LOAD_CONST               2 (('_compare_digest',))
+                IMPORT_NAME              8 (_operator)
+                IMPORT_FROM              9 (_compare_digest)
+                STORE_NAME               3 (compare_digest)
+                POP_TOP
+        L7:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 94 (to L3)
+
+   8    L8:     RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     PUSH_EXC_INFO
+
+  18            LOAD_NAME                7 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+  19            LOAD_CONST               1 (None)
+                STORE_NAME              10 (_hmac)
+       L11:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 104 (to L5)
+
+  18   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L4 to L5 -> L10 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+  L10 to L11 -> L13 [1] lasti
+  L12 to L13 -> L13 [1] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA083110, file "hmac.py", line 21>:
+  21           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                13 (to L3)
+               STORE_FAST_LOAD_FAST    17 (x, x)
+               LOAD_SMALL_INT          92
+               BINARY_OP               12 (^)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           15 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FC250, file "hmac.py", line 22>:
+  22           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                13 (to L3)
+               STORE_FAST_LOAD_FAST    17 (x, x)
+               LOAD_SMALL_INT          54
+               BINARY_OP               12 (^)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           15 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object _get_digest_constructor at 0x00000204BA0BB0C0, file "hmac.py", line 29>:
+  --           MAKE_CELL                0 (digest_like)
+
+  29           RESUME                   0
+
+  30           LOAD_GLOBAL              1 (callable + NULL)
+               LOAD_DEREF               0 (digest_like)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+  31           LOAD_DEREF               0 (digest_like)
+               RETURN_VALUE
+
+  32   L1:     LOAD_GLOBAL              3 (isinstance + NULL)
+               LOAD_DEREF               0 (digest_like)
+               LOAD_GLOBAL              4 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       11 (to L2)
+               NOT_TAKEN
+
+  33           LOAD_CONST               3 ((b'',))
+               LOAD_FAST_BORROW         0 (digest_like)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object digest_wrapper at 0x00000204BA08A530, file "hmac.py", line 33>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_FAST               1 (digest_wrapper)
+
+  39           LOAD_FAST_BORROW         1 (digest_wrapper)
+               RETURN_VALUE
+
+  37   L2:     LOAD_CONST               3 ((b'',))
+               LOAD_FAST_BORROW         0 (digest_like)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object digest_wrapper at 0x00000204BA088330, file "hmac.py", line 37>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_FAST               1 (digest_wrapper)
+
+  39           LOAD_FAST_BORROW         1 (digest_wrapper)
+               RETURN_VALUE
+
+Disassembly of <code object digest_wrapper at 0x00000204BA08A530, file "hmac.py", line 33>:
+  --           COPY_FREE_VARS           1
+
+  33           RESUME                   0
+
+  34           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (hashlib)
+               STORE_FAST               1 (hashlib)
+
+  35           LOAD_FAST_BORROW         1 (hashlib)
+               LOAD_ATTR                3 (new + NULL|self)
+               LOAD_DEREF               2 (digest_like)
+               LOAD_FAST_BORROW         0 (d)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object digest_wrapper at 0x00000204BA088330, file "hmac.py", line 37>:
+  --           COPY_FREE_VARS           1
+
+  37           RESUME                   0
+
+  38           LOAD_DEREF               1 (digest_like)
+               LOAD_ATTR                1 (new + NULL|self)
+               LOAD_FAST_BORROW         0 (d)
+               CALL                     1
+               RETURN_VALUE
+
+Disassembly of <code object HMAC at 0x00000204BA0B9290, file "hmac.py", line 42>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  42           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('HMAC')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          42
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  43           LOAD_CONST               1 ('RFC 2104 HMAC class.  Also complies with RFC 4231.\n\nThis supports the API for Cryptographic Hash Functions (PEP 247).\n')
+               STORE_NAME               4 (__doc__)
+
+  50           LOAD_SMALL_INT          64
+               STORE_NAME               5 (blocksize)
+
+  52           LOAD_CONST              14 (('_hmac', '_inner', '_outer', 'block_size', 'digest_size'))
+               STORE_NAME               6 (__slots__)
+
+  56           LOAD_CONST              15 ((None, ''))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204B9F6F5D0, file "hmac.py", line 56>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (__init__)
+
+  79           LOAD_CONST               4 (<code object __init at 0x00000204BA37F1E0, file "hmac.py", line 79>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (_HMAC__init)
+
+  94           LOAD_CONST               5 (<code object _init_openssl_hmac at 0x00000204B9F6EC10, file "hmac.py", line 94>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_init_openssl_hmac)
+
+ 100           LOAD_NAME                9 (_init_openssl_hmac)
+               STORE_NAME              10 (_init_hmac)
+
+ 102           LOAD_CONST               6 (<code object _init_builtin_hmac at 0x00000204B9F6DBD0, file "hmac.py", line 102>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (_init_builtin_hmac)
+
+ 108           LOAD_CONST               7 (<code object _init_old at 0x00000204BA3A4AE0, file "hmac.py", line 108>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (_init_old)
+
+ 142           LOAD_NAME               13 (property)
+
+ 143           LOAD_CONST               8 (<code object name at 0x00000204B9F73730, file "hmac.py", line 142>)
+               MAKE_FUNCTION
+
+ 142           CALL                     0
+
+ 143           STORE_NAME              14 (name)
+
+ 149           LOAD_CONST               9 (<code object update at 0x00000204BA0AA1F0, file "hmac.py", line 149>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (update)
+
+ 154           LOAD_CONST              10 (<code object copy at 0x00000204BA38BBC0, file "hmac.py", line 154>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (copy)
+
+ 171           LOAD_CONST              11 (<code object _current at 0x00000204B9F6EF50, file "hmac.py", line 171>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (_current)
+
+ 183           LOAD_CONST              12 (<code object digest at 0x00000204BA0A7990, file "hmac.py", line 183>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (digest)
+
+ 193           LOAD_CONST              13 (<code object hexdigest at 0x00000204BA0A7E10, file "hmac.py", line 193>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (hexdigest)
+               LOAD_CONST              14 (('_hmac', '_inner', '_outer', 'block_size', 'digest_size'))
+               STORE_NAME              20 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              21 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F6F5D0, file "hmac.py", line 56>:
+ 56           RESUME                   0
+
+ 70           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (key)
+              LOAD_GLOBAL              2 (bytes)
+              LOAD_GLOBAL              4 (bytearray)
+              BUILD_TUPLE              2
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        35 (to L1)
+              NOT_TAKEN
+
+ 71           LOAD_GLOBAL              7 (TypeError + NULL)
+              LOAD_CONST               1 ('key: expected bytes or bytearray, but got ')
+
+ 72           LOAD_GLOBAL              9 (type + NULL)
+              LOAD_FAST_BORROW         1 (key)
+              CALL                     1
+              LOAD_ATTR               10 (__name__)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+
+ 71           BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 74   L1:     LOAD_FAST_BORROW         3 (digestmod)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L2)
+              NOT_TAKEN
+
+ 75           LOAD_GLOBAL              7 (TypeError + NULL)
+              LOAD_CONST               2 ("Missing required argument 'digestmod'.")
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 77   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (_HMAC__init + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (key, msg)
+              LOAD_FAST_BORROW         3 (digestmod)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __init at 0x00000204BA37F1E0, file "hmac.py", line 79>:
+  79            RESUME                   0
+
+  80            LOAD_GLOBAL              0 (_hashopenssl)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       50 (to L3)
+                NOT_TAKEN
+                LOAD_GLOBAL              3 (isinstance + NULL)
+                LOAD_FAST_BORROW         3 (digestmod)
+                LOAD_GLOBAL              4 (str)
+                LOAD_GLOBAL              6 (_functype)
+                BUILD_TUPLE              2
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       22 (to L3)
+                NOT_TAKEN
+
+  81            NOP
+
+  82    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                9 (_init_openssl_hmac + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (key, msg)
+                LOAD_FAST_BORROW         3 (digestmod)
+                CALL                     3
+                POP_TOP
+
+  83    L2:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  86    L3:     LOAD_GLOBAL             12 (_hmac)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       44 (to L6)
+                NOT_TAKEN
+                LOAD_GLOBAL              3 (isinstance + NULL)
+                LOAD_FAST_BORROW         3 (digestmod)
+                LOAD_GLOBAL              4 (str)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       22 (to L6)
+                NOT_TAKEN
+
+  87            NOP
+
+  88    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               15 (_init_builtin_hmac + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (key, msg)
+                LOAD_FAST_BORROW         3 (digestmod)
+                CALL                     3
+                POP_TOP
+
+  89    L5:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  92    L6:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               19 (_init_old + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (key, msg)
+                LOAD_FAST_BORROW         3 (digestmod)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+  84            LOAD_GLOBAL              0 (_hashopenssl)
+                LOAD_ATTR               10 (UnsupportedDigestmodError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+  85    L8:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 98 (to L3)
+
+  84    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+  90            LOAD_GLOBAL             12 (_hmac)
+                LOAD_ATTR               16 (UnknownHashError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+  91   L12:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 70 (to L6)
+
+  90   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L7 [0]
+  L4 to L5 -> L11 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object _init_openssl_hmac at 0x00000204B9F6EC10, file "hmac.py", line 94>:
+ 94           RESUME                   0
+
+ 95           LOAD_GLOBAL              0 (_hashopenssl)
+              LOAD_ATTR                2 (hmac_new)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (key, msg)
+              LOAD_FAST_BORROW         3 (digestmod)
+              LOAD_CONST               0 (('digestmod',))
+              CALL_KW                  3
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_hmac)
+
+ 96           LOAD_CONST               1 (None)
+              COPY                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_inner)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_outer)
+
+ 97           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_hmac)
+              LOAD_ATTR               10 (digest_size)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (digest_size)
+
+ 98           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_hmac)
+              LOAD_ATTR               12 (block_size)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (block_size)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _init_builtin_hmac at 0x00000204B9F6DBD0, file "hmac.py", line 102>:
+102           RESUME                   0
+
+103           LOAD_GLOBAL              0 (_hmac)
+              LOAD_ATTR                2 (new)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (key, msg)
+              LOAD_FAST_BORROW         3 (digestmod)
+              LOAD_CONST               0 (('digestmod',))
+              CALL_KW                  3
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_hmac)
+
+104           LOAD_CONST               1 (None)
+              COPY                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_inner)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_outer)
+
+105           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_hmac)
+              LOAD_ATTR                8 (digest_size)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (digest_size)
+
+106           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_hmac)
+              LOAD_ATTR               10 (block_size)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (block_size)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _init_old at 0x00000204BA3A4AE0, file "hmac.py", line 108>:
+ 108           RESUME                   0
+
+ 109           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (warnings)
+               STORE_FAST               4 (warnings)
+
+ 111           LOAD_GLOBAL              3 (_get_digest_constructor + NULL)
+               LOAD_FAST_BORROW         3 (digestmod)
+               CALL                     1
+               STORE_FAST               5 (digest_cons)
+
+ 113           LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (_hmac)
+
+ 114           LOAD_FAST_BORROW         5 (digest_cons)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_outer)
+
+ 115           LOAD_FAST_BORROW         5 (digest_cons)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_inner)
+
+ 116           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_inner)
+               LOAD_ATTR               10 (digest_size)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               5 (digest_size)
+
+ 118           LOAD_GLOBAL             13 (hasattr + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_inner)
+               LOAD_CONST               2 ('block_size')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       83 (to L2)
+               NOT_TAKEN
+
+ 119           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_inner)
+               LOAD_ATTR               14 (block_size)
+               STORE_FAST               6 (blocksize)
+
+ 120           LOAD_FAST_BORROW         6 (blocksize)
+               LOAD_SMALL_INT          16
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       53 (to L1)
+               NOT_TAKEN
+
+ 121           LOAD_FAST_BORROW         4 (warnings)
+               LOAD_ATTR               17 (warn + NULL|self)
+               LOAD_CONST               3 ('block_size of ')
+               LOAD_FAST_BORROW         6 (blocksize)
+               FORMAT_SIMPLE
+               LOAD_CONST               4 (' seems too small; using our default of ')
+
+ 122           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (blocksize)
+               FORMAT_SIMPLE
+               LOAD_CONST               5 ('.')
+
+ 121           BUILD_STRING             5
+
+ 123           LOAD_GLOBAL             20 (RuntimeWarning)
+               LOAD_SMALL_INT           2
+
+ 121           CALL                     3
+               POP_TOP
+
+ 124           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (blocksize)
+               STORE_FAST               6 (blocksize)
+
+  --   L1:     JUMP_FORWARD            49 (to L3)
+
+ 126   L2:     LOAD_FAST_BORROW         4 (warnings)
+               LOAD_ATTR               17 (warn + NULL|self)
+               LOAD_CONST               6 ('No block_size attribute on given digest object; Assuming ')
+
+ 127           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (blocksize)
+               FORMAT_SIMPLE
+               LOAD_CONST               5 ('.')
+
+ 126           BUILD_STRING             3
+
+ 128           LOAD_GLOBAL             20 (RuntimeWarning)
+               LOAD_SMALL_INT           2
+
+ 126           CALL                     3
+               POP_TOP
+
+ 129           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (blocksize)
+               STORE_FAST               6 (blocksize)
+
+ 131   L3:     LOAD_GLOBAL             23 (len + NULL)
+               LOAD_FAST_BORROW         1 (key)
+               CALL                     1
+               LOAD_FAST_BORROW         6 (blocksize)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       23 (to L4)
+               NOT_TAKEN
+
+ 132           LOAD_FAST_BORROW         5 (digest_cons)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (key)
+               CALL                     1
+               LOAD_ATTR               25 (digest + NULL|self)
+               CALL                     0
+               STORE_FAST               1 (key)
+
+ 134   L4:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 96 (blocksize, self)
+               STORE_ATTR               7 (block_size)
+
+ 136           LOAD_FAST_BORROW         1 (key)
+               LOAD_ATTR               27 (ljust + NULL|self)
+               LOAD_FAST_BORROW         6 (blocksize)
+               LOAD_CONST               7 (b'\x00')
+               CALL                     2
+               STORE_FAST               1 (key)
+
+ 137           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_outer)
+               LOAD_ATTR               29 (update + NULL|self)
+               LOAD_FAST_BORROW         1 (key)
+               LOAD_ATTR               31 (translate + NULL|self)
+               LOAD_GLOBAL             32 (trans_5C)
+               CALL                     1
+               CALL                     1
+               POP_TOP
+
+ 138           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_inner)
+               LOAD_ATTR               29 (update + NULL|self)
+               LOAD_FAST_BORROW         1 (key)
+               LOAD_ATTR               31 (translate + NULL|self)
+               LOAD_GLOBAL             34 (trans_36)
+               CALL                     1
+               CALL                     1
+               POP_TOP
+
+ 139           LOAD_FAST_BORROW         2 (msg)
+               POP_JUMP_IF_NONE        20 (to L5)
+               NOT_TAKEN
+
+ 140           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               29 (update + NULL|self)
+               LOAD_FAST_BORROW         2 (msg)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 139   L5:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object name at 0x00000204B9F73730, file "hmac.py", line 142>:
+142           RESUME                   0
+
+144           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_hmac)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       23 (to L1)
+              NOT_TAKEN
+
+145           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_hmac)
+              LOAD_ATTR                2 (name)
+              RETURN_VALUE
+
+147   L1:     LOAD_CONST               0 ('hmac-')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_inner)
+              LOAD_ATTR                2 (name)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              RETURN_VALUE
+
+Disassembly of <code object update at 0x00000204BA0AA1F0, file "hmac.py", line 149>:
+149           RESUME                   0
+
+151           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_hmac)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        13 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_inner)
+      L1:     STORE_FAST               2 (inst)
+
+152           LOAD_FAST_BORROW         2 (inst)
+              LOAD_ATTR                5 (update + NULL|self)
+              LOAD_FAST_BORROW         1 (msg)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object copy at 0x00000204BA38BBC0, file "hmac.py", line 154>:
+154           RESUME                   0
+
+160           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR                3 (__new__ + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              CALL                     1
+              STORE_FAST               1 (other)
+
+161           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (digest_size)
+              LOAD_FAST_BORROW         1 (other)
+              STORE_ATTR               2 (digest_size)
+
+162           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_hmac)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       48 (to L1)
+              NOT_TAKEN
+
+163           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_hmac)
+              LOAD_ATTR                9 (copy + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         1 (other)
+              STORE_ATTR               3 (_hmac)
+
+164           LOAD_CONST               1 (None)
+              COPY                     1
+              LOAD_FAST_BORROW         1 (other)
+              STORE_ATTR               5 (_inner)
+              LOAD_FAST_BORROW         1 (other)
+              STORE_ATTR               6 (_outer)
+
+169           LOAD_FAST_BORROW         1 (other)
+              RETURN_VALUE
+
+166   L1:     LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         1 (other)
+              STORE_ATTR               3 (_hmac)
+
+167           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_inner)
+              LOAD_ATTR                9 (copy + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         1 (other)
+              STORE_ATTR               5 (_inner)
+
+168           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_outer)
+              LOAD_ATTR                9 (copy + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         1 (other)
+              STORE_ATTR               6 (_outer)
+
+169           LOAD_FAST_BORROW         1 (other)
+              RETURN_VALUE
+
+Disassembly of <code object _current at 0x00000204B9F6EF50, file "hmac.py", line 171>:
+171           RESUME                   0
+
+176           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_hmac)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+177           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_hmac)
+              RETURN_VALUE
+
+179   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_outer)
+              LOAD_ATTR                5 (copy + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (h)
+
+180           LOAD_FAST_BORROW         1 (h)
+              LOAD_ATTR                7 (update + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_inner)
+              LOAD_ATTR               11 (digest + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+
+181           LOAD_FAST_BORROW         1 (h)
+              RETURN_VALUE
+
+Disassembly of <code object digest at 0x00000204BA0A7990, file "hmac.py", line 183>:
+183           RESUME                   0
+
+190           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_current + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (h)
+
+191           LOAD_FAST_BORROW         1 (h)
+              LOAD_ATTR                3 (digest + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object hexdigest at 0x00000204BA0A7E10, file "hmac.py", line 193>:
+193           RESUME                   0
+
+196           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_current + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (h)
+
+197           LOAD_FAST_BORROW         1 (h)
+              LOAD_ATTR                3 (hexdigest + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object new at 0x00000204BA0912F0, file "hmac.py", line 200>:
+200           RESUME                   0
+
+217           LOAD_GLOBAL              1 (HMAC + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (key, msg)
+              LOAD_FAST_BORROW         2 (digestmod)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object digest at 0x00000204BA3738B0, file "hmac.py", line 220>:
+ 220            RESUME                   0
+
+ 229            LOAD_GLOBAL              0 (_hashopenssl)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       53 (to L3)
+                NOT_TAKEN
+                LOAD_GLOBAL              3 (isinstance + NULL)
+                LOAD_FAST_BORROW         2 (digest)
+                LOAD_GLOBAL              4 (str)
+                LOAD_GLOBAL              6 (_functype)
+                BUILD_TUPLE              2
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       25 (to L3)
+                NOT_TAKEN
+
+ 230            NOP
+
+ 231    L1:     LOAD_GLOBAL              0 (_hashopenssl)
+                LOAD_ATTR                8 (hmac_digest)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (key, msg)
+                LOAD_FAST_BORROW         2 (digest)
+                CALL                     3
+        L2:     RETURN_VALUE
+
+ 235    L3:     LOAD_GLOBAL             12 (_hmac)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       47 (to L6)
+                NOT_TAKEN
+                LOAD_GLOBAL              3 (isinstance + NULL)
+                LOAD_FAST_BORROW         2 (digest)
+                LOAD_GLOBAL              4 (str)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       25 (to L6)
+                NOT_TAKEN
+
+ 236            NOP
+
+ 237    L4:     LOAD_GLOBAL             12 (_hmac)
+                LOAD_ATTR               14 (compute_digest)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (key, msg)
+                LOAD_FAST_BORROW         2 (digest)
+                CALL                     3
+        L5:     RETURN_VALUE
+
+ 241    L6:     LOAD_GLOBAL             21 (_compute_digest_fallback + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (key, msg)
+                LOAD_FAST_BORROW         2 (digest)
+                CALL                     3
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 232            LOAD_GLOBAL              0 (_hashopenssl)
+                LOAD_ATTR               10 (UnsupportedDigestmodError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 233    L8:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 93 (to L3)
+
+ 232    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+ 238            LOAD_GLOBAL             16 (OverflowError)
+                LOAD_GLOBAL             12 (_hmac)
+                LOAD_ATTR               18 (UnknownHashError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 239   L12:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 68 (to L6)
+
+ 238   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L7 [0]
+  L4 to L5 -> L11 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object _compute_digest_fallback at 0x00000204BA447550, file "hmac.py", line 244>:
+244           RESUME                   0
+
+245           LOAD_GLOBAL              1 (_get_digest_constructor + NULL)
+              LOAD_FAST_BORROW         2 (digest)
+              CALL                     1
+              STORE_FAST               3 (digest_cons)
+
+246           LOAD_FAST_BORROW         3 (digest_cons)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               4 (inner)
+
+247           LOAD_FAST_BORROW         3 (digest_cons)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               5 (outer)
+
+248           LOAD_GLOBAL              3 (getattr + NULL)
+              LOAD_FAST_BORROW         4 (inner)
+              LOAD_CONST               0 ('block_size')
+              LOAD_SMALL_INT          64
+              CALL                     3
+              STORE_FAST               6 (blocksize)
+
+249           LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         0 (key)
+              CALL                     1
+              LOAD_FAST_BORROW         6 (blocksize)
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       23 (to L1)
+              NOT_TAKEN
+
+250           LOAD_FAST_BORROW         3 (digest_cons)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (key)
+              CALL                     1
+              LOAD_ATTR                7 (digest + NULL|self)
+              CALL                     0
+              STORE_FAST               0 (key)
+
+251   L1:     LOAD_FAST_BORROW         0 (key)
+              LOAD_ATTR                9 (ljust + NULL|self)
+              LOAD_FAST_BORROW         6 (blocksize)
+              LOAD_CONST               1 (b'\x00')
+              CALL                     2
+              STORE_FAST               0 (key)
+
+252           LOAD_FAST_BORROW         4 (inner)
+              LOAD_ATTR               11 (update + NULL|self)
+              LOAD_FAST_BORROW         0 (key)
+              LOAD_ATTR               13 (translate + NULL|self)
+              LOAD_GLOBAL             14 (trans_36)
+              CALL                     1
+              CALL                     1
+              POP_TOP
+
+253           LOAD_FAST_BORROW         5 (outer)
+              LOAD_ATTR               11 (update + NULL|self)
+              LOAD_FAST_BORROW         0 (key)
+              LOAD_ATTR               13 (translate + NULL|self)
+              LOAD_GLOBAL             16 (trans_5C)
+              CALL                     1
+              CALL                     1
+              POP_TOP
+
+254           LOAD_FAST_BORROW         4 (inner)
+              LOAD_ATTR               11 (update + NULL|self)
+              LOAD_FAST_BORROW         1 (msg)
+              CALL                     1
+              POP_TOP
+
+255           LOAD_FAST_BORROW         5 (outer)
+              LOAD_ATTR               11 (update + NULL|self)
+              LOAD_FAST_BORROW         4 (inner)
+              LOAD_ATTR                7 (digest + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+
+256           LOAD_FAST_BORROW         5 (outer)
+              LOAD_ATTR                7 (digest + NULL|self)
+              CALL                     0
+              RETURN_VALUE

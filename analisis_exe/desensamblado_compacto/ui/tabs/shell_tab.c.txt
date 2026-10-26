@@ -1,0 +1,191 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME subprocess; STORE_NAME subprocess
+4: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME time; STORE_NAME time
+5: LOAD_SMALL_INT 0; LOAD_CONST ('Path',); IMPORT_NAME pathlib; IMPORT_FROM Path; STORE_NAME Path
+7: LOAD_SMALL_INT 0; LOAD_CONST ('QThread', 'pyqtSignal'); IMPORT_NAME PyQt6.QtCore; IMPORT_FROM QThread; STORE_NAME QThread; IMPORT_FROM pyqtSignal; STORE_NAME pyqtSignal
+8: LOAD_SMALL_INT 0; LOAD_CONST ('QComboBox', 'QFileDialog', 'QHBoxLayout', 'QLabel', 'QLineEdit', 'QPlainTextEdit', 'QPushButton', 'QTabWidget', 'QVBoxLayout', 'QWidget'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QComboBox; STORE_NAME QComboBox; IMPORT_FROM QFileDialog; STORE_NAME QFileDialog; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QLineEdit; STORE_NAME QLineEdit; IMPORT_FROM QPlainTextEdit; STORE_NAME QPlainTextEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QTabWidget; STORE_NAME QTabWidget; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout; IMPORT_FROM QWidget; STORE_NAME QWidget
+11: LOAD_SMALL_INT 3; LOAD_CONST ('_NO_WINDOW', 'is_dangerous_shell'); IMPORT_NAME adb; IMPORT_FROM _NO_WINDOW; STORE_NAME _NO_WINDOW; IMPORT_FROM is_dangerous_shell; STORE_NAME is_dangerous_shell
+12: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+13: LOAD_SMALL_INT 2; LOAD_CONST ('confirm',); IMPORT_NAME common; IMPORT_FROM confirm; STORE_NAME confirm
+15: LOAD_CONST "font-family: Consolas, 'Cascadia Mono', monospace; font-size: 12px;"; STORE_NAME MONO
+18: LOAD_BUILD_CLASS; LOAD_CONST <code _LogcatThread>; MAKE_FUNCTION; LOAD_CONST '_LogcatThread'; LOAD_NAME QThread; CALL; STORE_NAME _LogcatThread
+41: LOAD_BUILD_CLASS; LOAD_CONST <code ShellTab>; MAKE_FUNCTION; LOAD_CONST 'ShellTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME ShellTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF _LogcatThread() @18
+  18: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST '_LogcatThread'; STORE_NAME __qualname__; LOAD_SMALL_INT 18; STORE_NAME __firstlineno__
+  19: LOAD_NAME pyqtSignal; LOAD_NAME str; CALL; STORE_NAME line
+  21: LOAD_CONST <code _LogcatThread.__annotate__>; MAKE_FUNCTION; LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code _LogcatThread.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME __init__
+  26: LOAD_CONST <code _LogcatThread.run>; MAKE_FUNCTION; STORE_NAME run
+  35: LOAD_CONST <code _LogcatThread.stop>; MAKE_FUNCTION; STORE_NAME stop; LOAD_CONST ('cmd', 'proc'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF _LogcatThread.__init__(self,adb_path,serial,level) @21
+    22: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; CALL
+    23: LOAD_FAST_BORROW adb_path; LOAD_CONST '-s'; LOAD_FAST_BORROW serial; LOAD_CONST 'logcat'; LOAD_CONST '-v'; LOAD_CONST 'time'; LOAD_CONST '*:'; LOAD_FAST_BORROW level; FORMAT_SIMPLE; BUILD_STRING; BUILD_LIST; LOAD_FAST_BORROW self; STORE_ATTR cmd
+    24: LOAD_CONST None; LOAD_FAST_BORROW self; STORE_ATTR proc; LOAD_CONST None; RETURN_VALUE
+
+    DEF _LogcatThread.run(self) @26
+    28: LOAD_GLOBAL subprocess; LOAD_ATTR Popen; LOAD_FAST_BORROW self; LOAD_ATTR cmd; LOAD_GLOBAL subprocess; LOAD_ATTR PIPE
+    29: LOAD_GLOBAL subprocess; LOAD_ATTR STDOUT; LOAD_GLOBAL _NO_WINDOW
+    28: LOAD_CONST ('stdout', 'stderr', 'creationflags'); CALL_KW; LOAD_FAST_BORROW self; STORE_ATTR proc
+    30: LOAD_GLOBAL iter + NULL; LOAD_FAST_BORROW self; LOAD_ATTR proc; LOAD_ATTR stdout; LOAD_ATTR readline; LOAD_CONST b''; CALL; GET_ITER; <L234>; FOR_ITER ->358; STORE_FAST raw
+    31: LOAD_FAST_BORROW self; LOAD_ATTR line; LOAD_ATTR emit + NULL|self; LOAD_FAST_BORROW raw; LOAD_ATTR decode + NULL|self; LOAD_CONST 'utf-8'; LOAD_CONST 'replace'; CALL; LOAD_ATTR rstrip + NULL|self; CALL; CALL; JUMP_BACKWARD ->234
+    30: <L358>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    32: LOAD_GLOBAL OSError; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->468; STORE_FAST e
+    33: LOAD_FAST self; LOAD_ATTR line; LOAD_ATTR emit + NULL|self; LOAD_CONST '[error] '; LOAD_FAST e; FORMAT_SIMPLE; BUILD_STRING; CALL; POP_EXCEPT; LOAD_CONST None; STORE_FAST e; DELETE_FAST e; LOAD_CONST None; RETURN_VALUE
+    None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+    32: <L468>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+    DEF _LogcatThread.stop(self) @35
+    36: LOAD_FAST_BORROW self; LOAD_ATTR proc; TO_BOOL; POP_JUMP_IF_FALSE ->146; LOAD_FAST_BORROW self; LOAD_ATTR proc; LOAD_ATTR poll + NULL|self; CALL; POP_JUMP_IF_NOT_NONE ->146
+    37: LOAD_FAST_BORROW self; LOAD_ATTR proc; LOAD_ATTR terminate + NULL|self; CALL
+    38: <L146>; LOAD_FAST_BORROW self; LOAD_ATTR wait + NULL|self; LOAD_CONST 2000; CALL; LOAD_CONST None; RETURN_VALUE
+
+  DEF ShellTab() @41
+  41: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'ShellTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 41; STORE_NAME __firstlineno__
+  42: LOAD_CONST 'Shell y logcat'; STORE_NAME title
+  44: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code ShellTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  54: LOAD_CONST <code ShellTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ShellTab._build_shell>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _build_shell
+  77: LOAD_CONST <code ShellTab.run_cmd>; MAKE_FUNCTION; STORE_NAME run_cmd
+  97: LOAD_CONST <code ShellTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ShellTab._build_logcat>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _build_logcat
+  126: LOAD_CONST <code ShellTab.toggle_log>; MAKE_FUNCTION; STORE_NAME toggle_log
+  138: LOAD_CONST <code ShellTab.stop_log>; MAKE_FUNCTION; STORE_NAME stop_log
+  144: LOAD_CONST <code ShellTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ShellTab._on_line>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _on_line
+  149: LOAD_CONST <code ShellTab.save_log>; MAKE_FUNCTION; STORE_NAME save_log
+  156: LOAD_CONST <code ShellTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  159: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code ShellTab.closeEvent>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME closeEvent; LOAD_CONST ('cmd', 'filter', 'level', 'log', 'out', 'reader', 'toggle'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF ShellTab.__init__(self,ctx) @44
+    45: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    46: LOAD_CONST None; LOAD_FAST_BORROW self; STORE_ATTR reader
+    47: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW self; CALL; STORE_FAST lay
+    48: LOAD_GLOBAL QTabWidget + NULL; CALL; STORE_FAST tabs
+    49: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW tabs; CALL
+    50: LOAD_FAST_BORROW tabs; LOAD_ATTR addTab + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR _build_shell + NULL|self; CALL; LOAD_CONST 'Shell'; CALL
+    51: LOAD_FAST_BORROW tabs; LOAD_ATTR addTab + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR _build_logcat + NULL|self; CALL; LOAD_CONST 'Logcat'; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ShellTab._build_shell(self) @54
+    55: LOAD_GLOBAL QWidget + NULL; CALL; STORE_FAST w
+    56: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW w; CALL; STORE_FAST lay
+    57: LOAD_GLOBAL QPlainTextEdit + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR out
+    58: LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_ATTR setReadOnly + NULL|self; LOAD_CONST True; CALL
+    59: LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_ATTR setStyleSheet + NULL|self; LOAD_GLOBAL MONO; CALL
+    60: LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_ATTR setMaximumBlockCount + NULL|self; LOAD_CONST 5000; CALL
+    61: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_SMALL_INT 1; CALL
+    62: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST row
+    63: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR cmd
+    64: LOAD_FAST_BORROW self; LOAD_ATTR cmd; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Comando para `adb shell` (p. ej. dumpsys battery, pm list packages)'; CALL
+    65: LOAD_FAST_BORROW self; LOAD_ATTR cmd; LOAD_ATTR setStyleSheet + NULL|self; LOAD_GLOBAL MONO; CALL
+    66: LOAD_FAST_BORROW self; LOAD_ATTR cmd; LOAD_ATTR returnPressed; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR run_cmd; CALL
+    67: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Ejecutar'; CALL; STORE_FAST run
+    68: LOAD_FAST_BORROW run; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR run_cmd; CALL
+    69: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Limpiar'; CALL; STORE_FAST clear
+    70: LOAD_FAST_BORROW clear; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_ATTR clear; CALL
+    71: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR cmd; LOAD_SMALL_INT 1; CALL
+    72: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW run; CALL
+    73: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW clear; CALL
+    74: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW row; CALL
+    75: LOAD_FAST_BORROW w; RETURN_VALUE
+
+    DEF ShellTab.run_cmd(self) @77
+    78: LOAD_DEREF self; LOAD_ATTR cmd; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; STORE_DEREF cmd
+    79: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    80: LOAD_DEREF cmd; TO_BOOL; POP_JUMP_IF_FALSE ->150; LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_TRUE ->154
+    81: <L150>; LOAD_CONST None; RETURN_VALUE
+    82: <L154>; LOAD_GLOBAL is_dangerous_shell + NULL; LOAD_DEREF cmd; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->244; LOAD_GLOBAL confirm + NULL
+    83: LOAD_DEREF self; LOAD_CONST 'Comando potencialmente destructivo'
+    84: LOAD_CONST 'Este comando puede modificar o borrar datos de la TV.'
+    85: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell '; LOAD_DEREF cmd; FORMAT_SIMPLE; BUILD_STRING
+    82: CALL; TO_BOOL; POP_JUMP_IF_TRUE ->244
+    86: LOAD_CONST None; RETURN_VALUE
+    87: <L244>; LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR appendPlainText + NULL|self; LOAD_CONST '$ '; LOAD_DEREF cmd; FORMAT_SIMPLE; BUILD_STRING; CALL
+    88: LOAD_DEREF self; LOAD_ATTR cmd; LOAD_ATTR clear + NULL|self; CALL
+    90: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ShellTab.run_cmd.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    93: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW cmd; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ShellTab.run_cmd.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done
+    94: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ShellTab.run_cmd.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    93: CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ShellTab.run_cmd.<locals>.done(r) @90
+      91: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR appendPlainText + NULL|self; LOAD_FAST_BORROW r; LOAD_ATTR text; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->88; LOAD_CONST '(sin salida)'; <L88>; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ShellTab.run_cmd.<locals>.<lambda>(s) @93
+      93: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF cmd; LOAD_SMALL_INT 60; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+      DEF ShellTab.run_cmd.<locals>.<lambda>(e) @94
+      94: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR appendPlainText + NULL|self; LOAD_CONST '[error] '; LOAD_FAST_BORROW e; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF ShellTab._build_logcat(self) @97
+    98: LOAD_GLOBAL QWidget + NULL; CALL; STORE_FAST w
+    99: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW w; CALL; STORE_FAST lay
+    100: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST row
+    101: LOAD_GLOBAL QComboBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR level
+    102: LOAD_CONST (('Verbose', 'V'), ('Debug', 'D'), ('Info', 'I'), ('Warning', 'W'), ('Error', 'E')); GET_ITER; <L100>; FOR_ITER ->168; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST lbl, v
+    103: LOAD_DEREF self; LOAD_ATTR level; LOAD_ATTR addItem + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW lbl, v; CALL; JUMP_BACKWARD ->100
+    102: <L168>; END_FOR; POP_ITER
+    104: LOAD_DEREF self; LOAD_ATTR level; LOAD_ATTR setCurrentIndex + NULL|self; LOAD_SMALL_INT 2; CALL
+    105: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR filter
+    106: LOAD_DEREF self; LOAD_ATTR filter; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Filtro de texto (se aplica a las líneas nuevas)'; CALL
+    107: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '▶ Iniciar'; CALL; LOAD_DEREF self; STORE_ATTR toggle
+    108: LOAD_DEREF self; LOAD_ATTR toggle; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR toggle_log; CALL
+    109: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Limpiar vista'; CALL; STORE_FAST clear
+    110: LOAD_FAST_BORROW clear; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ShellTab._build_logcat.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    111: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Guardar…'; CALL; STORE_FAST save
+    112: LOAD_FAST_BORROW save; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR save_log; CALL
+    113: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Nivel mín.:'; CALL; CALL
+    114: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR level; CALL
+    115: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR filter; LOAD_SMALL_INT 1; CALL
+    116: LOAD_DEREF self; LOAD_ATTR toggle; LOAD_FAST_BORROW_LOAD_FAST_BORROW clear, save; BUILD_TUPLE; GET_ITER; <L806>; FOR_ITER ->850; STORE_FAST b
+    117: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL; JUMP_BACKWARD ->806
+    116: <L850>; END_FOR; POP_ITER
+    118: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW row; CALL
+    119: LOAD_GLOBAL QPlainTextEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR log
+    120: LOAD_DEREF self; LOAD_ATTR log; LOAD_ATTR setReadOnly + NULL|self; LOAD_CONST True; CALL
+    121: LOAD_DEREF self; LOAD_ATTR log; LOAD_ATTR setStyleSheet + NULL|self; LOAD_GLOBAL MONO; CALL
+    122: LOAD_DEREF self; LOAD_ATTR log; LOAD_ATTR setMaximumBlockCount + NULL|self; LOAD_CONST 20000; CALL
+    123: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR log; LOAD_SMALL_INT 1; CALL
+    124: LOAD_FAST_BORROW w; RETURN_VALUE
+
+      DEF ShellTab._build_logcat.<locals>.<lambda>() @110
+      110: LOAD_DEREF self; LOAD_ATTR log; LOAD_ATTR clear + NULL|self; CALL; RETURN_VALUE
+
+    DEF ShellTab.toggle_log(self) @126
+    127: LOAD_FAST_BORROW self; LOAD_ATTR reader; TO_BOOL; POP_JUMP_IF_FALSE ->74
+    128: LOAD_FAST_BORROW self; LOAD_ATTR stop_log + NULL|self; CALL
+    129: LOAD_CONST None; RETURN_VALUE
+    130: <L74>; LOAD_FAST_BORROW self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    131: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_TRUE ->126
+    132: LOAD_CONST None; RETURN_VALUE
+    133: <L126>; LOAD_GLOBAL _LogcatThread + NULL; LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR path; LOAD_FAST_BORROW_LOAD_FAST_BORROW s, self; LOAD_ATTR level; LOAD_ATTR currentData + NULL|self; CALL; CALL; LOAD_FAST_BORROW self; STORE_ATTR reader
+    134: LOAD_FAST_BORROW self; LOAD_ATTR reader; LOAD_ATTR line; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR _on_line; CALL
+    135: LOAD_FAST_BORROW self; LOAD_ATTR reader; LOAD_ATTR start + NULL|self; CALL
+    136: LOAD_FAST_BORROW self; LOAD_ATTR toggle; LOAD_ATTR setText + NULL|self; LOAD_CONST '■ Detener'; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ShellTab.stop_log(self) @138
+    139: LOAD_FAST_BORROW self; LOAD_ATTR reader; TO_BOOL; POP_JUMP_IF_FALSE ->104
+    140: LOAD_FAST_BORROW self; LOAD_ATTR reader; LOAD_ATTR stop + NULL|self; CALL
+    141: LOAD_CONST None; LOAD_FAST_BORROW self; STORE_ATTR reader
+    142: <L104>; LOAD_FAST_BORROW self; LOAD_ATTR toggle; LOAD_ATTR setText + NULL|self; LOAD_CONST '▶ Iniciar'; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ShellTab._on_line(self,line) @144
+    145: LOAD_FAST_BORROW self; LOAD_ATTR filter; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR lower + NULL|self; CALL; STORE_FAST f
+    146: LOAD_FAST_BORROW f; TO_BOOL; POP_JUMP_IF_FALSE ->138; LOAD_FAST_BORROW_LOAD_FAST_BORROW f, line; LOAD_ATTR lower + NULL|self; CALL; CONTAINS_OP in; POP_JUMP_IF_FALSE ->196
+    147: <L138>; LOAD_FAST_BORROW self; LOAD_ATTR log; LOAD_ATTR appendPlainText + NULL|self; LOAD_FAST_BORROW line; CALL; LOAD_CONST None; RETURN_VALUE
+    146: <L196>; LOAD_CONST None; RETURN_VALUE
+
+    DEF ShellTab.save_log(self) @149
+    150: LOAD_CONST 'logcat_'; LOAD_GLOBAL time; LOAD_ATTR strftime; LOAD_CONST '%Y%m%d_%H%M%S'; CALL; FORMAT_SIMPLE; LOAD_CONST '.txt'; BUILD_STRING; STORE_FAST name
+    151: LOAD_GLOBAL QFileDialog; LOAD_ATTR getSaveFileName; LOAD_FAST_BORROW self; LOAD_CONST 'Guardar logcat'; LOAD_FAST_BORROW name; LOAD_CONST 'Texto (*.txt)'; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST path, _
+    152: LOAD_FAST_BORROW path; TO_BOOL; POP_JUMP_IF_FALSE ->290
+    153: LOAD_GLOBAL Path + NULL; LOAD_FAST_BORROW path; CALL; LOAD_ATTR write_text + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR log; LOAD_ATTR toPlainText + NULL|self; CALL; LOAD_CONST 'utf-8'; CALL
+    154: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Logcat guardado en '; LOAD_FAST_BORROW path; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+    152: <L290>; LOAD_CONST None; RETURN_VALUE
+
+    DEF ShellTab.on_device_changed(self) @156
+    157: LOAD_FAST_BORROW self; LOAD_ATTR stop_log + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ShellTab.closeEvent(self,e) @159
+    160: LOAD_FAST_BORROW self; LOAD_ATTR stop_log + NULL|self; CALL
+    161: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR closeEvent + NULL|self; LOAD_FAST_BORROW e; CALL; LOAD_CONST None; RETURN_VALUE

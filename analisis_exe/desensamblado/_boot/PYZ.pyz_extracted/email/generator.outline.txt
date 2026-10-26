@@ -1,0 +1,91 @@
+<module>()  line 1
+    Generator()  line 27
+        Generator.__init__(self, outfp, mangle_from_, maxheaderlen, policy)  line 37
+        Generator.write(self, s)  line 69
+        Generator.flatten(self, msg, unixfrom, linesep)  line 73
+        Generator.clone(self, fp)  line 122
+        Generator._new_buffer(self)  line 142
+        Generator._encode(self, s)  line 146
+        Generator._write_lines(self, lines)  line 150
+        Generator._write(self, msg)  line 166
+        Generator._dispatch(self, msg)  line 205
+        Generator._write_headers(self, msg)  line 225
+        Generator._handle_text(self, msg)  line 244
+        Generator._handle_multipart(self, msg)  line 268
+        Generator._handle_multipart_signed(self, msg)  line 326
+        Generator._handle_message_delivery_status(self, msg)  line 337
+        Generator._handle_message(self, msg)  line 358
+        Generator._make_boundary(cls, text)  line 383
+        Generator._compile_re(cls, s, flags)  line 401
+    BytesGenerator()  line 406
+        BytesGenerator.write(self, s)  line 419
+        BytesGenerator._new_buffer(self)  line 422
+        BytesGenerator._encode(self, s)  line 425
+        BytesGenerator._write_headers(self, msg)  line 428
+        BytesGenerator._handle_text(self, msg)  line 436
+        BytesGenerator._compile_re(cls, s, flags)  line 451
+    DecodedGenerator()  line 458
+        DecodedGenerator.__init__(self, outfp, mangle_from_, maxheaderlen, fmt, policy)  line 464
+        DecodedGenerator._dispatch(self, msg)  line 494
+
+--- strings ---
+'Classes to generate plain text from a message object tree.'
+'Generator'
+'DecodedGenerator'
+'BytesGenerator'
+'\\r\\n|\\r|\\n'
+'^From '
+'\\r\\n[^ \\t]|\\r[^ \\n\\t]|\\n[^ \\t]'
+'Generator'
+'Generates output from a Message object tree.\n\nThis basic generator writes the message to the given file object as plain\ntext.\n'
+'policy'
+"Create the generator for message flattening.\n\noutfp is the output file-like object for writing the message to.  It\nmust have a write() method.\n\nOptional mangle_from_ is a flag that, when True (the default if policy\nis not set), escapes From_ lines in the body of the message by putting\na '>' in front of them.\n\nOptional maxheaderlen specifies the longest length for a non-continued\nheader.  When a header line is longer (in characters, with tabs\nexpanded to 8 spaces) than maxheaderlen, the header will split as\ndefined in the Header class.  Set maxheaderlen to zero to disable\nheader wrapping.  The default is 78, as recommended (but not required)\nby RFC 2822.\n\nThe policy keyword specifies a policy object that controls a number of\naspects of the generator's operation.  If no policy is specified,\nthe policy associated with the Message object passed to the\nflatten method is used.\n\n"
+"Print the message object tree rooted at msg to the output file\nspecified when the Generator instance was created.\n\nunixfrom is a flag that forces the printing of a Unix From_ delimiter\nbefore the first object in the message tree.  If the original message\nhas no From_ delimiter, a 'standard' one is crafted.  By default, this\nis False to inhibit the printing of any From_ delimiter.\n\nNote that for subobjects, no From_ line is printed.\n\nlinesep specifies the characters used to indicate a new line in\nthe output.  The default value is determined by the policy specified\nwhen the Generator instance was created or, if none was specified,\nfrom the policy associated with the msg.\n\n"
+'From nobody '
+'Clone this generator with the exact same options.'
+'content-transfer-encoding'
+'Content-Transfer-Encoding'
+'content-type'
+'_write_headers'
+'_handle_'
+'folded header does not end with '
+': '
+'folded header contains newline: '
+'string payload expected: %s'
+'charset'
+'content-transfer-encoding'
+'content-type'
+'>From '
+'>From '
+'--'
+'=='
+'^--'
+'(--)?$'
+'==============='
+'BytesGenerator'
+'Generates a bytes version of a Message object tree.\n\nFunctionally identical to the base Generator except that the output is\nbytes and not string.  When surrogates were used in the input to encode\nbytes, these are decoded back to bytes for output.  If the policy has\ncte_type set to 7bit, then the message is transformed such that the\nnon-ASCII bytes are properly content transfer encoded, using the charset\nunknown-8bit.\n\nThe outfp object must accept bytes in its write method.\n'
+'ascii'
+'surrogateescape'
+'ascii'
+'7bit'
+'>From '
+'ascii'
+'[Non-text (%(type)s) part of message omitted, filename %(filename)s]'
+'DecodedGenerator'
+'Generates a text representation of a message.\n\nLike the Generator base class, except that non-text parts are substituted\nwith a format string representing the part.\n'
+'policy'
+"Like Generator.__init__() except that an additional optional\nargument is allowed.\n\nWalks through all subparts of a message.  If the subpart is of main\ntype 'text', then it prints the decoded payload of the subpart.\n\nOtherwise, fmt is a format string that is used instead of the message\npayload.  fmt is expanded with the following keywords (in\n%(keyword)s format):\n\ntype       : Full MIME type of the non-text part\nmaintype   : Main MIME type of the non-text part\nsubtype    : Sub-MIME type of the non-text part\nfilename   : Filename of the non-text part\ndescription: Description associated with the non-text part\nencoding   : Content transfer encoding of the non-text part\n\nThe default value for fmt is None, meaning\n\n[Non-text (%(type)s) part of message omitted, filename %(filename)s]\n"
+'text'
+'multipart'
+'type'
+'maintype'
+'subtype'
+'filename'
+'[no filename]'
+'description'
+'Content-Description'
+'[no description]'
+'encoding'
+'Content-Transfer-Encoding'
+'[no encoding]'
+'%%0%dd'

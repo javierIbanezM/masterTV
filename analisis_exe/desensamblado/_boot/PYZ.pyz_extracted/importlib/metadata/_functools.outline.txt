@@ -1,0 +1,10 @@
+<module>()  line 1
+    method_cache(method, cache_wrapper)  line 6
+        method_cache.<locals>.wrapper(self)  line 75
+        method_cache.<locals>.<lambda>()  line 83
+    pass_none(func)  line 89
+        pass_none.<locals>.wrapper(param)  line 99
+
+--- strings ---
+"\nWrap lru_cache to support storing the cache data in the object instances.\n\nAbstracts the common paradigm where the method explicitly saves an\nunderscore-prefixed protected property on first call and returns that\nsubsequently.\n\n>>> class MyClass:\n...     calls = 0\n...\n...     @method_cache\n...     def method(self, value):\n...         self.calls += 1\n...         return value\n\n>>> a = MyClass()\n>>> a.method(3)\n3\n>>> for x in range(75):\n...     res = a.method(x)\n>>> a.calls\n75\n\nNote that the apparent behavior will be exactly like that of lru_cache\nexcept that the cache is stored on each instance, so values in one\ninstance will not flush values from another, and when an instance is\ndeleted, so are the cached values for that instance.\n\n>>> b = MyClass()\n>>> for x in range(35):\n...     res = b.method(x)\n>>> b.calls\n35\n>>> a.method(0)\n0\n>>> a.calls\n75\n\nNote that if method had been decorated with ``functools.lru_cache()``,\na.calls would have been 76 (due to the cached value of 0 having been\nflushed by the 'b' instance).\n\nClear the cache with ``.cache_clear()``\n\n>>> a.method.cache_clear()\n\nSame for a method that hasn't yet been called.\n\n>>> c = MyClass()\n>>> c.method.cache_clear()\n\nAnother cache wrapper may be supplied:\n\n>>> cache = functools.lru_cache(maxsize=2)\n>>> MyClass.method2 = method_cache(lambda self: 3, cache_wrapper=cache)\n>>> a = MyClass()\n>>> a.method2()\n3\n\nCaution - do not subsequently wrap the method with another decorator, such\nas ``@property``, which changes the semantics of the function.\n\nSee also\nhttp://code.activestate.com/recipes/577452-a-memoize-decorator-for-instance-methods/\nfor another implementation and additional justification.\n"
+"\nWrap func so it's not called if its first param is None\n\n>>> print_text = pass_none(print)\n>>> print_text('text')\ntext\n>>> print_text(None)\n"

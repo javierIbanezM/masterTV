@@ -1,0 +1,1234 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              2 (collections)
+              STORE_NAME               2 (collections)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (contextlib)
+              STORE_NAME               3 (contextlib)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              4 (itertools)
+              STORE_NAME               4 (itertools)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              5 (pathlib)
+              STORE_NAME               5 (pathlib)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              6 (operator)
+              STORE_NAME               6 (operator)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              7 (re)
+              STORE_NAME               7 (re)
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              8 (warnings)
+              STORE_NAME               8 (warnings)
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              9 (zipfile)
+              STORE_NAME               9 (zipfile)
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Iterator',))
+              IMPORT_NAME             10 (collections.abc)
+              IMPORT_FROM             11 (Iterator)
+              STORE_NAME              11 (Iterator)
+              POP_TOP
+
+ 13           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('abc',))
+              IMPORT_NAME             12
+              IMPORT_FROM             13 (abc)
+              STORE_NAME              13 (abc)
+              POP_TOP
+
+ 15           LOAD_SMALL_INT           1
+              LOAD_CONST               5 (('only',))
+              IMPORT_NAME             14 (_itertools)
+              IMPORT_FROM             15 (only)
+              STORE_NAME              15 (only)
+              POP_TOP
+
+ 18           LOAD_CONST               6 (<code object remove_duplicates at 0x00000204BA1004F0, file "importlib\resources\readers.py", line 18>)
+              MAKE_FUNCTION
+              STORE_NAME              16 (remove_duplicates)
+
+ 22           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object FileReader at 0x00000204BA08AC30, file "importlib\resources\readers.py", line 22>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('FileReader')
+              LOAD_NAME               13 (abc)
+              LOAD_ATTR               34 (TraversableResources)
+              CALL                     3
+              STORE_NAME              18 (FileReader)
+
+ 38           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object ZipReader at 0x00000204BA0FF550, file "importlib\resources\readers.py", line 38>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('ZipReader')
+              LOAD_NAME               13 (abc)
+              LOAD_ATTR               34 (TraversableResources)
+              CALL                     3
+              STORE_NAME              19 (ZipReader)
+
+ 64           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object MultiplexedPath at 0x00000204BA0B8EA0, file "importlib\resources\readers.py", line 64>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 ('MultiplexedPath')
+              LOAD_NAME               13 (abc)
+              LOAD_ATTR               40 (Traversable)
+              CALL                     3
+              STORE_NAME              21 (MultiplexedPath)
+
+137           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              13 (<code object NamespaceReader at 0x00000204BA0AAFB0, file "importlib\resources\readers.py", line 137>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 ('NamespaceReader')
+              LOAD_NAME               13 (abc)
+              LOAD_ATTR               34 (TraversableResources)
+              CALL                     3
+              STORE_NAME              22 (NamespaceReader)
+
+188           LOAD_CONST              15 (<code object _ensure_traversable at 0x00000204BA6EC030, file "importlib\resources\readers.py", line 188>)
+              MAKE_FUNCTION
+              STORE_NAME              23 (_ensure_traversable)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object remove_duplicates at 0x00000204BA1004F0, file "importlib\resources\readers.py", line 18>:
+ 18           RESUME                   0
+
+ 19           LOAD_GLOBAL              1 (iter + NULL)
+              LOAD_GLOBAL              2 (collections)
+              LOAD_ATTR                4 (OrderedDict)
+              LOAD_ATTR                7 (fromkeys + NULL|self)
+              LOAD_FAST_BORROW         0 (items)
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object FileReader at 0x00000204BA08AC30, file "importlib\resources\readers.py", line 22>:
+ 22           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('FileReader')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          22
+              STORE_NAME               3 (__firstlineno__)
+
+ 23           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0AB4B0, file "importlib\resources\readers.py", line 23>)
+              MAKE_FUNCTION
+              STORE_NAME               4 (__init__)
+
+ 26           LOAD_CONST               2 (<code object resource_path at 0x00000204BA0A68B0, file "importlib\resources\readers.py", line 26>)
+              MAKE_FUNCTION
+              STORE_NAME               5 (resource_path)
+
+ 34           LOAD_CONST               3 (<code object files at 0x00000204BA0924C0, file "importlib\resources\readers.py", line 34>)
+              MAKE_FUNCTION
+              STORE_NAME               6 (files)
+              LOAD_CONST               4 (('path',))
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0AB4B0, file "importlib\resources\readers.py", line 23>:
+ 23           RESUME                   0
+
+ 24           LOAD_GLOBAL              0 (pathlib)
+              LOAD_ATTR                2 (Path)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (loader)
+              LOAD_ATTR                4 (path)
+              CALL                     1
+              LOAD_ATTR                6 (parent)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (path)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object resource_path at 0x00000204BA0A68B0, file "importlib\resources\readers.py", line 26>:
+ 26           RESUME                   0
+
+ 32           LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (joinpath + NULL|self)
+              LOAD_FAST_BORROW         1 (resource)
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object files at 0x00000204BA0924C0, file "importlib\resources\readers.py", line 34>:
+ 34           RESUME                   0
+
+ 35           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (path)
+              RETURN_VALUE
+
+Disassembly of <code object ZipReader at 0x00000204BA0FF550, file "importlib\resources\readers.py", line 38>:
+  --           MAKE_CELL                0 (__class__)
+
+  38           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ZipReader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          38
+               STORE_NAME               3 (__firstlineno__)
+
+  39           LOAD_CONST               1 (<code object __init__ at 0x00000204B9F4DF00, file "importlib\resources\readers.py", line 39>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  46           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object open_resource at 0x00000204B9F731B0, file "importlib\resources\readers.py", line 46>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (open_resource)
+
+  52           LOAD_CONST               3 (<code object is_resource at 0x00000204B9F72550, file "importlib\resources\readers.py", line 52>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (is_resource)
+
+  60           LOAD_CONST               4 (<code object files at 0x00000204BA103CC0, file "importlib\resources\readers.py", line 60>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (files)
+               LOAD_CONST               5 (('archive', 'prefix'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               9 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F4DF00, file "importlib\resources\readers.py", line 39>:
+ 39           RESUME                   0
+
+ 40           LOAD_FAST_BORROW         1 (loader)
+              LOAD_ATTR                0 (prefix)
+              LOAD_ATTR                3 (replace + NULL|self)
+              LOAD_CONST               0 ('\\')
+              LOAD_CONST               1 ('/')
+              CALL                     2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (prefix)
+
+ 41           LOAD_FAST_BORROW         1 (loader)
+              LOAD_ATTR                5 (is_package + NULL|self)
+              LOAD_FAST_BORROW         2 (module)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       53 (to L1)
+              NOT_TAKEN
+
+ 42           LOAD_FAST_BORROW         2 (module)
+              LOAD_ATTR                7 (rpartition + NULL|self)
+              LOAD_CONST               2 ('.')
+              CALL                     1
+              UNPACK_SEQUENCE          3
+              POP_TOP
+              STORE_FAST_STORE_FAST   52 (_, name)
+
+ 43           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (prefix)
+              LOAD_FAST_BORROW         4 (name)
+              LOAD_CONST               1 ('/')
+              BINARY_OP                0 (+)
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               0 (prefix)
+
+ 44   L1:     LOAD_FAST_BORROW         1 (loader)
+              LOAD_ATTR                8 (archive)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (archive)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object open_resource at 0x00000204B9F731B0, file "importlib\resources\readers.py", line 46>:
+  --           COPY_FREE_VARS           1
+
+  46           RESUME                   0
+
+  47           NOP
+
+  48   L1:     LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (open_resource + NULL|self)
+               LOAD_FAST_BORROW         1 (resource)
+               CALL                     1
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  49           LOAD_GLOBAL              4 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       34 (to L6)
+               NOT_TAKEN
+               STORE_FAST               2 (exc)
+
+  50   L4:     LOAD_GLOBAL              7 (FileNotFoundError + NULL)
+               LOAD_FAST                2 (exc)
+               LOAD_ATTR                8 (args)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               CALL                     1
+               RAISE_VARARGS            1
+
+  --   L5:     LOAD_CONST               1 (None)
+               STORE_FAST               2 (exc)
+               DELETE_FAST              2 (exc)
+               RERAISE                  1
+
+  49   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L7 [1] lasti
+  L4 to L5 -> L5 [1] lasti
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object is_resource at 0x00000204B9F72550, file "importlib\resources\readers.py", line 52>:
+ 52           RESUME                   0
+
+ 57           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (files + NULL|self)
+              CALL                     0
+              LOAD_ATTR                3 (joinpath + NULL|self)
+              LOAD_FAST_BORROW         1 (path)
+              CALL                     1
+              STORE_FAST               2 (target)
+
+ 58           LOAD_FAST_BORROW         2 (target)
+              LOAD_ATTR                5 (is_file + NULL|self)
+              CALL                     0
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         2 (target)
+              LOAD_ATTR                7 (exists + NULL|self)
+              CALL                     0
+      L1:     RETURN_VALUE
+
+Disassembly of <code object files at 0x00000204BA103CC0, file "importlib\resources\readers.py", line 60>:
+ 60           RESUME                   0
+
+ 61           LOAD_GLOBAL              0 (zipfile)
+              LOAD_ATTR                2 (Path)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (archive)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (prefix)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object MultiplexedPath at 0x00000204BA0B8EA0, file "importlib\resources\readers.py", line 64>:
+  --           MAKE_CELL                0 (__class__)
+
+  64           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('MultiplexedPath')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          64
+               STORE_NAME               3 (__firstlineno__)
+
+  65           LOAD_CONST               1 ('\nGiven a series of Traversable objects, implement a merged\nversion of the interface across all objects. Useful for\nnamespace packages which may be multihomed at a single\nname.\n')
+               STORE_NAME               4 (__doc__)
+
+  72           LOAD_CONST               2 (<code object __init__ at 0x00000204BA446490, file "importlib\resources\readers.py", line 72>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  80           LOAD_CONST               3 (<code object iterdir at 0x00000204B9FFAF70, file "importlib\resources\readers.py", line 80>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (iterdir)
+
+  86           LOAD_CONST               4 (<code object read_bytes at 0x00000204BA093960, file "importlib\resources\readers.py", line 86>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (read_bytes)
+
+  89           LOAD_CONST               5 (<code object read_text at 0x00000204BA0933C0, file "importlib\resources\readers.py", line 89>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (read_text)
+
+  92           LOAD_CONST               6 (<code object is_dir at 0x00000204BA6E0030, file "importlib\resources\readers.py", line 92>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (is_dir)
+
+  95           LOAD_CONST               7 (<code object is_file at 0x00000204BA6E0FF0, file "importlib\resources\readers.py", line 95>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (is_file)
+
+  98           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               8 (<code object joinpath at 0x00000204B9FF3E00, file "importlib\resources\readers.py", line 98>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              11 (joinpath)
+
+ 106           LOAD_NAME               12 (classmethod)
+
+ 107           LOAD_CONST               9 (<code object _follow at 0x00000204BA129F70, file "importlib\resources\readers.py", line 106>)
+               MAKE_FUNCTION
+
+ 106           CALL                     0
+
+ 107           STORE_NAME              13 (_follow)
+
+ 125           LOAD_CONST              10 (<code object open at 0x00000204BA092E20, file "importlib\resources\readers.py", line 125>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (open)
+
+ 128           LOAD_NAME               15 (property)
+
+ 129           LOAD_CONST              11 (<code object name at 0x00000204BA0FF440, file "importlib\resources\readers.py", line 128>)
+               MAKE_FUNCTION
+
+ 128           CALL                     0
+
+ 129           STORE_NAME              16 (name)
+
+ 132           LOAD_CONST              12 (<code object __repr__ at 0x00000204B9FEF0E0, file "importlib\resources\readers.py", line 132>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (__repr__)
+               LOAD_CONST              13 (('_paths',))
+               STORE_NAME              18 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              19 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA446490, file "importlib\resources\readers.py", line 72>:
+ 72           RESUME                   0
+
+ 73           LOAD_GLOBAL              1 (list + NULL)
+              LOAD_GLOBAL              3 (map + NULL)
+              LOAD_GLOBAL              4 (_ensure_traversable)
+              LOAD_GLOBAL              7 (remove_duplicates + NULL)
+              LOAD_FAST_BORROW         1 (paths)
+              CALL                     1
+              CALL                     2
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_paths)
+
+ 74           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_paths)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        14 (to L1)
+              NOT_TAKEN
+
+ 75           LOAD_CONST               0 ('MultiplexedPath must contain at least one path')
+              STORE_FAST               2 (message)
+
+ 76           LOAD_GLOBAL             11 (FileNotFoundError + NULL)
+              LOAD_FAST_BORROW         2 (message)
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 77   L1:     LOAD_GLOBAL             12 (all)
+              COPY                     1
+              LOAD_COMMON_CONSTANT     3 (<built-in function all>)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       38 (to L5)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0FC7A0, file "importlib\resources\readers.py", line 77>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_paths)
+              GET_ITER
+              CALL                     0
+      L2:     FOR_ITER                12 (to L4)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           11 (to L2)
+      L3:     POP_ITER
+              LOAD_CONST               2 (False)
+              JUMP_FORWARD            27 (to L6)
+      L4:     END_FOR
+              POP_ITER
+              LOAD_CONST               3 (True)
+              JUMP_FORWARD            23 (to L6)
+      L5:     PUSH_NULL
+              LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0FC7A0, file "importlib\resources\readers.py", line 77>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_paths)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+      L6:     TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L7)
+              NOT_TAKEN
+
+ 78           LOAD_GLOBAL             15 (NotADirectoryError + NULL)
+              LOAD_CONST               4 ('MultiplexedPath only supports directories')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 77   L7:     LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FC7A0, file "importlib\resources\readers.py", line 77>:
+  77           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                20 (to L3)
+               STORE_FAST_LOAD_FAST    17 (path, path)
+               LOAD_ATTR                1 (is_dir + NULL|self)
+               CALL                     0
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           22 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object iterdir at 0x00000204B9FFAF70, file "importlib\resources\readers.py", line 80>:
+ 80           RESUME                   0
+
+ 81           LOAD_CONST               0 (<code object <genexpr> at 0x00000204BA0A7CF0, file "importlib\resources\readers.py", line 81>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_paths)
+              GET_ITER
+              CALL                     0
+              STORE_FAST               1 (children)
+
+ 82           LOAD_GLOBAL              2 (operator)
+              LOAD_ATTR                4 (attrgetter)
+              PUSH_NULL
+              LOAD_CONST               1 ('name')
+              CALL                     1
+              STORE_FAST               2 (by_name)
+
+ 83           LOAD_GLOBAL              6 (itertools)
+              LOAD_ATTR                8 (groupby)
+              PUSH_NULL
+              LOAD_GLOBAL             11 (sorted + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (children, by_name)
+              LOAD_CONST               2 (('key',))
+              CALL_KW                  2
+              LOAD_FAST_BORROW         2 (by_name)
+              LOAD_CONST               2 (('key',))
+              CALL_KW                  2
+              STORE_FAST               3 (groups)
+
+ 84           LOAD_GLOBAL             13 (map + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (_follow)
+              LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA088330, file "importlib\resources\readers.py", line 84>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         3 (groups)
+              GET_ITER
+              CALL                     0
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A7CF0, file "importlib\resources\readers.py", line 81>:
+  81           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                28 (to L5)
+               STORE_FAST_LOAD_FAST    17 (path, path)
+               LOAD_ATTR                1 (iterdir + NULL|self)
+               CALL                     0
+               GET_ITER
+       L3:     FOR_ITER                 6 (to L4)
+               STORE_FAST_LOAD_FAST    34 (child, child)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD            8 (to L3)
+       L4:     END_FOR
+               POP_ITER
+               JUMP_BACKWARD           30 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L6 -> L6 [0] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA088330, file "importlib\resources\readers.py", line 84>:
+  84           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                 9 (to L3)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   18 (name, locs)
+               LOAD_FAST_BORROW         2 (locs)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           11 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object read_bytes at 0x00000204BA093960, file "importlib\resources\readers.py", line 86>:
+ 86           RESUME                   0
+
+ 87           LOAD_GLOBAL              1 (FileNotFoundError + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 (' is not a file')
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object read_text at 0x00000204BA0933C0, file "importlib\resources\readers.py", line 89>:
+ 89           RESUME                   0
+
+ 90           LOAD_GLOBAL              1 (FileNotFoundError + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 (' is not a file')
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object is_dir at 0x00000204BA6E0030, file "importlib\resources\readers.py", line 92>:
+ 92           RESUME                   0
+
+ 93           LOAD_CONST               0 (True)
+              RETURN_VALUE
+
+Disassembly of <code object is_file at 0x00000204BA6E0FF0, file "importlib\resources\readers.py", line 95>:
+ 95           RESUME                   0
+
+ 96           LOAD_CONST               0 (False)
+              RETURN_VALUE
+
+Disassembly of <code object joinpath at 0x00000204B9FF3E00, file "importlib\resources\readers.py", line 98>:
+  --           COPY_FREE_VARS           1
+
+  98           RESUME                   0
+
+  99           NOP
+
+ 100   L1:     LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               2 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (joinpath)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (descendants)
+               PUSH_NULL
+               CALL_FUNCTION_EX
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 101           LOAD_GLOBAL              4 (abc)
+               LOAD_ATTR                6 (TraversalError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       37 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 104           LOAD_FAST                0 (self)
+               LOAD_ATTR                8 (_paths)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               LOAD_ATTR                2 (joinpath)
+               PUSH_NULL
+               LOAD_FAST                1 (descendants)
+               PUSH_NULL
+               CALL_FUNCTION_EX
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 101   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object _follow at 0x00000204BA129F70, file "importlib\resources\readers.py", line 106>:
+ 106            RESUME                   0
+
+ 115            LOAD_GLOBAL              0 (itertools)
+                LOAD_ATTR                2 (tee)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (children)
+                LOAD_SMALL_INT           3
+                CALL                     2
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   35 (subdirs, one_dir)
+                STORE_FAST               4 (one_file)
+
+ 117            NOP
+
+ 118    L1:     LOAD_GLOBAL              5 (only + NULL)
+                LOAD_FAST_BORROW         3 (one_dir)
+                CALL                     1
+        L2:     RETURN_VALUE
+
+  --    L3:     PUSH_EXC_INFO
+
+ 119            LOAD_GLOBAL              6 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       41 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 120    L4:     NOP
+
+ 121    L5:     LOAD_FAST                0 (cls)
+                PUSH_NULL
+                LOAD_FAST                2 (subdirs)
+                PUSH_NULL
+                CALL_FUNCTION_EX
+        L6:     SWAP                     2
+        L7:     POP_EXCEPT
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 122            LOAD_GLOBAL              8 (NotADirectoryError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       17 (to L11)
+                NOT_TAKEN
+                POP_TOP
+
+ 123            LOAD_GLOBAL             11 (next + NULL)
+                LOAD_FAST                4 (one_file)
+                CALL                     1
+                SWAP                     2
+        L9:     POP_EXCEPT
+                SWAP                     2
+       L10:     POP_EXCEPT
+                RETURN_VALUE
+
+ 122   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 119   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L14 [1] lasti
+  L5 to L6 -> L8 [1]
+  L6 to L7 -> L14 [1] lasti
+  L8 to L9 -> L12 [2] lasti
+  L9 to L10 -> L14 [1] lasti
+  L11 to L12 -> L12 [2] lasti
+  L12 to L14 -> L14 [1] lasti
+
+Disassembly of <code object open at 0x00000204BA092E20, file "importlib\resources\readers.py", line 125>:
+125           RESUME                   0
+
+126           LOAD_GLOBAL              1 (FileNotFoundError + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 (' is not a file')
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object name at 0x00000204BA0FF440, file "importlib\resources\readers.py", line 128>:
+128           RESUME                   0
+
+130           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_paths)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_ATTR                2 (name)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204B9FEF0E0, file "importlib\resources\readers.py", line 132>:
+132           RESUME                   0
+
+133           LOAD_CONST               0 (', ')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA08AF30, file "importlib\resources\readers.py", line 133>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_paths)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+              STORE_FAST               1 (paths)
+
+134           LOAD_CONST               2 ('MultiplexedPath(')
+              LOAD_FAST_BORROW         1 (paths)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (')')
+              BUILD_STRING             3
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA08AF30, file "importlib\resources\readers.py", line 133>:
+ 133           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                11 (to L3)
+               STORE_FAST               1 (path)
+               LOAD_CONST               0 ("'")
+               LOAD_FAST_BORROW         1 (path)
+               FORMAT_SIMPLE
+               LOAD_CONST               0 ("'")
+               BUILD_STRING             3
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           13 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object NamespaceReader at 0x00000204BA0AAFB0, file "importlib\resources\readers.py", line 137>:
+137           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('NamespaceReader')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         137
+              STORE_NAME               3 (__firstlineno__)
+
+138           LOAD_CONST               1 (<code object __init__ at 0x00000204BA6EC1A0, file "importlib\resources\readers.py", line 138>)
+              MAKE_FUNCTION
+              STORE_NAME               4 (__init__)
+
+143           LOAD_NAME                5 (classmethod)
+
+144           LOAD_CONST               2 (<code object __annotate__ at 0x00000204BA093780, file "importlib\resources\readers.py", line 144>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 (<code object _resolve at 0x00000204BA0A6C10, file "importlib\resources\readers.py", line 143>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+143           CALL                     0
+
+144           STORE_NAME               6 (_resolve)
+
+159           LOAD_NAME                5 (classmethod)
+
+160           LOAD_CONST               4 (<code object __annotate__ at 0x00000204BA093000, file "importlib\resources\readers.py", line 160>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 (<code object _candidate_paths at 0x00000204BA0BB360, file "importlib\resources\readers.py", line 159>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+159           CALL                     0
+
+160           STORE_NAME               7 (_candidate_paths)
+
+164           LOAD_NAME                8 (staticmethod)
+
+165           LOAD_CONST               6 (<code object __annotate__ at 0x00000204BA093E10, file "importlib\resources\readers.py", line 165>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 (<code object _resolve_zip_path at 0x00000204BA4E7270, file "importlib\resources\readers.py", line 164>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+164           CALL                     0
+
+165           STORE_NAME               9 (_resolve_zip_path)
+
+176           LOAD_CONST               8 (<code object resource_path at 0x00000204BA0A7510, file "importlib\resources\readers.py", line 176>)
+              MAKE_FUNCTION
+              STORE_NAME              10 (resource_path)
+
+184           LOAD_CONST               9 (<code object files at 0x00000204BA092C40, file "importlib\resources\readers.py", line 184>)
+              MAKE_FUNCTION
+              STORE_NAME              11 (files)
+              LOAD_CONST              10 (('path',))
+              STORE_NAME              12 (__static_attributes__)
+              LOAD_CONST              11 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA6EC1A0, file "importlib\resources\readers.py", line 138>:
+138           RESUME                   0
+
+139           LOAD_CONST               0 ('NamespacePath')
+              LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         1 (namespace_path)
+              CALL                     1
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+140           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               1 ('Invalid path')
+              CALL                     1
+              RAISE_VARARGS            1
+
+141   L1:     LOAD_GLOBAL              5 (MultiplexedPath + NULL)
+              LOAD_GLOBAL              7 (filter + NULL)
+              LOAD_GLOBAL              8 (bool)
+              LOAD_GLOBAL             11 (map + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_resolve)
+              LOAD_FAST_BORROW         1 (namespace_path)
+              CALL                     2
+              CALL                     2
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (path)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093780, file "importlib\resources\readers.py", line 144>:
+144           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('abc.Traversable | None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object _resolve at 0x00000204BA0A6C10, file "importlib\resources\readers.py", line 143>:
+143           RESUME                   0
+
+156           LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA101DE0, file "importlib\resources\readers.py", line 156>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                1 (_candidate_paths + NULL|self)
+              LOAD_FAST_BORROW         1 (path_str)
+              CALL                     1
+              GET_ITER
+              CALL                     0
+              STORE_FAST               2 (dirs)
+
+157           LOAD_GLOBAL              3 (next + NULL)
+              LOAD_FAST_BORROW         2 (dirs)
+              LOAD_CONST               2 (None)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA101DE0, file "importlib\resources\readers.py", line 156>:
+ 156           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                30 (to L5)
+               STORE_FAST_LOAD_FAST    17 (cand, cand)
+               LOAD_ATTR                1 (is_dir + NULL|self)
+               CALL                     0
+               TO_BOOL
+       L3:     POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           26 (to L2)
+       L4:     LOAD_FAST_BORROW         1 (cand)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           32 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [0] lasti
+  L4 to L6 -> L6 [0] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA093000, file "importlib\resources\readers.py", line 160>:
+160           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('path_str')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Iterator[abc.Traversable]')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object _candidate_paths at 0x00000204BA0BB360, file "importlib\resources\readers.py", line 159>:
+ 159           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+
+ 161           LOAD_GLOBAL              0 (pathlib)
+               LOAD_ATTR                2 (Path)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (path_str)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+
+ 162           LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                5 (_resolve_zip_path + NULL|self)
+               LOAD_FAST_BORROW         1 (path_str)
+               CALL                     1
+               GET_YIELD_FROM_ITER
+               LOAD_CONST               0 (None)
+       L2:     SEND                     3 (to L5)
+       L3:     YIELD_VALUE              1
+       L4:     RESUME                   2
+               JUMP_BACKWARD_NO_INTERRUPT 5 (to L2)
+       L5:     END_SEND
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+       L6:     CLEANUP_THROW
+       L7:     JUMP_BACKWARD_NO_INTERRUPT 6 (to L5)
+
+  --   L8:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L8 [0] lasti
+  L3 to L4 -> L6 [2]
+  L4 to L7 -> L8 [0] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA093E10, file "importlib\resources\readers.py", line 165>:
+165           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('path_str')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object _resolve_zip_path at 0x00000204BA4E7270, file "importlib\resources\readers.py", line 164>:
+ 164            RETURN_GENERATOR
+                POP_TOP
+        L1:     RESUME                   0
+
+ 166            LOAD_GLOBAL              1 (reversed + NULL)
+                LOAD_GLOBAL              3 (list + NULL)
+                LOAD_GLOBAL              4 (re)
+                LOAD_ATTR                6 (finditer)
+                PUSH_NULL
+                LOAD_CONST               0 ('[\\\\/]')
+                LOAD_FAST_BORROW         0 (path_str)
+                CALL                     2
+                CALL                     1
+                CALL                     1
+                GET_ITER
+        L2:     FOR_ITER               159 (to L5)
+                STORE_FAST               1 (match)
+
+ 167            LOAD_GLOBAL              8 (contextlib)
+                LOAD_ATTR               10 (suppress)
+                PUSH_NULL
+
+ 168            LOAD_GLOBAL             12 (FileNotFoundError)
+
+ 169            LOAD_GLOBAL             14 (IsADirectoryError)
+
+ 170            LOAD_GLOBAL             16 (NotADirectoryError)
+
+ 171            LOAD_GLOBAL             18 (PermissionError)
+
+ 167            CALL                     4
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L3:     POP_TOP
+
+ 173            LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (path_str, match)
+                LOAD_ATTR               21 (end + NULL|self)
+                CALL                     0
+                LOAD_CONST               1 (None)
+                BINARY_SLICE
+                LOAD_ATTR               23 (replace + NULL|self)
+                LOAD_CONST               2 ('\\')
+                LOAD_CONST               3 ('/')
+                CALL                     2
+                LOAD_CONST               3 ('/')
+                BINARY_OP                0 (+)
+                STORE_FAST               2 (inner)
+
+ 174            LOAD_GLOBAL             24 (zipfile)
+                LOAD_ATTR               26 (Path)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (path_str)
+                LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         1 (match)
+                LOAD_ATTR               29 (start + NULL|self)
+                CALL                     0
+                BINARY_SLICE
+                LOAD_FAST_BORROW         2 (inner)
+                LOAD_ATTR               31 (lstrip + NULL|self)
+                LOAD_CONST               3 ('/')
+                CALL                     1
+                CALL                     2
+                YIELD_VALUE              0
+                RESUME                   1
+                POP_TOP
+
+ 167    L4:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                JUMP_BACKWARD          161 (to L2)
+
+ 166    L5:     END_FOR
+                POP_ITER
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 167    L6:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L7)
+                NOT_TAKEN
+                RERAISE                  2
+        L7:     POP_TOP
+        L8:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD          182 (to L2)
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+                RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L10 [0] lasti
+  L3 to L4 -> L6 [3] lasti
+  L4 to L6 -> L10 [0] lasti
+  L6 to L8 -> L9 [5] lasti
+  L8 to L10 -> L10 [0] lasti
+
+Disassembly of <code object resource_path at 0x00000204BA0A7510, file "importlib\resources\readers.py", line 176>:
+176           RESUME                   0
+
+182           LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (path)
+              LOAD_ATTR                5 (joinpath + NULL|self)
+              LOAD_FAST_BORROW         1 (resource)
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object files at 0x00000204BA092C40, file "importlib\resources\readers.py", line 184>:
+184           RESUME                   0
+
+185           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (path)
+              RETURN_VALUE
+
+Disassembly of <code object _ensure_traversable at 0x00000204BA6EC030, file "importlib\resources\readers.py", line 188>:
+188           RESUME                   0
+
+194           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (path)
+              LOAD_GLOBAL              2 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+195           LOAD_FAST_BORROW         0 (path)
+              RETURN_VALUE
+
+197   L1:     LOAD_GLOBAL              4 (warnings)
+              LOAD_ATTR                6 (warn)
+              PUSH_NULL
+
+198           LOAD_CONST               1 ('String arguments are deprecated. Pass a Traversable instead.')
+
+199           LOAD_GLOBAL              8 (DeprecationWarning)
+
+200           LOAD_SMALL_INT           3
+
+197           LOAD_CONST               2 (('stacklevel',))
+              CALL_KW                  3
+              POP_TOP
+
+203           LOAD_GLOBAL             10 (pathlib)
+              LOAD_ATTR               12 (Path)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (path)
+              CALL                     1
+              RETURN_VALUE

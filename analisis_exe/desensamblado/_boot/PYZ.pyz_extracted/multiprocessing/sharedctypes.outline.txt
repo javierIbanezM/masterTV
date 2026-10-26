@@ -1,0 +1,54 @@
+<module>()  line 1
+    _new_value(type_)  line 39
+    RawValue(typecode_or_type)  line 44
+    RawArray(typecode_or_type, size_or_initializer)  line 54
+    Value(typecode_or_type, lock, ctx)  line 70
+    Array(typecode_or_type, size_or_initializer, lock, ctx)  line 84
+    copy(obj)  line 98
+    synchronized(obj, lock, ctx)  line 103
+    reduce_ctype(obj)  line 128
+    rebuild_ctype(type_, wrapper, length)  line 135
+    make_property(name)  line 148
+    SynchronizedBase()  line 180
+        SynchronizedBase.__init__(self, obj, lock, ctx)  line 182
+        SynchronizedBase.__enter__(self)  line 192
+        SynchronizedBase.__exit__(self)  line 195
+        SynchronizedBase.__reduce__(self)  line 198
+        SynchronizedBase.get_obj(self)  line 202
+        SynchronizedBase.get_lock(self)  line 205
+        SynchronizedBase.__repr__(self)  line 208
+    Synchronized()  line 212
+    SynchronizedArray()  line 216
+        SynchronizedArray.__len__(self)  line 218
+        SynchronizedArray.__getitem__(self, i)  line 221
+        SynchronizedArray.__setitem__(self, i, value)  line 225
+        SynchronizedArray.__getslice__(self, start, stop)  line 229
+        SynchronizedArray.__setslice__(self, start, stop, values)  line 233
+    SynchronizedString()  line 238
+
+--- strings ---
+'\nReturns a ctypes object allocated from shared memory\n'
+'\nReturns a ctypes array allocated from shared memory\n'
+'lock'
+'ctx'
+'\nReturn a synchronization wrapper for a Value\n'
+'acquire'
+"%r has no method 'acquire'"
+'\nReturn a synchronization wrapper for a RawArray\n'
+'acquire'
+"%r has no method 'acquire'"
+'object already synchronized'
+'Synchronized'
+'\ndef get%s(self):\n    self.acquire()\n    try:\n        return self._obj.%s\n    finally:\n        self.release()\ndef set%s(self, value):\n    self.acquire()\n    try:\n        self._obj.%s = value\n    finally:\n        self.release()\n%s = property(get%s, set%s)\n'
+'SynchronizedBase'
+' wrapper for '
+'SynchronizedBase'
+'Synchronized'
+'value'
+'Synchronized'
+'SynchronizedArray'
+'SynchronizedArray'
+'SynchronizedString'
+'value'
+'raw'
+'SynchronizedString'

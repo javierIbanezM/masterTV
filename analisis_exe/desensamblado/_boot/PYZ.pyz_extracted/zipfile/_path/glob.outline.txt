@@ -1,0 +1,49 @@
+<module>()  line 1
+    Translator()  line 7
+        Translator.__annotate__(format)  line 22
+        Translator.__init__(self, seps)  line 22
+        Translator.translate(self, pattern)  line 26
+        Translator.extend(self, pattern)  line 32
+        Translator.match_dirs(self, pattern)  line 43
+        Translator.translate_core(self, pattern)  line 51
+        Translator.replace(self, match)  line 66
+        Translator.restrict_rglob(self, pattern)  line 77
+            Translator.restrict_rglob.<locals>.<genexpr>(.0)  line 88
+        Translator.star_not_empty(self, pattern)  line 91
+            Translator.star_not_empty.<locals>.handle_segment(match)  line 96
+        Translator.__annotate__(format)  line 7
+    separate(pattern)  line 104
+
+--- strings ---
+'Translator'
+"\n>>> Translator('xyz')\nTraceback (most recent call last):\n...\nAssertionError: Invalid separators\n\n>>> Translator('')\nTraceback (most recent call last):\n...\nAssertionError: Invalid separators\n"
+'seps'
+'Invalid separators'
+'\nGiven a glob pattern, produce a regex that matches it.\n'
+"\nExtend regex for pattern-wide concerns.\n\nApply '(?s:)' to create a non-matching group that\nmatches newlines (valid on Unix).\n\nAppend '\\z' to imply fullmatch even when match is used.\n"
+'(?s:'
+')\\z'
+'\nEnsure that zipfile.Path directory names are matched.\n\nzipfile.Path directory names always end in a slash.\n'
+'[/]?'
+"\nGiven a glob pattern, produce a regex that matches it.\n\n>>> t = Translator()\n>>> t.translate_core('*.txt').replace('\\\\\\\\', '')\n'[^/]*\\\\.txt'\n>>> t.translate_core('a?txt')\n'a[^/]txt'\n>>> t.translate_core('**/*').replace('\\\\\\\\', '')\n'.*/[^/][^/]*'\n"
+'\nPerform the replacements for a match from :func:`separate`.\n'
+'set'
+'\\*\\*'
+'.*'
+'\\*'
+'[^'
+']*'
+'\\?'
+'[^/]'
+"\nRaise ValueError if ** appears in anything but a full path segment.\n\n>>> Translator().translate('**foo')\nTraceback (most recent call last):\n...\nValueError: ** must appear alone in a path segment\n"
+']+'
+'**'
+'** must appear alone in a path segment'
+'\nEnsure that * will not match an empty segment.\n'
+'?*'
+'[^'
+']+'
+'seps'
+'Translator'
+"\nSeparate out character sets to avoid translating their contents.\n\n>>> [m.group(0) for m in separate('*.txt')]\n['*.txt']\n>>> [m.group(0) for m in separate('a[?]txt')]\n['a', '[?]', 'txt']\n"
+'([^\\[]+)|(?P<set>[\\[].*?[\\]])|([\\[][^\\]]*$)'

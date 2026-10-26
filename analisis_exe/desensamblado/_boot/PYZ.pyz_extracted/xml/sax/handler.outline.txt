@@ -1,0 +1,86 @@
+<module>()  line 1
+    ErrorHandler()  line 22
+        ErrorHandler.error(self, exception)  line 32
+        ErrorHandler.fatalError(self, exception)  line 36
+        ErrorHandler.warning(self, exception)  line 40
+    ContentHandler()  line 47
+        ContentHandler.__init__(self)  line 54
+        ContentHandler.setDocumentLocator(self, locator)  line 57
+        ContentHandler.startDocument(self)  line 80
+        ContentHandler.endDocument(self)  line 87
+        ContentHandler.startPrefixMapping(self, prefix, uri)  line 96
+        ContentHandler.endPrefixMapping(self, prefix)  line 119
+        ContentHandler.startElement(self, name, attrs)  line 126
+        ContentHandler.endElement(self, name)  line 134
+        ContentHandler.startElementNS(self, name, qname, attrs)  line 140
+        ContentHandler.endElementNS(self, name, qname)  line 152
+        ContentHandler.characters(self, content)  line 158
+        ContentHandler.ignorableWhitespace(self, whitespace)  line 168
+        ContentHandler.processingInstruction(self, target, data)  line 182
+        ContentHandler.skippedEntity(self, name)  line 193
+    DTDHandler()  line 208
+        DTDHandler.notationDecl(self, name, publicId, systemId)  line 214
+        DTDHandler.unparsedEntityDecl(self, name, publicId, systemId, ndata)  line 217
+    EntityResolver()  line 223
+        EntityResolver.resolveEntity(self, publicId, systemId)  line 230
+    LexicalHandler()  line 345
+        LexicalHandler.comment(self, content)  line 358
+        LexicalHandler.startDTD(self, name, public_id, system_id)  line 364
+        LexicalHandler.endDTD(self)  line 377
+        LexicalHandler.startCDATA(self)  line 380
+        LexicalHandler.endCDATA(self)  line 386
+
+--- strings ---
+'\nThis module contains the core classes of version 2.0 of SAX for Python.\nThis file provides only default classes with absolutely minimum\nfunctionality, from which drivers and applications can be subclassed.\n\nMany of these classes are empty and are included only as documentation\nof the interfaces.\n\n$Id$\n'
+'2.0beta'
+'ErrorHandler'
+'Basic interface for SAX error handlers.\n\nIf you create an object that implements this interface, then\nregister the object with your XMLReader, the parser will call the\nmethods in your object to report all warnings and errors. There\nare three levels of errors available: warnings, (possibly)\nrecoverable errors, and unrecoverable errors. All methods take a\nSAXParseException as the only parameter.'
+'Handle a recoverable error.'
+'Handle a non-recoverable error.'
+'Handle a warning.'
+'ErrorHandler'
+'ContentHandler'
+'Interface for receiving logical document content events.\n\nThis is the main callback interface in SAX, and the one most\nimportant to applications. The order of events in this interface\nmirrors the order of the information in the document.'
+"Called by the parser to give the application a locator for\nlocating the origin of document events.\n\nSAX parsers are strongly encouraged (though not absolutely\nrequired) to supply a locator: if it does so, it must supply\nthe locator to the application by invoking this method before\ninvoking any of the other methods in the DocumentHandler\ninterface.\n\nThe locator allows the application to determine the end\nposition of any document-related event, even if the parser is\nnot reporting an error. Typically, the application will use\nthis information for reporting its own errors (such as\ncharacter content that does not match an application's\nbusiness rules). The information returned by the locator is\nprobably not sufficient for use with a search engine.\n\nNote that the locator will return correct information only\nduring the invocation of the events in this interface. The\napplication should not attempt to use it at any other time."
+'Receive notification of the beginning of a document.\n\nThe SAX parser will invoke this method only once, before any\nother methods in this interface or in DTDHandler (except for\nsetDocumentLocator).'
+'Receive notification of the end of a document.\n\nThe SAX parser will invoke this method only once, and it will\nbe the last method invoked during the parse. The parser shall\nnot invoke this method until it has either abandoned parsing\n(because of an unrecoverable error) or reached the end of\ninput.'
+'Begin the scope of a prefix-URI Namespace mapping.\n\nThe information from this event is not necessary for normal\nNamespace processing: the SAX XML reader will automatically\nreplace prefixes for element and attribute names when the\nhttp://xml.org/sax/features/namespaces feature is true (the\ndefault).\n\nThere are cases, however, when applications need to use\nprefixes in character data or in attribute values, where they\ncannot safely be expanded automatically; the\nstart/endPrefixMapping event supplies the information to the\napplication to expand prefixes in those contexts itself, if\nnecessary.\n\nNote that start/endPrefixMapping events are not guaranteed to\nbe properly nested relative to each-other: all\nstartPrefixMapping events will occur before the corresponding\nstartElement event, and all endPrefixMapping events will occur\nafter the corresponding endElement event, but their order is\nnot guaranteed.'
+'End the scope of a prefix-URI mapping.\n\nSee startPrefixMapping for details. This event will always\noccur after the corresponding endElement event, but the order\nof endPrefixMapping events is not otherwise guaranteed.'
+'Signals the start of an element in non-namespace mode.\n\nThe name parameter contains the raw XML 1.0 name of the\nelement type as a string and the attrs parameter holds an\ninstance of the Attributes class containing the attributes of\nthe element.'
+'Signals the end of an element in non-namespace mode.\n\nThe name parameter contains the name of the element type, just\nas with the startElement event.'
+'Signals the start of an element in namespace mode.\n\nThe name parameter contains the name of the element type as a\n(uri, localname) tuple, the qname parameter the raw XML 1.0\nname used in the source document, and the attrs parameter\nholds an instance of the Attributes class containing the\nattributes of the element.\n\nThe uri part of the name tuple is None for elements which have\nno namespace.'
+'Signals the end of an element in namespace mode.\n\nThe name parameter contains the name of the element type, just\nas with the startElementNS event.'
+'Receive notification of character data.\n\nThe Parser will call this method to report each chunk of\ncharacter data. SAX parsers may return all contiguous\ncharacter data in a single chunk, or they may split it into\nseveral chunks; however, all of the characters in any single\nevent must come from the same external entity so that the\nLocator provides useful information.'
+'Receive notification of ignorable whitespace in element content.\n\nValidating Parsers must use this method to report each chunk\nof ignorable whitespace (see the W3C XML 1.0 recommendation,\nsection 2.10): non-validating parsers may also use this method\nif they are capable of parsing and using content models.\n\nSAX parsers may return all contiguous whitespace in a single\nchunk, or they may split it into several chunks; however, all\nof the characters in any single event must come from the same\nexternal entity, so that the Locator provides useful\ninformation.'
+'Receive notification of a processing instruction.\n\nThe Parser will invoke this method once for each processing\ninstruction found: note that processing instructions may occur\nbefore or after the main document element.\n\nA SAX parser should never report an XML declaration (XML 1.0,\nsection 2.8) or a text declaration (XML 1.0, section 4.3.1)\nusing this method.'
+'Receive notification of a skipped entity.\n\nThe Parser will invoke this method once for each entity\nskipped. Non-validating processors may skip entities if they\nhave not seen the declarations (because, for example, the\nentity was declared in an external DTD subset). All processors\nmay skip external entities, depending on the values of the\nhttp://xml.org/sax/features/external-general-entities and the\nhttp://xml.org/sax/features/external-parameter-entities\nproperties.'
+'ContentHandler'
+'DTDHandler'
+'Handle DTD events.\n\nThis interface specifies only those DTD events required for basic\nparsing (unparsed entities and attributes).'
+'Handle a notation declaration event.'
+'Handle an unparsed entity declaration event.'
+'DTDHandler'
+'EntityResolver'
+'Basic interface for resolving entities. If you create an object\nimplementing this interface, then register the object with your\nParser, the parser will call the method in your object to\nresolve all external entities. Note that DefaultHandler implements\nthis interface with the default behaviour.'
+'Resolve the system identifier of an entity and return either\nthe system identifier to read from as a string, or an InputSource\nto read from.'
+'EntityResolver'
+'http://xml.org/sax/features/namespaces'
+'http://xml.org/sax/features/namespace-prefixes'
+'http://xml.org/sax/features/string-interning'
+'http://xml.org/sax/features/validation'
+'http://xml.org/sax/features/external-general-entities'
+'http://xml.org/sax/features/external-parameter-entities'
+'http://xml.org/sax/properties/lexical-handler'
+'http://xml.org/sax/properties/declaration-handler'
+'http://xml.org/sax/properties/dom-node'
+'http://xml.org/sax/properties/xml-string'
+'http://www.python.org/sax/properties/encoding'
+'http://www.python.org/sax/properties/interning-dict'
+'LexicalHandler'
+"Optional SAX2 handler for lexical events.\n\nThis handler is used to obtain lexical information about an XML\ndocument, that is, information about how the document was encoded\n(as opposed to what it contains, which is reported to the\nContentHandler), such as comments and CDATA marked section\nboundaries.\n\nTo set the LexicalHandler of an XMLReader, use the setProperty\nmethod with the property identifier\n'http://xml.org/sax/properties/lexical-handler'."
+'Reports a comment anywhere in the document (including the\nDTD and outside the document element).\n\ncontent is a string that holds the contents of the comment.'
+'Report the start of the DTD declarations, if the document\nhas an associated DTD.\n\nA startEntity event will be reported before declaration events\nfrom the external DTD subset are reported, and this can be\nused to infer from which subset DTD declarations derive.\n\nname is the name of the document element type, public_id the\npublic identifier of the DTD (or None if none were supplied)\nand system_id the system identifier of the external subset (or\nNone if none were supplied).'
+'Signals the end of DTD declarations.'
+'Reports the beginning of a CDATA marked section.\n\nThe contents of the CDATA marked section will be reported\nthrough the characters event.'
+'Reports the end of a CDATA marked section.'
+'LexicalHandler'

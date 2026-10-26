@@ -1,0 +1,1747 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('A library of useful helper classes to the SAX classes, for the\nconvenience of application and driver writers.\n')
+              STORE_NAME               0 (__doc__)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (os)
+              STORE_NAME               1 (os)
+              LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (urllib.parse)
+              STORE_NAME               3 (urllib)
+              LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (urllib.request)
+              STORE_NAME               3 (urllib)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              5 (io)
+              STORE_NAME               5 (io)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              6 (codecs)
+              STORE_NAME               6 (codecs)
+
+  9           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('handler',))
+              IMPORT_NAME              7
+              IMPORT_FROM              8 (handler)
+              STORE_NAME               8 (handler)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('xmlreader',))
+              IMPORT_NAME              7
+              IMPORT_FROM              9 (xmlreader)
+              STORE_NAME               9 (xmlreader)
+              POP_TOP
+
+ 12           LOAD_CONST               4 (<code object __dict_replace at 0x00000204B9FEF0E0, file "xml\sax\saxutils.py", line 12>)
+              MAKE_FUNCTION
+              STORE_NAME              10 (__dict_replace)
+
+ 18           BUILD_MAP                0
+              BUILD_TUPLE              1
+              LOAD_CONST               5 (<code object escape at 0x00000204B9FF3E00, file "xml\sax\saxutils.py", line 18>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              11 (escape)
+
+ 34           BUILD_MAP                0
+              BUILD_TUPLE              1
+              LOAD_CONST               6 (<code object unescape at 0x00000204B9FF3280, file "xml\sax\saxutils.py", line 34>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              12 (unescape)
+
+ 48           BUILD_MAP                0
+              BUILD_TUPLE              1
+              LOAD_CONST               7 (<code object quoteattr at 0x00000204B9FB7DB0, file "xml\sax\saxutils.py", line 48>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              13 (quoteattr)
+
+ 71           LOAD_CONST               8 (<code object _gettextwriter at 0x00000204BA338F90, file "xml\sax\saxutils.py", line 71>)
+              MAKE_FUNCTION
+              STORE_NAME              14 (_gettextwriter)
+
+112           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object XMLGenerator at 0x00000204BA0B9290, file "xml\sax\saxutils.py", line 112>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('XMLGenerator')
+              LOAD_NAME                8 (handler)
+              LOAD_ATTR               30 (ContentHandler)
+              CALL                     3
+              STORE_NAME              16 (XMLGenerator)
+
+227           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object XMLFilterBase at 0x00000204B9F6F430, file "xml\sax\saxutils.py", line 227>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 ('XMLFilterBase')
+              LOAD_NAME                9 (xmlreader)
+              LOAD_ATTR               34 (XMLReader)
+              CALL                     3
+              STORE_NAME              18 (XMLFilterBase)
+
+338           LOAD_CONST              14 (('',))
+              LOAD_CONST              13 (<code object prepare_input_source at 0x00000204BA35BFC0, file "xml\sax\saxutils.py", line 338>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              19 (prepare_input_source)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __dict_replace at 0x00000204B9FEF0E0, file "xml\sax\saxutils.py", line 12>:
+ 12           RESUME                   0
+
+ 14           LOAD_FAST_BORROW         1 (d)
+              LOAD_ATTR                1 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                22 (to L2)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   35 (key, value)
+
+ 15           LOAD_FAST_BORROW         0 (s)
+              LOAD_ATTR                3 (replace + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (key, value)
+              CALL                     2
+              STORE_FAST               0 (s)
+              JUMP_BACKWARD           24 (to L1)
+
+ 14   L2:     END_FOR
+              POP_ITER
+
+ 16           LOAD_FAST_BORROW         0 (s)
+              RETURN_VALUE
+
+Disassembly of <code object escape at 0x00000204B9FF3E00, file "xml\sax\saxutils.py", line 18>:
+ 18           RESUME                   0
+
+ 27           LOAD_FAST_BORROW         0 (data)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               1 ('&')
+              LOAD_CONST               2 ('&amp;')
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 28           LOAD_FAST_BORROW         0 (data)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               3 ('>')
+              LOAD_CONST               4 ('&gt;')
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 29           LOAD_FAST_BORROW         0 (data)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               5 ('<')
+              LOAD_CONST               6 ('&lt;')
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 30           LOAD_FAST_BORROW         1 (entities)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 31           LOAD_GLOBAL              3 (__dict_replace + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (data, entities)
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 32   L1:     LOAD_FAST_BORROW         0 (data)
+              RETURN_VALUE
+
+Disassembly of <code object unescape at 0x00000204B9FF3280, file "xml\sax\saxutils.py", line 34>:
+ 34           RESUME                   0
+
+ 41           LOAD_FAST_BORROW         0 (data)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               1 ('&lt;')
+              LOAD_CONST               2 ('<')
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 42           LOAD_FAST_BORROW         0 (data)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               3 ('&gt;')
+              LOAD_CONST               4 ('>')
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 43           LOAD_FAST_BORROW         1 (entities)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 44           LOAD_GLOBAL              3 (__dict_replace + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (data, entities)
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 46   L1:     LOAD_FAST_BORROW         0 (data)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               5 ('&amp;')
+              LOAD_CONST               6 ('&')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object quoteattr at 0x00000204B9FB7DB0, file "xml\sax\saxutils.py", line 48>:
+ 48           RESUME                   0
+
+ 59           BUILD_MAP                0
+              LOAD_FAST_BORROW         1 (entities)
+              DICT_UPDATE              1
+              LOAD_CONST               1 ('\n')
+              LOAD_CONST               2 ('&#10;')
+              LOAD_CONST               3 ('\r')
+              LOAD_CONST               4 ('&#13;')
+              LOAD_CONST               5 ('\t')
+              LOAD_CONST               6 ('&#9;')
+              BUILD_MAP                3
+              DICT_UPDATE              1
+              STORE_FAST               1 (entities)
+
+ 60           LOAD_GLOBAL              1 (escape + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (data, entities)
+              CALL                     2
+              STORE_FAST               0 (data)
+
+ 61           LOAD_CONST               7 ('"')
+              LOAD_FAST_BORROW         0 (data)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       47 (to L2)
+              NOT_TAKEN
+
+ 62           LOAD_CONST               8 ("'")
+              LOAD_FAST_BORROW         0 (data)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       28 (to L1)
+              NOT_TAKEN
+
+ 63           LOAD_CONST               9 ('"%s"')
+              LOAD_FAST_BORROW         0 (data)
+              LOAD_ATTR                3 (replace + NULL|self)
+              LOAD_CONST               7 ('"')
+              LOAD_CONST              10 ('&quot;')
+              CALL                     2
+              BINARY_OP                6 (%)
+              STORE_FAST               0 (data)
+
+ 68           LOAD_FAST_BORROW         0 (data)
+              RETURN_VALUE
+
+ 65   L1:     LOAD_CONST              11 ("'%s'")
+              LOAD_FAST_BORROW         0 (data)
+              BINARY_OP                6 (%)
+              STORE_FAST               0 (data)
+              NOP
+
+ 68           LOAD_FAST_BORROW         0 (data)
+              RETURN_VALUE
+
+ 67   L2:     LOAD_CONST               9 ('"%s"')
+              LOAD_FAST_BORROW         0 (data)
+              BINARY_OP                6 (%)
+              STORE_FAST               0 (data)
+
+ 68           LOAD_FAST_BORROW         0 (data)
+              RETURN_VALUE
+
+Disassembly of <code object _gettextwriter at 0x00000204BA338F90, file "xml\sax\saxutils.py", line 71>:
+  --            MAKE_CELL                0 (out)
+
+  71            RESUME                   0
+
+  72            LOAD_DEREF               0 (out)
+                POP_JUMP_IF_NOT_NONE    17 (to L1)
+                NOT_TAKEN
+
+  73            LOAD_SMALL_INT           0
+                LOAD_CONST               0 (None)
+                IMPORT_NAME              0 (sys)
+                STORE_FAST               2 (sys)
+
+  74            LOAD_FAST_BORROW         2 (sys)
+                LOAD_ATTR                2 (stdout)
+                RETURN_VALUE
+
+  76    L1:     LOAD_GLOBAL              5 (isinstance + NULL)
+                LOAD_DEREF               0 (out)
+                LOAD_GLOBAL              6 (io)
+                LOAD_ATTR                8 (TextIOBase)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L2)
+                NOT_TAKEN
+
+  78            LOAD_DEREF               0 (out)
+                RETURN_VALUE
+
+  80    L2:     LOAD_GLOBAL              5 (isinstance + NULL)
+                LOAD_DEREF               0 (out)
+                LOAD_GLOBAL             10 (codecs)
+                LOAD_ATTR               12 (StreamWriter)
+                LOAD_GLOBAL             10 (codecs)
+                LOAD_ATTR               14 (StreamReaderWriter)
+                BUILD_TUPLE              2
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L3)
+                NOT_TAKEN
+
+  82            LOAD_DEREF               0 (out)
+                RETURN_VALUE
+
+  85    L3:     LOAD_GLOBAL              5 (isinstance + NULL)
+                LOAD_DEREF               0 (out)
+                LOAD_GLOBAL              6 (io)
+                LOAD_ATTR               16 (RawIOBase)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       30 (to L4)
+                NOT_TAKEN
+
+  88            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (out)
+                BUILD_TUPLE              1
+                LOAD_CONST               1 (<code object _wrapper at 0x00000204BA0A7870, file "xml\sax\saxutils.py", line 88>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST               2 ('_wrapper')
+                CALL                     2
+                STORE_FAST               3 (_wrapper)
+
+  92            LOAD_FAST_BORROW         3 (_wrapper)
+                PUSH_NULL
+                CALL                     0
+                STORE_FAST               4 (buffer)
+
+  93            LOAD_CONST               3 (<code object <lambda> at 0x00000204BA730030, file "xml\sax\saxutils.py", line 93>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         4 (buffer)
+                STORE_ATTR               9 (close)
+                JUMP_FORWARD            81 (to L6)
+
+  97    L4:     LOAD_GLOBAL              6 (io)
+                LOAD_ATTR               20 (BufferedIOBase)
+                PUSH_NULL
+                CALL                     0
+                STORE_FAST               4 (buffer)
+
+  98            LOAD_CONST               4 (<code object <lambda> at 0x00000204BA7302D0, file "xml\sax\saxutils.py", line 98>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         4 (buffer)
+                STORE_ATTR              11 (writable)
+
+  99            LOAD_DEREF               0 (out)
+                LOAD_ATTR               24 (write)
+                LOAD_FAST_BORROW         4 (buffer)
+                STORE_ATTR              12 (write)
+
+ 100            NOP
+
+ 103    L5:     LOAD_DEREF               0 (out)
+                LOAD_ATTR               26 (seekable)
+                LOAD_FAST_BORROW         4 (buffer)
+                STORE_ATTR              13 (seekable)
+
+ 104            LOAD_DEREF               0 (out)
+                LOAD_ATTR               28 (tell)
+                LOAD_FAST_BORROW         4 (buffer)
+                STORE_ATTR              14 (tell)
+
+ 107    L6:     LOAD_GLOBAL              6 (io)
+                LOAD_ATTR               32 (TextIOWrapper)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 65 (buffer, encoding)
+
+ 108            LOAD_CONST               5 ('xmlcharrefreplace')
+
+ 109            LOAD_CONST               6 ('\n')
+
+ 110            LOAD_CONST               7 (True)
+
+ 107            LOAD_CONST               8 (('encoding', 'errors', 'newline', 'write_through'))
+                CALL_KW                  5
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 105            LOAD_GLOBAL             30 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 106    L8:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 39 (to L6)
+
+ 105    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L7 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+
+Disassembly of <code object _wrapper at 0x00000204BA0A7870, file "xml\sax\saxutils.py", line 88>:
+  --           COPY_FREE_VARS           1
+               MAKE_CELL                0 (__classdict__)
+
+  88           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_gettextwriter.<locals>._wrapper')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          88
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  89           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  1 (out)
+               LOAD_ATTR                8 (__class__)
+               STORE_NAME               4 (__class__)
+
+  90           LOAD_FAST_BORROW         1 (out)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object __getattr__ at 0x00000204BA093960, file "xml\sax\saxutils.py", line 90>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__getattr__)
+               LOAD_CONST               2 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x00000204BA093960, file "xml\sax\saxutils.py", line 90>:
+  --           COPY_FREE_VARS           1
+
+  90           RESUME                   0
+
+  91           LOAD_GLOBAL              1 (getattr + NULL)
+               LOAD_DEREF               2 (out)
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA730030, file "xml\sax\saxutils.py", line 93>:
+ 93           RESUME                   0
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA7302D0, file "xml\sax\saxutils.py", line 98>:
+ 98           RESUME                   0
+              LOAD_CONST               0 (True)
+              RETURN_VALUE
+
+Disassembly of <code object XMLGenerator at 0x00000204BA0B9290, file "xml\sax\saxutils.py", line 112>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 112           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('XMLGenerator')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         112
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 114           LOAD_CONST              17 ((None, 'iso-8859-1', False))
+               LOAD_CONST               2 (<code object __init__ at 0x00000204B9FA7860, file "xml\sax\saxutils.py", line 114>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 126           LOAD_CONST               3 (<code object _qname at 0x00000204B9FFB120, file "xml\sax\saxutils.py", line 126>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_qname)
+
+ 143           LOAD_CONST              18 ((False,))
+               LOAD_CONST               4 (<code object _finish_pending_start_element at 0x00000204BA103CC0, file "xml\sax\saxutils.py", line 143>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (_finish_pending_start_element)
+
+ 150           LOAD_CONST               5 (<code object startDocument at 0x00000204BA0A45D0, file "xml\sax\saxutils.py", line 150>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (startDocument)
+
+ 154           LOAD_CONST               6 (<code object endDocument at 0x00000204BA088330, file "xml\sax\saxutils.py", line 154>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (endDocument)
+
+ 157           LOAD_CONST               7 (<code object startPrefixMapping at 0x00000204BA0B7230, file "xml\sax\saxutils.py", line 157>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (startPrefixMapping)
+
+ 162           LOAD_CONST               8 (<code object endPrefixMapping at 0x00000204BA0A7990, file "xml\sax\saxutils.py", line 162>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (endPrefixMapping)
+
+ 166           LOAD_CONST               9 (<code object startElement at 0x00000204B9F5B830, file "xml\sax\saxutils.py", line 166>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (startElement)
+
+ 176           LOAD_CONST              10 (<code object endElement at 0x00000204B9F73B50, file "xml\sax\saxutils.py", line 176>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (endElement)
+
+ 183           LOAD_CONST              11 (<code object startElementNS at 0x00000204BA33C8F0, file "xml\sax\saxutils.py", line 183>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (startElementNS)
+
+ 201           LOAD_CONST              12 (<code object endElementNS at 0x00000204B9FB6D30, file "xml\sax\saxutils.py", line 201>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (endElementNS)
+
+ 208           LOAD_CONST              13 (<code object characters at 0x00000204B9F6F770, file "xml\sax\saxutils.py", line 208>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (characters)
+
+ 215           LOAD_CONST              14 (<code object ignorableWhitespace at 0x00000204BA129DE0, file "xml\sax\saxutils.py", line 215>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (ignorableWhitespace)
+
+ 222           LOAD_CONST              15 (<code object processingInstruction at 0x00000204BA102630, file "xml\sax\saxutils.py", line 222>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (processingInstruction)
+               LOAD_CONST              16 (('_current_context', '_encoding', '_flush', '_ns_contexts', '_pending_start_element', '_short_empty_elements', '_undeclared_ns_maps', '_write'))
+               STORE_NAME              18 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              19 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FA7860, file "xml\sax\saxutils.py", line 114>:
+114           RESUME                   0
+
+115           LOAD_GLOBAL              0 (handler)
+              LOAD_ATTR                2 (ContentHandler)
+              LOAD_ATTR                5 (__init__ + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+116           LOAD_GLOBAL              7 (_gettextwriter + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (out, encoding)
+              CALL                     2
+              STORE_FAST               1 (out)
+
+117           LOAD_FAST_BORROW         1 (out)
+              LOAD_ATTR                8 (write)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_write)
+
+118           LOAD_FAST_BORROW         1 (out)
+              LOAD_ATTR               12 (flush)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_flush)
+
+119           BUILD_MAP                0
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_ns_contexts)
+
+120           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (_ns_contexts)
+              LOAD_CONST               3 (-1)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               9 (_current_context)
+
+121           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              10 (_undeclared_ns_maps)
+
+122           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (encoding, self)
+              STORE_ATTR              11 (_encoding)
+
+123           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (short_empty_elements, self)
+              STORE_ATTR              12 (_short_empty_elements)
+
+124           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              13 (_pending_start_element)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _qname at 0x00000204B9FFB120, file "xml\sax\saxutils.py", line 126>:
+126           RESUME                   0
+
+128           LOAD_FAST_BORROW         1 (name)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              TO_BOOL
+              POP_JUMP_IF_FALSE       88 (to L2)
+              NOT_TAKEN
+
+133           LOAD_CONST               1 ('http://www.w3.org/XML/1998/namespace')
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+134           LOAD_CONST               2 ('xml:')
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+136   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_current_context)
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              BINARY_OP               26 ([])
+              STORE_FAST               2 (prefix)
+
+137           LOAD_FAST_BORROW         2 (prefix)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       24 (to L2)
+              NOT_TAKEN
+
+139           LOAD_FAST_BORROW         2 (prefix)
+              LOAD_CONST               3 (':')
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+141   L2:     LOAD_FAST_BORROW         1 (name)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object _finish_pending_start_element at 0x00000204BA103CC0, file "xml\sax\saxutils.py", line 143>:
+143           RESUME                   0
+
+144           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_pending_start_element)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+145           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               0 ('>')
+              CALL                     1
+              POP_TOP
+
+146           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_pending_start_element)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+144   L1:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startDocument at 0x00000204BA0A45D0, file "xml\sax\saxutils.py", line 150>:
+150           RESUME                   0
+
+151           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_write + NULL|self)
+              LOAD_CONST               0 ('<?xml version="1.0" encoding="%s"?>\n')
+
+152           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_encoding)
+
+151           BINARY_OP                6 (%)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endDocument at 0x00000204BA088330, file "xml\sax\saxutils.py", line 154>:
+154           RESUME                   0
+
+155           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_flush + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startPrefixMapping at 0x00000204BA0B7230, file "xml\sax\saxutils.py", line 157>:
+157           RESUME                   0
+
+158           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ns_contexts)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_current_context)
+              LOAD_ATTR                7 (copy + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+
+159           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (prefix, self)
+              LOAD_ATTR                4 (_current_context)
+              LOAD_FAST_BORROW         2 (uri)
+              STORE_SUBSCR
+
+160           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_undeclared_ns_maps)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (prefix, uri)
+              BUILD_TUPLE              2
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endPrefixMapping at 0x00000204BA0A7990, file "xml\sax\saxutils.py", line 162>:
+162           RESUME                   0
+
+163           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ns_contexts)
+              LOAD_CONST               2 (-1)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_current_context)
+
+164           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ns_contexts)
+              LOAD_CONST               2 (-1)
+              DELETE_SUBSCR
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startElement at 0x00000204B9F5B830, file "xml\sax\saxutils.py", line 166>:
+166           RESUME                   0
+
+167           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_finish_pending_start_element + NULL|self)
+              CALL                     0
+              POP_TOP
+
+168           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               0 ('<')
+              LOAD_FAST_BORROW         1 (name)
+              BINARY_OP                0 (+)
+              CALL                     1
+              POP_TOP
+
+169           LOAD_FAST_BORROW         2 (attrs)
+              LOAD_ATTR                5 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                39 (to L2)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   19 (name, value)
+
+170           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         1 (name)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('=')
+              LOAD_GLOBAL              7 (quoteattr + NULL)
+              LOAD_FAST_BORROW         3 (value)
+              CALL                     1
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           41 (to L1)
+
+169   L2:     END_FOR
+              POP_ITER
+
+171           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_short_empty_elements)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       10 (to L3)
+              NOT_TAKEN
+
+172           LOAD_CONST               3 (True)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_pending_start_element)
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+174   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               4 ('>')
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endElement at 0x00000204B9F73B50, file "xml\sax\saxutils.py", line 176>:
+176           RESUME                   0
+
+177           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_pending_start_element)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+178           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               0 ('/>')
+              CALL                     1
+              POP_TOP
+
+179           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_pending_start_element)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+181   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               2 ('</%s>')
+              LOAD_FAST_BORROW         1 (name)
+              BINARY_OP                6 (%)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startElementNS at 0x00000204BA33C8F0, file "xml\sax\saxutils.py", line 183>:
+183           RESUME                   0
+
+184           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_finish_pending_start_element + NULL|self)
+              CALL                     0
+              POP_TOP
+
+185           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               0 ('<')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_qname + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              BINARY_OP                0 (+)
+              CALL                     1
+              POP_TOP
+
+187           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_undeclared_ns_maps)
+              GET_ITER
+      L1:     FOR_ITER                65 (to L3)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   69 (prefix, uri)
+
+188           LOAD_FAST_BORROW         4 (prefix)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       29 (to L2)
+              NOT_TAKEN
+
+189           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               1 (' xmlns:')
+              LOAD_FAST_BORROW         4 (prefix)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('="')
+              LOAD_FAST_BORROW         5 (uri)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 ('"')
+              BUILD_STRING             5
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           41 (to L1)
+
+191   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               4 (' xmlns="%s"')
+              LOAD_FAST_BORROW         5 (uri)
+              BINARY_OP                6 (%)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           67 (to L1)
+
+187   L3:     END_FOR
+              POP_ITER
+
+192           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_undeclared_ns_maps)
+
+194           LOAD_FAST_BORROW         3 (attrs)
+              LOAD_ATTR                9 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L4:     FOR_ITER                54 (to L5)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   22 (name, value)
+
+195           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               5 (' ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_qname + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               6 ('=')
+              LOAD_GLOBAL             11 (quoteattr + NULL)
+              LOAD_FAST_BORROW         6 (value)
+              CALL                     1
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           56 (to L4)
+
+194   L5:     END_FOR
+              POP_ITER
+
+196           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_short_empty_elements)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       10 (to L6)
+              NOT_TAKEN
+
+197           LOAD_CONST               7 (True)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_pending_start_element)
+              LOAD_CONST               9 (None)
+              RETURN_VALUE
+
+199   L6:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               8 ('>')
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               9 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endElementNS at 0x00000204B9FB6D30, file "xml\sax\saxutils.py", line 201>:
+201           RESUME                   0
+
+202           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_pending_start_element)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+203           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               0 ('/>')
+              CALL                     1
+              POP_TOP
+
+204           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_pending_start_element)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+206   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               2 ('</%s>')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_qname + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              BINARY_OP                6 (%)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object characters at 0x00000204B9F6F770, file "xml\sax\saxutils.py", line 208>:
+208           RESUME                   0
+
+209           LOAD_FAST_BORROW         1 (content)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       88 (to L2)
+              NOT_TAKEN
+
+210           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_finish_pending_start_element + NULL|self)
+              CALL                     0
+              POP_TOP
+
+211           LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (content)
+              LOAD_GLOBAL              4 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        22 (to L1)
+              NOT_TAKEN
+
+212           LOAD_GLOBAL              5 (str + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (content, self)
+              LOAD_ATTR                6 (_encoding)
+              CALL                     2
+              STORE_FAST               1 (content)
+
+213   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (_write + NULL|self)
+              LOAD_GLOBAL             11 (escape + NULL)
+              LOAD_FAST_BORROW         1 (content)
+              CALL                     1
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+209   L2:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ignorableWhitespace at 0x00000204BA129DE0, file "xml\sax\saxutils.py", line 215>:
+215           RESUME                   0
+
+216           LOAD_FAST_BORROW         1 (content)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       79 (to L2)
+              NOT_TAKEN
+
+217           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_finish_pending_start_element + NULL|self)
+              CALL                     0
+              POP_TOP
+
+218           LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (content)
+              LOAD_GLOBAL              4 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        22 (to L1)
+              NOT_TAKEN
+
+219           LOAD_GLOBAL              5 (str + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (content, self)
+              LOAD_ATTR                6 (_encoding)
+              CALL                     2
+              STORE_FAST               1 (content)
+
+220   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (_write + NULL|self)
+              LOAD_FAST_BORROW         1 (content)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+216   L2:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object processingInstruction at 0x00000204BA102630, file "xml\sax\saxutils.py", line 222>:
+222           RESUME                   0
+
+223           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_finish_pending_start_element + NULL|self)
+              CALL                     0
+              POP_TOP
+
+224           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_write + NULL|self)
+              LOAD_CONST               0 ('<?')
+              LOAD_FAST_BORROW         1 (target)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         2 (data)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('?>')
+              BUILD_STRING             5
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object XMLFilterBase at 0x00000204B9F6F430, file "xml\sax\saxutils.py", line 227>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 227           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('XMLFilterBase')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         227
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 228           LOAD_CONST               1 ("This class is designed to sit between an XMLReader and the\nclient application's event handlers.  By default, it does nothing\nbut pass requests up to the reader and events on to the handlers\nunmodified, but subclasses can override specific methods to modify\nthe event stream or the configuration requests as they pass\nthrough.")
+               STORE_NAME               4 (__doc__)
+
+ 235           LOAD_CONST              32 ((None,))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0A71B0, file "xml\sax\saxutils.py", line 235>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+ 241           LOAD_CONST               4 (<code object error at 0x00000204BA0FFDD0, file "xml\sax\saxutils.py", line 241>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (error)
+
+ 244           LOAD_CONST               5 (<code object fatalError at 0x00000204BA0FF440, file "xml\sax\saxutils.py", line 244>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (fatalError)
+
+ 247           LOAD_CONST               6 (<code object warning at 0x00000204BA0FECD0, file "xml\sax\saxutils.py", line 247>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (warning)
+
+ 252           LOAD_CONST               7 (<code object setDocumentLocator at 0x00000204BA0FC7A0, file "xml\sax\saxutils.py", line 252>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (setDocumentLocator)
+
+ 255           LOAD_CONST               8 (<code object startDocument at 0x00000204BA0FD020, file "xml\sax\saxutils.py", line 255>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (startDocument)
+
+ 258           LOAD_CONST               9 (<code object endDocument at 0x00000204BA0FFEE0, file "xml\sax\saxutils.py", line 258>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (endDocument)
+
+ 261           LOAD_CONST              10 (<code object startPrefixMapping at 0x00000204BA0FC250, file "xml\sax\saxutils.py", line 261>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (startPrefixMapping)
+
+ 264           LOAD_CONST              11 (<code object endPrefixMapping at 0x00000204BA0FF550, file "xml\sax\saxutils.py", line 264>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (endPrefixMapping)
+
+ 267           LOAD_CONST              12 (<code object startElement at 0x00000204BA728030, file "xml\sax\saxutils.py", line 267>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (startElement)
+
+ 270           LOAD_CONST              13 (<code object endElement at 0x00000204BA728140, file "xml\sax\saxutils.py", line 270>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (endElement)
+
+ 273           LOAD_CONST              14 (<code object startElementNS at 0x00000204BA728250, file "xml\sax\saxutils.py", line 273>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (startElementNS)
+
+ 276           LOAD_CONST              15 (<code object endElementNS at 0x00000204BA728360, file "xml\sax\saxutils.py", line 276>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (endElementNS)
+
+ 279           LOAD_CONST              16 (<code object characters at 0x00000204BA728470, file "xml\sax\saxutils.py", line 279>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (characters)
+
+ 282           LOAD_CONST              17 (<code object ignorableWhitespace at 0x00000204BA7288B0, file "xml\sax\saxutils.py", line 282>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (ignorableWhitespace)
+
+ 285           LOAD_CONST              18 (<code object processingInstruction at 0x00000204BA7289C0, file "xml\sax\saxutils.py", line 285>)
+               MAKE_FUNCTION
+               STORE_NAME              20 (processingInstruction)
+
+ 288           LOAD_CONST              19 (<code object skippedEntity at 0x00000204BA728AD0, file "xml\sax\saxutils.py", line 288>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (skippedEntity)
+
+ 293           LOAD_CONST              20 (<code object notationDecl at 0x00000204BA728BE0, file "xml\sax\saxutils.py", line 293>)
+               MAKE_FUNCTION
+               STORE_NAME              22 (notationDecl)
+
+ 296           LOAD_CONST              21 (<code object unparsedEntityDecl at 0x00000204BA728CF0, file "xml\sax\saxutils.py", line 296>)
+               MAKE_FUNCTION
+               STORE_NAME              23 (unparsedEntityDecl)
+
+ 301           LOAD_CONST              22 (<code object resolveEntity at 0x00000204BA728E00, file "xml\sax\saxutils.py", line 301>)
+               MAKE_FUNCTION
+               STORE_NAME              24 (resolveEntity)
+
+ 306           LOAD_CONST              23 (<code object parse at 0x00000204B9FA6310, file "xml\sax\saxutils.py", line 306>)
+               MAKE_FUNCTION
+               STORE_NAME              25 (parse)
+
+ 313           LOAD_CONST              24 (<code object setLocale at 0x00000204BA728F10, file "xml\sax\saxutils.py", line 313>)
+               MAKE_FUNCTION
+               STORE_NAME              26 (setLocale)
+
+ 316           LOAD_CONST              25 (<code object getFeature at 0x00000204BA729020, file "xml\sax\saxutils.py", line 316>)
+               MAKE_FUNCTION
+               STORE_NAME              27 (getFeature)
+
+ 319           LOAD_CONST              26 (<code object setFeature at 0x00000204BA729130, file "xml\sax\saxutils.py", line 319>)
+               MAKE_FUNCTION
+               STORE_NAME              28 (setFeature)
+
+ 322           LOAD_CONST              27 (<code object getProperty at 0x00000204BA729240, file "xml\sax\saxutils.py", line 322>)
+               MAKE_FUNCTION
+               STORE_NAME              29 (getProperty)
+
+ 325           LOAD_CONST              28 (<code object setProperty at 0x00000204BA729350, file "xml\sax\saxutils.py", line 325>)
+               MAKE_FUNCTION
+               STORE_NAME              30 (setProperty)
+
+ 330           LOAD_CONST              29 (<code object getParent at 0x00000204BA092790, file "xml\sax\saxutils.py", line 330>)
+               MAKE_FUNCTION
+               STORE_NAME              31 (getParent)
+
+ 333           LOAD_CONST              30 (<code object setParent at 0x00000204BA0933C0, file "xml\sax\saxutils.py", line 333>)
+               MAKE_FUNCTION
+               STORE_NAME              32 (setParent)
+               LOAD_CONST              31 (('_parent',))
+               STORE_NAME              33 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              34 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A71B0, file "xml\sax\saxutils.py", line 235>:
+235           RESUME                   0
+
+236           LOAD_GLOBAL              0 (xmlreader)
+              LOAD_ATTR                2 (XMLReader)
+              LOAD_ATTR                5 (__init__ + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+237           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (parent, self)
+              STORE_ATTR               3 (_parent)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object error at 0x00000204BA0FFDD0, file "xml\sax\saxutils.py", line 241>:
+241           RESUME                   0
+
+242           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_err_handler)
+              LOAD_ATTR                3 (error + NULL|self)
+              LOAD_FAST_BORROW         1 (exception)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object fatalError at 0x00000204BA0FF440, file "xml\sax\saxutils.py", line 244>:
+244           RESUME                   0
+
+245           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_err_handler)
+              LOAD_ATTR                3 (fatalError + NULL|self)
+              LOAD_FAST_BORROW         1 (exception)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object warning at 0x00000204BA0FECD0, file "xml\sax\saxutils.py", line 247>:
+247           RESUME                   0
+
+248           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_err_handler)
+              LOAD_ATTR                3 (warning + NULL|self)
+              LOAD_FAST_BORROW         1 (exception)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object setDocumentLocator at 0x00000204BA0FC7A0, file "xml\sax\saxutils.py", line 252>:
+252           RESUME                   0
+
+253           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (setDocumentLocator + NULL|self)
+              LOAD_FAST_BORROW         1 (locator)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startDocument at 0x00000204BA0FD020, file "xml\sax\saxutils.py", line 255>:
+255           RESUME                   0
+
+256           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (startDocument + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endDocument at 0x00000204BA0FFEE0, file "xml\sax\saxutils.py", line 258>:
+258           RESUME                   0
+
+259           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (endDocument + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startPrefixMapping at 0x00000204BA0FC250, file "xml\sax\saxutils.py", line 261>:
+261           RESUME                   0
+
+262           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (startPrefixMapping + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (prefix, uri)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endPrefixMapping at 0x00000204BA0FF550, file "xml\sax\saxutils.py", line 264>:
+264           RESUME                   0
+
+265           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (endPrefixMapping + NULL|self)
+              LOAD_FAST_BORROW         1 (prefix)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startElement at 0x00000204BA728030, file "xml\sax\saxutils.py", line 267>:
+267           RESUME                   0
+
+268           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (startElement + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, attrs)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endElement at 0x00000204BA728140, file "xml\sax\saxutils.py", line 270>:
+270           RESUME                   0
+
+271           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (endElement + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startElementNS at 0x00000204BA728250, file "xml\sax\saxutils.py", line 273>:
+273           RESUME                   0
+
+274           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (startElementNS + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, qname)
+              LOAD_FAST_BORROW         3 (attrs)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endElementNS at 0x00000204BA728360, file "xml\sax\saxutils.py", line 276>:
+276           RESUME                   0
+
+277           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (endElementNS + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, qname)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object characters at 0x00000204BA728470, file "xml\sax\saxutils.py", line 279>:
+279           RESUME                   0
+
+280           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (characters + NULL|self)
+              LOAD_FAST_BORROW         1 (content)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ignorableWhitespace at 0x00000204BA7288B0, file "xml\sax\saxutils.py", line 282>:
+282           RESUME                   0
+
+283           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (ignorableWhitespace + NULL|self)
+              LOAD_FAST_BORROW         1 (chars)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object processingInstruction at 0x00000204BA7289C0, file "xml\sax\saxutils.py", line 285>:
+285           RESUME                   0
+
+286           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (processingInstruction + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (target, data)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object skippedEntity at 0x00000204BA728AD0, file "xml\sax\saxutils.py", line 288>:
+288           RESUME                   0
+
+289           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (skippedEntity + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object notationDecl at 0x00000204BA728BE0, file "xml\sax\saxutils.py", line 293>:
+293           RESUME                   0
+
+294           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_dtd_handler)
+              LOAD_ATTR                3 (notationDecl + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, publicId)
+              LOAD_FAST_BORROW         3 (systemId)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object unparsedEntityDecl at 0x00000204BA728CF0, file "xml\sax\saxutils.py", line 296>:
+296           RESUME                   0
+
+297           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_dtd_handler)
+              LOAD_ATTR                3 (unparsedEntityDecl + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, publicId)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (systemId, ndata)
+              CALL                     4
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object resolveEntity at 0x00000204BA728E00, file "xml\sax\saxutils.py", line 301>:
+301           RESUME                   0
+
+302           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ent_handler)
+              LOAD_ATTR                3 (resolveEntity + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (publicId, systemId)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204B9FA6310, file "xml\sax\saxutils.py", line 306>:
+306           RESUME                   0
+
+307           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                3 (setContentHandler + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+308           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                5 (setErrorHandler + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+309           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                7 (setEntityResolver + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+310           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                9 (setDTDHandler + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+311           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR               11 (parse + NULL|self)
+              LOAD_FAST_BORROW         1 (source)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object setLocale at 0x00000204BA728F10, file "xml\sax\saxutils.py", line 313>:
+313           RESUME                   0
+
+314           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                3 (setLocale + NULL|self)
+              LOAD_FAST_BORROW         1 (locale)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getFeature at 0x00000204BA729020, file "xml\sax\saxutils.py", line 316>:
+316           RESUME                   0
+
+317           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                3 (getFeature + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object setFeature at 0x00000204BA729130, file "xml\sax\saxutils.py", line 319>:
+319           RESUME                   0
+
+320           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                3 (setFeature + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, state)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getProperty at 0x00000204BA729240, file "xml\sax\saxutils.py", line 322>:
+322           RESUME                   0
+
+323           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                3 (getProperty + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object setProperty at 0x00000204BA729350, file "xml\sax\saxutils.py", line 325>:
+325           RESUME                   0
+
+326           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR                3 (setProperty + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, value)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getParent at 0x00000204BA092790, file "xml\sax\saxutils.py", line 330>:
+330           RESUME                   0
+
+331           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              RETURN_VALUE
+
+Disassembly of <code object setParent at 0x00000204BA0933C0, file "xml\sax\saxutils.py", line 333>:
+333           RESUME                   0
+
+334           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (parent, self)
+              STORE_ATTR               0 (_parent)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object prepare_input_source at 0x00000204BA35BFC0, file "xml\sax\saxutils.py", line 338>:
+338           RESUME                   0
+
+342           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (source)
+              LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                4 (PathLike)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       23 (to L1)
+              NOT_TAKEN
+
+343           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                6 (fspath)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (source)
+              CALL                     1
+              STORE_FAST               0 (source)
+
+344   L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (source)
+              LOAD_GLOBAL              8 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       24 (to L2)
+              NOT_TAKEN
+
+345           LOAD_GLOBAL             10 (xmlreader)
+              LOAD_ATTR               12 (InputSource)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (source)
+              CALL                     1
+              STORE_FAST               0 (source)
+              JUMP_FORWARD           190 (to L5)
+
+346   L2:     LOAD_GLOBAL             15 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (source)
+              LOAD_CONST               1 ('read')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE      173 (to L5)
+              NOT_TAKEN
+
+347           LOAD_FAST                0 (source)
+              STORE_FAST               2 (f)
+
+348           LOAD_GLOBAL             10 (xmlreader)
+              LOAD_ATTR               12 (InputSource)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               0 (source)
+
+349           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         2 (f)
+              LOAD_ATTR               17 (read + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              LOAD_GLOBAL              8 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L3)
+              NOT_TAKEN
+
+350           LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               19 (setCharacterStream + NULL|self)
+              LOAD_FAST_BORROW         2 (f)
+              CALL                     1
+              POP_TOP
+              JUMP_FORWARD            17 (to L4)
+
+352   L3:     LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               21 (setByteStream + NULL|self)
+              LOAD_FAST_BORROW         2 (f)
+              CALL                     1
+              POP_TOP
+
+353   L4:     LOAD_GLOBAL             15 (hasattr + NULL)
+              LOAD_FAST_BORROW         2 (f)
+              LOAD_CONST               2 ('name')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       60 (to L5)
+              NOT_TAKEN
+              LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         2 (f)
+              LOAD_ATTR               22 (name)
+              LOAD_GLOBAL              8 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L5)
+              NOT_TAKEN
+
+354           LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               25 (setSystemId + NULL|self)
+              LOAD_FAST_BORROW         2 (f)
+              LOAD_ATTR               22 (name)
+              CALL                     1
+              POP_TOP
+
+356   L5:     LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               27 (getCharacterStream + NULL|self)
+              CALL                     0
+              EXTENDED_ARG             1
+              POP_JUMP_IF_NOT_NONE   302 (to L8)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               29 (getByteStream + NULL|self)
+              CALL                     0
+              EXTENDED_ARG             1
+              POP_JUMP_IF_NOT_NONE   283 (to L8)
+              NOT_TAKEN
+
+357           LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               31 (getSystemId + NULL|self)
+              CALL                     0
+              STORE_FAST               3 (sysid)
+
+358           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR               32 (path)
+              LOAD_ATTR               35 (dirname + NULL|self)
+              LOAD_GLOBAL              2 (os)
+              LOAD_ATTR               32 (path)
+              LOAD_ATTR               37 (normpath + NULL|self)
+              LOAD_FAST_BORROW         1 (base)
+              CALL                     1
+              CALL                     1
+              STORE_FAST               4 (basehead)
+
+359           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR               32 (path)
+              LOAD_ATTR               39 (join + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (basehead, sysid)
+              CALL                     2
+              STORE_FAST               5 (sysidfilename)
+
+360           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR               32 (path)
+              LOAD_ATTR               41 (isfile + NULL|self)
+              LOAD_FAST_BORROW         5 (sysidfilename)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       31 (to L6)
+              NOT_TAKEN
+
+361           LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               25 (setSystemId + NULL|self)
+              LOAD_FAST_BORROW         5 (sysidfilename)
+              CALL                     1
+              POP_TOP
+
+362           LOAD_GLOBAL             43 (open + NULL)
+              LOAD_FAST_BORROW         5 (sysidfilename)
+              LOAD_CONST               3 ('rb')
+              CALL                     2
+              STORE_FAST               2 (f)
+              JUMP_FORWARD            91 (to L7)
+
+364   L6:     LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               25 (setSystemId + NULL|self)
+              LOAD_GLOBAL             44 (urllib)
+              LOAD_ATTR               46 (parse)
+              LOAD_ATTR               49 (urljoin + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (base, sysid)
+              CALL                     2
+              CALL                     1
+              POP_TOP
+
+365           LOAD_GLOBAL             44 (urllib)
+              LOAD_ATTR               50 (request)
+              LOAD_ATTR               53 (urlopen + NULL|self)
+              LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               31 (getSystemId + NULL|self)
+              CALL                     0
+              CALL                     1
+              STORE_FAST               2 (f)
+
+367   L7:     LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR               21 (setByteStream + NULL|self)
+              LOAD_FAST_BORROW         2 (f)
+              CALL                     1
+              POP_TOP
+
+369   L8:     LOAD_FAST_BORROW         0 (source)
+              RETURN_VALUE

@@ -1,0 +1,165 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST ('Qt',); IMPORT_NAME PyQt6.QtCore; IMPORT_FROM Qt; STORE_NAME Qt
+4: LOAD_SMALL_INT 0; LOAD_CONST ('QComboBox', 'QGridLayout', 'QGroupBox', 'QHBoxLayout', 'QLabel', 'QLineEdit', 'QPushButton', 'QSpinBox', 'QVBoxLayout'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QComboBox; STORE_NAME QComboBox; IMPORT_FROM QGridLayout; STORE_NAME QGridLayout; IMPORT_FROM QGroupBox; STORE_NAME QGroupBox; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QLineEdit; STORE_NAME QLineEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QSpinBox; STORE_NAME QSpinBox; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout
+7: LOAD_SMALL_INT 3; LOAD_CONST ('KEYCODES', 'SETTINGS_SCREENS'); IMPORT_NAME adb; IMPORT_FROM KEYCODES; STORE_NAME KEYCODES; IMPORT_FROM SETTINGS_SCREENS; STORE_NAME SETTINGS_SCREENS
+8: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+11: LOAD_BUILD_CLASS; LOAD_CONST <code RemoteTab>; MAKE_FUNCTION; LOAD_CONST 'RemoteTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME RemoteTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF RemoteTab() @11
+  11: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'RemoteTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 11; STORE_NAME __firstlineno__
+  12: LOAD_CONST 'Mando'; STORE_NAME title
+  14: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  92: LOAD_CONST <code RemoteTab._spin>; MAKE_FUNCTION; STORE_NAME _spin
+  98: LOAD_CONST (0,); LOAD_CONST <code RemoteTab._key_btn>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME _key_btn
+  107: LOAD_CONST <code RemoteTab._key>; MAKE_FUNCTION; STORE_NAME _key
+  110: LOAD_CONST <code RemoteTab.send_text>; MAKE_FUNCTION; STORE_NAME send_text
+  115: LOAD_CONST <code RemoteTab.open_screen>; MAKE_FUNCTION; STORE_NAME open_screen; LOAD_CONST ('screens', 'sp', 'text'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF RemoteTab.__init__(self,ctx) @14
+    15: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_DEREF self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    16: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_DEREF self; CALL; STORE_FAST lay
+    17: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST row
+    20: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Navegación'; CALL; STORE_FAST pad
+    21: LOAD_GLOBAL QGridLayout + NULL; LOAD_FAST_BORROW pad; CALL; STORE_FAST g
+    22: LOAD_CONST (('▲', 'Arriba', 0, 1), ('◀', 'Izquierda', 1, 0), ('OK', 'OK', 1, 1), ('▶', 'Derecha', 1, 2), ('▼', 'Abajo', 2, 1)); GET_ITER; <L126>; FOR_ITER ->210; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST text, key; STORE_FAST_STORE_FAST r, c
+    25: LOAD_FAST_BORROW g; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR _key_btn + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW text, key; LOAD_SMALL_INT 56; CALL; LOAD_FAST_BORROW_LOAD_FAST_BORROW r, c; CALL; JUMP_BACKWARD ->126
+    22: <L210>; END_FOR; POP_ITER
+    26: LOAD_FAST_BORROW g; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR _key_btn + NULL|self; LOAD_CONST '↩ Atrás'; LOAD_CONST 'Atrás'; LOAD_SMALL_INT 56; CALL; LOAD_SMALL_INT 3; LOAD_SMALL_INT 0; CALL
+    27: LOAD_FAST_BORROW g; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR _key_btn + NULL|self; LOAD_CONST '⌂ Inicio'; LOAD_CONST 'Inicio'; LOAD_SMALL_INT 56; CALL; LOAD_SMALL_INT 3; LOAD_SMALL_INT 1; CALL
+    28: LOAD_FAST_BORROW g; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR _key_btn + NULL|self; LOAD_CONST '☰ Menú'; LOAD_CONST 'Menú'; LOAD_SMALL_INT 56; CALL; LOAD_SMALL_INT 3; LOAD_SMALL_INT 2; CALL
+    29: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW pad; CALL
+    32: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Volumen y sistema'; CALL; STORE_FAST misc
+    33: LOAD_GLOBAL QGridLayout + NULL; LOAD_FAST_BORROW misc; CALL; STORE_FAST m
+    34: BUILD_LIST; LOAD_CONST ('Vol +', 'Vol -', 'Silencio', 'Canal +', 'Canal -', 'Entradas (fuente)', 'Despertar', 'Standby', 'Ajustes', 'Guía', 'Información', 'Aplicaciones recientes'); LIST_EXTEND; STORE_FAST keys
+    36: LOAD_GLOBAL enumerate + NULL; LOAD_FAST_BORROW keys; CALL; GET_ITER; <L538>; FOR_ITER ->648; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST i, k
+    37: LOAD_FAST_BORROW m; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR _key_btn + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW k, k; CALL; LOAD_FAST_BORROW i; LOAD_SMALL_INT 3; BINARY_OP //; LOAD_FAST_BORROW i; LOAD_SMALL_INT 3; BINARY_OP %; CALL; JUMP_BACKWARD ->538
+    36: <L648>; END_FOR; POP_ITER
+    38: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW misc; CALL
+    40: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Multimedia'; CALL; STORE_FAST media
+    41: LOAD_GLOBAL QGridLayout + NULL; LOAD_FAST_BORROW media; CALL; STORE_FAST ml
+    42: LOAD_GLOBAL enumerate + NULL; BUILD_LIST; LOAD_CONST ('Anterior', 'Retroceder', 'Play/Pausa', 'Avanzar', 'Siguiente', 'Stop'); LIST_EXTEND; CALL; GET_ITER; <L756>; FOR_ITER ->866; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST i, k
+    43: LOAD_FAST_BORROW ml; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR _key_btn + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW k, k; CALL; LOAD_FAST_BORROW i; LOAD_SMALL_INT 3; BINARY_OP //; LOAD_FAST_BORROW i; LOAD_SMALL_INT 3; BINARY_OP %; CALL; JUMP_BACKWARD ->756
+    42: <L866>; END_FOR; POP_ITER
+    44: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW media; CALL
+    45: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW row; CALL
+    48: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Escribir texto en la TV'; CALL; STORE_FAST tb
+    49: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW tb; CALL; STORE_FAST tl
+    50: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR text
+    51: LOAD_DEREF self; LOAD_ATTR text; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Texto (solo ASCII; el campo de la TV debe estar enfocado)'; CALL
+    52: LOAD_DEREF self; LOAD_ATTR text; LOAD_ATTR returnPressed; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR send_text; CALL
+    53: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Enviar'; CALL; STORE_FAST send
+    54: LOAD_FAST_BORROW send; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR send_text; CALL
+    55: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Enter'; CALL; STORE_FAST enter
+    56: LOAD_FAST_BORROW enter; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    57: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '⌫ Borrar'; CALL; STORE_FAST back
+    58: LOAD_FAST_BORROW back; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    59: LOAD_DEREF self; LOAD_ATTR text; LOAD_FAST_BORROW send; LOAD_FAST_BORROW enter; LOAD_FAST_BORROW back; BUILD_TUPLE; GET_ITER; <L1456>; FOR_ITER ->1500; STORE_FAST w
+    60: LOAD_FAST_BORROW tl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW w; CALL; JUMP_BACKWARD ->1456
+    59: <L1500>; END_FOR; POP_ITER
+    61: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW tb; CALL
+    64: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Toque / deslizamiento (coordenadas de la pantalla)'; CALL; STORE_FAST tt
+    65: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW tt; CALL; STORE_FAST ttl
+    66: LOAD_CONST ('x1', 'y1', 'x2', 'y2'); GET_ITER; LOAD_FAST_AND_CLEAR n; SWAP; BUILD_MAP; SWAP; <L1594>; FOR_ITER ->1640; STORE_FAST n; LOAD_FAST_BORROW n; LOAD_DEREF self; LOAD_ATTR _spin + NULL|self; LOAD_FAST_BORROW n; CALL; MAP_ADD; JUMP_BACKWARD ->1594; <L1640>; END_FOR; POP_ITER; SWAP; STORE_FAST n; LOAD_DEREF self; STORE_ATTR sp
+    67: LOAD_DEREF self; LOAD_ATTR sp; LOAD_ATTR items + NULL|self; CALL; GET_ITER; <L1712>; FOR_ITER ->1814; UNPACK_SEQUENCE; STORE_FAST n; STORE_FAST sp
+    68: LOAD_FAST_BORROW ttl; LOAD_ATTR addWidget + NULL|self; LOAD_GLOBAL QLabel + NULL; LOAD_FAST_BORROW n; CALL; CALL
+    69: LOAD_FAST_BORROW ttl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW sp; CALL; JUMP_BACKWARD ->1712
+    67: <L1814>; END_FOR; POP_ITER
+    70: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Tap (x1,y1)'; CALL; STORE_FAST tap
+    71: LOAD_FAST_BORROW tap; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    73: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Swipe'; CALL; STORE_FAST swipe
+    74: LOAD_FAST_BORROW swipe; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    76: LOAD_FAST_BORROW ttl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW tap; CALL
+    77: LOAD_FAST_BORROW ttl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW swipe; CALL
+    78: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW tt; CALL
+    81: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Abrir pantalla de ajustes de la TV'; CALL; STORE_FAST st
+    82: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW st; CALL; STORE_FAST sl
+    83: LOAD_GLOBAL QComboBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR screens
+    84: LOAD_DEREF self; LOAD_ATTR screens; LOAD_ATTR addItems + NULL|self; LOAD_GLOBAL SETTINGS_SCREENS; LOAD_ATTR keys; CALL; CALL
+    85: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Abrir'; CALL; STORE_FAST go
+    86: LOAD_FAST_BORROW go; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR open_screen; CALL
+    87: LOAD_FAST_BORROW sl; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR screens; LOAD_SMALL_INT 1; CALL
+    88: LOAD_FAST_BORROW sl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW go; CALL
+    89: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW st; CALL
+    90: LOAD_FAST_BORROW lay; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL; LOAD_CONST None; RETURN_VALUE
+    None: SWAP
+    66: SWAP; STORE_FAST n; RERAISE
+
+      DEF RemoteTab.__init__.<locals>.<lambda>() @56
+      56: LOAD_DEREF self; LOAD_ATTR _key + NULL|self; LOAD_CONST 'KEYCODE_ENTER'; CALL; RETURN_VALUE
+
+      DEF RemoteTab.__init__.<locals>.<lambda>() @58
+      58: LOAD_DEREF self; LOAD_ATTR _key + NULL|self; LOAD_CONST 'KEYCODE_DEL'; CALL; RETURN_VALUE
+
+      DEF RemoteTab.__init__.<locals>.<lambda>() @71
+      71: LOAD_DEREF self; LOAD_ATTR call + NULL|self
+      72: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__.<locals>.<lambda>.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+      71: CALL; RETURN_VALUE
+
+        DEF RemoteTab.__init__.<locals>.<lambda>.<locals>.<lambda>(s) @72
+        72: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR tap + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF self; LOAD_ATTR sp; LOAD_CONST 'x1'; BINARY_OP []; LOAD_ATTR value + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR sp; LOAD_CONST 'y1'; BINARY_OP []; LOAD_ATTR value + NULL|self; CALL; CALL; RETURN_VALUE
+
+      DEF RemoteTab.__init__.<locals>.<lambda>() @74
+      74: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__.<locals>.<lambda>.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; RETURN_VALUE
+
+        DEF RemoteTab.__init__.<locals>.<lambda>.<locals>.<lambda>(s) @74
+        74: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR swipe
+        75: LOAD_FAST_BORROW s
+        74: BUILD_LIST
+        75: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.__init__.<locals>.<lambda>.<locals>.<lambda>.<locals>.<genexpr>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_CONST ('x1', 'y1', 'x2', 'y2'); GET_ITER; CALL
+        74: LIST_EXTEND; CALL_INTRINSIC_1 INTRINSIC_LIST_TO_TUPLE; CALL_FUNCTION_EX; RETURN_VALUE
+
+          DEF RemoteTab.__init__.<locals>.<lambda>.<locals>.<lambda>.<locals>.<genexpr>(.0) @75
+          75: RETURN_GENERATOR; LOAD_FAST .0; <L10>; FOR_ITER ->90; STORE_FAST n; LOAD_DEREF self; LOAD_ATTR sp; LOAD_FAST_BORROW n; BINARY_OP []; LOAD_ATTR value + NULL|self; CALL; YIELD_VALUE; JUMP_BACKWARD ->10; <L90>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+          None: CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR; RERAISE
+
+    DEF RemoteTab._spin(self,name) @92
+    93: LOAD_GLOBAL QSpinBox + NULL; CALL; STORE_FAST sp
+    94: LOAD_FAST_BORROW sp; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 0; LOAD_CONST 7680; CALL
+    95: LOAD_FAST sp; LOAD_ATTR setValue + NULL|self; LOAD_FAST_BORROW name; LOAD_ATTR startswith + NULL|self; LOAD_CONST 'x'; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->142; LOAD_CONST 960; CALL
+    96: LOAD_FAST_BORROW sp; RETURN_VALUE
+    95: <L142>; LOAD_CONST 540; CALL
+    96: LOAD_FAST_BORROW sp; RETURN_VALUE
+
+    DEF RemoteTab._key_btn(self,text,key_label,min_w) @98
+    99: LOAD_GLOBAL QPushButton + NULL; LOAD_FAST_BORROW text; CALL; STORE_FAST b
+    100: LOAD_FAST_BORROW b; LOAD_ATTR setMinimumHeight + NULL|self; LOAD_SMALL_INT 38; CALL
+    101: LOAD_FAST_BORROW min_w; TO_BOOL; POP_JUMP_IF_FALSE ->112
+    102: LOAD_FAST_BORROW b; LOAD_ATTR setMinimumWidth + NULL|self; LOAD_FAST_BORROW min_w; CALL
+    103: <L112>; LOAD_FAST_BORROW b; LOAD_ATTR setAutoRepeat + NULL|self; LOAD_DEREF key_label; LOAD_CONST ('Vol +', 'Vol -', 'Canal +', 'Canal -'); CONTAINS_OP in; CALL
+    104: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW key_label; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab._key_btn.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    105: LOAD_FAST_BORROW b; RETURN_VALUE
+
+      DEF RemoteTab._key_btn.<locals>.<lambda>() @104
+      104: LOAD_DEREF self; LOAD_ATTR _key + NULL|self; LOAD_GLOBAL KEYCODES; LOAD_DEREF key_label; BINARY_OP []; CALL; RETURN_VALUE
+
+    DEF RemoteTab._key(self,code) @107
+    108: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW code; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab._key.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF RemoteTab._key.<locals>.<lambda>(s) @108
+      108: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR keyevent + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF code; CALL; RETURN_VALUE
+
+    DEF RemoteTab.send_text(self) @110
+    111: LOAD_DEREF self; LOAD_ATTR text; LOAD_ATTR text + NULL|self; CALL; STORE_DEREF t
+    112: LOAD_DEREF t; TO_BOOL; POP_JUMP_IF_FALSE ->132
+    113: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; LOAD_FAST_BORROW t; BUILD_TUPLE; LOAD_CONST <code RemoteTab.send_text.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.send_text.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+    112: <L132>; LOAD_CONST None; RETURN_VALUE
+
+      DEF RemoteTab.send_text.<locals>.<lambda>(s) @113
+      113: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR text + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF t; CALL; RETURN_VALUE
+
+      DEF RemoteTab.send_text.<locals>.<lambda>(r) @113
+      113: LOAD_DEREF self; LOAD_ATTR text; LOAD_ATTR clear + NULL|self; CALL; RETURN_VALUE
+
+    DEF RemoteTab.open_screen(self) @115
+    116: LOAD_GLOBAL SETTINGS_SCREENS; LOAD_DEREF self; LOAD_ATTR screens; LOAD_ATTR currentText + NULL|self; CALL; BINARY_OP []; STORE_DEREF action
+    117: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW action; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.open_screen.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    118: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code RemoteTab.open_screen.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    117: CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF RemoteTab.open_screen.<locals>.<lambda>(s) @117
+      117: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR open_settings + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF action; CALL; RETURN_VALUE
+
+      DEF RemoteTab.open_screen.<locals>.<lambda>(r) @118
+      118: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Abierto: '; LOAD_DEREF self; LOAD_ATTR screens; LOAD_ATTR currentText + NULL|self; CALL; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE

@@ -1,0 +1,307 @@
+  0           RESUME                   0
+
+ 13           LOAD_CONST               0 (<code object _pyi_rthook at 0x00000204B9FA6310, file "pyi_rth_inspect.py", line 13>)
+              MAKE_FUNCTION
+              STORE_NAME               0 (_pyi_rthook)
+
+ 98           LOAD_NAME                0 (_pyi_rthook)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+
+ 99           DELETE_NAME              0 (_pyi_rthook)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _pyi_rthook at 0x00000204B9FA6310, file "pyi_rth_inspect.py", line 13>:
+  --           MAKE_CELL                2 (BASE_LIBRARY)
+               MAKE_CELL                3 (SYS_PREFIX)
+               MAKE_CELL                4 (_orig_inspect_getsourcefile)
+               MAKE_CELL                5 (base_library_files)
+               MAKE_CELL                6 (inspect)
+               MAKE_CELL                7 (os)
+               MAKE_CELL                8 (sys)
+               MAKE_CELL                9 (zipfile)
+
+  13           RESUME                   0
+
+  14           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (inspect)
+               STORE_DEREF              6 (inspect)
+
+  15           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (os)
+               STORE_DEREF              7 (os)
+
+  16           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              2 (sys)
+               STORE_DEREF              8 (sys)
+
+  17           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              3 (zipfile)
+               STORE_DEREF              9 (zipfile)
+
+  21           LOAD_DEREF               7 (os)
+               LOAD_ATTR                8 (path)
+               LOAD_ATTR               11 (normpath + NULL|self)
+               LOAD_DEREF               8 (sys)
+               LOAD_ATTR               12 (_MEIPASS)
+               CALL                     1
+               STORE_DEREF              3 (SYS_PREFIX)
+
+  22           LOAD_DEREF               7 (os)
+               LOAD_ATTR                8 (path)
+               LOAD_ATTR               15 (join + NULL|self)
+               LOAD_DEREF               3 (SYS_PREFIX)
+               LOAD_CONST               2 ('base_library.zip')
+               CALL                     2
+               STORE_DEREF              2 (BASE_LIBRARY)
+
+  25           LOAD_FAST_BORROW         7 (os)
+               LOAD_FAST_BORROW         9 (zipfile)
+               BUILD_TUPLE              2
+               LOAD_CONST               3 (<code object _get_base_library_files at 0x00000204B9FC2970, file "pyi_rth_inspect.py", line 25>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               0 (_get_base_library_files)
+
+  35           LOAD_FAST_BORROW         0 (_get_base_library_files)
+               PUSH_NULL
+               LOAD_DEREF               2 (BASE_LIBRARY)
+               CALL                     1
+               STORE_DEREF              5 (base_library_files)
+
+  61           LOAD_DEREF               6 (inspect)
+               LOAD_ATTR               16 (getsourcefile)
+               STORE_DEREF              4 (_orig_inspect_getsourcefile)
+
+  63           LOAD_FAST_BORROW         2 (BASE_LIBRARY)
+               LOAD_FAST_BORROW         3 (SYS_PREFIX)
+               LOAD_FAST_BORROW         4 (_orig_inspect_getsourcefile)
+               LOAD_FAST_BORROW         5 (base_library_files)
+               LOAD_FAST_BORROW         6 (inspect)
+               LOAD_FAST_BORROW         7 (os)
+               LOAD_FAST_BORROW         8 (sys)
+               BUILD_TUPLE              7
+               LOAD_CONST               4 (<code object _pyi_getsourcefile at 0x00000204BA338F90, file "pyi_rth_inspect.py", line 63>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               1 (_pyi_getsourcefile)
+
+  95           LOAD_FAST_BORROW         1 (_pyi_getsourcefile)
+               LOAD_DEREF               6 (inspect)
+               STORE_ATTR               8 (getsourcefile)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _get_base_library_files at 0x00000204B9FC2970, file "pyi_rth_inspect.py", line 25>:
+  --           COPY_FREE_VARS           2
+
+  25           RESUME                   0
+
+  27           LOAD_DEREF               3 (os)
+               LOAD_ATTR                0 (path)
+               LOAD_ATTR                3 (isfile + NULL|self)
+               LOAD_FAST_BORROW         0 (filename)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE        11 (to L1)
+               NOT_TAKEN
+
+  28           LOAD_GLOBAL              5 (set + NULL)
+               CALL                     0
+               RETURN_VALUE
+
+  30   L1:     LOAD_DEREF               4 (zipfile)
+               LOAD_ATTR                7 (ZipFile + NULL|self)
+               LOAD_FAST_BORROW         0 (filename)
+               LOAD_CONST               0 ('r')
+               CALL                     2
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L2:     STORE_FAST               1 (zf)
+
+  31           LOAD_FAST_BORROW         1 (zf)
+               LOAD_ATTR                9 (namelist + NULL|self)
+               CALL                     0
+               STORE_FAST               2 (namelist)
+
+  30   L3:     LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+
+  33   L4:     LOAD_GLOBAL              5 (set + NULL)
+               LOAD_FAST_BORROW         3 (os)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object <genexpr> at 0x00000204B9FEF0E0, file "pyi_rth_inspect.py", line 33>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_FAST_CHECK          2 (namelist)
+               GET_ITER
+               CALL                     0
+               CALL                     1
+               RETURN_VALUE
+
+  30   L5:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L6)
+               NOT_TAKEN
+               RERAISE                  2
+       L6:     POP_TOP
+       L7:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               JUMP_BACKWARD_NO_INTERRUPT 37 (to L4)
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L5 [2] lasti
+  L5 to L7 -> L8 [4] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204B9FEF0E0, file "pyi_rth_inspect.py", line 33>:
+  --           COPY_FREE_VARS           1
+
+  33           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                32 (to L3)
+               STORE_FAST               1 (entry)
+               LOAD_DEREF               2 (os)
+               LOAD_ATTR                0 (path)
+               LOAD_ATTR                3 (normpath + NULL|self)
+               LOAD_FAST_BORROW         1 (entry)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           34 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object _pyi_getsourcefile at 0x00000204BA338F90, file "pyi_rth_inspect.py", line 63>:
+  --           COPY_FREE_VARS           7
+
+  63           RESUME                   0
+
+  64           LOAD_DEREF               8 (inspect)
+               LOAD_ATTR                1 (getfile + NULL|self)
+               LOAD_FAST_BORROW         0 (object)
+               CALL                     1
+               STORE_FAST               1 (filename)
+
+  65           LOAD_DEREF               9 (os)
+               LOAD_ATTR                2 (path)
+               LOAD_ATTR                5 (normpath + NULL|self)
+               LOAD_FAST_BORROW         1 (filename)
+               CALL                     1
+               STORE_FAST               1 (filename)
+
+  66           LOAD_DEREF               9 (os)
+               LOAD_ATTR                2 (path)
+               LOAD_ATTR                7 (isabs + NULL|self)
+               LOAD_FAST_BORROW         1 (filename)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE       195 (to L3)
+               NOT_TAKEN
+
+  68           LOAD_GLOBAL              9 (getattr + NULL)
+               LOAD_DEREF              10 (sys)
+               LOAD_ATTR               10 (modules)
+               LOAD_CONST               0 ('__main__')
+               BINARY_OP               26 ([])
+               LOAD_CONST               1 ('__file__')
+               LOAD_CONST               2 (None)
+               CALL                     3
+               STORE_FAST               2 (main_file)
+
+  69           LOAD_FAST_BORROW         2 (main_file)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       35 (to L1)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         1 (filename)
+               LOAD_DEREF               9 (os)
+               LOAD_ATTR                2 (path)
+               LOAD_ATTR               13 (basename + NULL|self)
+               LOAD_FAST_BORROW         2 (main_file)
+               CALL                     1
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+  70           LOAD_FAST_BORROW         2 (main_file)
+               RETURN_VALUE
+
+  84   L1:     LOAD_FAST_BORROW         1 (filename)
+               LOAD_CONST               3 ('c')
+               BINARY_OP                0 (+)
+               STORE_FAST               3 (pyc_filename)
+
+  85           LOAD_FAST_BORROW         3 (pyc_filename)
+               LOAD_DEREF               7 (base_library_files)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       54 (to L2)
+               NOT_TAKEN
+
+  86           LOAD_DEREF               9 (os)
+               LOAD_ATTR                2 (path)
+               LOAD_ATTR                5 (normpath + NULL|self)
+               LOAD_DEREF               9 (os)
+               LOAD_ATTR                2 (path)
+               LOAD_ATTR               15 (join + NULL|self)
+               LOAD_DEREF               4 (BASE_LIBRARY)
+               LOAD_FAST_BORROW         3 (pyc_filename)
+               CALL                     2
+               CALL                     1
+               RETURN_VALUE
+
+  87   L2:     LOAD_DEREF               9 (os)
+               LOAD_ATTR                2 (path)
+               LOAD_ATTR                5 (normpath + NULL|self)
+               LOAD_DEREF               9 (os)
+               LOAD_ATTR                2 (path)
+               LOAD_ATTR               15 (join + NULL|self)
+               LOAD_DEREF               5 (SYS_PREFIX)
+               LOAD_FAST_BORROW         1 (filename)
+               CALL                     2
+               CALL                     1
+               RETURN_VALUE
+
+  88   L3:     LOAD_FAST_BORROW         1 (filename)
+               LOAD_ATTR               17 (startswith + NULL|self)
+               LOAD_DEREF               5 (SYS_PREFIX)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+
+  91           LOAD_FAST_BORROW         1 (filename)
+               RETURN_VALUE
+
+  93   L4:     LOAD_DEREF               6 (_orig_inspect_getsourcefile)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (object)
+               CALL                     1
+               RETURN_VALUE

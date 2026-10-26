@@ -1,0 +1,3964 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Python part of the warnings subsystem.')
+              STORE_NAME               0 (__doc__)
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (sys)
+              STORE_NAME               1 (sys)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (_contextvars)
+              STORE_NAME               2 (_contextvars)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (_thread)
+              STORE_NAME               3 (_thread)
+
+  8           BUILD_LIST               0
+              LOAD_CONST              51 (('warn', 'warn_explicit', 'showwarning', 'formatwarning', 'filterwarnings', 'simplefilter', 'resetwarnings', 'catch_warnings', 'deprecated'))
+              LIST_EXTEND              1
+              STORE_NAME               4 (__all__)
+
+ 21           LOAD_CONST               1 (None)
+              STORE_GLOBAL             5 (_wm)
+
+ 24           LOAD_CONST               4 (<code object _set_module at 0x00000204BA0C2170, file "_py_warnings.py", line 24>)
+              MAKE_FUNCTION
+              STORE_NAME               6 (_set_module)
+
+ 37           BUILD_LIST               0
+              STORE_NAME               7 (filters)
+
+ 40           LOAD_CONST               5 ('default')
+              STORE_NAME               8 (defaultaction)
+
+ 41           BUILD_MAP                0
+              STORE_NAME               9 (onceregistry)
+
+ 42           LOAD_NAME                3 (_thread)
+              LOAD_ATTR               20 (RLock)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              11 (_lock)
+
+ 43           LOAD_SMALL_INT           1
+              STORE_NAME              12 (_filters_version)
+
+ 49           LOAD_NAME                1 (sys)
+              LOAD_ATTR               26 (flags)
+              LOAD_ATTR               28 (context_aware_warnings)
+              STORE_NAME              15 (_use_context)
+
+ 52           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object _Context at 0x00000204BA0FFEE0, file "_py_warnings.py", line 52>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 ('_Context')
+              CALL                     2
+              STORE_NAME              16 (_Context)
+
+ 67           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               8 (<code object _GlobalContext at 0x00000204BA0FF440, file "_py_warnings.py", line 67>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 ('_GlobalContext')
+              LOAD_NAME               16 (_Context)
+              CALL                     3
+              STORE_NAME              17 (_GlobalContext)
+
+ 83           LOAD_NAME               17 (_GlobalContext)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              18 (_global_context)
+
+ 86           LOAD_NAME                2 (_contextvars)
+              LOAD_ATTR               38 (ContextVar)
+              PUSH_NULL
+              LOAD_CONST              10 ('warnings_context')
+              CALL                     1
+              STORE_NAME              20 (_warnings_context)
+
+ 89           LOAD_CONST              11 (<code object _get_context at 0x00000204B9FF3280, file "_py_warnings.py", line 89>)
+              MAKE_FUNCTION
+              STORE_NAME              21 (_get_context)
+
+ 98           LOAD_CONST              12 (<code object _set_context at 0x00000204B9FEF800, file "_py_warnings.py", line 98>)
+              MAKE_FUNCTION
+              STORE_NAME              22 (_set_context)
+
+103           LOAD_CONST              13 (<code object _new_context at 0x00000204B9FF3E00, file "_py_warnings.py", line 103>)
+              MAKE_FUNCTION
+              STORE_NAME              23 (_new_context)
+
+111           LOAD_CONST              14 (<code object _get_filters at 0x00000204BA0FECD0, file "_py_warnings.py", line 111>)
+              MAKE_FUNCTION
+              STORE_NAME              24 (_get_filters)
+
+117           LOAD_CONST              15 (<code object _filters_mutated_lock_held at 0x00000204BA0FC250, file "_py_warnings.py", line 117>)
+              MAKE_FUNCTION
+              STORE_NAME              25 (_filters_mutated_lock_held)
+
+121           LOAD_CONST              52 ((None, None))
+              LOAD_CONST              16 (<code object showwarning at 0x00000204B9FEF0E0, file "_py_warnings.py", line 121>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              26 (showwarning)
+
+127           LOAD_CONST              53 ((None,))
+              LOAD_CONST              17 (<code object formatwarning at 0x00000204BA101A50, file "_py_warnings.py", line 127>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              27 (formatwarning)
+
+133           LOAD_CONST              18 (<code object _showwarnmsg_impl at 0x00000204B9F5B830, file "_py_warnings.py", line 133>)
+              MAKE_FUNCTION
+              STORE_NAME              28 (_showwarnmsg_impl)
+
+153           LOAD_CONST              19 (<code object _formatwarnmsg_impl at 0x00000204B9D4CD60, file "_py_warnings.py", line 153>)
+              MAKE_FUNCTION
+              STORE_NAME              29 (_formatwarnmsg_impl)
+
+214           LOAD_NAME               26 (showwarning)
+              STORE_NAME              30 (_showwarning_orig)
+
+217           LOAD_CONST              20 (<code object _showwarnmsg at 0x00000204BA3E0590, file "_py_warnings.py", line 217>)
+              MAKE_FUNCTION
+              STORE_NAME              31 (_showwarnmsg)
+
+237           LOAD_NAME               27 (formatwarning)
+              STORE_NAME              32 (_formatwarning_orig)
+
+240           LOAD_CONST              21 (<code object _formatwarnmsg at 0x00000204B9FC34B0, file "_py_warnings.py", line 240>)
+              MAKE_FUNCTION
+              STORE_NAME              33 (_formatwarnmsg)
+
+254           LOAD_CONST              22 ('')
+              LOAD_NAME               34 (Warning)
+              LOAD_CONST              22 ('')
+              LOAD_SMALL_INT           0
+
+255           LOAD_CONST              23 (False)
+
+254           BUILD_TUPLE              5
+              LOAD_CONST              24 (<code object filterwarnings at 0x00000204BA387780, file "_py_warnings.py", line 254>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              35 (filterwarnings)
+
+294           LOAD_NAME               34 (Warning)
+              LOAD_SMALL_INT           0
+              LOAD_CONST              23 (False)
+              BUILD_TUPLE              3
+              LOAD_CONST              25 (<code object simplefilter at 0x00000204B9F6FC50, file "_py_warnings.py", line 294>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              36 (simplefilter)
+
+313           LOAD_CONST              26 (<code object _filters_mutated at 0x00000204BA6A4030, file "_py_warnings.py", line 313>)
+              MAKE_FUNCTION
+              STORE_NAME              37 (_filters_mutated)
+
+320           LOAD_CONST              27 (<code object _add_filter at 0x00000204BA3AC6F0, file "_py_warnings.py", line 320>)
+              MAKE_FUNCTION
+              STORE_NAME              38 (_add_filter)
+
+337           LOAD_CONST              28 (<code object resetwarnings at 0x00000204B9F6F770, file "_py_warnings.py", line 337>)
+              MAKE_FUNCTION
+              STORE_NAME              39 (resetwarnings)
+
+344           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              29 (<code object _OptionError at 0x00000204BA0934B0, file "_py_warnings.py", line 344>)
+              MAKE_FUNCTION
+              LOAD_CONST              30 ('_OptionError')
+              LOAD_NAME               40 (Exception)
+              CALL                     3
+              STORE_NAME              41 (_OptionError)
+
+350           LOAD_CONST              31 (<code object _processoptions at 0x00000204B9F6DF10, file "_py_warnings.py", line 350>)
+              MAKE_FUNCTION
+              STORE_NAME              42 (_processoptions)
+
+359           LOAD_CONST              32 (<code object _setoption at 0x00000204BA3ACB20, file "_py_warnings.py", line 359>)
+              MAKE_FUNCTION
+              STORE_NAME              43 (_setoption)
+
+388           LOAD_CONST              33 (<code object _getaction at 0x00000204B9F73890, file "_py_warnings.py", line 388>)
+              MAKE_FUNCTION
+              STORE_NAME              44 (_getaction)
+
+398           LOAD_CONST              34 (<code object _getcategory at 0x00000204BA38BBC0, file "_py_warnings.py", line 398>)
+              MAKE_FUNCTION
+              STORE_NAME              45 (_getcategory)
+
+419           LOAD_CONST              35 (<code object _is_internal_filename at 0x00000204BA08A530, file "_py_warnings.py", line 419>)
+              MAKE_FUNCTION
+              STORE_NAME              46 (_is_internal_filename)
+
+423           LOAD_CONST              36 (<code object _is_filename_to_skip at 0x00000204BA0BBB40, file "_py_warnings.py", line 423>)
+              MAKE_FUNCTION
+              STORE_NAME              47 (_is_filename_to_skip)
+
+427           LOAD_CONST              37 (<code object _is_internal_frame at 0x00000204BA0FF550, file "_py_warnings.py", line 427>)
+              MAKE_FUNCTION
+              STORE_NAME              48 (_is_internal_frame)
+
+432           LOAD_CONST              38 (<code object _next_external_frame at 0x00000204BA129480, file "_py_warnings.py", line 432>)
+              MAKE_FUNCTION
+              STORE_NAME              49 (_next_external_frame)
+
+443           LOAD_CONST              54 ((None, 1, None))
+              LOAD_CONST              39 ('skip_file_prefixes')
+
+444           LOAD_CONST              55 (())
+
+443           BUILD_MAP                1
+              LOAD_CONST              40 (<code object warn at 0x00000204BA381490, file "_py_warnings.py", line 443>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              50 (warn)
+
+498           LOAD_CONST              56 ((None, None, None, None))
+              LOAD_CONST              41 (<code object warn_explicit at 0x00000204BA395BF0, file "_py_warnings.py", line 498>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              51 (warn_explicit)
+
+571           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              42 (<code object WarningMessage at 0x00000204BA0FFCC0, file "_py_warnings.py", line 571>)
+              MAKE_FUNCTION
+              LOAD_CONST              43 ('WarningMessage')
+              LOAD_NAME               52 (object)
+              CALL                     3
+              STORE_NAME              53 (WarningMessage)
+
+593           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              44 (<code object catch_warnings at 0x00000204BA103A60, file "_py_warnings.py", line 593>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('catch_warnings')
+              LOAD_NAME               52 (object)
+              CALL                     3
+              STORE_NAME              54 (catch_warnings)
+
+678           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              45 (<code object deprecated at 0x00000204BA0A7990, file "_py_warnings.py", line 678>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('deprecated')
+              CALL                     2
+              STORE_NAME              55 (deprecated)
+
+811           LOAD_CONST              46 ('{name!r} is deprecated and slated for removal in Python {remove}')
+              STORE_NAME              56 (_DEPRECATED_MSG)
+
+814           LOAD_NAME               56 (_DEPRECATED_MSG)
+              BUILD_TUPLE              1
+              LOAD_CONST              47 ('_version')
+              LOAD_NAME                1 (sys)
+              LOAD_ATTR              114 (version_info)
+              BUILD_MAP                1
+              LOAD_CONST              48 (<code object _deprecated at 0x00000204B9FC3870, file "_py_warnings.py", line 814>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              58 (_deprecated)
+
+834           LOAD_CONST              49 (<code object _warn_unawaited_coroutine at 0x00000204BA3E0E50, file "_py_warnings.py", line 834>)
+              MAKE_FUNCTION
+              STORE_NAME              59 (_warn_unawaited_coroutine)
+
+858           LOAD_CONST              50 (<code object _setup_defaults at 0x00000204BA3E07C0, file "_py_warnings.py", line 858>)
+              MAKE_FUNCTION
+              STORE_NAME              60 (_setup_defaults)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _set_module at 0x00000204BA0C2170, file "_py_warnings.py", line 24>:
+ 24           RESUME                   0
+
+ 26           LOAD_FAST_BORROW         0 (module)
+              STORE_GLOBAL             0 (_wm)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _Context at 0x00000204BA0FFEE0, file "_py_warnings.py", line 52>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  52           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_Context')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          52
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  53           LOAD_CONST               1 (<code object __init__ at 0x00000204BA093960, file "_py_warnings.py", line 53>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  57           LOAD_CONST               2 (<code object copy at 0x00000204BA0BAF70, file "_py_warnings.py", line 57>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (copy)
+
+  63           LOAD_CONST               3 (<code object _record_warning at 0x00000204BA083110, file "_py_warnings.py", line 63>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_record_warning)
+               LOAD_CONST               4 (('_filters', 'log'))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA093960, file "_py_warnings.py", line 53>:
+ 53           RESUME                   0
+
+ 54           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (filters, self)
+              STORE_ATTR               0 (_filters)
+
+ 55           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (log)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object copy at 0x00000204BA0BAF70, file "_py_warnings.py", line 57>:
+ 57           RESUME                   0
+
+ 58           LOAD_GLOBAL              1 (_Context + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_filters)
+              LOAD_CONST               0 (slice(None, None, None))
+              BINARY_OP               26 ([])
+              CALL                     1
+              STORE_FAST               1 (context)
+
+ 59           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (log)
+              POP_JUMP_IF_NONE        18 (to L1)
+              NOT_TAKEN
+
+ 60           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (log)
+              LOAD_FAST_BORROW         1 (context)
+              STORE_ATTR               2 (log)
+
+ 61   L1:     LOAD_FAST_BORROW         1 (context)
+              RETURN_VALUE
+
+Disassembly of <code object _record_warning at 0x00000204BA083110, file "_py_warnings.py", line 63>:
+ 63           RESUME                   0
+
+ 64           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (log)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (msg)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _GlobalContext at 0x00000204BA0FF440, file "_py_warnings.py", line 67>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  67           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_GlobalContext')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          67
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  68           LOAD_CONST               1 (<code object __init__ at 0x00000204BA093000, file "_py_warnings.py", line 68>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  71           LOAD_NAME                5 (property)
+
+  72           LOAD_CONST               2 (<code object _filters at 0x00000204BA0A5350, file "_py_warnings.py", line 71>)
+               MAKE_FUNCTION
+
+  71           CALL                     0
+
+  72           STORE_NAME               6 (_filters)
+               LOAD_CONST               3 (('log',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA093000, file "_py_warnings.py", line 68>:
+ 68           RESUME                   0
+
+ 69           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (log)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _filters at 0x00000204BA0A5350, file "_py_warnings.py", line 71>:
+  71           RESUME                   0
+
+  76           NOP
+
+  77   L1:     LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                2 (filters)
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  78           LOAD_GLOBAL              4 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  80           BUILD_LIST               0
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+  78   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object _get_context at 0x00000204B9FF3280, file "_py_warnings.py", line 89>:
+  89           RESUME                   0
+
+  90           LOAD_GLOBAL              0 (_use_context)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         7 (to L1)
+               NOT_TAKEN
+
+  91           LOAD_GLOBAL              2 (_global_context)
+               RETURN_VALUE
+
+  92   L1:     NOP
+
+  93   L2:     LOAD_GLOBAL              4 (_wm)
+               LOAD_ATTR                6 (_warnings_context)
+               LOAD_ATTR                9 (get + NULL|self)
+               CALL                     0
+       L3:     RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  94           LOAD_GLOBAL             10 (LookupError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       10 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  95           LOAD_GLOBAL              2 (_global_context)
+               SWAP                     2
+       L5:     POP_EXCEPT
+               RETURN_VALUE
+
+  94   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object _set_context at 0x00000204B9FEF800, file "_py_warnings.py", line 98>:
+ 98           RESUME                   0
+
+ 99           LOAD_GLOBAL              0 (_use_context)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+100   L1:     LOAD_GLOBAL              2 (_wm)
+              LOAD_ATTR                4 (_warnings_context)
+              LOAD_ATTR                7 (set + NULL|self)
+              LOAD_FAST_BORROW         0 (context)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _new_context at 0x00000204B9FF3E00, file "_py_warnings.py", line 103>:
+103           RESUME                   0
+
+104           LOAD_GLOBAL              0 (_use_context)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+105   L1:     LOAD_GLOBAL              2 (_wm)
+              LOAD_ATTR                5 (_get_context + NULL|self)
+              CALL                     0
+              STORE_FAST               0 (old_context)
+
+106           LOAD_FAST_BORROW         0 (old_context)
+              LOAD_ATTR                7 (copy + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (new_context)
+
+107           LOAD_GLOBAL              2 (_wm)
+              LOAD_ATTR                9 (_set_context + NULL|self)
+              LOAD_FAST_BORROW         1 (new_context)
+              CALL                     1
+              POP_TOP
+
+108           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (old_context, new_context)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _get_filters at 0x00000204BA0FECD0, file "_py_warnings.py", line 111>:
+111           RESUME                   0
+
+114           LOAD_GLOBAL              0 (_wm)
+              LOAD_ATTR                3 (_get_context + NULL|self)
+              CALL                     0
+              LOAD_ATTR                4 (_filters)
+              RETURN_VALUE
+
+Disassembly of <code object _filters_mutated_lock_held at 0x00000204BA0FC250, file "_py_warnings.py", line 117>:
+117           RESUME                   0
+
+118           LOAD_GLOBAL              0 (_wm)
+              COPY                     1
+              LOAD_ATTR                2 (_filters_version)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (_filters_version)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object showwarning at 0x00000204B9FEF0E0, file "_py_warnings.py", line 121>:
+121           RESUME                   0
+
+123           LOAD_GLOBAL              0 (_wm)
+              LOAD_ATTR                3 (WarningMessage + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (message, category)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (filename, lineno)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (file, line)
+              CALL                     6
+              STORE_FAST               6 (msg)
+
+124           LOAD_GLOBAL              0 (_wm)
+              LOAD_ATTR                5 (_showwarnmsg_impl + NULL|self)
+              LOAD_FAST_BORROW         6 (msg)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object formatwarning at 0x00000204BA101A50, file "_py_warnings.py", line 127>:
+127           RESUME                   0
+
+129           LOAD_GLOBAL              0 (_wm)
+              LOAD_ATTR                3 (WarningMessage + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (message, category)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (filename, lineno)
+              LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         4 (line)
+              CALL                     6
+              STORE_FAST               5 (msg)
+
+130           LOAD_GLOBAL              0 (_wm)
+              LOAD_ATTR                5 (_formatwarnmsg_impl + NULL|self)
+              LOAD_FAST_BORROW         5 (msg)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _showwarnmsg_impl at 0x00000204B9F5B830, file "_py_warnings.py", line 133>:
+ 133           RESUME                   0
+
+ 134           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                3 (_get_context + NULL|self)
+               CALL                     0
+               STORE_FAST               1 (context)
+
+ 135           LOAD_FAST_BORROW         1 (context)
+               LOAD_ATTR                4 (log)
+               POP_JUMP_IF_NONE        20 (to L1)
+               NOT_TAKEN
+
+ 136           LOAD_FAST_BORROW         1 (context)
+               LOAD_ATTR                7 (_record_warning + NULL|self)
+               LOAD_FAST_BORROW         0 (msg)
+               CALL                     1
+               POP_TOP
+
+ 137           LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+ 138   L1:     LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR                8 (file)
+               STORE_FAST               2 (file)
+
+ 139           LOAD_FAST_BORROW         2 (file)
+               POP_JUMP_IF_NOT_NONE    23 (to L2)
+               NOT_TAKEN
+
+ 140           LOAD_GLOBAL             10 (sys)
+               LOAD_ATTR               12 (stderr)
+               STORE_FAST               2 (file)
+
+ 141           LOAD_FAST_BORROW         2 (file)
+               POP_JUMP_IF_NOT_NONE     3 (to L2)
+               NOT_TAKEN
+
+ 144           LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+ 145   L2:     LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR               15 (_formatwarnmsg + NULL|self)
+               LOAD_FAST_BORROW         0 (msg)
+               CALL                     1
+               STORE_FAST               3 (text)
+
+ 146           NOP
+
+ 147   L3:     LOAD_FAST_BORROW         2 (file)
+               LOAD_ATTR               17 (write + NULL|self)
+               LOAD_FAST_BORROW         3 (text)
+               CALL                     1
+               POP_TOP
+       L4:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 148           LOAD_GLOBAL             18 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 150   L6:     POP_EXCEPT
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+ 148   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object _formatwarnmsg_impl at 0x00000204B9D4CD60, file "_py_warnings.py", line 153>:
+ 153            RESUME                   0
+
+ 154            LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR                0 (category)
+                LOAD_ATTR                2 (__name__)
+                STORE_FAST               1 (category)
+
+ 155            LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR                4 (filename)
+                FORMAT_SIMPLE
+                LOAD_CONST               0 (':')
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR                6 (lineno)
+                FORMAT_SIMPLE
+                LOAD_CONST               1 (': ')
+                LOAD_FAST_BORROW         1 (category)
+                FORMAT_SIMPLE
+                LOAD_CONST               1 (': ')
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR                8 (message)
+                FORMAT_SIMPLE
+                LOAD_CONST               2 ('\n')
+                BUILD_STRING             8
+                STORE_FAST               2 (s)
+
+ 157            LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR               10 (line)
+                POP_JUMP_IF_NOT_NONE    45 (to L3)
+                NOT_TAKEN
+
+ 158            NOP
+
+ 159    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               3 (None)
+                IMPORT_NAME              6 (linecache)
+                STORE_FAST               3 (linecache)
+
+ 160            LOAD_FAST_BORROW         3 (linecache)
+                LOAD_ATTR               15 (getline + NULL|self)
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR                4 (filename)
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR                6 (lineno)
+                CALL                     2
+                STORE_FAST               4 (line)
+        L2:     JUMP_FORWARD            12 (to L4)
+
+ 167    L3:     LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR               10 (line)
+                STORE_FAST               4 (line)
+
+ 168    L4:     LOAD_FAST_BORROW         4 (line)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       33 (to L5)
+                NOT_TAKEN
+
+ 169            LOAD_FAST_BORROW         4 (line)
+                LOAD_ATTR               19 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               4 (line)
+
+ 170            LOAD_FAST_BORROW         2 (s)
+                LOAD_CONST               4 ('  %s\n')
+                LOAD_FAST_BORROW         4 (line)
+                BINARY_OP                6 (%)
+                BINARY_OP               13 (+=)
+                STORE_FAST               2 (s)
+
+ 172    L5:     LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR               20 (source)
+                POP_JUMP_IF_NONE       225 (to L19)
+                NOT_TAKEN
+
+ 173            NOP
+
+ 174    L6:     LOAD_SMALL_INT           0
+                LOAD_CONST               3 (None)
+                IMPORT_NAME             11 (tracemalloc)
+                STORE_FAST               5 (tracemalloc)
+
+ 182    L7:     NOP
+
+ 183    L8:     LOAD_FAST_BORROW         5 (tracemalloc)
+                LOAD_ATTR               25 (is_tracing + NULL|self)
+                CALL                     0
+                TO_BOOL
+                UNARY_NOT
+                STORE_FAST               6 (suggest_tracemalloc)
+
+ 184            LOAD_FAST_BORROW         5 (tracemalloc)
+                LOAD_ATTR               27 (get_object_traceback + NULL|self)
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR               20 (source)
+                CALL                     1
+                STORE_FAST               7 (tb)
+
+ 191    L9:     LOAD_FAST                7 (tb)
+                POP_JUMP_IF_NONE       148 (to L18)
+                NOT_TAKEN
+
+ 192            LOAD_FAST                2 (s)
+                LOAD_CONST               6 ('Object allocated at (most recent call last):\n')
+                BINARY_OP               13 (+=)
+                STORE_FAST               2 (s)
+
+ 193            LOAD_FAST                7 (tb)
+                GET_ITER
+       L10:     FOR_ITER               130 (to L17)
+                STORE_FAST               8 (frame)
+
+ 194            LOAD_FAST                2 (s)
+                LOAD_CONST               7 ('  File "')
+
+ 195            LOAD_FAST                8 (frame)
+                LOAD_ATTR                4 (filename)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               8 ('", lineno ')
+                LOAD_FAST                8 (frame)
+                LOAD_ATTR                6 (lineno)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               2 ('\n')
+
+ 194            BUILD_STRING             5
+                BINARY_OP               13 (+=)
+                STORE_FAST               2 (s)
+
+ 197            NOP
+
+ 198   L11:     LOAD_FAST_CHECK          3 (linecache)
+                POP_JUMP_IF_NONE        40 (to L13)
+                NOT_TAKEN
+
+ 199            LOAD_FAST                3 (linecache)
+                LOAD_ATTR               15 (getline + NULL|self)
+                LOAD_FAST                8 (frame)
+                LOAD_ATTR                4 (filename)
+                LOAD_FAST                8 (frame)
+                LOAD_ATTR                6 (lineno)
+                CALL                     2
+                STORE_FAST               4 (line)
+       L12:     JUMP_FORWARD             3 (to L15)
+
+ 201   L13:     LOAD_CONST               3 (None)
+                STORE_FAST               4 (line)
+       L14:     NOP
+
+ 204   L15:     LOAD_FAST                4 (line)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L16)
+                NOT_TAKEN
+                JUMP_BACKWARD           98 (to L10)
+
+ 205   L16:     LOAD_FAST                4 (line)
+                LOAD_ATTR               19 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               4 (line)
+
+ 206            LOAD_FAST                2 (s)
+                LOAD_CONST               9 ('    %s\n')
+                LOAD_FAST                4 (line)
+                BINARY_OP                6 (%)
+                BINARY_OP               13 (+=)
+                STORE_FAST               2 (s)
+                JUMP_BACKWARD          132 (to L10)
+
+ 193   L17:     END_FOR
+                POP_ITER
+
+ 210            LOAD_FAST                2 (s)
+                RETURN_VALUE
+
+ 207   L18:     LOAD_FAST                6 (suggest_tracemalloc)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L19)
+                NOT_TAKEN
+
+ 208            LOAD_FAST_LOAD_FAST     33 (s, category)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (': Enable tracemalloc to get the object allocation traceback\n')
+                BUILD_STRING             2
+                BINARY_OP               13 (+=)
+                STORE_FAST               2 (s)
+
+ 210   L19:     LOAD_FAST_BORROW         2 (s)
+                RETURN_VALUE
+
+  --   L20:     PUSH_EXC_INFO
+
+ 161            LOAD_GLOBAL             16 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        9 (to L22)
+                NOT_TAKEN
+                POP_TOP
+
+ 164            LOAD_CONST               3 (None)
+                STORE_FAST               4 (line)
+
+ 165            LOAD_CONST               3 (None)
+                STORE_FAST               3 (linecache)
+       L21:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 298 (to L4)
+
+ 161   L22:     RERAISE                  0
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L24:     PUSH_EXC_INFO
+
+ 185            LOAD_GLOBAL             16 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        8 (to L26)
+                NOT_TAKEN
+                POP_TOP
+
+ 188            LOAD_CONST               5 (False)
+                STORE_FAST               6 (suggest_tracemalloc)
+
+ 189            LOAD_CONST               3 (None)
+                STORE_FAST               7 (tb)
+       L25:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 211 (to L9)
+
+ 185   L26:     RERAISE                  0
+
+  --   L27:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L28:     PUSH_EXC_INFO
+
+ 177            LOAD_GLOBAL             16 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        8 (to L30)
+                NOT_TAKEN
+                POP_TOP
+
+ 179            LOAD_CONST               5 (False)
+                STORE_FAST               6 (suggest_tracemalloc)
+
+ 180            LOAD_CONST               3 (None)
+                STORE_FAST               7 (tb)
+       L29:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 232 (to L9)
+
+ 177   L30:     RERAISE                  0
+
+  --   L31:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L32:     PUSH_EXC_INFO
+
+ 202            LOAD_GLOBAL             16 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L34)
+                NOT_TAKEN
+                POP_TOP
+
+ 203            LOAD_CONST               3 (None)
+                STORE_FAST               4 (line)
+       L33:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 148 (to L15)
+
+ 202   L34:     RERAISE                  0
+
+  --   L35:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L20 [0]
+  L6 to L7 -> L28 [0]
+  L8 to L9 -> L24 [0]
+  L11 to L12 -> L32 [1]
+  L13 to L14 -> L32 [1]
+  L20 to L21 -> L23 [1] lasti
+  L22 to L23 -> L23 [1] lasti
+  L24 to L25 -> L27 [1] lasti
+  L26 to L27 -> L27 [1] lasti
+  L28 to L29 -> L31 [1] lasti
+  L30 to L31 -> L31 [1] lasti
+  L32 to L33 -> L35 [2] lasti
+  L34 to L35 -> L35 [2] lasti
+
+Disassembly of <code object _showwarnmsg at 0x00000204BA3E0590, file "_py_warnings.py", line 217>:
+ 217           RESUME                   0
+
+ 219           NOP
+
+ 220   L1:     LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                2 (showwarning)
+               STORE_FAST               1 (sw)
+
+ 224   L2:     LOAD_FAST_BORROW         1 (sw)
+               LOAD_GLOBAL              4 (_showwarning_orig)
+               IS_OP                    1 (is not)
+               POP_JUMP_IF_FALSE      104 (to L4)
+               NOT_TAKEN
+
+ 226           LOAD_GLOBAL              7 (callable + NULL)
+               LOAD_FAST_BORROW         1 (sw)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L3)
+               NOT_TAKEN
+
+ 227           LOAD_GLOBAL              9 (TypeError + NULL)
+               LOAD_CONST               1 ('warnings.showwarning() must be set to a function or method')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 230   L3:     LOAD_FAST_BORROW         1 (sw)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               10 (message)
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               12 (category)
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               14 (filename)
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               16 (lineno)
+
+ 231           LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               18 (file)
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               20 (line)
+
+ 230           CALL                     6
+               POP_TOP
+
+ 232           LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+ 224   L4:     NOP
+
+ 233   L5:     LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR               25 (_showwarnmsg_impl + NULL|self)
+               LOAD_FAST_BORROW         0 (msg)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 221           LOAD_GLOBAL             22 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+ 222   L7:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 36 (to L5)
+
+ 221   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object _formatwarnmsg at 0x00000204B9FC34B0, file "_py_warnings.py", line 240>:
+ 240           RESUME                   0
+
+ 242           NOP
+
+ 243   L1:     LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                2 (formatwarning)
+               STORE_FAST               1 (fw)
+
+ 247   L2:     LOAD_FAST_BORROW         1 (fw)
+               LOAD_GLOBAL              4 (_formatwarning_orig)
+               IS_OP                    1 (is not)
+               POP_JUMP_IF_FALSE       63 (to L3)
+               NOT_TAKEN
+
+ 249           LOAD_FAST_BORROW         1 (fw)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR                6 (message)
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR                8 (category)
+
+ 250           LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               10 (filename)
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               12 (lineno)
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR               14 (line)
+
+ 249           CALL                     5
+               RETURN_VALUE
+
+ 247   L3:     NOP
+
+ 251   L4:     LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR               19 (_formatwarnmsg_impl + NULL|self)
+               LOAD_FAST_BORROW         0 (msg)
+               CALL                     1
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 244           LOAD_GLOBAL             16 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 245   L6:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 34 (to L4)
+
+ 244   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object filterwarnings at 0x00000204BA387780, file "_py_warnings.py", line 254>:
+254            RESUME                   0
+
+266            LOAD_FAST_BORROW         0 (action)
+               LOAD_CONST               9 (frozenset({'default', 'once', 'error', 'module', 'ignore', 'always', 'all'}))
+               CONTAINS_OP              1 (not in)
+               POP_JUMP_IF_FALSE       16 (to L1)
+               NOT_TAKEN
+
+267            LOAD_GLOBAL              1 (ValueError + NULL)
+               LOAD_CONST               1 ('invalid action: ')
+               LOAD_FAST_BORROW         0 (action)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+268    L1:     LOAD_GLOBAL              3 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (message)
+               LOAD_GLOBAL              4 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L2)
+               NOT_TAKEN
+
+269            LOAD_GLOBAL              7 (TypeError + NULL)
+               LOAD_CONST               2 ('message must be a string')
+               CALL                     1
+               RAISE_VARARGS            1
+
+270    L2:     LOAD_GLOBAL              3 (isinstance + NULL)
+               LOAD_FAST_BORROW         2 (category)
+               LOAD_GLOBAL              8 (type)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       23 (to L3)
+               NOT_TAKEN
+               LOAD_GLOBAL             11 (issubclass + NULL)
+               LOAD_FAST_BORROW         2 (category)
+               LOAD_GLOBAL             12 (Warning)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L4)
+               NOT_TAKEN
+
+271    L3:     LOAD_GLOBAL              7 (TypeError + NULL)
+               LOAD_CONST               3 ('category must be a Warning subclass')
+               CALL                     1
+               RAISE_VARARGS            1
+
+272    L4:     LOAD_GLOBAL              3 (isinstance + NULL)
+               LOAD_FAST_BORROW         3 (module)
+               LOAD_GLOBAL              4 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L5)
+               NOT_TAKEN
+
+273            LOAD_GLOBAL              7 (TypeError + NULL)
+               LOAD_CONST               4 ('module must be a string')
+               CALL                     1
+               RAISE_VARARGS            1
+
+274    L5:     LOAD_GLOBAL              3 (isinstance + NULL)
+               LOAD_FAST_BORROW         4 (lineno)
+               LOAD_GLOBAL             14 (int)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L6)
+               NOT_TAKEN
+
+275            LOAD_GLOBAL              7 (TypeError + NULL)
+               LOAD_CONST               5 ('lineno must be an int')
+               CALL                     1
+               RAISE_VARARGS            1
+
+276    L6:     LOAD_FAST_BORROW         4 (lineno)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       12 (to L7)
+               NOT_TAKEN
+
+277            LOAD_GLOBAL              1 (ValueError + NULL)
+               LOAD_CONST               6 ('lineno must be an int >= 0')
+               CALL                     1
+               RAISE_VARARGS            1
+
+279    L7:     LOAD_FAST_BORROW         1 (message)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         9 (to L8)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         3 (module)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        5 (to L9)
+               NOT_TAKEN
+
+280    L8:     LOAD_SMALL_INT           0
+               LOAD_CONST               7 (None)
+               IMPORT_NAME              8 (re)
+               STORE_FAST               6 (re)
+
+282    L9:     LOAD_FAST_BORROW         1 (message)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       29 (to L10)
+               NOT_TAKEN
+
+283            LOAD_FAST_CHECK          6 (re)
+               LOAD_ATTR               19 (compile + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 22 (message, re)
+               LOAD_ATTR               20 (I)
+               CALL                     2
+               STORE_FAST               1 (message)
+               JUMP_FORWARD             2 (to L11)
+
+285   L10:     LOAD_CONST               7 (None)
+               STORE_FAST               1 (message)
+
+286   L11:     LOAD_FAST_BORROW         3 (module)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       19 (to L12)
+               NOT_TAKEN
+
+287            LOAD_FAST_CHECK          6 (re)
+               LOAD_ATTR               19 (compile + NULL|self)
+               LOAD_FAST_BORROW         3 (module)
+               CALL                     1
+               STORE_FAST               3 (module)
+               JUMP_FORWARD             2 (to L13)
+
+289   L12:     LOAD_CONST               7 (None)
+               STORE_FAST               3 (module)
+
+291   L13:     LOAD_GLOBAL             22 (_wm)
+               LOAD_ATTR               25 (_add_filter + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (action, message)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (category, module)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (lineno, append)
+               LOAD_CONST               8 (('append',))
+               CALL_KW                  6
+               POP_TOP
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object simplefilter at 0x00000204B9F6FC50, file "_py_warnings.py", line 294>:
+294           RESUME                   0
+
+304           LOAD_FAST_BORROW         0 (action)
+              LOAD_CONST               6 (frozenset({'default', 'once', 'error', 'module', 'ignore', 'always', 'all'}))
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       16 (to L1)
+              NOT_TAKEN
+
+305           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('invalid action: ')
+              LOAD_FAST_BORROW         0 (action)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+306   L1:     LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         2 (lineno)
+              LOAD_GLOBAL              4 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L2)
+              NOT_TAKEN
+
+307           LOAD_GLOBAL              7 (TypeError + NULL)
+              LOAD_CONST               2 ('lineno must be an int')
+              CALL                     1
+              RAISE_VARARGS            1
+
+308   L2:     LOAD_FAST_BORROW         2 (lineno)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L3)
+              NOT_TAKEN
+
+309           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               3 ('lineno must be an int >= 0')
+              CALL                     1
+              RAISE_VARARGS            1
+
+310   L3:     LOAD_GLOBAL              8 (_wm)
+              LOAD_ATTR               11 (_add_filter + NULL|self)
+              LOAD_FAST_BORROW         0 (action)
+              LOAD_CONST               4 (None)
+              LOAD_FAST_BORROW         1 (category)
+              LOAD_CONST               4 (None)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lineno, append)
+              LOAD_CONST               5 (('append',))
+              CALL_KW                  6
+              POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _filters_mutated at 0x00000204BA6A4030, file "_py_warnings.py", line 313>:
+ 313           RESUME                   0
+
+ 316           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                2 (_lock)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 317           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                5 (_filters_mutated_lock_held + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 316   L2:     LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object _add_filter at 0x00000204BA3AC6F0, file "_py_warnings.py", line 320>:
+ 320            RESUME                   0
+
+ 321            LOAD_GLOBAL              0 (_wm)
+                LOAD_ATTR                2 (_lock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+ 322            LOAD_GLOBAL              0 (_wm)
+                LOAD_ATTR                5 (_get_filters + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (filters)
+
+ 323            LOAD_FAST_BORROW         0 (append)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        38 (to L5)
+                NOT_TAKEN
+
+ 326    L2:     NOP
+
+ 327    L3:     LOAD_FAST_BORROW         2 (filters)
+                LOAD_ATTR                7 (remove + NULL|self)
+                LOAD_FAST_BORROW         1 (item)
+                CALL                     1
+                POP_TOP
+
+ 330    L4:     LOAD_FAST_BORROW         2 (filters)
+                LOAD_ATTR               11 (insert + NULL|self)
+                LOAD_SMALL_INT           0
+                LOAD_FAST_BORROW         1 (item)
+                CALL                     2
+                POP_TOP
+                JUMP_FORWARD            23 (to L6)
+
+ 332    L5:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (item, filters)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE       18 (to L6)
+                NOT_TAKEN
+
+ 333            LOAD_FAST_BORROW         2 (filters)
+                LOAD_ATTR               13 (append + NULL|self)
+                LOAD_FAST_BORROW         1 (item)
+                CALL                     1
+                POP_TOP
+
+ 334    L6:     LOAD_GLOBAL              0 (_wm)
+                LOAD_ATTR               15 (_filters_mutated_lock_held + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 321    L7:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 328            LOAD_GLOBAL              8 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 329    L9:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 85 (to L4)
+
+ 328   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 321   L12:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L13)
+                NOT_TAKEN
+                RERAISE                  2
+       L13:     POP_TOP
+       L14:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L12 [2] lasti
+  L3 to L4 -> L8 [2]
+  L4 to L7 -> L12 [2] lasti
+  L8 to L9 -> L11 [3] lasti
+  L9 to L10 -> L12 [2] lasti
+  L10 to L11 -> L11 [3] lasti
+  L11 to L12 -> L12 [2] lasti
+  L12 to L14 -> L15 [4] lasti
+
+Disassembly of <code object resetwarnings at 0x00000204B9F6F770, file "_py_warnings.py", line 337>:
+ 337           RESUME                   0
+
+ 339           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                2 (_lock)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 340           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                5 (_get_filters + NULL|self)
+               CALL                     0
+               LOAD_CONST               1 (slice(None, None, None))
+               DELETE_SUBSCR
+
+ 341           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                7 (_filters_mutated_lock_held + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 339   L2:     LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object _OptionError at 0x00000204BA0934B0, file "_py_warnings.py", line 344>:
+344           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('_OptionError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (344)
+              STORE_NAME               3 (__firstlineno__)
+
+345           LOAD_CONST               2 ('Exception used by option processing helpers.')
+              STORE_NAME               4 (__doc__)
+
+346           LOAD_CONST               3 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _processoptions at 0x00000204B9F6DF10, file "_py_warnings.py", line 350>:
+ 350            RESUME                   0
+
+ 351            LOAD_FAST_BORROW         0 (args)
+                GET_ITER
+        L1:     FOR_ITER                25 (to L4)
+                STORE_FAST               1 (arg)
+
+ 352            NOP
+
+ 353    L2:     LOAD_GLOBAL              0 (_wm)
+                LOAD_ATTR                3 (_setoption + NULL|self)
+                LOAD_FAST_BORROW         1 (arg)
+                CALL                     1
+                POP_TOP
+        L3:     JUMP_BACKWARD           27 (to L1)
+
+ 351    L4:     END_FOR
+                POP_ITER
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --    L5:     PUSH_EXC_INFO
+
+ 354            LOAD_GLOBAL              0 (_wm)
+                LOAD_ATTR                4 (_OptionError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       40 (to L9)
+                NOT_TAKEN
+                STORE_FAST               2 (msg)
+
+ 355    L6:     LOAD_GLOBAL              7 (print + NULL)
+                LOAD_CONST               0 ('Invalid -W option ignored:')
+                LOAD_FAST                2 (msg)
+                LOAD_GLOBAL              8 (sys)
+                LOAD_ATTR               10 (stderr)
+                LOAD_CONST               1 (('file',))
+                CALL_KW                  3
+                POP_TOP
+        L7:     POP_EXCEPT
+                LOAD_CONST               2 (None)
+                STORE_FAST               2 (msg)
+                DELETE_FAST              2 (msg)
+                JUMP_BACKWARD           86 (to L1)
+
+  --    L8:     LOAD_CONST               2 (None)
+                STORE_FAST               2 (msg)
+                DELETE_FAST              2 (msg)
+                RERAISE                  1
+
+ 354    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L5 [1]
+  L5 to L6 -> L10 [2] lasti
+  L6 to L7 -> L8 [2] lasti
+  L8 to L10 -> L10 [2] lasti
+
+Disassembly of <code object _setoption at 0x00000204BA3ACB20, file "_py_warnings.py", line 359>:
+ 359            RESUME                   0
+
+ 360            LOAD_FAST_BORROW         0 (arg)
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST               0 (':')
+                CALL                     1
+                STORE_FAST               1 (parts)
+
+ 361            LOAD_GLOBAL              3 (len + NULL)
+                LOAD_FAST_BORROW         1 (parts)
+                CALL                     1
+                LOAD_SMALL_INT           5
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       26 (to L1)
+                NOT_TAKEN
+
+ 362            LOAD_GLOBAL              4 (_wm)
+                LOAD_ATTR                7 (_OptionError + NULL|self)
+                LOAD_CONST               1 ('too many fields (max 5): ')
+                LOAD_FAST_BORROW         0 (arg)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 363    L1:     LOAD_GLOBAL              3 (len + NULL)
+                LOAD_FAST_BORROW         1 (parts)
+                CALL                     1
+                LOAD_SMALL_INT           5
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       20 (to L2)
+                NOT_TAKEN
+
+ 364            LOAD_FAST_BORROW         1 (parts)
+                LOAD_ATTR                9 (append + NULL|self)
+                LOAD_CONST               2 ('')
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           35 (to L1)
+
+ 366    L2:     LOAD_FAST_BORROW         1 (parts)
+                GET_ITER
+
+ 365            LOAD_FAST_AND_CLEAR      2 (s)
+                SWAP                     2
+        L3:     BUILD_LIST               0
+                SWAP                     2
+
+ 366    L4:     FOR_ITER                19 (to L5)
+                STORE_FAST               2 (s)
+
+ 365            LOAD_FAST_BORROW         2 (s)
+                LOAD_ATTR               11 (strip + NULL|self)
+                CALL                     0
+                LIST_APPEND              2
+                JUMP_BACKWARD           21 (to L4)
+
+ 366    L5:     END_FOR
+                POP_ITER
+
+ 365    L6:     SWAP                     2
+                STORE_FAST               2 (s)
+                UNPACK_SEQUENCE          5
+                STORE_FAST_STORE_FAST   52 (action, message)
+                STORE_FAST_STORE_FAST   86 (category, module)
+                STORE_FAST               7 (lineno)
+
+ 367            LOAD_GLOBAL              4 (_wm)
+                LOAD_ATTR               13 (_getaction + NULL|self)
+                LOAD_FAST_BORROW         3 (action)
+                CALL                     1
+                STORE_FAST               3 (action)
+
+ 368            LOAD_GLOBAL              4 (_wm)
+                LOAD_ATTR               15 (_getcategory + NULL|self)
+                LOAD_FAST_BORROW         5 (category)
+                CALL                     1
+                STORE_FAST               5 (category)
+
+ 369            LOAD_FAST_BORROW         4 (message)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         9 (to L7)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         6 (module)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L8)
+                NOT_TAKEN
+
+ 370    L7:     LOAD_SMALL_INT           0
+                LOAD_CONST               3 (None)
+                IMPORT_NAME              8 (re)
+                STORE_FAST               8 (re)
+
+ 371    L8:     LOAD_FAST_BORROW         4 (message)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L9)
+                NOT_TAKEN
+
+ 372            LOAD_FAST_CHECK          8 (re)
+                LOAD_ATTR               19 (escape + NULL|self)
+                LOAD_FAST_BORROW         4 (message)
+                CALL                     1
+                STORE_FAST               4 (message)
+
+ 373    L9:     LOAD_FAST_BORROW         6 (module)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       25 (to L10)
+                NOT_TAKEN
+
+ 374            LOAD_FAST_CHECK          8 (re)
+                LOAD_ATTR               19 (escape + NULL|self)
+                LOAD_FAST_BORROW         6 (module)
+                CALL                     1
+                LOAD_CONST               4 ('\\z')
+                BINARY_OP                0 (+)
+                STORE_FAST               6 (module)
+
+ 375   L10:     LOAD_FAST_BORROW         7 (lineno)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L13)
+                NOT_TAKEN
+
+ 376            NOP
+
+ 377   L11:     LOAD_GLOBAL             21 (int + NULL)
+                LOAD_FAST_BORROW         7 (lineno)
+                CALL                     1
+                STORE_FAST               7 (lineno)
+
+ 378            LOAD_FAST_BORROW         7 (lineno)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        7 (to L12)
+                NOT_TAKEN
+
+ 379            LOAD_GLOBAL             22 (ValueError)
+                RAISE_VARARGS            1
+
+ 378   L12:     JUMP_FORWARD             2 (to L14)
+
+ 383   L13:     LOAD_SMALL_INT           0
+                STORE_FAST               7 (lineno)
+
+ 384   L14:     LOAD_GLOBAL              4 (_wm)
+                LOAD_ATTR               27 (filterwarnings + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (action, message)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (category, module)
+                LOAD_FAST_BORROW         7 (lineno)
+                CALL                     5
+                POP_TOP
+                LOAD_CONST               3 (None)
+                RETURN_VALUE
+
+  --   L15:     SWAP                     2
+                POP_TOP
+
+ 365            SWAP                     2
+                STORE_FAST               2 (s)
+                RERAISE                  0
+
+  --   L16:     PUSH_EXC_INFO
+
+ 380            LOAD_GLOBAL             22 (ValueError)
+                LOAD_GLOBAL             24 (OverflowError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       28 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+ 381            LOAD_GLOBAL              4 (_wm)
+                LOAD_ATTR                7 (_OptionError + NULL|self)
+                LOAD_CONST               5 ('invalid lineno ')
+                LOAD_FAST                7 (lineno)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                LOAD_CONST               3 (None)
+                RAISE_VARARGS            2
+
+ 380   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L6 -> L15 [2]
+  L11 to L12 -> L16 [0]
+  L16 to L18 -> L18 [1] lasti
+
+Disassembly of <code object _getaction at 0x00000204B9F73890, file "_py_warnings.py", line 388>:
+388           RESUME                   0
+
+389           LOAD_FAST_BORROW         0 (action)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+390           LOAD_CONST               0 ('default')
+              RETURN_VALUE
+
+391   L1:     LOAD_CONST               2 (('default', 'always', 'all', 'ignore', 'module', 'once', 'error'))
+              GET_ITER
+      L2:     FOR_ITER                30 (to L4)
+              STORE_FAST               1 (a)
+
+392           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                1 (startswith + NULL|self)
+              LOAD_FAST_BORROW         0 (action)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           28 (to L2)
+
+393   L3:     LOAD_FAST_BORROW         1 (a)
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+391   L4:     END_FOR
+              POP_ITER
+
+394           LOAD_GLOBAL              2 (_wm)
+              LOAD_ATTR                5 (_OptionError + NULL|self)
+              LOAD_CONST               1 ('invalid action: ')
+              LOAD_FAST_BORROW         0 (action)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object _getcategory at 0x00000204BA38BBC0, file "_py_warnings.py", line 398>:
+ 398            RESUME                   0
+
+ 399            LOAD_FAST_BORROW         0 (category)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         7 (to L1)
+                NOT_TAKEN
+
+ 400            LOAD_GLOBAL              0 (Warning)
+                RETURN_VALUE
+
+ 401    L1:     LOAD_CONST               0 ('.')
+                LOAD_FAST_BORROW         0 (category)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        8 (to L2)
+                NOT_TAKEN
+
+ 402            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (builtins)
+                STORE_FAST               1 (m)
+
+ 403            LOAD_FAST                0 (category)
+                STORE_FAST               2 (klass)
+                JUMP_FORWARD            36 (to L4)
+
+ 405    L2:     LOAD_FAST_BORROW         0 (category)
+                LOAD_ATTR                5 (rpartition + NULL|self)
+                LOAD_CONST               0 ('.')
+                CALL                     1
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   52 (module, _)
+                STORE_FAST               2 (klass)
+
+ 406            NOP
+
+ 407    L3:     LOAD_GLOBAL              7 (__import__ + NULL)
+                LOAD_FAST_BORROW         3 (module)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         2 (klass)
+                BUILD_LIST               1
+                CALL                     4
+                STORE_FAST               1 (m)
+
+ 410    L4:     NOP
+
+ 411    L5:     LOAD_GLOBAL             15 (getattr + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (m, klass)
+                CALL                     2
+                STORE_FAST               5 (cat)
+
+ 414    L6:     LOAD_GLOBAL             19 (issubclass + NULL)
+                LOAD_FAST                5 (cat)
+                LOAD_GLOBAL              0 (Warning)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        26 (to L7)
+                NOT_TAKEN
+
+ 415            LOAD_GLOBAL             10 (_wm)
+                LOAD_ATTR               13 (_OptionError + NULL|self)
+                LOAD_CONST               4 ('invalid warning category: ')
+                LOAD_FAST                0 (category)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 416    L7:     LOAD_FAST                5 (cat)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 408            LOAD_GLOBAL              8 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       28 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 409            LOAD_GLOBAL             10 (_wm)
+                LOAD_ATTR               13 (_OptionError + NULL|self)
+                LOAD_CONST               2 ('invalid module name: ')
+                LOAD_FAST                3 (module)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                LOAD_CONST               1 (None)
+                RAISE_VARARGS            2
+
+ 408    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+ 412            LOAD_GLOBAL             16 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       28 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 413            LOAD_GLOBAL             10 (_wm)
+                LOAD_ATTR               13 (_OptionError + NULL|self)
+                LOAD_CONST               3 ('unknown warning category: ')
+                LOAD_FAST                0 (category)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                LOAD_CONST               1 (None)
+                RAISE_VARARGS            2
+
+ 412   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L8 [0]
+  L5 to L6 -> L11 [0]
+  L8 to L10 -> L10 [1] lasti
+  L11 to L13 -> L13 [1] lasti
+
+Disassembly of <code object _is_internal_filename at 0x00000204BA08A530, file "_py_warnings.py", line 419>:
+419           RESUME                   0
+
+420           LOAD_CONST               0 ('importlib')
+              LOAD_FAST_BORROW         0 (filename)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 ('_bootstrap')
+              LOAD_FAST_BORROW         0 (filename)
+              CONTAINS_OP              0 (in)
+      L1:     RETURN_VALUE
+
+Disassembly of <code object _is_filename_to_skip at 0x00000204BA0BBB40, file "_py_warnings.py", line 423>:
+  --           MAKE_CELL                0 (filename)
+
+ 423           RESUME                   0
+
+ 424           LOAD_GLOBAL              0 (any)
+               COPY                     1
+               LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       31 (to L4)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         0 (filename)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object <genexpr> at 0x00000204BA0A6AF0, file "_py_warnings.py", line 424>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_FAST_BORROW         1 (skip_file_prefixes)
+               GET_ITER
+               CALL                     0
+       L1:     FOR_ITER                12 (to L3)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+               JUMP_BACKWARD           11 (to L1)
+       L2:     POP_ITER
+               LOAD_CONST               1 (True)
+               RETURN_VALUE
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (False)
+               RETURN_VALUE
+       L4:     PUSH_NULL
+               LOAD_FAST_BORROW         0 (filename)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object <genexpr> at 0x00000204BA0A6AF0, file "_py_warnings.py", line 424>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_FAST_BORROW         1 (skip_file_prefixes)
+               GET_ITER
+               CALL                     0
+               CALL                     1
+               RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A6AF0, file "_py_warnings.py", line 424>:
+  --           COPY_FREE_VARS           1
+
+ 424           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                22 (to L3)
+               STORE_FAST               1 (prefix)
+               LOAD_DEREF               2 (filename)
+               LOAD_ATTR                1 (startswith + NULL|self)
+               LOAD_FAST_BORROW         1 (prefix)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           24 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object _is_internal_frame at 0x00000204BA0FF550, file "_py_warnings.py", line 427>:
+427           RESUME                   0
+
+429           LOAD_GLOBAL              1 (_is_internal_filename + NULL)
+              LOAD_FAST_BORROW         0 (frame)
+              LOAD_ATTR                2 (f_code)
+              LOAD_ATTR                4 (co_filename)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _next_external_frame at 0x00000204BA129480, file "_py_warnings.py", line 432>:
+432           RESUME                   0
+
+434           LOAD_FAST_BORROW         0 (frame)
+              LOAD_ATTR                0 (f_back)
+              STORE_FAST               0 (frame)
+
+435   L1:     LOAD_FAST_BORROW         0 (frame)
+              POP_JUMP_IF_NONE        71 (to L3)
+              NOT_TAKEN
+
+436           LOAD_GLOBAL              3 (_is_internal_filename + NULL)
+              LOAD_FAST_BORROW         0 (frame)
+              LOAD_ATTR                4 (f_code)
+              LOAD_ATTR                6 (co_filename)
+              COPY                     1
+              STORE_FAST               2 (filename)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        18 (to L2)
+              NOT_TAKEN
+
+437           LOAD_GLOBAL              9 (_is_filename_to_skip + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (filename, skip_file_prefixes)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       15 (to L3)
+              NOT_TAKEN
+
+438   L2:     LOAD_FAST_BORROW         0 (frame)
+              LOAD_ATTR                0 (f_back)
+              STORE_FAST               0 (frame)
+              JUMP_BACKWARD           74 (to L1)
+
+439   L3:     LOAD_FAST_BORROW         0 (frame)
+              RETURN_VALUE
+
+Disassembly of <code object warn at 0x00000204BA381490, file "_py_warnings.py", line 443>:
+ 443            RESUME                   0
+
+ 447            LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         0 (message)
+                LOAD_GLOBAL              2 (Warning)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L1)
+                NOT_TAKEN
+
+ 448            LOAD_FAST_BORROW         0 (message)
+                LOAD_ATTR                4 (__class__)
+                STORE_FAST               1 (category)
+
+ 450    L1:     LOAD_FAST_BORROW         1 (category)
+                POP_JUMP_IF_NOT_NONE     7 (to L2)
+                NOT_TAKEN
+
+ 451            LOAD_GLOBAL              6 (UserWarning)
+                STORE_FAST               1 (category)
+
+ 452    L2:     LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (category)
+                LOAD_GLOBAL              8 (type)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       23 (to L3)
+                NOT_TAKEN
+                LOAD_GLOBAL             11 (issubclass + NULL)
+                LOAD_FAST_BORROW         1 (category)
+                LOAD_GLOBAL              2 (Warning)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        46 (to L4)
+                NOT_TAKEN
+
+ 453    L3:     LOAD_GLOBAL             13 (TypeError + NULL)
+                LOAD_CONST               2 ("category must be a Warning subclass, not '{:s}'")
+
+ 454            LOAD_ATTR               15 (format + NULL|self)
+                LOAD_GLOBAL              9 (type + NULL)
+                LOAD_FAST_BORROW         1 (category)
+                CALL                     1
+                LOAD_ATTR               16 (__name__)
+                CALL                     1
+
+ 453            CALL                     1
+                RAISE_VARARGS            1
+
+ 455    L4:     LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         4 (skip_file_prefixes)
+                LOAD_GLOBAL             18 (tuple)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L5)
+                NOT_TAKEN
+
+ 457            LOAD_GLOBAL             13 (TypeError + NULL)
+                LOAD_CONST               3 ('skip_file_prefixes must be a tuple of strs.')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 458    L5:     LOAD_FAST_BORROW         4 (skip_file_prefixes)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L6)
+                NOT_TAKEN
+
+ 459            LOAD_GLOBAL             21 (max + NULL)
+                LOAD_SMALL_INT           2
+                LOAD_FAST_BORROW         2 (stacklevel)
+                CALL                     2
+                STORE_FAST               2 (stacklevel)
+
+ 461    L6:     NOP
+
+ 462    L7:     LOAD_FAST_BORROW         2 (stacklevel)
+                LOAD_SMALL_INT           1
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_TRUE        38 (to L8)
+                NOT_TAKEN
+                LOAD_GLOBAL             23 (_is_internal_frame + NULL)
+                LOAD_GLOBAL             24 (sys)
+                LOAD_ATTR               26 (_getframe)
+                PUSH_NULL
+                LOAD_SMALL_INT           1
+                CALL                     1
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       24 (to L9)
+                NOT_TAKEN
+
+ 465    L8:     LOAD_GLOBAL             24 (sys)
+                LOAD_ATTR               26 (_getframe)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (stacklevel)
+                CALL                     1
+                STORE_FAST               5 (frame)
+                JUMP_FORWARD            68 (to L14)
+
+ 467    L9:     LOAD_GLOBAL             24 (sys)
+                LOAD_ATTR               26 (_getframe)
+                PUSH_NULL
+                LOAD_SMALL_INT           1
+                CALL                     1
+                STORE_FAST               5 (frame)
+
+ 469            LOAD_GLOBAL             29 (range + NULL)
+                LOAD_FAST_BORROW         2 (stacklevel)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                CALL                     1
+                GET_ITER
+       L10:     FOR_ITER                24 (to L13)
+                STORE_FAST               6 (x)
+
+ 470            LOAD_GLOBAL             31 (_next_external_frame + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (frame, skip_file_prefixes)
+                CALL                     2
+                STORE_FAST               5 (frame)
+
+ 471            LOAD_FAST_BORROW         5 (frame)
+       L11:     POP_JUMP_IF_NONE         3 (to L12)
+                NOT_TAKEN
+                JUMP_BACKWARD           20 (to L10)
+
+ 472   L12:     LOAD_GLOBAL             32 (ValueError)
+                RAISE_VARARGS            1
+
+ 469   L13:     END_FOR
+                POP_ITER
+
+ 478   L14:     LOAD_FAST_BORROW         5 (frame)
+                LOAD_ATTR               34 (f_globals)
+                STORE_FAST               7 (globals)
+
+ 479            LOAD_FAST_BORROW         5 (frame)
+                LOAD_ATTR               36 (f_code)
+                LOAD_ATTR               38 (co_filename)
+                STORE_FAST               8 (filename)
+
+ 480            LOAD_FAST_BORROW         5 (frame)
+                LOAD_ATTR               40 (f_lineno)
+                STORE_FAST               9 (lineno)
+
+ 481   L15:     LOAD_CONST               5 ('__name__')
+                LOAD_FAST_BORROW         7 (globals)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       11 (to L16)
+                NOT_TAKEN
+
+ 482            LOAD_FAST_BORROW         7 (globals)
+                LOAD_CONST               5 ('__name__')
+                BINARY_OP               26 ([])
+                STORE_FAST              10 (module)
+                JUMP_FORWARD             2 (to L17)
+
+ 484   L16:     LOAD_CONST               6 ('<string>')
+                STORE_FAST              10 (module)
+
+ 485   L17:     LOAD_FAST_BORROW         7 (globals)
+                LOAD_ATTR               45 (setdefault + NULL|self)
+                LOAD_CONST               7 ('__warningregistry__')
+                BUILD_MAP                0
+                CALL                     2
+                STORE_FAST              11 (registry)
+
+ 486            LOAD_GLOBAL             46 (_wm)
+                LOAD_ATTR               49 (warn_explicit + NULL|self)
+
+ 487            LOAD_FAST_BORROW         0 (message)
+
+ 488            LOAD_FAST_BORROW         1 (category)
+
+ 489            LOAD_FAST_BORROW         8 (filename)
+
+ 490            LOAD_FAST_BORROW         9 (lineno)
+
+ 491            LOAD_FAST_BORROW        10 (module)
+
+ 492            LOAD_FAST_BORROW        11 (registry)
+
+ 493            LOAD_FAST_BORROW         7 (globals)
+
+ 494            LOAD_FAST_BORROW         3 (source)
+
+ 486            LOAD_CONST               8 (('source',))
+                CALL_KW                  8
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L18:     PUSH_EXC_INFO
+
+ 473            LOAD_GLOBAL             32 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       24 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+ 474            LOAD_GLOBAL             24 (sys)
+                LOAD_ATTR               42 (__dict__)
+                STORE_FAST               7 (globals)
+
+ 475            LOAD_CONST               4 ('<sys>')
+                STORE_FAST               8 (filename)
+
+ 476            LOAD_SMALL_INT           0
+                STORE_FAST               9 (lineno)
+       L19:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 101 (to L15)
+
+ 473   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L7 to L11 -> L18 [0]
+  L12 to L14 -> L18 [0]
+  L18 to L19 -> L21 [1] lasti
+  L20 to L21 -> L21 [1] lasti
+
+Disassembly of <code object warn_explicit at 0x00000204BA395BF0, file "_py_warnings.py", line 498>:
+ 498            RESUME                   0
+
+ 501            LOAD_GLOBAL              1 (int + NULL)
+                LOAD_FAST_BORROW         3 (lineno)
+                CALL                     1
+                STORE_FAST               3 (lineno)
+
+ 502            LOAD_FAST_BORROW         4 (module)
+                POP_JUMP_IF_NOT_NONE    42 (to L2)
+                NOT_TAKEN
+
+ 503            LOAD_FAST                2 (filename)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L1)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST               1 ('<unknown>')
+        L1:     STORE_FAST               4 (module)
+
+ 504            LOAD_FAST_BORROW         4 (module)
+                LOAD_CONST              12 (-3)
+                LOAD_CONST               0 (None)
+                BINARY_SLICE
+                LOAD_ATTR                3 (lower + NULL|self)
+                CALL                     0
+                LOAD_CONST               2 ('.py')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L2)
+                NOT_TAKEN
+
+ 505            LOAD_FAST_BORROW         4 (module)
+                LOAD_CONST               0 (None)
+                LOAD_CONST              12 (-3)
+                BINARY_SLICE
+                STORE_FAST               4 (module)
+
+ 506    L2:     LOAD_GLOBAL              5 (isinstance + NULL)
+                LOAD_FAST_BORROW         0 (message)
+                LOAD_GLOBAL              6 (Warning)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       25 (to L3)
+                NOT_TAKEN
+
+ 507            LOAD_GLOBAL              9 (str + NULL)
+                LOAD_FAST_BORROW         0 (message)
+                CALL                     1
+                STORE_FAST               8 (text)
+
+ 508            LOAD_FAST_BORROW         0 (message)
+                LOAD_ATTR               10 (__class__)
+                STORE_FAST               1 (category)
+                JUMP_FORWARD            10 (to L4)
+
+ 510    L3:     LOAD_FAST                0 (message)
+                STORE_FAST               8 (text)
+
+ 511            LOAD_FAST_BORROW         1 (category)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (message)
+                CALL                     1
+                STORE_FAST               0 (message)
+
+ 512    L4:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 129 (text, category)
+                LOAD_FAST_BORROW         3 (lineno)
+                BUILD_TUPLE              3
+                STORE_FAST               9 (key)
+
+ 513            LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               14 (_lock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L5:     POP_TOP
+
+ 514            LOAD_FAST_BORROW         5 (registry)
+                POP_JUMP_IF_NOT_NONE     3 (to L6)
+                NOT_TAKEN
+
+ 515            BUILD_MAP                0
+                STORE_FAST               5 (registry)
+
+ 516    L6:     LOAD_FAST_BORROW         5 (registry)
+                LOAD_ATTR               17 (get + NULL|self)
+                LOAD_CONST               3 ('version')
+                LOAD_SMALL_INT           0
+                CALL                     2
+                LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               18 (_filters_version)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       36 (to L7)
+                NOT_TAKEN
+
+ 517            LOAD_FAST_BORROW         5 (registry)
+                LOAD_ATTR               21 (clear + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 518            LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               18 (_filters_version)
+                LOAD_FAST_BORROW         5 (registry)
+                LOAD_CONST               3 ('version')
+                STORE_SUBSCR
+
+ 520    L7:     LOAD_FAST_BORROW         5 (registry)
+                LOAD_ATTR               17 (get + NULL|self)
+                LOAD_FAST_BORROW         9 (key)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L11)
+        L8:     NOT_TAKEN
+
+ 521    L9:     NOP
+
+ 513   L10:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 523   L11:     LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               23 (_get_filters + NULL|self)
+                CALL                     0
+                GET_ITER
+       L12:     FOR_ITER               101 (to L21)
+                STORE_FAST              10 (item)
+
+ 524            LOAD_FAST_BORROW        10 (item)
+                UNPACK_SEQUENCE          5
+                STORE_FAST_STORE_FAST  188 (action, msg)
+                STORE_FAST_STORE_FAST  222 (cat, mod)
+                STORE_FAST              15 (ln)
+
+ 525            LOAD_FAST_BORROW        12 (msg)
+                POP_JUMP_IF_NONE        26 (to L14)
+                NOT_TAKEN
+                LOAD_FAST_BORROW        12 (msg)
+                LOAD_ATTR               25 (match + NULL|self)
+                LOAD_FAST_BORROW         8 (text)
+                CALL                     1
+                TO_BOOL
+       L13:     POP_JUMP_IF_TRUE         3 (to L14)
+                NOT_TAKEN
+                JUMP_BACKWARD           38 (to L12)
+
+ 526   L14:     LOAD_GLOBAL             27 (issubclass + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 29 (category, cat)
+                CALL                     2
+                TO_BOOL
+       L15:     POP_JUMP_IF_TRUE         3 (to L16)
+                NOT_TAKEN
+                JUMP_BACKWARD           57 (to L12)
+
+ 527   L16:     LOAD_FAST_BORROW        14 (mod)
+                POP_JUMP_IF_NONE        26 (to L18)
+                NOT_TAKEN
+                LOAD_FAST_BORROW        14 (mod)
+                LOAD_ATTR               25 (match + NULL|self)
+                LOAD_FAST_BORROW         4 (module)
+                CALL                     1
+                TO_BOOL
+       L17:     POP_JUMP_IF_TRUE         3 (to L18)
+                NOT_TAKEN
+                JUMP_BACKWARD           86 (to L12)
+
+ 528   L18:     LOAD_FAST_BORROW        15 (ln)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         9 (to L20)
+                NOT_TAKEN
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 63 (lineno, ln)
+                COMPARE_OP              88 (bool(==))
+       L19:     POP_JUMP_IF_TRUE         3 (to L20)
+                NOT_TAKEN
+                JUMP_BACKWARD          101 (to L12)
+
+ 529   L20:     POP_TOP
+                JUMP_FORWARD            18 (to L22)
+
+ 523   L21:     END_FOR
+                POP_ITER
+
+ 531            LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               28 (defaultaction)
+                STORE_FAST              11 (action)
+
+ 533   L22:     LOAD_FAST_BORROW        11 (action)
+                LOAD_CONST               4 ('ignore')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       12 (to L24)
+                NOT_TAKEN
+
+ 534            NOP
+
+ 513   L23:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 536   L24:     LOAD_FAST_BORROW        11 (action)
+                LOAD_CONST               5 ('error')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L25)
+                NOT_TAKEN
+
+ 537            LOAD_FAST_BORROW         0 (message)
+                RAISE_VARARGS            1
+
+ 539   L25:     LOAD_FAST_BORROW        11 (action)
+                LOAD_CONST               6 ('once')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       76 (to L28)
+                NOT_TAKEN
+
+ 540            LOAD_SMALL_INT           1
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 89 (registry, key)
+                STORE_SUBSCR
+
+ 541            LOAD_FAST_BORROW_LOAD_FAST_BORROW 129 (text, category)
+                BUILD_TUPLE              2
+                STORE_FAST              16 (oncekey)
+
+ 542            LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               30 (onceregistry)
+                LOAD_ATTR               17 (get + NULL|self)
+                LOAD_FAST_BORROW        16 (oncekey)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L27)
+                NOT_TAKEN
+
+ 543            NOP
+
+ 513   L26:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 544   L27:     LOAD_SMALL_INT           1
+                LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               30 (onceregistry)
+                LOAD_FAST_BORROW        16 (oncekey)
+                STORE_SUBSCR
+                JUMP_FORWARD            94 (to L34)
+
+ 545   L28:     LOAD_FAST_BORROW        11 (action)
+                LOAD_CONST              13 (frozenset({'all', 'always'}))
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE        2 (to L29)
+                NOT_TAKEN
+
+ 546            JUMP_FORWARD            86 (to L34)
+
+ 547   L29:     LOAD_FAST_BORROW        11 (action)
+                LOAD_CONST               7 ('module')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       49 (to L32)
+                NOT_TAKEN
+
+ 548            LOAD_SMALL_INT           1
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 89 (registry, key)
+                STORE_SUBSCR
+
+ 549            LOAD_FAST_BORROW_LOAD_FAST_BORROW 129 (text, category)
+                LOAD_SMALL_INT           0
+                BUILD_TUPLE              3
+                STORE_FAST              17 (altkey)
+
+ 550            LOAD_FAST_BORROW         5 (registry)
+                LOAD_ATTR               17 (get + NULL|self)
+                LOAD_FAST_BORROW        17 (altkey)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L31)
+                NOT_TAKEN
+
+ 551            NOP
+
+ 513   L30:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 552   L31:     LOAD_SMALL_INT           1
+                LOAD_FAST_BORROW         5 (registry)
+                LOAD_FAST_BORROW        17 (altkey)
+                STORE_SUBSCR
+                JUMP_FORWARD            31 (to L34)
+
+ 553   L32:     LOAD_FAST_BORROW        11 (action)
+                LOAD_CONST               8 ('default')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L33)
+                NOT_TAKEN
+
+ 554            LOAD_SMALL_INT           1
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 89 (registry, key)
+                STORE_SUBSCR
+                JUMP_FORWARD            19 (to L34)
+
+ 557   L33:     LOAD_GLOBAL             33 (RuntimeError + NULL)
+                LOAD_CONST               9 ('Unrecognized action (')
+
+ 559            LOAD_FAST_BORROW        11 (action)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (') in warnings.filters:\n ')
+                LOAD_FAST_CHECK         10 (item)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+
+ 558            BUILD_STRING             4
+
+ 557            CALL                     1
+                RAISE_VARARGS            1
+
+ 513   L34:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+
+ 563   L35:     LOAD_SMALL_INT           0
+                LOAD_CONST               0 (None)
+                IMPORT_NAME             17 (linecache)
+                STORE_FAST              18 (linecache)
+
+ 564            LOAD_FAST_BORROW        18 (linecache)
+                LOAD_ATTR               37 (getlines + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 38 (filename, module_globals)
+                CALL                     2
+                POP_TOP
+
+ 567            LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               39 (WarningMessage + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (message, category)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (filename, lineno)
+                LOAD_FAST_BORROW         7 (source)
+                LOAD_CONST              11 (('source',))
+                CALL_KW                  5
+                STORE_FAST              12 (msg)
+
+ 568            LOAD_GLOBAL             12 (_wm)
+                LOAD_ATTR               41 (_showwarnmsg + NULL|self)
+                LOAD_FAST_BORROW        12 (msg)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 513   L36:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L37)
+                NOT_TAKEN
+                RERAISE                  2
+       L37:     POP_TOP
+       L38:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 84 (to L35)
+
+  --   L39:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L8 -> L36 [2] lasti
+  L9 to L10 -> L36 [2] lasti
+  L11 to L13 -> L36 [2] lasti
+  L14 to L15 -> L36 [2] lasti
+  L16 to L17 -> L36 [2] lasti
+  L18 to L19 -> L36 [2] lasti
+  L20 to L23 -> L36 [2] lasti
+  L24 to L26 -> L36 [2] lasti
+  L27 to L30 -> L36 [2] lasti
+  L31 to L34 -> L36 [2] lasti
+  L36 to L38 -> L39 [4] lasti
+
+Disassembly of <code object WarningMessage at 0x00000204BA0FFCC0, file "_py_warnings.py", line 571>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 571           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('WarningMessage')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (571)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 573           LOAD_CONST               6 (('message', 'category', 'filename', 'lineno', 'file', 'line', 'source'))
+               STORE_NAME               4 (_WARNING_DETAILS)
+
+ 576           LOAD_CONST               7 ((None, None, None))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA6A41A0, file "_py_warnings.py", line 576>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+ 587           LOAD_CONST               4 (<code object __str__ at 0x00000204BA6A4310, file "_py_warnings.py", line 587>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__str__)
+               LOAD_CONST               5 (('_category_name', 'category', 'file', 'filename', 'line', 'lineno', 'message', 'source'))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA6A41A0, file "_py_warnings.py", line 576>:
+576           RESUME                   0
+
+578           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (message, self)
+              STORE_ATTR               0 (message)
+
+579           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (category, self)
+              STORE_ATTR               1 (category)
+
+580           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (filename, self)
+              STORE_ATTR               2 (filename)
+
+581           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (lineno, self)
+              STORE_ATTR               3 (lineno)
+
+582           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (file, self)
+              STORE_ATTR               4 (file)
+
+583           LOAD_FAST_BORROW_LOAD_FAST_BORROW 96 (line, self)
+              STORE_ATTR               5 (line)
+
+584           LOAD_FAST_BORROW_LOAD_FAST_BORROW 112 (source, self)
+              STORE_ATTR               6 (source)
+
+585           LOAD_FAST_BORROW         2 (category)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (category)
+              LOAD_ATTR               14 (__name__)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_category_name)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+      L1:     LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_category_name)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204BA6A4310, file "_py_warnings.py", line 587>:
+587           RESUME                   0
+              LOAD_CONST               0 ('{message : ')
+
+589           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (message)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (', category : ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_category_name)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (', filename : ')
+
+590           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (filename)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (', lineno : ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (lineno)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (', line : ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (line)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 ('}')
+
+588           BUILD_STRING            11
+              RETURN_VALUE
+
+Disassembly of <code object catch_warnings at 0x00000204BA103A60, file "_py_warnings.py", line 593>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 593           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('catch_warnings')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (593)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 595           LOAD_CONST               2 ("A context manager that copies and restores the warnings filter upon\nexiting the context.\n\nThe 'record' argument specifies whether warnings should be captured by a\ncustom implementation of warnings.showwarning() and be appended to a list\nreturned by the context manager. Otherwise None is returned by the context\nmanager. The objects appended to the list are arguments whose attributes\nmirror the arguments to showwarning().\n\nThe 'module' argument is to specify an alternative module to the module\nnamed 'warnings' and imported under that name. This argument is only useful\nwhen testing the warnings module itself.\n\nIf the 'action' argument is not None, the remaining arguments are passed\nto warnings.simplefilter() as if it were called immediately on entering the\ncontext.\n")
+               STORE_NAME               4 (__doc__)
+
+ 613           LOAD_CONST               3 ('record')
+               LOAD_CONST               4 (False)
+               LOAD_CONST               5 ('module')
+               LOAD_CONST               6 (None)
+               LOAD_CONST               7 ('action')
+
+ 614           LOAD_CONST               6 (None)
+
+ 613           LOAD_CONST               8 ('category')
+
+ 614           LOAD_NAME                5 (Warning)
+
+ 613           LOAD_CONST               9 ('lineno')
+
+ 614           LOAD_SMALL_INT           0
+
+ 613           LOAD_CONST              10 ('append')
+
+ 614           LOAD_CONST               4 (False)
+
+ 613           BUILD_MAP                6
+               LOAD_CONST              11 (<code object __init__ at 0x00000204B9F72550, file "_py_warnings.py", line 613>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               6 (__init__)
+
+ 627           LOAD_CONST              12 (<code object __repr__ at 0x00000204BA46E460, file "_py_warnings.py", line 627>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__repr__)
+
+ 636           LOAD_CONST              13 (<code object __enter__ at 0x00000204BA37E5F0, file "_py_warnings.py", line 636>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__enter__)
+
+ 665           LOAD_CONST              14 (<code object __exit__ at 0x00000204BA4688C0, file "_py_warnings.py", line 665>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__exit__)
+               LOAD_CONST              15 (('_entered', '_filter', '_filters', '_module', '_record', '_saved_context', '_showwarning', '_showwarnmsg_impl'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F72550, file "_py_warnings.py", line 613>:
+613           RESUME                   0
+
+619           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (record, self)
+              STORE_ATTR               0 (_record)
+
+620           LOAD_FAST_BORROW         2 (module)
+              POP_JUMP_IF_NOT_NONE    24 (to L1)
+              NOT_TAKEN
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (modules)
+              LOAD_CONST               2 ('warnings')
+              BINARY_OP               26 ([])
+              JUMP_FORWARD             1 (to L2)
+      L1:     LOAD_FAST                2 (module)
+      L2:     LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_module)
+
+621           LOAD_CONST               3 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_entered)
+
+622           LOAD_FAST_BORROW         3 (action)
+              POP_JUMP_IF_NOT_NONE    10 (to L3)
+              NOT_TAKEN
+
+623           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_filter)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+625   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (action, category)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (lineno, append)
+              BUILD_TUPLE              4
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_filter)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA46E460, file "_py_warnings.py", line 627>:
+627           RESUME                   0
+
+628           BUILD_LIST               0
+              STORE_FAST               1 (args)
+
+629           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_record)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L1)
+              NOT_TAKEN
+
+630           LOAD_FAST_BORROW         1 (args)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_CONST               0 ('record=True')
+              CALL                     1
+              POP_TOP
+
+631   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_module)
+              LOAD_GLOBAL              6 (sys)
+              LOAD_ATTR                8 (modules)
+              LOAD_CONST               1 ('warnings')
+              BINARY_OP               26 ([])
+              IS_OP                    1 (is not)
+              POP_JUMP_IF_FALSE       35 (to L2)
+              NOT_TAKEN
+
+632           LOAD_FAST_BORROW         1 (args)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_CONST               2 ('module=%r')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_module)
+              BINARY_OP                6 (%)
+              CALL                     1
+              POP_TOP
+
+633   L2:     LOAD_GLOBAL             11 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR               12 (__name__)
+              STORE_FAST               2 (name)
+
+634           LOAD_FAST_BORROW         2 (name)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 ('(')
+              LOAD_CONST               4 (', ')
+              LOAD_ATTR               15 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (args)
+              CALL                     1
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (')')
+              BUILD_STRING             4
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204BA37E5F0, file "_py_warnings.py", line 636>:
+ 636            RESUME                   0
+
+ 637            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_entered)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L1)
+                NOT_TAKEN
+
+ 638            LOAD_GLOBAL              3 (RuntimeError + NULL)
+                LOAD_CONST               0 ('Cannot enter %r twice')
+                LOAD_FAST_BORROW         0 (self)
+                BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 639    L1:     LOAD_CONST               1 (True)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (_entered)
+
+ 640            LOAD_GLOBAL              4 (_wm)
+                LOAD_ATTR                6 (_lock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L2:     POP_TOP
+
+ 641            LOAD_GLOBAL              8 (_use_context)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       36 (to L3)
+                NOT_TAKEN
+
+ 642            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                LOAD_ATTR               13 (_new_context + NULL|self)
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               7 (_saved_context)
+                STORE_FAST               1 (context)
+                JUMP_FORWARD           117 (to L4)
+
+ 644    L3:     LOAD_CONST               2 (None)
+                STORE_FAST               1 (context)
+
+ 645            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                LOAD_ATTR               16 (filters)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               9 (_filters)
+
+ 646            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               18 (_filters)
+                LOAD_CONST               3 (slice(None, None, None))
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                STORE_ATTR               8 (filters)
+
+ 647            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                LOAD_ATTR               20 (showwarning)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              11 (_showwarning)
+
+ 648            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                LOAD_ATTR               24 (_showwarnmsg_impl)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              12 (_showwarnmsg_impl)
+
+ 649    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                LOAD_ATTR               27 (_filters_mutated_lock_held + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 650            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               28 (_record)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       90 (to L10)
+        L5:     NOT_TAKEN
+
+ 651    L6:     LOAD_GLOBAL              8 (_use_context)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       11 (to L9)
+        L7:     NOT_TAKEN
+
+ 652    L8:     BUILD_LIST               0
+                COPY                     1
+                LOAD_FAST_BORROW         1 (context)
+                STORE_ATTR              15 (log)
+                STORE_FAST               2 (log)
+                JUMP_FORWARD            69 (to L11)
+
+ 654    L9:     BUILD_LIST               0
+                STORE_FAST               2 (log)
+
+ 655            LOAD_FAST_BORROW         2 (log)
+                LOAD_ATTR               32 (append)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                STORE_ATTR              12 (_showwarnmsg_impl)
+
+ 658            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                LOAD_ATTR               34 (_showwarning_orig)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                STORE_ATTR              10 (showwarning)
+                JUMP_FORWARD             2 (to L11)
+
+ 660   L10:     LOAD_CONST               2 (None)
+                STORE_FAST               2 (log)
+
+ 640   L11:     LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                CALL                     3
+                POP_TOP
+
+ 661   L12:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               36 (_filter)
+                POP_JUMP_IF_NONE        37 (to L13)
+                NOT_TAKEN
+
+ 662            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_module)
+                LOAD_ATTR               38 (simplefilter)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               36 (_filter)
+                PUSH_NULL
+                CALL_FUNCTION_EX
+                POP_TOP
+
+ 663   L13:     LOAD_FAST_CHECK          2 (log)
+                RETURN_VALUE
+
+ 640   L14:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L15)
+                NOT_TAKEN
+                RERAISE                  2
+       L15:     POP_TOP
+       L16:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 68 (to L12)
+
+  --   L17:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L5 -> L14 [2] lasti
+  L6 to L7 -> L14 [2] lasti
+  L8 to L11 -> L14 [2] lasti
+  L14 to L16 -> L17 [4] lasti
+
+Disassembly of <code object __exit__ at 0x00000204BA4688C0, file "_py_warnings.py", line 665>:
+ 665           RESUME                   0
+
+ 666           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_entered)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        19 (to L1)
+               NOT_TAKEN
+
+ 667           LOAD_GLOBAL              3 (RuntimeError + NULL)
+               LOAD_CONST               0 ('Cannot exit %r without entering first')
+               LOAD_FAST_BORROW         0 (self)
+               BINARY_OP                6 (%)
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 668   L1:     LOAD_GLOBAL              4 (_wm)
+               LOAD_ATTR                6 (_lock)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L2:     POP_TOP
+
+ 669           LOAD_GLOBAL              8 (_use_context)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       49 (to L3)
+               NOT_TAKEN
+
+ 670           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_module)
+               LOAD_ATTR               12 (_warnings_context)
+               LOAD_ATTR               15 (set + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               16 (_saved_context)
+               CALL                     1
+               POP_TOP
+               JUMP_FORWARD            81 (to L4)
+
+ 672   L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (_filters)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_module)
+               STORE_ATTR              10 (filters)
+
+ 673           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               22 (_showwarning)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_module)
+               STORE_ATTR              12 (showwarning)
+
+ 674           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               26 (_showwarnmsg_impl)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_module)
+               STORE_ATTR              13 (_showwarnmsg_impl)
+
+ 675   L4:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_module)
+               LOAD_ATTR               29 (_filters_mutated_lock_held + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 668   L5:     LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+       L6:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L7)
+               NOT_TAKEN
+               RERAISE                  2
+       L7:     POP_TOP
+       L8:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L5 -> L6 [2] lasti
+  L6 to L8 -> L9 [4] lasti
+
+Disassembly of <code object deprecated at 0x00000204BA0A7990, file "_py_warnings.py", line 678>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 678           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('deprecated')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (678)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 679           LOAD_CONST               2 ('Indicate that a class, function or overload is deprecated.\n\nWhen this decorator is applied to an object, the type checker\nwill generate a diagnostic on usage of the deprecated object.\n\nUsage:\n\n    @deprecated("Use B instead")\n    class A:\n        pass\n\n    @deprecated("Use g instead")\n    def f():\n        pass\n\n    @overload\n    @deprecated("int support is deprecated")\n    def g(x: int) -> int: ...\n    @overload\n    def g(x: str) -> int: ...\n\nThe warning specified by *category* will be emitted at runtime\non use of deprecated objects. For functions, that happens on calls;\nfor classes, on instantiation and on creation of subclasses.\nIf the *category* is ``None``, no warning is emitted at runtime.\nThe *stacklevel* determines where the\nwarning is emitted. If it is ``1`` (the default), the warning\nis emitted at the direct caller of the deprecated object; if it\nis higher, it is emitted further up the stack.\nStatic type checker behavior is not affected by the *category*\nand *stacklevel* arguments.\n\nThe deprecation message passed to the decorator is saved in the\n``__deprecated__`` attribute on the decorated object.\nIf applied to an overload, the decorator\nmust be after the ``@overload`` decorator for the attribute to\nexist on the overload as returned by ``get_overloads()``.\n\nSee PEP 702 for details.\n\n')
+               STORE_NAME               4 (__doc__)
+
+ 720           LOAD_CONST               3 ('category')
+
+ 725           LOAD_NAME                5 (DeprecationWarning)
+
+ 720           LOAD_CONST               4 ('stacklevel')
+
+ 726           LOAD_SMALL_INT           1
+
+ 720           BUILD_MAP                2
+               LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object __annotate__ at 0x00000204BA0A72D0, file "_py_warnings.py", line 720>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST               6 (<code object __init__ at 0x00000204BA6A4480, file "_py_warnings.py", line 720>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               6 (__init__)
+
+ 736           LOAD_CONST               7 (<code object __call__ at 0x00000204BA595030, file "_py_warnings.py", line 736>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__call__)
+               LOAD_CONST               8 (('category', 'message', 'stacklevel'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               9 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0A72D0, file "_py_warnings.py", line 720>:
+  --           COPY_FREE_VARS           1
+
+ 720           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('message')
+
+ 722           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+
+ 720           LOAD_CONST               2 ('category')
+
+ 725           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 1 (type)
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 2 (Warning)
+               BINARY_OP               26 ([])
+               LOAD_CONST               3 (None)
+               BINARY_OP                7 (|)
+
+ 720           LOAD_CONST               4 ('stacklevel')
+
+ 726           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 3 (int)
+
+ 720           LOAD_CONST               5 ('return')
+
+ 727           LOAD_CONST               3 (None)
+
+ 720           BUILD_MAP                4
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA6A4480, file "_py_warnings.py", line 720>:
+720           RESUME                   0
+
+728           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (message)
+              LOAD_GLOBAL              2 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        35 (to L1)
+              NOT_TAKEN
+
+729           LOAD_GLOBAL              5 (TypeError + NULL)
+
+730           LOAD_CONST               0 ("Expected an object of type str for 'message', not ")
+              LOAD_GLOBAL              7 (type + NULL)
+              LOAD_FAST_BORROW         1 (message)
+              CALL                     1
+              LOAD_ATTR                8 (__name__)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+
+729           CALL                     1
+              RAISE_VARARGS            1
+
+732   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (message, self)
+              STORE_ATTR               5 (message)
+
+733           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (category, self)
+              STORE_ATTR               6 (category)
+
+734           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (stacklevel, self)
+              STORE_ATTR               7 (stacklevel)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x00000204BA595030, file "_py_warnings.py", line 736>:
+  --           MAKE_CELL                1 (arg)
+               MAKE_CELL                8 (category)
+               MAKE_CELL                9 (msg)
+               MAKE_CELL               10 (original_init_subclass)
+               MAKE_CELL               11 (original_new)
+               MAKE_CELL               12 (stacklevel)
+
+ 736           RESUME                   0
+
+ 739           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (message)
+               STORE_DEREF              9 (msg)
+
+ 740           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (category)
+               STORE_DEREF              8 (category)
+
+ 741           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (stacklevel)
+               STORE_DEREF             12 (stacklevel)
+
+ 742           LOAD_DEREF               8 (category)
+               POP_JUMP_IF_NOT_NONE    10 (to L1)
+               NOT_TAKEN
+
+ 743           LOAD_DEREF               9 (msg)
+               LOAD_DEREF               1 (arg)
+               STORE_ATTR               3 (__deprecated__)
+
+ 744           LOAD_DEREF               1 (arg)
+               RETURN_VALUE
+
+ 745   L1:     LOAD_GLOBAL              9 (isinstance + NULL)
+               LOAD_DEREF               1 (arg)
+               LOAD_GLOBAL             10 (type)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE      216 (to L4)
+               NOT_TAKEN
+
+ 746           LOAD_SMALL_INT           0
+               LOAD_CONST               0 (None)
+               IMPORT_NAME              6 (functools)
+               STORE_FAST               2 (functools)
+
+ 747           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('MethodType',))
+               IMPORT_NAME              7 (types)
+               IMPORT_FROM              8 (MethodType)
+               STORE_FAST               3 (MethodType)
+               POP_TOP
+
+ 749           LOAD_DEREF               1 (arg)
+               LOAD_ATTR               18 (__new__)
+               STORE_DEREF             11 (original_new)
+
+ 751           LOAD_FAST_BORROW         2 (functools)
+               LOAD_ATTR               21 (wraps + NULL|self)
+               LOAD_DEREF              11 (original_new)
+               CALL                     1
+
+ 752           LOAD_FAST_BORROW         1 (arg)
+               LOAD_FAST_BORROW         8 (category)
+               LOAD_FAST_BORROW         9 (msg)
+               LOAD_FAST_BORROW        11 (original_new)
+               LOAD_FAST_BORROW        12 (stacklevel)
+               BUILD_TUPLE              5
+               LOAD_CONST               2 (<code object __new__ at 0x00000204B9F5BC30, file "_py_warnings.py", line 751>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 751           CALL                     0
+
+ 752           STORE_FAST               4 (__new__)
+
+ 763           LOAD_GLOBAL             23 (staticmethod + NULL)
+               LOAD_FAST_BORROW         4 (__new__)
+               CALL                     1
+               LOAD_DEREF               1 (arg)
+               STORE_ATTR               9 (__new__)
+
+ 765           LOAD_DEREF               1 (arg)
+               LOAD_ATTR               24 (__init_subclass__)
+               STORE_DEREF             10 (original_init_subclass)
+
+ 768           LOAD_GLOBAL              9 (isinstance + NULL)
+               LOAD_DEREF              10 (original_init_subclass)
+               LOAD_FAST_BORROW         3 (MethodType)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       59 (to L2)
+               NOT_TAKEN
+
+ 769           LOAD_DEREF              10 (original_init_subclass)
+               LOAD_ATTR               26 (__func__)
+               STORE_DEREF             10 (original_init_subclass)
+
+ 771           LOAD_FAST_BORROW         2 (functools)
+               LOAD_ATTR               21 (wraps + NULL|self)
+               LOAD_DEREF              10 (original_init_subclass)
+               CALL                     1
+
+ 772           LOAD_FAST_BORROW         8 (category)
+               LOAD_FAST_BORROW         9 (msg)
+               LOAD_FAST_BORROW        10 (original_init_subclass)
+               LOAD_FAST_BORROW        12 (stacklevel)
+               BUILD_TUPLE              4
+               LOAD_CONST               3 (<code object __init_subclass__ at 0x00000204BA103B90, file "_py_warnings.py", line 771>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 771           CALL                     0
+
+ 772           STORE_FAST               5 (__init_subclass__)
+
+ 776           LOAD_GLOBAL             29 (classmethod + NULL)
+               LOAD_FAST_BORROW         5 (__init_subclass__)
+               CALL                     1
+               LOAD_DEREF               1 (arg)
+               STORE_ATTR              12 (__init_subclass__)
+               JUMP_FORWARD            36 (to L3)
+
+ 780   L2:     LOAD_FAST_BORROW         2 (functools)
+               LOAD_ATTR               21 (wraps + NULL|self)
+               LOAD_DEREF              10 (original_init_subclass)
+               CALL                     1
+
+ 781           LOAD_FAST_BORROW         8 (category)
+               LOAD_FAST_BORROW         9 (msg)
+               LOAD_FAST_BORROW        10 (original_init_subclass)
+               LOAD_FAST_BORROW        12 (stacklevel)
+               BUILD_TUPLE              4
+               LOAD_CONST               4 (<code object __init_subclass__ at 0x00000204BA103CC0, file "_py_warnings.py", line 780>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 780           CALL                     0
+
+ 781           STORE_FAST               5 (__init_subclass__)
+
+ 785           LOAD_FAST_BORROW         5 (__init_subclass__)
+               LOAD_DEREF               1 (arg)
+               STORE_ATTR              12 (__init_subclass__)
+
+ 787   L3:     LOAD_DEREF               9 (msg)
+               COPY                     1
+               LOAD_DEREF               1 (arg)
+               STORE_ATTR               3 (__deprecated__)
+               LOAD_FAST_BORROW         4 (__new__)
+               STORE_ATTR               3 (__deprecated__)
+
+ 788           LOAD_DEREF               9 (msg)
+               LOAD_FAST_BORROW         5 (__init_subclass__)
+               STORE_ATTR               3 (__deprecated__)
+
+ 789           LOAD_DEREF               1 (arg)
+               RETURN_VALUE
+
+ 790   L4:     LOAD_GLOBAL             31 (callable + NULL)
+               LOAD_DEREF               1 (arg)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       94 (to L6)
+               NOT_TAKEN
+
+ 791           LOAD_SMALL_INT           0
+               LOAD_CONST               0 (None)
+               IMPORT_NAME              6 (functools)
+               STORE_FAST               2 (functools)
+
+ 792           LOAD_SMALL_INT           0
+               LOAD_CONST               0 (None)
+               IMPORT_NAME             16 (inspect)
+               STORE_FAST               6 (inspect)
+
+ 794           LOAD_FAST_BORROW         2 (functools)
+               LOAD_ATTR               21 (wraps + NULL|self)
+               LOAD_DEREF               1 (arg)
+               CALL                     1
+
+ 795           LOAD_FAST_BORROW         1 (arg)
+               LOAD_FAST_BORROW         8 (category)
+               LOAD_FAST_BORROW         9 (msg)
+               LOAD_FAST_BORROW        12 (stacklevel)
+               BUILD_TUPLE              4
+               LOAD_CONST               5 (<code object wrapper at 0x00000204BA100290, file "_py_warnings.py", line 794>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 794           CALL                     0
+
+ 795           STORE_FAST               7 (wrapper)
+
+ 799           LOAD_FAST_BORROW         6 (inspect)
+               LOAD_ATTR               35 (iscoroutinefunction + NULL|self)
+               LOAD_DEREF               1 (arg)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       18 (to L5)
+               NOT_TAKEN
+
+ 800           LOAD_FAST_BORROW         6 (inspect)
+               LOAD_ATTR               37 (markcoroutinefunction + NULL|self)
+               LOAD_FAST_BORROW         7 (wrapper)
+               CALL                     1
+               STORE_FAST               7 (wrapper)
+
+ 802   L5:     LOAD_DEREF               9 (msg)
+               COPY                     1
+               LOAD_DEREF               1 (arg)
+               STORE_ATTR               3 (__deprecated__)
+               LOAD_FAST_BORROW         7 (wrapper)
+               STORE_ATTR               3 (__deprecated__)
+
+ 803           LOAD_FAST_BORROW         7 (wrapper)
+               RETURN_VALUE
+
+ 805   L6:     LOAD_GLOBAL             39 (TypeError + NULL)
+
+ 806           LOAD_CONST               6 ('@deprecated decorator with non-None category must be applied to a class or callable, not ')
+
+ 807           LOAD_DEREF               1 (arg)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+
+ 806           BUILD_STRING             2
+
+ 805           CALL                     1
+               RAISE_VARARGS            1
+
+Disassembly of <code object __new__ at 0x00000204B9F5BC30, file "_py_warnings.py", line 751>:
+  --           COPY_FREE_VARS           5
+
+ 751           RESUME                   0
+
+ 753           LOAD_FAST_BORROW         0 (cls)
+               LOAD_DEREF               3 (arg)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       32 (to L1)
+               NOT_TAKEN
+
+ 754           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                3 (warn + NULL|self)
+               LOAD_DEREF               5 (msg)
+               LOAD_DEREF               4 (category)
+               LOAD_DEREF               7 (stacklevel)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               LOAD_CONST               1 (('category', 'stacklevel'))
+               CALL_KW                  3
+               POP_TOP
+
+ 755   L1:     LOAD_DEREF               6 (original_new)
+               LOAD_GLOBAL              4 (object)
+               LOAD_ATTR                6 (__new__)
+               IS_OP                    1 (is not)
+               POP_JUMP_IF_FALSE       13 (to L2)
+               NOT_TAKEN
+
+ 756           LOAD_DEREF               6 (original_new)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (cls)
+               BUILD_LIST               1
+               LOAD_FAST_BORROW         1 (args)
+               LIST_EXTEND              1
+               CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               RETURN_VALUE
+
+ 758   L2:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                8 (__init__)
+               LOAD_GLOBAL              4 (object)
+               LOAD_ATTR                8 (__init__)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       41 (to L4)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         1 (args)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         9 (to L3)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         2 (kwargs)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       25 (to L4)
+               NOT_TAKEN
+
+ 759   L3:     LOAD_GLOBAL             11 (TypeError + NULL)
+               LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR               12 (__name__)
+               FORMAT_SIMPLE
+               LOAD_CONST               2 ('() takes no arguments')
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 761   L4:     LOAD_DEREF               6 (original_new)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (cls)
+               CALL                     1
+               RETURN_VALUE
+
+Disassembly of <code object __init_subclass__ at 0x00000204BA103B90, file "_py_warnings.py", line 771>:
+  --           COPY_FREE_VARS           4
+
+ 771           RESUME                   0
+
+ 773           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                3 (warn + NULL|self)
+               LOAD_DEREF               3 (msg)
+               LOAD_DEREF               2 (category)
+               LOAD_DEREF               5 (stacklevel)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               LOAD_CONST               1 (('category', 'stacklevel'))
+               CALL_KW                  3
+               POP_TOP
+
+ 774           LOAD_DEREF               4 (original_init_subclass)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         1 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               RETURN_VALUE
+
+Disassembly of <code object __init_subclass__ at 0x00000204BA103CC0, file "_py_warnings.py", line 780>:
+  --           COPY_FREE_VARS           4
+
+ 780           RESUME                   0
+
+ 782           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                3 (warn + NULL|self)
+               LOAD_DEREF               3 (msg)
+               LOAD_DEREF               2 (category)
+               LOAD_DEREF               5 (stacklevel)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               LOAD_CONST               1 (('category', 'stacklevel'))
+               CALL_KW                  3
+               POP_TOP
+
+ 783           LOAD_DEREF               4 (original_init_subclass)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         1 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               RETURN_VALUE
+
+Disassembly of <code object wrapper at 0x00000204BA100290, file "_py_warnings.py", line 794>:
+  --           COPY_FREE_VARS           4
+
+ 794           RESUME                   0
+
+ 796           LOAD_GLOBAL              0 (_wm)
+               LOAD_ATTR                3 (warn + NULL|self)
+               LOAD_DEREF               4 (msg)
+               LOAD_DEREF               3 (category)
+               LOAD_DEREF               5 (stacklevel)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               LOAD_CONST               1 (('category', 'stacklevel'))
+               CALL_KW                  3
+               POP_TOP
+
+ 797           LOAD_DEREF               2 (arg)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         1 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               RETURN_VALUE
+
+Disassembly of <code object _deprecated at 0x00000204B9FC3870, file "_py_warnings.py", line 814>:
+814           RESUME                   0
+
+824           LOAD_FAST_BORROW         2 (remove)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('.')
+              LOAD_FAST_BORROW         2 (remove)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              STORE_FAST               4 (remove_formatted)
+
+825           LOAD_FAST_BORROW         3 (_version)
+              LOAD_CONST               2 (slice(None, 2, None))
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         2 (remove)
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_TRUE        29 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (_version)
+              LOAD_CONST               2 (slice(None, 2, None))
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         2 (remove)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       35 (to L2)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (_version)
+              LOAD_SMALL_INT           3
+              BINARY_OP               26 ([])
+              LOAD_CONST               3 ('alpha')
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE       21 (to L2)
+              NOT_TAKEN
+
+826   L1:     LOAD_FAST_BORROW         0 (name)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (' was slated for removal after Python ')
+              LOAD_FAST_BORROW         4 (remove_formatted)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (' alpha')
+              BUILD_STRING             4
+              STORE_FAST               5 (msg)
+
+827           LOAD_GLOBAL              1 (RuntimeError + NULL)
+              LOAD_FAST_BORROW         5 (msg)
+              CALL                     1
+              RAISE_VARARGS            1
+
+829   L2:     LOAD_FAST_BORROW         1 (message)
+              LOAD_ATTR                3 (format + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 4 (name, remove_formatted)
+              LOAD_CONST               6 (('name', 'remove'))
+              CALL_KW                  2
+              STORE_FAST               5 (msg)
+
+830           LOAD_GLOBAL              4 (_wm)
+              LOAD_ATTR                7 (warn + NULL|self)
+              LOAD_FAST_BORROW         5 (msg)
+              LOAD_GLOBAL              8 (DeprecationWarning)
+              LOAD_SMALL_INT           3
+              LOAD_CONST               7 (('stacklevel',))
+              CALL_KW                  3
+              POP_TOP
+              LOAD_CONST               8 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _warn_unawaited_coroutine at 0x00000204BA3E0E50, file "_py_warnings.py", line 834>:
+  --           MAKE_CELL                0 (coro)
+               MAKE_CELL                5 (linecache)
+
+ 834           RESUME                   0
+
+ 836           LOAD_CONST               0 ("coroutine '")
+               LOAD_DEREF               0 (coro)
+               LOAD_ATTR                0 (__qualname__)
+               FORMAT_SIMPLE
+               LOAD_CONST               1 ("' was never awaited\n")
+               BUILD_STRING             3
+
+ 835           BUILD_LIST               1
+               STORE_FAST               1 (msg_lines)
+
+ 838           LOAD_DEREF               0 (coro)
+               LOAD_ATTR                2 (cr_origin)
+               POP_JUMP_IF_NONE        70 (to L1)
+               NOT_TAKEN
+
+ 839           LOAD_SMALL_INT           0
+               LOAD_CONST               2 (None)
+               IMPORT_NAME              2 (linecache)
+               STORE_DEREF              5 (linecache)
+               LOAD_SMALL_INT           0
+               LOAD_CONST               2 (None)
+               IMPORT_NAME              3 (traceback)
+               STORE_FAST               2 (traceback)
+
+ 840           LOAD_FAST_BORROW         0 (coro)
+               LOAD_FAST_BORROW         5 (linecache)
+               BUILD_TUPLE              2
+               LOAD_CONST               3 (<code object extract at 0x00000204BA0B8960, file "_py_warnings.py", line 840>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               3 (extract)
+
+ 844           LOAD_FAST_BORROW         1 (msg_lines)
+               LOAD_ATTR                9 (append + NULL|self)
+               LOAD_CONST               4 ('Coroutine created at (most recent call last)\n')
+               CALL                     1
+               POP_TOP
+
+ 845           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (msg_lines, traceback)
+               LOAD_ATTR               11 (format_list + NULL|self)
+               LOAD_GLOBAL             13 (list + NULL)
+               LOAD_FAST_BORROW         3 (extract)
+               PUSH_NULL
+               CALL                     0
+               CALL                     1
+               CALL                     1
+               BINARY_OP               13 (+=)
+               STORE_FAST               1 (msg_lines)
+
+ 846   L1:     LOAD_CONST               5 ('')
+               LOAD_ATTR               15 (join + NULL|self)
+               LOAD_FAST_BORROW         1 (msg_lines)
+               CALL                     1
+               LOAD_ATTR               17 (rstrip + NULL|self)
+               LOAD_CONST               6 ('\n')
+               CALL                     1
+               STORE_FAST               4 (msg)
+
+ 853           LOAD_GLOBAL             18 (_wm)
+               LOAD_ATTR               21 (warn + NULL|self)
+
+ 854           LOAD_FAST_BORROW         4 (msg)
+               LOAD_GLOBAL             22 (RuntimeWarning)
+               LOAD_SMALL_INT           2
+               LOAD_DEREF               0 (coro)
+
+ 853           LOAD_CONST               7 (('category', 'stacklevel', 'source'))
+               CALL_KW                  4
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object extract at 0x00000204BA0B8960, file "_py_warnings.py", line 840>:
+  --           COPY_FREE_VARS           2
+
+ 840           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+
+ 841           LOAD_GLOBAL              1 (reversed + NULL)
+               LOAD_DEREF               4 (coro)
+               LOAD_ATTR                2 (cr_origin)
+               CALL                     1
+               GET_ITER
+       L2:     FOR_ITER                29 (to L3)
+               UNPACK_SEQUENCE          3
+               STORE_FAST_STORE_FAST    1 (filename, lineno)
+               STORE_FAST               2 (funcname)
+
+ 842           LOAD_DEREF               5 (linecache)
+               LOAD_ATTR                5 (getline + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (filename, lineno)
+               CALL                     2
+               STORE_FAST               3 (line)
+
+ 843           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (filename, lineno)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (funcname, line)
+               BUILD_TUPLE              4
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           31 (to L2)
+
+ 841   L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object _setup_defaults at 0x00000204BA3E07C0, file "_py_warnings.py", line 858>:
+858           RESUME                   0
+
+860           LOAD_GLOBAL              1 (hasattr + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_CONST               0 ('gettotalrefcount')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+861           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+862   L1:     LOAD_GLOBAL              4 (_wm)
+              LOAD_ATTR                7 (filterwarnings + NULL|self)
+              LOAD_CONST               2 ('default')
+              LOAD_GLOBAL              8 (DeprecationWarning)
+              LOAD_CONST               3 ('__main__')
+              LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('category', 'module', 'append'))
+              CALL_KW                  4
+              POP_TOP
+
+863           LOAD_GLOBAL              4 (_wm)
+              LOAD_ATTR               11 (simplefilter + NULL|self)
+              LOAD_CONST               5 ('ignore')
+              LOAD_GLOBAL              8 (DeprecationWarning)
+              LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('category', 'append'))
+              CALL_KW                  3
+              POP_TOP
+
+864           LOAD_GLOBAL              4 (_wm)
+              LOAD_ATTR               11 (simplefilter + NULL|self)
+              LOAD_CONST               5 ('ignore')
+              LOAD_GLOBAL             12 (PendingDeprecationWarning)
+              LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('category', 'append'))
+              CALL_KW                  3
+              POP_TOP
+
+865           LOAD_GLOBAL              4 (_wm)
+              LOAD_ATTR               11 (simplefilter + NULL|self)
+              LOAD_CONST               5 ('ignore')
+              LOAD_GLOBAL             14 (ImportWarning)
+              LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('category', 'append'))
+              CALL_KW                  3
+              POP_TOP
+
+866           LOAD_GLOBAL              4 (_wm)
+              LOAD_ATTR               11 (simplefilter + NULL|self)
+              LOAD_CONST               5 ('ignore')
+              LOAD_GLOBAL             16 (ResourceWarning)
+              LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('category', 'append'))
+              CALL_KW                  3
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

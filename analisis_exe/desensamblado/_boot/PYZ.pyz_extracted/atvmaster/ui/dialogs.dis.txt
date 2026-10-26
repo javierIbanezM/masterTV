@@ -1,0 +1,1131 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              2 (re)
+              STORE_NAME               2 (re)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('QCheckBox', 'QDialog', 'QDialogButtonBox', 'QFileDialog', 'QFormLayout', 'QHBoxLayout', 'QLineEdit', 'QPushButton', 'QSpinBox', 'QWidget'))
+              IMPORT_NAME              3 (PyQt6.QtWidgets)
+              IMPORT_FROM              4 (QCheckBox)
+              STORE_NAME               4 (QCheckBox)
+              IMPORT_FROM              5 (QDialog)
+              STORE_NAME               5 (QDialog)
+              IMPORT_FROM              6 (QDialogButtonBox)
+              STORE_NAME               6 (QDialogButtonBox)
+              IMPORT_FROM              7 (QFileDialog)
+              STORE_NAME               7 (QFileDialog)
+              IMPORT_FROM              8 (QFormLayout)
+              STORE_NAME               8 (QFormLayout)
+              IMPORT_FROM              9 (QHBoxLayout)
+              STORE_NAME               9 (QHBoxLayout)
+              IMPORT_FROM             10 (QLineEdit)
+              STORE_NAME              10 (QLineEdit)
+              IMPORT_FROM             11 (QPushButton)
+              STORE_NAME              11 (QPushButton)
+              IMPORT_FROM             12 (QSpinBox)
+              STORE_NAME              12 (QSpinBox)
+              IMPORT_FROM             13 (QWidget)
+              STORE_NAME              13 (QWidget)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           2
+              LOAD_CONST               4 (('wol',))
+              IMPORT_NAME             14
+              IMPORT_FROM             15 (wol)
+              STORE_NAME              15 (wol)
+              POP_TOP
+
+  9           LOAD_SMALL_INT           2
+              LOAD_CONST               5 (('Device',))
+              IMPORT_NAME             16 (store)
+              IMPORT_FROM             17 (Device)
+              STORE_NAME              17 (Device)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('warn',))
+              IMPORT_NAME             18 (common)
+              IMPORT_FROM             19 (warn)
+              STORE_NAME              19 (warn)
+              POP_TOP
+
+ 12           LOAD_NAME                2 (re)
+              LOAD_ATTR               40 (compile)
+              PUSH_NULL
+              LOAD_CONST               7 ('^[A-Za-z0-9]([A-Za-z0-9.\\-]*[A-Za-z0-9])?$')
+              CALL                     1
+              STORE_NAME              21 (_HOST_RE)
+
+ 15           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               8 (<code object DeviceDialog at 0x00000204BA0FC7A0, file "atvmaster\ui\dialogs.py", line 15>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 ('DeviceDialog')
+              LOAD_NAME                5 (QDialog)
+              CALL                     3
+              STORE_NAME              22 (DeviceDialog)
+
+ 58           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object PairDialog at 0x00000204BA0FECD0, file "atvmaster\ui\dialogs.py", line 58>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 ('PairDialog')
+              LOAD_NAME                5 (QDialog)
+              CALL                     3
+              STORE_NAME              23 (PairDialog)
+
+ 77           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              12 (<code object SettingsDialog at 0x00000204BA0A72D0, file "atvmaster\ui\dialogs.py", line 77>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 ('SettingsDialog')
+              LOAD_NAME                5 (QDialog)
+              CALL                     3
+              STORE_NAME              24 (SettingsDialog)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object DeviceDialog at 0x00000204BA0FC7A0, file "atvmaster\ui\dialogs.py", line 15>:
+  --           MAKE_CELL                0 (__class__)
+
+  15           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DeviceDialog')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          15
+               STORE_NAME               3 (__firstlineno__)
+
+  16           LOAD_CONST               5 ((None,))
+               LOAD_CONST               1 (<code object __annotate__ at 0x00000204BA093960, file "atvmaster\ui\dialogs.py", line 16>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA3ACB20, file "atvmaster\ui\dialogs.py", line 16>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+  41           LOAD_CONST               3 (<code object _ok at 0x00000204BA388300, file "atvmaster\ui\dialogs.py", line 41>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_ok)
+               LOAD_CONST               4 (('device', 'group', 'host', 'mac', 'name', 'port'))
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               7 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093960, file "atvmaster\ui\dialogs.py", line 16>:
+ 16           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('device')
+              LOAD_CONST               2 ('Device | None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA3ACB20, file "atvmaster\ui\dialogs.py", line 16>:
+  --            COPY_FREE_VARS           1
+
+  16            RESUME                   0
+
+  17            LOAD_GLOBAL              0 (super)
+                LOAD_DEREF               5 (__class__)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+                LOAD_FAST_BORROW         1 (parent)
+                CALL                     1
+                POP_TOP
+
+  18            LOAD_FAST                0 (self)
+                LOAD_ATTR                5 (setWindowTitle + NULL|self)
+                LOAD_FAST_BORROW         2 (device)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+                LOAD_CONST               0 ('Editar TV')
+                JUMP_FORWARD             1 (to L2)
+        L1:     LOAD_CONST               1 ('Añadir TV')
+        L2:     CALL                     1
+                POP_TOP
+
+  19            LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (device, self)
+                STORE_ATTR               3 (device)
+
+  20            LOAD_GLOBAL              9 (QFormLayout + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                CALL                     1
+                STORE_FAST               3 (f)
+
+  21            LOAD_GLOBAL             11 (QLineEdit + NULL)
+                LOAD_FAST_BORROW         2 (device)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L3)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         2 (device)
+                LOAD_ATTR               12 (name)
+                JUMP_FORWARD             1 (to L4)
+        L3:     LOAD_CONST               2 ('')
+        L4:     CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               6 (name)
+
+  22            LOAD_GLOBAL             11 (QLineEdit + NULL)
+                LOAD_FAST_BORROW         2 (device)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L5)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         2 (device)
+                LOAD_ATTR               14 (host)
+                JUMP_FORWARD             1 (to L6)
+        L5:     LOAD_CONST               2 ('')
+        L6:     CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               7 (host)
+
+  23            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (host)
+                LOAD_ATTR               17 (setPlaceholderText + NULL|self)
+                LOAD_CONST               3 ('192.168.1.50')
+                CALL                     1
+                POP_TOP
+
+  24            LOAD_GLOBAL             19 (QSpinBox + NULL)
+                CALL                     0
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              10 (port)
+
+  25            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (port)
+                LOAD_ATTR               23 (setRange + NULL|self)
+                LOAD_SMALL_INT           1
+                LOAD_CONST               4 (65535)
+                CALL                     2
+                POP_TOP
+
+  26            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (port)
+                LOAD_ATTR               25 (setValue + NULL|self)
+                LOAD_FAST_BORROW         2 (device)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L7)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         2 (device)
+                LOAD_ATTR               20 (port)
+                JUMP_FORWARD             1 (to L8)
+        L7:     LOAD_CONST               5 (5555)
+        L8:     CALL                     1
+                POP_TOP
+
+  27            LOAD_GLOBAL             11 (QLineEdit + NULL)
+                LOAD_FAST_BORROW         2 (device)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L9)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         2 (device)
+                LOAD_ATTR               26 (mac)
+                JUMP_FORWARD             1 (to L10)
+        L9:     LOAD_CONST               2 ('')
+       L10:     CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              13 (mac)
+
+  28            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               26 (mac)
+                LOAD_ATTR               17 (setPlaceholderText + NULL|self)
+                LOAD_CONST               6 ('Opcional · AA:BB:CC:DD:EE:FF (para Wake-on-LAN)')
+                CALL                     1
+                POP_TOP
+
+  29            LOAD_GLOBAL             11 (QLineEdit + NULL)
+                LOAD_FAST_BORROW         2 (device)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L11)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         2 (device)
+                LOAD_ATTR               28 (group)
+                JUMP_FORWARD             1 (to L12)
+       L11:     LOAD_CONST               2 ('')
+       L12:     CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              14 (group)
+
+  30            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               28 (group)
+                LOAD_ATTR               17 (setPlaceholderText + NULL|self)
+                LOAD_CONST               7 ('Opcional · p. ej. Planta 1')
+                CALL                     1
+                POP_TOP
+
+  31            LOAD_FAST_BORROW         3 (f)
+                LOAD_ATTR               31 (addRow + NULL|self)
+                LOAD_CONST               8 ('Nombre')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (name)
+                CALL                     2
+                POP_TOP
+
+  32            LOAD_FAST_BORROW         3 (f)
+                LOAD_ATTR               31 (addRow + NULL|self)
+                LOAD_CONST               9 ('IP o host')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (host)
+                CALL                     2
+                POP_TOP
+
+  33            LOAD_FAST_BORROW         3 (f)
+                LOAD_ATTR               31 (addRow + NULL|self)
+                LOAD_CONST              10 ('Puerto ADB')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (port)
+                CALL                     2
+                POP_TOP
+
+  34            LOAD_FAST_BORROW         3 (f)
+                LOAD_ATTR               31 (addRow + NULL|self)
+                LOAD_CONST              11 ('MAC')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               26 (mac)
+                CALL                     2
+                POP_TOP
+
+  35            LOAD_FAST_BORROW         3 (f)
+                LOAD_ATTR               31 (addRow + NULL|self)
+                LOAD_CONST              12 ('Grupo')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               28 (group)
+                CALL                     2
+                POP_TOP
+
+  36            LOAD_GLOBAL             33 (QDialogButtonBox + NULL)
+                LOAD_GLOBAL             32 (QDialogButtonBox)
+                LOAD_ATTR               34 (StandardButton)
+                LOAD_ATTR               36 (Ok)
+                LOAD_GLOBAL             32 (QDialogButtonBox)
+                LOAD_ATTR               34 (StandardButton)
+                LOAD_ATTR               38 (Cancel)
+                BINARY_OP                7 (|)
+                CALL                     1
+                STORE_FAST               4 (bb)
+
+  37            LOAD_FAST_BORROW         4 (bb)
+                LOAD_ATTR               40 (accepted)
+                LOAD_ATTR               43 (connect + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               44 (_ok)
+                CALL                     1
+                POP_TOP
+
+  38            LOAD_FAST_BORROW         4 (bb)
+                LOAD_ATTR               46 (rejected)
+                LOAD_ATTR               43 (connect + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               48 (reject)
+                CALL                     1
+                POP_TOP
+
+  39            LOAD_FAST_BORROW         3 (f)
+                LOAD_ATTR               31 (addRow + NULL|self)
+                LOAD_FAST_BORROW         4 (bb)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST              13 (None)
+                RETURN_VALUE
+
+Disassembly of <code object _ok at 0x00000204BA388300, file "atvmaster\ui\dialogs.py", line 41>:
+  41            RESUME                   0
+
+  42            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (host)
+                LOAD_ATTR                3 (text + NULL|self)
+                CALL                     0
+                LOAD_ATTR                5 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               1 (host)
+
+  43            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (name)
+                LOAD_ATTR                3 (text + NULL|self)
+                CALL                     0
+                LOAD_ATTR                5 (strip + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE       28 (to L1)
+                NOT_TAKEN
+                LOAD_GLOBAL              8 (_HOST_RE)
+                LOAD_ATTR               11 (match + NULL|self)
+                LOAD_FAST_BORROW         1 (host)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        14 (to L2)
+                NOT_TAKEN
+
+  44    L1:     LOAD_GLOBAL             13 (warn + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_CONST               0 ('Datos incompletos')
+                LOAD_CONST               1 ('Indica un nombre y una IP/host válidos.')
+                CALL                     3
+                RETURN_VALUE
+
+  45    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (mac)
+                LOAD_ATTR                3 (text + NULL|self)
+                CALL                     0
+                LOAD_ATTR                5 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (mac)
+
+  46            LOAD_FAST_BORROW         2 (mac)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       24 (to L4)
+                NOT_TAKEN
+
+  47            NOP
+
+  48    L3:     LOAD_GLOBAL             16 (wol)
+                LOAD_ATTR               18 (normalize_mac)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (mac)
+                CALL                     1
+                STORE_FAST               2 (mac)
+
+  51    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               24 (device)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        14 (to L5)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             27 (Device + NULL)
+                LOAD_CONST               4 ('')
+                LOAD_CONST               4 ('')
+                LOAD_CONST               5 (('name', 'host'))
+                CALL_KW                  2
+        L5:     STORE_FAST               4 (d)
+
+  52            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (name)
+                LOAD_ATTR                3 (text + NULL|self)
+                CALL                     0
+                LOAD_ATTR                5 (strip + NULL|self)
+                CALL                     0
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (host, self)
+                LOAD_ATTR               28 (port)
+                LOAD_ATTR               31 (value + NULL|self)
+                CALL                     0
+                SWAP                     3
+                LOAD_FAST_BORROW         4 (d)
+                STORE_ATTR               3 (name)
+                LOAD_FAST_BORROW         4 (d)
+                STORE_ATTR               0 (host)
+                LOAD_FAST_BORROW         4 (d)
+                STORE_ATTR              14 (port)
+
+  53            LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (mac, self)
+                LOAD_ATTR               32 (group)
+                LOAD_ATTR                3 (text + NULL|self)
+                CALL                     0
+                LOAD_ATTR                5 (strip + NULL|self)
+                CALL                     0
+                SWAP                     2
+                LOAD_FAST_BORROW         4 (d)
+                STORE_ATTR               7 (mac)
+                LOAD_FAST_BORROW         4 (d)
+                STORE_ATTR              16 (group)
+
+  54            LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (d, self)
+                STORE_ATTR              12 (device)
+
+  55            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               35 (accept + NULL|self)
+                CALL                     0
+                POP_TOP
+                LOAD_CONST               3 (None)
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+  49            LOAD_GLOBAL             20 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       33 (to L11)
+                NOT_TAKEN
+                STORE_FAST               3 (e)
+
+  50    L7:     LOAD_GLOBAL             13 (warn + NULL)
+                LOAD_FAST                0 (self)
+                LOAD_CONST               2 ('MAC no válida')
+                LOAD_GLOBAL             23 (str + NULL)
+                LOAD_FAST                3 (e)
+                CALL                     1
+                CALL                     3
+        L8:     SWAP                     2
+        L9:     POP_EXCEPT
+                LOAD_CONST               3 (None)
+                STORE_FAST               3 (e)
+                DELETE_FAST              3 (e)
+                RETURN_VALUE
+
+  --   L10:     LOAD_CONST               3 (None)
+                STORE_FAST               3 (e)
+                DELETE_FAST              3 (e)
+                RERAISE                  1
+
+  49   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L6 [0]
+  L6 to L7 -> L12 [1] lasti
+  L7 to L8 -> L10 [1] lasti
+  L8 to L9 -> L12 [1] lasti
+  L10 to L12 -> L12 [1] lasti
+
+Disassembly of <code object PairDialog at 0x00000204BA0FECD0, file "atvmaster\ui\dialogs.py", line 58>:
+  --           MAKE_CELL                0 (__class__)
+
+  58           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('PairDialog')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          58
+               STORE_NAME               3 (__firstlineno__)
+
+  59           LOAD_CONST               1 ('Emparejamiento inalámbrico (Android 11+): adb pair IP:PUERTO CÓDIGO.')
+               STORE_NAME               4 (__doc__)
+
+  61           LOAD_CONST               5 (('',))
+               LOAD_CONST               2 (<code object __annotate__ at 0x00000204BA092880, file "atvmaster\ui\dialogs.py", line 61>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA35BFC0, file "atvmaster\ui\dialogs.py", line 61>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+               LOAD_CONST               4 (('addr', 'code'))
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               7 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092880, file "atvmaster\ui\dialogs.py", line 61>:
+ 61           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('host')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA35BFC0, file "atvmaster\ui\dialogs.py", line 61>:
+  --           COPY_FREE_VARS           1
+
+  61           RESUME                   0
+
+  62           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               5 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (parent)
+               CALL                     1
+               POP_TOP
+
+  63           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (setWindowTitle + NULL|self)
+               LOAD_CONST               0 ('Emparejar con código')
+               CALL                     1
+               POP_TOP
+
+  64           LOAD_GLOBAL              7 (QFormLayout + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               STORE_FAST               3 (f)
+
+  65           LOAD_GLOBAL              9 (QLineEdit + NULL)
+               LOAD_FAST_BORROW         2 (host)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        6 (to L1)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         2 (host)
+               FORMAT_SIMPLE
+               LOAD_CONST               1 (':')
+               BUILD_STRING             2
+               JUMP_FORWARD             1 (to L2)
+       L1:     LOAD_CONST               2 ('')
+       L2:     CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               5 (addr)
+
+  66           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (addr)
+               LOAD_ATTR               13 (setPlaceholderText + NULL|self)
+               LOAD_CONST               3 ('IP:PUERTO que muestra la TV')
+               CALL                     1
+               POP_TOP
+
+  67           LOAD_GLOBAL              9 (QLineEdit + NULL)
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (code)
+
+  68           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               14 (code)
+               LOAD_ATTR               13 (setPlaceholderText + NULL|self)
+               LOAD_CONST               4 ('Código de 6 dígitos')
+               CALL                     1
+               POP_TOP
+
+  69           LOAD_FAST_BORROW         3 (f)
+               LOAD_ATTR               17 (addRow + NULL|self)
+               LOAD_CONST               5 ('IP:PUERTO de emparejamiento')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (addr)
+               CALL                     2
+               POP_TOP
+
+  70           LOAD_FAST_BORROW         3 (f)
+               LOAD_ATTR               17 (addRow + NULL|self)
+               LOAD_CONST               6 ('Código')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               14 (code)
+               CALL                     2
+               POP_TOP
+
+  71           LOAD_GLOBAL             19 (QDialogButtonBox + NULL)
+               LOAD_GLOBAL             18 (QDialogButtonBox)
+               LOAD_ATTR               20 (StandardButton)
+               LOAD_ATTR               22 (Ok)
+               LOAD_GLOBAL             18 (QDialogButtonBox)
+               LOAD_ATTR               20 (StandardButton)
+               LOAD_ATTR               24 (Cancel)
+               BINARY_OP                7 (|)
+               CALL                     1
+               STORE_FAST               4 (bb)
+
+  72           LOAD_FAST_BORROW         4 (bb)
+               LOAD_ATTR               26 (accepted)
+               LOAD_ATTR               29 (connect + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               30 (accept)
+               CALL                     1
+               POP_TOP
+
+  73           LOAD_FAST_BORROW         4 (bb)
+               LOAD_ATTR               32 (rejected)
+               LOAD_ATTR               29 (connect + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               34 (reject)
+               CALL                     1
+               POP_TOP
+
+  74           LOAD_FAST_BORROW         3 (f)
+               LOAD_ATTR               17 (addRow + NULL|self)
+               LOAD_FAST_BORROW         4 (bb)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object SettingsDialog at 0x00000204BA0A72D0, file "atvmaster\ui\dialogs.py", line 77>:
+  --           MAKE_CELL                0 (__class__)
+
+  77           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SettingsDialog')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          77
+               STORE_NAME               3 (__firstlineno__)
+
+  78           LOAD_CONST               1 (<code object __annotate__ at 0x00000204BA092C40, file "atvmaster\ui\dialogs.py", line 78>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA3B3400, file "atvmaster\ui\dialogs.py", line 78>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME               4 (__init__)
+
+ 106           LOAD_CONST               7 ((False, ''))
+               LOAD_CONST               3 (<code object __annotate__ at 0x00000204BA092D30, file "atvmaster\ui\dialogs.py", line 106>)
+               MAKE_FUNCTION
+               LOAD_CONST               4 (<code object _with_browse at 0x00000204B9F5AA30, file "atvmaster\ui\dialogs.py", line 106>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (_with_browse)
+
+ 126           LOAD_CONST               5 (<code object _save at 0x00000204BA3735D0, file "atvmaster\ui\dialogs.py", line 126>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_save)
+               LOAD_CONST               6 (('adb', 'auto', 'cap', 'poll', 's', 'scrcpy'))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               8 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092C40, file "atvmaster\ui\dialogs.py", line 78>:
+ 78           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('adb_found')
+              LOAD_CONST               2 ('str | None')
+              LOAD_CONST               3 ('scrcpy_found')
+              LOAD_CONST               2 ('str | None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA3B3400, file "atvmaster\ui\dialogs.py", line 78>:
+  --           COPY_FREE_VARS           1
+
+  78           RESUME                   0
+
+  79           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               7 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (parent)
+               CALL                     1
+               POP_TOP
+
+  80           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (setWindowTitle + NULL|self)
+               LOAD_CONST               0 ('Configuración')
+               CALL                     1
+               POP_TOP
+
+  81           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                7 (setMinimumWidth + NULL|self)
+               LOAD_CONST               1 (560)
+               CALL                     1
+               POP_TOP
+
+  82           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (settings, self)
+               STORE_ATTR               4 (s)
+
+  83           LOAD_GLOBAL             11 (QFormLayout + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               STORE_FAST               5 (f)
+
+  84           LOAD_GLOBAL             13 (QLineEdit + NULL)
+               LOAD_FAST_BORROW         2 (settings)
+               LOAD_ATTR               15 (get + NULL|self)
+               LOAD_CONST               2 ('adb_path')
+               CALL                     1
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               8 (adb)
+
+  85           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               16 (adb)
+               LOAD_ATTR               19 (setPlaceholderText + NULL|self)
+               LOAD_FAST                3 (adb_found)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L1)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST               3 ('No encontrado')
+       L1:     CALL                     1
+               POP_TOP
+
+  86           LOAD_GLOBAL             13 (QLineEdit + NULL)
+               LOAD_FAST_BORROW         2 (settings)
+               LOAD_ATTR               15 (get + NULL|self)
+               LOAD_CONST               4 ('scrcpy_path')
+               CALL                     1
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              10 (scrcpy)
+
+  87           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               20 (scrcpy)
+               LOAD_ATTR               19 (setPlaceholderText + NULL|self)
+               LOAD_FAST                4 (scrcpy_found)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST               3 ('No encontrado')
+       L2:     CALL                     1
+               POP_TOP
+
+  88           LOAD_GLOBAL             13 (QLineEdit + NULL)
+               LOAD_FAST_BORROW         2 (settings)
+               LOAD_ATTR               15 (get + NULL|self)
+               LOAD_CONST               5 ('capture_dir')
+               CALL                     1
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              11 (cap)
+
+  89           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               22 (cap)
+               LOAD_ATTR               19 (setPlaceholderText + NULL|self)
+               LOAD_CONST               6 ('Por defecto: Imágenes\\AndroidTvMaster')
+               CALL                     1
+               POP_TOP
+
+  90           LOAD_GLOBAL             25 (QSpinBox + NULL)
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              13 (poll)
+
+  91           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               26 (poll)
+               LOAD_ATTR               29 (setRange + NULL|self)
+               LOAD_SMALL_INT           3
+               LOAD_CONST               7 (300)
+               CALL                     2
+               POP_TOP
+
+  92           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               26 (poll)
+               LOAD_ATTR               31 (setSuffix + NULL|self)
+               LOAD_CONST               8 (' s')
+               CALL                     1
+               POP_TOP
+
+  93           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               26 (poll)
+               LOAD_ATTR               33 (setValue + NULL|self)
+               LOAD_GLOBAL             35 (int + NULL)
+               LOAD_FAST_BORROW         2 (settings)
+               LOAD_ATTR               15 (get + NULL|self)
+               LOAD_CONST               9 ('poll_seconds')
+               CALL                     1
+               CALL                     1
+               CALL                     1
+               POP_TOP
+
+  94           LOAD_GLOBAL             37 (QCheckBox + NULL)
+               LOAD_CONST              10 ('Conectar automáticamente las TVs de la lista')
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              19 (auto)
+
+  95           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               38 (auto)
+               LOAD_ATTR               41 (setChecked + NULL|self)
+               LOAD_GLOBAL             43 (bool + NULL)
+               LOAD_FAST_BORROW         2 (settings)
+               LOAD_ATTR               15 (get + NULL|self)
+               LOAD_CONST              11 ('auto_connect')
+               CALL                     1
+               CALL                     1
+               CALL                     1
+               POP_TOP
+
+  96           LOAD_FAST_BORROW         5 (f)
+               LOAD_ATTR               45 (addRow + NULL|self)
+               LOAD_CONST              12 ('adb.exe')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               47 (_with_browse + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               16 (adb)
+               LOAD_CONST              13 ('adb (adb.exe)')
+               LOAD_CONST              14 (('file_filter',))
+               CALL_KW                  2
+               CALL                     2
+               POP_TOP
+
+  97           LOAD_FAST_BORROW         5 (f)
+               LOAD_ATTR               45 (addRow + NULL|self)
+               LOAD_CONST              15 ('scrcpy.exe')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               47 (_with_browse + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               20 (scrcpy)
+               LOAD_CONST              16 ('scrcpy (scrcpy.exe)')
+               LOAD_CONST              14 (('file_filter',))
+               CALL_KW                  2
+               CALL                     2
+               POP_TOP
+
+  98           LOAD_FAST_BORROW         5 (f)
+               LOAD_ATTR               45 (addRow + NULL|self)
+               LOAD_CONST              17 ('Carpeta de capturas')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               47 (_with_browse + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               22 (cap)
+               LOAD_CONST              18 (True)
+               LOAD_CONST              19 (('folder',))
+               CALL_KW                  2
+               CALL                     2
+               POP_TOP
+
+  99           LOAD_FAST_BORROW         5 (f)
+               LOAD_ATTR               45 (addRow + NULL|self)
+               LOAD_CONST              20 ('Intervalo de sondeo')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               26 (poll)
+               CALL                     2
+               POP_TOP
+
+ 100           LOAD_FAST_BORROW         5 (f)
+               LOAD_ATTR               45 (addRow + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               38 (auto)
+               CALL                     1
+               POP_TOP
+
+ 101           LOAD_GLOBAL             49 (QDialogButtonBox + NULL)
+               LOAD_GLOBAL             48 (QDialogButtonBox)
+               LOAD_ATTR               50 (StandardButton)
+               LOAD_ATTR               52 (Ok)
+               LOAD_GLOBAL             48 (QDialogButtonBox)
+               LOAD_ATTR               50 (StandardButton)
+               LOAD_ATTR               54 (Cancel)
+               BINARY_OP                7 (|)
+               CALL                     1
+               STORE_FAST               6 (bb)
+
+ 102           LOAD_FAST_BORROW         6 (bb)
+               LOAD_ATTR               56 (accepted)
+               LOAD_ATTR               59 (connect + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               60 (_save)
+               CALL                     1
+               POP_TOP
+
+ 103           LOAD_FAST_BORROW         6 (bb)
+               LOAD_ATTR               62 (rejected)
+               LOAD_ATTR               59 (connect + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               64 (reject)
+               CALL                     1
+               POP_TOP
+
+ 104           LOAD_FAST_BORROW         5 (f)
+               LOAD_ATTR               45 (addRow + NULL|self)
+               LOAD_FAST_BORROW         6 (bb)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST              21 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092D30, file "atvmaster\ui\dialogs.py", line 106>:
+106           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('edit')
+              LOAD_CONST               2 ('QLineEdit')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('QWidget')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object _with_browse at 0x00000204B9F5AA30, file "atvmaster\ui\dialogs.py", line 106>:
+  --           MAKE_CELL                0 (self)
+               MAKE_CELL                1 (edit)
+               MAKE_CELL                2 (folder)
+               MAKE_CELL                3 (file_filter)
+
+ 106           RESUME                   0
+
+ 107           LOAD_GLOBAL              1 (QWidget + NULL)
+               CALL                     0
+               STORE_FAST               4 (w)
+
+ 108           LOAD_GLOBAL              3 (QHBoxLayout + NULL)
+               LOAD_FAST_BORROW         4 (w)
+               CALL                     1
+               STORE_FAST               5 (h)
+
+ 109           LOAD_FAST_BORROW         5 (h)
+               LOAD_ATTR                5 (setContentsMargins + NULL|self)
+               LOAD_SMALL_INT           0
+               LOAD_SMALL_INT           0
+               LOAD_SMALL_INT           0
+               LOAD_SMALL_INT           0
+               CALL                     4
+               POP_TOP
+
+ 110           LOAD_GLOBAL              7 (QPushButton + NULL)
+               LOAD_CONST               1 ('…')
+               CALL                     1
+               STORE_FAST               6 (b)
+
+ 111           LOAD_FAST_BORROW         6 (b)
+               LOAD_ATTR                9 (setFixedWidth + NULL|self)
+               LOAD_SMALL_INT          32
+               CALL                     1
+               POP_TOP
+
+ 113           LOAD_FAST_BORROW         1 (edit)
+               LOAD_FAST_BORROW         3 (file_filter)
+               LOAD_FAST_BORROW         2 (folder)
+               LOAD_FAST_BORROW         0 (self)
+               BUILD_TUPLE              4
+               LOAD_CONST               2 (<code object pick at 0x00000204BA0B7230, file "atvmaster\ui\dialogs.py", line 113>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               7 (pick)
+
+ 121           LOAD_FAST_BORROW         6 (b)
+               LOAD_ATTR               10 (clicked)
+               LOAD_ATTR               13 (connect + NULL|self)
+               LOAD_FAST_BORROW         7 (pick)
+               CALL                     1
+               POP_TOP
+
+ 122           LOAD_FAST_BORROW         5 (h)
+               LOAD_ATTR               15 (addWidget + NULL|self)
+               LOAD_DEREF               1 (edit)
+               LOAD_SMALL_INT           1
+               CALL                     2
+               POP_TOP
+
+ 123           LOAD_FAST_BORROW         5 (h)
+               LOAD_ATTR               15 (addWidget + NULL|self)
+               LOAD_FAST_BORROW         6 (b)
+               CALL                     1
+               POP_TOP
+
+ 124           LOAD_FAST_BORROW         4 (w)
+               RETURN_VALUE
+
+Disassembly of <code object pick at 0x00000204BA0B7230, file "atvmaster\ui\dialogs.py", line 113>:
+  --           COPY_FREE_VARS           4
+
+ 113           RESUME                   0
+
+ 114           LOAD_DEREF               4 (folder)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       25 (to L1)
+               NOT_TAKEN
+
+ 115           LOAD_GLOBAL              0 (QFileDialog)
+               LOAD_ATTR                2 (getExistingDirectory)
+               PUSH_NULL
+               LOAD_DEREF               5 (self)
+               LOAD_CONST               0 ('Carpeta')
+               CALL                     2
+               STORE_FAST               0 (p)
+               JUMP_FORWARD            30 (to L2)
+
+ 117   L1:     LOAD_GLOBAL              0 (QFileDialog)
+               LOAD_ATTR                4 (getOpenFileName)
+               PUSH_NULL
+               LOAD_DEREF               5 (self)
+               LOAD_CONST               1 ('Ejecutable')
+               LOAD_CONST               2 ('')
+               LOAD_DEREF               3 (file_filter)
+               FORMAT_SIMPLE
+               LOAD_CONST               3 (';;Todos (*)')
+               BUILD_STRING             2
+               CALL                     4
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST    1 (p, _)
+
+ 118   L2:     LOAD_FAST_BORROW         0 (p)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       20 (to L3)
+               NOT_TAKEN
+
+ 119           LOAD_DEREF               2 (edit)
+               LOAD_ATTR                7 (setText + NULL|self)
+               LOAD_FAST_BORROW         0 (p)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+ 118   L3:     LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _save at 0x00000204BA3735D0, file "atvmaster\ui\dialogs.py", line 126>:
+126           RESUME                   0
+
+127           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (s)
+              LOAD_ATTR                2 (values)
+              LOAD_ATTR                5 (update + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (adb)
+              LOAD_ATTR                9 (text + NULL|self)
+              CALL                     0
+              LOAD_ATTR               11 (strip + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (scrcpy)
+              LOAD_ATTR                9 (text + NULL|self)
+              CALL                     0
+              LOAD_ATTR               11 (strip + NULL|self)
+              CALL                     0
+
+128           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (cap)
+              LOAD_ATTR                9 (text + NULL|self)
+              CALL                     0
+              LOAD_ATTR               11 (strip + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (poll)
+              LOAD_ATTR               19 (value + NULL|self)
+              CALL                     0
+
+129           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               20 (auto)
+              LOAD_ATTR               23 (isChecked + NULL|self)
+              CALL                     0
+
+127           LOAD_CONST               0 (('adb_path', 'scrcpy_path', 'capture_dir', 'poll_seconds', 'auto_connect'))
+              CALL_KW                  5
+              POP_TOP
+
+130           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (s)
+              LOAD_ATTR               25 (save + NULL|self)
+              CALL                     0
+              POP_TOP
+
+131           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               27 (accept + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

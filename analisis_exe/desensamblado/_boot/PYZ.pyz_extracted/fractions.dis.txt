@@ -1,0 +1,3654 @@
+  0           RESUME                   0
+
+  4           LOAD_CONST               0 ('Fraction, infinite-precision, rational numbers.')
+              STORE_NAME               0 (__doc__)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (functools)
+              STORE_NAME               1 (functools)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (math)
+              STORE_NAME               2 (math)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (numbers)
+              STORE_NAME               3 (numbers)
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (operator)
+              STORE_NAME               4 (operator)
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              5 (re)
+              STORE_NAME               5 (re)
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              6 (sys)
+              STORE_NAME               6 (sys)
+
+ 13           LOAD_CONST               2 ('Fraction')
+              BUILD_LIST               1
+              STORE_NAME               7 (__all__)
+
+ 18           LOAD_NAME                6 (sys)
+              LOAD_ATTR               16 (hash_info)
+              LOAD_ATTR               18 (modulus)
+              STORE_NAME              10 (_PyHASH_MODULUS)
+
+ 21           LOAD_NAME                6 (sys)
+              LOAD_ATTR               16 (hash_info)
+              LOAD_ATTR               22 (inf)
+              STORE_NAME              12 (_PyHASH_INF)
+
+ 23           LOAD_NAME                1 (functools)
+              LOAD_ATTR               26 (lru_cache)
+              PUSH_NULL
+              LOAD_CONST              11 (16384)
+              LOAD_CONST               3 (('maxsize',))
+              CALL_KW                  1
+
+ 24           LOAD_CONST               4 (<code object _hash_algorithm at 0x00000204B9F6F5D0, file "fractions.py", line 23>)
+              MAKE_FUNCTION
+
+ 23           CALL                     0
+
+ 24           STORE_NAME              14 (_hash_algorithm)
+
+ 56           LOAD_NAME                5 (re)
+              LOAD_ATTR               30 (compile)
+              PUSH_NULL
+              LOAD_CONST               5 ('\n    \\A\\s*                                  # optional whitespace at the start,\n    (?P<sign>[-+]?)                        # an optional sign, then\n    (?=\\d|\\.\\d)                            # lookahead for digit or .digit\n    (?P<num>\\d*|\\d+(_\\d+)*)                # numerator (possibly empty)\n    (?:                                    # followed by\n       (?:\\s*/\\s*(?P<denom>\\d+(_\\d+)*))?   # an optional denominator\n    |                                      # or\n       (?:\\.(?P<decimal>\\d*|\\d+(_\\d+)*))?  # an optional fractional part\n       (?:E(?P<exp>[-+]?\\d+(_\\d+)*))?      # and optional exponent\n    )\n    \\s*\\z                                  # and optional whitespace to finish\n')
+
+ 68           LOAD_NAME                5 (re)
+              LOAD_ATTR               32 (VERBOSE)
+              LOAD_NAME                5 (re)
+              LOAD_ATTR               34 (IGNORECASE)
+              BINARY_OP                7 (|)
+
+ 56           CALL                     2
+              STORE_NAME              18 (_RATIONAL_FORMAT)
+
+ 73           LOAD_CONST              12 ((False,))
+              LOAD_CONST               6 (<code object _round_to_exponent at 0x00000204B9FC32D0, file "fractions.py", line 73>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              19 (_round_to_exponent)
+
+102           LOAD_CONST               7 (<code object _round_to_figures at 0x00000204BA4466B0, file "fractions.py", line 102>)
+              MAKE_FUNCTION
+              STORE_NAME              20 (_round_to_figures)
+
+142           LOAD_NAME                5 (re)
+              LOAD_ATTR               30 (compile)
+              PUSH_NULL
+              LOAD_CONST               8 ("\n    (?:\n        (?P<fill>.)?\n        (?P<align>[<>=^])\n    )?\n    (?P<sign>[-+ ]?)\n    # Alt flag forces a slash and denominator in the output, even for\n    # integer-valued Fraction objects.\n    (?P<alt>\\#)?\n    # We don't implement the zeropad flag since there's no single obvious way\n    # to interpret it.\n    (?P<minimumwidth>0|[1-9][0-9]*)?\n    (?P<thousands_sep>[,_])?\n")
+
+155           LOAD_NAME                5 (re)
+              LOAD_ATTR               42 (DOTALL)
+              LOAD_NAME                5 (re)
+              LOAD_ATTR               32 (VERBOSE)
+              BINARY_OP                7 (|)
+
+142           CALL                     2
+
+155           LOAD_ATTR               44 (fullmatch)
+
+142           STORE_NAME              23 (_GENERAL_FORMAT_SPECIFICATION_MATCHER)
+
+160           LOAD_NAME                5 (re)
+              LOAD_ATTR               30 (compile)
+              PUSH_NULL
+              LOAD_CONST               9 ("\n    (?:\n        (?P<fill>.)?\n        (?P<align>[<>=^])\n    )?\n    (?P<sign>[-+ ]?)\n    (?P<no_neg_zero>z)?\n    (?P<alt>\\#)?\n    # A '0' that's *not* followed by another digit is parsed as a minimum width\n    # rather than a zeropad flag.\n    (?P<zeropad>0(?=[0-9]))?\n    (?P<minimumwidth>[0-9]+)?\n    (?P<thousands_sep>[,_])?\n    (?:\\.\n        (?=[,_0-9])  # lookahead for digit or separator\n        (?P<precision>[0-9]+)?\n        (?P<frac_separators>[,_])?\n    )?\n    (?P<presentation_type>[eEfFgG%])\n")
+
+179           LOAD_NAME                5 (re)
+              LOAD_ATTR               42 (DOTALL)
+              LOAD_NAME                5 (re)
+              LOAD_ATTR               32 (VERBOSE)
+              BINARY_OP                7 (|)
+
+160           CALL                     2
+
+179           LOAD_ATTR               44 (fullmatch)
+
+160           STORE_NAME              24 (_FLOAT_FORMAT_SPECIFICATION_MATCHER)
+
+182           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object Fraction at 0x00000204BA3E2620, file "fractions.py", line 182>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('Fraction')
+              LOAD_NAME                3 (numbers)
+              LOAD_ATTR               50 (Rational)
+              CALL                     3
+              STORE_NAME              26 (Fraction)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _hash_algorithm at 0x00000204B9F6F5D0, file "fractions.py", line 23>:
+  23            RESUME                   0
+
+  31            NOP
+
+  32    L1:     LOAD_GLOBAL              1 (pow + NULL)
+                LOAD_FAST_BORROW         1 (denominator)
+                LOAD_CONST               1 (-1)
+                LOAD_GLOBAL              2 (_PyHASH_MODULUS)
+                CALL                     3
+                STORE_FAST               2 (dinv)
+
+  52    L2:     LOAD_GLOBAL              5 (hash + NULL)
+                LOAD_GLOBAL              5 (hash + NULL)
+                LOAD_GLOBAL              7 (abs + NULL)
+                LOAD_FAST_BORROW         0 (numerator)
+                CALL                     1
+                CALL                     1
+                LOAD_FAST_BORROW         2 (dinv)
+                BINARY_OP                5 (*)
+                CALL                     1
+                STORE_FAST               3 (hash_)
+
+  53    L3:     LOAD_FAST_BORROW         0 (numerator)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE        3 (to L4)
+                NOT_TAKEN
+                LOAD_FAST                3 (hash_)
+                JUMP_FORWARD             2 (to L5)
+        L4:     LOAD_FAST_BORROW         3 (hash_)
+                UNARY_NEGATIVE
+        L5:     STORE_FAST               4 (result)
+
+  54            LOAD_FAST_BORROW         4 (result)
+                LOAD_CONST               1 (-1)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L6)
+                NOT_TAKEN
+                LOAD_CONST               2 (-2)
+                RETURN_VALUE
+        L6:     LOAD_FAST                4 (result)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+  33            LOAD_GLOBAL              8 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       10 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+  35            LOAD_GLOBAL             10 (_PyHASH_INF)
+                STORE_FAST               3 (hash_)
+        L8:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 42 (to L3)
+
+  33    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L7 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+
+Disassembly of <code object _round_to_exponent at 0x00000204B9FC32D0, file "fractions.py", line 73>:
+ 73           RESUME                   0
+
+ 87           LOAD_FAST_BORROW         2 (exponent)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_FALSE       18 (to L1)
+              NOT_TAKEN
+
+ 88           LOAD_FAST_BORROW         1 (d)
+              LOAD_SMALL_INT          10
+              LOAD_FAST_BORROW         2 (exponent)
+              BINARY_OP                8 (**)
+              BINARY_OP               18 (*=)
+              STORE_FAST               1 (d)
+              JUMP_FORWARD            17 (to L2)
+
+ 90   L1:     LOAD_FAST_BORROW         0 (n)
+              LOAD_SMALL_INT          10
+              LOAD_FAST_BORROW         2 (exponent)
+              UNARY_NEGATIVE
+              BINARY_OP                8 (**)
+              BINARY_OP               18 (*=)
+              STORE_FAST               0 (n)
+
+ 94   L2:     LOAD_GLOBAL              1 (divmod + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (n, d)
+              LOAD_SMALL_INT           1
+              BINARY_OP                9 (>>)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         1 (d)
+              CALL                     2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   69 (q, r)
+
+ 95           LOAD_FAST_BORROW         5 (r)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       24 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         1 (d)
+              LOAD_SMALL_INT           1
+              BINARY_OP                1 (&)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       10 (to L3)
+              NOT_TAKEN
+
+ 96           LOAD_FAST_BORROW         4 (q)
+              LOAD_CONST               1 (-2)
+              BINARY_OP               14 (&=)
+              STORE_FAST               4 (q)
+
+ 98   L3:     LOAD_FAST_BORROW         3 (no_neg_zero)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L4)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         4 (q)
+              LOAD_SMALL_INT           0
+              COMPARE_OP               2 (<)
+              JUMP_FORWARD             4 (to L5)
+      L4:     LOAD_FAST_BORROW         0 (n)
+              LOAD_SMALL_INT           0
+              COMPARE_OP               2 (<)
+      L5:     STORE_FAST               6 (sign)
+
+ 99           LOAD_FAST_BORROW         6 (sign)
+              LOAD_GLOBAL              3 (abs + NULL)
+              LOAD_FAST_BORROW         4 (q)
+              CALL                     1
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _round_to_figures at 0x00000204BA4466B0, file "fractions.py", line 102>:
+102           RESUME                   0
+
+119           LOAD_FAST_BORROW         0 (n)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+120           LOAD_CONST               1 (False)
+              LOAD_SMALL_INT           0
+              LOAD_SMALL_INT           1
+              LOAD_FAST_BORROW         2 (figures)
+              BINARY_OP               10 (-)
+              BUILD_TUPLE              3
+              RETURN_VALUE
+
+124   L1:     LOAD_GLOBAL              1 (str + NULL)
+              LOAD_GLOBAL              3 (abs + NULL)
+              LOAD_FAST_BORROW         0 (n)
+              CALL                     1
+              CALL                     1
+              LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         1 (d)
+              CALL                     1
+              STORE_FAST_STORE_FAST   67 (str_d, str_n)
+
+125           LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         3 (str_n)
+              CALL                     1
+              LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         4 (str_d)
+              CALL                     1
+              BINARY_OP               10 (-)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (str_d, str_n)
+              COMPARE_OP              42 (<=)
+              BINARY_OP                0 (+)
+              STORE_FAST               5 (m)
+
+129           LOAD_FAST_BORROW_LOAD_FAST_BORROW 82 (m, figures)
+              BINARY_OP               10 (-)
+              STORE_FAST               6 (exponent)
+
+130           LOAD_GLOBAL              7 (_round_to_exponent + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (n, d)
+              LOAD_FAST_BORROW         6 (exponent)
+              CALL                     3
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  120 (sign, significand)
+
+134           LOAD_GLOBAL              5 (len + NULL)
+              LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         8 (significand)
+              CALL                     1
+              CALL                     1
+              LOAD_FAST_BORROW         2 (figures)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       19 (to L2)
+              NOT_TAKEN
+
+135           LOAD_FAST_BORROW         8 (significand)
+              LOAD_SMALL_INT          10
+              BINARY_OP               15 (//=)
+              STORE_FAST               8 (significand)
+
+136           LOAD_FAST_BORROW         6 (exponent)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              STORE_FAST               6 (exponent)
+
+138   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 120 (sign, significand)
+              LOAD_FAST_BORROW         6 (exponent)
+              BUILD_TUPLE              3
+              RETURN_VALUE
+
+Disassembly of <code object Fraction at 0x00000204BA3E2620, file "fractions.py", line 182>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 182           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Fraction')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         182
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 183           LOAD_CONST               1 ("This class implements rational numbers.\n\nIn the two-argument form of the constructor, Fraction(8, 6) will\nproduce a rational number equivalent to 4/3. Both arguments must\nbe Rational. The numerator defaults to 0 and the denominator\ndefaults to 1 so that Fraction(3) == 3 and Fraction() == 0.\n\nFractions can also be constructed from:\n\n  - numeric strings similar to those accepted by the\n    float constructor (for example, '-2.3' or '1e10')\n\n  - strings of the form '123/456'\n\n  - float and Decimal instances\n\n  - other Rational instances (including integers)\n\n")
+               STORE_NAME               4 (__doc__)
+
+ 203           LOAD_CONST              48 (('_numerator', '_denominator'))
+               STORE_NAME               5 (__slots__)
+
+ 206           LOAD_CONST              49 ((0, None))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __new__ at 0x00000204BA3B00D0, file "fractions.py", line 206>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__new__)
+
+ 313           LOAD_NAME                7 (classmethod)
+
+ 314           LOAD_CONST               3 (<code object from_number at 0x00000204BA387780, file "fractions.py", line 313>)
+               MAKE_FUNCTION
+
+ 313           CALL                     0
+
+ 314           STORE_NAME               8 (from_number)
+
+ 335           LOAD_NAME                7 (classmethod)
+
+ 336           LOAD_CONST               4 (<code object from_float at 0x00000204B9F5B830, file "fractions.py", line 335>)
+               MAKE_FUNCTION
+
+ 335           CALL                     0
+
+ 336           STORE_NAME               9 (from_float)
+
+ 349           LOAD_NAME                7 (classmethod)
+
+ 350           LOAD_CONST               5 (<code object from_decimal at 0x00000204BA46ECA0, file "fractions.py", line 349>)
+               MAKE_FUNCTION
+
+ 349           CALL                     0
+
+ 350           STORE_NAME              10 (from_decimal)
+
+ 361           LOAD_NAME                7 (classmethod)
+
+ 362           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               6 (<code object _from_coprime_ints at 0x00000204BA0A7CF0, file "fractions.py", line 361>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 361           CALL                     0
+
+ 362           STORE_NAME              11 (_from_coprime_ints)
+
+ 373           LOAD_CONST               7 (<code object is_integer at 0x00000204BA092970, file "fractions.py", line 373>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (is_integer)
+
+ 377           LOAD_CONST               8 (<code object as_integer_ratio at 0x00000204BA0FF440, file "fractions.py", line 377>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (as_integer_ratio)
+
+ 384           LOAD_CONST              50 ((1000000,))
+               LOAD_CONST               9 (<code object limit_denominator at 0x00000204BA3735D0, file "fractions.py", line 384>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              14 (limit_denominator)
+
+ 441           LOAD_NAME               15 (property)
+
+ 442           LOAD_CONST              10 (<code object numerator at 0x00000204BA092C40, file "fractions.py", line 441>)
+               MAKE_FUNCTION
+
+ 441           CALL                     0
+
+ 442           STORE_NAME              16 (numerator)
+
+ 445           LOAD_NAME               15 (property)
+
+ 446           LOAD_CONST              11 (<code object denominator at 0x00000204BA0924C0, file "fractions.py", line 445>)
+               MAKE_FUNCTION
+
+ 445           CALL                     0
+
+ 446           STORE_NAME              17 (denominator)
+
+ 449           LOAD_CONST              12 (<code object __repr__ at 0x00000204BA0AA1F0, file "fractions.py", line 449>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (__repr__)
+
+ 454           LOAD_CONST              13 (<code object __str__ at 0x00000204B9F72AD0, file "fractions.py", line 454>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (__str__)
+
+ 461           LOAD_CONST              14 (<code object _format_general at 0x00000204BA35BFC0, file "fractions.py", line 461>)
+               MAKE_FUNCTION
+               STORE_NAME              20 (_format_general)
+
+ 495           LOAD_CONST              15 (<code object _format_float_style at 0x00000204BA431F40, file "fractions.py", line 495>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (_format_float_style)
+
+ 599           LOAD_CONST              16 (<code object __format__ at 0x00000204B9FC30F0, file "fractions.py", line 599>)
+               MAKE_FUNCTION
+               STORE_NAME              22 (__format__)
+
+ 616           LOAD_CONST              51 ((True,))
+               LOAD_CONST              17 (<code object _operator_fallbacks at 0x00000204B9F9EA30, file "fractions.py", line 616>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              23 (_operator_fallbacks)
+
+ 794           LOAD_CONST              18 (<code object _add at 0x00000204BA4B5C90, file "fractions.py", line 794>)
+               MAKE_FUNCTION
+               STORE_NAME              24 (_add)
+
+ 808           LOAD_NAME               23 (_operator_fallbacks)
+               PUSH_NULL
+               LOAD_NAME               24 (_add)
+               LOAD_NAME               25 (operator)
+               LOAD_ATTR               52 (add)
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_NAME              27 (__add__)
+               STORE_NAME              28 (__radd__)
+
+ 810           LOAD_CONST              19 (<code object _sub at 0x00000204BA356B50, file "fractions.py", line 810>)
+               MAKE_FUNCTION
+               STORE_NAME              29 (_sub)
+
+ 824           LOAD_NAME               23 (_operator_fallbacks)
+               PUSH_NULL
+               LOAD_NAME               29 (_sub)
+               LOAD_NAME               25 (operator)
+               LOAD_ATTR               60 (sub)
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_NAME              31 (__sub__)
+               STORE_NAME              32 (__rsub__)
+
+ 826           LOAD_CONST              20 (<code object _mul at 0x00000204BA3E07C0, file "fractions.py", line 826>)
+               MAKE_FUNCTION
+               STORE_NAME              33 (_mul)
+
+ 840           LOAD_NAME               23 (_operator_fallbacks)
+               PUSH_NULL
+               LOAD_NAME               33 (_mul)
+               LOAD_NAME               25 (operator)
+               LOAD_ATTR               68 (mul)
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_NAME              35 (__mul__)
+               STORE_NAME              36 (__rmul__)
+
+ 842           LOAD_CONST              21 (<code object _div at 0x00000204BA432830, file "fractions.py", line 842>)
+               MAKE_FUNCTION
+               STORE_NAME              37 (_div)
+
+ 862           LOAD_NAME               23 (_operator_fallbacks)
+               PUSH_NULL
+               LOAD_NAME               37 (_div)
+               LOAD_NAME               25 (operator)
+               LOAD_ATTR               76 (truediv)
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_NAME              39 (__truediv__)
+               STORE_NAME              40 (__rtruediv__)
+
+ 864           LOAD_CONST              22 (<code object _floordiv at 0x00000204BA0BAF70, file "fractions.py", line 864>)
+               MAKE_FUNCTION
+               STORE_NAME              41 (_floordiv)
+
+ 868           LOAD_NAME               23 (_operator_fallbacks)
+               PUSH_NULL
+               LOAD_NAME               41 (_floordiv)
+               LOAD_NAME               25 (operator)
+               LOAD_ATTR               84 (floordiv)
+               LOAD_CONST              23 (False)
+               CALL                     3
+               UNPACK_SEQUENCE          2
+               STORE_NAME              43 (__floordiv__)
+               STORE_NAME              44 (__rfloordiv__)
+
+ 870           LOAD_CONST              24 (<code object _divmod at 0x00000204BA0B7230, file "fractions.py", line 870>)
+               MAKE_FUNCTION
+               STORE_NAME              45 (_divmod)
+
+ 876           LOAD_NAME               23 (_operator_fallbacks)
+               PUSH_NULL
+               LOAD_NAME               45 (_divmod)
+               LOAD_NAME               46 (divmod)
+               LOAD_CONST              23 (False)
+               CALL                     3
+               UNPACK_SEQUENCE          2
+               STORE_NAME              47 (__divmod__)
+               STORE_NAME              48 (__rdivmod__)
+
+ 878           LOAD_CONST              25 (<code object _mod at 0x00000204B9FB6A30, file "fractions.py", line 878>)
+               MAKE_FUNCTION
+               STORE_NAME              49 (_mod)
+
+ 883           LOAD_NAME               23 (_operator_fallbacks)
+               PUSH_NULL
+               LOAD_NAME               49 (_mod)
+               LOAD_NAME               25 (operator)
+               LOAD_ATTR              100 (mod)
+               LOAD_CONST              23 (False)
+               CALL                     3
+               UNPACK_SEQUENCE          2
+               STORE_NAME              51 (__mod__)
+               STORE_NAME              52 (__rmod__)
+
+ 885           LOAD_CONST              52 ((None,))
+               LOAD_CONST              26 (<code object __pow__ at 0x00000204BA3AE6D0, file "fractions.py", line 885>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              53 (__pow__)
+
+ 919           LOAD_CONST              52 ((None,))
+               LOAD_CONST              27 (<code object __rpow__ at 0x00000204BA356E30, file "fractions.py", line 919>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              54 (__rpow__)
+
+ 935           LOAD_CONST              28 (<code object __pos__ at 0x00000204BA1022A0, file "fractions.py", line 935>)
+               MAKE_FUNCTION
+               STORE_NAME              55 (__pos__)
+
+ 939           LOAD_CONST              29 (<code object __neg__ at 0x00000204BA102760, file "fractions.py", line 939>)
+               MAKE_FUNCTION
+               STORE_NAME              56 (__neg__)
+
+ 943           LOAD_CONST              30 (<code object __abs__ at 0x00000204BA0A9F70, file "fractions.py", line 943>)
+               MAKE_FUNCTION
+               STORE_NAME              57 (__abs__)
+
+ 947           LOAD_NAME               25 (operator)
+               LOAD_ATTR              116 (index)
+               BUILD_TUPLE              1
+               LOAD_CONST              31 (<code object __int__ at 0x00000204BA128E40, file "fractions.py", line 947>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              59 (__int__)
+
+ 954           LOAD_CONST              32 (<code object __trunc__ at 0x00000204BA610480, file "fractions.py", line 954>)
+               MAKE_FUNCTION
+               STORE_NAME              60 (__trunc__)
+
+ 961           LOAD_CONST              33 (<code object __floor__ at 0x00000204BA0FF550, file "fractions.py", line 961>)
+               MAKE_FUNCTION
+               STORE_NAME              61 (__floor__)
+
+ 965           LOAD_CONST              34 (<code object __ceil__ at 0x00000204BA0FECD0, file "fractions.py", line 965>)
+               MAKE_FUNCTION
+               STORE_NAME              62 (__ceil__)
+
+ 970           LOAD_CONST              52 ((None,))
+               LOAD_CONST              35 (<code object __round__ at 0x00000204BA4A45E0, file "fractions.py", line 970>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              63 (__round__)
+
+ 996           LOAD_CONST              36 (<code object __hash__ at 0x00000204BA0A7AB0, file "fractions.py", line 996>)
+               MAKE_FUNCTION
+               STORE_NAME              64 (__hash__)
+
+1000           LOAD_CONST              37 (<code object __eq__ at 0x00000204BA4A4AF0, file "fractions.py", line 1000>)
+               MAKE_FUNCTION
+               STORE_NAME              65 (__eq__)
+
+1021           LOAD_CONST              38 (<code object _richcmp at 0x00000204BA3E20F0, file "fractions.py", line 1021>)
+               MAKE_FUNCTION
+               STORE_NAME              66 (_richcmp)
+
+1043           LOAD_CONST              39 (<code object __lt__ at 0x00000204BA0A7990, file "fractions.py", line 1043>)
+               MAKE_FUNCTION
+               STORE_NAME              67 (__lt__)
+
+1047           LOAD_CONST              40 (<code object __gt__ at 0x00000204BA0A7E10, file "fractions.py", line 1047>)
+               MAKE_FUNCTION
+               STORE_NAME              68 (__gt__)
+
+1051           LOAD_CONST              41 (<code object __le__ at 0x00000204BA0A45D0, file "fractions.py", line 1051>)
+               MAKE_FUNCTION
+               STORE_NAME              69 (__le__)
+
+1055           LOAD_CONST              42 (<code object __ge__ at 0x00000204BA0A6AF0, file "fractions.py", line 1055>)
+               MAKE_FUNCTION
+               STORE_NAME              70 (__ge__)
+
+1059           LOAD_CONST              43 (<code object __bool__ at 0x00000204BA08B330, file "fractions.py", line 1059>)
+               MAKE_FUNCTION
+               STORE_NAME              71 (__bool__)
+
+1067           LOAD_CONST              44 (<code object __reduce__ at 0x00000204BA0A7090, file "fractions.py", line 1067>)
+               MAKE_FUNCTION
+               STORE_NAME              72 (__reduce__)
+
+1070           LOAD_CONST              45 (<code object __copy__ at 0x00000204BA0BAE20, file "fractions.py", line 1070>)
+               MAKE_FUNCTION
+               STORE_NAME              73 (__copy__)
+
+1075           LOAD_CONST              46 (<code object __deepcopy__ at 0x00000204BA0BB600, file "fractions.py", line 1075>)
+               MAKE_FUNCTION
+               STORE_NAME              74 (__deepcopy__)
+               LOAD_CONST              47 (('_denominator', '_numerator'))
+               STORE_NAME              75 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              76 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              77 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x00000204BA3B00D0, file "fractions.py", line 206>:
+  --            COPY_FREE_VARS           1
+
+ 206            RESUME                   0
+
+ 237            LOAD_GLOBAL              0 (super)
+                LOAD_GLOBAL              2 (Fraction)
+                LOAD_FAST_BORROW         0 (cls)
+                LOAD_SUPER_ATTR         11 (__new__ + NULL|self)
+                LOAD_FAST_BORROW         0 (cls)
+                CALL                     1
+                STORE_FAST               3 (self)
+
+ 239            LOAD_FAST_BORROW         2 (denominator)
+                EXTENDED_ARG             2
+                POP_JUMP_IF_NOT_NONE   544 (to L13)
+                NOT_TAKEN
+
+ 240            LOAD_GLOBAL              7 (type + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                CALL                     1
+                LOAD_GLOBAL              8 (int)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       16 (to L1)
+                NOT_TAKEN
+
+ 241            LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (numerator, self)
+                STORE_ATTR               5 (_numerator)
+
+ 242            LOAD_SMALL_INT           1
+                LOAD_FAST_BORROW         3 (self)
+                STORE_ATTR               6 (_denominator)
+
+ 243            LOAD_FAST_BORROW         3 (self)
+                RETURN_VALUE
+
+ 245    L1:     LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                LOAD_GLOBAL             16 (numbers)
+                LOAD_ATTR               18 (Rational)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       37 (to L2)
+                NOT_TAKEN
+
+ 246            LOAD_FAST_BORROW         1 (numerator)
+                LOAD_ATTR               20 (numerator)
+                LOAD_FAST_BORROW         3 (self)
+                STORE_ATTR               5 (_numerator)
+
+ 247            LOAD_FAST_BORROW         1 (numerator)
+                LOAD_ATTR               22 (denominator)
+                LOAD_FAST_BORROW         3 (self)
+                STORE_ATTR               6 (_denominator)
+
+ 248            LOAD_FAST_BORROW         3 (self)
+                RETURN_VALUE
+
+ 250    L2:     LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                LOAD_GLOBAL             24 (float)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        41 (to L3)
+                NOT_TAKEN
+
+ 251            LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                LOAD_GLOBAL              6 (type)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        50 (to L4)
+                NOT_TAKEN
+
+ 252            LOAD_GLOBAL             27 (hasattr + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                LOAD_CONST               1 ('as_integer_ratio')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       32 (to L4)
+                NOT_TAKEN
+
+ 254    L3:     LOAD_FAST_BORROW         1 (numerator)
+                LOAD_ATTR               29 (as_integer_ratio + NULL|self)
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                LOAD_FAST_BORROW         3 (self)
+                STORE_ATTR               5 (_numerator)
+                LOAD_FAST_BORROW         3 (self)
+                STORE_ATTR               6 (_denominator)
+
+ 255            LOAD_FAST_BORROW         3 (self)
+                RETURN_VALUE
+
+ 257    L4:     LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                LOAD_GLOBAL             30 (str)
+                CALL                     2
+                TO_BOOL
+                EXTENDED_ARG             1
+                POP_JUMP_IF_FALSE      315 (to L12)
+                NOT_TAKEN
+
+ 259            LOAD_GLOBAL             32 (_RATIONAL_FORMAT)
+                LOAD_ATTR               35 (match + NULL|self)
+                LOAD_FAST_BORROW         1 (numerator)
+                CALL                     1
+                STORE_FAST               4 (m)
+
+ 260            LOAD_FAST_BORROW         4 (m)
+                POP_JUMP_IF_NOT_NONE    19 (to L5)
+                NOT_TAKEN
+
+ 261            LOAD_GLOBAL             37 (ValueError + NULL)
+                LOAD_CONST               2 ('Invalid literal for Fraction: %r')
+
+ 262            LOAD_FAST_BORROW         1 (numerator)
+
+ 261            BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 263    L5:     LOAD_GLOBAL              9 (int + NULL)
+                LOAD_FAST_BORROW         4 (m)
+                LOAD_ATTR               39 (group + NULL|self)
+                LOAD_CONST               3 ('num')
+                CALL                     1
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L6)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST               4 ('0')
+        L6:     CALL                     1
+                STORE_FAST               1 (numerator)
+
+ 264            LOAD_FAST_BORROW         4 (m)
+                LOAD_ATTR               39 (group + NULL|self)
+                LOAD_CONST               5 ('denom')
+                CALL                     1
+                STORE_FAST               5 (denom)
+
+ 265            LOAD_FAST_BORROW         5 (denom)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L7)
+                NOT_TAKEN
+
+ 266            LOAD_GLOBAL              9 (int + NULL)
+                LOAD_FAST_BORROW         5 (denom)
+                CALL                     1
+                STORE_FAST               2 (denominator)
+                JUMP_FORWARD           172 (to L10)
+
+ 268    L7:     LOAD_SMALL_INT           1
+                STORE_FAST               2 (denominator)
+
+ 269            LOAD_FAST_BORROW         4 (m)
+                LOAD_ATTR               39 (group + NULL|self)
+                LOAD_CONST               6 ('decimal')
+                CALL                     1
+                STORE_FAST               6 (decimal)
+
+ 270            LOAD_FAST_BORROW         6 (decimal)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       69 (to L8)
+                NOT_TAKEN
+
+ 271            LOAD_FAST_BORROW         6 (decimal)
+                LOAD_ATTR               41 (replace + NULL|self)
+                LOAD_CONST               7 ('_')
+                LOAD_CONST               8 ('')
+                CALL                     2
+                STORE_FAST               6 (decimal)
+
+ 272            LOAD_SMALL_INT          10
+                LOAD_GLOBAL             43 (len + NULL)
+                LOAD_FAST_BORROW         6 (decimal)
+                CALL                     1
+                BINARY_OP                8 (**)
+                STORE_FAST               7 (scale)
+
+ 273            LOAD_FAST_BORROW_LOAD_FAST_BORROW 23 (numerator, scale)
+                BINARY_OP                5 (*)
+                LOAD_GLOBAL              9 (int + NULL)
+                LOAD_FAST_BORROW         6 (decimal)
+                CALL                     1
+                BINARY_OP                0 (+)
+                STORE_FAST               1 (numerator)
+
+ 274            LOAD_FAST_BORROW_LOAD_FAST_BORROW 39 (denominator, scale)
+                BINARY_OP               18 (*=)
+                STORE_FAST               2 (denominator)
+
+ 275    L8:     LOAD_FAST_BORROW         4 (m)
+                LOAD_ATTR               39 (group + NULL|self)
+                LOAD_CONST               9 ('exp')
+                CALL                     1
+                STORE_FAST               8 (exp)
+
+ 276            LOAD_FAST_BORROW         8 (exp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       53 (to L10)
+                NOT_TAKEN
+
+ 277            LOAD_GLOBAL              9 (int + NULL)
+                LOAD_FAST_BORROW         8 (exp)
+                CALL                     1
+                STORE_FAST               8 (exp)
+
+ 278            LOAD_FAST_BORROW         8 (exp)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE       18 (to L9)
+                NOT_TAKEN
+
+ 279            LOAD_FAST_BORROW         1 (numerator)
+                LOAD_SMALL_INT          10
+                LOAD_FAST_BORROW         8 (exp)
+                BINARY_OP                8 (**)
+                BINARY_OP               18 (*=)
+                STORE_FAST               1 (numerator)
+                JUMP_FORWARD            17 (to L10)
+
+ 281    L9:     LOAD_FAST_BORROW         2 (denominator)
+                LOAD_SMALL_INT          10
+                LOAD_FAST_BORROW         8 (exp)
+                UNARY_NEGATIVE
+                BINARY_OP                8 (**)
+                BINARY_OP               18 (*=)
+                STORE_FAST               2 (denominator)
+
+ 282   L10:     LOAD_FAST_BORROW         4 (m)
+                LOAD_ATTR               39 (group + NULL|self)
+                LOAD_CONST              10 ('sign')
+                CALL                     1
+                LOAD_CONST              11 ('-')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        4 (to L11)
+                NOT_TAKEN
+
+ 283            LOAD_FAST_BORROW         1 (numerator)
+                UNARY_NEGATIVE
+                STORE_FAST               1 (numerator)
+
+  --   L11:     JUMP_FORWARD           183 (to L18)
+
+ 286   L12:     LOAD_GLOBAL             45 (TypeError + NULL)
+                LOAD_CONST              12 ('argument should be a string or a Rational instance or have the as_integer_ratio() method')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 289   L13:     LOAD_GLOBAL              7 (type + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                CALL                     1
+                LOAD_GLOBAL              8 (int)
+                SWAP                     2
+                COPY                     2
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       16 (to L14)
+                NOT_TAKEN
+                LOAD_GLOBAL              7 (type + NULL)
+                LOAD_FAST_BORROW         2 (denominator)
+                CALL                     1
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE        5 (to L16)
+                NOT_TAKEN
+                JUMP_FORWARD             2 (to L15)
+       L14:     POP_TOP
+                JUMP_FORWARD             1 (to L16)
+
+ 290   L15:     JUMP_FORWARD           133 (to L18)
+
+ 292   L16:     LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (numerator)
+                LOAD_GLOBAL             16 (numbers)
+                LOAD_ATTR               18 (Rational)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       91 (to L17)
+                NOT_TAKEN
+
+ 293            LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST_BORROW         2 (denominator)
+                LOAD_GLOBAL             16 (numbers)
+                LOAD_ATTR               18 (Rational)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       59 (to L17)
+                NOT_TAKEN
+
+ 295            LOAD_FAST_BORROW         1 (numerator)
+                LOAD_ATTR               20 (numerator)
+                LOAD_FAST_BORROW         2 (denominator)
+                LOAD_ATTR               22 (denominator)
+                BINARY_OP                5 (*)
+
+ 296            LOAD_FAST_BORROW         2 (denominator)
+                LOAD_ATTR               20 (numerator)
+                LOAD_FAST_BORROW         1 (numerator)
+                LOAD_ATTR               22 (denominator)
+                BINARY_OP                5 (*)
+
+ 294            STORE_FAST_STORE_FAST   33 (denominator, numerator)
+                JUMP_FORWARD            11 (to L18)
+
+ 299   L17:     LOAD_GLOBAL             45 (TypeError + NULL)
+                LOAD_CONST              13 ('both arguments should be Rational instances')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 302   L18:     LOAD_FAST_BORROW         2 (denominator)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       19 (to L19)
+                NOT_TAKEN
+
+ 303            LOAD_GLOBAL             47 (ZeroDivisionError + NULL)
+                LOAD_CONST              14 ('Fraction(%s, 0)')
+                LOAD_FAST_BORROW         1 (numerator)
+                BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 304   L19:     LOAD_GLOBAL             48 (math)
+                LOAD_ATTR               50 (gcd)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (numerator, denominator)
+                CALL                     2
+                STORE_FAST               9 (g)
+
+ 305            LOAD_FAST_BORROW         2 (denominator)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        4 (to L20)
+                NOT_TAKEN
+
+ 306            LOAD_FAST_BORROW         9 (g)
+                UNARY_NEGATIVE
+                STORE_FAST               9 (g)
+
+ 307   L20:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 25 (numerator, g)
+                BINARY_OP               15 (//=)
+                STORE_FAST               1 (numerator)
+
+ 308            LOAD_FAST_BORROW_LOAD_FAST_BORROW 41 (denominator, g)
+                BINARY_OP               15 (//=)
+                STORE_FAST               2 (denominator)
+
+ 309            LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (numerator, self)
+                STORE_ATTR               5 (_numerator)
+
+ 310            LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (denominator, self)
+                STORE_ATTR               6 (_denominator)
+
+ 311            LOAD_FAST_BORROW         3 (self)
+                RETURN_VALUE
+
+Disassembly of <code object from_number at 0x00000204BA387780, file "fractions.py", line 313>:
+313           RESUME                   0
+
+320           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW         1 (number)
+              CALL                     1
+              LOAD_GLOBAL              2 (int)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+321           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                5 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_SMALL_INT           1
+              CALL                     2
+              RETURN_VALUE
+
+323   L1:     LOAD_GLOBAL              7 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_GLOBAL              8 (numbers)
+              LOAD_ATTR               10 (Rational)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       39 (to L2)
+              NOT_TAKEN
+
+324           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                5 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_ATTR               12 (numerator)
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_ATTR               14 (denominator)
+              CALL                     2
+              RETURN_VALUE
+
+326   L2:     LOAD_GLOBAL              7 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_GLOBAL             16 (float)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        41 (to L3)
+              NOT_TAKEN
+
+327           LOAD_GLOBAL              7 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_GLOBAL              0 (type)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        49 (to L4)
+              NOT_TAKEN
+
+328           LOAD_GLOBAL             19 (hasattr + NULL)
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_CONST               1 ('as_integer_ratio')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       31 (to L4)
+              NOT_TAKEN
+
+329   L3:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                4 (_from_coprime_ints)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (number)
+              LOAD_ATTR               21 (as_integer_ratio + NULL|self)
+              CALL                     0
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+332   L4:     LOAD_GLOBAL             23 (TypeError + NULL)
+              LOAD_CONST               2 ('argument should be a Rational instance or have the as_integer_ratio() method')
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object from_float at 0x00000204B9F5B830, file "fractions.py", line 335>:
+335           RESUME                   0
+
+342           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (f)
+              LOAD_GLOBAL              2 (numbers)
+              LOAD_ATTR                4 (Integral)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        9 (to L1)
+              NOT_TAKEN
+
+343           LOAD_FAST_BORROW         0 (cls)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (f)
+              CALL                     1
+              RETURN_VALUE
+
+344   L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (f)
+              LOAD_GLOBAL              6 (float)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        53 (to L2)
+              NOT_TAKEN
+
+345           LOAD_GLOBAL              9 (TypeError + NULL)
+
+346           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               10 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('.from_float() only takes floats, not ')
+              LOAD_FAST_BORROW         1 (f)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (' (')
+              LOAD_GLOBAL             13 (type + NULL)
+              LOAD_FAST_BORROW         1 (f)
+              CALL                     1
+              LOAD_ATTR               10 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (')')
+
+345           BUILD_STRING             6
+              CALL                     1
+              RAISE_VARARGS            1
+
+347   L2:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               14 (_from_coprime_ints)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (f)
+              LOAD_ATTR               17 (as_integer_ratio + NULL|self)
+              CALL                     0
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object from_decimal at 0x00000204BA46ECA0, file "fractions.py", line 349>:
+349           RESUME                   0
+
+352           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('Decimal',))
+              IMPORT_NAME              0 (decimal)
+              IMPORT_FROM              1 (Decimal)
+              STORE_FAST               2 (Decimal)
+              POP_TOP
+
+353           LOAD_GLOBAL              5 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (dec)
+              LOAD_GLOBAL              6 (numbers)
+              LOAD_ATTR                8 (Integral)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+354           LOAD_FAST_BORROW         2 (Decimal)
+              PUSH_NULL
+              LOAD_GLOBAL             11 (int + NULL)
+              LOAD_FAST_BORROW         1 (dec)
+              CALL                     1
+              CALL                     1
+              STORE_FAST               1 (dec)
+              JUMP_FORWARD            69 (to L2)
+
+355   L1:     LOAD_GLOBAL              5 (isinstance + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (dec, Decimal)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        53 (to L2)
+              NOT_TAKEN
+
+356           LOAD_GLOBAL             13 (TypeError + NULL)
+
+358           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               14 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('.from_decimal() only takes Decimals, not ')
+              LOAD_FAST_BORROW         1 (dec)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (' (')
+              LOAD_GLOBAL             17 (type + NULL)
+              LOAD_FAST_BORROW         1 (dec)
+              CALL                     1
+              LOAD_ATTR               14 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (')')
+
+357           BUILD_STRING             6
+
+356           CALL                     1
+              RAISE_VARARGS            1
+
+359   L2:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               18 (_from_coprime_ints)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (dec)
+              LOAD_ATTR               21 (as_integer_ratio + NULL|self)
+              CALL                     0
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object _from_coprime_ints at 0x00000204BA0A7CF0, file "fractions.py", line 361>:
+  --           COPY_FREE_VARS           1
+
+ 361           RESUME                   0
+
+ 368           LOAD_GLOBAL              0 (super)
+               LOAD_GLOBAL              2 (Fraction)
+               LOAD_FAST_BORROW         0 (cls)
+               LOAD_SUPER_ATTR         11 (__new__ + NULL|self)
+               LOAD_FAST_BORROW         0 (cls)
+               CALL                     1
+               STORE_FAST               3 (obj)
+
+ 369           LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (numerator, obj)
+               STORE_ATTR               3 (_numerator)
+
+ 370           LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (denominator, obj)
+               STORE_ATTR               4 (_denominator)
+
+ 371           LOAD_FAST_BORROW         3 (obj)
+               RETURN_VALUE
+
+Disassembly of <code object is_integer at 0x00000204BA092970, file "fractions.py", line 373>:
+373           RESUME                   0
+
+375           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_denominator)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object as_integer_ratio at 0x00000204BA0FF440, file "fractions.py", line 377>:
+377           RESUME                   0
+
+382           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_denominator)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object limit_denominator at 0x00000204BA3735D0, file "fractions.py", line 384>:
+384           RESUME                   0
+
+416           LOAD_FAST_BORROW         1 (max_denominator)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+417           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('max_denominator should be at least 1')
+              CALL                     1
+              RAISE_VARARGS            1
+
+418   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_denominator)
+              LOAD_FAST_BORROW         1 (max_denominator)
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+419           LOAD_GLOBAL              5 (Fraction + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              RETURN_VALUE
+
+421   L2:     LOAD_CONST               2 ((0, 1, 1, 0))
+              UNPACK_SEQUENCE          4
+              STORE_FAST_STORE_FAST   35 (p0, q0)
+              STORE_FAST_STORE_FAST   69 (p1, q1)
+
+422           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_numerator)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST  118 (d, n)
+
+423   L3:     NOP
+
+424           LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (n, d)
+              BINARY_OP                2 (//)
+              STORE_FAST               8 (a)
+
+425           LOAD_FAST_BORROW_LOAD_FAST_BORROW 56 (q0, a)
+              LOAD_FAST_BORROW         5 (q1)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              STORE_FAST               9 (q2)
+
+426           LOAD_FAST_BORROW_LOAD_FAST_BORROW 145 (q2, max_denominator)
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE        2 (to L4)
+              NOT_TAKEN
+
+427           JUMP_FORWARD            38 (to L5)
+
+428   L4:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (p1, q1)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 40 (p0, a)
+              LOAD_FAST_BORROW         4 (p1)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         9 (q2)
+              BUILD_TUPLE              4
+              UNPACK_SEQUENCE          4
+              STORE_FAST_STORE_FAST   35 (p0, q0)
+              STORE_FAST_STORE_FAST   69 (p1, q1)
+
+429           LOAD_FAST_LOAD_FAST    118 (d, n)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 135 (a, d)
+              BINARY_OP                5 (*)
+              BINARY_OP               10 (-)
+              STORE_FAST_STORE_FAST  118 (d, n)
+              JUMP_BACKWARD           69 (to L3)
+
+430   L5:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (max_denominator, q0)
+              BINARY_OP               10 (-)
+              LOAD_FAST_BORROW         5 (q1)
+              BINARY_OP                2 (//)
+              STORE_FAST              10 (k)
+
+436           LOAD_SMALL_INT           2
+              LOAD_FAST_BORROW         7 (d)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 58 (q0, k)
+              LOAD_FAST_BORROW         5 (q1)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_denominator)
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE       22 (to L6)
+              NOT_TAKEN
+
+437           LOAD_GLOBAL              4 (Fraction)
+              LOAD_ATTR                9 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (p1, q1)
+              CALL                     2
+              RETURN_VALUE
+
+439   L6:     LOAD_GLOBAL              4 (Fraction)
+              LOAD_ATTR                9 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 42 (p0, k)
+              LOAD_FAST_BORROW         4 (p1)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 58 (q0, k)
+              LOAD_FAST_BORROW         5 (q1)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object numerator at 0x00000204BA092C40, file "fractions.py", line 441>:
+441           RESUME                   0
+
+443           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              RETURN_VALUE
+
+Disassembly of <code object denominator at 0x00000204BA0924C0, file "fractions.py", line 445>:
+445           RESUME                   0
+
+447           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_denominator)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0AA1F0, file "fractions.py", line 449>:
+449           RESUME                   0
+
+451           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR                2 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('(')
+
+452           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_numerator)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (', ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_denominator)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (')')
+
+451           BUILD_STRING             6
+              RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204B9F72AD0, file "fractions.py", line 454>:
+454           RESUME                   0
+
+456           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_denominator)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       22 (to L1)
+              NOT_TAKEN
+
+457           LOAD_GLOBAL              3 (str + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_numerator)
+              CALL                     1
+              RETURN_VALUE
+
+459   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_numerator)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('/')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_denominator)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              RETURN_VALUE
+
+Disassembly of <code object _format_general at 0x00000204BA35BFC0, file "fractions.py", line 461>:
+461            RESUME                   0
+
+468            LOAD_FAST_BORROW         1 (match)
+               LOAD_CONST               1 ('fill')
+               BINARY_OP               26 ([])
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L1)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST               2 (' ')
+       L1:     STORE_FAST               2 (fill)
+
+469            LOAD_FAST_BORROW         1 (match)
+               LOAD_CONST               3 ('align')
+               BINARY_OP               26 ([])
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST               4 ('>')
+       L2:     STORE_FAST               3 (align)
+
+470            LOAD_FAST_BORROW         1 (match)
+               LOAD_CONST               5 ('sign')
+               BINARY_OP               26 ([])
+               LOAD_CONST               6 ('-')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+               LOAD_CONST               7 ('')
+               JUMP_FORWARD             8 (to L4)
+       L3:     LOAD_FAST_BORROW         1 (match)
+               LOAD_CONST               5 ('sign')
+               BINARY_OP               26 ([])
+       L4:     STORE_FAST               4 (pos_sign)
+
+471            LOAD_GLOBAL              1 (bool + NULL)
+               LOAD_FAST_BORROW         1 (match)
+               LOAD_CONST               8 ('alt')
+               BINARY_OP               26 ([])
+               CALL                     1
+               STORE_FAST               5 (alternate_form)
+
+472            LOAD_GLOBAL              3 (int + NULL)
+               LOAD_FAST_BORROW         1 (match)
+               LOAD_CONST               9 ('minimumwidth')
+               BINARY_OP               26 ([])
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L5)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST              10 ('0')
+       L5:     CALL                     1
+               STORE_FAST               6 (minimumwidth)
+
+473            LOAD_FAST_BORROW         1 (match)
+               LOAD_CONST              11 ('thousands_sep')
+               BINARY_OP               26 ([])
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L6)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST               7 ('')
+       L6:     STORE_FAST               7 (thousands_sep)
+
+476            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_numerator)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_denominator)
+               STORE_FAST_STORE_FAST  152 (d, n)
+
+477            LOAD_FAST_BORROW         9 (d)
+               LOAD_SMALL_INT           1
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_TRUE         9 (to L7)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         5 (alternate_form)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       21 (to L8)
+               NOT_TAKEN
+
+478    L7:     LOAD_GLOBAL              9 (abs + NULL)
+               LOAD_FAST_BORROW         8 (n)
+               CALL                     1
+               LOAD_FAST_BORROW         7 (thousands_sep)
+               FORMAT_SIMPLE
+               FORMAT_WITH_SPEC
+               LOAD_CONST              12 ('/')
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 151 (d, thousands_sep)
+               FORMAT_SIMPLE
+               FORMAT_WITH_SPEC
+               BUILD_STRING             3
+               STORE_FAST              10 (body)
+               JUMP_FORWARD            14 (to L9)
+
+480    L8:     LOAD_GLOBAL              9 (abs + NULL)
+               LOAD_FAST_BORROW         8 (n)
+               CALL                     1
+               LOAD_FAST_BORROW         7 (thousands_sep)
+               FORMAT_SIMPLE
+               FORMAT_WITH_SPEC
+               STORE_FAST              10 (body)
+
+481    L9:     LOAD_FAST_BORROW         8 (n)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE        3 (to L10)
+               NOT_TAKEN
+               LOAD_CONST               6 ('-')
+               JUMP_FORWARD             1 (to L11)
+      L10:     LOAD_FAST                4 (pos_sign)
+      L11:     STORE_FAST              11 (sign)
+
+484            LOAD_FAST_BORROW_LOAD_FAST_BORROW 38 (fill, minimumwidth)
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW        11 (sign)
+               CALL                     1
+               BINARY_OP               10 (-)
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW        10 (body)
+               CALL                     1
+               BINARY_OP               10 (-)
+               BINARY_OP                5 (*)
+               STORE_FAST              12 (padding)
+
+485            LOAD_FAST_BORROW         3 (align)
+               LOAD_CONST               4 ('>')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       16 (to L12)
+               NOT_TAKEN
+
+486            LOAD_FAST_BORROW_LOAD_FAST_BORROW 203 (padding, sign)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW        10 (body)
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+487   L12:     LOAD_FAST_BORROW         3 (align)
+               LOAD_CONST              13 ('<')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       16 (to L13)
+               NOT_TAKEN
+
+488            LOAD_FAST_BORROW_LOAD_FAST_BORROW 186 (sign, body)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW        12 (padding)
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+489   L13:     LOAD_FAST_BORROW         3 (align)
+               LOAD_CONST              14 ('^')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       47 (to L14)
+               NOT_TAKEN
+
+490            LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW        12 (padding)
+               CALL                     1
+               LOAD_SMALL_INT           2
+               BINARY_OP                2 (//)
+               STORE_FAST              13 (half)
+
+491            LOAD_FAST_BORROW        12 (padding)
+               LOAD_CONST              15 (None)
+               LOAD_FAST_BORROW        13 (half)
+               BINARY_SLICE
+               LOAD_FAST_BORROW        11 (sign)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW        10 (body)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 205 (padding, half)
+               LOAD_CONST              15 (None)
+               BINARY_SLICE
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+493   L14:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 188 (sign, padding)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW        10 (body)
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+Disassembly of <code object _format_float_style at 0x00000204BA431F40, file "fractions.py", line 495>:
+  --            MAKE_CELL               31 (frac_part)
+                MAKE_CELL               32 (leading)
+                MAKE_CELL               33 (thousands_sep)
+
+ 495            RESUME                   0
+
+ 497            LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST               1 ('fill')
+                BINARY_OP               26 ([])
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L1)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST               2 (' ')
+        L1:     STORE_FAST               2 (fill)
+
+ 498            LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST               3 ('align')
+                BINARY_OP               26 ([])
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L2)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST               4 ('>')
+        L2:     STORE_FAST               3 (align)
+
+ 499            LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST               5 ('sign')
+                BINARY_OP               26 ([])
+                LOAD_CONST               6 ('-')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L3)
+                NOT_TAKEN
+                LOAD_CONST               7 ('')
+                JUMP_FORWARD             8 (to L4)
+        L3:     LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST               5 ('sign')
+                BINARY_OP               26 ([])
+        L4:     STORE_FAST               4 (pos_sign)
+
+ 500            LOAD_GLOBAL              1 (bool + NULL)
+                LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST               8 ('no_neg_zero')
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST               5 (no_neg_zero)
+
+ 501            LOAD_GLOBAL              1 (bool + NULL)
+                LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST               9 ('alt')
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST               6 (alternate_form)
+
+ 502            LOAD_GLOBAL              1 (bool + NULL)
+                LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST              10 ('zeropad')
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST               7 (zeropad)
+
+ 503            LOAD_GLOBAL              3 (int + NULL)
+                LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST              11 ('minimumwidth')
+                BINARY_OP               26 ([])
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L5)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST              12 ('0')
+        L5:     CALL                     1
+                STORE_FAST               8 (minimumwidth)
+
+ 504            LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST              13 ('thousands_sep')
+                BINARY_OP               26 ([])
+                STORE_DEREF             33 (thousands_sep)
+
+ 505            LOAD_GLOBAL              3 (int + NULL)
+                LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST              14 ('precision')
+                BINARY_OP               26 ([])
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L6)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST              15 ('6')
+        L6:     CALL                     1
+                STORE_FAST               9 (precision)
+
+ 506            LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST              16 ('frac_separators')
+                BINARY_OP               26 ([])
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L7)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST               7 ('')
+        L7:     STORE_FAST              10 (frac_sep)
+
+ 507            LOAD_FAST_BORROW         1 (match)
+                LOAD_CONST              17 ('presentation_type')
+                BINARY_OP               26 ([])
+                STORE_FAST              11 (presentation_type)
+
+ 508            LOAD_FAST_BORROW        11 (presentation_type)
+                LOAD_CONST              18 ('gG')
+                CONTAINS_OP              0 (in)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        8 (to L8)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_FAST_BORROW         6 (alternate_form)
+                TO_BOOL
+                UNARY_NOT
+        L8:     STORE_FAST              12 (trim_zeros)
+
+ 509            LOAD_FAST_BORROW         6 (alternate_form)
+                TO_BOOL
+                UNARY_NOT
+                STORE_FAST              13 (trim_point)
+
+ 510            LOAD_FAST_BORROW        11 (presentation_type)
+                LOAD_CONST              19 ('EFG')
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE        3 (to L9)
+                NOT_TAKEN
+                LOAD_CONST              20 ('E')
+                JUMP_FORWARD             1 (to L10)
+        L9:     LOAD_CONST              21 ('e')
+       L10:     STORE_FAST              14 (exponent_indicator)
+
+ 512            LOAD_FAST_BORROW         3 (align)
+                LOAD_CONST              22 ('=')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       10 (to L11)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         2 (fill)
+                LOAD_CONST              12 ('0')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L11)
+                NOT_TAKEN
+
+ 513            LOAD_CONST              23 (True)
+                STORE_FAST               7 (zeropad)
+
+ 519   L11:     LOAD_FAST_BORROW        11 (presentation_type)
+                LOAD_CONST              24 ('fF%')
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       61 (to L13)
+                NOT_TAKEN
+
+ 520            LOAD_FAST_BORROW         9 (precision)
+                UNARY_NEGATIVE
+                STORE_FAST              15 (exponent)
+
+ 521            LOAD_FAST_BORROW        11 (presentation_type)
+                LOAD_CONST              25 ('%')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       10 (to L12)
+                NOT_TAKEN
+
+ 522            LOAD_FAST_BORROW        15 (exponent)
+                LOAD_SMALL_INT           2
+                BINARY_OP               23 (-=)
+                STORE_FAST              15 (exponent)
+
+ 523   L12:     LOAD_GLOBAL              5 (_round_to_exponent + NULL)
+
+ 524            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_numerator)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_denominator)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 245 (exponent, no_neg_zero)
+
+ 523            CALL                     4
+                UNPACK_SEQUENCE          2
+                STORE_FAST              16 (negative)
+                STORE_FAST              17 (significand)
+
+ 525            LOAD_CONST              26 (False)
+                STORE_FAST              18 (scientific)
+
+ 526            LOAD_FAST                9 (precision)
+                STORE_FAST              19 (point_pos)
+                JUMP_FORWARD           123 (to L19)
+
+ 530   L13:     LOAD_FAST_BORROW        11 (presentation_type)
+                LOAD_CONST              18 ('gG')
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       13 (to L14)
+                NOT_TAKEN
+
+ 529            LOAD_GLOBAL             11 (max + NULL)
+                LOAD_FAST_BORROW         9 (precision)
+                LOAD_SMALL_INT           1
+                CALL                     2
+                JUMP_FORWARD             8 (to L15)
+
+ 531   L14:     LOAD_FAST_BORROW         9 (precision)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+
+ 528   L15:     STORE_FAST              20 (figures)
+
+ 533            LOAD_GLOBAL             13 (_round_to_figures + NULL)
+
+ 534            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_numerator)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_denominator)
+                LOAD_FAST_BORROW        20 (figures)
+
+ 533            CALL                     3
+                UNPACK_SEQUENCE          3
+                STORE_FAST              16 (negative)
+                STORE_FAST              17 (significand)
+                STORE_FAST              15 (exponent)
+
+ 536            LOAD_FAST_BORROW        11 (presentation_type)
+                LOAD_CONST              27 ('eE')
+                CONTAINS_OP              0 (in)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        26 (to L16)
+                NOT_TAKEN
+                POP_TOP
+
+ 537            LOAD_FAST_BORROW        15 (exponent)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             132 (>)
+
+ 536            COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        13 (to L16)
+                NOT_TAKEN
+                POP_TOP
+
+ 538            LOAD_FAST_BORROW        15 (exponent)
+                LOAD_FAST_BORROW        20 (figures)
+                BINARY_OP                0 (+)
+                LOAD_CONST              36 (-4)
+                COMPARE_OP              42 (<=)
+
+ 535   L16:     STORE_FAST              18 (scientific)
+
+ 540            LOAD_FAST_BORROW        18 (scientific)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       10 (to L17)
+                NOT_TAKEN
+                LOAD_FAST_BORROW        20 (figures)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                JUMP_FORWARD             2 (to L18)
+       L17:     LOAD_FAST_BORROW        15 (exponent)
+                UNARY_NEGATIVE
+       L18:     STORE_FAST              19 (point_pos)
+
+ 543   L19:     LOAD_FAST_BORROW        11 (presentation_type)
+                LOAD_CONST              25 ('%')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        4 (to L20)
+                NOT_TAKEN
+
+ 544            LOAD_CONST              25 ('%')
+                STORE_FAST              21 (suffix)
+                JUMP_FORWARD            25 (to L22)
+
+ 545   L20:     LOAD_FAST_BORROW        18 (scientific)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       16 (to L21)
+                NOT_TAKEN
+
+ 546            LOAD_FAST_BORROW        14 (exponent_indicator)
+                FORMAT_SIMPLE
+                LOAD_FAST_BORROW        15 (exponent)
+                LOAD_FAST_BORROW        19 (point_pos)
+                BINARY_OP                0 (+)
+                LOAD_CONST              28 ('+03d')
+                FORMAT_WITH_SPEC
+                BUILD_STRING             2
+                STORE_FAST              21 (suffix)
+                JUMP_FORWARD             2 (to L22)
+
+ 548   L21:     LOAD_CONST               7 ('')
+                STORE_FAST              21 (suffix)
+
+ 552   L22:     LOAD_FAST_BORROW        17 (significand)
+                LOAD_CONST              12 ('0')
+                LOAD_FAST_BORROW        19 (point_pos)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                FORMAT_SIMPLE
+                LOAD_CONST              29 ('d')
+                BUILD_STRING             3
+                FORMAT_WITH_SPEC
+                STORE_FAST              22 (digits)
+
+ 557            LOAD_FAST_BORROW        16 (negative)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L23)
+                NOT_TAKEN
+                LOAD_CONST               6 ('-')
+                JUMP_FORWARD             1 (to L24)
+       L23:     LOAD_FAST                4 (pos_sign)
+       L24:     STORE_FAST              23 (sign)
+
+ 558            LOAD_FAST_BORROW        22 (digits)
+                LOAD_CONST              30 (None)
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_FAST_BORROW        22 (digits)
+                CALL                     1
+                LOAD_FAST_BORROW        19 (point_pos)
+                BINARY_OP               10 (-)
+                BINARY_SLICE
+                STORE_DEREF             32 (leading)
+
+ 559            LOAD_FAST_BORROW        22 (digits)
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_FAST_BORROW        22 (digits)
+                CALL                     1
+                LOAD_FAST_BORROW        19 (point_pos)
+                BINARY_OP               10 (-)
+                LOAD_CONST              30 (None)
+                BINARY_SLICE
+                STORE_DEREF             31 (frac_part)
+
+ 560            LOAD_FAST_BORROW        12 (trim_zeros)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L25)
+                NOT_TAKEN
+
+ 561            LOAD_DEREF              31 (frac_part)
+                LOAD_ATTR               17 (rstrip + NULL|self)
+                LOAD_CONST              12 ('0')
+                CALL                     1
+                STORE_DEREF             31 (frac_part)
+
+ 562   L25:     LOAD_FAST_BORROW        13 (trim_point)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       11 (to L26)
+                NOT_TAKEN
+                LOAD_DEREF              31 (frac_part)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L26)
+                NOT_TAKEN
+                LOAD_CONST               7 ('')
+                JUMP_FORWARD             1 (to L27)
+       L26:     LOAD_CONST              31 ('.')
+       L27:     STORE_FAST              24 (separator)
+
+ 563            LOAD_FAST_BORROW        10 (frac_sep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       48 (to L28)
+                NOT_TAKEN
+
+ 564            LOAD_FAST_BORROW        10 (frac_sep)
+                LOAD_ATTR               19 (join + NULL|self)
+                LOAD_FAST_BORROW        31 (frac_part)
+                BUILD_TUPLE              1
+                LOAD_CONST              32 (<code object <genexpr> at 0x00000204BA0FFEE0, file "fractions.py", line 564>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 565            LOAD_GLOBAL             21 (range + NULL)
+                LOAD_SMALL_INT           0
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_DEREF              31 (frac_part)
+                CALL                     1
+                LOAD_SMALL_INT           3
+                CALL                     3
+                GET_ITER
+
+ 564            CALL                     0
+                CALL                     1
+                STORE_DEREF             31 (frac_part)
+
+ 566   L28:     LOAD_FAST_BORROW        24 (separator)
+                LOAD_DEREF              31 (frac_part)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW        21 (suffix)
+                BINARY_OP                0 (+)
+                STORE_FAST              25 (trailing)
+
+ 569            LOAD_FAST_BORROW         7 (zeropad)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       83 (to L31)
+                NOT_TAKEN
+
+ 570            LOAD_FAST_BORROW         8 (minimumwidth)
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_FAST_BORROW        23 (sign)
+                CALL                     1
+                BINARY_OP               10 (-)
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_FAST_BORROW        25 (trailing)
+                CALL                     1
+                BINARY_OP               10 (-)
+                STORE_FAST              26 (min_leading)
+
+ 573            LOAD_DEREF              32 (leading)
+                LOAD_ATTR               23 (zfill + NULL|self)
+
+ 574            LOAD_DEREF              33 (thousands_sep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       24 (to L29)
+                NOT_TAKEN
+                LOAD_SMALL_INT           3
+                LOAD_FAST_BORROW        26 (min_leading)
+                BINARY_OP                5 (*)
+                LOAD_SMALL_INT           4
+                BINARY_OP                2 (//)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                JUMP_FORWARD             1 (to L30)
+       L29:     LOAD_FAST               26 (min_leading)
+
+ 573   L30:     CALL                     1
+                STORE_DEREF             32 (leading)
+
+ 578   L31:     LOAD_DEREF              33 (thousands_sep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       91 (to L32)
+                NOT_TAKEN
+
+ 579            LOAD_SMALL_INT           1
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_DEREF              32 (leading)
+                CALL                     1
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                LOAD_SMALL_INT           3
+                BINARY_OP                6 (%)
+                BINARY_OP                0 (+)
+                STORE_FAST              27 (first_pos)
+
+ 580            LOAD_DEREF              32 (leading)
+                LOAD_CONST              30 (None)
+                LOAD_FAST_BORROW        27 (first_pos)
+                BINARY_SLICE
+                LOAD_CONST               7 ('')
+                LOAD_ATTR               19 (join + NULL|self)
+                LOAD_FAST_BORROW        32 (leading)
+                LOAD_FAST_BORROW        33 (thousands_sep)
+                BUILD_TUPLE              2
+                LOAD_CONST              33 (<code object <genexpr> at 0x00000204BA0A7BD0, file "fractions.py", line 580>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 582            LOAD_GLOBAL             21 (range + NULL)
+                LOAD_FAST_BORROW        27 (first_pos)
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_DEREF              32 (leading)
+                CALL                     1
+                LOAD_SMALL_INT           3
+                CALL                     3
+                GET_ITER
+
+ 580            CALL                     0
+                CALL                     1
+                BINARY_OP                0 (+)
+                STORE_DEREF             32 (leading)
+
+ 587   L32:     LOAD_DEREF              32 (leading)
+                LOAD_FAST_BORROW        25 (trailing)
+                BINARY_OP                0 (+)
+                STORE_FAST              28 (body)
+
+ 588            LOAD_FAST_BORROW_LOAD_FAST_BORROW 40 (fill, minimumwidth)
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_FAST_BORROW        23 (sign)
+                CALL                     1
+                BINARY_OP               10 (-)
+                LOAD_GLOBAL             15 (len + NULL)
+                LOAD_FAST_BORROW        28 (body)
+                CALL                     1
+                BINARY_OP               10 (-)
+                BINARY_OP                5 (*)
+                STORE_FAST              29 (padding)
+
+ 589            LOAD_FAST_BORROW         3 (align)
+                LOAD_CONST               4 ('>')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       17 (to L33)
+                NOT_TAKEN
+
+ 590            LOAD_FAST_BORROW        29 (padding)
+                LOAD_FAST_BORROW        23 (sign)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW        28 (body)
+                BINARY_OP                0 (+)
+                RETURN_VALUE
+
+ 591   L33:     LOAD_FAST_BORROW         3 (align)
+                LOAD_CONST              34 ('<')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       17 (to L34)
+                NOT_TAKEN
+
+ 592            LOAD_FAST_BORROW        23 (sign)
+                LOAD_FAST_BORROW        28 (body)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW        29 (padding)
+                BINARY_OP                0 (+)
+                RETURN_VALUE
+
+ 593   L34:     LOAD_FAST_BORROW         3 (align)
+                LOAD_CONST              35 ('^')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       48 (to L35)
+                NOT_TAKEN
+
+ 594            LOAD_GLOBAL             15 (len + NULL)
+                LOAD_FAST_BORROW        29 (padding)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                BINARY_OP                2 (//)
+                STORE_FAST              30 (half)
+
+ 595            LOAD_FAST_BORROW        29 (padding)
+                LOAD_CONST              30 (None)
+                LOAD_FAST_BORROW        30 (half)
+                BINARY_SLICE
+                LOAD_FAST_BORROW        23 (sign)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW        28 (body)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW        29 (padding)
+                LOAD_FAST_BORROW        30 (half)
+                LOAD_CONST              30 (None)
+                BINARY_SLICE
+                BINARY_OP                0 (+)
+                RETURN_VALUE
+
+ 597   L35:     LOAD_FAST_BORROW        23 (sign)
+                LOAD_FAST_BORROW        29 (padding)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW        28 (body)
+                BINARY_OP                0 (+)
+                RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FFEE0, file "fractions.py", line 564>:
+  --           COPY_FREE_VARS           1
+
+ 564           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+
+ 565   L2:     FOR_ITER                16 (to L3)
+               STORE_FAST               1 (pos)
+
+ 564           LOAD_DEREF               2 (frac_part)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 17 (pos, pos)
+               LOAD_SMALL_INT           3
+               BINARY_OP                0 (+)
+               BINARY_SLICE
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+
+ 565   L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A7BD0, file "fractions.py", line 580>:
+  --           COPY_FREE_VARS           2
+
+ 580           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+
+ 582   L2:     FOR_ITER                23 (to L3)
+               STORE_FAST               1 (pos)
+
+ 581           LOAD_DEREF               3 (thousands_sep)
+               LOAD_DEREF               2 (leading)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 17 (pos, pos)
+               LOAD_SMALL_INT           3
+               BINARY_OP                0 (+)
+               BINARY_SLICE
+               BINARY_OP                0 (+)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           25 (to L2)
+
+ 582   L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object __format__ at 0x00000204B9FC30F0, file "fractions.py", line 599>:
+599           RESUME                   0
+
+602           LOAD_GLOBAL              1 (_GENERAL_FORMAT_SPECIFICATION_MATCHER + NULL)
+              LOAD_FAST_BORROW         1 (format_spec)
+              CALL                     1
+              COPY                     1
+              STORE_FAST               2 (match)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L1)
+              NOT_TAKEN
+
+603           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_format_general + NULL|self)
+              LOAD_FAST_BORROW         2 (match)
+              CALL                     1
+              RETURN_VALUE
+
+605   L1:     LOAD_GLOBAL              5 (_FLOAT_FORMAT_SPECIFICATION_MATCHER + NULL)
+              LOAD_FAST_BORROW         1 (format_spec)
+              CALL                     1
+              COPY                     1
+              STORE_FAST               2 (match)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       40 (to L3)
+              NOT_TAKEN
+
+608           LOAD_FAST_BORROW         2 (match)
+              LOAD_CONST               1 ('align')
+              BINARY_OP               26 ([])
+              POP_JUMP_IF_NONE        12 (to L2)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (match)
+              LOAD_CONST               2 ('zeropad')
+              BINARY_OP               26 ([])
+              POP_JUMP_IF_NOT_NONE    18 (to L3)
+              NOT_TAKEN
+
+609   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (_format_float_style + NULL|self)
+              LOAD_FAST_BORROW         2 (match)
+              CALL                     1
+              RETURN_VALUE
+
+611   L3:     LOAD_GLOBAL              9 (ValueError + NULL)
+
+612           LOAD_CONST               3 ('Invalid format specifier ')
+              LOAD_FAST_BORROW         1 (format_spec)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (' for object of type ')
+
+613           LOAD_GLOBAL             11 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR               12 (__name__)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+
+612           BUILD_STRING             4
+
+611           CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object _operator_fallbacks at 0x00000204B9F9EA30, file "fractions.py", line 616>:
+  --           MAKE_CELL                0 (monomorphic_operator)
+               MAKE_CELL                1 (fallback_operator)
+               MAKE_CELL                2 (handle_complex)
+
+ 616           RESUME                   0
+
+ 697           LOAD_FAST_BORROW         1 (fallback_operator)
+               LOAD_FAST_BORROW         2 (handle_complex)
+               LOAD_FAST_BORROW         0 (monomorphic_operator)
+               BUILD_TUPLE              3
+               LOAD_CONST               1 (<code object forward at 0x00000204BA3E1940, file "fractions.py", line 697>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               3 (forward)
+
+ 708           LOAD_CONST               2 ('__')
+               LOAD_DEREF               1 (fallback_operator)
+               LOAD_ATTR                0 (__name__)
+               BINARY_OP                0 (+)
+               LOAD_CONST               2 ('__')
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         3 (forward)
+               STORE_ATTR               0 (__name__)
+
+ 709           LOAD_DEREF               0 (monomorphic_operator)
+               LOAD_ATTR                2 (__doc__)
+               LOAD_FAST_BORROW         3 (forward)
+               STORE_ATTR               1 (__doc__)
+
+ 711           LOAD_FAST_BORROW         1 (fallback_operator)
+               LOAD_FAST_BORROW         2 (handle_complex)
+               LOAD_FAST_BORROW         0 (monomorphic_operator)
+               BUILD_TUPLE              3
+               LOAD_CONST               3 (<code object reverse at 0x00000204BA3738D0, file "fractions.py", line 711>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               4 (reverse)
+
+ 721           LOAD_CONST               4 ('__r')
+               LOAD_DEREF               1 (fallback_operator)
+               LOAD_ATTR                0 (__name__)
+               BINARY_OP                0 (+)
+               LOAD_CONST               2 ('__')
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         4 (reverse)
+               STORE_ATTR               0 (__name__)
+
+ 722           LOAD_DEREF               0 (monomorphic_operator)
+               LOAD_ATTR                2 (__doc__)
+               LOAD_FAST_BORROW         4 (reverse)
+               STORE_ATTR               1 (__doc__)
+
+ 724           LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (forward, reverse)
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+Disassembly of <code object forward at 0x00000204BA3E1940, file "fractions.py", line 697>:
+  --           COPY_FREE_VARS           3
+
+ 697           RESUME                   0
+
+ 698           LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              2 (Fraction)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        9 (to L1)
+               NOT_TAKEN
+
+ 699           LOAD_DEREF               4 (monomorphic_operator)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (a, b)
+               CALL                     2
+               RETURN_VALUE
+
+ 700   L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              4 (int)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       19 (to L2)
+               NOT_TAKEN
+
+ 701           LOAD_DEREF               4 (monomorphic_operator)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (a)
+               LOAD_GLOBAL              3 (Fraction + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               CALL                     1
+               CALL                     2
+               RETURN_VALUE
+
+ 702   L2:     LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              6 (float)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       19 (to L3)
+               NOT_TAKEN
+
+ 703           LOAD_DEREF               2 (fallback_operator)
+               PUSH_NULL
+               LOAD_GLOBAL              7 (float + NULL)
+               LOAD_FAST_BORROW         0 (a)
+               CALL                     1
+               LOAD_FAST_BORROW         1 (b)
+               CALL                     2
+               RETURN_VALUE
+
+ 704   L3:     LOAD_DEREF               3 (handle_complex)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       41 (to L4)
+               NOT_TAKEN
+               LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              8 (complex)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       19 (to L4)
+               NOT_TAKEN
+
+ 705           LOAD_DEREF               2 (fallback_operator)
+               PUSH_NULL
+               LOAD_GLOBAL              7 (float + NULL)
+               LOAD_FAST_BORROW         0 (a)
+               CALL                     1
+               LOAD_FAST_BORROW         1 (b)
+               CALL                     2
+               RETURN_VALUE
+
+ 707   L4:     LOAD_GLOBAL             10 (NotImplemented)
+               RETURN_VALUE
+
+Disassembly of <code object reverse at 0x00000204BA3738D0, file "fractions.py", line 711>:
+  --           COPY_FREE_VARS           3
+
+ 711           RESUME                   0
+
+ 712           LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (a)
+               LOAD_GLOBAL              2 (numbers)
+               LOAD_ATTR                4 (Rational)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       19 (to L1)
+               NOT_TAKEN
+
+ 714           LOAD_DEREF               4 (monomorphic_operator)
+               PUSH_NULL
+               LOAD_GLOBAL              7 (Fraction + NULL)
+               LOAD_FAST_BORROW         1 (a)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (b)
+               CALL                     2
+               RETURN_VALUE
+
+ 715   L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (a)
+               LOAD_GLOBAL              2 (numbers)
+               LOAD_ATTR                8 (Real)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       28 (to L2)
+               NOT_TAKEN
+
+ 716           LOAD_DEREF               2 (fallback_operator)
+               PUSH_NULL
+               LOAD_GLOBAL             11 (float + NULL)
+               LOAD_FAST_BORROW         1 (a)
+               CALL                     1
+               LOAD_GLOBAL             11 (float + NULL)
+               LOAD_FAST_BORROW         0 (b)
+               CALL                     1
+               CALL                     2
+               RETURN_VALUE
+
+ 717   L2:     LOAD_DEREF               3 (handle_complex)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       60 (to L3)
+               NOT_TAKEN
+               LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (a)
+               LOAD_GLOBAL              2 (numbers)
+               LOAD_ATTR               12 (Complex)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       28 (to L3)
+               NOT_TAKEN
+
+ 718           LOAD_DEREF               2 (fallback_operator)
+               PUSH_NULL
+               LOAD_GLOBAL             15 (complex + NULL)
+               LOAD_FAST_BORROW         1 (a)
+               CALL                     1
+               LOAD_GLOBAL             11 (float + NULL)
+               LOAD_FAST_BORROW         0 (b)
+               CALL                     1
+               CALL                     2
+               RETURN_VALUE
+
+ 720   L3:     LOAD_GLOBAL             16 (NotImplemented)
+               RETURN_VALUE
+
+Disassembly of <code object _add at 0x00000204BA4B5C90, file "fractions.py", line 794>:
+794           RESUME                   0
+
+796           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   50 (da, na)
+
+797           LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   84 (db, nb)
+
+798           LOAD_GLOBAL              4 (math)
+              LOAD_ATTR                6 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (da, db)
+              CALL                     2
+              STORE_FAST               6 (g)
+
+799           LOAD_FAST_BORROW         6 (g)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       48 (to L1)
+              NOT_TAKEN
+
+800           LOAD_GLOBAL              8 (Fraction)
+              LOAD_ATTR               11 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (na, db)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (da, nb)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (da, db)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+801   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 54 (da, g)
+              BINARY_OP                2 (//)
+              STORE_FAST               7 (s)
+
+802           LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (na, db)
+              LOAD_FAST_BORROW         6 (g)
+              BINARY_OP                2 (//)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 71 (nb, s)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              STORE_FAST               8 (t)
+
+803           LOAD_GLOBAL              4 (math)
+              LOAD_ATTR                6 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 134 (t, g)
+              CALL                     2
+              STORE_FAST               9 (g2)
+
+804           LOAD_FAST_BORROW         9 (g2)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       29 (to L2)
+              NOT_TAKEN
+
+805           LOAD_GLOBAL              8 (Fraction)
+              LOAD_ATTR               11 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 135 (t, s)
+              LOAD_FAST_BORROW         5 (db)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+806   L2:     LOAD_GLOBAL              8 (Fraction)
+              LOAD_ATTR               11 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (t, g2)
+              BINARY_OP                2 (//)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 117 (s, db)
+              LOAD_FAST_BORROW         9 (g2)
+              BINARY_OP                2 (//)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _sub at 0x00000204BA356B50, file "fractions.py", line 810>:
+810           RESUME                   0
+
+812           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   50 (da, na)
+
+813           LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   84 (db, nb)
+
+814           LOAD_GLOBAL              4 (math)
+              LOAD_ATTR                6 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (da, db)
+              CALL                     2
+              STORE_FAST               6 (g)
+
+815           LOAD_FAST_BORROW         6 (g)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       48 (to L1)
+              NOT_TAKEN
+
+816           LOAD_GLOBAL              8 (Fraction)
+              LOAD_ATTR               11 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (na, db)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (da, nb)
+              BINARY_OP                5 (*)
+              BINARY_OP               10 (-)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (da, db)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+817   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 54 (da, g)
+              BINARY_OP                2 (//)
+              STORE_FAST               7 (s)
+
+818           LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (na, db)
+              LOAD_FAST_BORROW         6 (g)
+              BINARY_OP                2 (//)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 71 (nb, s)
+              BINARY_OP                5 (*)
+              BINARY_OP               10 (-)
+              STORE_FAST               8 (t)
+
+819           LOAD_GLOBAL              4 (math)
+              LOAD_ATTR                6 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 134 (t, g)
+              CALL                     2
+              STORE_FAST               9 (g2)
+
+820           LOAD_FAST_BORROW         9 (g2)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       29 (to L2)
+              NOT_TAKEN
+
+821           LOAD_GLOBAL              8 (Fraction)
+              LOAD_ATTR               11 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 135 (t, s)
+              LOAD_FAST_BORROW         5 (db)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+822   L2:     LOAD_GLOBAL              8 (Fraction)
+              LOAD_ATTR               11 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (t, g2)
+              BINARY_OP                2 (//)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 117 (s, db)
+              LOAD_FAST_BORROW         9 (g2)
+              BINARY_OP                2 (//)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _mul at 0x00000204BA3E07C0, file "fractions.py", line 826>:
+826           RESUME                   0
+
+828           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   50 (da, na)
+
+829           LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   84 (db, nb)
+
+830           LOAD_GLOBAL              4 (math)
+              LOAD_ATTR                6 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (na, db)
+              CALL                     2
+              STORE_FAST               6 (g1)
+
+831           LOAD_FAST_BORROW         6 (g1)
+              LOAD_SMALL_INT           1
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+832           LOAD_FAST_BORROW_LOAD_FAST_BORROW 38 (na, g1)
+              BINARY_OP               15 (//=)
+              STORE_FAST               2 (na)
+
+833           LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (db, g1)
+              BINARY_OP               15 (//=)
+              STORE_FAST               5 (db)
+
+834   L1:     LOAD_GLOBAL              4 (math)
+              LOAD_ATTR                6 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (nb, da)
+              CALL                     2
+              STORE_FAST               7 (g2)
+
+835           LOAD_FAST_BORROW         7 (g2)
+              LOAD_SMALL_INT           1
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       17 (to L2)
+              NOT_TAKEN
+
+836           LOAD_FAST_BORROW_LOAD_FAST_BORROW 71 (nb, g2)
+              BINARY_OP               15 (//=)
+              STORE_FAST               4 (nb)
+
+837           LOAD_FAST_BORROW_LOAD_FAST_BORROW 55 (da, g2)
+              BINARY_OP               15 (//=)
+              STORE_FAST               3 (da)
+
+838   L2:     LOAD_GLOBAL              8 (Fraction)
+              LOAD_ATTR               11 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (na, nb)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 83 (db, da)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _div at 0x00000204BA432830, file "fractions.py", line 842>:
+842           RESUME                   0
+
+845           LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   50 (db, nb)
+
+846           LOAD_FAST_BORROW         2 (nb)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+847           LOAD_GLOBAL              5 (ZeroDivisionError + NULL)
+              LOAD_CONST               1 ('Fraction(%s, 0)')
+              LOAD_FAST_BORROW         3 (db)
+              BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+848   L1:     LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              STORE_FAST_STORE_FAST   84 (da, na)
+
+849           LOAD_GLOBAL              6 (math)
+              LOAD_ATTR                8 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (na, nb)
+              CALL                     2
+              STORE_FAST               6 (g1)
+
+850           LOAD_FAST_BORROW         6 (g1)
+              LOAD_SMALL_INT           1
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       17 (to L2)
+              NOT_TAKEN
+
+851           LOAD_FAST_BORROW_LOAD_FAST_BORROW 70 (na, g1)
+              BINARY_OP               15 (//=)
+              STORE_FAST               4 (na)
+
+852           LOAD_FAST_BORROW_LOAD_FAST_BORROW 38 (nb, g1)
+              BINARY_OP               15 (//=)
+              STORE_FAST               2 (nb)
+
+853   L2:     LOAD_GLOBAL              6 (math)
+              LOAD_ATTR                8 (gcd)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (db, da)
+              CALL                     2
+              STORE_FAST               7 (g2)
+
+854           LOAD_FAST_BORROW         7 (g2)
+              LOAD_SMALL_INT           1
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       17 (to L3)
+              NOT_TAKEN
+
+855           LOAD_FAST_BORROW_LOAD_FAST_BORROW 87 (da, g2)
+              BINARY_OP               15 (//=)
+              STORE_FAST               5 (da)
+
+856           LOAD_FAST_BORROW_LOAD_FAST_BORROW 55 (db, g2)
+              BINARY_OP               15 (//=)
+              STORE_FAST               3 (db)
+
+857   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (na, db)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (nb, da)
+              BINARY_OP                5 (*)
+              STORE_FAST_STORE_FAST  152 (d, n)
+
+858           LOAD_FAST_BORROW         9 (d)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE        6 (to L4)
+              NOT_TAKEN
+
+859           LOAD_FAST_BORROW         8 (n)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         9 (d)
+              UNARY_NEGATIVE
+              STORE_FAST_STORE_FAST  152 (d, n)
+
+860   L4:     LOAD_GLOBAL             10 (Fraction)
+              LOAD_ATTR               13 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (n, d)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _floordiv at 0x00000204BA0BAF70, file "fractions.py", line 864>:
+864           RESUME                   0
+
+866           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (numerator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                2 (denominator)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (denominator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                0 (numerator)
+              BINARY_OP                5 (*)
+              BINARY_OP                2 (//)
+              RETURN_VALUE
+
+Disassembly of <code object _divmod at 0x00000204BA0B7230, file "fractions.py", line 870>:
+870           RESUME                   0
+
+872           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (denominator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                0 (denominator)
+              STORE_FAST_STORE_FAST   50 (db, da)
+
+873           LOAD_GLOBAL              3 (divmod + NULL)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                4 (numerator)
+              LOAD_FAST_BORROW         3 (db)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (da, b)
+              LOAD_ATTR                4 (numerator)
+              BINARY_OP                5 (*)
+              CALL                     2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   69 (div, n_mod)
+
+874           LOAD_FAST_BORROW         4 (div)
+              LOAD_GLOBAL              7 (Fraction + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 82 (n_mod, da)
+              LOAD_FAST_BORROW         3 (db)
+              BINARY_OP                5 (*)
+              CALL                     2
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _mod at 0x00000204B9FB6A30, file "fractions.py", line 878>:
+878           RESUME                   0
+
+880           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (denominator)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                0 (denominator)
+              STORE_FAST_STORE_FAST   50 (db, da)
+
+881           LOAD_GLOBAL              3 (Fraction + NULL)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                4 (numerator)
+              LOAD_FAST_BORROW         3 (db)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                4 (numerator)
+              LOAD_FAST_BORROW         2 (da)
+              BINARY_OP                5 (*)
+              BINARY_OP                6 (%)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (da, db)
+              BINARY_OP                5 (*)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __pow__ at 0x00000204BA3AE6D0, file "fractions.py", line 885>:
+885           RESUME                   0
+
+893           LOAD_FAST_BORROW         2 (modulo)
+              POP_JUMP_IF_NONE         7 (to L1)
+              NOT_TAKEN
+
+894           LOAD_GLOBAL              0 (NotImplemented)
+              RETURN_VALUE
+
+895   L1:     LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_GLOBAL              4 (numbers)
+              LOAD_ATTR                6 (Rational)
+              CALL                     2
+              TO_BOOL
+              EXTENDED_ARG             1
+              POP_JUMP_IF_FALSE      309 (to L6)
+              NOT_TAKEN
+
+896           LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR                8 (denominator)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              EXTENDED_ARG             1
+              POP_JUMP_IF_FALSE      264 (to L5)
+              NOT_TAKEN
+
+897           LOAD_FAST_BORROW         1 (b)
+              LOAD_ATTR               10 (numerator)
+              STORE_FAST               3 (power)
+
+898           LOAD_FAST_BORROW         3 (power)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_FALSE       57 (to L2)
+              NOT_TAKEN
+
+899           LOAD_GLOBAL             12 (Fraction)
+              LOAD_ATTR               15 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               16 (_numerator)
+              LOAD_FAST_BORROW         3 (power)
+              BINARY_OP                8 (**)
+
+900           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               18 (_denominator)
+              LOAD_FAST_BORROW         3 (power)
+              BINARY_OP                8 (**)
+
+899           CALL                     2
+              RETURN_VALUE
+
+901   L2:     LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               16 (_numerator)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       59 (to L3)
+              NOT_TAKEN
+
+902           LOAD_GLOBAL             12 (Fraction)
+              LOAD_ATTR               15 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               18 (_denominator)
+              LOAD_FAST_BORROW         3 (power)
+              UNARY_NEGATIVE
+              BINARY_OP                8 (**)
+
+903           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               16 (_numerator)
+              LOAD_FAST_BORROW         3 (power)
+              UNARY_NEGATIVE
+              BINARY_OP                8 (**)
+
+902           CALL                     2
+              RETURN_VALUE
+
+904   L3:     LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               16 (_numerator)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       37 (to L4)
+              NOT_TAKEN
+
+905           LOAD_GLOBAL             21 (ZeroDivisionError + NULL)
+              LOAD_CONST               1 ('Fraction(%s, 0)')
+
+906           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               18 (_denominator)
+              LOAD_FAST_BORROW         3 (power)
+              UNARY_NEGATIVE
+              BINARY_OP                8 (**)
+
+905           BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+908   L4:     LOAD_GLOBAL             12 (Fraction)
+              LOAD_ATTR               15 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               18 (_denominator)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         3 (power)
+              UNARY_NEGATIVE
+              BINARY_OP                8 (**)
+
+909           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR               16 (_numerator)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         3 (power)
+              UNARY_NEGATIVE
+              BINARY_OP                8 (**)
+
+908           CALL                     2
+              RETURN_VALUE
+
+913   L5:     LOAD_GLOBAL             23 (float + NULL)
+              LOAD_FAST_BORROW         0 (a)
+              CALL                     1
+              LOAD_GLOBAL             23 (float + NULL)
+              LOAD_FAST_BORROW         1 (b)
+              CALL                     1
+              BINARY_OP                8 (**)
+              RETURN_VALUE
+
+914   L6:     LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (b)
+              LOAD_GLOBAL             22 (float)
+              LOAD_GLOBAL             24 (complex)
+              BUILD_TUPLE              2
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L7)
+              NOT_TAKEN
+
+915           LOAD_GLOBAL             23 (float + NULL)
+              LOAD_FAST_BORROW         0 (a)
+              CALL                     1
+              LOAD_FAST_BORROW         1 (b)
+              BINARY_OP                8 (**)
+              RETURN_VALUE
+
+917   L7:     LOAD_GLOBAL              0 (NotImplemented)
+              RETURN_VALUE
+
+Disassembly of <code object __rpow__ at 0x00000204BA356E30, file "fractions.py", line 919>:
+919           RESUME                   0
+
+921           LOAD_FAST_BORROW         2 (modulo)
+              POP_JUMP_IF_NONE         7 (to L1)
+              NOT_TAKEN
+
+922           LOAD_GLOBAL              0 (NotImplemented)
+              RETURN_VALUE
+
+923   L1:     LOAD_FAST_BORROW         0 (b)
+              LOAD_ATTR                2 (_denominator)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       36 (to L2)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (b)
+              LOAD_ATTR                4 (_numerator)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_FALSE       19 (to L2)
+              NOT_TAKEN
+
+925           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (a, b)
+              LOAD_ATTR                4 (_numerator)
+              BINARY_OP                8 (**)
+              RETURN_VALUE
+
+927   L2:     LOAD_GLOBAL              7 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (a)
+              LOAD_GLOBAL              8 (numbers)
+              LOAD_ATTR               10 (Rational)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       40 (to L3)
+              NOT_TAKEN
+
+928           LOAD_GLOBAL             13 (Fraction + NULL)
+              LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR               14 (numerator)
+              LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR               16 (denominator)
+              CALL                     2
+              LOAD_FAST_BORROW         0 (b)
+              BINARY_OP                8 (**)
+              RETURN_VALUE
+
+930   L3:     LOAD_FAST_BORROW         0 (b)
+              LOAD_ATTR                2 (_denominator)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       19 (to L4)
+              NOT_TAKEN
+
+931           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (a, b)
+              LOAD_ATTR                4 (_numerator)
+              BINARY_OP                8 (**)
+              RETURN_VALUE
+
+933   L4:     LOAD_FAST_BORROW         1 (a)
+              LOAD_GLOBAL             19 (float + NULL)
+              LOAD_FAST_BORROW         0 (b)
+              CALL                     1
+              BINARY_OP                8 (**)
+              RETURN_VALUE
+
+Disassembly of <code object __pos__ at 0x00000204BA1022A0, file "fractions.py", line 935>:
+935           RESUME                   0
+
+937           LOAD_GLOBAL              0 (Fraction)
+              LOAD_ATTR                3 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                4 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                6 (_denominator)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __neg__ at 0x00000204BA102760, file "fractions.py", line 939>:
+939           RESUME                   0
+
+941           LOAD_GLOBAL              0 (Fraction)
+              LOAD_ATTR                3 (_from_coprime_ints + NULL|self)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                4 (_numerator)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                6 (_denominator)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __abs__ at 0x00000204BA0A9F70, file "fractions.py", line 943>:
+943           RESUME                   0
+
+945           LOAD_GLOBAL              0 (Fraction)
+              LOAD_ATTR                3 (_from_coprime_ints + NULL|self)
+              LOAD_GLOBAL              5 (abs + NULL)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                6 (_numerator)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                8 (_denominator)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __int__ at 0x00000204BA128E40, file "fractions.py", line 947>:
+947           RESUME                   0
+
+949           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       38 (to L1)
+              NOT_TAKEN
+
+950           LOAD_FAST_BORROW         1 (_index)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              BINARY_OP                2 (//)
+              UNARY_NEGATIVE
+              CALL                     1
+              RETURN_VALUE
+
+952   L1:     LOAD_FAST_BORROW         1 (_index)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              BINARY_OP                2 (//)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __trunc__ at 0x00000204BA610480, file "fractions.py", line 954>:
+954           RESUME                   0
+
+956           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       32 (to L1)
+              NOT_TAKEN
+
+957           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              BINARY_OP                2 (//)
+              UNARY_NEGATIVE
+              RETURN_VALUE
+
+959   L1:     LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              BINARY_OP                2 (//)
+              RETURN_VALUE
+
+Disassembly of <code object __floor__ at 0x00000204BA0FF550, file "fractions.py", line 961>:
+961           RESUME                   0
+
+963           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              BINARY_OP                2 (//)
+              RETURN_VALUE
+
+Disassembly of <code object __ceil__ at 0x00000204BA0FECD0, file "fractions.py", line 965>:
+965           RESUME                   0
+
+968           LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                0 (_numerator)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                2 (_denominator)
+              BINARY_OP                2 (//)
+              UNARY_NEGATIVE
+              RETURN_VALUE
+
+Disassembly of <code object __round__ at 0x00000204BA4A45E0, file "fractions.py", line 970>:
+970           RESUME                   0
+
+975           LOAD_FAST_BORROW         1 (ndigits)
+              POP_JUMP_IF_NOT_NONE   101 (to L4)
+              NOT_TAKEN
+
+976           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_denominator)
+              STORE_FAST               2 (d)
+
+977           LOAD_GLOBAL              3 (divmod + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_numerator)
+              LOAD_FAST_BORROW         2 (d)
+              CALL                     2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   52 (floor, remainder)
+
+978           LOAD_FAST_BORROW         4 (remainder)
+              LOAD_SMALL_INT           2
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         2 (d)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+979           LOAD_FAST_BORROW         3 (floor)
+              RETURN_VALUE
+
+980   L1:     LOAD_FAST_BORROW         4 (remainder)
+              LOAD_SMALL_INT           2
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         2 (d)
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       10 (to L2)
+              NOT_TAKEN
+
+981           LOAD_FAST_BORROW         3 (floor)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+983   L2:     LOAD_FAST_BORROW         3 (floor)
+              LOAD_SMALL_INT           2
+              BINARY_OP                6 (%)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+984           LOAD_FAST_BORROW         3 (floor)
+              RETURN_VALUE
+
+986   L3:     LOAD_FAST_BORROW         3 (floor)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+987   L4:     LOAD_SMALL_INT          10
+              LOAD_GLOBAL              7 (abs + NULL)
+              LOAD_FAST_BORROW         1 (ndigits)
+              CALL                     1
+              BINARY_OP                8 (**)
+              STORE_FAST               5 (shift)
+
+991           LOAD_FAST_BORROW         1 (ndigits)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       28 (to L5)
+              NOT_TAKEN
+
+992           LOAD_GLOBAL              9 (Fraction + NULL)
+              LOAD_GLOBAL             11 (round + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (self, shift)
+              BINARY_OP                5 (*)
+              CALL                     1
+              LOAD_FAST_BORROW         5 (shift)
+              CALL                     2
+              RETURN_VALUE
+
+994   L5:     LOAD_GLOBAL              9 (Fraction + NULL)
+              LOAD_GLOBAL             11 (round + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (self, shift)
+              BINARY_OP               11 (/)
+              CALL                     1
+              LOAD_FAST_BORROW         5 (shift)
+              BINARY_OP                5 (*)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __hash__ at 0x00000204BA0A7AB0, file "fractions.py", line 996>:
+996           RESUME                   0
+
+998           LOAD_GLOBAL              1 (_hash_algorithm + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_numerator)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_denominator)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __eq__ at 0x00000204BA4A4AF0, file "fractions.py", line 1000>:
+1000           RESUME                   0
+
+1002           LOAD_GLOBAL              1 (type + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               CALL                     1
+               LOAD_GLOBAL              2 (int)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       39 (to L2)
+               NOT_TAKEN
+
+1003           LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                4 (_numerator)
+               LOAD_FAST_BORROW         1 (b)
+               COMPARE_OP              72 (==)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       16 (to L1)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                6 (_denominator)
+               LOAD_SMALL_INT           1
+               COMPARE_OP              72 (==)
+       L1:     RETURN_VALUE
+
+1004   L2:     LOAD_GLOBAL              9 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL             10 (numbers)
+               LOAD_ATTR               12 (Rational)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       59 (to L4)
+               NOT_TAKEN
+
+1005           LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                4 (_numerator)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_ATTR               14 (numerator)
+               COMPARE_OP              72 (==)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       26 (to L3)
+               NOT_TAKEN
+               POP_TOP
+
+1006           LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                6 (_denominator)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_ATTR               16 (denominator)
+               COMPARE_OP              72 (==)
+
+1005   L3:     RETURN_VALUE
+
+1007   L4:     LOAD_GLOBAL              9 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL             10 (numbers)
+               LOAD_ATTR               18 (Complex)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       30 (to L5)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_ATTR               20 (imag)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       13 (to L5)
+               NOT_TAKEN
+
+1008           LOAD_FAST_BORROW         1 (b)
+               LOAD_ATTR               22 (real)
+               STORE_FAST               1 (b)
+
+1009   L5:     LOAD_GLOBAL              9 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL             24 (float)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       81 (to L8)
+               NOT_TAKEN
+
+1010           LOAD_GLOBAL             26 (math)
+               LOAD_ATTR               28 (isnan)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (b)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE        29 (to L6)
+               NOT_TAKEN
+               LOAD_GLOBAL             26 (math)
+               LOAD_ATTR               30 (isinf)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (b)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        6 (to L7)
+               NOT_TAKEN
+
+1013   L6:     LOAD_CONST               1 (0.0)
+               LOAD_FAST_BORROW         1 (b)
+               COMPARE_OP              72 (==)
+               RETURN_VALUE
+
+1015   L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 0 (a, a)
+               LOAD_ATTR               33 (from_float + NULL|self)
+               LOAD_FAST_BORROW         1 (b)
+               CALL                     1
+               COMPARE_OP              72 (==)
+               RETURN_VALUE
+
+1019   L8:     LOAD_GLOBAL             34 (NotImplemented)
+               RETURN_VALUE
+
+Disassembly of <code object _richcmp at 0x00000204BA3E20F0, file "fractions.py", line 1021>:
+1021           RESUME                   0
+
+1032           LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (other)
+               LOAD_GLOBAL              2 (numbers)
+               LOAD_ATTR                4 (Rational)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       64 (to L1)
+               NOT_TAKEN
+
+1033           LOAD_FAST_BORROW         2 (op)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_numerator)
+               LOAD_FAST_BORROW         1 (other)
+               LOAD_ATTR                8 (denominator)
+               BINARY_OP                5 (*)
+
+1034           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_denominator)
+               LOAD_FAST_BORROW         1 (other)
+               LOAD_ATTR               12 (numerator)
+               BINARY_OP                5 (*)
+
+1033           CALL                     2
+               RETURN_VALUE
+
+1035   L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (other)
+               LOAD_GLOBAL             14 (float)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       89 (to L4)
+               NOT_TAKEN
+
+1036           LOAD_GLOBAL             16 (math)
+               LOAD_ATTR               18 (isnan)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (other)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE        29 (to L2)
+               NOT_TAKEN
+               LOAD_GLOBAL             16 (math)
+               LOAD_ATTR               20 (isinf)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (other)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       10 (to L3)
+               NOT_TAKEN
+
+1037   L2:     LOAD_FAST_BORROW         2 (op)
+               PUSH_NULL
+               LOAD_CONST               1 (0.0)
+               LOAD_FAST_BORROW         1 (other)
+               CALL                     2
+               RETURN_VALUE
+
+1039   L3:     LOAD_FAST_BORROW         2 (op)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 0 (self, self)
+               LOAD_ATTR               23 (from_float + NULL|self)
+               LOAD_FAST_BORROW         1 (other)
+               CALL                     1
+               CALL                     2
+               RETURN_VALUE
+
+1041   L4:     LOAD_GLOBAL             24 (NotImplemented)
+               RETURN_VALUE
+
+Disassembly of <code object __lt__ at 0x00000204BA0A7990, file "fractions.py", line 1043>:
+1043           RESUME                   0
+
+1045           LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                1 (_richcmp + NULL|self)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              2 (operator)
+               LOAD_ATTR                4 (lt)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object __gt__ at 0x00000204BA0A7E10, file "fractions.py", line 1047>:
+1047           RESUME                   0
+
+1049           LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                1 (_richcmp + NULL|self)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              2 (operator)
+               LOAD_ATTR                4 (gt)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object __le__ at 0x00000204BA0A45D0, file "fractions.py", line 1051>:
+1051           RESUME                   0
+
+1053           LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                1 (_richcmp + NULL|self)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              2 (operator)
+               LOAD_ATTR                4 (le)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object __ge__ at 0x00000204BA0A6AF0, file "fractions.py", line 1055>:
+1055           RESUME                   0
+
+1057           LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                1 (_richcmp + NULL|self)
+               LOAD_FAST_BORROW         1 (b)
+               LOAD_GLOBAL              2 (operator)
+               LOAD_ATTR                4 (ge)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object __bool__ at 0x00000204BA08B330, file "fractions.py", line 1059>:
+1059           RESUME                   0
+
+1063           LOAD_GLOBAL              1 (bool + NULL)
+               LOAD_FAST_BORROW         0 (a)
+               LOAD_ATTR                2 (_numerator)
+               CALL                     1
+               RETURN_VALUE
+
+Disassembly of <code object __reduce__ at 0x00000204BA0A7090, file "fractions.py", line 1067>:
+1067           RESUME                   0
+
+1068           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_numerator)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_denominator)
+               BUILD_TUPLE              2
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+Disassembly of <code object __copy__ at 0x00000204BA0BAE20, file "fractions.py", line 1070>:
+1070           RESUME                   0
+
+1071           LOAD_GLOBAL              1 (type + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               LOAD_GLOBAL              2 (Fraction)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+1072           LOAD_FAST_BORROW         0 (self)
+               RETURN_VALUE
+
+1073   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (__class__ + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_numerator)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_denominator)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object __deepcopy__ at 0x00000204BA0BB600, file "fractions.py", line 1075>:
+1075           RESUME                   0
+
+1076           LOAD_GLOBAL              1 (type + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               LOAD_GLOBAL              2 (Fraction)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+1077           LOAD_FAST_BORROW         0 (self)
+               RETURN_VALUE
+
+1078   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (__class__ + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_numerator)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_denominator)
+               CALL                     2
+               RETURN_VALUE

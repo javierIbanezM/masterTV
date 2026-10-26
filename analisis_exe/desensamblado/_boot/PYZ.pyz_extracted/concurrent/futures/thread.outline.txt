@@ -1,0 +1,48 @@
+<module>()  line 1
+    _python_exit()  line 23
+    WorkerContext()  line 47
+        WorkerContext.prepare(cls, initializer, initargs)  line 49
+            WorkerContext.prepare.<locals>.create_context()  line 54
+            WorkerContext.prepare.<locals>.resolve_task(fn, args, kwargs)  line 56
+        WorkerContext.__init__(self, initializer, initargs)  line 60
+        WorkerContext.initialize(self)  line 64
+        WorkerContext.finalize(self)  line 68
+        WorkerContext.run(self, task)  line 71
+    _WorkItem()  line 76
+        _WorkItem.__init__(self, future, task)  line 77
+        _WorkItem.run(self, ctx)  line 81
+    _worker(executor_reference, ctx, work_queue)  line 97
+    BrokenThreadPool()  line 144
+    ThreadPoolExecutor()  line 150
+        ThreadPoolExecutor.prepare_context(cls, initializer, initargs)  line 157
+        ThreadPoolExecutor.__init__(self, max_workers, thread_name_prefix, initializer, initargs)  line 161
+        ThreadPoolExecutor.submit(self, fn)  line 199
+        ThreadPoolExecutor._adjust_thread_count(self)  line 219
+            ThreadPoolExecutor._adjust_thread_count.<locals>.weakref_cb(_, q)  line 226
+        ThreadPoolExecutor._initializer_failed(self)  line 241
+        ThreadPoolExecutor.shutdown(self, wait, cancel_futures)  line 254
+
+--- strings ---
+'Implements ThreadPoolExecutor.'
+'Brian Quinlan (brian@sweetapp.com)'
+'register_at_fork'
+'WorkerContext'
+'initializer must be a callable'
+'WorkerContext'
+'_WorkItem'
+'_WorkItem'
+'Exception in initializer:'
+'Exception in worker'
+'BrokenThreadPool'
+'\nRaised when a worker thread in a ThreadPoolExecutor failed initializing.\n'
+'BrokenThreadPool'
+'ThreadPoolExecutor'
+'Initializes a new ThreadPoolExecutor instance.\n\nArgs:\n    max_workers: The maximum number of threads that can be used to\n        execute the given calls.\n    thread_name_prefix: An optional name prefix to give our threads.\n    initializer: A callable used to initialize worker threads.\n    initargs: A tuple of arguments to pass to the initializer.\n    ctxkwargs: Additional arguments to cls.prepare_context().\n'
+'max_workers must be greater than 0'
+'ThreadPoolExecutor-%d'
+'cannot schedule new futures after shutdown'
+'cannot schedule new futures after interpreter shutdown'
+'%s_%d'
+'A thread initializer failed, the thread pool is not usable anymore'
+'cancel_futures'
+'ThreadPoolExecutor'

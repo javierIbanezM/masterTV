@@ -1,0 +1,925 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Persistencia de dispositivos y ajustes de la app (JSON en %APPDATA%).')
+              STORE_NAME               0 (__doc__)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              1 (__future__)
+              IMPORT_FROM              2 (annotations)
+              STORE_NAME               2 (annotations)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (json)
+              STORE_NAME               3 (json)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              4 (uuid)
+              STORE_NAME               4 (uuid)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('asdict', 'dataclass', 'field'))
+              IMPORT_NAME              5 (dataclasses)
+              IMPORT_FROM              6 (asdict)
+              STORE_NAME               6 (asdict)
+              IMPORT_FROM              7 (dataclass)
+              STORE_NAME               7 (dataclass)
+              IMPORT_FROM              8 (field)
+              STORE_NAME               8 (field)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('paths',))
+              IMPORT_NAME              9
+              IMPORT_FROM             10 (paths)
+              STORE_NAME              10 (paths)
+              POP_TOP
+
+ 11           LOAD_NAME                7 (dataclass)
+
+ 12           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               5 (<code object Device at 0x00000204B9FFBB40, file "atvmaster\store.py", line 11>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('Device')
+              CALL                     2
+
+ 11           CALL                     0
+
+ 12           STORE_NAME              11 (Device)
+
+ 32           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object DeviceStore at 0x00000204BA0AA1F0, file "atvmaster\store.py", line 32>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('DeviceStore')
+              CALL                     2
+              STORE_NAME              12 (DeviceStore)
+
+ 70           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object Settings at 0x00000204BA102D50, file "atvmaster\store.py", line 70>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('Settings')
+              CALL                     2
+              STORE_NAME              13 (Settings)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Device at 0x00000204B9FFBB40, file "atvmaster\store.py", line 11>:
+ 11           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Device')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          11
+              STORE_NAME               3 (__firstlineno__)
+              SETUP_ANNOTATIONS
+
+ 13           LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               2 ('name')
+              STORE_SUBSCR
+
+ 14           LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               3 ('host')
+              STORE_SUBSCR
+
+ 15           LOAD_CONST               4 (5555)
+              STORE_NAME               5 (port)
+              LOAD_CONST               5 ('int')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               6 ('port')
+              STORE_SUBSCR
+
+ 16           LOAD_CONST               7 ('')
+              STORE_NAME               6 (mac)
+              LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               8 ('mac')
+              STORE_SUBSCR
+
+ 17           LOAD_CONST               7 ('')
+              STORE_NAME               7 (group)
+              LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               9 ('group')
+              STORE_SUBSCR
+
+ 18           LOAD_NAME                8 (field)
+              PUSH_NULL
+              LOAD_CONST              10 (<code object <lambda> at 0x00000204BA0A5350, file "atvmaster\store.py", line 18>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 (('default_factory',))
+              CALL_KW                  1
+              STORE_NAME               9 (id)
+              LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST              12 ('id')
+              STORE_SUBSCR
+
+ 20           LOAD_CONST               7 ('')
+              STORE_NAME              10 (kiosk_url)
+              LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST              13 ('kiosk_url')
+              STORE_SUBSCR
+
+ 21           LOAD_CONST              14 ('de.ozerov.fully')
+              STORE_NAME              11 (kiosk_package)
+              LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST              15 ('kiosk_package')
+              STORE_SUBSCR
+
+ 22           LOAD_CONST              16 (True)
+              STORE_NAME              12 (kiosk_on_power_on)
+              LOAD_CONST              17 ('bool')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST              18 ('kiosk_on_power_on')
+              STORE_SUBSCR
+
+ 23           LOAD_CONST              19 (False)
+              STORE_NAME              13 (kiosk_watchdog)
+              LOAD_CONST              17 ('bool')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST              20 ('kiosk_watchdog')
+              STORE_SUBSCR
+
+ 24           LOAD_CONST               7 ('')
+              STORE_NAME              14 (fully_password)
+              LOAD_CONST               1 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST              21 ('fully_password')
+              STORE_SUBSCR
+
+ 25           LOAD_SMALL_INT           0
+              STORE_NAME              15 (kiosk_density)
+              LOAD_CONST               5 ('int')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST              22 ('kiosk_density')
+              STORE_SUBSCR
+
+ 27           LOAD_NAME               16 (property)
+
+ 28           LOAD_CONST              23 (<code object __annotate__ at 0x00000204BA0934B0, file "atvmaster\store.py", line 28>)
+              MAKE_FUNCTION
+              LOAD_CONST              24 (<code object serial at 0x00000204BA0FC250, file "atvmaster\store.py", line 27>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+ 27           CALL                     0
+
+ 28           STORE_NAME              17 (serial)
+              LOAD_CONST              25 (())
+              STORE_NAME              18 (__static_attributes__)
+              LOAD_CONST              26 (None)
+              RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA0A5350, file "atvmaster\store.py", line 18>:
+ 18           RESUME                   0
+              LOAD_GLOBAL              0 (uuid)
+              LOAD_ATTR                2 (uuid4)
+              PUSH_NULL
+              CALL                     0
+              LOAD_ATTR                4 (hex)
+              LOAD_CONST               0 (slice(None, 8, None))
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0934B0, file "atvmaster\store.py", line 28>:
+ 28           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object serial at 0x00000204BA0FC250, file "atvmaster\store.py", line 27>:
+ 27           RESUME                   0
+
+ 29           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (host)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 (':')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (port)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              RETURN_VALUE
+
+Disassembly of <code object DeviceStore at 0x00000204BA0AA1F0, file "atvmaster\store.py", line 32>:
+ 32           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('DeviceStore')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          32
+              STORE_NAME               3 (__firstlineno__)
+
+ 33           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0BBB40, file "atvmaster\store.py", line 33>)
+              MAKE_FUNCTION
+              STORE_NAME               4 (__init__)
+
+ 38           LOAD_CONST               2 (<code object __annotate__ at 0x00000204BA092880, file "atvmaster\store.py", line 38>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 (<code object load at 0x00000204BA364FD0, file "atvmaster\store.py", line 38>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               5 (load)
+
+ 46           LOAD_CONST               4 (<code object __annotate__ at 0x00000204BA092C40, file "atvmaster\store.py", line 46>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 (<code object save at 0x00000204B9FA70A0, file "atvmaster\store.py", line 46>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               6 (save)
+
+ 52           LOAD_CONST               6 (<code object __annotate__ at 0x00000204BA092D30, file "atvmaster\store.py", line 52>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 (<code object add at 0x00000204BA101A50, file "atvmaster\store.py", line 52>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               7 (add)
+
+ 56           LOAD_CONST               8 (<code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\store.py", line 56>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 (<code object update at 0x00000204BA0B7230, file "atvmaster\store.py", line 56>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               8 (update)
+
+ 62           LOAD_CONST              10 (<code object __annotate__ at 0x00000204BA092970, file "atvmaster\store.py", line 62>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 (<code object remove at 0x00000204B9FF3280, file "atvmaster\store.py", line 62>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               9 (remove)
+
+ 66           LOAD_CONST              12 (<code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\store.py", line 66>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 (<code object get at 0x00000204BA0A7090, file "atvmaster\store.py", line 66>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              10 (get)
+              LOAD_CONST              14 (('devices', 'path'))
+              STORE_NAME              11 (__static_attributes__)
+              LOAD_CONST              15 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BBB40, file "atvmaster\store.py", line 33>:
+ 33           RESUME                   0
+
+ 34           LOAD_GLOBAL              0 (paths)
+              LOAD_ATTR                2 (data_dir)
+              PUSH_NULL
+              CALL                     0
+              LOAD_CONST               0 ('devices.json')
+              BINARY_OP               11 (/)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (path)
+
+ 35           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (devices)
+
+ 36           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (load + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092880, file "atvmaster\store.py", line 38>:
+ 38           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object load at 0x00000204BA364FD0, file "atvmaster\store.py", line 38>:
+  38            RESUME                   0
+
+  39            NOP
+
+  40    L1:     LOAD_GLOBAL              0 (json)
+                LOAD_ATTR                2 (loads)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (path)
+                LOAD_ATTR                7 (read_text + NULL|self)
+                LOAD_CONST               0 ('utf-8')
+                CALL                     1
+                CALL                     1
+                STORE_FAST               1 (raw)
+
+  41            LOAD_GLOBAL              9 (set + NULL)
+                LOAD_GLOBAL             10 (Device)
+                LOAD_ATTR               12 (__dataclass_fields__)
+                CALL                     1
+                STORE_FAST               2 (known)
+
+  42            LOAD_FAST_BORROW         1 (raw)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      3 (d)
+                LOAD_FAST_AND_CLEAR      4 (k)
+                LOAD_FAST_AND_CLEAR      5 (v)
+                SWAP                     4
+        L2:     BUILD_LIST               0
+                SWAP                     2
+        L3:     FOR_ITER                56 (to L10)
+                STORE_FAST               3 (d)
+                LOAD_GLOBAL             11 (Device + NULL)
+                LOAD_CONST               2 (())
+                BUILD_MAP                0
+                LOAD_FAST_BORROW         3 (d)
+                LOAD_ATTR               15 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      4 (k)
+                LOAD_FAST_AND_CLEAR      5 (v)
+                SWAP                     3
+        L4:     BUILD_MAP                0
+                SWAP                     2
+        L5:     FOR_ITER                15 (to L8)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   69 (k, v)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (k, known)
+                CONTAINS_OP              0 (in)
+        L6:     POP_JUMP_IF_TRUE         3 (to L7)
+                NOT_TAKEN
+                JUMP_BACKWARD           13 (to L5)
+        L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (k, v)
+                MAP_ADD                  2
+                JUMP_BACKWARD           17 (to L5)
+        L8:     END_FOR
+                POP_ITER
+        L9:     SWAP                     3
+                STORE_FAST               5 (v)
+                STORE_FAST               4 (k)
+                DICT_MERGE               1
+                CALL_FUNCTION_EX
+                LIST_APPEND              2
+                JUMP_BACKWARD           58 (to L3)
+       L10:     END_FOR
+                POP_ITER
+       L11:     SWAP                     4
+                STORE_FAST               5 (v)
+                STORE_FAST               4 (k)
+                STORE_FAST               3 (d)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               8 (devices)
+       L12:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L13:     SWAP                     2
+                POP_TOP
+
+  42            SWAP                     3
+                STORE_FAST               5 (v)
+                STORE_FAST               4 (k)
+                RERAISE                  0
+
+  --   L14:     SWAP                     2
+                POP_TOP
+
+  42            SWAP                     4
+                STORE_FAST               5 (v)
+                STORE_FAST               4 (k)
+                STORE_FAST               3 (d)
+                RERAISE                  0
+
+  --   L15:     PUSH_EXC_INFO
+
+  43            LOAD_GLOBAL             18 (OSError)
+                LOAD_GLOBAL             20 (ValueError)
+                LOAD_GLOBAL             22 (TypeError)
+                BUILD_TUPLE              3
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       12 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+  44            BUILD_LIST               0
+                LOAD_FAST                0 (self)
+                STORE_ATTR               8 (devices)
+       L16:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  43   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L15 [0]
+  L2 to L4 -> L14 [4]
+  L4 to L6 -> L13 [12]
+  L7 to L9 -> L13 [12]
+  L9 to L11 -> L14 [4]
+  L11 to L12 -> L15 [0]
+  L13 to L14 -> L14 [4]
+  L14 to L15 -> L15 [0]
+  L15 to L16 -> L18 [1] lasti
+  L17 to L18 -> L18 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA092C40, file "atvmaster\store.py", line 46>:
+ 46           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object save at 0x00000204B9FA70A0, file "atvmaster\store.py", line 46>:
+  46           RESUME                   0
+
+  47           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (path)
+               LOAD_ATTR                3 (with_suffix + NULL|self)
+               LOAD_CONST               0 ('.tmp')
+               CALL                     1
+               STORE_FAST               1 (tmp)
+
+  48           LOAD_FAST                1 (tmp)
+               LOAD_ATTR                5 (write_text + NULL|self)
+               LOAD_GLOBAL              6 (json)
+               LOAD_ATTR                8 (dumps)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (devices)
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      2 (d)
+               SWAP                     2
+       L1:     BUILD_LIST               0
+               SWAP                     2
+       L2:     FOR_ITER                14 (to L3)
+               STORE_FAST               2 (d)
+               LOAD_GLOBAL             13 (asdict + NULL)
+               LOAD_FAST_BORROW         2 (d)
+               CALL                     1
+               LIST_APPEND              2
+               JUMP_BACKWARD           16 (to L2)
+       L3:     END_FOR
+               POP_ITER
+       L4:     SWAP                     2
+               STORE_FAST               2 (d)
+               LOAD_SMALL_INT           2
+
+  49           LOAD_CONST               1 (False)
+
+  48           LOAD_CONST               2 (('indent', 'ensure_ascii'))
+               CALL_KW                  3
+
+  49           LOAD_CONST               3 ('utf-8')
+
+  48           CALL                     2
+               POP_TOP
+
+  50           LOAD_FAST_BORROW         1 (tmp)
+               LOAD_ATTR               15 (replace + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (path)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+  --   L5:     SWAP                     2
+               POP_TOP
+
+  48           SWAP                     2
+               STORE_FAST               2 (d)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L5 [6]
+
+Disassembly of <code object __annotate__ at 0x00000204BA092D30, file "atvmaster\store.py", line 52>:
+ 52           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('d')
+              LOAD_CONST               2 ('Device')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object add at 0x00000204BA101A50, file "atvmaster\store.py", line 52>:
+ 52           RESUME                   0
+
+ 53           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (devices)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (d)
+              CALL                     1
+              POP_TOP
+
+ 54           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (save + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\store.py", line 56>:
+ 56           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('d')
+              LOAD_CONST               2 ('Device')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object update at 0x00000204BA0B7230, file "atvmaster\store.py", line 56>:
+ 56           RESUME                   0
+
+ 57           LOAD_GLOBAL              1 (enumerate + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (devices)
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER                48 (to L3)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   35 (i, x)
+
+ 58           LOAD_FAST_BORROW         3 (x)
+              LOAD_ATTR                4 (id)
+              LOAD_FAST_BORROW         1 (d)
+              LOAD_ATTR                4 (id)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           34 (to L1)
+
+ 59   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (d, self)
+              LOAD_ATTR                2 (devices)
+              LOAD_FAST_BORROW         2 (i)
+              STORE_SUBSCR
+              JUMP_BACKWARD           50 (to L1)
+
+ 57   L3:     END_FOR
+              POP_ITER
+
+ 60           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (save + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092970, file "atvmaster\store.py", line 62>:
+ 62           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('device_id')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object remove at 0x00000204B9FF3280, file "atvmaster\store.py", line 62>:
+  62           RESUME                   0
+
+  63           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (devices)
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      2 (d)
+               SWAP                     2
+       L1:     BUILD_LIST               0
+               SWAP                     2
+       L2:     FOR_ITER                23 (to L5)
+               STORE_FAST_LOAD_FAST    34 (d, d)
+               LOAD_ATTR                2 (id)
+               LOAD_FAST_BORROW         1 (device_id)
+               COMPARE_OP             119 (bool(!=))
+       L3:     POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           21 (to L2)
+       L4:     LOAD_FAST_BORROW         2 (d)
+               LIST_APPEND              2
+               JUMP_BACKWARD           25 (to L2)
+       L5:     END_FOR
+               POP_ITER
+       L6:     SWAP                     2
+               STORE_FAST               2 (d)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (devices)
+
+  64           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (save + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L7:     SWAP                     2
+               POP_TOP
+
+  63           SWAP                     2
+               STORE_FAST               2 (d)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L3 -> L7 [2]
+  L4 to L6 -> L7 [2]
+
+Disassembly of <code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\store.py", line 66>:
+ 66           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('device_id')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Device | None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object get at 0x00000204BA0A7090, file "atvmaster\store.py", line 66>:
+  --           MAKE_CELL                1 (device_id)
+
+  66           RESUME                   0
+
+  67           LOAD_GLOBAL              1 (next + NULL)
+               LOAD_FAST_BORROW         1 (device_id)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object <genexpr> at 0x00000204BA0A7990, file "atvmaster\store.py", line 67>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (devices)
+               GET_ITER
+               CALL                     0
+               LOAD_CONST               1 (None)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A7990, file "atvmaster\store.py", line 67>:
+  --           COPY_FREE_VARS           1
+
+  67           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                25 (to L5)
+               STORE_FAST_LOAD_FAST    17 (d, d)
+               LOAD_ATTR                0 (id)
+               LOAD_DEREF               2 (device_id)
+               COMPARE_OP              88 (bool(==))
+       L3:     POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           21 (to L2)
+       L4:     LOAD_FAST_BORROW         1 (d)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           27 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [0] lasti
+  L4 to L6 -> L6 [0] lasti
+
+Disassembly of <code object Settings at 0x00000204BA102D50, file "atvmaster\store.py", line 70>:
+ 70           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Settings')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          70
+              STORE_NAME               3 (__firstlineno__)
+
+ 72           LOAD_CONST               1 ('adb_path')
+              LOAD_CONST               2 ('')
+
+ 73           LOAD_CONST               3 ('scrcpy_path')
+              LOAD_CONST               2 ('')
+
+ 74           LOAD_CONST               4 ('capture_dir')
+              LOAD_CONST               2 ('')
+
+ 75           LOAD_CONST               5 ('poll_seconds')
+              LOAD_SMALL_INT          10
+
+ 76           LOAD_CONST               6 ('auto_connect')
+              LOAD_CONST               7 (True)
+
+ 71           BUILD_MAP                5
+              STORE_NAME               4 (DEFAULTS)
+
+ 79           LOAD_CONST               8 (<code object __init__ at 0x00000204BA4459F0, file "atvmaster\store.py", line 79>)
+              MAKE_FUNCTION
+              STORE_NAME               5 (__init__)
+
+ 87           LOAD_CONST               9 (<code object get at 0x00000204BA0AA970, file "atvmaster\store.py", line 87>)
+              MAKE_FUNCTION
+              STORE_NAME               6 (get)
+
+ 90           LOAD_CONST              10 (<code object __annotate__ at 0x00000204BA092F10, file "atvmaster\store.py", line 90>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 (<code object set at 0x00000204BA0A72D0, file "atvmaster\store.py", line 90>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               7 (set)
+
+ 94           LOAD_CONST              12 (<code object __annotate__ at 0x00000204BA093000, file "atvmaster\store.py", line 94>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 (<code object save at 0x00000204BA0BB4B0, file "atvmaster\store.py", line 94>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               8 (save)
+              LOAD_CONST              14 (('path', 'values'))
+              STORE_NAME               9 (__static_attributes__)
+              LOAD_CONST              15 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA4459F0, file "atvmaster\store.py", line 79>:
+  79           RESUME                   0
+
+  80           LOAD_GLOBAL              0 (paths)
+               LOAD_ATTR                2 (data_dir)
+               PUSH_NULL
+               CALL                     0
+               LOAD_CONST               0 ('settings.json')
+               BINARY_OP               11 (/)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (path)
+
+  81           LOAD_GLOBAL              7 (dict + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (DEFAULTS)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               5 (values)
+
+  82           NOP
+
+  83   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (values)
+               LOAD_ATTR               13 (update + NULL|self)
+               LOAD_GLOBAL             14 (json)
+               LOAD_ATTR               16 (loads)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (path)
+               LOAD_ATTR               19 (read_text + NULL|self)
+               LOAD_CONST               1 ('utf-8')
+               CALL                     1
+               CALL                     1
+               CALL                     1
+               POP_TOP
+       L2:     LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  84           LOAD_GLOBAL             20 (OSError)
+               LOAD_GLOBAL             22 (ValueError)
+               BUILD_TUPLE              2
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  85   L4:     POP_EXCEPT
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  84   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object get at 0x00000204BA0AA970, file "atvmaster\store.py", line 87>:
+ 87           RESUME                   0
+
+ 88           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (values)
+              LOAD_ATTR                3 (get + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (key, self)
+              LOAD_ATTR                4 (DEFAULTS)
+              LOAD_ATTR                3 (get + NULL|self)
+              LOAD_FAST_BORROW         1 (key)
+              CALL                     1
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092F10, file "atvmaster\store.py", line 90>:
+ 90           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object set at 0x00000204BA0A72D0, file "atvmaster\store.py", line 90>:
+ 90           RESUME                   0
+
+ 91           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (value, self)
+              LOAD_ATTR                0 (values)
+              LOAD_FAST_BORROW         1 (key)
+              STORE_SUBSCR
+
+ 92           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (save + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093000, file "atvmaster\store.py", line 94>:
+ 94           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object save at 0x00000204BA0BB4B0, file "atvmaster\store.py", line 94>:
+ 94           RESUME                   0
+
+ 95           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (path)
+              LOAD_ATTR                3 (write_text + NULL|self)
+              LOAD_GLOBAL              4 (json)
+              LOAD_ATTR                6 (dumps)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (values)
+              LOAD_SMALL_INT           2
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (('indent', 'ensure_ascii'))
+              CALL_KW                  3
+              LOAD_CONST               3 ('utf-8')
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE

@@ -1,0 +1,93 @@
+<module>()  line 1
+    _make_filename()  line 40
+    SharedMemory()  line 50
+        SharedMemory.__init__(self, name, create, size, track)  line 76
+        SharedMemory.__del__(self)  line 187
+        SharedMemory.__reduce__(self)  line 193
+        SharedMemory.__repr__(self)  line 203
+        SharedMemory.buf(self)  line 206
+        SharedMemory.name(self)  line 211
+        SharedMemory.size(self)  line 220
+        SharedMemory.close(self)  line 225
+        SharedMemory.unlink(self)  line 238
+    ShareableList()  line 259
+        ShareableList.<lambda>(value)  line 288
+        ShareableList.<lambda>(value)  line 289
+        ShareableList.<lambda>(value)  line 290
+        ShareableList.<lambda>(_value)  line 291
+        ShareableList._extract_recreation_code(value)  line 294
+        ShareableList.__init__(self, sequence, name)  line 308
+            ShareableList.__init__.<locals>.<genexpr>(.0)  line 320
+            ShareableList.__init__.<locals>.<genexpr>(.0)  line 356
+            ShareableList.__init__.<locals>.<genexpr>(.0)  line 362
+        ShareableList._get_packing_format(self, position)  line 381
+        ShareableList._get_back_transform(self, position)  line 397
+        ShareableList._set_packing_format_and_transform(self, position, fmt_as_str, value)  line 412
+        ShareableList.__getitem__(self, position)  line 434
+        ShareableList.__setitem__(self, position, value)  line 451
+        ShareableList.__reduce__(self)  line 484
+        ShareableList.__len__(self)  line 487
+        ShareableList.__repr__(self)  line 490
+        ShareableList.format(self)  line 493
+            ShareableList.format.<locals>.<genexpr>(.0)  line 496
+        ShareableList._format_size_metainfo(self)  line 500
+        ShareableList._format_packing_metainfo(self)  line 505
+        ShareableList._format_back_transform_codes(self)  line 510
+        ShareableList._offset_data_start(self)  line 515
+        ShareableList._offset_packing_formats(self)  line 521
+        ShareableList._offset_back_transform_codes(self)  line 525
+        ShareableList.count(self, value)  line 529
+            ShareableList.count.<locals>.<genexpr>(.0)  line 532
+        ShareableList.index(self, value)  line 534
+
+--- strings ---
+'Provides shared memory for direct access across processes.\n\nThe API of this package is currently provisional. Refer to the\ndocumentation for details.\n'
+'SharedMemory'
+'ShareableList'
+'nt'
+'/psm_'
+'wnsm_'
+'Create a random filename for the shared memory object.'
+'_SHM_NAME_PREFIX too long'
+'SharedMemory'
+'Creates a new shared memory block or attaches to an existing\nshared memory block.\n\nEvery shared memory block is assigned a unique name.  This enables\none process to create a shared memory block with a particular name\nso that a different process can attach to that same shared memory\nblock using that same name.\n\nAs a resource for sharing data across processes, shared memory blocks\nmay outlive the original process that created them.  When one process\nno longer needs access to a shared memory block that might still be\nneeded by other processes, the close() method should be called.\nWhen a shared memory block is no longer needed by any process, the\nunlink() method should be called to ensure proper cleanup.'
+'track'
+"'size' must be a positive integer"
+"'size' must be a positive number different from zero"
+"'name' can only be None if create=True"
+'shared_memory'
+', size='
+'A memoryview of contents of the shared memory block.'
+'Unique name that identifies the shared memory block.'
+'Size in bytes.'
+'Closes access to the shared memory from this instance but does\nnot destroy the shared memory block.'
+'Requests that the underlying shared memory block be destroyed.\n\nUnlink should be called once (and only once) across all handles\nwhich have access to the shared memory block, even if these\nhandles belong to different processes. Closing and unlinking may\nhappen in any order, but trying to access data inside a shared\nmemory block after unlinking may result in memory errors,\ndepending on platform.\n\nThis method has no effect on Windows, where the only way to\ndelete a shared memory block is to close all handles.'
+'shared_memory'
+'utf8'
+'ShareableList'
+'Pattern for a mutable list-like object shareable via a shared\nmemory block.  It differs from the built-in list type in that these\nlists can not change their overall length (i.e. no append, insert,\netc.)\n\nBecause values are packed into a memoryview as bytes, the struct\npacking format for any storable value must require no more than 8\ncharacters to describe its format.'
+'xxxxxxx?'
+'%ds'
+'xxxxxx?x'
+'Used in concert with _back_transforms_mapping to convert values\ninto the appropriate Python objects when retrieving them from\nthe list as well as when storing them.'
+'name'
+'Gets the packing format for a single value stored in the list.'
+'Requested position out of range.'
+'8s'
+'Gets the back transformation function for a single value.'
+'Requested position out of range.'
+'Sets the packing format and back transformation code for a\nsingle value in the list at the specified position.'
+'Requested position out of range.'
+'8s'
+'index out of range'
+'assignment index out of range'
+'bytes/str item exceeds available storage'
+', name='
+'The struct packing format used by all currently stored items.'
+"The struct packing format used for the items' storage offsets."
+"The struct packing format used for the items' packing formats."
+'8s'
+"The struct packing format used for the items' back transforms."
+'L.count(value) -> integer -- return number of occurrences of value.'
+'L.index(value) -> integer -- return first index of value.\nRaises ValueError if the value is not present.'
+'ShareableList.index(x): x not in list'

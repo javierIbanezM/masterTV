@@ -1,0 +1,143 @@
+<module>()  line 1
+    open(filename, mode, compresslevel, encoding, errors, newline)  line 33
+    write32u(output, value)  line 78
+    _PaddedFile()  line 83
+        _PaddedFile.__init__(self, f, prepend)  line 88
+        _PaddedFile.read(self, size)  line 94
+        _PaddedFile.prepend(self, prepend)  line 107
+        _PaddedFile.seek(self, off)  line 116
+        _PaddedFile.seekable(self)  line 121
+    BadGzipFile()  line 125
+    _WriteBufferStream()  line 129
+        _WriteBufferStream.__init__(self, gzip_file)  line 131
+        _WriteBufferStream.write(self, data)  line 134
+        _WriteBufferStream.seekable(self)  line 140
+        _WriteBufferStream.writable(self)  line 143
+    GzipFile()  line 147
+        GzipFile.__init__(self, filename, mode, compresslevel, fileobj, mtime)  line 160
+        GzipFile.mtime(self)  line 258
+        GzipFile.__repr__(self)  line 263
+        GzipFile._init_write(self, filename)  line 267
+        GzipFile.tell(self)  line 275
+        GzipFile._write_gzip_header(self, compresslevel)  line 280
+        GzipFile.write(self, data)  line 312
+        GzipFile._write_raw(self, data)  line 323
+        GzipFile._check_read(self, caller)  line 340
+        GzipFile.read(self, size)  line 346
+        GzipFile.read1(self, size)  line 351
+        GzipFile.readinto(self, b)  line 362
+        GzipFile.readinto1(self, b)  line 367
+        GzipFile.peek(self, n)  line 372
+        GzipFile.closed(self)  line 377
+        GzipFile.close(self)  line 381
+        GzipFile._close(self)  line 399
+        GzipFile.flush(self, zlib_mode)  line 406
+        GzipFile.fileno(self)  line 414
+        GzipFile.rewind(self)  line 422
+        GzipFile.readable(self)  line 429
+        GzipFile.writable(self)  line 432
+        GzipFile.seekable(self)  line 435
+        GzipFile.seek(self, offset, whence)  line 438
+        GzipFile.readline(self, size)  line 461
+        GzipFile.__del__(self)  line 465
+    _read_exact(fp, n)  line 473
+    _read_gzip_header(fp)  line 489
+    _GzipReader()  line 526
+        _GzipReader.__init__(self, fp)  line 527
+        _GzipReader._init_read(self)  line 534
+        _GzipReader._read_gzip_header(self)  line 538
+        _GzipReader.read(self, size)  line 545
+        _GzipReader._read_eof(self)  line 598
+        _GzipReader._rewind(self)  line 619
+    compress(data, compresslevel, mtime)  line 624
+    decompress(data)  line 641
+    main()  line 666
+
+--- strings ---
+"Functions that read and write gzipped files.\n\nThe user of the file doesn't have to worry about the compression,\nbut random access is not allowed."
+'BadGzipFile'
+'GzipFile'
+'rb'
+'wb'
+'Open a gzip-compressed file in binary or text mode.\n\nThe filename argument can be an actual filename (a str or bytes object), or\nan existing file object to read from or write to.\n\nThe mode argument can be "r", "rb", "w", "wb", "x", "xb", "a" or "ab" for\nbinary mode, or "rt", "wt", "xt" or "at" for text mode. The default mode is\n"rb", and the default compresslevel is 9.\n\nFor binary mode, this function is equivalent to the GzipFile constructor:\nGzipFile(filename, mode, compresslevel). In this case, the encoding, errors\nand newline arguments must not be provided.\n\nFor text mode, a GzipFile object is created, and wrapped in an\nio.TextIOWrapper instance with the specified encoding, error handling\nbehavior, and line ending(s).\n\n'
+'Invalid mode: '
+"Argument 'encoding' not supported in binary mode"
+"Argument 'errors' not supported in binary mode"
+"Argument 'newline' not supported in binary mode"
+'read'
+'write'
+'filename must be a str or bytes object, or a file'
+'<L'
+'_PaddedFile'
+"Minimal read-only file object that prepends a string to the contents\nof an actual file. Shouldn't be used outside of gzip.py, as it lacks\nessential functionality."
+'_PaddedFile'
+'BadGzipFile'
+'Exception raised in some cases for invalid gzip files.'
+'_WriteBufferStream'
+'Minimal object to pass WriteBuffer flushes into GzipFile'
+'lost gzip_file'
+'_WriteBufferStream'
+'GzipFile'
+'The GzipFile class simulates most of the methods of a file object with\nthe exception of the truncate() method.\n\nThis class only supports opening files in binary mode. If you need to open a\ncompressed file in text mode, use the gzip.open() function.\n\n'
+"Constructor for the GzipFile class.\n\nAt least one of fileobj and filename must be given a\nnon-trivial value.\n\nThe new class instance is based on fileobj, which can be a regular\nfile, an io.BytesIO object, or any other object which simulates a file.\nIt defaults to None, in which case filename is opened to provide\na file object.\n\nWhen fileobj is not None, the filename argument is only used to be\nincluded in the gzip file header, which may include the original\nfilename of the uncompressed file.  It defaults to the filename of\nfileobj, if discernible; otherwise, it defaults to the empty string,\nand in this case the original filename is not included in the header.\n\nThe mode argument can be any of 'r', 'rb', 'a', 'ab', 'w', 'wb', 'x', or\n'xb' depending on whether the file will be read or written.  The default\nis the mode of fileobj if discernible; otherwise, the default is 'rb'.\nA mode of 'r' is equivalent to one of 'rb', and similarly for 'w' and\n'wb', 'a' and 'ab', and 'x' and 'xb'.\n\nThe compresslevel argument is an integer from 0 to 9 controlling the\nlevel of compression; 1 is fastest and produces the least compression,\nand 9 is slowest and produces the most compression. 0 is no compression\nat all. The default is 9.\n\nThe optional mtime argument is the timestamp requested by gzip. The time\nis in Unix format, i.e., seconds since 00:00:00 UTC, January 1, 1970.\nIf mtime is omitted or None, the current time is used. Use mtime = 0\nto generate a compressed stream that does not depend on creation time.\n\n"
+'Invalid mode: {!r}'
+'rb'
+'name'
+'mode'
+'GzipFile was opened for writing, but this will change in future Python releases.  Specify the mode argument for opening it for writing.'
+'Last modification time read from stream, or None'
+'<gzip '
+'latin-1'
+'write() on read-only GzipFile object'
+'write() on closed GzipFile object'
+'() on write-only GzipFile object'
+'read'
+"Implements BufferedIOBase.read1()\n\nReads up to a buffer's worth of data if size is negative."
+'read1'
+'readinto'
+'readinto1'
+'peek'
+"Invoke the underlying file object's fileno() method.\n\nThis will raise AttributeError if the underlying file object\ndoesn't support fileno().\n"
+'Return the uncompressed stream file position indicator to the\nbeginning of the file'
+"Can't rewind in write mode"
+'Seek from end not supported'
+'Negative seek in write mode'
+'unclosed GzipFile'
+'Read exactly *n* bytes from `fp`\n\nThis method is required because fp may be unbuffered,\ni.e. return short reads.\n'
+'Compressed file ended before the end-of-stream marker was reached'
+'Read a gzip header from `fp` and progress to the end of the header.\n\nReturns last mtime if header was present or None otherwise.\n'
+'Not a gzipped file (%r)'
+'<BBIxx'
+'Unknown compression method'
+'<H'
+'_GzipReader'
+'Compressed file ended before the end-of-stream marker was reached'
+'<II'
+'CRC check failed '
+' != '
+'Incorrect length of data produced'
+'_GzipReader'
+'mtime'
+'Compress data in one shot and return the compressed string.\n\ncompresslevel sets the compression level in range of 0-9.\nmtime can be used to set the modification time.\nThe modification time is set to 0 by default, for reproducibility.\n'
+'<4sLBB'
+'Decompress a gzip compressed string in one shot.\nReturn the decompressed string.\n'
+'Compressed file ended before the end-of-stream marker was reached'
+'<II'
+'CRC check failed'
+'Incorrect length of data produced'
+'A simple command line interface for the gzip module: act like gzip, but do not delete the input file.'
+'--fast'
+'store_true'
+'compress faster'
+'--best'
+'compress better'
+'-d'
+'--decompress'
+'act like gunzip instead of gzip'
+'args'
+'file'
+'rb'
+'.gz'
+"filename doesn't end in .gz: "
+'wb'
+'__main__'

@@ -1,0 +1,496 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (io)
+              STORE_NAME               0 (io)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (os)
+              STORE_NAME               1 (os)
+
+  4           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('reduction', 'set_spawning_popen'))
+              IMPORT_NAME              2 (context)
+              IMPORT_FROM              3 (reduction)
+              STORE_NAME               3 (reduction)
+              IMPORT_FROM              4 (set_spawning_popen)
+              STORE_NAME               4 (set_spawning_popen)
+              POP_TOP
+
+  5           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('popen_fork',))
+              IMPORT_NAME              5
+              IMPORT_FROM              6 (popen_fork)
+              STORE_NAME               6 (popen_fork)
+              POP_TOP
+
+  6           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('spawn',))
+              IMPORT_NAME              5
+              IMPORT_FROM              7 (spawn)
+              STORE_NAME               7 (spawn)
+              POP_TOP
+
+  7           LOAD_SMALL_INT           1
+              LOAD_CONST               5 (('util',))
+              IMPORT_NAME              5
+              IMPORT_FROM              8 (util)
+              STORE_NAME               8 (util)
+              POP_TOP
+
+  9           LOAD_CONST               6 ('Popen')
+              BUILD_LIST               1
+              STORE_NAME               9 (__all__)
+
+ 16           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object _DupFd at 0x00000204BA08B130, file "multiprocessing\popen_spawn_posix.py", line 16>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('_DupFd')
+              LOAD_NAME               10 (object)
+              CALL                     3
+              STORE_NAME              11 (_DupFd)
+
+ 26           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object Popen at 0x00000204BA0A7630, file "multiprocessing\popen_spawn_posix.py", line 26>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('Popen')
+              LOAD_NAME                6 (popen_fork)
+              LOAD_ATTR               24 (Popen)
+              CALL                     3
+              STORE_NAME              12 (Popen)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _DupFd at 0x00000204BA08B130, file "multiprocessing\popen_spawn_posix.py", line 16>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  16           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_DupFd')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          16
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  17           LOAD_CONST               1 (<code object __init__ at 0x00000204BA092E20, file "multiprocessing\popen_spawn_posix.py", line 17>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  19           LOAD_CONST               2 (<code object detach at 0x00000204BA092880, file "multiprocessing\popen_spawn_posix.py", line 19>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (detach)
+               LOAD_CONST               3 (('fd',))
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA092E20, file "multiprocessing\popen_spawn_posix.py", line 17>:
+ 17           RESUME                   0
+
+ 18           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fd, self)
+              STORE_ATTR               0 (fd)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object detach at 0x00000204BA092880, file "multiprocessing\popen_spawn_posix.py", line 19>:
+ 19           RESUME                   0
+
+ 20           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (fd)
+              RETURN_VALUE
+
+Disassembly of <code object Popen at 0x00000204BA0A7630, file "multiprocessing\popen_spawn_posix.py", line 26>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  26           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Popen')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          26
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  27           LOAD_CONST               1 ('spawn')
+               STORE_NAME               4 (method)
+
+  28           LOAD_NAME                5 (_DupFd)
+               STORE_NAME               6 (DupFd)
+
+  30           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0FF550, file "multiprocessing\popen_spawn_posix.py", line 30>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               7 (__init__)
+
+  34           LOAD_CONST               3 (<code object duplicate_for_child at 0x00000204BA0FD020, file "multiprocessing\popen_spawn_posix.py", line 34>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (duplicate_for_child)
+
+  38           LOAD_CONST               4 (<code object _launch at 0x00000204BA3ACB20, file "multiprocessing\popen_spawn_posix.py", line 38>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_launch)
+               LOAD_CONST               5 (('_fds', 'finalizer', 'pid', 'sentinel'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              12 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FF550, file "multiprocessing\popen_spawn_posix.py", line 30>:
+  --           COPY_FREE_VARS           1
+
+  30           RESUME                   0
+
+  31           BUILD_LIST               0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fds)
+
+  32           LOAD_GLOBAL              2 (super)
+               LOAD_DEREF               2 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          9 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (process_obj)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object duplicate_for_child at 0x00000204BA0FD020, file "multiprocessing\popen_spawn_posix.py", line 34>:
+ 34           RESUME                   0
+
+ 35           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fds)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (fd)
+              CALL                     1
+              POP_TOP
+
+ 36           LOAD_FAST_BORROW         1 (fd)
+              RETURN_VALUE
+
+Disassembly of <code object _launch at 0x00000204BA3ACB20, file "multiprocessing\popen_spawn_posix.py", line 38>:
+  38            RESUME                   0
+
+  39            LOAD_SMALL_INT           1
+                LOAD_CONST               1 (('resource_tracker',))
+                IMPORT_NAME              0
+                IMPORT_FROM              1 (resource_tracker)
+                STORE_FAST               2 (resource_tracker)
+                POP_TOP
+
+  40            LOAD_FAST_BORROW         2 (resource_tracker)
+                LOAD_ATTR                5 (getfd + NULL|self)
+                CALL                     0
+                STORE_FAST               3 (tracker_fd)
+
+  41            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_fds)
+                LOAD_ATTR                9 (append + NULL|self)
+                LOAD_FAST_BORROW         3 (tracker_fd)
+                CALL                     1
+                POP_TOP
+
+  42            LOAD_GLOBAL             10 (spawn)
+                LOAD_ATTR               12 (get_preparation_data)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (process_obj)
+                LOAD_ATTR               14 (_name)
+                CALL                     1
+                STORE_FAST               4 (prep_data)
+
+  43            LOAD_GLOBAL             16 (io)
+                LOAD_ATTR               18 (BytesIO)
+                PUSH_NULL
+                CALL                     0
+                STORE_FAST               5 (fp)
+
+  44            LOAD_GLOBAL             21 (set_spawning_popen + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                CALL                     1
+                POP_TOP
+
+  45            NOP
+
+  46    L1:     LOAD_GLOBAL             22 (reduction)
+                LOAD_ATTR               24 (dump)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (prep_data, fp)
+                CALL                     2
+                POP_TOP
+
+  47            LOAD_GLOBAL             22 (reduction)
+                LOAD_ATTR               24 (dump)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 21 (process_obj, fp)
+                CALL                     2
+                POP_TOP
+
+  49    L2:     LOAD_GLOBAL             21 (set_spawning_popen + NULL)
+                LOAD_CONST               2 (None)
+                CALL                     1
+                POP_TOP
+
+  51            LOAD_CONST               2 (None)
+                COPY                     1
+                STORE_FAST               6 (parent_r)
+                COPY                     1
+                STORE_FAST               7 (child_w)
+                COPY                     1
+                STORE_FAST_STORE_FAST  137 (child_r, parent_w)
+
+  52            NOP
+
+  53    L3:     LOAD_GLOBAL             26 (os)
+                LOAD_ATTR               28 (pipe)
+                PUSH_NULL
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  103 (parent_r, child_w)
+
+  54            LOAD_GLOBAL             26 (os)
+                LOAD_ATTR               28 (pipe)
+                PUSH_NULL
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  137 (child_r, parent_w)
+
+  55            LOAD_GLOBAL             10 (spawn)
+                LOAD_ATTR               30 (get_command_line)
+                PUSH_NULL
+                LOAD_FAST_BORROW         3 (tracker_fd)
+
+  56            LOAD_FAST_BORROW         8 (child_r)
+
+  55            LOAD_CONST               3 (('tracker_fd', 'pipe_handle'))
+                CALL_KW                  2
+                STORE_FAST              10 (cmd)
+
+  57            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_fds)
+                LOAD_ATTR               33 (extend + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 135 (child_r, child_w)
+                BUILD_LIST               2
+                CALL                     1
+                POP_TOP
+
+  58            LOAD_GLOBAL             34 (util)
+                LOAD_ATTR               36 (spawnv_passfds)
+                PUSH_NULL
+                LOAD_GLOBAL             10 (spawn)
+                LOAD_ATTR               38 (get_executable)
+                PUSH_NULL
+                CALL                     0
+
+  59            LOAD_FAST_BORROW_LOAD_FAST_BORROW 160 (cmd, self)
+                LOAD_ATTR                6 (_fds)
+
+  58            CALL                     3
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              20 (pid)
+
+  60            LOAD_FAST_BORROW_LOAD_FAST_BORROW 96 (parent_r, self)
+                STORE_ATTR              21 (sentinel)
+
+  61            LOAD_GLOBAL             45 (open + NULL)
+                LOAD_FAST_BORROW         9 (parent_w)
+                LOAD_CONST               4 ('wb')
+                LOAD_CONST               5 (False)
+                LOAD_CONST               6 (('closefd',))
+                CALL_KW                  3
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L4:     STORE_FAST              11 (f)
+
+  62            LOAD_FAST_BORROW        11 (f)
+                LOAD_ATTR               47 (write + NULL|self)
+                LOAD_FAST_BORROW         5 (fp)
+                LOAD_ATTR               49 (getbuffer + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+  61    L5:     LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                CALL                     3
+                POP_TOP
+
+  64    L6:     BUILD_LIST               0
+                STORE_FAST              12 (fds_to_close)
+
+  65            LOAD_FAST_BORROW_LOAD_FAST_BORROW 105 (parent_r, parent_w)
+                BUILD_TUPLE              2
+                GET_ITER
+        L7:     FOR_ITER                26 (to L9)
+                STORE_FAST              13 (fd)
+
+  66            LOAD_FAST_BORROW        13 (fd)
+                POP_JUMP_IF_NOT_NONE     3 (to L8)
+                NOT_TAKEN
+                JUMP_BACKWARD            9 (to L7)
+
+  67    L8:     LOAD_FAST_BORROW        12 (fds_to_close)
+                LOAD_ATTR                9 (append + NULL|self)
+                LOAD_FAST_BORROW        13 (fd)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           28 (to L7)
+
+  65    L9:     END_FOR
+                POP_ITER
+
+  68            LOAD_GLOBAL             34 (util)
+                LOAD_ATTR               50 (Finalize)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_GLOBAL             34 (util)
+                LOAD_ATTR               52 (close_fds)
+                LOAD_FAST_BORROW        12 (fds_to_close)
+                CALL                     3
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              27 (finalizer)
+
+  70            LOAD_FAST_BORROW_LOAD_FAST_BORROW 135 (child_r, child_w)
+                BUILD_TUPLE              2
+                GET_ITER
+       L10:     FOR_ITER                31 (to L12)
+                STORE_FAST              13 (fd)
+
+  71            LOAD_FAST_BORROW        13 (fd)
+                POP_JUMP_IF_NOT_NONE     3 (to L11)
+                NOT_TAKEN
+                JUMP_BACKWARD            9 (to L10)
+
+  72   L11:     LOAD_GLOBAL             26 (os)
+                LOAD_ATTR               56 (close)
+                PUSH_NULL
+                LOAD_FAST_BORROW        13 (fd)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           33 (to L10)
+
+  70   L12:     END_FOR
+                POP_ITER
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --   L13:     PUSH_EXC_INFO
+
+  49            LOAD_GLOBAL             21 (set_spawning_popen + NULL)
+                LOAD_CONST               2 (None)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  61   L15:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L16)
+                NOT_TAKEN
+                RERAISE                  2
+       L16:     POP_TOP
+       L17:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 150 (to L6)
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L19:     PUSH_EXC_INFO
+
+  64            BUILD_LIST               0
+                STORE_FAST              12 (fds_to_close)
+
+  65            LOAD_FAST_LOAD_FAST    105 (parent_r, parent_w)
+                BUILD_TUPLE              2
+                GET_ITER
+       L20:     FOR_ITER                26 (to L23)
+                STORE_FAST              13 (fd)
+
+  66            LOAD_FAST               13 (fd)
+       L21:     POP_JUMP_IF_NOT_NONE     3 (to L22)
+                NOT_TAKEN
+                JUMP_BACKWARD            9 (to L20)
+
+  67   L22:     LOAD_FAST               12 (fds_to_close)
+                LOAD_ATTR                9 (append + NULL|self)
+                LOAD_FAST               13 (fd)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           28 (to L20)
+
+  65   L23:     END_FOR
+                POP_ITER
+
+  68            LOAD_GLOBAL             34 (util)
+                LOAD_ATTR               50 (Finalize)
+                PUSH_NULL
+                LOAD_FAST                0 (self)
+                LOAD_GLOBAL             34 (util)
+                LOAD_ATTR               52 (close_fds)
+                LOAD_FAST               12 (fds_to_close)
+                CALL                     3
+                LOAD_FAST                0 (self)
+                STORE_ATTR              27 (finalizer)
+
+  70            LOAD_FAST_LOAD_FAST    135 (child_r, child_w)
+                BUILD_TUPLE              2
+                GET_ITER
+       L24:     FOR_ITER                31 (to L27)
+                STORE_FAST              13 (fd)
+
+  71            LOAD_FAST               13 (fd)
+       L25:     POP_JUMP_IF_NOT_NONE     3 (to L26)
+                NOT_TAKEN
+                JUMP_BACKWARD            9 (to L24)
+
+  72   L26:     LOAD_GLOBAL             26 (os)
+                LOAD_ATTR               56 (close)
+                PUSH_NULL
+                LOAD_FAST               13 (fd)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           33 (to L24)
+
+  70   L27:     END_FOR
+                POP_ITER
+                RERAISE                  0
+
+  --   L28:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L13 [0]
+  L3 to L4 -> L19 [0]
+  L4 to L5 -> L15 [2] lasti
+  L5 to L6 -> L19 [0]
+  L13 to L14 -> L14 [1] lasti
+  L15 to L17 -> L18 [4] lasti
+  L17 to L19 -> L19 [0]
+  L19 to L21 -> L28 [1] lasti
+  L22 to L25 -> L28 [1] lasti
+  L26 to L28 -> L28 [1] lasti

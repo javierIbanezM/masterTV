@@ -1,0 +1,136 @@
+
+DEF <module>() @1
+1: LOAD_CONST 'Persistencia de dispositivos y ajustes de la app (JSON en %APPDATA%).'; STORE_NAME __doc__
+2: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+4: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME json; STORE_NAME json
+5: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME uuid; STORE_NAME uuid
+6: LOAD_SMALL_INT 0; LOAD_CONST ('asdict', 'dataclass', 'field'); IMPORT_NAME dataclasses; IMPORT_FROM asdict; STORE_NAME asdict; IMPORT_FROM dataclass; STORE_NAME dataclass; IMPORT_FROM field; STORE_NAME field
+8: LOAD_SMALL_INT 1; LOAD_CONST ('paths',); IMPORT_NAME; IMPORT_FROM paths; STORE_NAME paths
+11: LOAD_NAME dataclass
+12: LOAD_BUILD_CLASS; LOAD_CONST <code Device>; MAKE_FUNCTION; LOAD_CONST 'Device'; CALL
+11: CALL
+12: STORE_NAME Device
+32: LOAD_BUILD_CLASS; LOAD_CONST <code DeviceStore>; MAKE_FUNCTION; LOAD_CONST 'DeviceStore'; CALL; STORE_NAME DeviceStore
+70: LOAD_BUILD_CLASS; LOAD_CONST <code Settings>; MAKE_FUNCTION; LOAD_CONST 'Settings'; CALL; STORE_NAME Settings; LOAD_CONST None; RETURN_VALUE
+
+  DEF Device() @11
+  11: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'Device'; STORE_NAME __qualname__; LOAD_SMALL_INT 11; STORE_NAME __firstlineno__; SETUP_ANNOTATIONS
+  13: LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'name'; STORE_SUBSCR
+  14: LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'host'; STORE_SUBSCR
+  15: LOAD_CONST 5555; STORE_NAME port; LOAD_CONST 'int'; LOAD_NAME __annotations__; LOAD_CONST 'port'; STORE_SUBSCR
+  16: LOAD_CONST ''; STORE_NAME mac; LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'mac'; STORE_SUBSCR
+  17: LOAD_CONST ''; STORE_NAME group; LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'group'; STORE_SUBSCR
+  18: LOAD_NAME field; LOAD_CONST <code Device.<lambda>>; MAKE_FUNCTION; LOAD_CONST ('default_factory',); CALL_KW; STORE_NAME id; LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'id'; STORE_SUBSCR
+  20: LOAD_CONST ''; STORE_NAME kiosk_url; LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'kiosk_url'; STORE_SUBSCR
+  21: LOAD_CONST 'de.ozerov.fully'; STORE_NAME kiosk_package; LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'kiosk_package'; STORE_SUBSCR
+  22: LOAD_CONST True; STORE_NAME kiosk_on_power_on; LOAD_CONST 'bool'; LOAD_NAME __annotations__; LOAD_CONST 'kiosk_on_power_on'; STORE_SUBSCR
+  23: LOAD_CONST False; STORE_NAME kiosk_watchdog; LOAD_CONST 'bool'; LOAD_NAME __annotations__; LOAD_CONST 'kiosk_watchdog'; STORE_SUBSCR
+  24: LOAD_CONST ''; STORE_NAME fully_password; LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'fully_password'; STORE_SUBSCR
+  25: LOAD_SMALL_INT 0; STORE_NAME kiosk_density; LOAD_CONST 'int'; LOAD_NAME __annotations__; LOAD_CONST 'kiosk_density'; STORE_SUBSCR
+  27: LOAD_NAME property
+  28: LOAD_CONST <code Device.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Device.serial>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate
+  27: CALL
+  28: STORE_NAME serial; LOAD_CONST (); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+    DEF Device.<lambda>() @18
+    18: LOAD_GLOBAL uuid; LOAD_ATTR uuid4; CALL; LOAD_ATTR hex; LOAD_CONST slice(None, 8, None); BINARY_OP []; RETURN_VALUE
+
+    DEF Device.serial(self) @27
+    29: LOAD_FAST_BORROW self; LOAD_ATTR host; FORMAT_SIMPLE; LOAD_CONST ':'; LOAD_FAST_BORROW self; LOAD_ATTR port; FORMAT_SIMPLE; BUILD_STRING; RETURN_VALUE
+
+  DEF DeviceStore() @32
+  32: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'DeviceStore'; STORE_NAME __qualname__; LOAD_SMALL_INT 32; STORE_NAME __firstlineno__
+  33: LOAD_CONST <code DeviceStore.__init__>; MAKE_FUNCTION; STORE_NAME __init__
+  38: LOAD_CONST <code DeviceStore.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceStore.load>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME load
+  46: LOAD_CONST <code DeviceStore.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceStore.save>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME save
+  52: LOAD_CONST <code DeviceStore.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceStore.add>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME add
+  56: LOAD_CONST <code DeviceStore.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceStore.update>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME update
+  62: LOAD_CONST <code DeviceStore.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceStore.remove>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME remove
+  66: LOAD_CONST <code DeviceStore.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceStore.get>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME get; LOAD_CONST ('devices', 'path'); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceStore.__init__(self) @33
+    34: LOAD_GLOBAL paths; LOAD_ATTR data_dir; CALL; LOAD_CONST 'devices.json'; BINARY_OP /; LOAD_FAST_BORROW self; STORE_ATTR path
+    35: BUILD_LIST; LOAD_FAST_BORROW self; STORE_ATTR devices
+    36: LOAD_FAST_BORROW self; LOAD_ATTR load + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceStore.load(self) @38
+    40: LOAD_GLOBAL json; LOAD_ATTR loads; LOAD_FAST_BORROW self; LOAD_ATTR path; LOAD_ATTR read_text + NULL|self; LOAD_CONST 'utf-8'; CALL; CALL; STORE_FAST raw
+    41: LOAD_GLOBAL set + NULL; LOAD_GLOBAL Device; LOAD_ATTR __dataclass_fields__; CALL; STORE_FAST known
+    42: LOAD_FAST_BORROW raw; GET_ITER; LOAD_FAST_AND_CLEAR d; LOAD_FAST_AND_CLEAR k; LOAD_FAST_AND_CLEAR v; SWAP; BUILD_LIST; SWAP; <L164>; FOR_ITER ->280; STORE_FAST d; LOAD_GLOBAL Device + NULL; LOAD_CONST (); BUILD_MAP; LOAD_FAST_BORROW d; LOAD_ATTR items + NULL|self; CALL; GET_ITER; LOAD_FAST_AND_CLEAR k; LOAD_FAST_AND_CLEAR v; SWAP; BUILD_MAP; SWAP; <L226>; FOR_ITER ->260; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST k, v; LOAD_FAST_BORROW_LOAD_FAST_BORROW k, known; CONTAINS_OP in; POP_JUMP_IF_TRUE ->252; JUMP_BACKWARD ->226; <L252>; LOAD_FAST_BORROW_LOAD_FAST_BORROW k, v; MAP_ADD; JUMP_BACKWARD ->226; <L260>; END_FOR; POP_ITER; SWAP; STORE_FAST v; STORE_FAST k; DICT_MERGE; CALL_FUNCTION_EX; LIST_APPEND; JUMP_BACKWARD ->164; <L280>; END_FOR; POP_ITER; SWAP; STORE_FAST v; STORE_FAST k; STORE_FAST d; LOAD_FAST_BORROW self; STORE_ATTR devices; LOAD_CONST None; RETURN_VALUE
+    None: SWAP
+    42: SWAP; STORE_FAST v; STORE_FAST k; RERAISE
+    None: SWAP
+    42: SWAP; STORE_FAST v; STORE_FAST k; STORE_FAST d; RERAISE
+    None: PUSH_EXC_INFO
+    43: LOAD_GLOBAL OSError; LOAD_GLOBAL ValueError; LOAD_GLOBAL TypeError; BUILD_TUPLE; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->398
+    44: BUILD_LIST; LOAD_FAST self; STORE_ATTR devices; POP_EXCEPT; LOAD_CONST None; RETURN_VALUE
+    43: <L398>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+    DEF DeviceStore.save(self) @46
+    47: LOAD_FAST_BORROW self; LOAD_ATTR path; LOAD_ATTR with_suffix + NULL|self; LOAD_CONST '.tmp'; CALL; STORE_FAST tmp
+    48: LOAD_FAST tmp; LOAD_ATTR write_text + NULL|self; LOAD_GLOBAL json; LOAD_ATTR dumps; LOAD_FAST_BORROW self; LOAD_ATTR devices; GET_ITER; LOAD_FAST_AND_CLEAR d; SWAP; BUILD_LIST; SWAP; <L142>; FOR_ITER ->174; STORE_FAST d; LOAD_GLOBAL asdict + NULL; LOAD_FAST_BORROW d; CALL; LIST_APPEND; JUMP_BACKWARD ->142; <L174>; END_FOR; POP_ITER; SWAP; STORE_FAST d; LOAD_SMALL_INT 2
+    49: LOAD_CONST False
+    48: LOAD_CONST ('indent', 'ensure_ascii'); CALL_KW
+    49: LOAD_CONST 'utf-8'
+    48: CALL
+    50: LOAD_FAST_BORROW tmp; LOAD_ATTR replace + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR path; CALL; LOAD_CONST None; RETURN_VALUE
+    None: SWAP
+    48: SWAP; STORE_FAST d; RERAISE
+
+    DEF DeviceStore.add(self,d) @52
+    53: LOAD_FAST_BORROW self; LOAD_ATTR devices; LOAD_ATTR append + NULL|self; LOAD_FAST_BORROW d; CALL
+    54: LOAD_FAST_BORROW self; LOAD_ATTR save + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceStore.update(self,d) @56
+    57: LOAD_GLOBAL enumerate + NULL; LOAD_FAST_BORROW self; LOAD_ATTR devices; CALL; GET_ITER; <L44>; FOR_ITER ->144; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST i, x
+    58: LOAD_FAST_BORROW x; LOAD_ATTR id; LOAD_FAST_BORROW d; LOAD_ATTR id; COMPARE_OP bool(==); POP_JUMP_IF_TRUE ->112; JUMP_BACKWARD ->44
+    59: <L112>; LOAD_FAST_BORROW_LOAD_FAST_BORROW d, self; LOAD_ATTR devices; LOAD_FAST_BORROW i; STORE_SUBSCR; JUMP_BACKWARD ->44
+    57: <L144>; END_FOR; POP_ITER
+    60: LOAD_FAST_BORROW self; LOAD_ATTR save + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceStore.remove(self,device_id) @62
+    63: LOAD_FAST_BORROW self; LOAD_ATTR devices; GET_ITER; LOAD_FAST_AND_CLEAR d; SWAP; BUILD_LIST; SWAP; <L34>; FOR_ITER ->84; STORE_FAST_LOAD_FAST d, d; LOAD_ATTR id; LOAD_FAST_BORROW device_id; COMPARE_OP bool(!=); POP_JUMP_IF_TRUE ->76; JUMP_BACKWARD ->34; <L76>; LOAD_FAST_BORROW d; LIST_APPEND; JUMP_BACKWARD ->34; <L84>; END_FOR; POP_ITER; SWAP; STORE_FAST d; LOAD_FAST_BORROW self; STORE_ATTR devices
+    64: LOAD_FAST_BORROW self; LOAD_ATTR save + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    None: SWAP
+    63: SWAP; STORE_FAST d; RERAISE
+
+    DEF DeviceStore.get(self,device_id) @66
+    67: LOAD_GLOBAL next + NULL; LOAD_FAST_BORROW device_id; BUILD_TUPLE; LOAD_CONST <code DeviceStore.get.<locals>.<genexpr>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW self; LOAD_ATTR devices; GET_ITER; CALL; LOAD_CONST None; CALL; RETURN_VALUE
+
+      DEF DeviceStore.get.<locals>.<genexpr>(.0) @67
+      67: RETURN_GENERATOR; LOAD_FAST .0; <L10>; FOR_ITER ->64; STORE_FAST_LOAD_FAST d, d; LOAD_ATTR id; LOAD_DEREF device_id; COMPARE_OP bool(==); POP_JUMP_IF_TRUE ->52; JUMP_BACKWARD ->10; <L52>; LOAD_FAST_BORROW d; YIELD_VALUE; JUMP_BACKWARD ->10; <L64>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+      None: CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR; RERAISE
+
+  DEF Settings() @70
+  70: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'Settings'; STORE_NAME __qualname__; LOAD_SMALL_INT 70; STORE_NAME __firstlineno__
+  72: LOAD_CONST 'adb_path'; LOAD_CONST ''
+  73: LOAD_CONST 'scrcpy_path'; LOAD_CONST ''
+  74: LOAD_CONST 'capture_dir'; LOAD_CONST ''
+  75: LOAD_CONST 'poll_seconds'; LOAD_SMALL_INT 10
+  76: LOAD_CONST 'auto_connect'; LOAD_CONST True
+  71: BUILD_MAP; STORE_NAME DEFAULTS
+  79: LOAD_CONST <code Settings.__init__>; MAKE_FUNCTION; STORE_NAME __init__
+  87: LOAD_CONST <code Settings.get>; MAKE_FUNCTION; STORE_NAME get
+  90: LOAD_CONST <code Settings.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Settings.set>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME set
+  94: LOAD_CONST <code Settings.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Settings.save>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME save; LOAD_CONST ('path', 'values'); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+    DEF Settings.__init__(self) @79
+    80: LOAD_GLOBAL paths; LOAD_ATTR data_dir; CALL; LOAD_CONST 'settings.json'; BINARY_OP /; LOAD_FAST_BORROW self; STORE_ATTR path
+    81: LOAD_GLOBAL dict + NULL; LOAD_FAST_BORROW self; LOAD_ATTR DEFAULTS; CALL; LOAD_FAST_BORROW self; STORE_ATTR values
+    83: LOAD_FAST_BORROW self; LOAD_ATTR values; LOAD_ATTR update + NULL|self; LOAD_GLOBAL json; LOAD_ATTR loads; LOAD_FAST_BORROW self; LOAD_ATTR path; LOAD_ATTR read_text + NULL|self; LOAD_CONST 'utf-8'; CALL; CALL; CALL; LOAD_CONST None; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    84: LOAD_GLOBAL OSError; LOAD_GLOBAL ValueError; BUILD_TUPLE; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->310
+    85: POP_EXCEPT; LOAD_CONST None; RETURN_VALUE
+    84: <L310>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+    DEF Settings.get(self,key) @87
+    88: LOAD_FAST_BORROW self; LOAD_ATTR values; LOAD_ATTR get + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW key, self; LOAD_ATTR DEFAULTS; LOAD_ATTR get + NULL|self; LOAD_FAST_BORROW key; CALL; CALL; RETURN_VALUE
+
+    DEF Settings.set(self,key,value) @90
+    91: LOAD_FAST_BORROW_LOAD_FAST_BORROW value, self; LOAD_ATTR values; LOAD_FAST_BORROW key; STORE_SUBSCR
+    92: LOAD_FAST_BORROW self; LOAD_ATTR save + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF Settings.save(self) @94
+    95: LOAD_FAST_BORROW self; LOAD_ATTR path; LOAD_ATTR write_text + NULL|self; LOAD_GLOBAL json; LOAD_ATTR dumps; LOAD_FAST_BORROW self; LOAD_ATTR values; LOAD_SMALL_INT 2; LOAD_CONST False; LOAD_CONST ('indent', 'ensure_ascii'); CALL_KW; LOAD_CONST 'utf-8'; CALL; LOAD_CONST None; RETURN_VALUE

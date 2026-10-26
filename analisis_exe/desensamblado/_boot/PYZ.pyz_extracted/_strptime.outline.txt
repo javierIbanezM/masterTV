@@ -1,0 +1,133 @@
+<module>()  line 1
+    _getlang()  line 29
+    _findall(haystack, needle)  line 33
+    _fixmonths(months)  line 45
+    LocaleTime()  line 68
+        LocaleTime.__init__(self)  line 87
+        LocaleTime.__calc_weekday(self)  line 119
+        LocaleTime.__calc_month(self)  line 127
+        LocaleTime.__calc_am_pm(self)  line 134
+        LocaleTime.__calc_alt_digits(self)  line 147
+        LocaleTime.__calc_date_time(self)  line 181
+            LocaleTime.__calc_date_time.<locals>.<lambda>(m)  line 242
+        LocaleTime.__find_month_format(self, directive)  line 260
+        LocaleTime.__find_weekday_format(self, directive)  line 294
+        LocaleTime.__calc_timezone(self)  line 322
+    TimeRE()  line 340
+        TimeRE.__init__(self, locale_time)  line 343
+            TimeRE.__init__.<locals>.<genexpr>(.0)  line 380
+        TimeRE.__seqToRE(self, to_convert, directive, altregex)  line 426
+            TimeRE.__seqToRE.<locals>.<genexpr>(.0)  line 441
+        TimeRE.pattern(self, format)  line 446
+            TimeRE.pattern.<locals>.repl(m)  line 461
+        TimeRE.compile(self, format)  line 484
+    _calc_julian_from_U_or_W(year, week_of_year, day_of_week, week_starts_Mon)  line 495
+    _strptime(data_string, format)  line 516
+        _strptime.<locals>.parse_int(s)  line 574
+    _strptime_time(data_string, format)  line 780
+    _strptime_datetime_date(cls, data_string, format)  line 786
+    _parse_tz(tzname, gmtoff, gmtoff_fraction)  line 793
+    _strptime_datetime_time(cls, data_string, format)  line 800
+    _strptime_datetime_datetime(cls, data_string, format)  line 812
+
+--- strings ---
+'Strptime-related classes and functions.\n\nCLASSES:\n    LocaleTime -- Discovers and stores locale-specific time information\n    TimeRE -- Creates regexes for pattern matching a string of text containing\n                time information\n\nFUNCTIONS:\n    _getlang -- Figure out what language is being used for the locale\n    strptime -- Calculates the time struct represented by the passed-in string\n\n'
+'i̇'
+'LocaleTime'
+'Stores and handles locale-specific information related to time.\n\nATTRIBUTES:\n    f_weekday -- full weekday names (7-item list)\n    a_weekday -- abbreviated weekday names (7-item list)\n    f_month -- full month names (13-item list; dummy value in [0], which\n                is added by code)\n    a_month -- abbreviated month names (13-item list, dummy value in\n                [0], which is added by code)\n    am_pm -- AM/PM representation (2-item list)\n    LC_date_time -- format string for date/time representation (string)\n    LC_date -- format string for date representation (string)\n    LC_time -- format string for time representation (string)\n    timezone -- daylight- and non-daylight-savings timezone representation\n                (2-item list of sets)\n    lang -- Language used by instance (2-item tuple)\n'
+'Set all attributes.\n\nOrder of methods called matters for dependency reasons.\n\nThe locale language is set at the offset and then checked again before\nexiting.  This is to make sure that the attributes were not set with a\nmix of information from more than one locale.  This would most likely\nhappen when using threads where one thread calls a locale-dependent\nfunction while another thread changes the locale while the function in\nthe other thread is still running.  Proper coding would call for\nlocks to prevent changing the locale while locale-dependent code is\nrunning.  The check here is done in case someone does not think about\ndoing this.\n\nOnly other possible issue is if someone changed the timezone and did\nnot call tz.tzset .  That is an issue for the programmer, though,\nsince changing the timezone is worthless without that call.\n\n'
+'locale changed during initialization'
+'timezone changed during initialization'
+'%p'
+'%x%X'
+'\\d'
+'%x %X'
+'%%'
+'%p'
+'%Z'
+'\\d(?<![0-9])'
+'00'
+'%W'
+'%U'
+'11'
+'Find the month format appropriate for the current locale.\n\nIn some locales (for example French and Hebrew), the default month\nused in __calc_date_time has the same name in full and abbreviated\nform.  Also, the month name can by accident match other part of the\nrepresentation: the day of the week name (for example in Morisyen)\nor the month number (for example in Japanese).  Thus, cycle months\nof the year and find all positions that match the month name for\neach month,  If no common positions are found, the representation\ndoes not use the month name.\n'
+'%B'
+'%b'
+'Find the day of the week format appropriate for the current locale.\n\nSimilar to __find_month_format().\n'
+'%A'
+'%a'
+'utc'
+'gmt'
+'LocaleTime'
+'TimeRE'
+'Handle conversion from format directives to regexes.'
+'Create keys/values.\n\nOrder of execution is important for dependency reasons.\n\n'
+'(?P<d>3[0-1]|[1-2]\\d|0[1-9]|[1-9]| [1-9])'
+'(?P<f>[0-9]{1,6})'
+'(?P<H>2[0-3]|[0-1]\\d|\\d| \\d)'
+'(?P<I>1[0-2]|0[1-9]|[1-9]| [1-9])'
+'(?P<G>\\d\\d\\d\\d)'
+'(?P<j>36[0-6]|3[0-5]\\d|[1-2]\\d\\d|0[1-9]\\d|00[1-9]|[1-9]\\d|0[1-9]|[1-9])'
+'(?P<m>1[0-2]|0[1-9]|[1-9])'
+'(?P<M>[0-5]\\d|\\d)'
+'(?P<S>6[0-1]|[0-5]\\d|\\d)'
+'(?P<U>5[0-3]|[0-4]\\d|\\d)'
+'(?P<w>[0-6])'
+'(?P<u>[1-7])'
+'(?P<V>5[0-3]|0[1-9]|[1-4]\\d|\\d)'
+'(?P<y>\\d\\d)'
+'(?P<Y>\\d\\d\\d\\d)'
+'(?P<z>[+-]\\d\\d:?[0-5]\\d(:?[0-5]\\d(\\.\\d{1,6})?)?|(?-i:Z))'
+'dmyCHIMS'
+'(?P<%s>\\d\\d|\\d| \\d)'
+'(?P<w>\\d)'
+'Ow'
+'Od'
+'3[0-1]|[1-2][0-9]|0[1-9]|[1-9]'
+'Om'
+'1[0-2]|0[1-9]|[1-9]'
+'[0-6]'
+'Oy'
+'[0-9][0-9]'
+'OC'
+'OH'
+'2[0-3]|[0-1][0-9]|[0-9]'
+'OI'
+'OM'
+'[0-5][0-9]|[0-9]'
+'OS'
+'6[0-1]|[0-5][0-9]|[0-9]'
+'Oe'
+'Op'
+'%H:%M:%S'
+'%H:%M'
+"Convert a list to a regex string for matching a directive.\n\nWant possible matching values to be from longest to shortest.  This\nprevents the possibility of a match occurring for a value that also\na substring of a larger value that should have matched (e.g., 'abc'\nmatching when 'abcdef' should have been the match).\n\n"
+'(?P<'
+'Return regex pattern for the format string.\n\nNeed to make sure that any characters that might be interpreted as\nregex syntax are escaped.\n\n'
+'([\\\\.^$*+?\\(\\){}\\[\\]|])'
+'\\\\\\1'
+'\\s+'
+'\\\\s+'
+"['ʼ]"
+'%[-_0^#]*[0-9]*([OE]?\\\\?.?)'
+'Parsing dates involving a day of month without a year specified is ambiguous\nand fails to parse leap day. The default behavior will change in Python 3.15\nto either always raise an exception or to use a different default year (TBD).\nTo avoid trouble, add a specific year to the input & format.\nSee https://github.com/python/cpython/issues/70647.'
+'Return a compiled re object for the format string.'
+'TimeRE'
+'Calculate the Julian day based on the year, week of the year, and day of\nthe week, with week_start_day representing whether the week of the year\nassumes the week starts on Sunday or Monday (6 or 0).'
+'Return a 2-tuple consisting of a time struct and an int containing\nthe number of microseconds based on the input string and the\nformat string.'
+'strptime() argument {} must be str, not {}'
+'\\s'
+"stray %% in format '%s'"
+"' is a bad directive in format '"
+'time data '
+' does not match format '
+'unconverted data remains: %s'
+'Inconsistent use of : in '
+"Day of the year directive '%j' is not compatible with ISO year directive '%G'. Use '%Y' instead."
+"ISO year directive '%G' must be used with the ISO week directive '%V' and a weekday directive ('%A', '%a', '%w', or '%u')."
+"ISO week directive '%V' must be used with the ISO year directive '%G' and a weekday directive ('%A', '%a', '%w', or '%u')."
+"ISO week directive '%V' is incompatible with the year directive '%Y'. Use the ISO year '%G' instead."
+'Return a time struct based on the input string and the\nformat string.'
+'Return a date instance based on the input string and the\nformat string.'
+'Return a time instance based on the input string and the\nformat string.'
+'Return a datetime instance based on the input string and the\nformat string.'

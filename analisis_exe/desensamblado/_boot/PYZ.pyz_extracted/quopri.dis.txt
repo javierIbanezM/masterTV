@@ -1,0 +1,1326 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('Conversions to/from quoted-printable transport encoding as per RFC 1521.')
+               STORE_NAME               0 (__doc__)
+
+   5           BUILD_LIST               0
+               LOAD_CONST              16 (('encode', 'decode', 'encodestring', 'decodestring'))
+               LIST_EXTEND              1
+               STORE_NAME               1 (__all__)
+
+   7           LOAD_CONST               1 (b'=')
+               STORE_NAME               2 (ESCAPE)
+
+   8           LOAD_SMALL_INT          76
+               STORE_NAME               3 (MAXLINESIZE)
+
+   9           LOAD_CONST               2 (b'0123456789ABCDEF')
+               STORE_NAME               4 (HEX)
+
+  10           LOAD_CONST               3 (b'')
+               STORE_NAME               5 (EMPTYSTRING)
+
+  12           NOP
+
+  13   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               4 (('a2b_qp', 'b2a_qp'))
+               IMPORT_NAME              6 (binascii)
+               IMPORT_FROM              7 (a2b_qp)
+               STORE_NAME               7 (a2b_qp)
+               IMPORT_FROM              8 (b2a_qp)
+               STORE_NAME               8 (b2a_qp)
+               POP_TOP
+
+  19   L2:     LOAD_CONST               6 (<code object needsquoting at 0x00000204B9FB7930, file "quopri.py", line 19>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (needsquoting)
+
+  34           LOAD_CONST               7 (<code object quote at 0x00000204B9FFB630, file "quopri.py", line 34>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (quote)
+
+  42           LOAD_CONST              17 ((False,))
+               LOAD_CONST               8 (<code object encode at 0x00000204B9D898D0, file "quopri.py", line 42>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (encode)
+
+ 101           LOAD_CONST              18 ((False, False))
+               LOAD_CONST               9 (<code object encodestring at 0x00000204B9F723F0, file "quopri.py", line 101>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              13 (encodestring)
+
+ 112           LOAD_CONST              17 ((False,))
+               LOAD_CONST              10 (<code object decode at 0x00000204BA3ACB20, file "quopri.py", line 112>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              14 (decode)
+
+ 153           LOAD_CONST              17 ((False,))
+               LOAD_CONST              11 (<code object decodestring at 0x00000204B9F73730, file "quopri.py", line 153>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              15 (decodestring)
+
+ 165           LOAD_CONST              12 (<code object ishex at 0x00000204B9FFA3A0, file "quopri.py", line 165>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (ishex)
+
+ 170           LOAD_CONST              13 (<code object unhex at 0x00000204BA4E7910, file "quopri.py", line 170>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (unhex)
+
+ 188           LOAD_CONST              14 (<code object main at 0x00000204BA4A45E0, file "quopri.py", line 188>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (main)
+
+ 234           LOAD_NAME               19 (__name__)
+               LOAD_CONST              15 ('__main__')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       10 (to L3)
+               NOT_TAKEN
+
+ 235           LOAD_NAME               18 (main)
+               PUSH_NULL
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+ 234   L3:     LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  14           LOAD_NAME                9 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        8 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  15           LOAD_CONST               5 (None)
+               STORE_NAME               7 (a2b_qp)
+
+  16           LOAD_CONST               5 (None)
+               STORE_NAME               8 (b2a_qp)
+       L5:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 66 (to L2)
+
+  14   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object needsquoting at 0x00000204B9FB7930, file "quopri.py", line 19>:
+ 19           RESUME                   0
+
+ 26           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (c)
+              LOAD_GLOBAL              2 (bytes)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+ 27   L1:     LOAD_FAST_BORROW         0 (c)
+              LOAD_CONST               1 (b' \t')
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+ 28           LOAD_FAST_BORROW         1 (quotetabs)
+              RETURN_VALUE
+
+ 30   L2:     LOAD_FAST_BORROW         0 (c)
+              LOAD_CONST               2 (b'_')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+ 31           LOAD_FAST_BORROW         2 (header)
+              RETURN_VALUE
+
+ 32   L3:     LOAD_FAST_BORROW         0 (c)
+              LOAD_GLOBAL              4 (ESCAPE)
+              COMPARE_OP              72 (==)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        28 (to L6)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               3 (b' ')
+              LOAD_FAST                0 (c)
+              SWAP                     2
+              COPY                     2
+              COMPARE_OP              42 (<=)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L4)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               4 (b'~')
+              COMPARE_OP              42 (<=)
+              JUMP_FORWARD             2 (to L5)
+      L4:     SWAP                     2
+              POP_TOP
+      L5:     TO_BOOL
+              UNARY_NOT
+      L6:     RETURN_VALUE
+
+Disassembly of <code object quote at 0x00000204B9FFB630, file "quopri.py", line 34>:
+ 34           RESUME                   0
+
+ 36           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (c)
+              LOAD_GLOBAL              2 (bytes)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+              LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         0 (c)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+      L1:     LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+ 37   L2:     LOAD_GLOBAL              7 (ord + NULL)
+              LOAD_FAST_BORROW         0 (c)
+              CALL                     1
+              STORE_FAST               0 (c)
+
+ 38           LOAD_GLOBAL              8 (ESCAPE)
+              LOAD_GLOBAL              3 (bytes + NULL)
+              LOAD_GLOBAL             10 (HEX)
+              LOAD_FAST_BORROW         0 (c)
+              LOAD_SMALL_INT          16
+              BINARY_OP                2 (//)
+              BINARY_OP               26 ([])
+              LOAD_GLOBAL             10 (HEX)
+              LOAD_FAST_BORROW         0 (c)
+              LOAD_SMALL_INT          16
+              BINARY_OP                6 (%)
+              BINARY_OP               26 ([])
+              BUILD_TUPLE              2
+              CALL                     1
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object encode at 0x00000204B9D898D0, file "quopri.py", line 42>:
+ 42            RESUME                   0
+
+ 51            LOAD_GLOBAL              0 (b2a_qp)
+               POP_JUMP_IF_NONE        49 (to L1)
+               NOT_TAKEN
+
+ 52            LOAD_FAST_BORROW         0 (input)
+               LOAD_ATTR                3 (read + NULL|self)
+               CALL                     0
+               STORE_FAST               4 (data)
+
+ 53            LOAD_GLOBAL              1 (b2a_qp + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (data, quotetabs)
+               LOAD_FAST_BORROW         3 (header)
+               LOAD_CONST               2 (('quotetabs', 'header'))
+               CALL_KW                  3
+               STORE_FAST               5 (odata)
+
+ 54            LOAD_FAST_BORROW         1 (output)
+               LOAD_ATTR                5 (write + NULL|self)
+               LOAD_FAST_BORROW         5 (odata)
+               CALL                     1
+               POP_TOP
+
+ 55            LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 57    L1:     LOAD_FAST_BORROW         1 (output)
+               LOAD_CONST               3 (b'\n')
+               BUILD_TUPLE              2
+               LOAD_CONST               4 (<code object write at 0x00000204B9FC2970, file "quopri.py", line 57>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_FAST               6 (write)
+
+ 67            LOAD_CONST               1 (None)
+               STORE_FAST               7 (prevline)
+
+ 68    L2:     LOAD_FAST_BORROW         0 (input)
+               LOAD_ATTR                7 (readline + NULL|self)
+               CALL                     0
+               COPY                     1
+               STORE_FAST               8 (line)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      222 (to L11)
+               NOT_TAKEN
+
+ 69            BUILD_LIST               0
+               STORE_FAST               9 (outline)
+
+ 71            LOAD_CONST               5 (b'')
+               STORE_FAST              10 (stripped)
+
+ 72            LOAD_FAST_BORROW         8 (line)
+               LOAD_CONST              10 (-1)
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               LOAD_CONST               3 (b'\n')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        8 (to L3)
+               NOT_TAKEN
+
+ 73            LOAD_FAST_BORROW         8 (line)
+               LOAD_CONST               1 (None)
+               LOAD_CONST              10 (-1)
+               BINARY_SLICE
+               STORE_FAST               8 (line)
+
+ 74            LOAD_CONST               3 (b'\n')
+               STORE_FAST              10 (stripped)
+
+ 76    L3:     LOAD_FAST_BORROW         8 (line)
+               GET_ITER
+       L4:     FOR_ITER                95 (to L7)
+               STORE_FAST              11 (c)
+
+ 77            LOAD_GLOBAL              9 (bytes + NULL)
+               LOAD_FAST_BORROW        11 (c)
+               BUILD_TUPLE              1
+               CALL                     1
+               STORE_FAST              11 (c)
+
+ 78            LOAD_GLOBAL             11 (needsquoting + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 178 (c, quotetabs)
+               LOAD_FAST_BORROW         3 (header)
+               CALL                     3
+               TO_BOOL
+               POP_JUMP_IF_FALSE       12 (to L5)
+               NOT_TAKEN
+
+ 79            LOAD_GLOBAL             13 (quote + NULL)
+               LOAD_FAST_BORROW        11 (c)
+               CALL                     1
+               STORE_FAST              11 (c)
+
+ 80    L5:     LOAD_FAST_BORROW         3 (header)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       27 (to L6)
+               NOT_TAKEN
+               LOAD_FAST_BORROW        11 (c)
+               LOAD_CONST               6 (b' ')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       20 (to L6)
+               NOT_TAKEN
+
+ 81            LOAD_FAST_BORROW         9 (outline)
+               LOAD_ATTR               15 (append + NULL|self)
+               LOAD_CONST               7 (b'_')
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD           78 (to L4)
+
+ 83    L6:     LOAD_FAST_BORROW         9 (outline)
+               LOAD_ATTR               15 (append + NULL|self)
+               LOAD_FAST_BORROW        11 (c)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD           97 (to L4)
+
+ 76    L7:     END_FOR
+               POP_ITER
+
+ 85            LOAD_FAST_BORROW         7 (prevline)
+               POP_JUMP_IF_NONE         9 (to L8)
+               NOT_TAKEN
+
+ 86            LOAD_FAST_BORROW         6 (write)
+               PUSH_NULL
+               LOAD_FAST_BORROW         7 (prevline)
+               CALL                     1
+               POP_TOP
+
+ 89    L8:     LOAD_GLOBAL             16 (EMPTYSTRING)
+               LOAD_ATTR               19 (join + NULL|self)
+               LOAD_FAST_BORROW         9 (outline)
+               CALL                     1
+               STORE_FAST              12 (thisline)
+
+ 90    L9:     LOAD_GLOBAL             21 (len + NULL)
+               LOAD_FAST_BORROW        12 (thisline)
+               CALL                     1
+               LOAD_GLOBAL             22 (MAXLINESIZE)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       43 (to L10)
+               NOT_TAKEN
+
+ 93            LOAD_FAST_BORROW         6 (write)
+               PUSH_NULL
+               LOAD_FAST_BORROW        12 (thisline)
+               LOAD_CONST               1 (None)
+               LOAD_GLOBAL             22 (MAXLINESIZE)
+               LOAD_SMALL_INT           1
+               BINARY_OP               10 (-)
+               BINARY_SLICE
+               LOAD_CONST               8 (b'=\n')
+               LOAD_CONST               9 (('lineEnd',))
+               CALL_KW                  2
+               POP_TOP
+
+ 94            LOAD_FAST_BORROW        12 (thisline)
+               LOAD_GLOBAL             22 (MAXLINESIZE)
+               LOAD_SMALL_INT           1
+               BINARY_OP               10 (-)
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               STORE_FAST              12 (thisline)
+               JUMP_BACKWARD           62 (to L9)
+
+ 96   L10:     LOAD_FAST               12 (thisline)
+               STORE_FAST               7 (prevline)
+               JUMP_BACKWARD          245 (to L2)
+
+ 98   L11:     LOAD_FAST_BORROW         7 (prevline)
+               POP_JUMP_IF_NONE        13 (to L12)
+               NOT_TAKEN
+
+ 99            LOAD_FAST_BORROW         6 (write)
+               PUSH_NULL
+               LOAD_FAST_BORROW         7 (prevline)
+               LOAD_FAST_CHECK         10 (stripped)
+               LOAD_CONST               9 (('lineEnd',))
+               CALL_KW                  2
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 98   L12:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object write at 0x00000204B9FC2970, file "quopri.py", line 57>:
+ 57           RESUME                   0
+
+ 60           LOAD_FAST_BORROW         0 (s)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       59 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (s)
+              LOAD_CONST               4 (-1)
+              LOAD_CONST               1 (None)
+              BINARY_SLICE
+              LOAD_CONST               2 (b' \t')
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       49 (to L1)
+              NOT_TAKEN
+
+ 61           LOAD_FAST_BORROW         1 (output)
+              LOAD_ATTR                1 (write + NULL|self)
+              LOAD_FAST_BORROW         0 (s)
+              LOAD_CONST               1 (None)
+              LOAD_CONST               4 (-1)
+              BINARY_SLICE
+              LOAD_GLOBAL              3 (quote + NULL)
+              LOAD_FAST_BORROW         0 (s)
+              LOAD_CONST               4 (-1)
+              LOAD_CONST               1 (None)
+              BINARY_SLICE
+              CALL                     1
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         2 (lineEnd)
+              BINARY_OP                0 (+)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 62   L1:     LOAD_FAST_BORROW         0 (s)
+              LOAD_CONST               3 (b'.')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       36 (to L2)
+              NOT_TAKEN
+
+ 63           LOAD_FAST_BORROW         1 (output)
+              LOAD_ATTR                1 (write + NULL|self)
+              LOAD_GLOBAL              3 (quote + NULL)
+              LOAD_FAST_BORROW         0 (s)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (lineEnd)
+              BINARY_OP                0 (+)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 65   L2:     LOAD_FAST_BORROW         1 (output)
+              LOAD_ATTR                1 (write + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (s, lineEnd)
+              BINARY_OP                0 (+)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object encodestring at 0x00000204B9F723F0, file "quopri.py", line 101>:
+101           RESUME                   0
+
+102           LOAD_GLOBAL              0 (b2a_qp)
+              POP_JUMP_IF_NONE        14 (to L1)
+              NOT_TAKEN
+
+103           LOAD_GLOBAL              1 (b2a_qp + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (s, quotetabs)
+              LOAD_FAST_BORROW         2 (header)
+              LOAD_CONST               1 (('quotetabs', 'header'))
+              CALL_KW                  3
+              RETURN_VALUE
+
+104   L1:     LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('BytesIO',))
+              IMPORT_NAME              1 (io)
+              IMPORT_FROM              2 (BytesIO)
+              STORE_FAST               3 (BytesIO)
+              POP_TOP
+
+105           LOAD_FAST_BORROW         3 (BytesIO)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (s)
+              CALL                     1
+              STORE_FAST               4 (infp)
+
+106           LOAD_FAST_BORROW         3 (BytesIO)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               5 (outfp)
+
+107           LOAD_GLOBAL              7 (encode + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (infp, outfp)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (quotetabs, header)
+              CALL                     4
+              POP_TOP
+
+108           LOAD_FAST_BORROW         5 (outfp)
+              LOAD_ATTR                9 (getvalue + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object decode at 0x00000204BA3ACB20, file "quopri.py", line 112>:
+ 112            RESUME                   0
+
+ 117            LOAD_GLOBAL              0 (a2b_qp)
+                POP_JUMP_IF_NONE        48 (to L1)
+                NOT_TAKEN
+
+ 118            LOAD_FAST_BORROW         0 (input)
+                LOAD_ATTR                3 (read + NULL|self)
+                CALL                     0
+                STORE_FAST               3 (data)
+
+ 119            LOAD_GLOBAL              1 (a2b_qp + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (data, header)
+                LOAD_CONST               2 (('header',))
+                CALL_KW                  2
+                STORE_FAST               4 (odata)
+
+ 120            LOAD_FAST_BORROW         1 (output)
+                LOAD_ATTR                5 (write + NULL|self)
+                LOAD_FAST_BORROW         4 (odata)
+                CALL                     1
+                POP_TOP
+
+ 121            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 123    L1:     LOAD_CONST               3 (b'')
+                STORE_FAST               5 (new)
+
+ 124    L2:     LOAD_FAST_BORROW         0 (input)
+                LOAD_ATTR                7 (readline + NULL|self)
+                CALL                     0
+                COPY                     1
+                STORE_FAST               6 (line)
+                TO_BOOL
+                EXTENDED_ARG             1
+                POP_JUMP_IF_FALSE      447 (to L14)
+                NOT_TAKEN
+
+ 125            LOAD_SMALL_INT           0
+                LOAD_GLOBAL              9 (len + NULL)
+                LOAD_FAST_BORROW         6 (line)
+                CALL                     1
+                STORE_FAST_STORE_FAST  135 (n, i)
+
+ 126            LOAD_FAST_BORROW         8 (n)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       62 (to L5)
+                NOT_TAKEN
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 104 (line, n)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                LOAD_FAST_BORROW         8 (n)
+                BINARY_SLICE
+                LOAD_CONST               4 (b'\n')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       46 (to L5)
+                NOT_TAKEN
+
+ 127            LOAD_SMALL_INT           0
+                STORE_FAST_LOAD_FAST   152 (partial, n)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                STORE_FAST               8 (n)
+
+ 129    L3:     LOAD_FAST_BORROW         8 (n)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       28 (to L4)
+                NOT_TAKEN
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 104 (line, n)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                LOAD_FAST_BORROW         8 (n)
+                BINARY_SLICE
+                LOAD_CONST               5 (b' \t\r')
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       12 (to L4)
+                NOT_TAKEN
+
+ 130            LOAD_FAST_BORROW         8 (n)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                STORE_FAST               8 (n)
+                JUMP_BACKWARD           34 (to L3)
+
+  --    L4:     JUMP_FORWARD             2 (to L6)
+
+ 132    L5:     LOAD_SMALL_INT           1
+                STORE_FAST               9 (partial)
+
+ 133    L6:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 120 (i, n)
+                COMPARE_OP              18 (bool(<))
+                EXTENDED_ARG             1
+                POP_JUMP_IF_FALSE      318 (to L12)
+                NOT_TAKEN
+
+ 134            LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (line, i)
+                LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST              10 (c)
+
+ 135            LOAD_FAST_BORROW        10 (c)
+                LOAD_CONST               6 (b'_')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L7)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         2 (header)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L7)
+                NOT_TAKEN
+
+ 136            LOAD_FAST_BORROW         5 (new)
+                LOAD_CONST               7 (b' ')
+                BINARY_OP                0 (+)
+                STORE_FAST_LOAD_FAST    87 (new, i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                STORE_FAST               7 (i)
+                JUMP_BACKWARD           52 (to L6)
+
+ 137    L7:     LOAD_FAST_BORROW        10 (c)
+                LOAD_GLOBAL             10 (ESCAPE)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       19 (to L8)
+                NOT_TAKEN
+
+ 138            LOAD_FAST_BORROW_LOAD_FAST_BORROW 90 (new, c)
+                BINARY_OP                0 (+)
+                STORE_FAST_LOAD_FAST    87 (new, i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                STORE_FAST               7 (i)
+                JUMP_BACKWARD           81 (to L6)
+
+ 139    L8:     LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         8 (n)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       12 (to L9)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         9 (partial)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         4 (to L9)
+                NOT_TAKEN
+
+ 140            LOAD_SMALL_INT           1
+                STORE_FAST               9 (partial)
+                JUMP_FORWARD           218 (to L12)
+
+ 141    L9:     LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         8 (n)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       51 (to L10)
+                NOT_TAKEN
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (line, i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_GLOBAL             10 (ESCAPE)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       24 (to L10)
+                NOT_TAKEN
+
+ 142            LOAD_FAST_BORROW         5 (new)
+                LOAD_GLOBAL             10 (ESCAPE)
+                BINARY_OP                0 (+)
+                STORE_FAST_LOAD_FAST    87 (new, i)
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                STORE_FAST               7 (i)
+                JUMP_BACKWARD          170 (to L6)
+
+ 143   L10:     LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         8 (n)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE      122 (to L11)
+                NOT_TAKEN
+                LOAD_GLOBAL             13 (ishex + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (line, i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       89 (to L11)
+                NOT_TAKEN
+                LOAD_GLOBAL             13 (ishex + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (line, i)
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           3
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       56 (to L11)
+                NOT_TAKEN
+
+ 144            LOAD_FAST_BORROW         5 (new)
+                LOAD_GLOBAL             15 (bytes + NULL)
+                LOAD_GLOBAL             17 (unhex + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (line, i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         7 (i)
+                LOAD_SMALL_INT           3
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                CALL                     1
+                BUILD_TUPLE              1
+                CALL                     1
+                BINARY_OP                0 (+)
+                STORE_FAST_LOAD_FAST    87 (new, i)
+                LOAD_SMALL_INT           3
+                BINARY_OP                0 (+)
+                STORE_FAST               7 (i)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          305 (to L6)
+
+ 146   L11:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 90 (new, c)
+                BINARY_OP                0 (+)
+                STORE_FAST_LOAD_FAST    87 (new, i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                STORE_FAST               7 (i)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          324 (to L6)
+
+ 147   L12:     LOAD_FAST_BORROW         9 (partial)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        4 (to L13)
+                NOT_TAKEN
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          442 (to L2)
+
+ 148   L13:     LOAD_FAST_BORROW         1 (output)
+                LOAD_ATTR                5 (write + NULL|self)
+                LOAD_FAST_BORROW         5 (new)
+                LOAD_CONST               4 (b'\n')
+                BINARY_OP                0 (+)
+                CALL                     1
+                POP_TOP
+
+ 149            LOAD_CONST               3 (b'')
+                STORE_FAST               5 (new)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          471 (to L2)
+
+ 150   L14:     LOAD_FAST_BORROW         5 (new)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L15)
+                NOT_TAKEN
+
+ 151            LOAD_FAST_BORROW         1 (output)
+                LOAD_ATTR                5 (write + NULL|self)
+                LOAD_FAST_BORROW         5 (new)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 150   L15:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+Disassembly of <code object decodestring at 0x00000204B9F73730, file "quopri.py", line 153>:
+153           RESUME                   0
+
+154           LOAD_GLOBAL              0 (a2b_qp)
+              POP_JUMP_IF_NONE        13 (to L1)
+              NOT_TAKEN
+
+155           LOAD_GLOBAL              1 (a2b_qp + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (s, header)
+              LOAD_CONST               1 (('header',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+156   L1:     LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('BytesIO',))
+              IMPORT_NAME              1 (io)
+              IMPORT_FROM              2 (BytesIO)
+              STORE_FAST               2 (BytesIO)
+              POP_TOP
+
+157           LOAD_FAST_BORROW         2 (BytesIO)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (s)
+              CALL                     1
+              STORE_FAST               3 (infp)
+
+158           LOAD_FAST_BORROW         2 (BytesIO)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               4 (outfp)
+
+159           LOAD_GLOBAL              7 (decode + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (infp, outfp)
+              LOAD_FAST_BORROW         1 (header)
+              LOAD_CONST               1 (('header',))
+              CALL_KW                  3
+              POP_TOP
+
+160           LOAD_FAST_BORROW         4 (outfp)
+              LOAD_ATTR                9 (getvalue + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object ishex at 0x00000204B9FFA3A0, file "quopri.py", line 165>:
+165           RESUME                   0
+
+167           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (c)
+              LOAD_GLOBAL              2 (bytes)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+168   L1:     LOAD_CONST               1 (b'0')
+              LOAD_FAST                0 (c)
+              SWAP                     2
+              COPY                     2
+              COMPARE_OP              42 (<=)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L2)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               2 (b'9')
+              COMPARE_OP              42 (<=)
+              JUMP_FORWARD             2 (to L3)
+      L2:     SWAP                     2
+              POP_TOP
+      L3:     COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        53 (to L7)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               3 (b'a')
+              LOAD_FAST                0 (c)
+              SWAP                     2
+              COPY                     2
+              COMPARE_OP              42 (<=)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L4)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               4 (b'f')
+              COMPARE_OP              42 (<=)
+              JUMP_FORWARD             2 (to L5)
+      L4:     SWAP                     2
+              POP_TOP
+      L5:     COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L7)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               5 (b'A')
+              LOAD_FAST                0 (c)
+              SWAP                     2
+              COPY                     2
+              COMPARE_OP              42 (<=)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L6)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               6 (b'F')
+              COMPARE_OP              42 (<=)
+              RETURN_VALUE
+      L6:     SWAP                     2
+              POP_TOP
+      L7:     RETURN_VALUE
+
+Disassembly of <code object unhex at 0x00000204BA4E7910, file "quopri.py", line 170>:
+170            RESUME                   0
+
+172            LOAD_SMALL_INT           0
+               STORE_FAST               1 (bits)
+
+173            LOAD_FAST_BORROW         0 (s)
+               GET_ITER
+       L1:     FOR_ITER               174 (to L12)
+               STORE_FAST               2 (c)
+
+174            LOAD_GLOBAL              1 (bytes + NULL)
+               LOAD_FAST_BORROW         2 (c)
+               BUILD_TUPLE              1
+               CALL                     1
+               STORE_FAST               2 (c)
+
+175            LOAD_CONST               1 (b'0')
+               LOAD_FAST                2 (c)
+               SWAP                     2
+               COPY                     2
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE        8 (to L2)
+               NOT_TAKEN
+               LOAD_CONST               2 (b'9')
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       16 (to L4)
+               NOT_TAKEN
+               JUMP_FORWARD             2 (to L3)
+       L2:     POP_TOP
+               JUMP_FORWARD            12 (to L4)
+
+176    L3:     LOAD_GLOBAL              3 (ord + NULL)
+               LOAD_CONST               3 ('0')
+               CALL                     1
+               STORE_FAST               3 (i)
+               JUMP_FORWARD            97 (to L11)
+
+177    L4:     LOAD_CONST               4 (b'a')
+               LOAD_FAST                2 (c)
+               SWAP                     2
+               COPY                     2
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE        8 (to L5)
+               NOT_TAKEN
+               LOAD_CONST               5 (b'f')
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       23 (to L7)
+               NOT_TAKEN
+               JUMP_FORWARD             2 (to L6)
+       L5:     POP_TOP
+               JUMP_FORWARD            19 (to L7)
+
+178    L6:     LOAD_GLOBAL              3 (ord + NULL)
+               LOAD_CONST               6 ('a')
+               CALL                     1
+               LOAD_SMALL_INT          10
+               BINARY_OP               10 (-)
+               STORE_FAST               3 (i)
+               JUMP_FORWARD            60 (to L11)
+
+179    L7:     LOAD_CONST               7 (b'A')
+               LOAD_FAST                2 (c)
+               SWAP                     2
+               COPY                     2
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE        8 (to L8)
+               NOT_TAKEN
+               LOAD_CONST               8 (b'F')
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       23 (to L10)
+               NOT_TAKEN
+               JUMP_FORWARD             2 (to L9)
+       L8:     POP_TOP
+               JUMP_FORWARD            19 (to L10)
+
+180    L9:     LOAD_GLOBAL              3 (ord + NULL)
+               LOAD_CONST               7 (b'A')
+               CALL                     1
+               LOAD_SMALL_INT          10
+               BINARY_OP               10 (-)
+               STORE_FAST               3 (i)
+               JUMP_FORWARD            23 (to L11)
+
+182   L10:     LOAD_COMMON_CONSTANT     0 (AssertionError)
+               LOAD_CONST               9 ('non-hex digit ')
+               LOAD_GLOBAL              5 (repr + NULL)
+               LOAD_FAST                2 (c)
+               CALL                     1
+               BINARY_OP                0 (+)
+               CALL                     0
+               RAISE_VARARGS            1
+
+183   L11:     LOAD_FAST_BORROW         1 (bits)
+               LOAD_SMALL_INT          16
+               BINARY_OP                5 (*)
+               LOAD_GLOBAL              3 (ord + NULL)
+               LOAD_FAST_BORROW         2 (c)
+               CALL                     1
+               LOAD_FAST_BORROW         3 (i)
+               BINARY_OP               10 (-)
+               BINARY_OP                0 (+)
+               STORE_FAST               1 (bits)
+               JUMP_BACKWARD          176 (to L1)
+
+173   L12:     END_FOR
+               POP_ITER
+
+184            LOAD_FAST_BORROW         1 (bits)
+               RETURN_VALUE
+
+Disassembly of <code object main at 0x00000204BA4A45E0, file "quopri.py", line 188>:
+ 188            RESUME                   0
+
+ 189            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              0 (sys)
+                STORE_FAST               0 (sys)
+
+ 190            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (getopt)
+                STORE_FAST               1 (getopt)
+
+ 191            NOP
+
+ 192    L1:     LOAD_FAST_BORROW         1 (getopt)
+                LOAD_ATTR                3 (getopt + NULL|self)
+                LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR                4 (argv)
+                LOAD_CONST               2 (slice(1, None, None))
+                BINARY_OP               26 ([])
+                LOAD_CONST               3 ('td')
+                CALL                     2
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   35 (opts, args)
+
+ 200    L2:     LOAD_CONST               7 (False)
+                STORE_FAST               5 (deco)
+
+ 201            LOAD_CONST               7 (False)
+                STORE_FAST               6 (tabs)
+
+ 202            LOAD_FAST_CHECK          2 (opts)
+                GET_ITER
+        L3:     FOR_ITER                25 (to L6)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  120 (o, a)
+
+ 203            LOAD_FAST_BORROW         7 (o)
+                LOAD_CONST               8 ('-t')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L4)
+                NOT_TAKEN
+                LOAD_CONST               9 (True)
+                STORE_FAST               6 (tabs)
+
+ 204    L4:     LOAD_FAST_BORROW         7 (o)
+                LOAD_CONST              10 ('-d')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         3 (to L5)
+                NOT_TAKEN
+                JUMP_BACKWARD           23 (to L3)
+        L5:     LOAD_CONST               9 (True)
+                STORE_FAST               5 (deco)
+                JUMP_BACKWARD           27 (to L3)
+
+ 202    L6:     END_FOR
+                POP_ITER
+
+ 205            LOAD_FAST_BORROW         6 (tabs)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       54 (to L7)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         5 (deco)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       46 (to L7)
+                NOT_TAKEN
+
+ 206            LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR                8 (stderr)
+                LOAD_FAST_BORROW         0 (sys)
+                STORE_ATTR               5 (stdout)
+
+ 207            LOAD_GLOBAL             13 (print + NULL)
+                LOAD_CONST              11 ('-t and -d are mutually exclusive')
+                CALL                     1
+                POP_TOP
+
+ 208            LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               15 (exit + NULL|self)
+                LOAD_SMALL_INT           2
+                CALL                     1
+                POP_TOP
+
+ 209    L7:     LOAD_FAST_CHECK          3 (args)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         4 (to L8)
+                NOT_TAKEN
+                LOAD_CONST              12 ('-')
+                BUILD_LIST               1
+                STORE_FAST               3 (args)
+
+ 210    L8:     LOAD_SMALL_INT           0
+                STORE_FAST               9 (sts)
+
+ 211            LOAD_FAST_BORROW         3 (args)
+                GET_ITER
+        L9:     FOR_ITER               144 (to L19)
+                STORE_FAST              10 (file)
+
+ 212            LOAD_FAST_BORROW        10 (file)
+                LOAD_CONST              12 ('-')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       24 (to L10)
+                NOT_TAKEN
+
+ 213            LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               16 (stdin)
+                LOAD_ATTR               18 (buffer)
+                STORE_FAST              11 (fp)
+                JUMP_FORWARD            13 (to L12)
+
+ 215   L10:     NOP
+
+ 216   L11:     LOAD_GLOBAL             21 (open + NULL)
+                LOAD_FAST_BORROW        10 (file)
+                LOAD_CONST              13 ('rb')
+                CALL                     2
+                STORE_FAST              11 (fp)
+
+ 221   L12:     NOP
+
+ 222   L13:     LOAD_FAST_BORROW         5 (deco)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       33 (to L16)
+       L14:     NOT_TAKEN
+
+ 223   L15:     LOAD_GLOBAL             27 (decode + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 176 (fp, sys)
+                LOAD_ATTR               10 (stdout)
+                LOAD_ATTR               18 (buffer)
+                CALL                     2
+                POP_TOP
+                JUMP_FORWARD            32 (to L17)
+
+ 225   L16:     LOAD_GLOBAL             29 (encode + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 176 (fp, sys)
+                LOAD_ATTR               10 (stdout)
+                LOAD_ATTR               18 (buffer)
+                LOAD_FAST_BORROW         6 (tabs)
+                CALL                     3
+                POP_TOP
+
+ 227   L17:     LOAD_FAST_BORROW        10 (file)
+                LOAD_CONST              12 ('-')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       19 (to L18)
+                NOT_TAKEN
+
+ 228            LOAD_FAST_BORROW        11 (fp)
+                LOAD_ATTR               31 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+                JUMP_BACKWARD          144 (to L9)
+
+ 227   L18:     JUMP_BACKWARD          146 (to L9)
+
+ 211   L19:     END_FOR
+                POP_ITER
+
+ 229            LOAD_FAST_BORROW         9 (sts)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L20)
+                NOT_TAKEN
+
+ 230            LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               15 (exit + NULL|self)
+                LOAD_FAST_BORROW         9 (sts)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 229   L20:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L21:     PUSH_EXC_INFO
+
+ 193            LOAD_FAST                1 (getopt)
+                LOAD_ATTR                6 (error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       90 (to L25)
+                NOT_TAKEN
+                STORE_FAST               4 (msg)
+
+ 194   L22:     LOAD_FAST                0 (sys)
+                LOAD_ATTR                8 (stderr)
+                LOAD_FAST                0 (sys)
+                STORE_ATTR               5 (stdout)
+
+ 195            LOAD_GLOBAL             13 (print + NULL)
+                LOAD_FAST                4 (msg)
+                CALL                     1
+                POP_TOP
+
+ 196            LOAD_GLOBAL             13 (print + NULL)
+                LOAD_CONST               4 ('usage: quopri [-t | -d] [file] ...')
+                CALL                     1
+                POP_TOP
+
+ 197            LOAD_GLOBAL             13 (print + NULL)
+                LOAD_CONST               5 ('-t: quote tabs')
+                CALL                     1
+                POP_TOP
+
+ 198            LOAD_GLOBAL             13 (print + NULL)
+                LOAD_CONST               6 ('-d: decode; default encode')
+                CALL                     1
+                POP_TOP
+
+ 199            LOAD_FAST                0 (sys)
+                LOAD_ATTR               15 (exit + NULL|self)
+                LOAD_SMALL_INT           2
+                CALL                     1
+                POP_TOP
+       L23:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                STORE_FAST               4 (msg)
+                DELETE_FAST              4 (msg)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 389 (to L2)
+
+  --   L24:     LOAD_CONST               1 (None)
+                STORE_FAST               4 (msg)
+                DELETE_FAST              4 (msg)
+                RERAISE                  1
+
+ 193   L25:     RERAISE                  0
+
+  --   L26:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L27:     PUSH_EXC_INFO
+
+ 217            LOAD_GLOBAL             22 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       50 (to L31)
+                NOT_TAKEN
+                STORE_FAST               4 (msg)
+
+ 218   L28:     LOAD_FAST                0 (sys)
+                LOAD_ATTR                8 (stderr)
+                LOAD_ATTR               25 (write + NULL|self)
+                LOAD_FAST               10 (file)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST              14 (": can't open (")
+                LOAD_FAST                4 (msg)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST              15 (')\n')
+                BUILD_STRING             4
+                CALL                     1
+                POP_TOP
+
+ 219            LOAD_SMALL_INT           1
+                STORE_FAST               9 (sts)
+
+ 220   L29:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                STORE_FAST               4 (msg)
+                DELETE_FAST              4 (msg)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          341 (to L9)
+
+  --   L30:     LOAD_CONST               1 (None)
+                STORE_FAST               4 (msg)
+                DELETE_FAST              4 (msg)
+                RERAISE                  1
+
+ 217   L31:     RERAISE                  0
+
+  --   L32:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L33:     PUSH_EXC_INFO
+
+ 227            LOAD_FAST               10 (file)
+                LOAD_CONST              12 ('-')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       18 (to L34)
+                NOT_TAKEN
+
+ 228            LOAD_FAST               11 (fp)
+                LOAD_ATTR               31 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+                RERAISE                  0
+
+ 227   L34:     RERAISE                  0
+
+  --   L35:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L21 [0]
+  L11 to L12 -> L27 [1]
+  L13 to L14 -> L33 [1]
+  L15 to L17 -> L33 [1]
+  L21 to L22 -> L26 [1] lasti
+  L22 to L23 -> L24 [1] lasti
+  L24 to L26 -> L26 [1] lasti
+  L27 to L28 -> L32 [2] lasti
+  L28 to L29 -> L30 [2] lasti
+  L30 to L32 -> L32 [2] lasti
+  L33 to L35 -> L35 [2] lasti

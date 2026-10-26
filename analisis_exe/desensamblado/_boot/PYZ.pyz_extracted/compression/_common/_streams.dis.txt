@@ -1,0 +1,788 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Internal classes used by compression modules')
+              STORE_NAME               0 (__doc__)
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (io)
+              STORE_NAME               1 (io)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (sys)
+              STORE_NAME               2 (sys)
+
+  6           LOAD_NAME                1 (io)
+              LOAD_ATTR                6 (DEFAULT_BUFFER_SIZE)
+              STORE_NAME               4 (BUFFER_SIZE)
+
+  9           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               2 (<code object BaseStream at 0x00000204BA0FC250, file "compression\_common\_streams.py", line 9>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('BaseStream')
+              LOAD_NAME                1 (io)
+              LOAD_ATTR               10 (BufferedIOBase)
+              CALL                     3
+              STORE_NAME               6 (BaseStream)
+
+ 33           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object DecompressReader at 0x00000204B9F718F0, file "compression\_common\_streams.py", line 33>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('DecompressReader')
+              LOAD_NAME                1 (io)
+              LOAD_ATTR               14 (RawIOBase)
+              CALL                     3
+              STORE_NAME               8 (DecompressReader)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object BaseStream at 0x00000204BA0FC250, file "compression\_common\_streams.py", line 9>:
+  --           MAKE_CELL                0 (__classdict__)
+
+   9           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BaseStream')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT           9
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  10           LOAD_CONST               1 ('Mode-checking helper functions.')
+               STORE_NAME               4 (__doc__)
+
+  12           LOAD_CONST               2 (<code object _check_not_closed at 0x00000204BA0FC7A0, file "compression\_common\_streams.py", line 12>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_check_not_closed)
+
+  16           LOAD_CONST               3 (<code object _check_can_read at 0x00000204B9FEF800, file "compression\_common\_streams.py", line 16>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_check_can_read)
+
+  20           LOAD_CONST               4 (<code object _check_can_write at 0x00000204B9FEF0E0, file "compression\_common\_streams.py", line 20>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (_check_can_write)
+
+  24           LOAD_CONST               5 (<code object _check_can_seek at 0x00000204BA0B7230, file "compression\_common\_streams.py", line 24>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (_check_can_seek)
+               LOAD_CONST               6 (())
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _check_not_closed at 0x00000204BA0FC7A0, file "compression\_common\_streams.py", line 12>:
+ 12           RESUME                   0
+
+ 13           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (closed)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 14           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               0 ('I/O operation on closed file')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 13   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _check_can_read at 0x00000204B9FEF800, file "compression\_common\_streams.py", line 16>:
+ 16           RESUME                   0
+
+ 17           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (readable + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L1)
+              NOT_TAKEN
+
+ 18           LOAD_GLOBAL              2 (io)
+              LOAD_ATTR                4 (UnsupportedOperation)
+              PUSH_NULL
+              LOAD_CONST               0 ('File not open for reading')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 17   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _check_can_write at 0x00000204B9FEF0E0, file "compression\_common\_streams.py", line 20>:
+ 20           RESUME                   0
+
+ 21           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (writable + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L1)
+              NOT_TAKEN
+
+ 22           LOAD_GLOBAL              2 (io)
+              LOAD_ATTR                4 (UnsupportedOperation)
+              PUSH_NULL
+              LOAD_CONST               0 ('File not open for writing')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 21   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _check_can_seek at 0x00000204BA0B7230, file "compression\_common\_streams.py", line 24>:
+ 24           RESUME                   0
+
+ 25           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (readable + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L1)
+              NOT_TAKEN
+
+ 26           LOAD_GLOBAL              2 (io)
+              LOAD_ATTR                4 (UnsupportedOperation)
+              PUSH_NULL
+              LOAD_CONST               0 ('Seeking is only supported on files open for reading')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 28   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (seekable + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L2)
+              NOT_TAKEN
+
+ 29           LOAD_GLOBAL              2 (io)
+              LOAD_ATTR                4 (UnsupportedOperation)
+              PUSH_NULL
+              LOAD_CONST               1 ('The underlying file object does not support seeking')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 28   L2:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object DecompressReader at 0x00000204B9F718F0, file "compression\_common\_streams.py", line 33>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  33           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DecompressReader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          33
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  34           LOAD_CONST               1 ('Adapts the decompressor API to a RawIOBase reader API')
+               STORE_NAME               4 (__doc__)
+
+  36           LOAD_CONST               2 (<code object readable at 0x00000204BA6A4030, file "compression\_common\_streams.py", line 36>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (readable)
+
+  39           LOAD_CONST              13 (((),))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204B9FB7DB0, file "compression\_common\_streams.py", line 39>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__init__)
+
+  59           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               4 (<code object close at 0x00000204BA08B030, file "compression\_common\_streams.py", line 59>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               7 (close)
+
+  63           LOAD_CONST               5 (<code object seekable at 0x00000204BA0FFCC0, file "compression\_common\_streams.py", line 63>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (seekable)
+
+  66           LOAD_CONST               6 (<code object readinto at 0x00000204B9F5BA30, file "compression\_common\_streams.py", line 66>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (readinto)
+
+  72           LOAD_CONST              14 ((-1,))
+               LOAD_CONST               7 (<code object read at 0x00000204BA338F90, file "compression\_common\_streams.py", line 72>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              10 (read)
+
+ 113           LOAD_CONST               8 (<code object readall at 0x00000204B9FF3E00, file "compression\_common\_streams.py", line 113>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (readall)
+
+ 124           LOAD_CONST               9 (<code object _rewind at 0x00000204B9FF3280, file "compression\_common\_streams.py", line 124>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (_rewind)
+
+ 130           LOAD_NAME               13 (io)
+               LOAD_ATTR               28 (SEEK_SET)
+               BUILD_TUPLE              1
+               LOAD_CONST              10 (<code object seek at 0x00000204BA590E10, file "compression\_common\_streams.py", line 130>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              15 (seek)
+
+ 160           LOAD_CONST              11 (<code object tell at 0x00000204BA092A60, file "compression\_common\_streams.py", line 160>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (tell)
+               LOAD_CONST              12 (('_decomp_args', '_decomp_factory', '_decompressor', '_eof', '_fp', '_pos', '_size', '_trailing_error'))
+               STORE_NAME              17 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              18 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              19 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object readable at 0x00000204BA6A4030, file "compression\_common\_streams.py", line 36>:
+ 36           RESUME                   0
+
+ 37           LOAD_CONST               0 (True)
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FB7DB0, file "compression\_common\_streams.py", line 39>:
+ 39           RESUME                   0
+
+ 40           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fp, self)
+              STORE_ATTR               0 (_fp)
+
+ 41           LOAD_CONST               0 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_eof)
+
+ 42           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_pos)
+
+ 45           LOAD_CONST               2 (-1)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_size)
+
+ 51           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (decomp_factory, self)
+              STORE_ATTR               4 (_decomp_factory)
+
+ 52           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (decomp_args, self)
+              STORE_ATTR               5 (_decomp_args)
+
+ 53           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_decomp_factory)
+              PUSH_NULL
+              LOAD_CONST               3 (())
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_decomp_args)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (_decompressor)
+
+ 57           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (trailing_error, self)
+              STORE_ATTR               7 (_trailing_error)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204BA08B030, file "compression\_common\_streams.py", line 59>:
+  --           COPY_FREE_VARS           1
+
+  59           RESUME                   0
+
+  60           LOAD_CONST               0 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_decompressor)
+
+  61           LOAD_GLOBAL              2 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          9 (close + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+
+Disassembly of <code object seekable at 0x00000204BA0FFCC0, file "compression\_common\_streams.py", line 63>:
+ 63           RESUME                   0
+
+ 64           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fp)
+              LOAD_ATTR                3 (seekable + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object readinto at 0x00000204B9F5BA30, file "compression\_common\_streams.py", line 66>:
+  66            RESUME                   0
+
+  67            LOAD_GLOBAL              1 (memoryview + NULL)
+                LOAD_FAST_BORROW         1 (b)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     STORE_FAST_LOAD_FAST    34 (view, view)
+                LOAD_ATTR                3 (cast + NULL|self)
+                LOAD_CONST               0 ('B')
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L2:     STORE_FAST               3 (byte_view)
+
+  68            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (read + NULL|self)
+                LOAD_GLOBAL              7 (len + NULL)
+                LOAD_FAST_BORROW         3 (byte_view)
+                CALL                     1
+                CALL                     1
+                STORE_FAST               4 (data)
+
+  69            LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (data, byte_view)
+                LOAD_CONST               1 (None)
+                LOAD_GLOBAL              7 (len + NULL)
+                LOAD_FAST_BORROW         4 (data)
+                CALL                     1
+                STORE_SLICE
+
+  67    L3:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+        L4:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+
+  70    L5:     LOAD_GLOBAL              7 (len + NULL)
+                LOAD_FAST_CHECK          4 (data)
+                CALL                     1
+                RETURN_VALUE
+
+  67    L6:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L7)
+                NOT_TAKEN
+                RERAISE                  2
+        L7:     POP_TOP
+        L8:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 35 (to L4)
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  67   L10:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L11)
+                NOT_TAKEN
+                RERAISE                  2
+       L11:     POP_TOP
+       L12:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 46 (to L5)
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L10 [2] lasti
+  L2 to L3 -> L6 [4] lasti
+  L3 to L4 -> L10 [2] lasti
+  L6 to L8 -> L9 [6] lasti
+  L8 to L10 -> L10 [2] lasti
+  L10 to L12 -> L13 [4] lasti
+
+Disassembly of <code object read at 0x00000204BA338F90, file "compression\_common\_streams.py", line 72>:
+  72            RESUME                   0
+
+  73            LOAD_FAST_BORROW         1 (size)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       17 (to L1)
+                NOT_TAKEN
+
+  74            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                1 (readall + NULL|self)
+                CALL                     0
+                RETURN_VALUE
+
+  76    L1:     LOAD_FAST_BORROW         1 (size)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L2)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_eof)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L3)
+                NOT_TAKEN
+
+  77    L2:     LOAD_CONST               1 (b'')
+                RETURN_VALUE
+
+  78    L3:     LOAD_CONST               2 (None)
+                STORE_FAST               2 (data)
+
+  81    L4:     NOP
+
+  82            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_decompressor)
+                LOAD_ATTR                6 (eof)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      133 (to L9)
+                NOT_TAKEN
+
+  83            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_decompressor)
+                LOAD_ATTR                8 (unused_data)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        32 (to L5)
+                NOT_TAKEN
+                POP_TOP
+
+  84            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_fp)
+                LOAD_ATTR               13 (read + NULL|self)
+                LOAD_GLOBAL             14 (BUFFER_SIZE)
+                CALL                     1
+
+  83    L5:     STORE_FAST               3 (rawblock)
+
+  85            LOAD_FAST_BORROW         3 (rawblock)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L6)
+                NOT_TAKEN
+
+  86            JUMP_FORWARD           182 (to L15)
+
+  88    L6:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               16 (_decomp_factory)
+                PUSH_NULL
+                LOAD_CONST               5 (())
+                BUILD_MAP                0
+
+  89            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               18 (_decomp_args)
+
+  88            DICT_MERGE               1
+                CALL_FUNCTION_EX
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               2 (_decompressor)
+
+  90            NOP
+
+  91    L7:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_decompressor)
+                LOAD_ATTR               21 (decompress + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (rawblock, size)
+                CALL                     2
+                STORE_FAST               2 (data)
+        L8:     JUMP_FORWARD           108 (to L13)
+
+  96    L9:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_decompressor)
+                LOAD_ATTR               24 (needs_input)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       52 (to L11)
+                NOT_TAKEN
+
+  97            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_fp)
+                LOAD_ATTR               13 (read + NULL|self)
+                LOAD_GLOBAL             14 (BUFFER_SIZE)
+                CALL                     1
+                STORE_FAST               3 (rawblock)
+
+  98            LOAD_FAST_BORROW         3 (rawblock)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L10)
+                NOT_TAKEN
+
+  99            LOAD_GLOBAL             27 (EOFError + NULL)
+                LOAD_CONST               4 ('Compressed file ended before the end-of-stream marker was reached')
+                CALL                     1
+                RAISE_VARARGS            1
+
+  98   L10:     JUMP_FORWARD             2 (to L12)
+
+ 102   L11:     LOAD_CONST               1 (b'')
+                STORE_FAST               3 (rawblock)
+
+ 103   L12:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_decompressor)
+                LOAD_ATTR               21 (decompress + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (rawblock, size)
+                CALL                     2
+                STORE_FAST               2 (data)
+
+ 104   L13:     LOAD_FAST_BORROW         2 (data)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         4 (to L14)
+                NOT_TAKEN
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          280 (to L4)
+
+ 105   L14:     NOP
+
+ 106   L15:     LOAD_FAST_BORROW         2 (data)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        27 (to L16)
+                NOT_TAKEN
+
+ 107            LOAD_CONST               3 (True)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               1 (_eof)
+
+ 108            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               28 (_pos)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              15 (_size)
+
+ 109            LOAD_CONST               1 (b'')
+                RETURN_VALUE
+
+ 110   L16:     LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR               28 (_pos)
+                LOAD_GLOBAL             33 (len + NULL)
+                LOAD_FAST_BORROW         2 (data)
+                CALL                     1
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR              14 (_pos)
+
+ 111            LOAD_FAST_BORROW         2 (data)
+                RETURN_VALUE
+
+  --   L17:     PUSH_EXC_INFO
+
+  92            LOAD_FAST                0 (self)
+                LOAD_ATTR               22 (_trailing_error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L19)
+                NOT_TAKEN
+                POP_TOP
+
+  94   L18:     POP_EXCEPT
+                JUMP_BACKWARD           90 (to L15)
+
+  92   L19:     RERAISE                  0
+
+  --   L20:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L7 to L8 -> L17 [0]
+  L17 to L18 -> L20 [1] lasti
+  L19 to L20 -> L20 [1] lasti
+
+Disassembly of <code object readall at 0x00000204B9FF3E00, file "compression\_common\_streams.py", line 113>:
+113           RESUME                   0
+
+114           BUILD_LIST               0
+              STORE_FAST               1 (chunks)
+
+118   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (read + NULL|self)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (maxsize)
+              CALL                     1
+              COPY                     1
+              STORE_FAST               2 (data)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L2)
+              NOT_TAKEN
+
+119           LOAD_FAST_BORROW         1 (chunks)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_FAST_BORROW         2 (data)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           58 (to L1)
+
+121   L2:     LOAD_CONST               0 (b'')
+              LOAD_ATTR                9 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (chunks)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _rewind at 0x00000204B9FF3280, file "compression\_common\_streams.py", line 124>:
+124           RESUME                   0
+
+125           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fp)
+              LOAD_ATTR                3 (seek + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              POP_TOP
+
+126           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_eof)
+
+127           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_pos)
+
+128           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_decomp_factory)
+              PUSH_NULL
+              LOAD_CONST               3 (())
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_decomp_args)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (_decompressor)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object seek at 0x00000204BA590E10, file "compression\_common\_streams.py", line 130>:
+130            RESUME                   0
+
+132            LOAD_FAST_BORROW         2 (whence)
+               LOAD_GLOBAL              0 (io)
+               LOAD_ATTR                2 (SEEK_SET)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        2 (to L1)
+               NOT_TAKEN
+
+133            JUMP_FORWARD           164 (to L6)
+
+134    L1:     LOAD_FAST_BORROW         2 (whence)
+               LOAD_GLOBAL              0 (io)
+               LOAD_ATTR                4 (SEEK_CUR)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       21 (to L2)
+               NOT_TAKEN
+
+135            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_pos)
+               LOAD_FAST_BORROW         1 (offset)
+               BINARY_OP                0 (+)
+               STORE_FAST               1 (offset)
+               JUMP_FORWARD           123 (to L6)
+
+136    L2:     LOAD_FAST_BORROW         2 (whence)
+               LOAD_GLOBAL              0 (io)
+               LOAD_ATTR                8 (SEEK_END)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       77 (to L5)
+               NOT_TAKEN
+
+138            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_size)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       40 (to L4)
+               NOT_TAKEN
+
+139    L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               13 (read + NULL|self)
+               LOAD_GLOBAL              0 (io)
+               LOAD_ATTR               14 (DEFAULT_BUFFER_SIZE)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+
+140            JUMP_BACKWARD           39 (to L3)
+
+141    L4:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_size)
+               LOAD_FAST_BORROW         1 (offset)
+               BINARY_OP                0 (+)
+               STORE_FAST               1 (offset)
+               JUMP_FORWARD            26 (to L6)
+
+143    L5:     LOAD_GLOBAL             17 (ValueError + NULL)
+               LOAD_CONST               1 ('Invalid value for whence: {}')
+               LOAD_ATTR               19 (format + NULL|self)
+               LOAD_FAST_BORROW         2 (whence)
+               CALL                     1
+               CALL                     1
+               RAISE_VARARGS            1
+
+146    L6:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (offset, self)
+               LOAD_ATTR                6 (_pos)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       18 (to L7)
+               NOT_TAKEN
+
+147            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               21 (_rewind + NULL|self)
+               CALL                     0
+               POP_TOP
+               JUMP_FORWARD            18 (to L8)
+
+149    L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (offset, self)
+               LOAD_ATTR                6 (_pos)
+               BINARY_OP               23 (-=)
+               STORE_FAST               1 (offset)
+
+152    L8:     LOAD_FAST_BORROW         1 (offset)
+               LOAD_SMALL_INT           0
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       83 (to L10)
+               NOT_TAKEN
+
+153            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               13 (read + NULL|self)
+               LOAD_GLOBAL             23 (min + NULL)
+               LOAD_GLOBAL              0 (io)
+               LOAD_ATTR               14 (DEFAULT_BUFFER_SIZE)
+               LOAD_FAST_BORROW         1 (offset)
+               CALL                     2
+               CALL                     1
+               STORE_FAST               3 (data)
+
+154            LOAD_FAST_BORROW         3 (data)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        14 (to L9)
+               NOT_TAKEN
+
+155            NOP
+
+158            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_pos)
+               RETURN_VALUE
+
+156    L9:     LOAD_FAST_BORROW         1 (offset)
+               LOAD_GLOBAL             25 (len + NULL)
+               LOAD_FAST_BORROW         3 (data)
+               CALL                     1
+               BINARY_OP               23 (-=)
+               STORE_FAST               1 (offset)
+               JUMP_BACKWARD           89 (to L8)
+
+158   L10:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_pos)
+               RETURN_VALUE
+
+Disassembly of <code object tell at 0x00000204BA092A60, file "compression\_common\_streams.py", line 160>:
+160           RESUME                   0
+
+162           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_pos)
+              RETURN_VALUE

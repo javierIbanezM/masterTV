@@ -1,0 +1,3238 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ("zipimport provides support for importing Python modules from Zip archives.\n\nThis module exports two objects:\n- zipimporter: a class; its constructor takes a path to a Zip archive.\n- ZipImportError: exception raised by zipimporter objects. It's a\n  subclass of ImportError, so it can be caught as ImportError, too.\n\nIt is usually not needed to use the zipimport module explicitly; it is\nused by the builtin import mechanism for sys.path items that are paths\nto Zip archives.\n")
+              STORE_NAME               0 (__doc__)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (_frozen_importlib_external)
+              STORE_NAME               2 (_bootstrap_external)
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('_unpack_uint16', '_unpack_uint32', '_unpack_uint64'))
+              IMPORT_NAME              1 (_frozen_importlib_external)
+              IMPORT_FROM              3 (_unpack_uint16)
+              STORE_NAME               3 (_unpack_uint16)
+              IMPORT_FROM              4 (_unpack_uint32)
+              STORE_NAME               4 (_unpack_uint32)
+              IMPORT_FROM              5 (_unpack_uint64)
+              STORE_NAME               5 (_unpack_uint64)
+              POP_TOP
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              6 (_frozen_importlib)
+              STORE_NAME               7 (_bootstrap)
+
+ 18           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              8 (_imp)
+              STORE_NAME               8 (_imp)
+
+ 19           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              9 (_io)
+              STORE_NAME               9 (_io)
+
+ 20           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME             10 (marshal)
+              STORE_NAME              10 (marshal)
+
+ 21           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME             11 (sys)
+              STORE_NAME              11 (sys)
+
+ 22           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME             12 (time)
+              STORE_NAME              12 (time)
+
+ 24           LOAD_CONST               3 ('ZipImportError')
+              LOAD_CONST               4 ('zipimporter')
+              BUILD_LIST               2
+              STORE_NAME              13 (__all__)
+
+ 27           LOAD_NAME                2 (_bootstrap_external)
+              LOAD_ATTR               28 (path_sep)
+              STORE_NAME              14 (path_sep)
+
+ 28           LOAD_NAME                2 (_bootstrap_external)
+              LOAD_ATTR               30 (path_separators)
+              LOAD_CONST               5 (slice(1, None, None))
+              BINARY_OP               26 ([])
+              STORE_NAME              16 (alt_path_sep)
+
+ 31           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object ZipImportError at 0x00000204BA093000, file "zipimport.py", line 31>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('ZipImportError')
+              LOAD_NAME               17 (ImportError)
+              CALL                     3
+              STORE_NAME              18 (ZipImportError)
+
+ 35           BUILD_MAP                0
+              STORE_NAME              19 (_zip_directory_cache)
+
+ 37           LOAD_NAME               20 (type)
+              PUSH_NULL
+              LOAD_NAME               11 (sys)
+              CALL                     1
+              STORE_NAME              21 (_module_type)
+
+ 39           LOAD_SMALL_INT          22
+              STORE_NAME              22 (END_CENTRAL_DIR_SIZE)
+
+ 40           LOAD_SMALL_INT          56
+              STORE_NAME              23 (END_CENTRAL_DIR_SIZE_64)
+
+ 41           LOAD_SMALL_INT          20
+              STORE_NAME              24 (END_CENTRAL_DIR_LOCATOR_SIZE_64)
+
+ 42           LOAD_CONST               7 (b'PK\x05\x06')
+              STORE_NAME              25 (STRING_END_ARCHIVE)
+
+ 43           LOAD_CONST               8 (b'PK\x06\x07')
+              STORE_NAME              26 (STRING_END_LOCATOR_64)
+
+ 44           LOAD_CONST               9 (b'PK\x06\x06')
+              STORE_NAME              27 (STRING_END_ZIP_64)
+
+ 45           LOAD_CONST              31 (65535)
+              STORE_NAME              28 (MAX_COMMENT_LEN)
+
+ 46           LOAD_CONST              10 (4294967295)
+              STORE_NAME              29 (MAX_UINT32)
+
+ 47           LOAD_SMALL_INT           1
+              STORE_NAME              30 (ZIP64_EXTRA_TAG)
+
+ 49           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object zipimporter at 0x00000204BA0AA830, file "zipimport.py", line 49>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('zipimporter')
+              LOAD_NAME                2 (_bootstrap_external)
+              LOAD_ATTR               62 (_LoaderBasics)
+              CALL                     3
+              STORE_NAME              32 (zipimporter)
+
+294           LOAD_NAME               14 (path_sep)
+              LOAD_CONST              12 ('__init__.pyc')
+              BINARY_OP                0 (+)
+              LOAD_CONST              13 (True)
+              LOAD_CONST              13 (True)
+              BUILD_TUPLE              3
+
+295           LOAD_NAME               14 (path_sep)
+              LOAD_CONST              14 ('__init__.py')
+              BINARY_OP                0 (+)
+              LOAD_CONST              15 (False)
+              LOAD_CONST              13 (True)
+              BUILD_TUPLE              3
+
+296           LOAD_CONST              32 (('.pyc', True, False))
+
+297           LOAD_CONST              33 (('.py', False, False))
+
+293           BUILD_TUPLE              4
+              STORE_NAME              33 (_zip_searchorder)
+
+302           LOAD_CONST              16 (<code object _get_module_path at 0x00000204B9FEF800, file "zipimport.py", line 302>)
+              MAKE_FUNCTION
+              STORE_NAME              34 (_get_module_path)
+
+306           LOAD_CONST              17 (<code object _is_dir at 0x00000204BA0FC7A0, file "zipimport.py", line 306>)
+              MAKE_FUNCTION
+              STORE_NAME              35 (_is_dir)
+
+315           LOAD_CONST              18 (<code object _get_module_info at 0x00000204BA0BBC90, file "zipimport.py", line 315>)
+              MAKE_FUNCTION
+              STORE_NAME              36 (_get_module_info)
+
+346           LOAD_CONST              19 (<code object _read_directory at 0x00000204BA3E20F0, file "zipimport.py", line 346>)
+              MAKE_FUNCTION
+              STORE_NAME              37 (_read_directory)
+
+578           LOAD_CONST              20 ('\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\x7fÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■\xa0')
+
+576           STORE_NAME              38 (cp437_table)
+
+605           LOAD_CONST              15 (False)
+              STORE_GLOBAL            39 (_importing_zlib)
+
+610           LOAD_CONST              21 (<code object _get_decompress_func at 0x00000204B9FA6AD0, file "zipimport.py", line 610>)
+              MAKE_FUNCTION
+              STORE_NAME              40 (_get_decompress_func)
+
+631           LOAD_CONST              22 (<code object _get_data at 0x00000204BA3E32E0, file "zipimport.py", line 631>)
+              MAKE_FUNCTION
+              STORE_NAME              41 (_get_data)
+
+677           LOAD_CONST              23 (<code object _eq_mtime at 0x00000204BA08B130, file "zipimport.py", line 677>)
+              MAKE_FUNCTION
+              STORE_NAME              42 (_eq_mtime)
+
+685           LOAD_CONST              24 (<code object _unmarshal_code at 0x00000204BA443C70, file "zipimport.py", line 685>)
+              MAKE_FUNCTION
+              STORE_NAME              43 (_unmarshal_code)
+
+725           LOAD_NAME               20 (type)
+              PUSH_NULL
+              LOAD_NAME               43 (_unmarshal_code)
+              LOAD_ATTR               88 (__code__)
+              CALL                     1
+              STORE_NAME              45 (_code_type)
+
+730           LOAD_CONST              25 (<code object _normalize_line_endings at 0x00000204BA0A6790, file "zipimport.py", line 730>)
+              MAKE_FUNCTION
+              STORE_NAME              46 (_normalize_line_endings)
+
+737           LOAD_CONST              26 (<code object _compile_source at 0x00000204BA0FF550, file "zipimport.py", line 737>)
+              MAKE_FUNCTION
+              STORE_NAME              47 (_compile_source)
+
+743           LOAD_CONST              27 (<code object _parse_dostime at 0x00000204B9F6EDB0, file "zipimport.py", line 743>)
+              MAKE_FUNCTION
+              STORE_NAME              48 (_parse_dostime)
+
+756           LOAD_CONST              28 (<code object _get_mtime_and_size_of_source at 0x00000204B9FFB2D0, file "zipimport.py", line 756>)
+              MAKE_FUNCTION
+              STORE_NAME              49 (_get_mtime_and_size_of_source)
+
+775           LOAD_CONST              29 (<code object _get_pyc_source at 0x00000204B9FB7930, file "zipimport.py", line 775>)
+              MAKE_FUNCTION
+              STORE_NAME              50 (_get_pyc_source)
+
+790           LOAD_CONST              30 (<code object _get_module_code at 0x00000204BA3ACB20, file "zipimport.py", line 790>)
+              MAKE_FUNCTION
+              STORE_NAME              51 (_get_module_code)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ZipImportError at 0x00000204BA093000, file "zipimport.py", line 31>:
+ 31           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ZipImportError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          31
+              STORE_NAME               3 (__firstlineno__)
+
+ 32           LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object zipimporter at 0x00000204BA0AA830, file "zipimport.py", line 49>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  49           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('zipimporter')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          49
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  50           LOAD_CONST               1 ("zipimporter(archivepath) -> zipimporter object\n\nCreate a new zipimporter instance. 'archivepath' must be a path to\na zipfile, or to a specific path inside a zipfile. For example, it can be\n'/tmp/myimport.zip', or '/tmp/myimport.zip/mydirectory', if mydirectory is a\nvalid directory inside the archive.\n\n'ZipImportError is raised if 'archivepath' doesn't point to a valid Zip\narchive.\n\nThe 'archive' attribute of zipimporter objects contains the name of the\nzipfile targeted.\n")
+               STORE_NAME               4 (__doc__)
+
+  67           LOAD_CONST               2 (<code object __init__ at 0x00000204BA387780, file "zipimport.py", line 67>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 103           LOAD_CONST              16 ((None,))
+               LOAD_CONST               4 (<code object find_spec at 0x00000204B9F5BC30, file "zipimport.py", line 103>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (find_spec)
+
+ 130           LOAD_CONST               5 (<code object get_code at 0x00000204BA08A530, file "zipimport.py", line 130>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (get_code)
+
+ 140           LOAD_CONST               6 (<code object get_data at 0x00000204BA365C00, file "zipimport.py", line 140>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (get_data)
+
+ 163           LOAD_CONST               7 (<code object get_filename at 0x00000204BA08AC30, file "zipimport.py", line 163>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (get_filename)
+
+ 175           LOAD_CONST               8 (<code object get_source at 0x00000204BA4455B0, file "zipimport.py", line 175>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (get_source)
+
+ 201           LOAD_CONST               9 (<code object is_package at 0x00000204BA0A6AF0, file "zipimport.py", line 201>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (is_package)
+
+ 214           LOAD_CONST              10 (<code object load_module at 0x00000204BA3BE460, file "zipimport.py", line 214>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (load_module)
+
+ 259           LOAD_CONST              11 (<code object get_resource_reader at 0x00000204BA092C40, file "zipimport.py", line 259>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (get_resource_reader)
+
+ 266           LOAD_CONST              12 (<code object _get_files at 0x00000204B9FFAA60, file "zipimport.py", line 266>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (_get_files)
+
+ 279           LOAD_CONST              13 (<code object invalidate_caches at 0x00000204BA0A7750, file "zipimport.py", line 279>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (invalidate_caches)
+
+ 284           LOAD_CONST              14 (<code object __repr__ at 0x00000204BA0A7E10, file "zipimport.py", line 284>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (__repr__)
+               LOAD_CONST              15 (('archive', 'prefix'))
+               STORE_NAME              17 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              18 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA387780, file "zipimport.py", line 67>:
+  67            RESUME                   0
+
+  68            LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (path)
+                LOAD_GLOBAL              2 (str)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        25 (to L1)
+                NOT_TAKEN
+
+  69            LOAD_GLOBAL              5 (TypeError + NULL)
+                LOAD_CONST               0 ('expected str, not ')
+                LOAD_GLOBAL              7 (type + NULL)
+                LOAD_FAST_BORROW         1 (path)
+                CALL                     1
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                RAISE_VARARGS            1
+
+  70    L1:     LOAD_FAST_BORROW         1 (path)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        14 (to L2)
+                NOT_TAKEN
+
+  71            LOAD_GLOBAL              9 (ZipImportError + NULL)
+                LOAD_CONST               1 ('archive path is empty')
+                LOAD_FAST_BORROW         1 (path)
+                LOAD_CONST               2 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+  72    L2:     LOAD_GLOBAL             10 (alt_path_sep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L3)
+                NOT_TAKEN
+
+  73            LOAD_FAST_BORROW         1 (path)
+                LOAD_ATTR               13 (replace + NULL|self)
+                LOAD_GLOBAL             10 (alt_path_sep)
+                LOAD_GLOBAL             14 (path_sep)
+                CALL                     2
+                STORE_FAST               1 (path)
+
+  75    L3:     BUILD_LIST               0
+                STORE_FAST               2 (prefix)
+
+  76    L4:     NOP
+
+  77            NOP
+
+  78    L5:     LOAD_GLOBAL             16 (_bootstrap_external)
+                LOAD_ATTR               18 (_path_stat)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (path)
+                CALL                     1
+                STORE_FAST               3 (st)
+
+  89    L6:     LOAD_FAST_BORROW         3 (st)
+                LOAD_ATTR               20 (st_mode)
+                LOAD_CONST               3 (61440)
+                BINARY_OP                1 (&)
+                LOAD_CONST               4 (32768)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       14 (to L7)
+                NOT_TAKEN
+
+  91            LOAD_GLOBAL              9 (ZipImportError + NULL)
+                LOAD_CONST               5 ('not a Zip file')
+                LOAD_FAST_BORROW         1 (path)
+                LOAD_CONST               2 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+  92    L7:     NOP
+
+  94            LOAD_FAST                1 (path)
+                LOAD_GLOBAL             30 (_zip_directory_cache)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE       19 (to L8)
+                NOT_TAKEN
+
+  95            LOAD_GLOBAL             33 (_read_directory + NULL)
+                LOAD_FAST                1 (path)
+                CALL                     1
+                LOAD_GLOBAL             30 (_zip_directory_cache)
+                LOAD_FAST                1 (path)
+                STORE_SUBSCR
+
+  96    L8:     LOAD_FAST_LOAD_FAST     16 (path, self)
+                STORE_ATTR              17 (archive)
+
+  98            LOAD_GLOBAL             16 (_bootstrap_external)
+                LOAD_ATTR               36 (_path_join)
+                PUSH_NULL
+                LOAD_FAST                2 (prefix)
+                LOAD_CONST               6 (None)
+                LOAD_CONST               6 (None)
+                LOAD_CONST               7 (-1)
+                BUILD_SLICE              3
+                BINARY_OP               26 ([])
+                PUSH_NULL
+                CALL_FUNCTION_EX
+                LOAD_FAST                0 (self)
+                STORE_ATTR              19 (prefix)
+
+  99            LOAD_FAST                0 (self)
+                LOAD_ATTR               38 (prefix)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       32 (to L9)
+                NOT_TAKEN
+
+ 100            LOAD_FAST                0 (self)
+                COPY                     1
+                LOAD_ATTR               38 (prefix)
+                LOAD_GLOBAL             14 (path_sep)
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR              19 (prefix)
+                LOAD_CONST               6 (None)
+                RETURN_VALUE
+
+  99    L9:     LOAD_CONST               6 (None)
+                RETURN_VALUE
+
+  --   L10:     PUSH_EXC_INFO
+
+  79            LOAD_GLOBAL             22 (OSError)
+                LOAD_GLOBAL             24 (ValueError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       68 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+  82            LOAD_GLOBAL             16 (_bootstrap_external)
+                LOAD_ATTR               26 (_path_split)
+                PUSH_NULL
+                LOAD_FAST                1 (path)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   69 (dirname, basename)
+
+  83            LOAD_FAST_LOAD_FAST     65 (dirname, path)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       14 (to L11)
+                NOT_TAKEN
+
+  84            LOAD_GLOBAL              9 (ZipImportError + NULL)
+                LOAD_CONST               5 ('not a Zip file')
+                LOAD_FAST                1 (path)
+                LOAD_CONST               2 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+  85   L11:     LOAD_FAST                4 (dirname)
+                STORE_FAST               1 (path)
+
+  86            LOAD_FAST                2 (prefix)
+                LOAD_ATTR               29 (append + NULL|self)
+                LOAD_FAST                5 (basename)
+                CALL                     1
+                POP_TOP
+       L12:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          266 (to L4)
+
+  79   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L10 [0]
+  L10 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object find_spec at 0x00000204B9F5BC30, file "zipimport.py", line 103>:
+103           RESUME                   0
+
+108           LOAD_GLOBAL              1 (_get_module_info + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              STORE_FAST               3 (module_info)
+
+109           LOAD_FAST_BORROW         3 (module_info)
+              POP_JUMP_IF_NONE        25 (to L1)
+              NOT_TAKEN
+
+110           LOAD_GLOBAL              2 (_bootstrap)
+              LOAD_ATTR                4 (spec_from_loader)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fullname, self)
+              LOAD_FAST_BORROW         3 (module_info)
+              LOAD_CONST               2 (('is_package',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+117   L1:     LOAD_GLOBAL              7 (_get_module_path + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              STORE_FAST               4 (modpath)
+
+118           LOAD_GLOBAL              9 (_is_dir + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 4 (self, modpath)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       77 (to L2)
+              NOT_TAKEN
+
+122           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (archive)
+              FORMAT_SIMPLE
+              LOAD_GLOBAL             12 (path_sep)
+              FORMAT_SIMPLE
+              LOAD_FAST_BORROW         4 (modpath)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              STORE_FAST               5 (path)
+
+123           LOAD_GLOBAL              2 (_bootstrap)
+              LOAD_ATTR               14 (ModuleSpec)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (fullname)
+              LOAD_CONST               1 (None)
+
+124           LOAD_CONST               3 (True)
+
+123           LOAD_CONST               4 (('name', 'loader', 'is_package'))
+              CALL_KW                  3
+              STORE_FAST               6 (spec)
+
+125           LOAD_FAST_BORROW         6 (spec)
+              LOAD_ATTR               16 (submodule_search_locations)
+              LOAD_ATTR               19 (append + NULL|self)
+              LOAD_FAST_BORROW         5 (path)
+              CALL                     1
+              POP_TOP
+
+126           LOAD_FAST_BORROW         6 (spec)
+              RETURN_VALUE
+
+128   L2:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_code at 0x00000204BA08A530, file "zipimport.py", line 130>:
+130           RESUME                   0
+
+136           LOAD_GLOBAL              1 (_get_module_code + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   35 (code, ispackage)
+              STORE_FAST               4 (modpath)
+
+137           LOAD_FAST_BORROW         2 (code)
+              RETURN_VALUE
+
+Disassembly of <code object get_data at 0x00000204BA365C00, file "zipimport.py", line 140>:
+ 140           RESUME                   0
+
+ 146           LOAD_GLOBAL              0 (alt_path_sep)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       27 (to L1)
+               NOT_TAKEN
+
+ 147           LOAD_FAST_BORROW         1 (pathname)
+               LOAD_ATTR                3 (replace + NULL|self)
+               LOAD_GLOBAL              0 (alt_path_sep)
+               LOAD_GLOBAL              4 (path_sep)
+               CALL                     2
+               STORE_FAST               1 (pathname)
+
+ 149   L1:     LOAD_FAST                1 (pathname)
+               STORE_FAST               2 (key)
+
+ 150           LOAD_FAST_BORROW         1 (pathname)
+               LOAD_ATTR                7 (startswith + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (archive)
+               LOAD_GLOBAL              4 (path_sep)
+               BINARY_OP                0 (+)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       36 (to L2)
+               NOT_TAKEN
+
+ 151           LOAD_FAST_BORROW         1 (pathname)
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (archive)
+               LOAD_GLOBAL              4 (path_sep)
+               BINARY_OP                0 (+)
+               CALL                     1
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               STORE_FAST               2 (key)
+
+ 153   L2:     NOP
+
+ 154   L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               13 (_get_files + NULL|self)
+               CALL                     0
+               LOAD_FAST_BORROW         2 (key)
+               BINARY_OP               26 ([])
+               STORE_FAST               3 (toc_entry)
+
+ 157   L4:     LOAD_FAST                3 (toc_entry)
+               POP_JUMP_IF_NOT_NONE     3 (to L5)
+               NOT_TAKEN
+
+ 158           LOAD_CONST               3 (b'')
+               RETURN_VALUE
+
+ 159   L5:     LOAD_GLOBAL             19 (_get_data + NULL)
+               LOAD_FAST                0 (self)
+               LOAD_ATTR                8 (archive)
+               LOAD_FAST                3 (toc_entry)
+               CALL                     2
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 155           LOAD_GLOBAL             14 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       15 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 156           LOAD_GLOBAL             17 (OSError + NULL)
+               LOAD_SMALL_INT           0
+               LOAD_CONST               2 ('')
+               LOAD_FAST                2 (key)
+               CALL                     3
+               RAISE_VARARGS            1
+
+ 155   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L6 [0]
+  L6 to L8 -> L8 [1] lasti
+
+Disassembly of <code object get_filename at 0x00000204BA08AC30, file "zipimport.py", line 163>:
+163           RESUME                   0
+
+171           LOAD_GLOBAL              1 (_get_module_code + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   35 (code, ispackage)
+              STORE_FAST               4 (modpath)
+
+172           LOAD_FAST_BORROW         4 (modpath)
+              RETURN_VALUE
+
+Disassembly of <code object get_source at 0x00000204BA4455B0, file "zipimport.py", line 175>:
+ 175           RESUME                   0
+
+ 182           LOAD_GLOBAL              1 (_get_module_info + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+               CALL                     2
+               STORE_FAST               2 (mi)
+
+ 183           LOAD_FAST_BORROW         2 (mi)
+               POP_JUMP_IF_NOT_NONE    18 (to L1)
+               NOT_TAKEN
+
+ 184           LOAD_GLOBAL              3 (ZipImportError + NULL)
+               LOAD_CONST               2 ("can't find module ")
+               LOAD_FAST_BORROW         1 (fullname)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               LOAD_FAST_BORROW         1 (fullname)
+               LOAD_CONST               3 (('name',))
+               CALL_KW                  2
+               RAISE_VARARGS            1
+
+ 186   L1:     LOAD_GLOBAL              5 (_get_module_path + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+               CALL                     2
+               STORE_FAST               3 (path)
+
+ 187           LOAD_FAST_BORROW         2 (mi)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       25 (to L2)
+               NOT_TAKEN
+
+ 188           LOAD_GLOBAL              6 (_bootstrap_external)
+               LOAD_ATTR                8 (_path_join)
+               PUSH_NULL
+               LOAD_FAST_BORROW         3 (path)
+               LOAD_CONST               4 ('__init__.py')
+               CALL                     2
+               STORE_FAST               4 (fullpath)
+               JUMP_FORWARD             5 (to L3)
+
+ 190   L2:     LOAD_FAST_BORROW         3 (path)
+               FORMAT_SIMPLE
+               LOAD_CONST               5 ('.py')
+               BUILD_STRING             2
+               STORE_FAST               4 (fullpath)
+
+ 192   L3:     NOP
+
+ 193   L4:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               11 (_get_files + NULL|self)
+               CALL                     0
+               LOAD_FAST_BORROW         4 (fullpath)
+               BINARY_OP               26 ([])
+               STORE_FAST               5 (toc_entry)
+
+ 197   L5:     LOAD_GLOBAL             15 (_get_data + NULL)
+               LOAD_FAST                0 (self)
+               LOAD_ATTR               16 (archive)
+               LOAD_FAST                5 (toc_entry)
+               CALL                     2
+               LOAD_ATTR               19 (decode + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 194           LOAD_GLOBAL             12 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+ 196   L7:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 194   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object is_package at 0x00000204BA0A6AF0, file "zipimport.py", line 201>:
+201           RESUME                   0
+
+207           LOAD_GLOBAL              1 (_get_module_info + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              STORE_FAST               2 (mi)
+
+208           LOAD_FAST_BORROW         2 (mi)
+              POP_JUMP_IF_NOT_NONE    18 (to L1)
+              NOT_TAKEN
+
+209           LOAD_GLOBAL              3 (ZipImportError + NULL)
+              LOAD_CONST               1 ("can't find module ")
+              LOAD_FAST_BORROW         1 (fullname)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              LOAD_FAST_BORROW         1 (fullname)
+              LOAD_CONST               2 (('name',))
+              CALL_KW                  2
+              RAISE_VARARGS            1
+
+210   L1:     LOAD_FAST_BORROW         2 (mi)
+              RETURN_VALUE
+
+Disassembly of <code object load_module at 0x00000204BA3BE460, file "zipimport.py", line 214>:
+ 214            RESUME                   0
+
+ 223            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              0 (warnings)
+                STORE_FAST               2 (warnings)
+
+ 224            LOAD_FAST_BORROW         2 (warnings)
+                LOAD_ATTR                3 (_deprecated + NULL|self)
+                LOAD_CONST               2 ('zipimport.zipimporter.load_module')
+
+ 225            LOAD_FAST_BORROW         2 (warnings)
+                LOAD_ATTR                4 (_DEPRECATED_MSG)
+                FORMAT_SIMPLE
+                LOAD_CONST               3 ('; use zipimport.zipimporter.exec_module() instead')
+                BUILD_STRING             2
+
+ 227            LOAD_CONST               9 ((3, 15))
+
+ 224            LOAD_CONST               4 (('remove',))
+                CALL_KW                  3
+                POP_TOP
+
+ 228            LOAD_GLOBAL              7 (_get_module_code + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+                CALL                     2
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   52 (code, ispackage)
+                STORE_FAST               5 (modpath)
+
+ 229            LOAD_GLOBAL              8 (sys)
+                LOAD_ATTR               10 (modules)
+                LOAD_ATTR               13 (get + NULL|self)
+                LOAD_FAST_BORROW         1 (fullname)
+                CALL                     1
+                STORE_FAST               6 (mod)
+
+ 230            LOAD_FAST_BORROW         6 (mod)
+                POP_JUMP_IF_NONE        23 (to L1)
+                NOT_TAKEN
+                LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST_BORROW         6 (mod)
+                LOAD_GLOBAL             16 (_module_type)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        31 (to L2)
+                NOT_TAKEN
+
+ 231    L1:     LOAD_GLOBAL             17 (_module_type + NULL)
+                LOAD_FAST_BORROW         1 (fullname)
+                CALL                     1
+                STORE_FAST               6 (mod)
+
+ 232            LOAD_FAST_BORROW         6 (mod)
+                LOAD_GLOBAL              8 (sys)
+                LOAD_ATTR               10 (modules)
+                LOAD_FAST_BORROW         1 (fullname)
+                STORE_SUBSCR
+
+ 233    L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (self, mod)
+                STORE_ATTR               9 (__loader__)
+
+ 235            NOP
+
+ 236    L3:     LOAD_FAST_BORROW         4 (ispackage)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       53 (to L4)
+                NOT_TAKEN
+
+ 239            LOAD_GLOBAL             21 (_get_module_path + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+                CALL                     2
+                STORE_FAST               7 (path)
+
+ 240            LOAD_GLOBAL             22 (_bootstrap_external)
+                LOAD_ATTR               24 (_path_join)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               26 (archive)
+                LOAD_FAST_BORROW         7 (path)
+                CALL                     2
+                STORE_FAST               8 (fullpath)
+
+ 241            LOAD_FAST_BORROW         8 (fullpath)
+                BUILD_LIST               1
+                LOAD_FAST_BORROW         6 (mod)
+                STORE_ATTR              14 (__path__)
+
+ 243    L4:     LOAD_GLOBAL             31 (hasattr + NULL)
+                LOAD_FAST_BORROW         6 (mod)
+                LOAD_CONST               5 ('__builtins__')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L5)
+                NOT_TAKEN
+
+ 244            LOAD_GLOBAL             32 (__builtins__)
+                LOAD_FAST_BORROW         6 (mod)
+                STORE_ATTR              16 (__builtins__)
+
+ 245    L5:     LOAD_GLOBAL             22 (_bootstrap_external)
+                LOAD_ATTR               34 (_fix_up_module)
+                PUSH_NULL
+                LOAD_FAST_BORROW         6 (mod)
+                LOAD_ATTR               36 (__dict__)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 21 (fullname, modpath)
+                CALL                     3
+                POP_TOP
+
+ 246            LOAD_GLOBAL             39 (exec + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 54 (code, mod)
+                LOAD_ATTR               36 (__dict__)
+                CALL                     2
+                POP_TOP
+
+ 251    L6:     NOP
+
+ 252    L7:     LOAD_GLOBAL              8 (sys)
+                LOAD_ATTR               10 (modules)
+                LOAD_FAST                1 (fullname)
+                BINARY_OP               26 ([])
+                STORE_FAST               6 (mod)
+
+ 255    L8:     LOAD_GLOBAL             44 (_bootstrap)
+                LOAD_ATTR               46 (_verbose_message)
+                PUSH_NULL
+                LOAD_CONST               8 ('import {} # loaded from Zip {}')
+                LOAD_FAST_LOAD_FAST     21 (fullname, modpath)
+                CALL                     3
+                POP_TOP
+
+ 256            LOAD_FAST                6 (mod)
+                RETURN_VALUE
+
+  --    L9:     PUSH_EXC_INFO
+
+ 247            POP_TOP
+
+ 248            LOAD_GLOBAL              8 (sys)
+                LOAD_ATTR               10 (modules)
+                LOAD_FAST                1 (fullname)
+                DELETE_SUBSCR
+
+ 249            RAISE_VARARGS            0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+ 253            LOAD_GLOBAL             40 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       18 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 254            LOAD_GLOBAL             43 (ImportError + NULL)
+                LOAD_CONST               6 ('Loaded module ')
+                LOAD_FAST                1 (fullname)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               7 (' not found in sys.modules')
+                BUILD_STRING             3
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 253   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L6 -> L9 [0]
+  L7 to L8 -> L11 [0]
+  L9 to L10 -> L10 [1] lasti
+  L11 to L13 -> L13 [1] lasti
+
+Disassembly of <code object get_resource_reader at 0x00000204BA092C40, file "zipimport.py", line 259>:
+259           RESUME                   0
+
+261           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('ZipReader',))
+              IMPORT_NAME              0 (importlib.readers)
+              IMPORT_FROM              1 (ZipReader)
+              STORE_FAST               2 (ZipReader)
+              POP_TOP
+
+263           LOAD_FAST_BORROW         2 (ZipReader)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _get_files at 0x00000204B9FFAA60, file "zipimport.py", line 266>:
+ 266            RESUME                   0
+
+ 268            NOP
+
+ 269    L1:     LOAD_GLOBAL              0 (_zip_directory_cache)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (archive)
+                BINARY_OP               26 ([])
+                STORE_FAST               1 (files)
+
+ 276    L2:     LOAD_FAST_BORROW         1 (files)
+                RETURN_VALUE
+
+  --    L3:     PUSH_EXC_INFO
+
+ 270            LOAD_GLOBAL              4 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       67 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 271    L4:     NOP
+
+ 272    L5:     LOAD_GLOBAL              7 (_read_directory + NULL)
+                LOAD_FAST                0 (self)
+                LOAD_ATTR                2 (archive)
+                CALL                     1
+                COPY                     1
+                STORE_FAST               1 (files)
+                LOAD_GLOBAL              0 (_zip_directory_cache)
+                LOAD_FAST                0 (self)
+                LOAD_ATTR                2 (archive)
+                STORE_SUBSCR
+        L6:     POP_EXCEPT
+
+ 276            LOAD_FAST                1 (files)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 273            LOAD_GLOBAL              8 (ZipImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        8 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 274            BUILD_MAP                0
+                STORE_FAST               1 (files)
+        L8:     POP_EXCEPT
+        L9:     POP_EXCEPT
+
+ 276            LOAD_FAST                1 (files)
+                RETURN_VALUE
+
+ 273   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 270   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L13 [1] lasti
+  L5 to L6 -> L7 [1]
+  L7 to L8 -> L11 [2] lasti
+  L8 to L9 -> L13 [1] lasti
+  L10 to L11 -> L11 [2] lasti
+  L11 to L13 -> L13 [1] lasti
+
+Disassembly of <code object invalidate_caches at 0x00000204BA0A7750, file "zipimport.py", line 279>:
+279           RESUME                   0
+
+281           LOAD_GLOBAL              0 (_zip_directory_cache)
+              LOAD_ATTR                3 (pop + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (archive)
+              LOAD_CONST               1 (None)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0A7E10, file "zipimport.py", line 284>:
+284           RESUME                   0
+
+285           LOAD_CONST               0 ('<zipimporter object "')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (archive)
+              FORMAT_SIMPLE
+              LOAD_GLOBAL              2 (path_sep)
+              FORMAT_SIMPLE
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (prefix)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('">')
+              BUILD_STRING             5
+              RETURN_VALUE
+
+Disassembly of <code object _get_module_path at 0x00000204B9FEF800, file "zipimport.py", line 302>:
+302           RESUME                   0
+
+303           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (prefix)
+              LOAD_FAST_BORROW         1 (fullname)
+              LOAD_ATTR                3 (rpartition + NULL|self)
+              LOAD_CONST               0 ('.')
+              CALL                     1
+              LOAD_SMALL_INT           2
+              BINARY_OP               26 ([])
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object _is_dir at 0x00000204BA0FC7A0, file "zipimport.py", line 306>:
+306           RESUME                   0
+
+310           LOAD_FAST_BORROW         1 (path)
+              LOAD_GLOBAL              0 (path_sep)
+              BINARY_OP                0 (+)
+              STORE_FAST               2 (dirpath)
+
+312           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (dirpath, self)
+              LOAD_ATTR                3 (_get_files + NULL|self)
+              CALL                     0
+              CONTAINS_OP              0 (in)
+              RETURN_VALUE
+
+Disassembly of <code object _get_module_info at 0x00000204BA0BBC90, file "zipimport.py", line 315>:
+315           RESUME                   0
+
+316           LOAD_GLOBAL              1 (_get_module_path + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              STORE_FAST               2 (path)
+
+317           LOAD_GLOBAL              2 (_zip_searchorder)
+              GET_ITER
+      L1:     FOR_ITER                38 (to L3)
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   52 (suffix, isbytecode)
+              STORE_FAST               5 (ispackage)
+
+318           LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (path, suffix)
+              BINARY_OP                0 (+)
+              STORE_FAST               6 (fullpath)
+
+319           LOAD_FAST_BORROW_LOAD_FAST_BORROW 96 (fullpath, self)
+              LOAD_ATTR                5 (_get_files + NULL|self)
+              CALL                     0
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           36 (to L1)
+
+320   L2:     LOAD_FAST_BORROW         5 (ispackage)
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+317   L3:     END_FOR
+              POP_ITER
+
+321           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _read_directory at 0x00000204BA3E20F0, file "zipimport.py", line 346>:
+ 346            RESUME                   0
+
+ 347            NOP
+
+ 348    L1:     LOAD_GLOBAL              0 (_io)
+                LOAD_ATTR                2 (open_code)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (archive)
+                CALL                     1
+                STORE_FAST               1 (fp)
+
+ 352    L2:     LOAD_FAST                1 (fp)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L3:     POP_TOP
+
+ 356            LOAD_FAST                1 (fp)
+                LOAD_ATTR                9 (tell + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (start_offset)
+
+ 357    L4:     NOP
+
+ 359            NOP
+
+ 360    L5:     LOAD_FAST                1 (fp)
+                LOAD_ATTR               11 (seek + NULL|self)
+                LOAD_SMALL_INT           0
+                LOAD_SMALL_INT           2
+                CALL                     2
+                POP_TOP
+
+ 361            LOAD_FAST                1 (fp)
+                LOAD_ATTR                9 (tell + NULL|self)
+                CALL                     0
+                STORE_FAST               3 (file_size)
+
+ 366    L6:     LOAD_GLOBAL             12 (MAX_COMMENT_LEN)
+                LOAD_GLOBAL             14 (END_CENTRAL_DIR_SIZE)
+                BINARY_OP                0 (+)
+
+ 367            LOAD_GLOBAL             16 (END_CENTRAL_DIR_SIZE_64)
+
+ 366            BINARY_OP                0 (+)
+
+ 367            LOAD_GLOBAL             18 (END_CENTRAL_DIR_LOCATOR_SIZE_64)
+
+ 366            BINARY_OP                0 (+)
+
+ 365            STORE_FAST               4 (max_comment_plus_dirs_size)
+
+ 368            LOAD_GLOBAL             21 (max + NULL)
+                LOAD_FAST_LOAD_FAST     52 (file_size, max_comment_plus_dirs_size)
+                BINARY_OP               10 (-)
+                LOAD_SMALL_INT           0
+                CALL                     2
+                STORE_FAST               5 (max_comment_start)
+
+ 369    L7:     NOP
+
+ 370    L8:     LOAD_FAST                1 (fp)
+                LOAD_ATTR               11 (seek + NULL|self)
+                LOAD_FAST                5 (max_comment_start)
+                CALL                     1
+                POP_TOP
+
+ 371            LOAD_FAST                1 (fp)
+                LOAD_ATTR               23 (read + NULL|self)
+                LOAD_FAST                4 (max_comment_plus_dirs_size)
+                CALL                     1
+                STORE_FAST               6 (data)
+
+ 375    L9:     LOAD_FAST                6 (data)
+                LOAD_ATTR               25 (rfind + NULL|self)
+                LOAD_GLOBAL             26 (STRING_END_ARCHIVE)
+                CALL                     1
+                STORE_FAST               7 (pos)
+
+ 376            LOAD_FAST                6 (data)
+                LOAD_ATTR               25 (rfind + NULL|self)
+                LOAD_GLOBAL             28 (STRING_END_ZIP_64)
+                CALL                     1
+                STORE_FAST               8 (pos64)
+
+ 378            LOAD_FAST                8 (pos64)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE      178 (to L11)
+                NOT_TAKEN
+                LOAD_FAST                8 (pos64)
+                LOAD_GLOBAL             16 (END_CENTRAL_DIR_SIZE_64)
+                BINARY_OP                0 (+)
+                LOAD_GLOBAL             18 (END_CENTRAL_DIR_LOCATOR_SIZE_64)
+                BINARY_OP                0 (+)
+                LOAD_FAST                7 (pos)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      149 (to L11)
+                NOT_TAKEN
+
+ 380            LOAD_FAST_LOAD_FAST    104 (data, pos64)
+                LOAD_FAST                8 (pos64)
+                LOAD_GLOBAL             16 (END_CENTRAL_DIR_SIZE_64)
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST               9 (buffer)
+
+ 381            LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST                9 (buffer)
+                CALL                     1
+                LOAD_GLOBAL             16 (END_CENTRAL_DIR_SIZE_64)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       34 (to L10)
+                NOT_TAKEN
+
+ 382            LOAD_GLOBAL              7 (ZipImportError + NULL)
+
+ 383            LOAD_CONST               3 ('corrupt Zip64 file: Expected ')
+                LOAD_GLOBAL             16 (END_CENTRAL_DIR_SIZE_64)
+                FORMAT_SIMPLE
+                LOAD_CONST               4 (' byte zip64 central directory, but read ')
+
+ 384            LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST                9 (buffer)
+                CALL                     1
+                FORMAT_SIMPLE
+                LOAD_CONST               5 (' bytes.')
+
+ 383            BUILD_STRING             5
+
+ 385            LOAD_FAST                0 (archive)
+
+ 382            LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 386   L10:     LOAD_FAST                3 (file_size)
+                LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST                6 (data)
+                CALL                     1
+                BINARY_OP               10 (-)
+                LOAD_FAST                8 (pos64)
+                BINARY_OP                0 (+)
+                STORE_FAST              10 (header_position)
+
+ 388            LOAD_GLOBAL             33 (_unpack_uint64 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST               6 (slice(40, 48, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              11 (central_directory_size)
+
+ 389            LOAD_GLOBAL             33 (_unpack_uint64 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST               7 (slice(48, 56, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              12 (central_directory_position)
+
+ 390            LOAD_GLOBAL             33 (_unpack_uint64 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST               8 (slice(24, 32, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              13 (num_entries)
+                JUMP_FORWARD           156 (to L14)
+
+ 391   L11:     LOAD_FAST                7 (pos)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE      133 (to L13)
+                NOT_TAKEN
+
+ 392            LOAD_FAST_LOAD_FAST    103 (data, pos)
+                LOAD_FAST                7 (pos)
+                LOAD_GLOBAL             14 (END_CENTRAL_DIR_SIZE)
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST               9 (buffer)
+
+ 393            LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST                9 (buffer)
+                CALL                     1
+                LOAD_GLOBAL             14 (END_CENTRAL_DIR_SIZE)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       18 (to L12)
+                NOT_TAKEN
+
+ 394            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               9 ('corrupt Zip file: ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+
+ 395            LOAD_FAST                0 (archive)
+
+ 394            LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 397   L12:     LOAD_FAST                3 (file_size)
+                LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST                6 (data)
+                CALL                     1
+                BINARY_OP               10 (-)
+                LOAD_FAST                7 (pos)
+                BINARY_OP                0 (+)
+                STORE_FAST              10 (header_position)
+
+ 401            LOAD_GLOBAL             35 (_unpack_uint32 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              10 (slice(12, 16, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              11 (central_directory_size)
+
+ 402            LOAD_GLOBAL             35 (_unpack_uint32 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              11 (slice(16, 20, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              12 (central_directory_position)
+
+ 403            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              12 (slice(8, 10, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              13 (num_entries)
+                JUMP_FORWARD            17 (to L14)
+
+ 408   L13:     LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              13 ('not a Zip file: ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+
+ 409            LOAD_FAST                0 (archive)
+
+ 408            LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 415   L14:     LOAD_FAST_LOAD_FAST    171 (header_position, central_directory_size)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       18 (to L15)
+                NOT_TAKEN
+
+ 416            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              14 ('bad central directory size: ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 417   L15:     LOAD_FAST_LOAD_FAST    172 (header_position, central_directory_position)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       18 (to L16)
+                NOT_TAKEN
+
+ 418            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              15 ('bad central directory offset: ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 419   L16:     LOAD_FAST_LOAD_FAST    171 (header_position, central_directory_size)
+                BINARY_OP               23 (-=)
+                STORE_FAST              10 (header_position)
+
+ 423            LOAD_FAST_LOAD_FAST    172 (header_position, central_directory_position)
+                BINARY_OP               10 (-)
+                STORE_FAST              14 (arc_offset)
+
+ 424            LOAD_FAST               14 (arc_offset)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       18 (to L17)
+                NOT_TAKEN
+
+ 425            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              16 ('bad central directory size or offset: ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 427   L17:     BUILD_MAP                0
+                STORE_FAST              15 (files)
+
+ 429            LOAD_SMALL_INT           0
+                STORE_FAST              16 (count)
+
+ 430   L18:     NOP
+
+ 431   L19:     LOAD_FAST                1 (fp)
+                LOAD_ATTR               11 (seek + NULL|self)
+                LOAD_FAST               10 (header_position)
+                CALL                     1
+                POP_TOP
+
+ 434   L20:     NOP
+
+ 435            LOAD_FAST                1 (fp)
+                LOAD_ATTR               23 (read + NULL|self)
+                LOAD_SMALL_INT          46
+                CALL                     1
+                STORE_FAST               9 (buffer)
+
+ 436            LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST                9 (buffer)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L21)
+                NOT_TAKEN
+
+ 437            LOAD_GLOBAL             39 (EOFError + NULL)
+                LOAD_CONST              17 ('EOF read where not expected')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 439   L21:     LOAD_FAST                9 (buffer)
+                LOAD_CONST              18 (slice(None, 4, None))
+                BINARY_OP               26 ([])
+                LOAD_CONST              19 (b'PK\x01\x02')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       33 (to L23)
+                NOT_TAKEN
+
+ 440            LOAD_FAST               16 (count)
+                LOAD_FAST               13 (num_entries)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       24 (to L22)
+                NOT_TAKEN
+
+ 441            LOAD_GLOBAL              7 (ZipImportError + NULL)
+
+ 442            LOAD_CONST              20 ('mismatched num_entries: ')
+                LOAD_FAST               16 (count)
+                FORMAT_SIMPLE
+                LOAD_CONST              21 (' should be ')
+                LOAD_FAST               13 (num_entries)
+                FORMAT_SIMPLE
+                LOAD_CONST              22 (' in ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             6
+
+ 443            LOAD_FAST                0 (archive)
+
+ 441            LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 445   L22:     EXTENDED_ARG             3
+                JUMP_FORWARD           946 (to L50)
+
+ 446   L23:     LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST                9 (buffer)
+                CALL                     1
+                LOAD_SMALL_INT          46
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       12 (to L24)
+                NOT_TAKEN
+
+ 447            LOAD_GLOBAL             39 (EOFError + NULL)
+                LOAD_CONST              17 ('EOF read where not expected')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 448   L24:     LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              12 (slice(8, 10, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              17 (flags)
+
+ 449            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              23 (slice(10, 12, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              18 (compress)
+
+ 450            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              24 (slice(12, 14, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              19 (time)
+
+ 451            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              25 (slice(14, 16, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              20 (date)
+
+ 452            LOAD_GLOBAL             35 (_unpack_uint32 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              11 (slice(16, 20, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              21 (crc)
+
+ 453            LOAD_GLOBAL             35 (_unpack_uint32 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              26 (slice(20, 24, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              22 (data_size)
+
+ 454            LOAD_GLOBAL             35 (_unpack_uint32 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              27 (slice(24, 28, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST               3 (file_size)
+
+ 455            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              28 (slice(28, 30, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              23 (name_size)
+
+ 456            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              29 (slice(30, 32, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              24 (extra_size)
+
+ 457            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              30 (slice(32, 34, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              25 (comment_size)
+
+ 458            LOAD_GLOBAL             35 (_unpack_uint32 + NULL)
+                LOAD_FAST                9 (buffer)
+                LOAD_CONST              31 (slice(42, 46, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              26 (file_offset)
+
+ 459            LOAD_FAST               23 (name_size)
+                LOAD_FAST               24 (extra_size)
+                BINARY_OP                0 (+)
+                LOAD_FAST               25 (comment_size)
+                BINARY_OP                0 (+)
+                STORE_FAST              27 (header_size)
+
+ 461   L25:     NOP
+
+ 462   L26:     LOAD_FAST                1 (fp)
+                LOAD_ATTR               23 (read + NULL|self)
+                LOAD_FAST               23 (name_size)
+                CALL                     1
+                STORE_FAST              28 (name)
+
+ 465   L27:     LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST               28 (name)
+                CALL                     1
+                LOAD_FAST               23 (name_size)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       18 (to L28)
+                NOT_TAKEN
+
+ 466            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 470   L28:     NOP
+
+ 471   L29:     LOAD_FAST               27 (header_size)
+                LOAD_FAST               23 (name_size)
+                BINARY_OP               10 (-)
+                STORE_FAST              29 (extra_data_len)
+
+ 472            LOAD_GLOBAL             41 (memoryview + NULL)
+                LOAD_FAST                1 (fp)
+                LOAD_ATTR               23 (read + NULL|self)
+                LOAD_FAST               29 (extra_data_len)
+                CALL                     1
+                CALL                     1
+                STORE_FAST              30 (extra_data)
+
+ 474            LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST               30 (extra_data)
+                CALL                     1
+                LOAD_FAST               29 (extra_data_len)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       18 (to L30)
+                NOT_TAKEN
+
+ 475            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 474   L30:     NOP
+
+ 479            LOAD_FAST               17 (flags)
+                LOAD_CONST              32 (2048)
+                BINARY_OP                1 (&)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L33)
+       L31:     NOT_TAKEN
+
+ 481   L32:     LOAD_FAST               28 (name)
+                LOAD_ATTR               43 (decode + NULL|self)
+                CALL                     0
+                STORE_FAST              28 (name)
+                JUMP_FORWARD            18 (to L35)
+
+ 484   L33:     NOP
+
+ 485   L34:     LOAD_FAST               28 (name)
+                LOAD_ATTR               43 (decode + NULL|self)
+                LOAD_CONST              33 ('ascii')
+                CALL                     1
+                STORE_FAST              28 (name)
+
+ 489   L35:     LOAD_FAST               28 (name)
+                LOAD_ATTR               51 (replace + NULL|self)
+                LOAD_CONST              35 ('/')
+                LOAD_GLOBAL             52 (path_sep)
+                CALL                     2
+                STORE_FAST              28 (name)
+
+ 490            LOAD_GLOBAL             54 (_bootstrap_external)
+                LOAD_ATTR               56 (_path_join)
+                PUSH_NULL
+                LOAD_FAST                0 (archive)
+                LOAD_FAST               28 (name)
+                CALL                     2
+                STORE_FAST              31 (path)
+
+ 494            LOAD_FAST                3 (file_size)
+                LOAD_GLOBAL             58 (MAX_UINT32)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE        24 (to L36)
+                NOT_TAKEN
+
+ 495            LOAD_FAST               22 (data_size)
+                LOAD_GLOBAL             58 (MAX_UINT32)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE        13 (to L36)
+                NOT_TAKEN
+
+ 496            LOAD_FAST               26 (file_offset)
+                LOAD_GLOBAL             58 (MAX_UINT32)
+                COMPARE_OP              88 (bool(==))
+                EXTENDED_ARG             1
+                POP_JUMP_IF_FALSE      396 (to L48)
+                NOT_TAKEN
+
+ 500   L36:     LOAD_FAST               30 (extra_data)
+                TO_BOOL
+                EXTENDED_ARG             1
+                POP_JUMP_IF_FALSE      364 (to L47)
+       L37:     NOT_TAKEN
+
+ 501   L38:     LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST               30 (extra_data)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       18 (to L39)
+                NOT_TAKEN
+
+ 502            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              36 ("can't read header extra: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 503   L39:     LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST               30 (extra_data)
+                LOAD_CONST              37 (slice(None, 2, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              32 (tag)
+
+ 504            LOAD_GLOBAL             37 (_unpack_uint16 + NULL)
+                LOAD_FAST               30 (extra_data)
+                LOAD_CONST              38 (slice(2, 4, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              33 (size)
+
+ 505            LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST               30 (extra_data)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                LOAD_FAST               33 (size)
+                BINARY_OP                0 (+)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       18 (to L40)
+                NOT_TAKEN
+
+ 506            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              36 ("can't read header extra: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 507   L40:     LOAD_FAST               32 (tag)
+                LOAD_GLOBAL             60 (ZIP64_EXTRA_TAG)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      229 (to L46)
+                NOT_TAKEN
+
+ 508            LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST               30 (extra_data)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                BINARY_OP               10 (-)
+                LOAD_SMALL_INT           8
+                BINARY_OP                6 (%)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       18 (to L41)
+                NOT_TAKEN
+
+ 509            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              36 ("can't read header extra: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 510   L41:     LOAD_GLOBAL             31 (len + NULL)
+                LOAD_FAST               30 (extra_data)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                BINARY_OP               10 (-)
+                LOAD_SMALL_INT           8
+                BINARY_OP                2 (//)
+                STORE_FAST              34 (num_extra_values)
+
+ 511            LOAD_FAST               34 (num_extra_values)
+                LOAD_SMALL_INT           3
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       18 (to L42)
+                NOT_TAKEN
+
+ 512            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              36 ("can't read header extra: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 513   L42:     LOAD_SMALL_INT           0
+                LOAD_CONST              39 (None)
+                IMPORT_NAME             31 (struct)
+                STORE_FAST              35 (struct)
+
+ 514            LOAD_GLOBAL             65 (list + NULL)
+                LOAD_FAST               35 (struct)
+                LOAD_ATTR               67 (unpack_from + NULL|self)
+                LOAD_CONST              40 ('<')
+                LOAD_GLOBAL             69 (min + NULL)
+                LOAD_FAST               34 (num_extra_values)
+                LOAD_SMALL_INT           3
+                CALL                     2
+                FORMAT_SIMPLE
+                LOAD_CONST              41 ('Q')
+                BUILD_STRING             3
+
+ 515            LOAD_FAST               30 (extra_data)
+                LOAD_SMALL_INT           4
+
+ 514            LOAD_CONST              42 (('offset',))
+                CALL_KW                  3
+                CALL                     1
+                STORE_FAST              36 (values)
+
+ 520            LOAD_FAST                3 (file_size)
+                LOAD_GLOBAL             58 (MAX_UINT32)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L43)
+                NOT_TAKEN
+
+ 521            LOAD_FAST               36 (values)
+                LOAD_ATTR               71 (pop + NULL|self)
+                LOAD_SMALL_INT           0
+                CALL                     1
+                STORE_FAST               3 (file_size)
+
+ 522   L43:     LOAD_FAST               22 (data_size)
+                LOAD_GLOBAL             58 (MAX_UINT32)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L44)
+                NOT_TAKEN
+
+ 523            LOAD_FAST               36 (values)
+                LOAD_ATTR               71 (pop + NULL|self)
+                LOAD_SMALL_INT           0
+                CALL                     1
+                STORE_FAST              22 (data_size)
+
+ 524   L44:     LOAD_FAST               26 (file_offset)
+                LOAD_GLOBAL             58 (MAX_UINT32)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L45)
+                NOT_TAKEN
+
+ 525            LOAD_FAST               36 (values)
+                LOAD_ATTR               71 (pop + NULL|self)
+                LOAD_SMALL_INT           0
+                CALL                     1
+                STORE_FAST              26 (file_offset)
+
+ 527   L45:     JUMP_FORWARD            38 (to L48)
+
+ 531   L46:     LOAD_FAST               30 (extra_data)
+                LOAD_SMALL_INT           4
+                LOAD_FAST               33 (size)
+                BINARY_OP                0 (+)
+                LOAD_CONST              39 (None)
+                BINARY_SLICE
+                STORE_FAST              30 (extra_data)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          372 (to L36)
+
+ 533   L47:     LOAD_GLOBAL             72 (_bootstrap)
+                LOAD_ATTR               74 (_verbose_message)
+                PUSH_NULL
+
+ 534            LOAD_CONST              43 ('zipimport: suspected zip64 but no zip64 extra for {!r}')
+
+ 535            LOAD_FAST               31 (path)
+
+ 533            CALL                     2
+                POP_TOP
+
+ 542   L48:     LOAD_FAST               26 (file_offset)
+                LOAD_FAST               12 (central_directory_position)
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       18 (to L49)
+                NOT_TAKEN
+
+ 543            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST              44 ('bad local header offset: ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 544   L49:     LOAD_FAST               26 (file_offset)
+                LOAD_FAST               14 (arc_offset)
+                BINARY_OP               13 (+=)
+                STORE_FAST              26 (file_offset)
+
+ 546            LOAD_FAST               31 (path)
+                LOAD_FAST               18 (compress)
+                LOAD_FAST               22 (data_size)
+                LOAD_FAST                3 (file_size)
+                LOAD_FAST               26 (file_offset)
+                LOAD_FAST               19 (time)
+                LOAD_FAST               20 (date)
+                LOAD_FAST               21 (crc)
+                BUILD_TUPLE              8
+                STORE_FAST              37 (t)
+
+ 547            LOAD_FAST               37 (t)
+                LOAD_FAST               15 (files)
+                LOAD_FAST               28 (name)
+                STORE_SUBSCR
+
+ 548            LOAD_FAST               16 (count)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST              16 (count)
+                EXTENDED_ARG             4
+                JUMP_BACKWARD         1037 (to L20)
+
+ 550   L50:     LOAD_FAST                1 (fp)
+                LOAD_ATTR               11 (seek + NULL|self)
+                LOAD_FAST                2 (start_offset)
+                CALL                     1
+                POP_TOP
+       L51:     NOP
+
+ 352            LOAD_CONST              39 (None)
+                LOAD_CONST              39 (None)
+                LOAD_CONST              39 (None)
+                CALL                     3
+                POP_TOP
+
+ 551   L52:     LOAD_GLOBAL             72 (_bootstrap)
+                LOAD_ATTR               74 (_verbose_message)
+                PUSH_NULL
+                LOAD_CONST              45 ('zipimport: found {} names in {!r}')
+                LOAD_FAST_CHECK         16 (count)
+                LOAD_FAST                0 (archive)
+                CALL                     3
+                POP_TOP
+
+ 554            LOAD_SMALL_INT           0
+                STORE_FAST              16 (count)
+
+ 555            LOAD_GLOBAL             65 (list + NULL)
+                LOAD_FAST_CHECK         15 (files)
+                CALL                     1
+                GET_ITER
+       L53:     FOR_ITER                88 (to L57)
+                STORE_FAST              28 (name)
+
+ 556   L54:     NOP
+
+ 557            LOAD_FAST               28 (name)
+                LOAD_ATTR               77 (rstrip + NULL|self)
+                LOAD_GLOBAL             52 (path_sep)
+                CALL                     1
+                LOAD_ATTR               25 (rfind + NULL|self)
+                LOAD_GLOBAL             52 (path_sep)
+                CALL                     1
+                STORE_FAST              38 (i)
+
+ 558            LOAD_FAST               38 (i)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        3 (to L55)
+                NOT_TAKEN
+
+ 559            JUMP_BACKWARD           53 (to L53)
+
+ 560   L55:     LOAD_FAST               28 (name)
+                LOAD_CONST              39 (None)
+                LOAD_FAST               38 (i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST              28 (name)
+
+ 561            LOAD_FAST               28 (name)
+                LOAD_FAST               15 (files)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE        3 (to L56)
+                NOT_TAKEN
+
+ 562            JUMP_BACKWARD           74 (to L53)
+
+ 563   L56:     LOAD_CONST              39 (None)
+                LOAD_FAST               15 (files)
+                LOAD_FAST               28 (name)
+                STORE_SUBSCR
+
+ 564            LOAD_FAST               16 (count)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST              16 (count)
+                JUMP_BACKWARD           87 (to L54)
+
+ 555   L57:     END_FOR
+                POP_ITER
+
+ 565            LOAD_FAST               16 (count)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       25 (to L58)
+                NOT_TAKEN
+
+ 566            LOAD_GLOBAL             72 (_bootstrap)
+                LOAD_ATTR               74 (_verbose_message)
+                PUSH_NULL
+                LOAD_CONST              46 ('zipimport: added {} implicit directories in {!r}')
+
+ 567            LOAD_FAST               16 (count)
+                LOAD_FAST                0 (archive)
+
+ 566            CALL                     3
+                POP_TOP
+
+ 568   L58:     LOAD_FAST               15 (files)
+                RETURN_VALUE
+
+  --   L59:     PUSH_EXC_INFO
+
+ 349            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L60)
+                NOT_TAKEN
+                POP_TOP
+
+ 350            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               0 ("can't open Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 349   L60:     RERAISE                  0
+
+  --   L61:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L62:     PUSH_EXC_INFO
+
+ 362            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L63)
+                NOT_TAKEN
+                POP_TOP
+
+ 363            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+
+ 364            LOAD_FAST                0 (archive)
+
+ 363            LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 362   L63:     RERAISE                  0
+
+  --   L64:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L65:     PUSH_EXC_INFO
+
+ 372            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L66)
+                NOT_TAKEN
+                POP_TOP
+
+ 373            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+
+ 374            LOAD_FAST                0 (archive)
+
+ 373            LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 372   L66:     RERAISE                  0
+
+  --   L67:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L68:     PUSH_EXC_INFO
+
+ 432            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L69)
+                NOT_TAKEN
+                POP_TOP
+
+ 433            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 432   L69:     RERAISE                  0
+
+  --   L70:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L71:     PUSH_EXC_INFO
+
+ 463            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L72)
+                NOT_TAKEN
+                POP_TOP
+
+ 464            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 463   L72:     RERAISE                  0
+
+  --   L73:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L74:     PUSH_EXC_INFO
+
+ 476            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L75)
+                NOT_TAKEN
+                POP_TOP
+
+ 477            LOAD_GLOBAL              7 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               1 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 476   L75:     RERAISE                  0
+
+  --   L76:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L77:     PUSH_EXC_INFO
+
+ 486            LOAD_GLOBAL             44 (UnicodeDecodeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       41 (to L79)
+                NOT_TAKEN
+                POP_TOP
+
+ 487            LOAD_FAST               28 (name)
+                LOAD_ATTR               43 (decode + NULL|self)
+                LOAD_CONST              34 ('latin1')
+                CALL                     1
+                LOAD_ATTR               47 (translate + NULL|self)
+                LOAD_GLOBAL             48 (cp437_table)
+                CALL                     1
+                STORE_FAST              28 (name)
+       L78:     POP_EXCEPT
+                EXTENDED_ARG             3
+                JUMP_BACKWARD_NO_INTERRUPT 965 (to L35)
+
+ 486   L79:     RERAISE                  0
+
+  --   L80:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L81:     PUSH_EXC_INFO
+
+ 550            LOAD_FAST                1 (fp)
+                LOAD_ATTR               11 (seek + NULL|self)
+                LOAD_FAST                2 (start_offset)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L82:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 352   L83:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L84)
+                NOT_TAKEN
+                RERAISE                  2
+       L84:     POP_TOP
+       L85:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 448 (to L52)
+
+  --   L86:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L59 [0]
+  L3 to L4 -> L83 [2] lasti
+  L5 to L6 -> L62 [2]
+  L6 to L7 -> L81 [2]
+  L8 to L9 -> L65 [2]
+  L9 to L18 -> L81 [2]
+  L19 to L20 -> L68 [2]
+  L20 to L25 -> L81 [2]
+  L26 to L27 -> L71 [2]
+  L27 to L28 -> L81 [2]
+  L29 to L30 -> L74 [2]
+  L30 to L31 -> L81 [2]
+  L32 to L33 -> L81 [2]
+  L34 to L35 -> L77 [2]
+  L35 to L37 -> L81 [2]
+  L38 to L50 -> L81 [2]
+  L50 to L51 -> L83 [2] lasti
+  L59 to L61 -> L61 [1] lasti
+  L62 to L64 -> L64 [3] lasti
+  L64 to L65 -> L81 [2]
+  L65 to L67 -> L67 [3] lasti
+  L67 to L68 -> L81 [2]
+  L68 to L70 -> L70 [3] lasti
+  L70 to L71 -> L81 [2]
+  L71 to L73 -> L73 [3] lasti
+  L73 to L74 -> L81 [2]
+  L74 to L76 -> L76 [3] lasti
+  L76 to L77 -> L81 [2]
+  L77 to L78 -> L80 [3] lasti
+  L78 to L79 -> L81 [2]
+  L79 to L80 -> L80 [3] lasti
+  L80 to L81 -> L81 [2]
+  L81 to L82 -> L82 [3] lasti
+  L82 to L83 -> L83 [2] lasti
+  L83 to L85 -> L86 [4] lasti
+
+Disassembly of <code object _get_decompress_func at 0x00000204B9FA6AD0, file "zipimport.py", line 610>:
+ 610           RESUME                   0
+
+ 612           LOAD_GLOBAL              0 (_importing_zlib)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       34 (to L1)
+               NOT_TAKEN
+
+ 615           LOAD_GLOBAL              2 (_bootstrap)
+               LOAD_ATTR                4 (_verbose_message)
+               PUSH_NULL
+               LOAD_CONST               0 ('zipimport: zlib UNAVAILABLE')
+               CALL                     1
+               POP_TOP
+
+ 616           LOAD_GLOBAL              7 (ZipImportError + NULL)
+               LOAD_CONST               1 ("can't decompress data; zlib not available")
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 618   L1:     LOAD_CONST               2 (True)
+               STORE_GLOBAL             0 (_importing_zlib)
+
+ 619           NOP
+
+ 620   L2:     LOAD_SMALL_INT           0
+               LOAD_CONST               3 (('decompress',))
+               IMPORT_NAME              4 (zlib)
+               IMPORT_FROM              5 (decompress)
+               STORE_FAST               0 (decompress)
+               POP_TOP
+       L3:     NOP
+
+ 625           LOAD_CONST               4 (False)
+               STORE_GLOBAL             0 (_importing_zlib)
+
+ 627           LOAD_GLOBAL              2 (_bootstrap)
+               LOAD_ATTR                4 (_verbose_message)
+               PUSH_NULL
+               LOAD_CONST               5 ('zipimport: zlib available')
+               CALL                     1
+               POP_TOP
+
+ 628           LOAD_FAST                0 (decompress)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 621           LOAD_GLOBAL             12 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       35 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 622           LOAD_GLOBAL              2 (_bootstrap)
+               LOAD_ATTR                4 (_verbose_message)
+               PUSH_NULL
+               LOAD_CONST               0 ('zipimport: zlib UNAVAILABLE')
+               CALL                     1
+               POP_TOP
+
+ 623           LOAD_GLOBAL              7 (ZipImportError + NULL)
+               LOAD_CONST               1 ("can't decompress data; zlib not available")
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 621   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+       L7:     PUSH_EXC_INFO
+
+ 625           LOAD_CONST               4 (False)
+               STORE_GLOBAL             0 (_importing_zlib)
+               RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L6 -> L6 [1] lasti
+  L6 to L7 -> L7 [0]
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object _get_data at 0x00000204BA3E32E0, file "zipimport.py", line 631>:
+ 631            RESUME                   0
+
+ 632            LOAD_FAST_BORROW         1 (toc_entry)
+                UNPACK_SEQUENCE          8
+                STORE_FAST_STORE_FAST   35 (datapath, compress)
+                STORE_FAST_STORE_FAST   69 (data_size, file_size)
+                STORE_FAST_STORE_FAST  103 (file_offset, time)
+                STORE_FAST_STORE_FAST  137 (date, crc)
+
+ 633            LOAD_FAST_BORROW         4 (data_size)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L1)
+                NOT_TAKEN
+
+ 634            LOAD_GLOBAL              1 (ZipImportError + NULL)
+                LOAD_CONST               1 ('negative data size')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 636    L1:     LOAD_GLOBAL              2 (_io)
+                LOAD_ATTR                4 (open_code)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (archive)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L2:     STORE_FAST              10 (fp)
+
+ 638    L3:     NOP
+
+ 639    L4:     LOAD_FAST_BORROW        10 (fp)
+                LOAD_ATTR                7 (seek + NULL|self)
+                LOAD_FAST_BORROW         6 (file_offset)
+                CALL                     1
+                POP_TOP
+
+ 642    L5:     LOAD_FAST               10 (fp)
+                LOAD_ATTR               11 (read + NULL|self)
+                LOAD_SMALL_INT          30
+                CALL                     1
+                STORE_FAST              11 (buffer)
+
+ 643            LOAD_GLOBAL             13 (len + NULL)
+                LOAD_FAST               11 (buffer)
+                CALL                     1
+                LOAD_SMALL_INT          30
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       12 (to L6)
+                NOT_TAKEN
+
+ 644            LOAD_GLOBAL             15 (EOFError + NULL)
+                LOAD_CONST               4 ('EOF read where not expected')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 646    L6:     LOAD_FAST               11 (buffer)
+                LOAD_CONST               5 (slice(None, 4, None))
+                BINARY_OP               26 ([])
+                LOAD_CONST               6 (b'PK\x03\x04')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       18 (to L7)
+                NOT_TAKEN
+
+ 648            LOAD_GLOBAL              1 (ZipImportError + NULL)
+                LOAD_CONST               7 ('bad local file header: ')
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               3 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 650    L7:     LOAD_GLOBAL             17 (_unpack_uint16 + NULL)
+                LOAD_FAST               11 (buffer)
+                LOAD_CONST               8 (slice(26, 28, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              12 (name_size)
+
+ 651            LOAD_GLOBAL             17 (_unpack_uint16 + NULL)
+                LOAD_FAST               11 (buffer)
+                LOAD_CONST               9 (slice(28, 30, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST              13 (extra_size)
+
+ 652            LOAD_SMALL_INT          30
+                LOAD_FAST               12 (name_size)
+                BINARY_OP                0 (+)
+                LOAD_FAST               13 (extra_size)
+                BINARY_OP                0 (+)
+                STORE_FAST              14 (header_size)
+
+ 653            LOAD_FAST_LOAD_FAST    110 (file_offset, header_size)
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (file_offset)
+
+ 654    L8:     NOP
+
+ 655    L9:     LOAD_FAST               10 (fp)
+                LOAD_ATTR                7 (seek + NULL|self)
+                LOAD_FAST                6 (file_offset)
+                CALL                     1
+                POP_TOP
+
+ 658   L10:     LOAD_FAST               10 (fp)
+                LOAD_ATTR               11 (read + NULL|self)
+                LOAD_FAST                4 (data_size)
+                CALL                     1
+                STORE_FAST              15 (raw_data)
+
+ 659            LOAD_GLOBAL             13 (len + NULL)
+                LOAD_FAST               15 (raw_data)
+                CALL                     1
+                LOAD_FAST                4 (data_size)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       12 (to L11)
+                NOT_TAKEN
+
+ 660            LOAD_GLOBAL              9 (OSError + NULL)
+                LOAD_CONST              10 ("zipimport: can't read data")
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 659   L11:     NOP
+
+ 636            LOAD_CONST              11 (None)
+                LOAD_CONST              11 (None)
+                LOAD_CONST              11 (None)
+                CALL                     3
+                POP_TOP
+
+ 662   L12:     LOAD_FAST                3 (compress)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L13)
+                NOT_TAKEN
+
+ 664            LOAD_FAST_CHECK         15 (raw_data)
+                RETURN_VALUE
+
+ 667   L13:     NOP
+
+ 668   L14:     LOAD_GLOBAL             19 (_get_decompress_func + NULL)
+                CALL                     0
+                STORE_FAST              16 (decompress)
+
+ 671   L15:     LOAD_FAST               16 (decompress)
+                PUSH_NULL
+                LOAD_FAST_CHECK         15 (raw_data)
+                LOAD_CONST              13 (-15)
+                CALL                     2
+                RETURN_VALUE
+
+  --   L16:     PUSH_EXC_INFO
+
+ 640            LOAD_GLOBAL              8 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+ 641            LOAD_GLOBAL              1 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               3 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 640   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L19:     PUSH_EXC_INFO
+
+ 656            LOAD_GLOBAL              8 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       19 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+ 657            LOAD_GLOBAL              1 (ZipImportError + NULL)
+                LOAD_CONST               2 ("can't read Zip file: ")
+                LOAD_FAST                0 (archive)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                0 (archive)
+                LOAD_CONST               3 (('path',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 656   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 636   L22:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L23)
+                NOT_TAKEN
+                RERAISE                  2
+       L23:     POP_TOP
+       L24:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 109 (to L12)
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L26:     PUSH_EXC_INFO
+
+ 669            LOAD_GLOBAL             20 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       13 (to L27)
+                NOT_TAKEN
+                POP_TOP
+
+ 670            LOAD_GLOBAL              1 (ZipImportError + NULL)
+                LOAD_CONST              12 ("can't decompress data; zlib not available")
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 669   L27:     RERAISE                  0
+
+  --   L28:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L22 [2] lasti
+  L4 to L5 -> L16 [2]
+  L5 to L8 -> L22 [2] lasti
+  L9 to L10 -> L19 [2]
+  L10 to L11 -> L22 [2] lasti
+  L14 to L15 -> L26 [0]
+  L16 to L18 -> L18 [3] lasti
+  L18 to L19 -> L22 [2] lasti
+  L19 to L21 -> L21 [3] lasti
+  L21 to L22 -> L22 [2] lasti
+  L22 to L24 -> L25 [4] lasti
+  L26 to L28 -> L28 [1] lasti
+
+Disassembly of <code object _eq_mtime at 0x00000204BA08B130, file "zipimport.py", line 677>:
+677           RESUME                   0
+
+679           LOAD_GLOBAL              1 (abs + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (t1, t2)
+              BINARY_OP               10 (-)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              COMPARE_OP              42 (<=)
+              RETURN_VALUE
+
+Disassembly of <code object _unmarshal_code at 0x00000204BA443C70, file "zipimport.py", line 685>:
+ 685           RESUME                   0
+
+ 687           LOAD_CONST               0 ('name')
+               LOAD_FAST_BORROW         3 (fullname)
+
+ 688           LOAD_CONST               1 ('path')
+               LOAD_FAST_BORROW         2 (fullpath)
+
+ 686           BUILD_MAP                2
+               STORE_FAST               5 (exc_details)
+
+ 691           LOAD_GLOBAL              0 (_bootstrap_external)
+               LOAD_ATTR                2 (_classify_pyc)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (data, fullname)
+               LOAD_FAST_BORROW         5 (exc_details)
+               CALL                     3
+               STORE_FAST               6 (flags)
+
+ 693           LOAD_FAST_BORROW         6 (flags)
+               LOAD_SMALL_INT           1
+               BINARY_OP                1 (&)
+               LOAD_SMALL_INT           0
+               COMPARE_OP             103 (!=)
+               STORE_FAST               7 (hash_based)
+
+ 694           LOAD_FAST_BORROW         7 (hash_based)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      139 (to L3)
+               NOT_TAKEN
+
+ 695           LOAD_FAST_BORROW         6 (flags)
+               LOAD_SMALL_INT           2
+               BINARY_OP                1 (&)
+               LOAD_SMALL_INT           0
+               COMPARE_OP             103 (!=)
+               STORE_FAST               8 (check_source)
+
+ 696           LOAD_GLOBAL              4 (_imp)
+               LOAD_ATTR                6 (check_hash_based_pycs)
+               LOAD_CONST               2 ('never')
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE      105 (to L2)
+               NOT_TAKEN
+
+ 697           LOAD_FAST_BORROW         8 (check_source)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        22 (to L1)
+               NOT_TAKEN
+               LOAD_GLOBAL              4 (_imp)
+               LOAD_ATTR                6 (check_hash_based_pycs)
+               LOAD_CONST               3 ('always')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       76 (to L2)
+               NOT_TAKEN
+
+ 698   L1:     LOAD_GLOBAL              9 (_get_pyc_source + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (self, fullpath)
+               CALL                     2
+               STORE_FAST               9 (source_bytes)
+
+ 699           LOAD_FAST_BORROW         9 (source_bytes)
+               POP_JUMP_IF_NONE        61 (to L2)
+               NOT_TAKEN
+
+ 700           LOAD_GLOBAL              4 (_imp)
+               LOAD_ATTR               10 (source_hash)
+               PUSH_NULL
+
+ 701           LOAD_GLOBAL              4 (_imp)
+               LOAD_ATTR               12 (pyc_magic_number_token)
+
+ 702           LOAD_FAST_BORROW         9 (source_bytes)
+
+ 700           CALL                     2
+               STORE_FAST              10 (source_hash)
+
+ 705           LOAD_GLOBAL              0 (_bootstrap_external)
+               LOAD_ATTR               14 (_validate_hash_pyc)
+               PUSH_NULL
+
+ 706           LOAD_FAST_BORROW_LOAD_FAST_BORROW 74 (data, source_hash)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (fullname, exc_details)
+
+ 705           CALL                     4
+               POP_TOP
+
+  --   L2:     JUMP_FORWARD           106 (to L5)
+
+ 709   L3:     LOAD_GLOBAL             17 (_get_mtime_and_size_of_source + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (self, fullpath)
+               CALL                     2
+
+ 708           UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST  188 (source_mtime, source_size)
+
+ 711           LOAD_FAST_BORROW        11 (source_mtime)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       86 (to L5)
+               NOT_TAKEN
+
+ 714           LOAD_GLOBAL             19 (_eq_mtime + NULL)
+               LOAD_GLOBAL             21 (_unpack_uint32 + NULL)
+               LOAD_FAST_BORROW         4 (data)
+               LOAD_CONST               5 (slice(8, 12, None))
+               BINARY_OP               26 ([])
+               CALL                     1
+               LOAD_FAST_BORROW        11 (source_mtime)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       24 (to L4)
+               NOT_TAKEN
+
+ 715           LOAD_GLOBAL             21 (_unpack_uint32 + NULL)
+               LOAD_FAST_BORROW         4 (data)
+               LOAD_CONST               6 (slice(12, 16, None))
+               BINARY_OP               26 ([])
+               CALL                     1
+               LOAD_FAST_BORROW        12 (source_size)
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       29 (to L5)
+               NOT_TAKEN
+
+ 716   L4:     LOAD_GLOBAL             22 (_bootstrap)
+               LOAD_ATTR               24 (_verbose_message)
+               PUSH_NULL
+
+ 717           LOAD_CONST               7 ('bytecode is stale for ')
+               LOAD_FAST_BORROW         3 (fullname)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+
+ 716           CALL                     1
+               POP_TOP
+
+ 718           LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+ 720   L5:     LOAD_GLOBAL             26 (marshal)
+               LOAD_ATTR               28 (loads)
+               PUSH_NULL
+               LOAD_FAST_BORROW         4 (data)
+               LOAD_CONST               8 (slice(16, None, None))
+               BINARY_OP               26 ([])
+               CALL                     1
+               STORE_FAST              13 (code)
+
+ 721           LOAD_GLOBAL             31 (isinstance + NULL)
+               LOAD_FAST_BORROW        13 (code)
+               LOAD_GLOBAL             32 (_code_type)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        17 (to L6)
+               NOT_TAKEN
+
+ 722           LOAD_GLOBAL             35 (TypeError + NULL)
+               LOAD_CONST               9 ('compiled module ')
+               LOAD_FAST_BORROW         1 (pathname)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               LOAD_CONST              10 (' is not a code object')
+               BUILD_STRING             3
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 723   L6:     LOAD_FAST_BORROW        13 (code)
+               RETURN_VALUE
+
+Disassembly of <code object _normalize_line_endings at 0x00000204BA0A6790, file "zipimport.py", line 730>:
+730           RESUME                   0
+
+731           LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               0 (b'\r\n')
+              LOAD_CONST               1 (b'\n')
+              CALL                     2
+              STORE_FAST               0 (source)
+
+732           LOAD_FAST_BORROW         0 (source)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               2 (b'\r')
+              LOAD_CONST               1 (b'\n')
+              CALL                     2
+              STORE_FAST               0 (source)
+
+733           LOAD_FAST_BORROW         0 (source)
+              RETURN_VALUE
+
+Disassembly of <code object _compile_source at 0x00000204BA0FF550, file "zipimport.py", line 737>:
+737           RESUME                   0
+
+738           LOAD_GLOBAL              1 (_normalize_line_endings + NULL)
+              LOAD_FAST_BORROW         1 (source)
+              CALL                     1
+              STORE_FAST               1 (source)
+
+739           LOAD_GLOBAL              3 (compile + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (source, pathname)
+              LOAD_CONST               0 ('exec')
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('dont_inherit',))
+              CALL_KW                  4
+              RETURN_VALUE
+
+Disassembly of <code object _parse_dostime at 0x00000204B9F6EDB0, file "zipimport.py", line 743>:
+743           RESUME                   0
+
+744           LOAD_GLOBAL              0 (time)
+              LOAD_ATTR                2 (mktime)
+              PUSH_NULL
+
+745           LOAD_FAST_BORROW         0 (d)
+              LOAD_SMALL_INT           9
+              BINARY_OP                9 (>>)
+              LOAD_CONST               1 (1980)
+              BINARY_OP                0 (+)
+
+746           LOAD_FAST_BORROW         0 (d)
+              LOAD_SMALL_INT           5
+              BINARY_OP                9 (>>)
+              LOAD_SMALL_INT          15
+              BINARY_OP                1 (&)
+
+747           LOAD_FAST_BORROW         0 (d)
+              LOAD_SMALL_INT          31
+              BINARY_OP                1 (&)
+
+748           LOAD_FAST_BORROW         1 (t)
+              LOAD_SMALL_INT          11
+              BINARY_OP                9 (>>)
+
+749           LOAD_FAST_BORROW         1 (t)
+              LOAD_SMALL_INT           5
+              BINARY_OP                9 (>>)
+              LOAD_SMALL_INT          63
+              BINARY_OP                1 (&)
+
+750           LOAD_FAST_BORROW         1 (t)
+              LOAD_SMALL_INT          31
+              BINARY_OP                1 (&)
+              LOAD_SMALL_INT           2
+              BINARY_OP                5 (*)
+
+751           LOAD_CONST               2 (-1)
+              LOAD_CONST               2 (-1)
+              LOAD_CONST               2 (-1)
+
+744           BUILD_TUPLE              9
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _get_mtime_and_size_of_source at 0x00000204B9FFB2D0, file "zipimport.py", line 756>:
+ 756           RESUME                   0
+
+ 757           NOP
+
+ 759   L1:     LOAD_FAST_BORROW         1 (path)
+               LOAD_CONST               2 (-1)
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               LOAD_CONST               3 (('c', 'o'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+               RAISE_VARARGS            1
+
+ 760   L2:     LOAD_FAST_BORROW         1 (path)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               2 (-1)
+               BINARY_SLICE
+               STORE_FAST               1 (path)
+
+ 761           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (_get_files + NULL|self)
+               CALL                     0
+               LOAD_FAST_BORROW         1 (path)
+               BINARY_OP               26 ([])
+               STORE_FAST               2 (toc_entry)
+
+ 764           LOAD_FAST_BORROW         2 (toc_entry)
+               LOAD_SMALL_INT           5
+               BINARY_OP               26 ([])
+               STORE_FAST               3 (time)
+
+ 765           LOAD_FAST_BORROW         2 (toc_entry)
+               LOAD_SMALL_INT           6
+               BINARY_OP               26 ([])
+               STORE_FAST               4 (date)
+
+ 766           LOAD_FAST_BORROW         2 (toc_entry)
+               LOAD_SMALL_INT           3
+               BINARY_OP               26 ([])
+               STORE_FAST               5 (uncompressed_size)
+
+ 767           LOAD_GLOBAL              3 (_parse_dostime + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (date, time)
+               CALL                     2
+               LOAD_FAST_BORROW         5 (uncompressed_size)
+               BUILD_TUPLE              2
+       L3:     RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 768           LOAD_GLOBAL              4 (KeyError)
+               LOAD_GLOBAL              6 (IndexError)
+               LOAD_GLOBAL              8 (TypeError)
+               BUILD_TUPLE              3
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 769           LOAD_CONST               4 ((0, 0))
+               SWAP                     2
+       L5:     POP_EXCEPT
+               RETURN_VALUE
+
+ 768   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object _get_pyc_source at 0x00000204B9FB7930, file "zipimport.py", line 775>:
+ 775           RESUME                   0
+
+ 777           LOAD_FAST_BORROW         1 (path)
+               LOAD_CONST               2 (-1)
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               LOAD_CONST               3 (('c', 'o'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_TRUE         3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+               RAISE_VARARGS            1
+
+ 778   L1:     LOAD_FAST_BORROW         1 (path)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               2 (-1)
+               BINARY_SLICE
+               STORE_FAST               1 (path)
+
+ 780           NOP
+
+ 781   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (_get_files + NULL|self)
+               CALL                     0
+               LOAD_FAST_BORROW         1 (path)
+               BINARY_OP               26 ([])
+               STORE_FAST               2 (toc_entry)
+
+ 785   L3:     LOAD_GLOBAL              3 (_get_data + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (archive)
+               LOAD_FAST_BORROW         2 (toc_entry)
+               CALL                     2
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 782           LOAD_GLOBAL              6 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 783   L5:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 782   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object _get_module_code at 0x00000204BA3ACB20, file "zipimport.py", line 790>:
+ 790            RESUME                   0
+
+ 791            LOAD_GLOBAL              1 (_get_module_path + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+                CALL                     2
+                STORE_FAST               2 (path)
+
+ 792            LOAD_CONST               0 (None)
+                STORE_FAST               3 (import_error)
+
+ 793            LOAD_GLOBAL              2 (_zip_searchorder)
+                GET_ITER
+        L1:     FOR_ITER               165 (to L9)
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   69 (suffix, isbytecode)
+                STORE_FAST               6 (ispackage)
+
+ 794            LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (path, suffix)
+                BINARY_OP                0 (+)
+                STORE_FAST               7 (fullpath)
+
+ 795            LOAD_GLOBAL              4 (_bootstrap)
+                LOAD_ATTR                6 (_verbose_message)
+                PUSH_NULL
+                LOAD_CONST               1 ('trying {}{}{}')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (archive)
+                LOAD_GLOBAL             10 (path_sep)
+                LOAD_FAST_BORROW         7 (fullpath)
+                LOAD_SMALL_INT           2
+                LOAD_CONST               2 (('verbosity',))
+                CALL_KW                  5
+                POP_TOP
+
+ 796            NOP
+
+ 797    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               13 (_get_files + NULL|self)
+                CALL                     0
+                LOAD_FAST_BORROW         7 (fullpath)
+                BINARY_OP               26 ([])
+                STORE_FAST               8 (toc_entry)
+
+ 801    L3:     LOAD_FAST_BORROW         8 (toc_entry)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               9 (modpath)
+
+ 802            LOAD_GLOBAL             15 (_get_data + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (archive)
+                LOAD_FAST_BORROW         8 (toc_entry)
+                CALL                     2
+                STORE_FAST              10 (data)
+
+ 803            LOAD_CONST               0 (None)
+                STORE_FAST              11 (code)
+
+ 804            LOAD_FAST_BORROW         5 (isbytecode)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       16 (to L6)
+                NOT_TAKEN
+
+ 805            NOP
+
+ 806    L4:     LOAD_GLOBAL             17 (_unmarshal_code + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 9 (self, modpath)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 113 (fullpath, fullname)
+                LOAD_FAST_BORROW        10 (data)
+                CALL                     5
+                STORE_FAST              11 (code)
+        L5:     JUMP_FORWARD            11 (to L7)
+
+ 810    L6:     LOAD_GLOBAL             21 (_compile_source + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 154 (modpath, data)
+                CALL                     2
+                STORE_FAST              11 (code)
+
+ 811    L7:     LOAD_FAST_BORROW        11 (code)
+                POP_JUMP_IF_NOT_NONE     3 (to L8)
+                NOT_TAKEN
+
+ 814            JUMP_BACKWARD          152 (to L1)
+
+ 815    L8:     LOAD_FAST_BORROW         8 (toc_entry)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               9 (modpath)
+
+ 816            LOAD_FAST_BORROW_LOAD_FAST_BORROW 182 (code, ispackage)
+                LOAD_FAST_BORROW         9 (modpath)
+                BUILD_TUPLE              3
+                SWAP                     2
+                POP_TOP
+                RETURN_VALUE
+
+ 793    L9:     END_FOR
+                POP_ITER
+
+ 818            LOAD_FAST_BORROW         3 (import_error)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L10)
+                NOT_TAKEN
+
+ 819            LOAD_CONST               3 ('module load failed: ')
+                LOAD_FAST_BORROW         3 (import_error)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                STORE_FAST              13 (msg)
+
+ 820            LOAD_GLOBAL             25 (ZipImportError + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 209 (msg, fullname)
+                LOAD_CONST               4 (('name',))
+                CALL_KW                  2
+                LOAD_FAST_BORROW         3 (import_error)
+                RAISE_VARARGS            2
+
+ 822   L10:     LOAD_GLOBAL             25 (ZipImportError + NULL)
+                LOAD_CONST               5 ("can't find module ")
+                LOAD_FAST_BORROW         1 (fullname)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST_BORROW         1 (fullname)
+                LOAD_CONST               4 (('name',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+  --   L11:     PUSH_EXC_INFO
+
+ 807            LOAD_GLOBAL             18 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       13 (to L15)
+                NOT_TAKEN
+                STORE_FAST              12 (exc)
+
+ 808   L12:     LOAD_FAST               12 (exc)
+                STORE_FAST               3 (import_error)
+       L13:     POP_EXCEPT
+                LOAD_CONST               0 (None)
+                STORE_FAST              12 (exc)
+                DELETE_FAST             12 (exc)
+                JUMP_BACKWARD_NO_INTERRUPT 84 (to L7)
+
+  --   L14:     LOAD_CONST               0 (None)
+                STORE_FAST              12 (exc)
+                DELETE_FAST             12 (exc)
+                RERAISE                  1
+
+ 807   L15:     RERAISE                  0
+
+  --   L16:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L17:     PUSH_EXC_INFO
+
+ 798            LOAD_GLOBAL             22 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L19)
+                NOT_TAKEN
+                POP_TOP
+
+ 799   L18:     POP_EXCEPT
+                JUMP_BACKWARD          252 (to L1)
+
+ 798   L19:     RERAISE                  0
+
+  --   L20:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L17 [1]
+  L4 to L5 -> L11 [1]
+  L11 to L12 -> L16 [2] lasti
+  L12 to L13 -> L14 [2] lasti
+  L14 to L16 -> L16 [2] lasti
+  L17 to L18 -> L20 [2] lasti
+  L19 to L20 -> L20 [2] lasti

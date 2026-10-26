@@ -1,0 +1,126 @@
+<module>()  line 1
+    _ThreadWakeup()  line 68
+        _ThreadWakeup.__init__(self)  line 69
+        _ThreadWakeup.close(self)  line 74
+        _ThreadWakeup.wakeup(self)  line 86
+        _ThreadWakeup.clear(self)  line 91
+    _python_exit()  line 98
+    _RemoteTraceback()  line 129
+        _RemoteTraceback.__init__(self, tb)  line 130
+        _RemoteTraceback.__str__(self)  line 132
+    _ExceptionWithTraceback()  line 135
+        _ExceptionWithTraceback.__init__(self, exc, tb)  line 136
+        _ExceptionWithTraceback.__reduce__(self)  line 143
+    _rebuild_exc(exc, tb)  line 146
+    _WorkItem()  line 150
+        _WorkItem.__init__(self, future, fn, args, kwargs)  line 151
+    _ResultItem()  line 157
+        _ResultItem.__init__(self, work_id, exception, result, exit_pid)  line 158
+    _CallItem()  line 164
+        _CallItem.__init__(self, work_id, fn, args, kwargs)  line 165
+    _SafeQueue()  line 172
+        _SafeQueue.__init__(self, max_size, ctx, pending_work_items, thread_wakeup)  line 174
+        _SafeQueue._on_queue_feeder_error(self, e, obj)  line 179
+    _process_chunk(fn, chunk)  line 194
+    _sendback_result(result_queue, work_id, result, exception, exit_pid)  line 206
+    _process_worker(call_queue, result_queue, initializer, initargs, max_tasks)  line 218
+    _ExecutorManagerThread()  line 272
+        _ExecutorManagerThread.__init__(self, executor)  line 284
+            _ExecutorManagerThread.__init__.<locals>.weakref_cb(_, thread_wakeup, mp_util_debug)  line 298
+        _ExecutorManagerThread.run(self)  line 330
+        _ExecutorManagerThread.add_call_item_to_queue(self)  line 382
+        _ExecutorManagerThread.wait_result_broken_or_wakeup(self)  line 405
+        _ExecutorManagerThread.process_result_item(self, result_item)  line 435
+        _ExecutorManagerThread.is_shutting_down(self)  line 448
+        _ExecutorManagerThread._terminate_broken(self, cause)  line 458
+        _ExecutorManagerThread.terminate_broken(self, cause)  line 505
+        _ExecutorManagerThread.flag_executor_shutting_down(self)  line 509
+        _ExecutorManagerThread.shutdown_workers(self)  line 535
+        _ExecutorManagerThread.join_executor_internals(self)  line 549
+        _ExecutorManagerThread._join_executor_internals(self, broken)  line 553
+        _ExecutorManagerThread.get_n_children_alive(self)  line 570
+            _ExecutorManagerThread.get_n_children_alive.<locals>.<genexpr>(.0)  line 572
+    _check_system_limits()  line 579
+    _chain_from_iterable_of_lists(iterable)  line 611
+    BrokenProcessPool()  line 623
+    ProcessPoolExecutor()  line 638
+        ProcessPoolExecutor.__init__(self, max_workers, mp_context, initializer, initargs, max_tasks_per_child)  line 639
+        ProcessPoolExecutor._start_executor_manager_thread(self)  line 747
+        ProcessPoolExecutor._adjust_process_count(self)  line 757
+        ProcessPoolExecutor._launch_processes(self)  line 777
+        ProcessPoolExecutor._spawn_process(self)  line 785
+        ProcessPoolExecutor.submit(self, fn)  line 796
+        ProcessPoolExecutor.map(self, fn, timeout, chunksize, buffersize)  line 821
+        ProcessPoolExecutor.shutdown(self, wait, cancel_futures)  line 856
+        ProcessPoolExecutor._force_shutdown(self, operation)  line 878
+        ProcessPoolExecutor.terminate_workers(self)  line 919
+        ProcessPoolExecutor.kill_workers(self)  line 930
+
+--- strings ---
+'Implements ProcessPoolExecutor.\n\nThe following diagram and text describe the data-flow through the system:\n\n|======================= In-process =====================|== Out-of-process ==|\n\n+----------+     +----------+       +--------+     +-----------+    +---------+\n|          |  => | Work Ids |       |        |     | Call Q    |    | Process |\n|          |     +----------+       |        |     +-----------+    |  Pool   |\n|          |     | ...      |       |        |     | ...       |    +---------+\n|          |     | 6        |    => |        |  => | 5, call() | => |         |\n|          |     | 7        |       |        |     | ...       |    |         |\n| Process  |     | ...      |       | Local  |     +-----------+    | Process |\n|  Pool    |     +----------+       | Worker |                      |  #1..n  |\n| Executor |                        | Thread |                      |         |\n|          |     +----------- +     |        |     +-----------+    |         |\n|          | <=> | Work Items | <=> |        | <=  | Result Q  | <= |         |\n|          |     +------------+     |        |     +-----------+    |         |\n|          |     | 6: call()  |     |        |     | ...       |    |         |\n|          |     |    future  |     |        |     | 4, result |    |         |\n|          |     | ...        |     |        |     | 3, except |    |         |\n+----------+     +------------+     +--------+     +-----------+    +---------+\n\nExecutor.submit() called:\n- creates a uniquely numbered _WorkItem and adds it to the "Work Items" dict\n- adds the id of the _WorkItem to the "Work Ids" queue\n\nLocal worker thread:\n- reads work ids from the "Work Ids" queue and looks up the corresponding\n  WorkItem from the "Work Items" dict: if the work item has been cancelled then\n  it is simply removed from the dict, otherwise it is repackaged as a\n  _CallItem and put in the "Call Q". New _CallItems are put in the "Call Q"\n  until "Call Q" is full. NOTE: the size of the "Call Q" is kept small because\n  calls placed in the "Call Q" can no longer be cancelled with Future.cancel().\n- reads _ResultItems from "Result Q", updates the future stored in the\n  "Work Items" dict and deletes the dict entry\n\nProcess #1..n:\n- reads _CallItems from "Call Q", executes the calls, and puts the resulting\n  _ResultItems in "Result Q"\n'
+'Brian Quinlan (brian@sweetapp.com)'
+'_ThreadWakeup'
+'operation on closed _ThreadWakeup'
+'_ThreadWakeup'
+'_RemoteTraceback'
+'_RemoteTraceback'
+'_ExceptionWithTraceback'
+'\n"""\n%s"""'
+'_ExceptionWithTraceback'
+'_WorkItem'
+'_WorkItem'
+'_ResultItem'
+'_ResultItem'
+'_CallItem'
+'_CallItem'
+'_SafeQueue'
+'Safe Queue set exception to the future object linked to a job'
+'\n"""\n{}"""'
+'_SafeQueue'
+'Processes a chunk of an iterable passed to map.\n\nRuns the function passed to map() on a chunk of the\niterable passed to map.\n\nThis function is run in a separate process.\n\n'
+'Safely send back the given result or exception'
+'Evaluates calls from call_queue and places the results in result_queue.\n\nThis worker is run in a separate process.\n\nArgs:\n    call_queue: A ctx.Queue of _CallItems that will be read and\n        evaluated by the worker.\n    result_queue: A ctx.Queue of _ResultItems that will written\n        to by the worker.\n    initializer: A callable initializer, or None\n    initargs: A tuple of args for the initializer\n'
+'Exception in initializer:'
+'_ExecutorManagerThread'
+'Manages the communication between this process and the worker processes.\n\nThe manager is run in a local thread.\n\nArgs:\n    executor: A reference to the ProcessPoolExecutor that owns\n        this thread. A weakref will be own by the manager as well as\n        references to internal objects used to introspect the state of\n        the executor.\n'
+'Executor collected: triggering callback for QueueManager wakeup'
+'A child process terminated abruptly, the process pool is not usable anymore'
+'A process in the process pool was terminated abruptly while the future was running or pending.'
+"\n'''\n"
+"'''"
+'_ExecutorManagerThread'
+'This Python build lacks multiprocessing.synchronize, usually due to named semaphores being unavailable on this platform.'
+'SC_SEM_NSEMS_MAX'
+'system provides too few semaphores (%d available, 256 necessary)'
+'\nSpecialized implementation of itertools.chain.from_iterable.\nEach item in *iterable* should be a list.  This function is\ncareful not to keep references to yielded objects.\n'
+'BrokenProcessPool'
+'\nRaised when a process in a ProcessPoolExecutor terminated abruptly\nwhile a future was in the running state.\n'
+'BrokenProcessPool'
+'terminate'
+'kill'
+'ProcessPoolExecutor'
+'max_tasks_per_child'
+"Initializes a new ProcessPoolExecutor instance.\n\nArgs:\n    max_workers: The maximum number of processes that can be used to\n        execute the given calls. If None or not given then as many\n        worker processes will be created as the machine has processors.\n    mp_context: A multiprocessing context to launch the workers created\n        using the multiprocessing.get_context('start method') API. This\n        object should provide SimpleQueue, Queue and Process.\n    initializer: A callable used to initialize worker processes.\n    initargs: A tuple of arguments to pass to the initializer.\n    max_tasks_per_child: The maximum number of tasks a worker process\n        can complete before it will exit and be replaced with a fresh\n        worker process. The default of None means worker process will\n        live as long as the executor. Requires a non-'fork' mp_context\n        start method. When given, we default to using 'spawn' if no\n        mp_context is supplied.\n"
+'win32'
+'max_workers must be greater than 0'
+'max_workers must be <= '
+'spawn'
+'fork'
+'initializer must be a callable'
+'max_tasks_per_child must be an integer'
+'max_tasks_per_child must be >= 1'
+"max_tasks_per_child is incompatible with the 'fork' multiprocessing start method; supply a different mp_context."
+'Processes cannot be fork()ed after the thread has started, deadlock in the child processes could result.'
+'cannot schedule new futures after shutdown'
+'cannot schedule new futures after interpreter shutdown'
+'timeout'
+'chunksize'
+'buffersize'
+'Returns an iterator equivalent to map(fn, iter).\n\nArgs:\n    fn: A callable that will take as many arguments as there are\n        passed iterables.\n    timeout: The maximum number of seconds to wait. If None, then there\n        is no limit on the wait time.\n    chunksize: If greater than one, the iterables will be chopped into\n        chunks of size chunksize and submitted to the process pool.\n        If set to one, the items in the list will be sent one at a time.\n    buffersize: The number of submitted tasks whose results have not\n        yet been yielded. If the buffer is full, iteration over the\n        iterables pauses until a result is yielded from the buffer.\n        If None, all input elements are eagerly collected, and a task is\n        submitted for each.\n\nReturns:\n    An iterator equivalent to: map(func, *iterables) but the calls may\n    be evaluated out-of-order.\n\nRaises:\n    TimeoutError: If the entire result iterator could not be generated\n        before the given timeout.\n    Exception: If fn(*args) raises for any values.\n'
+'chunksize must be >= 1.'
+'cancel_futures'
+"Attempts to terminate or kill the executor's workers based off the\ngiven operation. Iterates through all of the current processes and\nperforms the relevant task if the process is still alive.\n\nAfter terminating workers, the pool will be in a broken state\nand no longer usable (for instance, new tasks should not be\nsubmitted).\n"
+'Unsupported operation: '
+"Attempts to terminate the executor's workers.\nIterates through all of the current worker processes and terminates\neach one that is still alive.\n\nAfter terminating workers, the pool will be in a broken state\nand no longer usable (for instance, new tasks should not be\nsubmitted).\n"
+"Attempts to kill the executor's workers.\nIterates through all of the current worker processes and kills\neach one that is still alive.\n\nAfter killing workers, the pool will be in a broken state\nand no longer usable (for instance, new tasks should not be\nsubmitted).\n"
+'ProcessPoolExecutor'

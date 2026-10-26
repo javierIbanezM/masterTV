@@ -1,0 +1,187 @@
+<module>()  line 1
+    mapstar(args)  line 47
+    starmapstar(args)  line 50
+    RemoteTraceback()  line 57
+        RemoteTraceback.__init__(self, tb)  line 58
+        RemoteTraceback.__str__(self)  line 60
+    ExceptionWithTraceback()  line 63
+        ExceptionWithTraceback.__init__(self, exc, tb)  line 64
+        ExceptionWithTraceback.__reduce__(self)  line 69
+    rebuild_exc(exc, tb)  line 72
+    MaybeEncodingError()  line 80
+        MaybeEncodingError.__init__(self, exc, value)  line 84
+        MaybeEncodingError.__str__(self)  line 89
+        MaybeEncodingError.__repr__(self)  line 93
+    worker(inqueue, outqueue, initializer, initargs, maxtasks, wrap_exception)  line 97
+    _helper_reraises_exception(ex)  line 142
+    _PoolCache()  line 150
+        _PoolCache.__init__(self, notifier)  line 157
+        _PoolCache.__delitem__(self, item)  line 161
+    Pool()  line 173
+        Pool.Process(ctx)  line 179
+        Pool.__init__(self, processes, initializer, initargs, maxtasksperchild, context)  line 183
+        Pool.__del__(self, _warn, RUN)  line 266
+        Pool.__repr__(self)  line 273
+        Pool._get_sentinels(self)  line 279
+        Pool._get_worker_sentinels(workers)  line 284
+        Pool._join_exited_workers(pool)  line 289
+        Pool._repopulate_pool(self)  line 305
+        Pool._repopulate_pool_static(ctx, Process, processes, pool, inqueue, outqueue, initializer, initargs, maxtasksperchild, wrap_exception)  line 314
+        Pool._maintain_pool(ctx, Process, processes, pool, inqueue, outqueue, initializer, initargs, maxtasksperchild, wrap_exception)  line 333
+        Pool._setup_queues(self)  line 345
+        Pool._check_running(self)  line 351
+        Pool.apply(self, func, args, kwds)  line 355
+        Pool.map(self, func, iterable, chunksize)  line 362
+        Pool.starmap(self, func, iterable, chunksize)  line 369
+        Pool.starmap_async(self, func, iterable, chunksize, callback, error_callback)  line 377
+        Pool._guarded_task_generation(self, result_job, func, iterable)  line 385
+        Pool.imap(self, func, iterable, chunksize)  line 396
+            Pool.imap.<locals>.<genexpr>(.0)  line 423
+        Pool.imap_unordered(self, func, iterable, chunksize)  line 425
+            Pool.imap_unordered.<locals>.<genexpr>(.0)  line 451
+        Pool.apply_async(self, func, args, kwds, callback, error_callback)  line 453
+        Pool.map_async(self, func, iterable, chunksize, callback, error_callback)  line 463
+        Pool._map_async(self, func, iterable, mapper, chunksize, callback, error_callback)  line 471
+        Pool._wait_for_updates(sentinels, change_notifier, timeout)  line 500
+        Pool._handle_workers(cls, cache, taskqueue, ctx, Process, processes, pool, inqueue, outqueue, initializer, initargs, maxtasksperchild, wrap_exception, sentinels, change_notifier)  line 506
+        Pool._handle_tasks(taskqueue, put, outqueue, pool, cache)  line 527
+        Pool._handle_results(outqueue, get, cache)  line 573
+        Pool._get_tasks(func, it, size)  line 633
+        Pool.__reduce__(self)  line 642
+        Pool.close(self)  line 647
+        Pool.terminate(self)  line 654
+        Pool.join(self)  line 659
+        Pool._help_stuff_finish(inqueue, task_handler, size)  line 671
+        Pool._terminate_pool(cls, taskqueue, inqueue, outqueue, pool, change_notifier, worker_handler, task_handler, result_handler, cache)  line 680
+        Pool.__enter__(self)  line 734
+        Pool.__exit__(self, exc_type, exc_val, exc_tb)  line 738
+    ApplyResult()  line 745
+        ApplyResult.__init__(self, pool, callback, error_callback)  line 747
+        ApplyResult.ready(self)  line 756
+        ApplyResult.successful(self)  line 759
+        ApplyResult.wait(self, timeout)  line 764
+        ApplyResult.get(self, timeout)  line 767
+        ApplyResult._set(self, i, obj)  line 776
+    MapResult()  line 794
+        MapResult.__init__(self, pool, chunksize, length, callback, error_callback)  line 796
+        MapResult._set(self, i, success_result)  line 809
+    IMapIterator()  line 837
+        IMapIterator.__init__(self, pool)  line 839
+        IMapIterator.__iter__(self)  line 850
+        IMapIterator.next(self, timeout)  line 853
+        IMapIterator._set(self, i, obj)  line 877
+        IMapIterator._set_length(self, length)  line 894
+    IMapUnorderedIterator()  line 906
+        IMapUnorderedIterator._set(self, i, obj)  line 908
+    ThreadPool()  line 921
+        ThreadPool.Process(ctx)  line 924
+        ThreadPool.__init__(self, processes, initializer, initargs)  line 929
+        ThreadPool._setup_queues(self)  line 932
+        ThreadPool._get_sentinels(self)  line 938
+        ThreadPool._get_worker_sentinels(workers)  line 941
+        ThreadPool._help_stuff_finish(inqueue, task_handler, size)  line 945
+        ThreadPool._wait_for_updates(self, sentinels, change_notifier, timeout)  line 956
+
+--- strings ---
+'Pool'
+'ThreadPool'
+'INIT'
+'RUN'
+'CLOSE'
+'TERMINATE'
+'RemoteTraceback'
+'RemoteTraceback'
+'ExceptionWithTraceback'
+'\n"""\n%s"""'
+'ExceptionWithTraceback'
+'MaybeEncodingError'
+'Wraps possible unpickleable errors, so they can be\nsafely sent through the socket.'
+"Error sending result: '"
+"'. Reason: '"
+': '
+'MaybeEncodingError'
+'Maxtasks {!r} is not valid'
+'_writer'
+'worker got EOFError or OSError -- exiting'
+'worker got sentinel -- exiting'
+'Possible encoding error while sending result: %s'
+'worker exiting after %d tasks'
+'Pickle-able helper function for use by _guarded_task_generation.'
+'_PoolCache'
+'\nClass that implements a cache for the Pool class that will notify\nthe pool management threads every time the cache is emptied. The\nnotification is done by the use of a queue that is provided when\ninstantiating the cache.\n'
+'notifier'
+'_PoolCache'
+'Pool'
+'\nClass which supports an async version of applying functions to arguments.\n'
+'Number of processes must be at least 1'
+'maxtasksperchild must be a positive int or None'
+'initializer must be a callable'
+'unclosed running multiprocessing pool '
+'_change_notifier'
+' state='
+' pool_size='
+'sentinel'
+'Cleanup after any worker processes which have exited due to reaching\ntheir specified lifetime.  Returns True if any workers were cleaned up.\n'
+'cleaning up worker %d'
+'Bring the number of pool processes up to the specified number,\nfor use after reaping workers which have exited.\n'
+'Process'
+'PoolWorker'
+'added worker'
+'Clean up any exited workers and start replacements for them.\n        '
+'Pool not running'
+'\nEquivalent of `func(*args, **kwds)`.\nPool must be running.\n'
+'\nApply `func` to each element in `iterable`, collecting the results\nin a list that is returned.\n'
+'\nLike `map()` method but the elements of the `iterable` are expected to\nbe iterables as well and will be unpacked as arguments. Hence\n`func` and (a, b) becomes func(a, b).\n'
+'\nAsynchronous version of `starmap()` method.\n'
+'Provides a generator of tasks for imap and imap_unordered with\nappropriate handling for iterables which throw exceptions during\niteration.'
+'\nEquivalent of `map()` -- can be MUCH slower than `Pool.map()`.\n'
+'Chunksize must be 1+, not {0:n}'
+'\nLike `imap()` method but ordering of results is arbitrary.\n'
+'Chunksize must be 1+, not {0!r}'
+'\nAsynchronous version of `apply()` method.\n'
+'\nAsynchronous version of `map()` method.\n'
+'\nHelper function to implement map, starmap and their async counterparts.\n'
+'__len__'
+'worker handler exiting'
+'task handler found thread._state != RUN'
+'doing set_length()'
+'task handler got sentinel'
+'task handler sending sentinel to result handler'
+'task handler sending sentinel to workers'
+'task handler got OSError when sending sentinels'
+'task handler exiting'
+'result handler got EOFError/OSError -- exiting'
+'Thread not in TERMINATE'
+'result handler found thread._state=TERMINATE'
+'result handler got sentinel'
+'result handler ignoring extra sentinel'
+'_reader'
+'ensuring that outqueue is not full'
+'result handler exiting: len(cache)=%s, thread._state=%s'
+'pool objects cannot be passed between processes or pickled'
+'closing pool'
+'terminating pool'
+'joining pool'
+'Pool is still running'
+'In unknown state'
+'removing tasks from inqueue until task handler finished'
+'finalizing pool'
+'helping task handler/workers to finish'
+'Cannot have cache with result_handler not alive'
+'joining worker handler'
+'terminate'
+'terminating workers'
+'joining task handler'
+'joining result handler'
+'joining pool workers'
+'cleaning up worker %d'
+'ApplyResult'
+'{0!r} not ready'
+'ApplyResult'
+'MapResult'
+'MapResult'
+'IMapIterator'
+'IMapIterator'
+'IMapUnorderedIterator'
+'IMapUnorderedIterator'
+'ThreadPool'

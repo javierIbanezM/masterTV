@@ -1,0 +1,92 @@
+<module>()  line 1
+    _bytes_from_decode_data(s)  line 31
+    b64encode(s, altchars)  line 48
+    b64decode(s, altchars, validate)  line 62
+    standard_b64encode(s)  line 88
+    standard_b64decode(s)  line 95
+    urlsafe_b64encode(s)  line 109
+    urlsafe_b64decode(s)  line 118
+    _b32encode(alphabet, s)  line 163
+    _b32decode(alphabet, s, casefold, map01)  line 198
+    b32encode(s)  line 244
+    b32decode(s, casefold, map01)  line 248
+    b32hexencode(s)  line 253
+    b32hexdecode(s, casefold)  line 257
+    b16encode(s)  line 267
+    b16decode(s, casefold)  line 273
+    _85encode(b, chars, chars2, pad, foldnuls, foldspaces)  line 299
+    a85encode(b, foldspaces, wrapcol, pad, adobe)  line 323
+    a85decode(b, foldspaces, adobe, ignorechars)  line 364
+    b85encode(b, pad)  line 442
+    b85decode(b)  line 456
+    z85encode(s)  line 508
+    z85decode(s)  line 512
+    encode(input, output)  line 531
+    decode(input, output)  line 540
+    _input_type_check(s)  line 546
+    encodebytes(s)  line 562
+    decodebytes(s)  line 573
+    main()  line 580
+
+--- strings ---
+'Base16, Base32, Base64 (RFC 3548), Base85 and Ascii85 data encodings'
+'ascii'
+'string argument should contain only ASCII characters'
+'argument should be a bytes-like object or ASCII string, not %r'
+"Encode the bytes-like object s using Base64 and return a bytes object.\n\nOptional altchars should be a byte string of length 2 which specifies an\nalternative alphabet for the '+' and '/' characters.  This allows an\napplication to e.g. generate url or filesystem safe Base64 strings.\n"
+"Decode the Base64 encoded bytes-like object or ASCII string s.\n\nOptional altchars must be a bytes-like object or ASCII string of length 2\nwhich specifies the alternative alphabet used instead of the '+' and '/'\ncharacters.\n\nThe result is returned as a bytes object.  A binascii.Error is raised if\ns is incorrectly padded.\n\nIf validate is False (the default), characters that are neither in the\nnormal base-64 alphabet nor the alternative alphabet are discarded prior\nto the padding check.  If validate is True, these non-alphabet characters\nin the input result in a binascii.Error.\nFor more information about the strict base64 check, see:\n\nhttps://docs.python.org/3.11/library/binascii.html#binascii.a2b_base64\n"
+'Encode bytes-like object s using the standard Base64 alphabet.\n\nThe result is returned as a bytes object.\n'
+'Decode bytes encoded with the standard Base64 alphabet.\n\nArgument s is a bytes-like object or ASCII string to decode.  The result\nis returned as a bytes object.  A binascii.Error is raised if the input\nis incorrectly padded.  Characters that are not in the standard alphabet\nare discarded prior to the padding check.\n'
+"Encode bytes using the URL- and filesystem-safe Base64 alphabet.\n\nArgument s is a bytes-like object to encode.  The result is returned as a\nbytes object.  The alphabet uses '-' instead of '+' and '_' instead of\n'/'.\n"
+"Decode bytes using the URL- and filesystem-safe Base64 alphabet.\n\nArgument s is a bytes-like object or ASCII string to decode.  The result\nis returned as a bytes object.  A binascii.Error is raised if the input\nis incorrectly padded.  Characters that are not in the URL-safe base-64\nalphabet, and are not a plus '+' or slash '/', are discarded prior to the\npadding check.\n\nThe alphabet uses '-' instead of '+' and '_' instead of '/'.\n"
+'\nEncode the bytes-like objects using {encoding} and return a bytes object.\n'
+'\nDecode the {encoding} encoded bytes-like object or ASCII string s.\n\nOptional casefold is a flag specifying whether a lowercase alphabet is\nacceptable as input.  For security purposes, the default is False.\n{extra_args}\nThe result is returned as a bytes object.  A binascii.Error is raised if\nthe input is incorrectly padded or if there are non-alphabet\ncharacters present in the input.\n'
+'\nRFC 3548 allows for optional mapping of the digit 0 (zero) to the\nletter O (oh), and for optional mapping of the digit 1 (one) to\neither the letter I (eye) or letter L (el).  The optional argument\nmap01 when not None, specifies which letter the digit 1 should be\nmapped to (when map01 is not None, the digit 0 is always mapped to\nthe letter O).  For security purposes the default is None, so that\n0 and 1 are not allowed in the input.\n'
+'Incorrect padding'
+'Non-base32 digit found'
+'base32'
+'base32hex'
+'Encode the bytes-like object s using Base16 and return a bytes object.\n    '
+'Decode the Base16 encoded bytes-like object or ASCII string s.\n\nOptional casefold is a flag specifying whether a lowercase alphabet is\nacceptable as input.  For security purposes, the default is False.\n\nThe result is returned as a bytes object.  A binascii.Error is raised if\ns is incorrectly padded or if there are non-alphabet characters present\nin the input.\n'
+'Non-base16 digit found'
+'!%dI'
+'foldspaces'
+'wrapcol'
+'pad'
+'adobe'
+'Encode bytes-like object b using Ascii85 and return a bytes object.\n\nfoldspaces is an optional flag that uses the special short sequence \'y\'\ninstead of 4 consecutive spaces (ASCII 0x20) as supported by \'btoa\'. This\nfeature is not supported by the "standard" Adobe encoding.\n\nwrapcol controls whether the output should have newline (b\'\\n\') characters\nadded to it. If this is non-zero, each output line will be at most this\nmany characters long, excluding the trailing newline.\n\npad controls whether the input is padded to a multiple of 4 before\nencoding. Note that the btoa implementation always pads.\n\nadobe controls whether the encoded byte sequence is framed with <~ and ~>,\nwhich is used by the Adobe implementation.\n'
+'ignorechars'
+'Decode the Ascii85 encoded bytes-like object or ASCII string b.\n\nfoldspaces is a flag that specifies whether the \'y\' short sequence should be\naccepted as shorthand for 4 consecutive spaces (ASCII 0x20). This feature is\nnot supported by the "standard" Adobe encoding.\n\nadobe controls whether the input sequence is in Adobe Ascii85 format (i.e.\nis framed with <~ and ~>).\n\nignorechars should be a byte string containing characters to ignore from the\ninput. This should only contain whitespace characters, and by default\ncontains all whitespace characters in ASCII.\n\nThe result is returned as a bytes object.\n'
+'Ascii85 encoded byte sequences must end with {!r}'
+'!I'
+'Ascii85 overflow'
+'z inside Ascii85 5-tuple'
+'y inside Ascii85 5-tuple'
+'Non-Ascii85 digit found: %c'
+"Encode bytes-like object b in base85 format and return a bytes object.\n\nIf pad is true, the input is padded with b'\\0' so its length is a multiple of\n4 bytes before encoding.\n"
+'Decode the base85-encoded bytes-like object or ASCII string b\n\nThe result is returned as a bytes object.\n'
+'!I'
+'bad base85 character at position %d'
+'base85 overflow in hunk starting at byte %d'
+'Encode bytes-like object b in z85 format and return a bytes object.'
+'Decode the z85-encoded bytes-like object or ASCII string b\n\nThe result is returned as a bytes object.\n'
+'base85'
+'z85'
+'Encode a file; input and output are binary files.'
+'Decode a file; input and output are binary files.'
+'expected bytes-like object, not %s'
+'expected single byte elements, not '
+' from '
+'expected 1-D data, not %d-D data from %s'
+'Encode a bytestring into a bytes object containing multiple lines\nof base-64 data.'
+'Decode a bytestring of base-64 data into a bytes object.'
+'Small main program'
+'usage: '
+' [-h|-d|-e|-u] [file|-]\n        -h: print this help message and exit\n        -d, -u: decode\n        -e: encode (default)'
+'hdeu'
+'-e'
+'-d'
+'-u'
+'-h'
+'rb'
+'__main__'

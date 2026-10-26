@@ -1,0 +1,1218 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('A collection of string constants.\n\nPublic module variables:\n\nwhitespace -- a string containing all ASCII whitespace\nascii_lowercase -- a string containing all ASCII lowercase letters\nascii_uppercase -- a string containing all ASCII uppercase letters\nascii_letters -- a string containing all ASCII letters\ndigits -- a string containing all ASCII decimal digits\nhexdigits -- a string containing all ASCII hexadecimal digits\noctdigits -- a string containing all ASCII octal digits\npunctuation -- a string containing all ASCII punctuation characters\nprintable -- a string containing all ASCII characters considered printable\n\n')
+              STORE_NAME               0 (__doc__)
+
+ 17           BUILD_LIST               0
+              LOAD_CONST              17 (('ascii_letters', 'ascii_lowercase', 'ascii_uppercase', 'capwords', 'digits', 'hexdigits', 'octdigits', 'printable', 'punctuation', 'whitespace', 'Formatter', 'Template'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (__all__)
+
+ 21           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (None)
+              IMPORT_NAME              2 (_string)
+              STORE_NAME               2 (_string)
+
+ 24           LOAD_CONST               4 (' \t\n\r\x0b\x0c')
+              STORE_NAME               3 (whitespace)
+
+ 25           LOAD_CONST               5 ('abcdefghijklmnopqrstuvwxyz')
+              STORE_NAME               4 (ascii_lowercase)
+
+ 26           LOAD_CONST               6 ('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+              STORE_NAME               5 (ascii_uppercase)
+
+ 27           LOAD_NAME                4 (ascii_lowercase)
+              LOAD_NAME                5 (ascii_uppercase)
+              BINARY_OP                0 (+)
+              STORE_NAME               6 (ascii_letters)
+
+ 28           LOAD_CONST               7 ('0123456789')
+              STORE_NAME               7 (digits)
+
+ 29           LOAD_NAME                7 (digits)
+              LOAD_CONST               8 ('abcdef')
+              BINARY_OP                0 (+)
+              LOAD_CONST               9 ('ABCDEF')
+              BINARY_OP                0 (+)
+              STORE_NAME               8 (hexdigits)
+
+ 30           LOAD_CONST              10 ('01234567')
+              STORE_NAME               9 (octdigits)
+
+ 31           LOAD_CONST              11 ('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~')
+              STORE_NAME              10 (punctuation)
+
+ 32           LOAD_NAME                7 (digits)
+              LOAD_NAME                6 (ascii_letters)
+              BINARY_OP                0 (+)
+              LOAD_NAME               10 (punctuation)
+              BINARY_OP                0 (+)
+              LOAD_NAME                3 (whitespace)
+              BINARY_OP                0 (+)
+              STORE_NAME              11 (printable)
+
+ 37           LOAD_CONST              18 ((None,))
+              LOAD_CONST              12 (<code object capwords at 0x00000204B9F72C30, file "string\__init__.py", line 37>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              12 (capwords)
+
+ 52           BUILD_MAP                0
+              STORE_NAME              13 (_sentinel_dict)
+
+ 55           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              13 (<code object _TemplatePattern at 0x00000204BA08AD30, file "string\__init__.py", line 55>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 ('_TemplatePattern')
+              CALL                     2
+              STORE_NAME              14 (_TemplatePattern)
+
+ 61           LOAD_NAME               14 (_TemplatePattern)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              14 (_TemplatePattern)
+
+ 64           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              15 (<code object Template at 0x00000204B9F72D90, file "string\__init__.py", line 64>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('Template')
+              CALL                     2
+              STORE_NAME              15 (Template)
+
+203           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              16 (<code object Formatter at 0x00000204B9FEF800, file "string\__init__.py", line 203>)
+              MAKE_FUNCTION
+              LOAD_CONST               1 ('Formatter')
+              CALL                     2
+              STORE_NAME              16 (Formatter)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object capwords at 0x00000204B9F72C30, file "string\__init__.py", line 37>:
+ 37           RESUME                   0
+
+ 48           LOAD_FAST                1 (sep)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 (' ')
+      L1:     LOAD_ATTR                1 (join + NULL|self)
+              LOAD_GLOBAL              3 (map + NULL)
+              LOAD_GLOBAL              4 (str)
+              LOAD_ATTR                6 (capitalize)
+              LOAD_FAST_BORROW         0 (s)
+              LOAD_ATTR                9 (split + NULL|self)
+              LOAD_FAST_BORROW         1 (sep)
+              CALL                     1
+              CALL                     2
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _TemplatePattern at 0x00000204BA08AD30, file "string\__init__.py", line 55>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  55           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_TemplatePattern')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          55
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  57           LOAD_CONST               4 ((None,))
+               LOAD_CONST               2 (<code object __get__ at 0x00000204BA088330, file "string\__init__.py", line 57>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__get__)
+               LOAD_CONST               3 (())
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __get__ at 0x00000204BA088330, file "string\__init__.py", line 57>:
+ 57           RESUME                   0
+
+ 58           LOAD_FAST_BORROW         2 (cls)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+ 59           LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+ 60   L1:     LOAD_FAST_BORROW         2 (cls)
+              LOAD_ATTR                1 (_compile_pattern + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object Template at 0x00000204B9F72D90, file "string\__init__.py", line 64>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  64           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Template')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          64
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  65           LOAD_CONST               1 ('A string class for supporting $-substitutions.')
+               STORE_NAME               4 (__doc__)
+
+  67           LOAD_CONST               2 ('$')
+               STORE_NAME               5 (delimiter)
+
+  72           LOAD_CONST               3 ('(?a:[_a-z][_a-z0-9]*)')
+               STORE_NAME               6 (idpattern)
+
+  73           LOAD_CONST               4 (None)
+               STORE_NAME               7 (braceidpattern)
+
+  74           LOAD_CONST               4 (None)
+               STORE_NAME               8 (flags)
+
+  76           LOAD_NAME                9 (_TemplatePattern)
+               STORE_NAME              10 (pattern)
+
+  78           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object __init_subclass__ at 0x00000204BA0A68B0, file "string\__init__.py", line 78>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              11 (__init_subclass__)
+
+  82           LOAD_NAME               12 (classmethod)
+
+  83           LOAD_CONST               6 (<code object _compile_pattern at 0x00000204BA36A240, file "string\__init__.py", line 82>)
+               MAKE_FUNCTION
+
+  82           CALL                     0
+
+  83           STORE_NAME              13 (_compile_pattern)
+
+ 104           LOAD_CONST               7 (<code object __init__ at 0x00000204BA0914D0, file "string\__init__.py", line 104>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (__init__)
+
+ 109           LOAD_CONST               8 (<code object _invalid at 0x00000204B9F4DD30, file "string\__init__.py", line 109>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (_invalid)
+
+ 121           LOAD_NAME               16 (_sentinel_dict)
+               BUILD_TUPLE              1
+               LOAD_CONST               9 (<code object substitute at 0x00000204B9FB6BB0, file "string\__init__.py", line 121>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              17 (substitute)
+
+ 141           LOAD_NAME               16 (_sentinel_dict)
+               BUILD_TUPLE              1
+               LOAD_CONST              10 (<code object safe_substitute at 0x00000204B9FB5E30, file "string\__init__.py", line 141>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              18 (safe_substitute)
+
+ 163           LOAD_CONST              11 (<code object is_valid at 0x00000204B9F5AA30, file "string\__init__.py", line 163>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (is_valid)
+
+ 176           LOAD_CONST              12 (<code object get_identifiers at 0x00000204BA3ABDB0, file "string\__init__.py", line 176>)
+               MAKE_FUNCTION
+               STORE_NAME              20 (get_identifiers)
+               LOAD_CONST              13 (('template',))
+               STORE_NAME              21 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              22 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              23 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init_subclass__ at 0x00000204BA0A68B0, file "string\__init__.py", line 78>:
+  --           COPY_FREE_VARS           1
+
+  78           RESUME                   0
+
+  79           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (cls)
+               LOAD_SUPER_ATTR          5 (__init_subclass__ + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  80           LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                5 (_compile_pattern + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _compile_pattern at 0x00000204BA36A240, file "string\__init__.py", line 82>:
+ 82           RESUME                   0
+
+ 84           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (re)
+              STORE_FAST               1 (re)
+
+ 86           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                2 (__dict__)
+              LOAD_ATTR                5 (get + NULL|self)
+              LOAD_CONST               2 ('pattern')
+              LOAD_GLOBAL              6 (_TemplatePattern)
+              CALL                     2
+              STORE_FAST               2 (pattern)
+
+ 87           LOAD_FAST_BORROW         2 (pattern)
+              LOAD_GLOBAL              6 (_TemplatePattern)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       87 (to L2)
+              NOT_TAKEN
+
+ 88           LOAD_FAST_BORROW         1 (re)
+              LOAD_ATTR                9 (escape + NULL|self)
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               10 (delimiter)
+              CALL                     1
+              STORE_FAST               3 (delim)
+
+ 89           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               12 (idpattern)
+              STORE_FAST               4 (id)
+
+ 90           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               14 (braceidpattern)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        13 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               12 (idpattern)
+      L1:     STORE_FAST               5 (bid)
+
+ 91           LOAD_CONST               3 ('\n            ')
+
+ 92           LOAD_FAST_BORROW         3 (delim)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ('(?:\n              (?P<escaped>')
+
+ 93           LOAD_FAST_BORROW         3 (delim)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (')  |   # Escape sequence of two delimiters\n              (?P<named>')
+
+ 94           LOAD_FAST_BORROW         4 (id)
+              FORMAT_SIMPLE
+              LOAD_CONST               6 (')       |   # delimiter and a Python identifier\n              {(?P<braced>')
+
+ 95           LOAD_FAST_BORROW         5 (bid)
+              FORMAT_SIMPLE
+              LOAD_CONST               7 (')} |   # delimiter and a braced identifier\n              (?P<invalid>)             # Other ill-formed delimiter exprs\n            )\n            ')
+
+ 91           BUILD_STRING             9
+              STORE_FAST               2 (pattern)
+
+ 99   L2:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               16 (flags)
+              POP_JUMP_IF_NOT_NONE    18 (to L3)
+              NOT_TAKEN
+
+100           LOAD_FAST_BORROW         1 (re)
+              LOAD_ATTR               18 (IGNORECASE)
+              LOAD_FAST_BORROW         0 (cls)
+              STORE_ATTR               8 (flags)
+
+101   L3:     LOAD_FAST_BORROW         1 (re)
+              LOAD_ATTR               21 (compile + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (pattern, cls)
+              LOAD_ATTR               16 (flags)
+              LOAD_FAST_BORROW         1 (re)
+              LOAD_ATTR               22 (VERBOSE)
+              BINARY_OP                7 (|)
+              CALL                     2
+              COPY                     1
+              STORE_FAST_LOAD_FAST    96 (pat, cls)
+              STORE_ATTR              12 (pattern)
+
+102           LOAD_FAST_BORROW         6 (pat)
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0914D0, file "string\__init__.py", line 104>:
+104           RESUME                   0
+
+105           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (template, self)
+              STORE_ATTR               0 (template)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _invalid at 0x00000204B9F4DD30, file "string\__init__.py", line 109>:
+109           RESUME                   0
+
+110           LOAD_FAST_BORROW         1 (mo)
+              LOAD_ATTR                1 (start + NULL|self)
+              LOAD_CONST               0 ('invalid')
+              CALL                     1
+              STORE_FAST               2 (i)
+
+111           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (template)
+              LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         2 (i)
+              BINARY_SLICE
+              LOAD_ATTR                5 (splitlines + NULL|self)
+              LOAD_CONST               2 (True)
+              LOAD_CONST               3 (('keepends',))
+              CALL_KW                  1
+              STORE_FAST               3 (lines)
+
+112           LOAD_FAST_BORROW         3 (lines)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         6 (to L1)
+              NOT_TAKEN
+
+113           LOAD_SMALL_INT           1
+              STORE_FAST               4 (colno)
+
+114           LOAD_SMALL_INT           1
+              STORE_FAST               5 (lineno)
+              JUMP_FORWARD            47 (to L2)
+
+116   L1:     LOAD_FAST_BORROW         2 (i)
+              LOAD_GLOBAL              7 (len + NULL)
+              LOAD_CONST               4 ('')
+              LOAD_ATTR                9 (join + NULL|self)
+              LOAD_FAST_BORROW         3 (lines)
+              LOAD_CONST               1 (None)
+              LOAD_CONST               6 (-1)
+              BINARY_SLICE
+              CALL                     1
+              CALL                     1
+              BINARY_OP               10 (-)
+              STORE_FAST               4 (colno)
+
+117           LOAD_GLOBAL              7 (len + NULL)
+              LOAD_FAST_BORROW         3 (lines)
+              CALL                     1
+              STORE_FAST               5 (lineno)
+
+118   L2:     LOAD_GLOBAL             11 (ValueError + NULL)
+              LOAD_CONST               5 ('Invalid placeholder in string: line %d, col %d')
+
+119           LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (lineno, colno)
+              BUILD_TUPLE              2
+
+118           BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object substitute at 0x00000204B9FB6BB0, file "string\__init__.py", line 121>:
+  --           MAKE_CELL                0 (self)
+               MAKE_CELL                1 (mapping)
+
+ 121           RESUME                   0
+
+ 122           LOAD_DEREF               1 (mapping)
+               LOAD_GLOBAL              0 (_sentinel_dict)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE        4 (to L1)
+               NOT_TAKEN
+
+ 123           LOAD_FAST_BORROW         2 (kws)
+               STORE_DEREF              1 (mapping)
+               JUMP_FORWARD            23 (to L2)
+
+ 124   L1:     LOAD_FAST_BORROW         2 (kws)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       16 (to L2)
+               NOT_TAKEN
+
+ 125           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('ChainMap',))
+               IMPORT_NAME              1 (collections)
+               IMPORT_FROM              2 (ChainMap)
+               STORE_FAST               3 (ChainMap)
+               POP_TOP
+
+ 126           LOAD_FAST_BORROW         3 (ChainMap)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (kws)
+               LOAD_DEREF               1 (mapping)
+               CALL                     2
+               STORE_DEREF              1 (mapping)
+
+ 128   L2:     LOAD_FAST_BORROW         1 (mapping)
+               LOAD_FAST_BORROW         0 (self)
+               BUILD_TUPLE              2
+               LOAD_CONST               2 (<code object convert at 0x00000204BA46E880, file "string\__init__.py", line 128>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               4 (convert)
+
+ 139           LOAD_DEREF               0 (self)
+               LOAD_ATTR                6 (pattern)
+               LOAD_ATTR                9 (sub + NULL|self)
+               LOAD_FAST_BORROW         4 (convert)
+               LOAD_DEREF               0 (self)
+               LOAD_ATTR               10 (template)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object convert at 0x00000204BA46E880, file "string\__init__.py", line 128>:
+  --           COPY_FREE_VARS           2
+
+ 128           RESUME                   0
+
+ 130           LOAD_FAST_BORROW         0 (mo)
+               LOAD_ATTR                1 (group + NULL|self)
+               LOAD_CONST               0 ('named')
+               CALL                     1
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE        18 (to L1)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         0 (mo)
+               LOAD_ATTR                1 (group + NULL|self)
+               LOAD_CONST               1 ('braced')
+               CALL                     1
+       L1:     STORE_FAST               1 (named)
+
+ 131           LOAD_FAST_BORROW         1 (named)
+               POP_JUMP_IF_NONE        19 (to L2)
+               NOT_TAKEN
+
+ 132           LOAD_GLOBAL              3 (str + NULL)
+               LOAD_DEREF               2 (mapping)
+               LOAD_FAST_BORROW         1 (named)
+               BINARY_OP               26 ([])
+               CALL                     1
+               RETURN_VALUE
+
+ 133   L2:     LOAD_FAST_BORROW         0 (mo)
+               LOAD_ATTR                1 (group + NULL|self)
+               LOAD_CONST               2 ('escaped')
+               CALL                     1
+               POP_JUMP_IF_NONE        13 (to L3)
+               NOT_TAKEN
+
+ 134           LOAD_DEREF               3 (self)
+               LOAD_ATTR                4 (delimiter)
+               RETURN_VALUE
+
+ 135   L3:     LOAD_FAST_BORROW         0 (mo)
+               LOAD_ATTR                1 (group + NULL|self)
+               LOAD_CONST               3 ('invalid')
+               CALL                     1
+               POP_JUMP_IF_NONE        18 (to L4)
+               NOT_TAKEN
+
+ 136           LOAD_DEREF               3 (self)
+               LOAD_ATTR                7 (_invalid + NULL|self)
+               LOAD_FAST_BORROW         0 (mo)
+               CALL                     1
+               POP_TOP
+
+ 137   L4:     LOAD_GLOBAL              9 (ValueError + NULL)
+               LOAD_CONST               4 ('Unrecognized named group in pattern')
+
+ 138           LOAD_DEREF               3 (self)
+               LOAD_ATTR               10 (pattern)
+
+ 137           CALL                     2
+               RAISE_VARARGS            1
+
+Disassembly of <code object safe_substitute at 0x00000204B9FB5E30, file "string\__init__.py", line 141>:
+  --           MAKE_CELL                0 (self)
+               MAKE_CELL                1 (mapping)
+
+ 141           RESUME                   0
+
+ 142           LOAD_DEREF               1 (mapping)
+               LOAD_GLOBAL              0 (_sentinel_dict)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE        4 (to L1)
+               NOT_TAKEN
+
+ 143           LOAD_FAST_BORROW         2 (kws)
+               STORE_DEREF              1 (mapping)
+               JUMP_FORWARD            23 (to L2)
+
+ 144   L1:     LOAD_FAST_BORROW         2 (kws)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       16 (to L2)
+               NOT_TAKEN
+
+ 145           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('ChainMap',))
+               IMPORT_NAME              1 (collections)
+               IMPORT_FROM              2 (ChainMap)
+               STORE_FAST               3 (ChainMap)
+               POP_TOP
+
+ 146           LOAD_FAST_BORROW         3 (ChainMap)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (kws)
+               LOAD_DEREF               1 (mapping)
+               CALL                     2
+               STORE_DEREF              1 (mapping)
+
+ 148   L2:     LOAD_FAST_BORROW         1 (mapping)
+               LOAD_FAST_BORROW         0 (self)
+               BUILD_TUPLE              2
+               LOAD_CONST               2 (<code object convert at 0x00000204BA3AC4A0, file "string\__init__.py", line 148>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               4 (convert)
+
+ 161           LOAD_DEREF               0 (self)
+               LOAD_ATTR                6 (pattern)
+               LOAD_ATTR                9 (sub + NULL|self)
+               LOAD_FAST_BORROW         4 (convert)
+               LOAD_DEREF               0 (self)
+               LOAD_ATTR               10 (template)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object convert at 0x00000204BA3AC4A0, file "string\__init__.py", line 148>:
+  --            COPY_FREE_VARS           2
+
+ 148            RESUME                   0
+
+ 149            LOAD_FAST_BORROW         0 (mo)
+                LOAD_ATTR                1 (group + NULL|self)
+                LOAD_CONST               0 ('named')
+                CALL                     1
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        18 (to L1)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_FAST_BORROW         0 (mo)
+                LOAD_ATTR                1 (group + NULL|self)
+                LOAD_CONST               1 ('braced')
+                CALL                     1
+        L1:     STORE_FAST               1 (named)
+
+ 150            LOAD_FAST_BORROW         1 (named)
+                POP_JUMP_IF_NONE        20 (to L4)
+                NOT_TAKEN
+
+ 151            NOP
+
+ 152    L2:     LOAD_GLOBAL              3 (str + NULL)
+                LOAD_DEREF               2 (mapping)
+                LOAD_FAST_BORROW         1 (named)
+                BINARY_OP               26 ([])
+                CALL                     1
+        L3:     RETURN_VALUE
+
+ 155    L4:     LOAD_FAST_BORROW         0 (mo)
+                LOAD_ATTR                1 (group + NULL|self)
+                LOAD_CONST               2 ('escaped')
+                CALL                     1
+                POP_JUMP_IF_NONE        13 (to L5)
+                NOT_TAKEN
+
+ 156            LOAD_DEREF               3 (self)
+                LOAD_ATTR                6 (delimiter)
+                RETURN_VALUE
+
+ 157    L5:     LOAD_FAST_BORROW         0 (mo)
+                LOAD_ATTR                1 (group + NULL|self)
+                LOAD_CONST               3 ('invalid')
+                CALL                     1
+                POP_JUMP_IF_NONE        17 (to L6)
+                NOT_TAKEN
+
+ 158            LOAD_FAST_BORROW         0 (mo)
+                LOAD_ATTR                1 (group + NULL|self)
+                CALL                     0
+                RETURN_VALUE
+
+ 159    L6:     LOAD_GLOBAL              9 (ValueError + NULL)
+                LOAD_CONST               4 ('Unrecognized named group in pattern')
+
+ 160            LOAD_DEREF               3 (self)
+                LOAD_ATTR               10 (pattern)
+
+ 159            CALL                     2
+                RAISE_VARARGS            1
+
+  --    L7:     PUSH_EXC_INFO
+
+ 153            LOAD_GLOBAL              4 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       20 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 154            LOAD_FAST                0 (mo)
+                LOAD_ATTR                1 (group + NULL|self)
+                CALL                     0
+                SWAP                     2
+        L8:     POP_EXCEPT
+                RETURN_VALUE
+
+ 153    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L7 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+
+Disassembly of <code object is_valid at 0x00000204B9F5AA30, file "string\__init__.py", line 163>:
+163           RESUME                   0
+
+164           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pattern)
+              LOAD_ATTR                3 (finditer + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (template)
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER               108 (to L6)
+              STORE_FAST               1 (mo)
+
+165           LOAD_FAST_BORROW         1 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               0 ('invalid')
+              CALL                     1
+              POP_JUMP_IF_NONE         4 (to L2)
+              NOT_TAKEN
+
+166           POP_TOP
+              LOAD_CONST               1 (False)
+              RETURN_VALUE
+
+167   L2:     LOAD_FAST_BORROW         1 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               2 ('named')
+              CALL                     1
+              POP_JUMP_IF_NONE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           46 (to L1)
+
+168   L3:     LOAD_FAST_BORROW         1 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               3 ('braced')
+              CALL                     1
+              POP_JUMP_IF_NONE         3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           67 (to L1)
+
+169   L4:     LOAD_FAST_BORROW         1 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               4 ('escaped')
+              CALL                     1
+              POP_JUMP_IF_NONE         3 (to L5)
+              NOT_TAKEN
+              JUMP_BACKWARD           88 (to L1)
+
+172   L5:     LOAD_GLOBAL              9 (ValueError + NULL)
+              LOAD_CONST               5 ('Unrecognized named group in pattern')
+
+173           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pattern)
+
+172           CALL                     2
+              RAISE_VARARGS            1
+
+164   L6:     END_FOR
+              POP_ITER
+
+174           LOAD_CONST               6 (True)
+              RETURN_VALUE
+
+Disassembly of <code object get_identifiers at 0x00000204BA3ABDB0, file "string\__init__.py", line 176>:
+176           RESUME                   0
+
+177           BUILD_LIST               0
+              STORE_FAST               1 (ids)
+
+178           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pattern)
+              LOAD_ATTR                3 (finditer + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (template)
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER               142 (to L7)
+              STORE_FAST               2 (mo)
+
+179           LOAD_FAST_BORROW         2 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               0 ('named')
+              CALL                     1
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        18 (to L2)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         2 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               1 ('braced')
+              CALL                     1
+      L2:     STORE_FAST               3 (named)
+
+180           LOAD_FAST_BORROW         3 (named)
+              POP_JUMP_IF_NONE        26 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (named, ids)
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       20 (to L3)
+              NOT_TAKEN
+
+182           LOAD_FAST_BORROW         1 (ids)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         3 (named)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           74 (to L1)
+
+183   L3:     LOAD_FAST_BORROW         3 (named)
+              POP_JUMP_IF_NONE         3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           80 (to L1)
+
+184   L4:     LOAD_FAST_BORROW         2 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               2 ('invalid')
+              CALL                     1
+              POP_JUMP_IF_NONE         3 (to L5)
+              NOT_TAKEN
+              JUMP_BACKWARD          101 (to L1)
+
+185   L5:     LOAD_FAST_BORROW         2 (mo)
+              LOAD_ATTR                7 (group + NULL|self)
+              LOAD_CONST               3 ('escaped')
+              CALL                     1
+              POP_JUMP_IF_NONE         3 (to L6)
+              NOT_TAKEN
+              JUMP_BACKWARD          122 (to L1)
+
+188   L6:     LOAD_GLOBAL             11 (ValueError + NULL)
+              LOAD_CONST               4 ('Unrecognized named group in pattern')
+
+189           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pattern)
+
+188           CALL                     2
+              RAISE_VARARGS            1
+
+178   L7:     END_FOR
+              POP_ITER
+
+190           LOAD_FAST_BORROW         1 (ids)
+              RETURN_VALUE
+
+Disassembly of <code object Formatter at 0x00000204B9FEF800, file "string\__init__.py", line 203>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 203           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Formatter')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         203
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 204           LOAD_CONST               1 (<code object format at 0x00000204BA08B130, file "string\__init__.py", line 204>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (format)
+
+ 207           LOAD_CONST               2 (<code object vformat at 0x00000204BA0A9070, file "string\__init__.py", line 207>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (vformat)
+
+ 213           LOAD_CONST              12 ((0,))
+               LOAD_CONST               3 (<code object _vformat at 0x00000204BA3524B0, file "string\__init__.py", line 213>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (_vformat)
+
+ 268           LOAD_CONST               4 (<code object get_value at 0x00000204BA0A7870, file "string\__init__.py", line 268>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (get_value)
+
+ 275           LOAD_CONST               5 (<code object check_unused_args at 0x00000204BA0C2CD0, file "string\__init__.py", line 275>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (check_unused_args)
+
+ 279           LOAD_CONST               6 (<code object format_field at 0x00000204BA093C30, file "string\__init__.py", line 279>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (format_field)
+
+ 283           LOAD_CONST               7 (<code object convert_field at 0x00000204B9FB74B0, file "string\__init__.py", line 283>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (convert_field)
+
+ 303           LOAD_CONST               8 (<code object parse at 0x00000204BA08A530, file "string\__init__.py", line 303>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (parse)
+
+ 312           LOAD_CONST               9 (<code object get_field at 0x00000204B9FB6D30, file "string\__init__.py", line 312>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (get_field)
+               LOAD_CONST              10 (())
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_CONST              11 (None)
+               RETURN_VALUE
+
+Disassembly of <code object format at 0x00000204BA08B130, file "string\__init__.py", line 204>:
+204           RESUME                   0
+
+205           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (vformat + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (format_string, args)
+              LOAD_FAST_BORROW         3 (kwargs)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object vformat at 0x00000204BA0A9070, file "string\__init__.py", line 207>:
+207           RESUME                   0
+
+208           LOAD_GLOBAL              1 (set + NULL)
+              CALL                     0
+              STORE_FAST               4 (used_args)
+
+209           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_vformat + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (format_string, args)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (kwargs, used_args)
+              LOAD_SMALL_INT           2
+              CALL                     5
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   86 (result, _)
+
+210           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (check_unused_args + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (used_args, args)
+              LOAD_FAST_BORROW         3 (kwargs)
+              CALL                     3
+              POP_TOP
+
+211           LOAD_FAST_BORROW         5 (result)
+              RETURN_VALUE
+
+Disassembly of <code object _vformat at 0x00000204BA3524B0, file "string\__init__.py", line 213>:
+213           RESUME                   0
+
+215           LOAD_FAST_BORROW         5 (recursion_depth)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+216           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('Max string recursion exceeded')
+              CALL                     1
+              RAISE_VARARGS            1
+
+217   L1:     BUILD_LIST               0
+              STORE_FAST               7 (result)
+
+219           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (parse + NULL|self)
+              LOAD_FAST_BORROW         1 (format_string)
+              CALL                     1
+              GET_ITER
+      L2:     EXTENDED_ARG             1
+              FOR_ITER               273 (to L9)
+
+218           UNPACK_SEQUENCE          4
+              STORE_FAST_STORE_FAST  137 (literal_text, field_name)
+              STORE_FAST_STORE_FAST  171 (format_spec, conversion)
+
+222           LOAD_FAST_BORROW         8 (literal_text)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L3)
+              NOT_TAKEN
+
+223           LOAD_FAST_BORROW         7 (result)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         8 (literal_text)
+              CALL                     1
+              POP_TOP
+
+226   L3:     LOAD_FAST_BORROW         9 (field_name)
+              POP_JUMP_IF_NOT_NONE     3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           38 (to L2)
+
+231   L4:     LOAD_GLOBAL              6 (_string)
+              LOAD_ATTR                8 (formatter_field_name_split)
+              PUSH_NULL
+              LOAD_FAST_BORROW         9 (field_name)
+              CALL                     1
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  205 (field_first, _)
+
+232           LOAD_FAST_BORROW        12 (field_first)
+              LOAD_CONST               2 ('')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       46 (to L6)
+              NOT_TAKEN
+
+233           LOAD_FAST_BORROW         6 (auto_arg_index)
+              LOAD_CONST               3 (False)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       12 (to L5)
+              NOT_TAKEN
+
+234           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               4 ('cannot switch from manual field specification to automatic field numbering')
+              CALL                     1
+              RAISE_VARARGS            1
+
+237   L5:     LOAD_GLOBAL             11 (str + NULL)
+              LOAD_FAST_BORROW         6 (auto_arg_index)
+              CALL                     1
+              LOAD_FAST_BORROW         9 (field_name)
+              BINARY_OP                0 (+)
+              STORE_FAST               9 (field_name)
+
+238           LOAD_FAST_BORROW         6 (auto_arg_index)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              STORE_FAST               6 (auto_arg_index)
+              JUMP_FORWARD            43 (to L8)
+
+239   L6:     LOAD_GLOBAL             13 (isinstance + NULL)
+              LOAD_FAST_BORROW        12 (field_first)
+              LOAD_GLOBAL             14 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       22 (to L8)
+              NOT_TAKEN
+
+240           LOAD_FAST_BORROW         6 (auto_arg_index)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L7)
+              NOT_TAKEN
+
+241           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               5 ('cannot switch from automatic field numbering to manual field specification')
+              CALL                     1
+              RAISE_VARARGS            1
+
+246   L7:     LOAD_CONST               3 (False)
+              STORE_FAST               6 (auto_arg_index)
+
+250   L8:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               17 (get_field + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 146 (field_name, args)
+              LOAD_FAST_BORROW         3 (kwargs)
+              CALL                     3
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  239 (obj, arg_used)
+
+251           LOAD_FAST_BORROW         4 (used_args)
+              LOAD_ATTR               19 (add + NULL|self)
+              LOAD_FAST_BORROW        15 (arg_used)
+              CALL                     1
+              POP_TOP
+
+254           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               21 (convert_field + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 235 (obj, conversion)
+              CALL                     2
+              STORE_FAST              14 (obj)
+
+257           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               23 (_vformat + NULL|self)
+
+258           LOAD_FAST_BORROW_LOAD_FAST_BORROW 162 (format_spec, args)
+              LOAD_FAST_BORROW         3 (kwargs)
+
+259           LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (used_args, recursion_depth)
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+
+260           LOAD_FAST_BORROW         6 (auto_arg_index)
+
+257           LOAD_CONST               6 (('auto_arg_index',))
+              CALL_KW                  6
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  166 (format_spec, auto_arg_index)
+
+263           LOAD_FAST_BORROW         7 (result)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               25 (format_field + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 234 (obj, format_spec)
+              CALL                     2
+              CALL                     1
+              POP_TOP
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          276 (to L2)
+
+219   L9:     END_FOR
+              POP_ITER
+
+265           LOAD_CONST               2 ('')
+              LOAD_ATTR               27 (join + NULL|self)
+              LOAD_FAST_BORROW         7 (result)
+              CALL                     1
+              LOAD_FAST_BORROW         6 (auto_arg_index)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object get_value at 0x00000204BA0A7870, file "string\__init__.py", line 268>:
+268           RESUME                   0
+
+269           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (key)
+              LOAD_GLOBAL              2 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        9 (to L1)
+              NOT_TAKEN
+
+270           LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (args, key)
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+272   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (kwargs, key)
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object check_unused_args at 0x00000204BA0C2CD0, file "string\__init__.py", line 275>:
+275           RESUME                   0
+
+276           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object format_field at 0x00000204BA093C30, file "string\__init__.py", line 279>:
+279           RESUME                   0
+
+280           LOAD_GLOBAL              1 (format + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (value, format_spec)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object convert_field at 0x00000204B9FB74B0, file "string\__init__.py", line 283>:
+283           RESUME                   0
+
+285           LOAD_FAST_BORROW         2 (conversion)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+286           LOAD_FAST_BORROW         1 (value)
+              RETURN_VALUE
+
+287   L1:     LOAD_FAST_BORROW         2 (conversion)
+              LOAD_CONST               1 ('s')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+288           LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              RETURN_VALUE
+
+289   L2:     LOAD_FAST_BORROW         2 (conversion)
+              LOAD_CONST               2 ('r')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L3)
+              NOT_TAKEN
+
+290           LOAD_GLOBAL              3 (repr + NULL)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              RETURN_VALUE
+
+291   L3:     LOAD_FAST_BORROW         2 (conversion)
+              LOAD_CONST               3 ('a')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L4)
+              NOT_TAKEN
+
+292           LOAD_GLOBAL              5 (ascii + NULL)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              RETURN_VALUE
+
+293   L4:     LOAD_GLOBAL              7 (ValueError + NULL)
+              LOAD_CONST               4 ('Unknown conversion specifier {0!s}')
+              LOAD_ATTR                9 (format + NULL|self)
+              LOAD_FAST_BORROW         2 (conversion)
+              CALL                     1
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object parse at 0x00000204BA08A530, file "string\__init__.py", line 303>:
+303           RESUME                   0
+
+304           LOAD_GLOBAL              0 (_string)
+              LOAD_ATTR                2 (formatter_parser)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (format_string)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object get_field at 0x00000204B9FB6D30, file "string\__init__.py", line 312>:
+312           RESUME                   0
+
+313           LOAD_GLOBAL              0 (_string)
+              LOAD_ATTR                2 (formatter_field_name_split)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (field_name)
+              CALL                     1
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   69 (first, rest)
+
+315           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (get_value + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (first, args)
+              LOAD_FAST_BORROW         3 (kwargs)
+              CALL                     3
+              STORE_FAST               6 (obj)
+
+319           LOAD_FAST_BORROW         5 (rest)
+              GET_ITER
+      L1:     FOR_ITER                34 (to L3)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  120 (is_attr, i)
+
+320           LOAD_FAST_BORROW         7 (is_attr)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       14 (to L2)
+              NOT_TAKEN
+
+321           LOAD_GLOBAL              7 (getattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 104 (obj, i)
+              CALL                     2
+              STORE_FAST               6 (obj)
+              JUMP_BACKWARD           26 (to L1)
+
+323   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 104 (obj, i)
+              BINARY_OP               26 ([])
+              STORE_FAST               6 (obj)
+              JUMP_BACKWARD           36 (to L1)
+
+319   L3:     END_FOR
+              POP_ITER
+
+325           LOAD_FAST_BORROW_LOAD_FAST_BORROW 100 (obj, first)
+              BUILD_TUPLE              2
+              RETURN_VALUE

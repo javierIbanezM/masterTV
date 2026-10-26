@@ -1,0 +1,216 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST ('QCheckBox', 'QFileDialog', 'QGroupBox', 'QHBoxLayout', 'QLabel', 'QPlainTextEdit', 'QPushButton', 'QVBoxLayout'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QCheckBox; STORE_NAME QCheckBox; IMPORT_FROM QFileDialog; STORE_NAME QFileDialog; IMPORT_FROM QGroupBox; STORE_NAME QGroupBox; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QPlainTextEdit; STORE_NAME QPlainTextEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout
+6: LOAD_SMALL_INT 3; LOAD_CONST ('fully_deploy',); IMPORT_NAME; IMPORT_FROM fully_deploy; STORE_NAME fd
+7: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+8: LOAD_SMALL_INT 2; LOAD_CONST ('confirm', 'info', 'warn'); IMPORT_NAME common; IMPORT_FROM confirm; STORE_NAME confirm; IMPORT_FROM info; STORE_NAME info; IMPORT_FROM warn; STORE_NAME warn
+11: LOAD_BUILD_CLASS; LOAD_CONST <code DeployTab>; MAKE_FUNCTION; LOAD_CONST 'DeployTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME DeployTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF DeployTab() @11
+  11: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'DeployTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 11; STORE_NAME __firstlineno__
+  12: LOAD_CONST 'Despliegue Fully (EMM)'; STORE_NAME title
+  14: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code DeployTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  75: LOAD_CONST <code DeployTab.on_activated>; MAKE_FUNCTION; STORE_NAME on_activated
+  78: LOAD_CONST <code DeployTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  82: LOAD_CONST <code DeployTab.refresh>; MAKE_FUNCTION; STORE_NAME refresh
+  97: LOAD_CONST <code DeployTab.export_template>; MAKE_FUNCTION; STORE_NAME export_template
+  124: LOAD_CONST <code DeployTab.import_template>; MAKE_FUNCTION; STORE_NAME import_template
+  135: LOAD_CONST <code DeployTab.download>; MAKE_FUNCTION; STORE_NAME download
+  156: LOAD_CONST <code DeployTab.deploy>; MAKE_FUNCTION; STORE_NAME deploy; LOAD_CONST ('apk_label', 'disable_play', 'out', 'tpl_label'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF DeployTab.__init__(self,ctx) @14
+    15: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    16: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW self; CALL; STORE_FAST lay
+    17: LOAD_GLOBAL QLabel + NULL
+    18: LOAD_CONST 'Instala la edición <b>EMM</b> de Fully Kiosk (descargada de la web oficial de Fully) en una TV con <b>nuestra configuración</b>: Start URL propia, arranque automático y el resto de ajustes de una TV de referencia. Fully los importa solo en el primer arranque.'
+    17: CALL; STORE_FAST intro
+    21: LOAD_FAST_BORROW intro; LOAD_ATTR setWordWrap + NULL|self; LOAD_CONST True; CALL
+    22: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW intro; CALL
+    25: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST '1 · Plantilla de configuración (de una TV de referencia)'; CALL; STORE_FAST g1
+    26: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW g1; CALL; STORE_FAST l1
+    27: LOAD_GLOBAL QLabel + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR tpl_label
+    28: LOAD_FAST_BORROW self; LOAD_ATTR tpl_label; LOAD_ATTR setWordWrap + NULL|self; LOAD_CONST True; CALL
+    29: LOAD_FAST_BORROW l1; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR tpl_label; CALL
+    30: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST r1
+    31: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '⬇ Exportar desde la TV seleccionada…'; CALL; STORE_FAST b
+    32: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR export_template; CALL
+    33: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '📂 Importar de un archivo…'; CALL; STORE_FAST b2
+    34: LOAD_FAST_BORROW b2; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR import_template; CALL
+    35: LOAD_FAST_BORROW r1; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL
+    36: LOAD_FAST_BORROW r1; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b2; CALL
+    37: LOAD_FAST_BORROW r1; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    38: LOAD_FAST_BORROW l1; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW r1; CALL
+    39: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW g1; CALL
+    42: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST '2 · APK de Fully edición EMM'; CALL; STORE_FAST g2
+    43: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW g2; CALL; STORE_FAST l2
+    44: LOAD_GLOBAL QLabel + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR apk_label
+    45: LOAD_FAST_BORROW self; LOAD_ATTR apk_label; LOAD_ATTR setWordWrap + NULL|self; LOAD_CONST True; CALL
+    46: LOAD_FAST_BORROW l2; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR apk_label; CALL
+    47: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST r2
+    48: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '⬇ Descargar / actualizar APK EMM…'; CALL; STORE_FAST b3
+    49: LOAD_FAST_BORROW b3; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR download; CALL
+    50: LOAD_FAST_BORROW r2; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b3; CALL
+    51: LOAD_FAST_BORROW r2; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    52: LOAD_FAST_BORROW l2; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW r2; CALL
+    53: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW g2; CALL
+    56: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST '3 · Instalar en la TV seleccionada'; CALL; STORE_FAST g3
+    57: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW g3; CALL; STORE_FAST l3
+    58: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Desactivar el Fully de Google Play al terminar (reversible), para que no compita con la EMM al arrancar la TV'; CALL; LOAD_FAST_BORROW self; STORE_ATTR disable_play
+    60: LOAD_FAST_BORROW self; LOAD_ATTR disable_play; LOAD_ATTR setChecked + NULL|self; LOAD_CONST True; CALL
+    61: LOAD_FAST_BORROW l3; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR disable_play; CALL
+    62: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST r3
+    63: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '🚀 Instalar Fully EMM con la plantilla…'; CALL; STORE_FAST b4
+    64: LOAD_FAST_BORROW b4; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR deploy; CALL
+    65: LOAD_FAST_BORROW r3; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b4; CALL
+    66: LOAD_FAST_BORROW r3; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    67: LOAD_FAST_BORROW l3; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW r3; CALL
+    68: LOAD_GLOBAL QPlainTextEdit + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR out
+    69: LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_ATTR setReadOnly + NULL|self; LOAD_CONST True; CALL
+    70: LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_ATTR setStyleSheet + NULL|self; LOAD_CONST 'font-family: Consolas, monospace;'; CALL
+    71: LOAD_FAST_BORROW l3; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_SMALL_INT 1; CALL
+    72: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW g3; LOAD_SMALL_INT 1; CALL
+    73: LOAD_FAST_BORROW self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeployTab.on_activated(self) @75
+    76: LOAD_FAST_BORROW self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeployTab.on_device_changed(self) @78
+    79: LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_ATTR clear + NULL|self; CALL
+    80: LOAD_FAST_BORROW self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeployTab.refresh(self) @82
+    83: LOAD_GLOBAL fd; LOAD_ATTR load_template; CALL; STORE_FAST t
+    84: LOAD_FAST_BORROW t; TO_BOOL; POP_JUMP_IF_FALSE ->180
+    85: LOAD_FAST_BORROW self; LOAD_ATTR tpl_label; LOAD_ATTR setText + NULL|self; LOAD_CONST '✔ Plantilla guardada ('; LOAD_GLOBAL len + NULL; LOAD_FAST_BORROW t; CALL; FORMAT_SIMPLE; LOAD_CONST ' ajustes). Start URL de referencia: '
+    86: LOAD_FAST_BORROW t; LOAD_ATTR get + NULL|self; LOAD_CONST 'startURL'; LOAD_CONST '?'; CALL; FORMAT_SIMPLE; LOAD_CONST '\nSe sustituye la Start URL por la de cada TV (pestaña Kiosco) al instalar.'
+    85: BUILD_STRING; CALL; JUMP_FORWARD ->234
+    89: <L180>; LOAD_FAST_BORROW self; LOAD_ATTR tpl_label; LOAD_ATTR setText + NULL|self; LOAD_CONST '✖ Sin plantilla. Exporta una desde una TV ya configurada o importa un fully-settings.json.'; CALL
+    91: <L234>; LOAD_GLOBAL fd; LOAD_ATTR apk_info; CALL; STORE_FAST a
+    92: LOAD_FAST_BORROW self; LOAD_ATTR apk_label; LOAD_ATTR setText + NULL|self
+    93: LOAD_FAST_BORROW a; TO_BOOL; POP_JUMP_IF_FALSE ->462; LOAD_CONST '✔ '; LOAD_FAST_BORROW a; LOAD_SMALL_INT 0; BINARY_OP []; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST ' · '; LOAD_FAST_BORROW a; LOAD_SMALL_INT 1; BINARY_OP []; LOAD_CONST 1048576; BINARY_OP /; LOAD_CONST '.1f'; FORMAT_WITH_SPEC; LOAD_CONST ' MB · SHA-256 '; LOAD_FAST_BORROW a; LOAD_SMALL_INT 2; BINARY_OP []; LOAD_CONST slice(None, 16, None); BINARY_OP []; FORMAT_SIMPLE; LOAD_CONST '…'; BUILD_STRING
+    92: CALL; LOAD_CONST None; RETURN_VALUE
+    94: <L462>; LOAD_CONST '✖ No descargada. Se obtiene de '; LOAD_GLOBAL fd; LOAD_ATTR SOURCE_PAGE; FORMAT_SIMPLE; BUILD_STRING
+    92: CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeployTab.export_template(self) @97
+    98: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_DEREF s
+    99: LOAD_DEREF s; TO_BOOL; POP_JUMP_IF_TRUE ->60
+    100: LOAD_CONST None; RETURN_VALUE
+    101: <L60>; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Exportar plantilla desde la TV'
+    102: LOAD_CONST 'Se abrirán los ajustes de Fully en la TV (≈1 min), se pulsará «Export Settings» y «Guardar» en el selector de Android. Se crea el archivo Download/fully-settings.json en la TV y se descarga al PC. No se cambia ningún ajuste.'
+    105: LOAD_CONST 'adb -s '; LOAD_DEREF s; FORMAT_SIMPLE; LOAD_CONST ' pull '; LOAD_GLOBAL fd; LOAD_ATTR EXPORT_REMOTE; FORMAT_SIMPLE; BUILD_STRING
+    101: CALL; TO_BOOL; POP_JUMP_IF_TRUE ->144
+    106: LOAD_CONST None; RETURN_VALUE
+    107: <L144>; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_DEREF d
+    108: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR try_begin + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->320
+    109: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Ocupado'; LOAD_CONST 'Hay otra operación de kiosco en curso en esta TV.'; CALL; RETURN_VALUE
+    110: <L320>; LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Exportando desde la TV…'; CALL
+    112: LOAD_FAST_BORROW d; LOAD_FAST_BORROW s; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.export_template.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    118: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.export_template.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    122: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW work, done; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.export_template.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF DeployTab.export_template.<locals>.work() @112
+      114: LOAD_GLOBAL fd; LOAD_ATTR export_template_from_tv; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR fully; LOAD_DEREF s; CALL
+      116: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR end + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; RETURN_VALUE
+      None: PUSH_EXC_INFO
+      116: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR end + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; RERAISE
+      None: COPY; POP_EXCEPT; RERAISE
+
+      DEF DeployTab.export_template.<locals>.done(t) @118
+      119: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Plantilla exportada: '; LOAD_GLOBAL len + NULL; LOAD_FAST_BORROW t; CALL; FORMAT_SIMPLE; LOAD_CONST ' ajustes.'; BUILD_STRING; CALL
+      120: LOAD_DEREF self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF DeployTab.export_template.<locals>.<lambda>(e) @122
+      122: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Error: '; LOAD_FAST_BORROW e; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF DeployTab.import_template(self) @124
+    125: LOAD_GLOBAL QFileDialog; LOAD_ATTR getOpenFileName; LOAD_FAST_BORROW self; LOAD_CONST 'fully-settings.json'; LOAD_CONST ''; LOAD_CONST 'JSON (*.json)'; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST p, _
+    126: LOAD_FAST_BORROW p; TO_BOOL; POP_JUMP_IF_FALSE ->234
+    128: LOAD_GLOBAL fd; LOAD_ATTR import_template_file; LOAD_FAST_BORROW p; CALL; STORE_FAST t
+    131: LOAD_FAST self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Plantilla importada: '; LOAD_GLOBAL len + NULL; LOAD_FAST t; CALL; FORMAT_SIMPLE; LOAD_CONST ' ajustes.'; BUILD_STRING; CALL
+    132: LOAD_FAST self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    126: <L234>; LOAD_CONST None; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    129: LOAD_GLOBAL OSError; LOAD_GLOBAL ValueError; BUILD_TUPLE; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->334; STORE_FAST e
+    130: LOAD_GLOBAL warn + NULL; LOAD_FAST self; LOAD_CONST 'Archivo no válido'; LOAD_GLOBAL str + NULL; LOAD_FAST e; CALL; CALL; SWAP; POP_EXCEPT; LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RETURN_VALUE
+    None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+    129: <L334>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+    DEF DeployTab.download(self) @135
+    136: LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Descargar APK de Fully (edición EMM)'
+    137: LOAD_CONST 'Se leerá '; LOAD_GLOBAL fd; LOAD_ATTR SOURCE_PAGE; FORMAT_SIMPLE; LOAD_CONST ' para localizar la APK «EMM Edition» y se descargará de fully-kiosk.com a la carpeta tools/fully de la aplicación. Se mostrará su tamaño y SHA-256 al terminar.'; BUILD_STRING
+    136: CALL; TO_BOOL; POP_JUMP_IF_TRUE ->82
+    140: LOAD_CONST None; RETURN_VALUE
+    141: <L82>; LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Buscando el enlace en la página de descargas…'; CALL
+    143: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.download.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    148: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.download.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    153: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW work, done; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.download.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF DeployTab.download.<locals>.work() @143
+      144: LOAD_GLOBAL fd; LOAD_ATTR find_emm_url; CALL; STORE_FAST url
+      145: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Descargando '; LOAD_FAST_BORROW url; FORMAT_SIMPLE; BUILD_STRING; CALL
+      146: LOAD_FAST_BORROW url; LOAD_GLOBAL fd; LOAD_ATTR download_apk; LOAD_FAST_BORROW url; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log; CALL; BUILD_TUPLE; RETURN_VALUE
+
+      DEF DeployTab.download.<locals>.done(res) @148
+      149: LOAD_FAST_BORROW res; UNPACK_SEQUENCE; STORE_FAST url; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST path, size; STORE_FAST sha
+      150: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Descargada: '; LOAD_FAST_BORROW url; FORMAT_SIMPLE; LOAD_CONST '\n'; LOAD_FAST_BORROW path; FORMAT_SIMPLE; LOAD_CONST '\n'; LOAD_FAST_BORROW size; LOAD_CONST 1048576; BINARY_OP /; LOAD_CONST '.1f'; FORMAT_WITH_SPEC; LOAD_CONST ' MB · SHA-256 '; LOAD_FAST_BORROW sha; FORMAT_SIMPLE; BUILD_STRING; CALL
+      151: LOAD_DEREF self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF DeployTab.download.<locals>.<lambda>(e) @153
+      153: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Error: '; LOAD_FAST_BORROW e; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF DeployTab.deploy(self) @156
+    157: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_DEREF d
+    158: LOAD_DEREF d; TO_BOOL; POP_JUMP_IF_TRUE ->100
+    159: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin dispositivo'; LOAD_CONST 'Selecciona una TV primero.'; CALL; RETURN_VALUE
+    160: <L100>; LOAD_GLOBAL fd; LOAD_ATTR load_template; CALL; LOAD_GLOBAL fd; LOAD_ATTR apk_info; CALL; SWAP; STORE_DEREF tpl; STORE_DEREF apk
+    161: LOAD_DEREF tpl; TO_BOOL; POP_JUMP_IF_FALSE ->218; LOAD_DEREF apk; TO_BOOL; POP_JUMP_IF_TRUE ->244
+    162: <L218>; LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Faltan pasos'; LOAD_CONST 'Primero necesitas la plantilla (1) y la APK (2).'; CALL; RETURN_VALUE
+    163: <L244>; LOAD_DEREF d; LOAD_ATTR kiosk_url; TO_BOOL; POP_JUMP_IF_TRUE ->306
+    164: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin URL'; LOAD_CONST 'Escribe la URL de esta TV en la pestaña «Kiosco» y guárdala.'; CALL; RETURN_VALUE
+    165: <L306>; LOAD_DEREF d; LOAD_ATTR serial; STORE_FAST s
+    166: LOAD_DEREF self; LOAD_ATTR disable_play; LOAD_ATTR isChecked + NULL|self; CALL; STORE_DEREF off
+    167: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' push fully-once-settings.json '; LOAD_GLOBAL fd; LOAD_ATTR ONCE_FILE; FORMAT_SIMPLE; LOAD_CONST '\nadb -s '
+    168: LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' install -r -d '; LOAD_DEREF apk; LOAD_SMALL_INT 0; BINARY_OP []; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST '\nadb -s '
+    169: LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell pm grant '; LOAD_GLOBAL fd; LOAD_ATTR EMM_PKG; FORMAT_SIMPLE; LOAD_CONST ' android.permission.READ_EXTERNAL_STORAGE\nadb -s '
+    170: LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell appops set '; LOAD_GLOBAL fd; LOAD_ATTR EMM_PKG; FORMAT_SIMPLE; LOAD_CONST ' MANAGE_EXTERNAL_STORAGE allow\nadb -s '
+    171: LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell appops set '; LOAD_GLOBAL fd; LOAD_ATTR EMM_PKG; FORMAT_SIMPLE; LOAD_CONST ' SYSTEM_ALERT_WINDOW allow'
+    167: BUILD_STRING
+    172: LOAD_DEREF off; TO_BOOL; POP_JUMP_IF_FALSE ->652; LOAD_CONST '\nadb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell pm disable-user --user 0 '; LOAD_GLOBAL fd; LOAD_ATTR FULLY_PKG; FORMAT_SIMPLE; BUILD_STRING; JUMP_FORWARD ->654; <L652>; LOAD_CONST ''
+    167: <L654>; BINARY_OP +; STORE_FAST cmds
+    173: LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Instalar Fully EMM en «'; LOAD_DEREF d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST '»'; BUILD_STRING
+    174: LOAD_CONST 'Se instalará Fully EMM (una app aparte, junto a la de Google Play) con la Start URL '
+    175: LOAD_DEREF d; LOAD_ATTR kiosk_url; FORMAT_SIMPLE; LOAD_CONST '. No se desinstala nada.'
+    174: BUILD_STRING
+    176: LOAD_DEREF off; TO_BOOL; POP_JUMP_IF_FALSE ->760; LOAD_CONST ' Al terminar se DESACTIVARÁ el Fully de Google Play (reversible).'; JUMP_FORWARD ->762; <L760>; LOAD_CONST ''
+    174: <L762>; BINARY_OP +
+    177: LOAD_CONST '\nLa pantalla de la TV cambiará durante unos minutos.'
+    174: BINARY_OP +
+    177: LOAD_FAST_BORROW cmds
+    173: CALL; TO_BOOL; POP_JUMP_IF_TRUE ->816
+    178: LOAD_CONST None; RETURN_VALUE
+    179: <L816>; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR try_begin + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->948
+    180: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Ocupado'; LOAD_CONST 'Hay otra operación de kiosco en curso en esta TV.'; CALL; RETURN_VALUE
+    181: <L948>; LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Instalando… (varios minutos)'; CALL
+    182: LOAD_GLOBAL fd; LOAD_ATTR FullyDeployer; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR fully; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log; CALL; STORE_DEREF deployer
+    184: LOAD_FAST_BORROW apk; LOAD_FAST_BORROW d; LOAD_FAST_BORROW deployer; LOAD_FAST_BORROW off; LOAD_FAST_BORROW self; LOAD_FAST_BORROW tpl; BUILD_TUPLE; LOAD_CONST <code DeployTab.deploy.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    190: LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.deploy.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    196: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW work, done; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code DeployTab.deploy.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF DeployTab.deploy.<locals>.work() @184
+      186: LOAD_DEREF deployer; LOAD_ATTR deploy + NULL|self; LOAD_DEREF d; LOAD_DEREF apk; LOAD_SMALL_INT 0; BINARY_OP []; LOAD_DEREF tpl; LOAD_DEREF off; CALL
+      188: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR end + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; RETURN_VALUE
+      None: PUSH_EXC_INFO
+      188: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR end + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; RERAISE
+      None: COPY; POP_EXCEPT; RERAISE
+
+      DEF DeployTab.deploy.<locals>.done(rep) @190
+      191: LOAD_GLOBAL fd; LOAD_ATTR EMM_PKG; LOAD_DEREF d; STORE_ATTR kiosk_package
+      192: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR store; LOAD_ATTR update + NULL|self; LOAD_DEREF d; CALL
+      193: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST '\n'; LOAD_ATTR join + NULL|self; LOAD_FAST_BORROW rep; CALL; CALL
+      194: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR device_changed; LOAD_ATTR emit + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF DeployTab.deploy.<locals>.<lambda>(e) @196
+      196: LOAD_DEREF self; LOAD_ATTR out; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Error: '; LOAD_FAST_BORROW e; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE

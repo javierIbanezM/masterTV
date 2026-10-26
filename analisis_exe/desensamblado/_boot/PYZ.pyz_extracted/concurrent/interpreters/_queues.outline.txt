@@ -1,0 +1,54 @@
+<module>()  line 1
+    QueueEmpty()  line 27
+    QueueFull()  line 34
+    ItemInterpreterDestroyed()  line 41
+    _serialize_unbound(unbound)  line 53
+    _resolve_unbound(flag)  line 59
+    create(maxsize, unbounditems)  line 66
+    list_all()  line 83
+    Queue()  line 98
+        Queue.__new__(cls, id)  line 101
+        Queue.__del__(self)  line 116
+        Queue.__repr__(self)  line 126
+        Queue.__hash__(self)  line 129
+        Queue.__reduce__(self)  line 133
+        Queue._set_unbound(self, op, items)  line 136
+        Queue.id(self)  line 144
+        Queue.unbounditems(self)  line 148
+        Queue.maxsize(self)  line 157
+        Queue.empty(self)  line 165
+        Queue.full(self)  line 168
+        Queue.qsize(self)  line 171
+        Queue.put(self, obj, block, timeout, unbounditems, _delay)  line 174
+        Queue.put_nowait(self, obj, unbounditems)  line 234
+        Queue.get(self, block, timeout, _delay)  line 241
+        Queue.get_nowait(self)  line 273
+
+--- strings ---
+'Cross-interpreter Queues High Level Module.'
+'Queue'
+'QueueEmpty'
+'QueueFull'
+'ItemInterpreterDestroyed'
+'QueueEmpty'
+'Raised from get_nowait() when the queue is empty.\n\nIt is also raised from get() if it times out.\n'
+'QueueFull'
+'Raised from put_nowait() when the queue is full.\n\nIt is also raised from put() if it times out.\n'
+'ItemInterpreterDestroyed'
+'Raised from get() and get_nowait().'
+'queue'
+'unbounditems'
+'Return a new cross-interpreter queue.\n\nThe queue may be used to pass data safely between interpreters.\n\n"unbounditems" sets the default for Queue.put(); see that method for\nsupported values.  The default value is UNBOUND, which replaces\nthe unbound item.\n'
+'Return a list of all open queues.'
+'_unbound'
+'Queue'
+'A cross-interpreter queue.'
+'id must be an int, got '
+'_unbound'
+'unbounditems'
+'_delay'
+'Add the object to the queue.\n\nIf "block" is true, this blocks while the queue is full.\n\nFor most objects, the object received through Queue.get() will\nbe a new one, equivalent to the original and not sharing any\nactual underlying data.  The notable exceptions include\ncross-interpreter types (like Queue) and memoryview, where the\nunderlying data is actually shared.  Furthermore, some types\ncan be sent through a queue more efficiently than others.  This\ngroup includes various immutable types like int, str, bytes, and\ntuple (if the items are likewise efficiently shareable).  See interpreters.is_shareable().\n\n"unbounditems" controls the behavior of Queue.get() for the given\nobject if the current interpreter (calling put()) is later\ndestroyed.\n\nIf "unbounditems" is None (the default) then it uses the\nqueue\'s default, set with create_queue(),\nwhich is usually UNBOUND.\n\nIf "unbounditems" is UNBOUND_ERROR then get() will raise an\nItemInterpreterDestroyed exception if the original interpreter\nhas been destroyed.  This does not otherwise affect the queue;\nthe next call to put() will work like normal, returning the next\nitem in the queue.\n\nIf "unbounditems" is UNBOUND_REMOVE then the item will be removed\nfrom the queue as soon as the original interpreter is destroyed.\nBe aware that this will introduce an imbalance between put()\nand get() calls.\n\nIf "unbounditems" is UNBOUND then it is returned by get() in place\nof the unbound item.\n'
+'timeout value must be non-negative'
+'Return the next object from the queue.\n\nIf "block" is true, this blocks while the queue is empty.\n\nIf the next item\'s original interpreter has been destroyed\nthen the "next object" is determined by the value of the\n"unbounditems" argument to put().\n'
+'timeout value must be non-negative'
+'Return the next object from the channel.\n\nIf the queue is empty then raise QueueEmpty.  Otherwise this\nis the same as get().\n'

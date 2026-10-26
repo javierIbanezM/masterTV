@@ -1,0 +1,123 @@
+<module>()  line 1
+    TokenInfo()  line 47
+        TokenInfo.__repr__(self)  line 48
+        TokenInfo.exact_type(self)  line 53
+    group()  line 60
+    any()  line 61
+    maybe()  line 62
+    _all_string_prefixes()  line 85
+    _compile(expr)  line 100
+    TokenError()  line 162
+    Untokenizer()  line 165
+        Untokenizer.__init__(self)  line 167
+        Untokenizer.add_whitespace(self, start)  line 175
+        Untokenizer.add_backslash_continuation(self, start)  line 185
+        Untokenizer.escape_brackets(self, token)  line 202
+            Untokenizer.escape_brackets.<locals>.<genexpr>(.0)  line 212
+        Untokenizer.untokenize(self, iterable)  line 225
+        Untokenizer.compat(self, token, iterable)  line 272
+    untokenize(iterable)  line 326
+    _get_normal_name(orig_enc)  line 347
+    detect_encoding(readline)  line 358
+        detect_encoding.<locals>.read_or_stop()  line 382
+        detect_encoding.<locals>.find_cookie(line)  line 388
+    open(filename)  line 451
+    tokenize(readline)  line 466
+    generate_tokens(readline)  line 494
+    _main(args)  line 502
+        _main.<locals>.perror(message)  line 506
+        _main.<locals>.error(message, filename, location)  line 510
+    _transform_msg(msg)  line 565
+    _generate_tokens_from_c_tokenizer(source, encoding, extra_tokens)  line 575
+
+--- strings ---
+'Tokenization help for Python programs.\n\ntokenize(readline) is a generator that breaks a stream of bytes into\nPython tokens.  It decodes the bytes according to PEP-0263 for\ndetermining source file encoding.\n\nIt accepts a readline-like method which is called repeatedly to get the\nnext line of input (or b"" for EOF).  It generates 5-tuples with these\nmembers:\n\n    the token type (see token.py)\n    the token (a string)\n    the starting (row, column) indices of the token (a 2-tuple of ints)\n    the ending (row, column) indices of the token (a 2-tuple of ints)\n    the original line (string)\n\nIt is designed to match the working of the Python tokenizer exactly, except\nthat it produces COMMENT tokens for comments and gives type OP for all\noperators.  Additionally, all token lists start with an ENCODING token\nwhich tells you which encoding was used to decode the bytes stream.\n'
+'Ka-Ping Yee <ping@lfw.org>'
+'GvR, ESR, Tim Peters, Thomas Wouters, Fred Drake, Skip Montanaro, Raymond Hettinger, Trent Nelson, Michael Foord'
+'^[ \\t\\f]*#.*?coding[:=][ \\t]*([-\\w.]+)'
+'TokenInfo'
+'TokenError'
+'TokenInfo'
+'%d (%s)'
+'TokenInfo(type=%s, string=%r, start=%r, end=%r, line=%r)'
+'type string start end line'
+'[ \\f\\t]*'
+'#[^\\r\\n]*'
+'\\\\\\r?\\n'
+'\\w+'
+'0[xX](?:_?[0-9a-fA-F])+'
+'0[bB](?:_?[01])+'
+'0[oO](?:_?[0-7])+'
+'(?:0(?:_?0)*|[1-9](?:_?[0-9])*)'
+'[eE][-+]?[0-9](?:_?[0-9])*'
+'[0-9](?:_?[0-9])*\\.(?:[0-9](?:_?[0-9])*)?'
+'\\.[0-9](?:_?[0-9])*'
+'[0-9](?:_?[0-9])*'
+'[0-9](?:_?[0-9])*[jJ]'
+'[jJ]'
+"[^'\\\\]*(?:\\\\.[^'\\\\]*)*'"
+'[^"\\\\]*(?:\\\\.[^"\\\\]*)*"'
+"[^'\\\\]*(?:(?:\\\\.|'(?!''))[^'\\\\]*)*'''"
+'[^"\\\\]*(?:(?:\\\\.|"(?!""))[^"\\\\]*)*"""'
+"'''"
+'"""'
+"'[^\\n'\\\\]*(?:\\\\.[^\\n'\\\\]*)*'"
+'"[^\\n"\\\\]*(?:\\\\.[^\\n"\\\\]*)*"'
+'\\r?\\n'
+"'[^\\n'\\\\]*(?:\\\\.[^\\n'\\\\]*)*"
+'"[^\\n"\\\\]*(?:\\\\.[^\\n"\\\\]*)*'
+'\\\\\\r?\\n|\\z'
+'TokenError'
+'Untokenizer'
+'start ({},{}) precedes previous end ({},{})'
+'Add backslash continuation characters if the row has increased\nwithout encountering a newline token.\n\nThis also inserts the correct amount of whitespace before the backslash.\n'
+'\r\n'
+'\\\r\n'
+'{{'
+'}}'
+'Untokenizer'
+'Transform tokens back into Python source code.\nIt returns a bytes object, encoded using the ENCODING\ntoken, which is the first token sequence output by tokenize.\n\nEach element returned by the iterable must be a token sequence\nwith at least two elements, a token number and token value.  If\nonly two tokens are passed, the resulting output is poor.\n\nThe result is guaranteed to tokenize back to match the input so\nthat the conversion is lossless and round-trips are assured.\nThe guarantee applies only to the token type and token string as\nthe spacing between tokens (column positions) may change.\n'
+'Imitates get_normal_name in Parser/tokenizer/helpers.c.'
+'utf-8'
+'utf-8-'
+'iso-8859-1'
+"\nThe detect_encoding() function is used to detect the encoding that should\nbe used to decode a Python source file.  It requires one argument, readline,\nin the same way as the tokenize() generator.\n\nIt will call readline a maximum of twice, and return the encoding used\n(as a string) and a list of any lines (left as bytes) it has read in.\n\nIt detects the encoding from the presence of a utf-8 bom or an encoding\ncookie as specified in pep-0263.  If both a bom and a cookie are present,\nbut disagree, a SyntaxError will be raised.  If the encoding cookie is an\ninvalid charset, raise a SyntaxError.  Note that if a utf-8 bom is found,\n'utf-8-sig' is returned.\n\nIf no encoding is specified, then the default of 'utf-8' will be returned.\n"
+'utf-8'
+'utf-8'
+'invalid or missing encoding declaration'
+'{} for {!r}'
+'unknown encoding: '
+'unknown encoding for {!r}: {}'
+'encoding problem: utf-8'
+'encoding problem for {!r}: utf-8'
+'-sig'
+'utf-8-sig'
+'Open a file in read only mode using the encoding detected by\ndetect_encoding().\n'
+'rb'
+"\nThe tokenize() generator requires one argument, readline, which\nmust be a callable object which provides the same interface as the\nreadline() method of built-in file objects.  Each call to the function\nshould return one line of input as bytes.  Alternatively, readline\ncan be a callable function terminating with StopIteration:\n    readline = open(myfile, 'rb').__next__  # Example of alternate readline\n\nThe generator produces 5-tuples with these members: the token type; the\ntoken string; a 2-tuple (srow, scol) of ints specifying the row and\ncolumn where the token begins in the source; a 2-tuple (erow, ecol) of\nints specifying the row and column where the token ends in the source;\nand the line on which the token was found.  The line passed is the\nphysical line.\n\nThe first token sequence will always be an ENCODING token\nwhich tells you which encoding was used to decode the bytes stream.\n"
+'utf-8-sig'
+'utf-8'
+'Tokenize a source reading Python code as unicode strings.\n\nThis has the same API as tokenize(), except that it expects the *readline*\ncallable to return str objects instead of bytes.\n'
+'%s:%d:%d: error: %s'
+': error: '
+'error: %s'
+'filename'
+'filename.py'
+'the file to tokenize; defaults to stdin'
+'-e'
+'--exact'
+'exact'
+'store_true'
+'display token names using the exact type'
+'rb'
+'<stdin>'
+'%d,%d-%d,%d:'
+'20'
+'15'
+'interrupted\n'
+'unexpected error: %s'
+'Transform error messages from the C tokenizer into the Python tokenize\n\nThe C tokenizer is more picky than the Python one, so we need to massage\nthe error messages a bit for backwards compatibility.\n'
+'unterminated triple-quoted string literal'
+'EOF in multi-line string'
+'Tokenize a source reading Python code as unicode strings using the internal C tokenizer'
+'__main__'

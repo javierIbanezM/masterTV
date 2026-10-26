@@ -1,0 +1,101 @@
+<module>()  line 1
+    sub_debug(msg)  line 45
+    debug(msg)  line 49
+    info(msg)  line 53
+    warn(msg)  line 57
+    sub_warning(msg)  line 61
+    get_logger()  line 65
+    log_to_stderr(level)  line 88
+    _platform_supports_abstract_sockets()  line 109
+    is_abstract_socket_namespace(address)  line 113
+    _remove_temp_dir(rmtree, tempdir)  line 144
+    _get_base_temp_dir(tempfile)  line 153
+    get_temp_dir()  line 207
+    _run_after_forkers()  line 229
+    register_after_fork(obj, func)  line 238
+    Finalize()  line 249
+        Finalize.__init__(self, obj, callback, args, kwargs, exitpriority)  line 253
+        Finalize.__call__(self, wr, _finalizer_registry, sub_debug, getpid)  line 272
+        Finalize.cancel(self)  line 296
+        Finalize.still_active(self)  line 308
+        Finalize.__repr__(self)  line 314
+    _run_finalizers(minpriority)  line 335
+        _run_finalizers.<locals>.<lambda>(p)  line 349
+        _run_finalizers.<locals>.<lambda>(p)  line 351
+    is_exiting()  line 379
+    _exit_function(info, debug, _run_finalizers, active_children, current_process)  line 387
+    ForkAwareThreadLock()  line 435
+        ForkAwareThreadLock.__init__(self)  line 436
+        ForkAwareThreadLock._at_fork_reinit(self)  line 442
+        ForkAwareThreadLock.__enter__(self)  line 445
+        ForkAwareThreadLock.__exit__(self)  line 448
+    ForkAwareLocal()  line 452
+        ForkAwareLocal.__init__(self)  line 453
+            ForkAwareLocal.__init__.<locals>.<lambda>(obj)  line 454
+        ForkAwareLocal.__reduce__(self)  line 455
+    close_all_fds_except(fds)  line 467
+    _close_stdin()  line 477
+    _flush_std_streams()  line 500
+    spawnv_passfds(path, args, passfds)  line 514
+    close_fds()  line 528
+    _cleanup_tests()  line 534
+
+--- strings ---
+'Finalize'
+'ForkAwareThreadLock'
+'ForkAwareLocal'
+'multiprocessing'
+'[%(levelname)s/%(processName)s] %(message)s'
+'stacklevel'
+'stacklevel'
+'stacklevel'
+'stacklevel'
+'stacklevel'
+'\nReturns logger used by multiprocessing\n'
+'unregister'
+'\nTurn on logging and add a handler which prints to stderr\n'
+'linux'
+'address type of '
+' unrecognized'
+'linux'
+'nt'
+'tempdir'
+"Get a temporary directory where socket files will be created.\n\nTo prevent additional imports, pass a pre-imported 'tempfile' module.\n"
+'nt'
+'Process-wide temporary directory %s will not be usable for creating socket files and no usable system-wide temporary directory was found in %s'
+'Ignoring user-defined temporary directory: %s'
+'tempdir'
+'pymp-'
+'created temp directory %s'
+'after forker raised exception %s'
+'Finalize'
+'\nClass which supports object finalization using weakrefs\n'
+'Exitpriority ({0!r}) must be None or int, not {1!s}'
+'Without object, exitpriority cannot be None'
+'\nRun the callback unless it has already been called or cancelled\n'
+'finalizer ignored because different process'
+'finalizer calling %s with args %s and kwargs %s'
+'finalizer no longer registered'
+'\nCancel finalization of the object\n'
+'\nReturn whether this finalizer is still waiting to invoke callback\n'
+'<%s object, dead>'
+' object, callback='
+'__name__'
+', args='
+', kwargs='
+', exitpriority='
+'\nRun all finalizers whose exit priority is not None and at least minpriority\n\nFinalizers with highest priority are called first; finalizers with\nthe same priority will be called in reverse order of creation.\n'
+'calling %s'
+'\nReturns true if the process is shutting down\n'
+'process shutting down'
+'running all "atexit" finalizers with priority >= 0'
+'calling terminate() for daemon %s'
+'calling join() for process %s'
+'running the remaining "atexit" finalizers'
+'ForkAwareThreadLock'
+'ForkAwareLocal'
+'SC_OPEN_MAX'
+'fd too large'
+'utf-8'
+'Close each file descriptor given as an argument'
+'Cleanup multiprocessing resources when multiprocessing tests\ncompleted.'

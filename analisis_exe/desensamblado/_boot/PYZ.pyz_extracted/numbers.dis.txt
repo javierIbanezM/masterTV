@@ -1,0 +1,1051 @@
+  0           RESUME                   0
+
+  4           LOAD_CONST               0 ('Abstract Base Classes (ABCs) for numbers, according to PEP 3141.\n\nTODO: Fill out more detailed documentation on the operators.')
+              STORE_NAME               0 (__doc__)
+
+ 33           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('ABCMeta', 'abstractmethod'))
+              IMPORT_NAME              1 (abc)
+              IMPORT_FROM              2 (ABCMeta)
+              STORE_NAME               2 (ABCMeta)
+              IMPORT_FROM              3 (abstractmethod)
+              STORE_NAME               3 (abstractmethod)
+              POP_TOP
+
+ 35           BUILD_LIST               0
+              LOAD_CONST              14 (('Number', 'Complex', 'Real', 'Rational', 'Integral'))
+              LIST_EXTEND              1
+              STORE_NAME               4 (__all__)
+
+ 37           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object Number at 0x00000204BA08A530, file "numbers.py", line 37>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('Number')
+              LOAD_NAME                2 (ABCMeta)
+              LOAD_CONST               8 (('metaclass',))
+              CALL_KW                  3
+              STORE_NAME               5 (Number)
+
+ 57           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object Complex at 0x00000204BA3E1080, file "numbers.py", line 57>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('Complex')
+              LOAD_NAME                5 (Number)
+              CALL                     3
+              STORE_NAME               6 (Complex)
+
+169           LOAD_NAME                6 (Complex)
+              LOAD_ATTR               15 (register + NULL|self)
+              LOAD_NAME                8 (complex)
+              CALL                     1
+              POP_TOP
+
+172           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object Real at 0x00000204B9FA6AD0, file "numbers.py", line 172>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('Real')
+              LOAD_NAME                6 (Complex)
+              CALL                     3
+              STORE_NAME               9 (Real)
+
+289           LOAD_NAME                9 (Real)
+              LOAD_ATTR               15 (register + NULL|self)
+              LOAD_NAME               10 (float)
+              CALL                     1
+              POP_TOP
+
+292           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object Rational at 0x00000204BA0AA830, file "numbers.py", line 292>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('Rational')
+              LOAD_NAME                9 (Real)
+              CALL                     3
+              STORE_NAME              11 (Rational)
+
+319           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              12 (<code object Integral at 0x00000204B9F5B030, file "numbers.py", line 319>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('Integral')
+              LOAD_NAME               11 (Rational)
+              CALL                     3
+              STORE_NAME              12 (Integral)
+
+418           LOAD_NAME               12 (Integral)
+              LOAD_ATTR               15 (register + NULL|self)
+              LOAD_NAME               13 (int)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST              13 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Number at 0x00000204BA08A530, file "numbers.py", line 37>:
+ 37           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Number')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          37
+              STORE_NAME               3 (__firstlineno__)
+
+ 38           LOAD_CONST               1 ('All numbers inherit from this class.\n\nIf you just want to check if an argument x is a number, without\ncaring what kind, use isinstance(x, Number).\n')
+              STORE_NAME               4 (__doc__)
+
+ 43           LOAD_CONST               3 (())
+              STORE_NAME               5 (__slots__)
+
+ 46           LOAD_CONST               2 (None)
+              STORE_NAME               6 (__hash__)
+              LOAD_CONST               3 (())
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Complex at 0x00000204BA3E1080, file "numbers.py", line 57>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  57           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Complex')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          57
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  58           LOAD_CONST               1 ("Complex defines the operations that work on the builtin complex type.\n\nIn short, those are: a conversion to complex, .real, .imag, +, -,\n*, /, **, abs(), .conjugate, ==, and !=.\n\nIf it is given heterogeneous arguments, and doesn't have special\nknowledge about them, it should fall back to the builtin complex\ntype as described below.\n")
+               STORE_NAME               4 (__doc__)
+
+  68           LOAD_CONST              21 (())
+               STORE_NAME               5 (__slots__)
+
+  70           LOAD_NAME                6 (abstractmethod)
+
+  71           LOAD_CONST               2 (<code object __complex__ at 0x00000204BA0C2170, file "numbers.py", line 70>)
+               MAKE_FUNCTION
+
+  70           CALL                     0
+
+  71           STORE_NAME               7 (__complex__)
+
+  74           LOAD_CONST               3 (<code object __bool__ at 0x00000204BA609290, file "numbers.py", line 74>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__bool__)
+
+  78           LOAD_NAME                9 (property)
+
+  79           LOAD_NAME                6 (abstractmethod)
+
+  80           LOAD_CONST               4 (<code object real at 0x00000204BA609370, file "numbers.py", line 78>)
+               MAKE_FUNCTION
+
+  79           CALL                     0
+
+  78           CALL                     0
+
+  80           STORE_NAME              10 (real)
+
+  87           LOAD_NAME                9 (property)
+
+  88           LOAD_NAME                6 (abstractmethod)
+
+  89           LOAD_CONST               5 (<code object imag at 0x00000204BA608570, file "numbers.py", line 87>)
+               MAKE_FUNCTION
+
+  88           CALL                     0
+
+  87           CALL                     0
+
+  89           STORE_NAME              11 (imag)
+
+  96           LOAD_NAME                6 (abstractmethod)
+
+  97           LOAD_CONST               6 (<code object __add__ at 0x00000204BA6096F0, file "numbers.py", line 96>)
+               MAKE_FUNCTION
+
+  96           CALL                     0
+
+  97           STORE_NAME              12 (__add__)
+
+ 101           LOAD_NAME                6 (abstractmethod)
+
+ 102           LOAD_CONST               7 (<code object __radd__ at 0x00000204BA609B50, file "numbers.py", line 101>)
+               MAKE_FUNCTION
+
+ 101           CALL                     0
+
+ 102           STORE_NAME              13 (__radd__)
+
+ 106           LOAD_NAME                6 (abstractmethod)
+
+ 107           LOAD_CONST               8 (<code object __neg__ at 0x00000204BA609DF0, file "numbers.py", line 106>)
+               MAKE_FUNCTION
+
+ 106           CALL                     0
+
+ 107           STORE_NAME              14 (__neg__)
+
+ 111           LOAD_NAME                6 (abstractmethod)
+
+ 112           LOAD_CONST               9 (<code object __pos__ at 0x00000204BA609FB0, file "numbers.py", line 111>)
+               MAKE_FUNCTION
+
+ 111           CALL                     0
+
+ 112           STORE_NAME              15 (__pos__)
+
+ 116           LOAD_CONST              10 (<code object __sub__ at 0x00000204BA093C30, file "numbers.py", line 116>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (__sub__)
+
+ 120           LOAD_CONST              11 (<code object __rsub__ at 0x00000204BA0912F0, file "numbers.py", line 120>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (__rsub__)
+
+ 124           LOAD_NAME                6 (abstractmethod)
+
+ 125           LOAD_CONST              12 (<code object __mul__ at 0x00000204BA60A090, file "numbers.py", line 124>)
+               MAKE_FUNCTION
+
+ 124           CALL                     0
+
+ 125           STORE_NAME              18 (__mul__)
+
+ 129           LOAD_NAME                6 (abstractmethod)
+
+ 130           LOAD_CONST              13 (<code object __rmul__ at 0x00000204BA608AB0, file "numbers.py", line 129>)
+               MAKE_FUNCTION
+
+ 129           CALL                     0
+
+ 130           STORE_NAME              19 (__rmul__)
+
+ 134           LOAD_NAME                6 (abstractmethod)
+
+ 135           LOAD_CONST              14 (<code object __truediv__ at 0x00000204BA608730, file "numbers.py", line 134>)
+               MAKE_FUNCTION
+
+ 134           CALL                     0
+
+ 135           STORE_NAME              20 (__truediv__)
+
+ 139           LOAD_NAME                6 (abstractmethod)
+
+ 140           LOAD_CONST              15 (<code object __rtruediv__ at 0x00000204BA609530, file "numbers.py", line 139>)
+               MAKE_FUNCTION
+
+ 139           CALL                     0
+
+ 140           STORE_NAME              21 (__rtruediv__)
+
+ 144           LOAD_NAME                6 (abstractmethod)
+
+ 145           LOAD_CONST              16 (<code object __pow__ at 0x00000204BA609610, file "numbers.py", line 144>)
+               MAKE_FUNCTION
+
+ 144           CALL                     0
+
+ 145           STORE_NAME              22 (__pow__)
+
+ 149           LOAD_NAME                6 (abstractmethod)
+
+ 150           LOAD_CONST              17 (<code object __rpow__ at 0x00000204BA6097D0, file "numbers.py", line 149>)
+               MAKE_FUNCTION
+
+ 149           CALL                     0
+
+ 150           STORE_NAME              23 (__rpow__)
+
+ 154           LOAD_NAME                6 (abstractmethod)
+
+ 155           LOAD_CONST              18 (<code object __abs__ at 0x00000204BA608490, file "numbers.py", line 154>)
+               MAKE_FUNCTION
+
+ 154           CALL                     0
+
+ 155           STORE_NAME              24 (__abs__)
+
+ 159           LOAD_NAME                6 (abstractmethod)
+
+ 160           LOAD_CONST              19 (<code object conjugate at 0x00000204BA609990, file "numbers.py", line 159>)
+               MAKE_FUNCTION
+
+ 159           CALL                     0
+
+ 160           STORE_NAME              25 (conjugate)
+
+ 164           LOAD_NAME                6 (abstractmethod)
+
+ 165           LOAD_CONST              20 (<code object __eq__ at 0x00000204BA609A70, file "numbers.py", line 164>)
+               MAKE_FUNCTION
+
+ 164           CALL                     0
+
+ 165           STORE_NAME              26 (__eq__)
+               LOAD_CONST              21 (())
+               STORE_NAME              27 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              28 (__classdictcell__)
+               LOAD_CONST              22 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __complex__ at 0x00000204BA0C2170, file "numbers.py", line 70>:
+ 70           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __bool__ at 0x00000204BA609290, file "numbers.py", line 74>:
+ 74           RESUME                   0
+
+ 76           LOAD_FAST_BORROW         0 (self)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             103 (!=)
+              RETURN_VALUE
+
+Disassembly of <code object real at 0x00000204BA609370, file "numbers.py", line 78>:
+ 78           RESUME                   0
+
+ 85           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object imag at 0x00000204BA608570, file "numbers.py", line 87>:
+ 87           RESUME                   0
+
+ 94           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __add__ at 0x00000204BA6096F0, file "numbers.py", line 96>:
+ 96           RESUME                   0
+
+ 99           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __radd__ at 0x00000204BA609B50, file "numbers.py", line 101>:
+101           RESUME                   0
+
+104           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __neg__ at 0x00000204BA609DF0, file "numbers.py", line 106>:
+106           RESUME                   0
+
+109           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __pos__ at 0x00000204BA609FB0, file "numbers.py", line 111>:
+111           RESUME                   0
+
+114           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __sub__ at 0x00000204BA093C30, file "numbers.py", line 116>:
+116           RESUME                   0
+
+118           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, other)
+              UNARY_NEGATIVE
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object __rsub__ at 0x00000204BA0912F0, file "numbers.py", line 120>:
+120           RESUME                   0
+
+122           LOAD_FAST_BORROW         0 (self)
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         1 (other)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object __mul__ at 0x00000204BA60A090, file "numbers.py", line 124>:
+124           RESUME                   0
+
+127           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rmul__ at 0x00000204BA608AB0, file "numbers.py", line 129>:
+129           RESUME                   0
+
+132           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __truediv__ at 0x00000204BA608730, file "numbers.py", line 134>:
+134           RESUME                   0
+
+137           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rtruediv__ at 0x00000204BA609530, file "numbers.py", line 139>:
+139           RESUME                   0
+
+142           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __pow__ at 0x00000204BA609610, file "numbers.py", line 144>:
+144           RESUME                   0
+
+147           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rpow__ at 0x00000204BA6097D0, file "numbers.py", line 149>:
+149           RESUME                   0
+
+152           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __abs__ at 0x00000204BA608490, file "numbers.py", line 154>:
+154           RESUME                   0
+
+157           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object conjugate at 0x00000204BA609990, file "numbers.py", line 159>:
+159           RESUME                   0
+
+162           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __eq__ at 0x00000204BA609A70, file "numbers.py", line 164>:
+164           RESUME                   0
+
+167           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object Real at 0x00000204B9FA6AD0, file "numbers.py", line 172>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 172           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Real')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         172
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 173           LOAD_CONST               1 ('To Complex, Real adds the operations that work on real numbers.\n\nIn short, those are: a conversion to float, trunc(), divmod,\n%, <, <=, >, and >=.\n\nReal also provides defaults for the derived operations.\n')
+               STORE_NAME               4 (__doc__)
+
+ 181           LOAD_CONST              20 (())
+               STORE_NAME               5 (__slots__)
+
+ 183           LOAD_NAME                6 (abstractmethod)
+
+ 184           LOAD_CONST               2 (<code object __float__ at 0x00000204BA608030, file "numbers.py", line 183>)
+               MAKE_FUNCTION
+
+ 183           CALL                     0
+
+ 184           STORE_NAME               7 (__float__)
+
+ 190           LOAD_NAME                6 (abstractmethod)
+
+ 191           LOAD_CONST               3 (<code object __trunc__ at 0x00000204BA6089D0, file "numbers.py", line 190>)
+               MAKE_FUNCTION
+
+ 190           CALL                     0
+
+ 191           STORE_NAME               8 (__trunc__)
+
+ 203           LOAD_NAME                6 (abstractmethod)
+
+ 204           LOAD_CONST               4 (<code object __floor__ at 0x00000204BA608650, file "numbers.py", line 203>)
+               MAKE_FUNCTION
+
+ 203           CALL                     0
+
+ 204           STORE_NAME               9 (__floor__)
+
+ 208           LOAD_NAME                6 (abstractmethod)
+
+ 209           LOAD_CONST               5 (<code object __ceil__ at 0x00000204BA6088F0, file "numbers.py", line 208>)
+               MAKE_FUNCTION
+
+ 208           CALL                     0
+
+ 209           STORE_NAME              10 (__ceil__)
+
+ 213           LOAD_NAME                6 (abstractmethod)
+
+ 214           LOAD_CONST              21 ((None,))
+               LOAD_CONST               7 (<code object __round__ at 0x00000204BA608B90, file "numbers.py", line 213>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+ 213           CALL                     0
+
+ 214           STORE_NAME              11 (__round__)
+
+ 222           LOAD_CONST               8 (<code object __divmod__ at 0x00000204BA08B130, file "numbers.py", line 222>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (__divmod__)
+
+ 230           LOAD_CONST               9 (<code object __rdivmod__ at 0x00000204BA08B330, file "numbers.py", line 230>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (__rdivmod__)
+
+ 238           LOAD_NAME                6 (abstractmethod)
+
+ 239           LOAD_CONST              10 (<code object __floordiv__ at 0x00000204BA6090D0, file "numbers.py", line 238>)
+               MAKE_FUNCTION
+
+ 238           CALL                     0
+
+ 239           STORE_NAME              14 (__floordiv__)
+
+ 243           LOAD_NAME                6 (abstractmethod)
+
+ 244           LOAD_CONST              11 (<code object __rfloordiv__ at 0x00000204BA6082D0, file "numbers.py", line 243>)
+               MAKE_FUNCTION
+
+ 243           CALL                     0
+
+ 244           STORE_NAME              15 (__rfloordiv__)
+
+ 248           LOAD_NAME                6 (abstractmethod)
+
+ 249           LOAD_CONST              12 (<code object __mod__ at 0x00000204BA608810, file "numbers.py", line 248>)
+               MAKE_FUNCTION
+
+ 248           CALL                     0
+
+ 249           STORE_NAME              16 (__mod__)
+
+ 253           LOAD_NAME                6 (abstractmethod)
+
+ 254           LOAD_CONST              13 (<code object __rmod__ at 0x00000204BA608110, file "numbers.py", line 253>)
+               MAKE_FUNCTION
+
+ 253           CALL                     0
+
+ 254           STORE_NAME              17 (__rmod__)
+
+ 258           LOAD_NAME                6 (abstractmethod)
+
+ 259           LOAD_CONST              14 (<code object __lt__ at 0x00000204BA608C70, file "numbers.py", line 258>)
+               MAKE_FUNCTION
+
+ 258           CALL                     0
+
+ 259           STORE_NAME              18 (__lt__)
+
+ 265           LOAD_NAME                6 (abstractmethod)
+
+ 266           LOAD_CONST              15 (<code object __le__ at 0x00000204BA608D50, file "numbers.py", line 265>)
+               MAKE_FUNCTION
+
+ 265           CALL                     0
+
+ 266           STORE_NAME              19 (__le__)
+
+ 271           LOAD_CONST              16 (<code object __complex__ at 0x00000204BA08B030, file "numbers.py", line 271>)
+               MAKE_FUNCTION
+               STORE_NAME              20 (__complex__)
+
+ 275           LOAD_NAME               21 (property)
+
+ 276           LOAD_CONST              17 (<code object real at 0x00000204BA608E30, file "numbers.py", line 275>)
+               MAKE_FUNCTION
+
+ 275           CALL                     0
+
+ 276           STORE_NAME              22 (real)
+
+ 280           LOAD_NAME               21 (property)
+
+ 281           LOAD_CONST              18 (<code object imag at 0x00000204BA608F10, file "numbers.py", line 280>)
+               MAKE_FUNCTION
+
+ 280           CALL                     0
+
+ 281           STORE_NAME              23 (imag)
+
+ 285           LOAD_CONST              19 (<code object conjugate at 0x00000204BA6081F0, file "numbers.py", line 285>)
+               MAKE_FUNCTION
+               STORE_NAME              24 (conjugate)
+               LOAD_CONST              20 (())
+               STORE_NAME              25 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              26 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __float__ at 0x00000204BA608030, file "numbers.py", line 183>:
+183           RESUME                   0
+
+188           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __trunc__ at 0x00000204BA6089D0, file "numbers.py", line 190>:
+190           RESUME                   0
+
+201           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __floor__ at 0x00000204BA608650, file "numbers.py", line 203>:
+203           RESUME                   0
+
+206           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __ceil__ at 0x00000204BA6088F0, file "numbers.py", line 208>:
+208           RESUME                   0
+
+211           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __round__ at 0x00000204BA608B90, file "numbers.py", line 213>:
+213           RESUME                   0
+
+220           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __divmod__ at 0x00000204BA08B130, file "numbers.py", line 222>:
+222           RESUME                   0
+
+228           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, other)
+              BINARY_OP                2 (//)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, other)
+              BINARY_OP                6 (%)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object __rdivmod__ at 0x00000204BA08B330, file "numbers.py", line 230>:
+230           RESUME                   0
+
+236           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (other, self)
+              BINARY_OP                2 (//)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (other, self)
+              BINARY_OP                6 (%)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object __floordiv__ at 0x00000204BA6090D0, file "numbers.py", line 238>:
+238           RESUME                   0
+
+241           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rfloordiv__ at 0x00000204BA6082D0, file "numbers.py", line 243>:
+243           RESUME                   0
+
+246           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __mod__ at 0x00000204BA608810, file "numbers.py", line 248>:
+248           RESUME                   0
+
+251           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rmod__ at 0x00000204BA608110, file "numbers.py", line 253>:
+253           RESUME                   0
+
+256           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __lt__ at 0x00000204BA608C70, file "numbers.py", line 258>:
+258           RESUME                   0
+
+263           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __le__ at 0x00000204BA608D50, file "numbers.py", line 265>:
+265           RESUME                   0
+
+268           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __complex__ at 0x00000204BA08B030, file "numbers.py", line 271>:
+271           RESUME                   0
+
+273           LOAD_GLOBAL              1 (complex + NULL)
+              LOAD_GLOBAL              3 (float + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object real at 0x00000204BA608E30, file "numbers.py", line 275>:
+275           RESUME                   0
+
+278           LOAD_FAST_BORROW         0 (self)
+              CALL_INTRINSIC_1         5 (INTRINSIC_UNARY_POSITIVE)
+              RETURN_VALUE
+
+Disassembly of <code object imag at 0x00000204BA608F10, file "numbers.py", line 280>:
+280           RESUME                   0
+
+283           LOAD_SMALL_INT           0
+              RETURN_VALUE
+
+Disassembly of <code object conjugate at 0x00000204BA6081F0, file "numbers.py", line 285>:
+285           RESUME                   0
+
+287           LOAD_FAST_BORROW         0 (self)
+              CALL_INTRINSIC_1         5 (INTRINSIC_UNARY_POSITIVE)
+              RETURN_VALUE
+
+Disassembly of <code object Rational at 0x00000204BA0AA830, file "numbers.py", line 292>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 292           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Rational')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (292)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 293           LOAD_CONST               2 ('.numerator and .denominator should be in lowest terms.')
+               STORE_NAME               4 (__doc__)
+
+ 295           LOAD_CONST               6 (())
+               STORE_NAME               5 (__slots__)
+
+ 297           LOAD_NAME                6 (property)
+
+ 298           LOAD_NAME                7 (abstractmethod)
+
+ 299           LOAD_CONST               3 (<code object numerator at 0x00000204BA608FF0, file "numbers.py", line 297>)
+               MAKE_FUNCTION
+
+ 298           CALL                     0
+
+ 297           CALL                     0
+
+ 299           STORE_NAME               8 (numerator)
+
+ 302           LOAD_NAME                6 (property)
+
+ 303           LOAD_NAME                7 (abstractmethod)
+
+ 304           LOAD_CONST               4 (<code object denominator at 0x00000204BA6091B0, file "numbers.py", line 302>)
+               MAKE_FUNCTION
+
+ 303           CALL                     0
+
+ 302           CALL                     0
+
+ 304           STORE_NAME               9 (denominator)
+
+ 308           LOAD_CONST               5 (<code object __float__ at 0x00000204B9FEF800, file "numbers.py", line 308>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__float__)
+               LOAD_CONST               6 (())
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object numerator at 0x00000204BA608FF0, file "numbers.py", line 297>:
+297           RESUME                   0
+
+300           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object denominator at 0x00000204BA6091B0, file "numbers.py", line 302>:
+302           RESUME                   0
+
+305           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __float__ at 0x00000204B9FEF800, file "numbers.py", line 308>:
+308           RESUME                   0
+
+316           LOAD_GLOBAL              1 (int + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (numerator)
+              CALL                     1
+              LOAD_GLOBAL              1 (int + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (denominator)
+              CALL                     1
+              BINARY_OP               11 (/)
+              RETURN_VALUE
+
+Disassembly of <code object Integral at 0x00000204B9F5B030, file "numbers.py", line 319>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 319           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Integral')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (319)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 320           LOAD_CONST               2 ('Integral adds methods that work on integral numbers.\n\nIn short, these are conversion to int, pow with modulus, and the\nbit-string operations.\n')
+               STORE_NAME               4 (__doc__)
+
+ 326           LOAD_CONST              21 (())
+               STORE_NAME               5 (__slots__)
+
+ 328           LOAD_NAME                6 (abstractmethod)
+
+ 329           LOAD_CONST               3 (<code object __int__ at 0x00000204BA6098B0, file "numbers.py", line 328>)
+               MAKE_FUNCTION
+
+ 328           CALL                     0
+
+ 329           STORE_NAME               7 (__int__)
+
+ 333           LOAD_CONST               4 (<code object __index__ at 0x00000204BA0914D0, file "numbers.py", line 333>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__index__)
+
+ 337           LOAD_NAME                6 (abstractmethod)
+
+ 338           LOAD_CONST              22 ((None,))
+               LOAD_CONST               6 (<code object __pow__ at 0x00000204BA609D10, file "numbers.py", line 337>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+ 337           CALL                     0
+
+ 338           STORE_NAME               9 (__pow__)
+
+ 348           LOAD_NAME                6 (abstractmethod)
+
+ 349           LOAD_CONST               7 (<code object __lshift__ at 0x00000204BA609ED0, file "numbers.py", line 348>)
+               MAKE_FUNCTION
+
+ 348           CALL                     0
+
+ 349           STORE_NAME              10 (__lshift__)
+
+ 353           LOAD_NAME                6 (abstractmethod)
+
+ 354           LOAD_CONST               8 (<code object __rlshift__ at 0x00000204BA60A170, file "numbers.py", line 353>)
+               MAKE_FUNCTION
+
+ 353           CALL                     0
+
+ 354           STORE_NAME              11 (__rlshift__)
+
+ 358           LOAD_NAME                6 (abstractmethod)
+
+ 359           LOAD_CONST               9 (<code object __rshift__ at 0x00000204BA60A250, file "numbers.py", line 358>)
+               MAKE_FUNCTION
+
+ 358           CALL                     0
+
+ 359           STORE_NAME              12 (__rshift__)
+
+ 363           LOAD_NAME                6 (abstractmethod)
+
+ 364           LOAD_CONST              10 (<code object __rrshift__ at 0x00000204BA60A330, file "numbers.py", line 363>)
+               MAKE_FUNCTION
+
+ 363           CALL                     0
+
+ 364           STORE_NAME              13 (__rrshift__)
+
+ 368           LOAD_NAME                6 (abstractmethod)
+
+ 369           LOAD_CONST              11 (<code object __and__ at 0x00000204BA60A410, file "numbers.py", line 368>)
+               MAKE_FUNCTION
+
+ 368           CALL                     0
+
+ 369           STORE_NAME              14 (__and__)
+
+ 373           LOAD_NAME                6 (abstractmethod)
+
+ 374           LOAD_CONST              12 (<code object __rand__ at 0x00000204BA60A4F0, file "numbers.py", line 373>)
+               MAKE_FUNCTION
+
+ 373           CALL                     0
+
+ 374           STORE_NAME              15 (__rand__)
+
+ 378           LOAD_NAME                6 (abstractmethod)
+
+ 379           LOAD_CONST              13 (<code object __xor__ at 0x00000204BA60A5D0, file "numbers.py", line 378>)
+               MAKE_FUNCTION
+
+ 378           CALL                     0
+
+ 379           STORE_NAME              16 (__xor__)
+
+ 383           LOAD_NAME                6 (abstractmethod)
+
+ 384           LOAD_CONST              14 (<code object __rxor__ at 0x00000204BA60A6B0, file "numbers.py", line 383>)
+               MAKE_FUNCTION
+
+ 383           CALL                     0
+
+ 384           STORE_NAME              17 (__rxor__)
+
+ 388           LOAD_NAME                6 (abstractmethod)
+
+ 389           LOAD_CONST              15 (<code object __or__ at 0x00000204BA60A790, file "numbers.py", line 388>)
+               MAKE_FUNCTION
+
+ 388           CALL                     0
+
+ 389           STORE_NAME              18 (__or__)
+
+ 393           LOAD_NAME                6 (abstractmethod)
+
+ 394           LOAD_CONST              16 (<code object __ror__ at 0x00000204BA60A870, file "numbers.py", line 393>)
+               MAKE_FUNCTION
+
+ 393           CALL                     0
+
+ 394           STORE_NAME              19 (__ror__)
+
+ 398           LOAD_NAME                6 (abstractmethod)
+
+ 399           LOAD_CONST              17 (<code object __invert__ at 0x00000204BA60A950, file "numbers.py", line 398>)
+               MAKE_FUNCTION
+
+ 398           CALL                     0
+
+ 399           STORE_NAME              20 (__invert__)
+
+ 404           LOAD_CONST              18 (<code object __float__ at 0x00000204BA08AC30, file "numbers.py", line 404>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (__float__)
+
+ 408           LOAD_NAME               22 (property)
+
+ 409           LOAD_CONST              19 (<code object numerator at 0x00000204BA60AA30, file "numbers.py", line 408>)
+               MAKE_FUNCTION
+
+ 408           CALL                     0
+
+ 409           STORE_NAME              23 (numerator)
+
+ 413           LOAD_NAME               22 (property)
+
+ 414           LOAD_CONST              20 (<code object denominator at 0x00000204BA60AB10, file "numbers.py", line 413>)
+               MAKE_FUNCTION
+
+ 413           CALL                     0
+
+ 414           STORE_NAME              24 (denominator)
+               LOAD_CONST              21 (())
+               STORE_NAME              25 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              26 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __int__ at 0x00000204BA6098B0, file "numbers.py", line 328>:
+328           RESUME                   0
+
+331           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __index__ at 0x00000204BA0914D0, file "numbers.py", line 333>:
+333           RESUME                   0
+
+335           LOAD_GLOBAL              1 (int + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __pow__ at 0x00000204BA609D10, file "numbers.py", line 337>:
+337           RESUME                   0
+
+346           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __lshift__ at 0x00000204BA609ED0, file "numbers.py", line 348>:
+348           RESUME                   0
+
+351           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rlshift__ at 0x00000204BA60A170, file "numbers.py", line 353>:
+353           RESUME                   0
+
+356           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rshift__ at 0x00000204BA60A250, file "numbers.py", line 358>:
+358           RESUME                   0
+
+361           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rrshift__ at 0x00000204BA60A330, file "numbers.py", line 363>:
+363           RESUME                   0
+
+366           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __and__ at 0x00000204BA60A410, file "numbers.py", line 368>:
+368           RESUME                   0
+
+371           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rand__ at 0x00000204BA60A4F0, file "numbers.py", line 373>:
+373           RESUME                   0
+
+376           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __xor__ at 0x00000204BA60A5D0, file "numbers.py", line 378>:
+378           RESUME                   0
+
+381           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __rxor__ at 0x00000204BA60A6B0, file "numbers.py", line 383>:
+383           RESUME                   0
+
+386           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __or__ at 0x00000204BA60A790, file "numbers.py", line 388>:
+388           RESUME                   0
+
+391           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __ror__ at 0x00000204BA60A870, file "numbers.py", line 393>:
+393           RESUME                   0
+
+396           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __invert__ at 0x00000204BA60A950, file "numbers.py", line 398>:
+398           RESUME                   0
+
+401           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __float__ at 0x00000204BA08AC30, file "numbers.py", line 404>:
+404           RESUME                   0
+
+406           LOAD_GLOBAL              1 (float + NULL)
+              LOAD_GLOBAL              3 (int + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object numerator at 0x00000204BA60AA30, file "numbers.py", line 408>:
+408           RESUME                   0
+
+411           LOAD_FAST_BORROW         0 (self)
+              CALL_INTRINSIC_1         5 (INTRINSIC_UNARY_POSITIVE)
+              RETURN_VALUE
+
+Disassembly of <code object denominator at 0x00000204BA60AB10, file "numbers.py", line 413>:
+413           RESUME                   0
+
+416           LOAD_SMALL_INT           1
+              RETURN_VALUE

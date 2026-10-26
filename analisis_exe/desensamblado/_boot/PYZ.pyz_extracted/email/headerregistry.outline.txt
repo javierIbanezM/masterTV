@@ -1,0 +1,198 @@
+<module>()  line 1
+    Address()  line 12
+        Address.__init__(self, display_name, username, domain, addr_spec)  line 14
+        Address.display_name(self)  line 56
+        Address.username(self)  line 60
+        Address.domain(self)  line 64
+        Address.addr_spec(self)  line 68
+        Address.__repr__(self)  line 82
+        Address.__str__(self)  line 87
+        Address.__eq__(self, other)  line 96
+    Group()  line 104
+        Group.__init__(self, display_name, addresses)  line 106
+        Group.display_name(self)  line 124
+        Group.addresses(self)  line 128
+        Group.__repr__(self)  line 132
+        Group.__str__(self)  line 137
+            Group.__str__.<locals>.<genexpr>(.0)  line 143
+        Group.__eq__(self, other)  line 147
+    BaseHeader()  line 156
+        BaseHeader.__new__(cls, name, value)  line 190
+        BaseHeader.init(self, name, parse_tree, defects)  line 200
+        BaseHeader.name(self)  line 205
+        BaseHeader.defects(self)  line 209
+        BaseHeader.__reduce__(self)  line 213
+        BaseHeader._reconstruct(cls, value)  line 223
+        BaseHeader.fold(self, policy)  line 227
+    _reconstruct_header(cls_name, bases, value)  line 256
+    UnstructuredHeader()  line 260
+        UnstructuredHeader.parse(cls, value, kwds)  line 265
+    UniqueUnstructuredHeader()  line 271
+    DateHeader()  line 276
+        DateHeader.parse(cls, value, kwds)  line 292
+        DateHeader.init(self)  line 313
+        DateHeader.datetime(self)  line 317
+    UniqueDateHeader()  line 322
+    AddressHeader()  line 327
+        AddressHeader.value_parser(value)  line 331
+        AddressHeader.parse(cls, value, kwds)  line 337
+        AddressHeader.init(self)  line 365
+        AddressHeader.groups(self)  line 370
+        AddressHeader.addresses(self)  line 374
+            AddressHeader.addresses.<locals>.<genexpr>(.0)  line 377
+    UniqueAddressHeader()  line 382
+    SingleAddressHeader()  line 387
+        SingleAddressHeader.address(self)  line 389
+    UniqueSingleAddressHeader()  line 397
+    MIMEVersionHeader()  line 402
+        MIMEVersionHeader.parse(cls, value, kwds)  line 408
+        MIMEVersionHeader.init(self)  line 420
+        MIMEVersionHeader.major(self)  line 426
+        MIMEVersionHeader.minor(self)  line 430
+        MIMEVersionHeader.version(self)  line 434
+    ParameterizedMIMEHeader()  line 439
+        ParameterizedMIMEHeader.parse(cls, value, kwds)  line 446
+        ParameterizedMIMEHeader.init(self)  line 459
+        ParameterizedMIMEHeader.params(self)  line 463
+    ContentTypeHeader()  line 468
+        ContentTypeHeader.init(self)  line 472
+        ContentTypeHeader.maintype(self)  line 477
+        ContentTypeHeader.subtype(self)  line 481
+        ContentTypeHeader.content_type(self)  line 485
+    ContentDispositionHeader()  line 490
+        ContentDispositionHeader.init(self)  line 494
+        ContentDispositionHeader.content_disposition(self)  line 499
+    ContentTransferEncodingHeader()  line 504
+        ContentTransferEncodingHeader.parse(cls, value, kwds)  line 510
+        ContentTransferEncodingHeader.init(self)  line 516
+        ContentTransferEncodingHeader.cte(self)  line 520
+    MessageIDHeader()  line 525
+        MessageIDHeader.parse(cls, value, kwds)  line 530
+    HeaderRegistry()  line 562
+        HeaderRegistry.__init__(self, base_class, default_class, use_default_map)  line 566
+        HeaderRegistry.map_to_type(self, name, cls)  line 584
+        HeaderRegistry.__getitem__(self, name)  line 590
+        HeaderRegistry.__call__(self, name, value)  line 594
+
+--- strings ---
+'Representing and manipulating email headers via custom objects.\n\nThis module provides an implementation of the HeaderRegistry API.\nThe implementation is designed to flexibly follow RFC5322 rules.\n'
+'Address'
+"Create an object representing a full email address.\n\nAn address can have a 'display_name', a 'username', and a 'domain'.  In\naddition to specifying the username and domain separately, they may be\nspecified together by using the addr_spec keyword *instead of* the\nusername and domain keywords.  If an addr_spec string is specified it\nmust be properly quoted according to RFC 5322 rules; an error will be\nraised if it is not.\n\nAn Address object has display_name, username, domain, and addr_spec\nattributes, all of which are read-only.  The addr_spec and the string\nvalue of the object are both quoted according to RFC5322 rules, but\nwithout any Content Transfer Encoding.\n\n"
+'invalid arguments; address parts cannot contain CR or LF'
+'addrspec specified when username and/or domain also specified'
+"Invalid addr_spec; only '{}' could be parsed from '{}'"
+'The addr_spec (username@domain) portion of the address, quoted\naccording to RFC 5322 rules, but with no Content Transfer Encoding.\n'
+'<>'
+'{}(display_name={!r}, username={!r}, domain={!r})'
+'<>'
+'{} <{}>'
+'Address'
+'Group'
+'Create an object representing an address group.\n\nAn address group consists of a display_name followed by colon and a\nlist of addresses (see Address) terminated by a semi-colon.  The Group\nis created by specifying a display_name and a possibly empty list of\nAddress objects.  A Group can also be used to represent a single\naddress that is not in a group, which is convenient when manipulating\nlists that are a combination of Groups and individual Addresses.  In\nthis case the display_name should be set to None.  In particular, the\nstring representation of a Group whose display_name is None is the same\nas the Address object, if there is one and only one Address object in\nthe addresses list.\n\n'
+'{}(display_name={!r}, addresses={!r}'
+', '
+'{}:{};'
+'Group'
+'BaseHeader'
+"Base class for message headers.\n\nImplements generic behavior and provides tools for subclasses.\n\nA subclass must define a classmethod named 'parse' that takes an unfolded\nvalue string and a dictionary as its arguments.  The dictionary will\ncontain one key, 'defects', initialized to an empty list.  After the call\nthe dictionary must contain two additional keys: parse_tree, set to the\nparse tree obtained from parsing the header, and 'decoded', set to the\nstring value of the idealized representation of the data from the value.\n(That is, encoded words are decoded, and values that have canonical\nrepresentations are so represented.)\n\nThe defects key is intended to collect parsing defects, which the message\nparser will subsequently dispose of as appropriate.  The parser should not,\ninsofar as practical, raise any errors.  Defects should be added to the\nlist instead.  The standard header parsers register defects for RFC\ncompliance issues, for obsolete RFC syntax, and for unrecoverable parsing\nerrors.\n\nThe parse method may add additional keys to the dictionary.  In this case\nthe subclass must define an 'init' method, which will be passed the\ndictionary as its keyword arguments.  The method should use (usually by\nsetting them as the value of similarly named attributes) and remove all the\nextra keys added by its parse method, and then use super to call its parent\nclass with the remaining arguments and keywords.\n\nThe subclass should also make sure that a 'max_count' attribute is defined\nthat is either None or 1. XXX: need to better define this API.\n\n"
+'defects'
+'decoded'
+'Fold header according to policy.\n\nThe parsed representation of the header is folded according to\nRFC5322 rules, as modified by the policy.  If the parse tree\ncontains surrogateescaped bytes, the bytes are CTE encoded using\nthe charset \'unknown-8bit".\n\nAny non-ASCII characters in the parse tree are CTE encoded using\ncharset utf-8. XXX: make this a policy setting.\n\nThe returned value is an ASCII-only string possibly containing linesep\ncharacters, and ending with a linesep character.  The string includes\nthe header name and the \': \' separator.\n\n'
+'header-name'
+'header-sep'
+'fws'
+'BaseHeader'
+'UnstructuredHeader'
+'parse_tree'
+'decoded'
+'UnstructuredHeader'
+'UniqueUnstructuredHeader'
+'UniqueUnstructuredHeader'
+'DateHeader'
+"Header whose value consists of a single timestamp.\n\nProvides an additional attribute, datetime, which is either an aware\ndatetime using a timezone, or a naive datetime if the timezone\nin the input string is -0000.  Also accepts a datetime as input.\nThe 'value' attribute is the normalized form of the timestamp,\nwhich means it is the output of format_datetime on the datetime.\n"
+'defects'
+'datetime'
+'decoded'
+'parse_tree'
+'Invalid date value or format'
+'datetime'
+'DateHeader'
+'UniqueDateHeader'
+'UniqueDateHeader'
+'AddressHeader'
+'this should not happen'
+'parse_tree'
+'__iter__'
+'addresses'
+'groups'
+'defects'
+', '
+'decoded'
+'groups'
+'AddressHeader'
+'UniqueAddressHeader'
+'UniqueAddressHeader'
+'SingleAddressHeader'
+'value of single address header {} is not a single address'
+'SingleAddressHeader'
+'UniqueSingleAddressHeader'
+'UniqueSingleAddressHeader'
+'MIMEVersionHeader'
+'parse_tree'
+'decoded'
+'defects'
+'major'
+'minor'
+'{}.{}'
+'version'
+'version'
+'major'
+'minor'
+'MIMEVersionHeader'
+'ParameterizedMIMEHeader'
+'parse_tree'
+'decoded'
+'defects'
+'params'
+'params'
+'ParameterizedMIMEHeader'
+'ContentTypeHeader'
+'ContentTypeHeader'
+'ContentDispositionHeader'
+'ContentDispositionHeader'
+'ContentTransferEncodingHeader'
+'parse_tree'
+'decoded'
+'defects'
+'ContentTransferEncodingHeader'
+'MessageIDHeader'
+'parse_tree'
+'decoded'
+'defects'
+'MessageIDHeader'
+'subject'
+'date'
+'resent-date'
+'orig-date'
+'sender'
+'resent-sender'
+'to'
+'resent-to'
+'cc'
+'resent-cc'
+'bcc'
+'resent-bcc'
+'from'
+'resent-from'
+'reply-to'
+'mime-version'
+'content-type'
+'content-disposition'
+'content-transfer-encoding'
+'message-id'
+'HeaderRegistry'
+'A header_factory and header registry.'
+'Create a header_factory that works with the Policy API.\n\nbase_class is the class that will be the last class in the created\nheader class\'s __bases__ list.  default_class is the class that will be\nused if "name" (see __call__) does not appear in the registry.\nuse_default_map controls whether or not the default mapping of names to\nspecialized classes is copied in to the registry when the factory is\ncreated.  The default is True.\n\n'
+'Register cls as the specialized class for handling "name" headers.\n\n        '
+"Create a header instance for header 'name' from 'value'.\n\nCreates a header instance by creating a specialized class for parsing\nand representing the specified header by combining the factory\nbase_class with a specialized class from the registry or the\ndefault_class, and passing the name and value to the constructed\nclass's constructor.\n\n"
+'HeaderRegistry'

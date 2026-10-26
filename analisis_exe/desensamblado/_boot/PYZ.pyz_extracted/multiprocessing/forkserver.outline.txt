@@ -1,0 +1,42 @@
+<module>()  line 1
+    ForkServer()  line 35
+        ForkServer.__init__(self)  line 37
+        ForkServer._stop(self)  line 46
+        ForkServer._stop_unlocked(self)  line 51
+        ForkServer.set_forkserver_preload(self, modules_names)  line 67
+            ForkServer.set_forkserver_preload.<locals>.<genexpr>(.0)  line 69
+        ForkServer.get_inherited_fds(self)  line 73
+        ForkServer.connect_to_new_process(self, fds)  line 81
+        ForkServer.ensure_running(self)  line 123
+    main(listener_fd, alive_r, preload, main_path, sys_path, authkey_r)  line 198
+        main.<locals>.sigchld_handler()  line 235
+    _serve_one(child_r, fds, unused_fds, handlers)  line 365
+    read_signed(fd)  line 388
+    write_signed(fd, n)  line 399
+
+--- strings ---
+'ForkServer'
+'__main__'
+'Set list of module names to try to load in forkserver process.'
+'module_names must be a list of strings'
+'Return list of fds inherited from parent process.\n\nThis returns None if the current process was not started by fork\nserver.\n'
+"Request forkserver to create a child process.\n\nReturns a pair of fds (status_r, data_w).  The calling process can read\nthe child process's pid and (eventually) its returncode from status_r.\nThe calling process should write to data_w the pickled preparation and\nprocess data.\n"
+'too many fds'
+'Make sure that a fork server is running.\n\nThis can be called from any process.  Note that usually a child\nprocess will just reuse the forkserver started by its parent, so\nensure_running() will do nothing.\n'
+'main_path'
+'sys_path'
+'ignore'
+'AF_UNIX'
+'authkey_r'
+'-c'
+'from multiprocessing.forkserver import main; main(%d, %d, %r, **%r)'
+'ForkServer'
+'authkey_r'
+'Run forkserver.'
+' < '
+'__main__'
+'Not at EOF?'
+'forkserver: waitpid returned unexpected pid %d'
+'Too many ({0:n}) fds to send'
+'unexpected EOF'
+'should not get here'

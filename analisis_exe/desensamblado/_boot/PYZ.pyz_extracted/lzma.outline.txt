@@ -1,0 +1,103 @@
+<module>()  line 1
+    LZMAFile()  line 38
+        LZMAFile.__init__(self, filename, mode, format, check, preset, filters)  line 49
+        LZMAFile.close(self)  line 134
+        LZMAFile.closed(self)  line 157
+        LZMAFile.name(self)  line 162
+        LZMAFile.mode(self)  line 167
+        LZMAFile.fileno(self)  line 171
+        LZMAFile.seekable(self)  line 176
+        LZMAFile.readable(self)  line 180
+        LZMAFile.writable(self)  line 185
+        LZMAFile.peek(self, size)  line 190
+        LZMAFile.read(self, size)  line 201
+        LZMAFile.read1(self, size)  line 210
+        LZMAFile.readline(self, size)  line 222
+        LZMAFile.write(self, data)  line 232
+        LZMAFile.seek(self, offset, whence)  line 253
+        LZMAFile.tell(self)  line 271
+    open(filename, mode, format, check, preset, filters, encoding, errors, newline)  line 279
+    compress(data, format, check, preset, filters)  line 327
+    decompress(data, format, memlimit, filters)  line 339
+
+--- strings ---
+'Interface to the liblzma compression library.\n\nThis module provides a class for reading and writing compressed files,\nclasses for incremental (de)compression, and convenience functions for\none-shot (de)compression.\n\nThese classes and functions support both the XZ and legacy LZMA\ncontainer formats, as well as raw compressed data streams.\n'
+'CHECK_NONE'
+'CHECK_CRC32'
+'CHECK_CRC64'
+'CHECK_SHA256'
+'CHECK_ID_MAX'
+'CHECK_UNKNOWN'
+'FILTER_LZMA1'
+'FILTER_LZMA2'
+'FILTER_DELTA'
+'FILTER_X86'
+'FILTER_IA64'
+'FILTER_ARM'
+'FILTER_ARMTHUMB'
+'FILTER_POWERPC'
+'FILTER_SPARC'
+'FORMAT_AUTO'
+'FORMAT_XZ'
+'FORMAT_ALONE'
+'FORMAT_RAW'
+'MF_HC3'
+'MF_HC4'
+'MF_BT2'
+'MF_BT3'
+'MF_BT4'
+'MODE_FAST'
+'MODE_NORMAL'
+'PRESET_DEFAULT'
+'PRESET_EXTREME'
+'LZMACompressor'
+'LZMADecompressor'
+'LZMAFile'
+'LZMAError'
+'open'
+'compress'
+'decompress'
+'is_check_supported'
+'LZMAFile'
+'A file object providing transparent LZMA (de)compression.\n\nAn LZMAFile can act as a wrapper for an existing file object, or\nrefer directly to a named file on disk.\n\nNote that LZMAFile provides a *binary* file interface - data read\nis returned as bytes, and data to be written must be given as bytes.\n'
+'format'
+'check'
+'preset'
+'filters'
+'Open an LZMA-compressed file in binary mode.\n\nfilename can be either an actual file name (given as a str,\nbytes, or PathLike object), in which case the named file is\nopened, or it can be an existing file object to read from or\nwrite to.\n\nmode can be "r" for reading (default), "w" for (over)writing,\n"x" for creating exclusively, or "a" for appending. These can\nequivalently be given as "rb", "wb", "xb" and "ab" respectively.\n\nformat specifies the container format to use for the file.\nIf mode is "r", this defaults to FORMAT_AUTO. Otherwise, the\ndefault is FORMAT_XZ.\n\ncheck specifies the integrity check to use. This argument can\nonly be used when opening a file for writing. For FORMAT_XZ,\nthe default is CHECK_CRC64. FORMAT_ALONE and FORMAT_RAW do not\nsupport integrity checks - for these formats, check must be\nomitted, or be CHECK_NONE.\n\nWhen opening a file for reading, the *preset* argument is not\nmeaningful, and should be omitted. The *filters* argument should\nalso be omitted, except when format is FORMAT_RAW (in which case\nit is required).\n\nWhen opening a file for writing, the settings used by the\ncompressor can be specified either as a preset compression\nlevel (with the *preset* argument), or in detail as a custom\nfilter chain (with the *filters* argument). For FORMAT_XZ and\nFORMAT_ALONE, the default is to use the PRESET_DEFAULT preset\nlevel. For FORMAT_RAW, the caller must always specify a filter\nchain; the raw compressor does not support preset compression\nlevels.\n\npreset (if provided) should be an integer in the range 0-9,\noptionally OR-ed with the constant PRESET_EXTREME.\n\nfilters (if provided) should be a sequence of dicts. Each dict\nshould have an entry for "id" indicating ID of the filter, plus\nadditional entries for options to the filter.\n'
+'Cannot specify an integrity check when opening a file for reading'
+'Cannot specify a preset compression level when opening a file for reading'
+'Invalid mode: {!r}'
+'read'
+'write'
+'filename must be a str, bytes, file or PathLike object'
+'Flush and close the file.\n\nMay be called more than once without error. Once the file is\nclosed, any other operation on it will raise a ValueError.\n'
+'True if this file is closed.'
+'wb'
+'rb'
+'Return the file descriptor for the underlying file.'
+'Return whether the file supports seeking.'
+'Return whether the file was opened for reading.'
+'Return whether the file was opened for writing.'
+'Return buffered data without advancing the file position.\n\nAlways returns at least one byte of data, unless at EOF.\nThe exact number of bytes returned is unspecified.\n'
+'Read up to size uncompressed bytes from the file.\n\nIf size is negative or omitted, read until EOF is reached.\nReturns b"" if the file is already at EOF.\n'
+'Read up to size uncompressed bytes, while trying to avoid\nmaking multiple reads from the underlying stream. Reads up to a\nbuffer\'s worth of data if size is negative.\n\nReturns b"" if the file is at EOF.\n'
+"Read a line of uncompressed bytes from the file.\n\nThe terminating newline (if present) is retained. If size is\nnon-negative, no more than size bytes will be read (in which\ncase the line may be incomplete). Returns b'' if already at EOF.\n"
+'Write a bytes object to the file.\n\nReturns the number of uncompressed bytes written, which is\nalways the length of data in bytes. Note that due to buffering,\nthe file on disk may not reflect the data written until close()\nis called.\n'
+'Change the file position.\n\nThe new position is specified by offset, relative to the\nposition indicated by whence. Possible values for whence are:\n\n    0: start of stream (default): offset must not be negative\n    1: current stream position\n    2: end of stream; offset must not be positive\n\nReturns the new file position.\n\nNote that seeking is emulated, so depending on the parameters,\nthis operation may be extremely slow.\n'
+'Return the current file position.'
+'format'
+'check'
+'preset'
+'filters'
+'encoding'
+'errors'
+'newline'
+'Open an LZMA-compressed file in binary or text mode.\n\nfilename can be either an actual file name (given as a str, bytes,\nor PathLike object), in which case the named file is opened, or it\ncan be an existing file object to read from or write to.\n\nThe mode argument can be "r", "rb" (default), "w", "wb", "x", "xb",\n"a", or "ab" for binary mode, or "rt", "wt", "xt", or "at" for text\nmode.\n\nThe format, check, preset and filters arguments specify the\ncompression settings, as for LZMACompressor, LZMADecompressor and\nLZMAFile.\n\nFor binary mode, this function is equivalent to the LZMAFile\nconstructor: LZMAFile(filename, mode, ...). In this case, the\nencoding, errors and newline arguments must not be provided.\n\nFor text mode, an LZMAFile object is created, and wrapped in an\nio.TextIOWrapper instance with the specified encoding, error\nhandling behavior, and line ending(s).\n\n'
+'Invalid mode: '
+"Argument 'encoding' not supported in binary mode"
+"Argument 'errors' not supported in binary mode"
+"Argument 'newline' not supported in binary mode"
+"Compress a block of data.\n\nRefer to LZMACompressor's docstring for a description of the\noptional arguments *format*, *check*, *preset* and *filters*.\n\nFor incremental compression, use an LZMACompressor instead.\n"
+"Decompress a block of data.\n\nRefer to LZMADecompressor's docstring for a description of the\noptional arguments *format*, *check* and *filters*.\n\nFor incremental decompression, use an LZMADecompressor instead.\n"
+'Compressed data ended before the end-of-stream marker was reached'

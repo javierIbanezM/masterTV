@@ -1,0 +1,73 @@
+<module>()  line 1
+    _nbytes(dat)  line 13
+    ZstdFile()  line 20
+        ZstdFile.__init__(self, file, mode, level, options, zstd_dict)  line 33
+        ZstdFile.close(self)  line 96
+        ZstdFile.write(self, data)  line 121
+        ZstdFile.flush(self, mode)  line 138
+        ZstdFile.read(self, size)  line 164
+        ZstdFile.read1(self, size)  line 175
+        ZstdFile.readinto(self, b)  line 190
+        ZstdFile.readinto1(self, b)  line 198
+        ZstdFile.readline(self, size)  line 207
+        ZstdFile.seek(self, offset, whence)  line 217
+        ZstdFile.peek(self, size)  line 237
+        ZstdFile.__next__(self)  line 248
+        ZstdFile.tell(self)  line 253
+        ZstdFile.fileno(self)  line 261
+        ZstdFile.name(self)  line 266
+        ZstdFile.mode(self)  line 271
+        ZstdFile.closed(self)  line 275
+        ZstdFile.seekable(self)  line 280
+        ZstdFile.readable(self)  line 284
+        ZstdFile.writable(self)  line 289
+    open(file, mode, level, options, zstd_dict, encoding, errors, newline)  line 295
+
+--- strings ---
+'ZstdFile'
+'ZstdFile'
+'A file-like object providing transparent Zstandard (de)compression.\n\nA ZstdFile can act as a wrapper for an existing file object, or refer\ndirectly to a named file on disk.\n\nZstdFile provides a *binary* file interface. Data is read and returned as\nbytes, and may only be written to objects that support the Buffer Protocol.\n'
+'level'
+'options'
+'zstd_dict'
+"Open a Zstandard compressed file in binary mode.\n\n*file* can be either an file-like object, or a file name to open.\n\n*mode* can be 'r' for reading (default), 'w' for (over)writing, 'x' for\ncreating exclusively, or 'a' for appending. These can equivalently be\ngiven as 'rb', 'wb', 'xb' and 'ab' respectively.\n\n*level* is an optional int specifying the compression level to use,\nor COMPRESSION_LEVEL_DEFAULT if not given.\n\n*options* is an optional dict for advanced compression parameters.\nSee CompressionParameter and DecompressionParameter for the possible\noptions.\n\n*zstd_dict* is an optional ZstdDict object, a pre-trained Zstandard\ndictionary. See train_dict() to train ZstdDict on sample data.\n"
+'mode must be a str'
+'options must be a dict or None'
+'level is illegal in read mode'
+'level must be int or None'
+'Invalid mode: '
+'read'
+'write'
+'file must be a file-like object or a str, bytes, or PathLike object'
+'Flush and close the file.\n\nMay be called multiple times. Once the file has been closed,\nany other operation on it will raise ValueError.\n'
+'_buffer'
+'Write a bytes-like object *data* to the file.\n\nReturns the number of uncompressed bytes written, which is\nalways the length of data in bytes. Note that due to buffering,\nthe file on disk may not reflect the data written until .flush()\nor .close() is called.\n'
+'Flush remaining data to the underlying stream.\n\nThe mode argument can be FLUSH_BLOCK or FLUSH_FRAME. Abuse of this\nmethod will reduce compression ratio, use it only when necessary.\n\nIf the program is interrupted afterwards, all data can be recovered.\nTo ensure saving to disk, also need to use os.fsync(fd).\n\nThis method does nothing in reading mode.\n'
+'Invalid mode argument, expected either ZstdFile.FLUSH_FRAME or ZstdFile.FLUSH_BLOCK'
+'flush'
+"Read up to size uncompressed bytes from the file.\n\nIf size is negative or omitted, read until EOF is reached.\nReturns b'' if the file is already at EOF.\n"
+"Read up to size uncompressed bytes, while trying to avoid\nmaking multiple reads from the underlying stream. Reads up to a\nbuffer's worth of data if size is negative.\n\nReturns b'' if the file is at EOF.\n"
+'Read bytes into b.\n\nReturns the number of bytes read (0 for EOF).\n'
+'Read bytes into b, while trying to avoid making multiple reads\nfrom the underlying stream.\n\nReturns the number of bytes read (0 for EOF).\n'
+"Read a line of uncompressed bytes from the file.\n\nThe terminating newline (if present) is retained. If size is\nnon-negative, no more than size bytes will be read (in which\ncase the line may be incomplete). Returns b'' if already at EOF.\n"
+'Change the file position.\n\nThe new position is specified by offset, relative to the\nposition indicated by whence. Possible values for whence are:\n\n    0: start of stream (default): offset must not be negative\n    1: current stream position\n    2: end of stream; offset must not be positive\n\nReturns the new file position.\n\nNote that seeking is emulated, so depending on the arguments,\nthis operation may be extremely slow.\n'
+'Return buffered data without advancing the file position.\n\nAlways returns at least one byte of data, unless at EOF.\nThe exact number of bytes returned is unspecified.\n'
+'Return the current file position.'
+'Return the file descriptor for the underlying file.'
+'wb'
+'rb'
+'True if this file is closed.'
+'Return whether the file supports seeking.'
+'Return whether the file was opened for reading.'
+'Return whether the file was opened for writing.'
+'level'
+'options'
+'zstd_dict'
+'encoding'
+'errors'
+'newline'
+"Open a Zstandard compressed file in binary or text mode.\n\nfile can be either a file name (given as a str, bytes, or PathLike object),\nin which case the named file is opened, or it can be an existing file object\nto read from or write to.\n\nThe mode parameter can be 'r', 'rb' (default), 'w', 'wb', 'x', 'xb', 'a',\n'ab' for binary mode, or 'rt', 'wt', 'xt', 'at' for text mode.\n\nThe level, options, and zstd_dict parameters specify the settings the same\nas ZstdFile.\n\nWhen using read mode (decompression), the options parameter is a dict\nrepresenting advanced decompression options. The level parameter is not\nsupported in this case. When using write mode (compression), only one of\nlevel, an int representing the compression level, or options, a dict\nrepresenting advanced compression options, may be passed. In both modes,\nzstd_dict is a ZstdDict instance containing a trained Zstandard dictionary.\n\nFor binary mode, this function is equivalent to the ZstdFile constructor:\nZstdFile(filename, mode, ...). In this case, the encoding, errors and\nnewline parameters must not be provided.\n\nFor text mode, an ZstdFile object is created, and wrapped in an\nio.TextIOWrapper instance with the specified encoding, error handling\nbehavior, and line ending(s).\n"
+'Invalid mode: '
+'Argument "encoding" not supported in binary mode'
+'Argument "errors" not supported in binary mode'
+'Argument "newline" not supported in binary mode'

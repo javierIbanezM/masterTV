@@ -1,0 +1,1348 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Text wrapping and filling.\n')
+              STORE_NAME               0 (__doc__)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (re)
+              STORE_NAME               1 (re)
+
+ 10           BUILD_LIST               0
+              LOAD_CONST              12 (('TextWrapper', 'wrap', 'fill', 'dedent', 'indent', 'shorten'))
+              LIST_EXTEND              1
+              STORE_NAME               2 (__all__)
+
+ 15           LOAD_CONST               3 ('\t\n\x0b\x0c\r ')
+              STORE_NAME               3 (_whitespace)
+
+ 17           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object TextWrapper at 0x00000204BA369050, file "textwrap.py", line 17>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('TextWrapper')
+              CALL                     2
+              STORE_NAME               4 (TextWrapper)
+
+373           LOAD_CONST              13 ((70,))
+              LOAD_CONST               5 (<code object wrap at 0x00000204BA0FC250, file "textwrap.py", line 373>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               5 (wrap)
+
+386           LOAD_CONST              13 ((70,))
+              LOAD_CONST               6 (<code object fill at 0x00000204BA0FFCC0, file "textwrap.py", line 386>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               6 (fill)
+
+398           LOAD_CONST               7 (<code object shorten at 0x00000204B9FF3E00, file "textwrap.py", line 398>)
+              MAKE_FUNCTION
+              STORE_NAME               7 (shorten)
+
+416           LOAD_CONST               8 (<code object dedent at 0x00000204BA33C310, file "textwrap.py", line 416>)
+              MAKE_FUNCTION
+              STORE_NAME               8 (dedent)
+
+447           LOAD_CONST              14 ((None,))
+              LOAD_CONST               9 (<code object indent at 0x00000204BA36C400, file "textwrap.py", line 447>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               9 (indent)
+
+472           LOAD_NAME               10 (__name__)
+              LOAD_CONST              10 ('__main__')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+475           LOAD_NAME               11 (print)
+              PUSH_NULL
+              LOAD_NAME                8 (dedent)
+              PUSH_NULL
+              LOAD_CONST              11 ('Hello there.\n  This is indented.')
+              CALL                     1
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+472   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object TextWrapper at 0x00000204BA369050, file "textwrap.py", line 17>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  17           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('TextWrapper')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          17
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  18           LOAD_CONST               1 ('\nObject for wrapping/filling text.  The public interface consists of\nthe wrap() and fill() methods; the other methods are just there for\nsubclasses to override in order to tweak the default behaviour.\nIf you want to completely replace the main wrapping algorithm,\nyou\'ll probably have to override _wrap_chunks().\n\nSeveral instance attributes control various aspects of wrapping:\n  width (default: 70)\n    the maximum width of wrapped lines (unless break_long_words\n    is false)\n  initial_indent (default: "")\n    string that will be prepended to the first line of wrapped\n    output.  Counts towards the line\'s width.\n  subsequent_indent (default: "")\n    string that will be prepended to all lines save the first\n    of wrapped output; also counts towards each line\'s width.\n  expand_tabs (default: true)\n    Expand tabs in input text to spaces before further processing.\n    Each tab will become 0 .. \'tabsize\' spaces, depending on its position\n    in its line.  If false, each tab is treated as a single character.\n  tabsize (default: 8)\n    Expand tabs in input text to 0 .. \'tabsize\' spaces, unless\n    \'expand_tabs\' is false.\n  replace_whitespace (default: true)\n    Replace all whitespace characters in the input text by spaces\n    after tab expansion.  Note that if expand_tabs is false and\n    replace_whitespace is true, every tab will be converted to a\n    single space!\n  fix_sentence_endings (default: false)\n    Ensure that sentence-ending punctuation is always followed\n    by two spaces.  Off by default because the algorithm is\n    (unavoidably) imperfect.\n  break_long_words (default: true)\n    Break words longer than \'width\'.  If false, those words will not\n    be broken, and some lines might be longer than \'width\'.\n  break_on_hyphens (default: true)\n    Allow breaking hyphenated words. If true, wrapping will occur\n    preferably on whitespaces and right after hyphens part of\n    compound words.\n  drop_whitespace (default: true)\n    Drop leading and trailing whitespace from lines.\n  max_lines (default: None)\n    Truncate wrapped lines.\n  placeholder (default: \' [...]\')\n    Append to the last line of truncated text.\n')
+               STORE_NAME               4 (__doc__)
+
+  66           LOAD_NAME                5 (dict)
+               LOAD_ATTR               13 (fromkeys + NULL|self)
+               LOAD_NAME                7 (map)
+               PUSH_NULL
+               LOAD_NAME                8 (ord)
+               LOAD_NAME                9 (_whitespace)
+               CALL                     2
+               LOAD_NAME                8 (ord)
+               PUSH_NULL
+               LOAD_CONST               2 (' ')
+               CALL                     1
+               CALL                     2
+               STORE_NAME              10 (unicode_whitespace_trans)
+
+  74           LOAD_CONST               3 ('[\\w!"\\\'&.,?]')
+               STORE_NAME              11 (word_punct)
+
+  75           LOAD_CONST               4 ('[^\\d\\W]')
+               STORE_NAME              12 (letter)
+
+  76           LOAD_CONST               5 ('[%s]')
+               LOAD_NAME               13 (re)
+               LOAD_ATTR               28 (escape)
+               PUSH_NULL
+               LOAD_NAME                9 (_whitespace)
+               CALL                     1
+               BINARY_OP                6 (%)
+               STORE_NAME              15 (whitespace)
+
+  77           LOAD_CONST               6 ('[^')
+               LOAD_NAME               15 (whitespace)
+               LOAD_CONST               7 (slice(1, None, None))
+               BINARY_OP               26 ([])
+               BINARY_OP                0 (+)
+               STORE_NAME              16 (nowhitespace)
+
+  78           LOAD_NAME               13 (re)
+               LOAD_ATTR               34 (compile)
+               PUSH_NULL
+               LOAD_CONST               8 ('\n        ( # any whitespace\n          %(ws)s+\n        | # em-dash between words\n          (?<=%(wp)s) -{2,} (?=\\w)\n        | # word, possibly hyphenated\n          %(nws)s+? (?:\n            # hyphenated word\n              -(?: (?<=%(lt)s{2}-) | (?<=%(lt)s-%(lt)s-))\n              (?= %(lt)s -? %(lt)s)\n            | # end of word\n              (?=%(ws)s|\\z)\n            | # em-dash\n              (?<=%(wp)s) (?=-{2,}\\w)\n            )\n        )')
+
+  93           LOAD_CONST               9 ('wp')
+               LOAD_NAME               11 (word_punct)
+               LOAD_CONST              10 ('lt')
+               LOAD_NAME               12 (letter)
+
+  94           LOAD_CONST              11 ('ws')
+               LOAD_NAME               15 (whitespace)
+               LOAD_CONST              12 ('nws')
+               LOAD_NAME               16 (nowhitespace)
+
+  93           BUILD_MAP                4
+
+  78           BINARY_OP                6 (%)
+
+  95           LOAD_NAME               13 (re)
+               LOAD_ATTR               36 (VERBOSE)
+
+  78           CALL                     2
+               STORE_NAME              19 (wordsep_re)
+
+  96           DELETE_NAME             11 (word_punct)
+               DELETE_NAME             12 (letter)
+               DELETE_NAME             16 (nowhitespace)
+
+ 102           LOAD_NAME               13 (re)
+               LOAD_ATTR               34 (compile)
+               PUSH_NULL
+               LOAD_CONST              13 ('(%s+)')
+               LOAD_NAME               15 (whitespace)
+               BINARY_OP                6 (%)
+               CALL                     1
+               STORE_NAME              20 (wordsep_simple_re)
+
+ 103           DELETE_NAME             15 (whitespace)
+
+ 107           LOAD_NAME               13 (re)
+               LOAD_ATTR               34 (compile)
+               PUSH_NULL
+               LOAD_CONST              14 ('[a-z][\\.\\!\\?][\\"\\\']?\\z')
+               CALL                     1
+               STORE_NAME              21 (sentence_end_re)
+
+ 112           LOAD_CONST              29 ((70, '', '', True, True, False, True, True, True, 8))
+               LOAD_CONST              15 ('max_lines')
+
+ 124           LOAD_CONST              16 (None)
+
+ 112           LOAD_CONST              17 ('placeholder')
+
+ 125           LOAD_CONST              18 (' [...]')
+
+ 112           BUILD_MAP                2
+               LOAD_CONST              19 (<code object __init__ at 0x00000204B9FF3280, file "textwrap.py", line 112>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              22 (__init__)
+
+ 143           LOAD_CONST              20 (<code object _munge_whitespace at 0x00000204BA0B7230, file "textwrap.py", line 143>)
+               MAKE_FUNCTION
+               STORE_NAME              23 (_munge_whitespace)
+
+ 157           LOAD_CONST              21 (<code object _split at 0x00000204B9FFADC0, file "textwrap.py", line 157>)
+               MAKE_FUNCTION
+               STORE_NAME              24 (_split)
+
+ 179           LOAD_CONST              22 (<code object _fix_sentence_endings at 0x00000204B9F4E810, file "textwrap.py", line 179>)
+               MAKE_FUNCTION
+               STORE_NAME              25 (_fix_sentence_endings)
+
+ 197           LOAD_CONST              23 (<code object _handle_long_word at 0x00000204BA338F90, file "textwrap.py", line 197>)
+               MAKE_FUNCTION
+               STORE_NAME              26 (_handle_long_word)
+
+ 238           LOAD_CONST              24 (<code object _wrap_chunks at 0x00000204BA45A750, file "textwrap.py", line 238>)
+               MAKE_FUNCTION
+               STORE_NAME              27 (_wrap_chunks)
+
+ 341           LOAD_CONST              25 (<code object _split_chunks at 0x00000204BA0A7090, file "textwrap.py", line 341>)
+               MAKE_FUNCTION
+               STORE_NAME              28 (_split_chunks)
+
+ 347           LOAD_CONST              26 (<code object wrap at 0x00000204B9F723F0, file "textwrap.py", line 347>)
+               MAKE_FUNCTION
+               STORE_NAME              29 (wrap)
+
+ 361           LOAD_CONST              27 (<code object fill at 0x00000204BA0A68B0, file "textwrap.py", line 361>)
+               MAKE_FUNCTION
+               STORE_NAME              30 (fill)
+               LOAD_CONST              28 (('break_long_words', 'break_on_hyphens', 'drop_whitespace', 'expand_tabs', 'fix_sentence_endings', 'initial_indent', 'max_lines', 'placeholder', 'replace_whitespace', 'subsequent_indent', 'tabsize', 'width'))
+               STORE_NAME              31 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              32 (__classdictcell__)
+               LOAD_CONST              16 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FF3280, file "textwrap.py", line 112>:
+112           RESUME                   0
+
+126           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (width, self)
+              STORE_ATTR               0 (width)
+
+127           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (initial_indent, self)
+              STORE_ATTR               1 (initial_indent)
+
+128           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (subsequent_indent, self)
+              STORE_ATTR               2 (subsequent_indent)
+
+129           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (expand_tabs, self)
+              STORE_ATTR               3 (expand_tabs)
+
+130           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (replace_whitespace, self)
+              STORE_ATTR               4 (replace_whitespace)
+
+131           LOAD_FAST_BORROW_LOAD_FAST_BORROW 96 (fix_sentence_endings, self)
+              STORE_ATTR               5 (fix_sentence_endings)
+
+132           LOAD_FAST_BORROW_LOAD_FAST_BORROW 112 (break_long_words, self)
+              STORE_ATTR               6 (break_long_words)
+
+133           LOAD_FAST_BORROW_LOAD_FAST_BORROW 128 (drop_whitespace, self)
+              STORE_ATTR               7 (drop_whitespace)
+
+134           LOAD_FAST_BORROW_LOAD_FAST_BORROW 144 (break_on_hyphens, self)
+              STORE_ATTR               8 (break_on_hyphens)
+
+135           LOAD_FAST_BORROW_LOAD_FAST_BORROW 160 (tabsize, self)
+              STORE_ATTR               9 (tabsize)
+
+136           LOAD_FAST_BORROW_LOAD_FAST_BORROW 176 (max_lines, self)
+              STORE_ATTR              10 (max_lines)
+
+137           LOAD_FAST_BORROW_LOAD_FAST_BORROW 192 (placeholder, self)
+              STORE_ATTR              11 (placeholder)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _munge_whitespace at 0x00000204BA0B7230, file "textwrap.py", line 143>:
+143           RESUME                   0
+
+150           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (expand_tabs)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L1)
+              NOT_TAKEN
+
+151           LOAD_FAST_BORROW         1 (text)
+              LOAD_ATTR                3 (expandtabs + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (tabsize)
+              CALL                     1
+              STORE_FAST               1 (text)
+
+152   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (replace_whitespace)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L2)
+              NOT_TAKEN
+
+153           LOAD_FAST_BORROW         1 (text)
+              LOAD_ATTR                9 (translate + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (unicode_whitespace_trans)
+              CALL                     1
+              STORE_FAST               1 (text)
+
+154   L2:     LOAD_FAST_BORROW         1 (text)
+              RETURN_VALUE
+
+Disassembly of <code object _split at 0x00000204B9FFADC0, file "textwrap.py", line 157>:
+ 157           RESUME                   0
+
+ 172           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (break_on_hyphens)
+               LOAD_CONST               1 (True)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       29 (to L1)
+               NOT_TAKEN
+
+ 173           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (wordsep_re)
+               LOAD_ATTR                5 (split + NULL|self)
+               LOAD_FAST_BORROW         1 (text)
+               CALL                     1
+               STORE_FAST               2 (chunks)
+               JUMP_FORWARD            27 (to L2)
+
+ 175   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (wordsep_simple_re)
+               LOAD_ATTR                5 (split + NULL|self)
+               LOAD_FAST_BORROW         1 (text)
+               CALL                     1
+               STORE_FAST               2 (chunks)
+
+ 176   L2:     LOAD_FAST_BORROW         2 (chunks)
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      3 (c)
+               SWAP                     2
+       L3:     BUILD_LIST               0
+               SWAP                     2
+       L4:     FOR_ITER                14 (to L7)
+               STORE_FAST_LOAD_FAST    51 (c, c)
+               TO_BOOL
+       L5:     POP_JUMP_IF_TRUE         3 (to L6)
+               NOT_TAKEN
+               JUMP_BACKWARD           12 (to L4)
+       L6:     LOAD_FAST_BORROW         3 (c)
+               LIST_APPEND              2
+               JUMP_BACKWARD           16 (to L4)
+       L7:     END_FOR
+               POP_ITER
+       L8:     STORE_FAST               2 (chunks)
+               STORE_FAST               3 (c)
+
+ 177           LOAD_FAST_BORROW         2 (chunks)
+               RETURN_VALUE
+
+  --   L9:     SWAP                     2
+               POP_TOP
+
+ 176           SWAP                     2
+               STORE_FAST               3 (c)
+               RERAISE                  0
+ExceptionTable:
+  L3 to L5 -> L9 [2]
+  L6 to L8 -> L9 [2]
+
+Disassembly of <code object _fix_sentence_endings at 0x00000204B9F4E810, file "textwrap.py", line 179>:
+179           RESUME                   0
+
+188           LOAD_SMALL_INT           0
+              STORE_FAST               2 (i)
+
+189           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (sentence_end_re)
+              LOAD_ATTR                2 (search)
+              STORE_FAST               3 (patsearch)
+
+190   L1:     LOAD_FAST_BORROW         2 (i)
+              LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         1 (chunks)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       74 (to L3)
+              NOT_TAKEN
+
+191           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (chunks, i)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              BINARY_OP               26 ([])
+              LOAD_CONST               1 (' ')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       43 (to L2)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (patsearch)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (chunks, i)
+              BINARY_OP               26 ([])
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       23 (to L2)
+              NOT_TAKEN
+
+192           LOAD_CONST               2 ('  ')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (chunks, i)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_SUBSCR
+
+193           LOAD_FAST_BORROW         2 (i)
+              LOAD_SMALL_INT           2
+              BINARY_OP               13 (+=)
+              STORE_FAST               2 (i)
+              JUMP_BACKWARD           85 (to L1)
+
+195   L2:     LOAD_FAST_BORROW         2 (i)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              STORE_FAST               2 (i)
+              JUMP_BACKWARD           96 (to L1)
+
+190   L3:     LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _handle_long_word at 0x00000204BA338F90, file "textwrap.py", line 197>:
+197            RESUME                   0
+
+207            LOAD_FAST_BORROW         4 (width)
+               LOAD_SMALL_INT           1
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE        4 (to L1)
+               NOT_TAKEN
+
+208            LOAD_SMALL_INT           1
+               STORE_FAST               5 (space_left)
+               JUMP_FORWARD             8 (to L2)
+
+210    L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (width, cur_len)
+               BINARY_OP               10 (-)
+               STORE_FAST               5 (space_left)
+
+214    L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (break_long_words)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      174 (to L9)
+               NOT_TAKEN
+
+215            LOAD_FAST                5 (space_left)
+               STORE_FAST               6 (end)
+
+216            LOAD_FAST_BORROW         1 (reversed_chunks)
+               LOAD_CONST               6 (-1)
+               BINARY_OP               26 ([])
+               STORE_FAST               7 (chunk)
+
+217            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (break_on_hyphens)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      116 (to L8)
+               NOT_TAKEN
+               LOAD_GLOBAL              5 (len + NULL)
+               LOAD_FAST_BORROW         7 (chunk)
+               CALL                     1
+               LOAD_FAST_BORROW         5 (space_left)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE      100 (to L8)
+               NOT_TAKEN
+
+220            LOAD_FAST_BORROW         7 (chunk)
+               LOAD_ATTR                7 (rfind + NULL|self)
+               LOAD_CONST               1 ('-')
+               LOAD_SMALL_INT           0
+               LOAD_FAST_BORROW         5 (space_left)
+               CALL                     3
+               STORE_FAST               8 (hyphen)
+
+221            LOAD_FAST_BORROW         8 (hyphen)
+               LOAD_SMALL_INT           0
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       74 (to L8)
+               NOT_TAKEN
+               LOAD_GLOBAL              8 (any)
+               COPY                     1
+               LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       31 (to L6)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST               2 (<code object <genexpr> at 0x00000204BA088330, file "textwrap.py", line 221>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         7 (chunk)
+               LOAD_CONST               3 (None)
+               LOAD_FAST_BORROW         8 (hyphen)
+               BINARY_SLICE
+               GET_ITER
+               CALL                     0
+       L3:     FOR_ITER                12 (to L5)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           11 (to L3)
+       L4:     POP_ITER
+               LOAD_CONST               4 (True)
+               JUMP_FORWARD            20 (to L7)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               5 (False)
+               JUMP_FORWARD            16 (to L7)
+       L6:     PUSH_NULL
+               LOAD_CONST               2 (<code object <genexpr> at 0x00000204BA088330, file "textwrap.py", line 221>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         7 (chunk)
+               LOAD_CONST               3 (None)
+               LOAD_FAST_BORROW         8 (hyphen)
+               BINARY_SLICE
+               GET_ITER
+               CALL                     0
+               CALL                     1
+       L7:     TO_BOOL
+               POP_JUMP_IF_FALSE       10 (to L8)
+               NOT_TAKEN
+
+222            LOAD_FAST_BORROW         8 (hyphen)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               STORE_FAST               6 (end)
+
+223    L8:     LOAD_FAST_BORROW         2 (cur_line)
+               LOAD_ATTR               11 (append + NULL|self)
+               LOAD_FAST_BORROW         7 (chunk)
+               LOAD_CONST               3 (None)
+               LOAD_FAST_BORROW         6 (end)
+               BINARY_SLICE
+               CALL                     1
+               POP_TOP
+
+224            LOAD_FAST_BORROW_LOAD_FAST_BORROW 118 (chunk, end)
+               LOAD_CONST               3 (None)
+               BINARY_SLICE
+               LOAD_FAST_BORROW         1 (reversed_chunks)
+               LOAD_CONST               6 (-1)
+               STORE_SUBSCR
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+229    L9:     LOAD_FAST_BORROW         2 (cur_line)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        34 (to L10)
+               NOT_TAKEN
+
+230            LOAD_FAST_BORROW         2 (cur_line)
+               LOAD_ATTR               11 (append + NULL|self)
+               LOAD_FAST_BORROW         1 (reversed_chunks)
+               LOAD_ATTR               13 (pop + NULL|self)
+               CALL                     0
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+229   L10:     LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA088330, file "textwrap.py", line 221>:
+ 221           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                 9 (to L3)
+               STORE_FAST_LOAD_FAST    17 (c, c)
+               LOAD_CONST               0 ('-')
+               COMPARE_OP             103 (!=)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           11 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object _wrap_chunks at 0x00000204BA45A750, file "textwrap.py", line 238>:
+238            RESUME                   0
+
+251            BUILD_LIST               0
+               STORE_FAST               2 (lines)
+
+252            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (width)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       29 (to L1)
+               NOT_TAKEN
+
+253            LOAD_GLOBAL              3 (ValueError + NULL)
+               LOAD_CONST               1 ('invalid width %r (must be > 0)')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (width)
+               BINARY_OP                6 (%)
+               CALL                     1
+               RAISE_VARARGS            1
+
+254    L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (max_lines)
+               POP_JUMP_IF_NONE       120 (to L4)
+               NOT_TAKEN
+
+255            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (max_lines)
+               LOAD_SMALL_INT           1
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       14 (to L2)
+               NOT_TAKEN
+
+256            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (subsequent_indent)
+               STORE_FAST               3 (indent)
+               JUMP_FORWARD            12 (to L3)
+
+258    L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (initial_indent)
+               STORE_FAST               3 (indent)
+
+259    L3:     LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         3 (indent)
+               CALL                     1
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (placeholder)
+               LOAD_ATTR               15 (lstrip + NULL|self)
+               CALL                     0
+               CALL                     1
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (width)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       12 (to L4)
+               NOT_TAKEN
+
+260            LOAD_GLOBAL              3 (ValueError + NULL)
+               LOAD_CONST               2 ('placeholder too large for max width')
+               CALL                     1
+               RAISE_VARARGS            1
+
+264    L4:     LOAD_FAST_BORROW         1 (chunks)
+               LOAD_ATTR               17 (reverse + NULL|self)
+               CALL                     0
+               POP_TOP
+
+266    L5:     LOAD_FAST_BORROW         1 (chunks)
+               TO_BOOL
+               EXTENDED_ARG             3
+               POP_JUMP_IF_FALSE      864 (to L20)
+               NOT_TAKEN
+
+270            BUILD_LIST               0
+               STORE_FAST               4 (cur_line)
+
+271            LOAD_SMALL_INT           0
+               STORE_FAST               5 (cur_len)
+
+274            LOAD_FAST_BORROW         2 (lines)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       14 (to L6)
+               NOT_TAKEN
+
+275            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (subsequent_indent)
+               STORE_FAST               3 (indent)
+               JUMP_FORWARD            12 (to L7)
+
+277    L6:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (initial_indent)
+               STORE_FAST               3 (indent)
+
+280    L7:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (width)
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         3 (indent)
+               CALL                     1
+               BINARY_OP               10 (-)
+               STORE_FAST               6 (width)
+
+284            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (drop_whitespace)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       40 (to L8)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         1 (chunks)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               LOAD_ATTR               21 (strip + NULL|self)
+               CALL                     0
+               LOAD_CONST               3 ('')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       12 (to L8)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         2 (lines)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        4 (to L8)
+               NOT_TAKEN
+
+285            LOAD_FAST_BORROW         1 (chunks)
+               LOAD_CONST               4 (-1)
+               DELETE_SUBSCR
+
+287    L8:     LOAD_FAST_BORROW         1 (chunks)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       74 (to L10)
+               NOT_TAKEN
+
+288            LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         1 (chunks)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               CALL                     1
+               STORE_FAST               7 (l)
+
+291            LOAD_FAST_BORROW_LOAD_FAST_BORROW 87 (cur_len, l)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         6 (width)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       42 (to L9)
+               NOT_TAKEN
+
+292            LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_ATTR               23 (append + NULL|self)
+               LOAD_FAST_BORROW         1 (chunks)
+               LOAD_ATTR               25 (pop + NULL|self)
+               CALL                     0
+               CALL                     1
+               POP_TOP
+
+293            LOAD_FAST_BORROW_LOAD_FAST_BORROW 87 (cur_len, l)
+               BINARY_OP               13 (+=)
+               STORE_FAST               5 (cur_len)
+               JUMP_BACKWARD           80 (to L8)
+
+297    L9:     NOP
+
+301   L10:     LOAD_FAST_BORROW         1 (chunks)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       67 (to L11)
+               NOT_TAKEN
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         1 (chunks)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               CALL                     1
+               LOAD_FAST_BORROW         6 (width)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       44 (to L11)
+               NOT_TAKEN
+
+302            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               27 (_handle_long_word + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (chunks, cur_line)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (cur_len, width)
+               CALL                     4
+               POP_TOP
+
+303            LOAD_GLOBAL             29 (sum + NULL)
+               LOAD_GLOBAL             31 (map + NULL)
+               LOAD_GLOBAL             10 (len)
+               LOAD_FAST_BORROW         4 (cur_line)
+               CALL                     2
+               CALL                     1
+               STORE_FAST               5 (cur_len)
+
+306   L11:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (drop_whitespace)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       65 (to L12)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         4 (cur_line)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       57 (to L12)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               LOAD_ATTR               21 (strip + NULL|self)
+               CALL                     0
+               LOAD_CONST               3 ('')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       29 (to L12)
+               NOT_TAKEN
+
+307            LOAD_FAST_BORROW         5 (cur_len)
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               CALL                     1
+               BINARY_OP               23 (-=)
+               STORE_FAST               5 (cur_len)
+
+308            LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_CONST               4 (-1)
+               DELETE_SUBSCR
+
+310   L12:     LOAD_FAST_BORROW         4 (cur_line)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         4 (to L13)
+               NOT_TAKEN
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          379 (to L5)
+
+311   L13:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (max_lines)
+               POP_JUMP_IF_NONE       111 (to L15)
+               NOT_TAKEN
+
+312            LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         2 (lines)
+               CALL                     1
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (max_lines)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_TRUE        78 (to L15)
+               NOT_TAKEN
+
+313            LOAD_FAST_BORROW         1 (chunks)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       64 (to L14)
+               NOT_TAKEN
+
+314            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (drop_whitespace)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       94 (to L16)
+               NOT_TAKEN
+
+315            LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         1 (chunks)
+               CALL                     1
+               LOAD_SMALL_INT           1
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       78 (to L16)
+               NOT_TAKEN
+
+316            LOAD_FAST_BORROW         1 (chunks)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               LOAD_ATTR               21 (strip + NULL|self)
+               CALL                     0
+               TO_BOOL
+               POP_JUMP_IF_TRUE        49 (to L16)
+               NOT_TAKEN
+      L14:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (cur_len, width)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       43 (to L16)
+               NOT_TAKEN
+
+319   L15:     LOAD_FAST_BORROW         2 (lines)
+               LOAD_ATTR               23 (append + NULL|self)
+               LOAD_FAST_BORROW         3 (indent)
+               LOAD_CONST               3 ('')
+               LOAD_ATTR               33 (join + NULL|self)
+               LOAD_FAST_BORROW         4 (cur_line)
+               CALL                     1
+               BINARY_OP                0 (+)
+               CALL                     1
+               POP_TOP
+               EXTENDED_ARG             2
+               JUMP_BACKWARD          545 (to L5)
+
+321   L16:     LOAD_FAST_BORROW         4 (cur_line)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      163 (to L18)
+               NOT_TAKEN
+
+322            LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               LOAD_ATTR               21 (strip + NULL|self)
+               CALL                     0
+               TO_BOOL
+               POP_JUMP_IF_FALSE      104 (to L17)
+               NOT_TAKEN
+
+323            LOAD_FAST_BORROW         5 (cur_len)
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (placeholder)
+               CALL                     1
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         6 (width)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       71 (to L17)
+               NOT_TAKEN
+
+324            LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_ATTR               23 (append + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (placeholder)
+               CALL                     1
+               POP_TOP
+
+325            LOAD_FAST_BORROW         2 (lines)
+               LOAD_ATTR               23 (append + NULL|self)
+               LOAD_FAST_BORROW         3 (indent)
+               LOAD_CONST               3 ('')
+               LOAD_ATTR               33 (join + NULL|self)
+               LOAD_FAST_BORROW         4 (cur_line)
+               CALL                     1
+               BINARY_OP                0 (+)
+               CALL                     1
+               POP_TOP
+
+326            NOP
+
+337            NOP
+
+339            LOAD_FAST_BORROW         2 (lines)
+               RETURN_VALUE
+
+327   L17:     LOAD_FAST_BORROW         5 (cur_len)
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               CALL                     1
+               BINARY_OP               23 (-=)
+               STORE_FAST               5 (cur_len)
+
+328            LOAD_FAST_BORROW         4 (cur_line)
+               LOAD_CONST               4 (-1)
+               DELETE_SUBSCR
+               JUMP_BACKWARD          170 (to L16)
+
+330   L18:     LOAD_FAST_BORROW         2 (lines)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      100 (to L19)
+               NOT_TAKEN
+
+331            LOAD_FAST_BORROW         2 (lines)
+               LOAD_CONST               4 (-1)
+               BINARY_OP               26 ([])
+               LOAD_ATTR               35 (rstrip + NULL|self)
+               CALL                     0
+               STORE_FAST               8 (prev_line)
+
+332            LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         8 (prev_line)
+               CALL                     1
+               LOAD_GLOBAL             11 (len + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (placeholder)
+               CALL                     1
+               BINARY_OP                0 (+)
+
+333            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (width)
+
+332            COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       25 (to L19)
+               NOT_TAKEN
+
+334            LOAD_FAST_BORROW_LOAD_FAST_BORROW 128 (prev_line, self)
+               LOAD_ATTR               12 (placeholder)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         2 (lines)
+               LOAD_CONST               4 (-1)
+               STORE_SUBSCR
+
+335            NOP
+
+339            LOAD_FAST_BORROW         2 (lines)
+               RETURN_VALUE
+
+336   L19:     LOAD_FAST_BORROW         2 (lines)
+               LOAD_ATTR               23 (append + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (indent, self)
+               LOAD_ATTR               12 (placeholder)
+               LOAD_ATTR               15 (lstrip + NULL|self)
+               CALL                     0
+               BINARY_OP                0 (+)
+               CALL                     1
+               POP_TOP
+
+337            NOP
+
+339            LOAD_FAST_BORROW         2 (lines)
+               RETURN_VALUE
+      L20:     LOAD_FAST_BORROW         2 (lines)
+               RETURN_VALUE
+
+Disassembly of <code object _split_chunks at 0x00000204BA0A7090, file "textwrap.py", line 341>:
+341           RESUME                   0
+
+342           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_munge_whitespace + NULL|self)
+              LOAD_FAST_BORROW         1 (text)
+              CALL                     1
+              STORE_FAST               1 (text)
+
+343           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_split + NULL|self)
+              LOAD_FAST_BORROW         1 (text)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object wrap at 0x00000204B9F723F0, file "textwrap.py", line 347>:
+347           RESUME                   0
+
+356           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_split_chunks + NULL|self)
+              LOAD_FAST_BORROW         1 (text)
+              CALL                     1
+              STORE_FAST               2 (chunks)
+
+357           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (fix_sentence_endings)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L1)
+              NOT_TAKEN
+
+358           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_fix_sentence_endings + NULL|self)
+              LOAD_FAST_BORROW         2 (chunks)
+              CALL                     1
+              POP_TOP
+
+359   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (_wrap_chunks + NULL|self)
+              LOAD_FAST_BORROW         2 (chunks)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object fill at 0x00000204BA0A68B0, file "textwrap.py", line 361>:
+361           RESUME                   0
+
+368           LOAD_CONST               1 ('\n')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (wrap + NULL|self)
+              LOAD_FAST_BORROW         1 (text)
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object wrap at 0x00000204BA0FC250, file "textwrap.py", line 373>:
+373           RESUME                   0
+
+383           LOAD_GLOBAL              1 (TextWrapper + NULL)
+              LOAD_CONST               2 (())
+              LOAD_CONST               1 ('width')
+              LOAD_FAST_BORROW         1 (width)
+              BUILD_MAP                1
+              LOAD_FAST_BORROW         2 (kwargs)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              STORE_FAST               3 (w)
+
+384           LOAD_FAST_BORROW         3 (w)
+              LOAD_ATTR                3 (wrap + NULL|self)
+              LOAD_FAST_BORROW         0 (text)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object fill at 0x00000204BA0FFCC0, file "textwrap.py", line 386>:
+386           RESUME                   0
+
+395           LOAD_GLOBAL              1 (TextWrapper + NULL)
+              LOAD_CONST               2 (())
+              LOAD_CONST               1 ('width')
+              LOAD_FAST_BORROW         1 (width)
+              BUILD_MAP                1
+              LOAD_FAST_BORROW         2 (kwargs)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              STORE_FAST               3 (w)
+
+396           LOAD_FAST_BORROW         3 (w)
+              LOAD_ATTR                3 (fill + NULL|self)
+              LOAD_FAST_BORROW         0 (text)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object shorten at 0x00000204B9FF3E00, file "textwrap.py", line 398>:
+398           RESUME                   0
+
+410           LOAD_GLOBAL              1 (TextWrapper + NULL)
+              LOAD_CONST               4 (())
+              LOAD_CONST               1 ('width')
+              LOAD_FAST_BORROW         1 (width)
+              LOAD_CONST               2 ('max_lines')
+              LOAD_SMALL_INT           1
+              BUILD_MAP                2
+              LOAD_FAST_BORROW         2 (kwargs)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              STORE_FAST               3 (w)
+
+411           LOAD_FAST_BORROW         3 (w)
+              LOAD_ATTR                3 (fill + NULL|self)
+              LOAD_CONST               3 (' ')
+              LOAD_ATTR                5 (join + NULL|self)
+              LOAD_FAST_BORROW         0 (text)
+              LOAD_ATTR                7 (strip + NULL|self)
+              CALL                     0
+              LOAD_ATTR                9 (split + NULL|self)
+              CALL                     0
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object dedent at 0x00000204BA33C310, file "textwrap.py", line 416>:
+ 416            RESUME                   0
+
+ 429            NOP
+
+ 430    L1:     LOAD_FAST_BORROW         0 (text)
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST               1 ('\n')
+                CALL                     1
+                STORE_FAST               1 (lines)
+
+ 436    L2:     LOAD_FAST                1 (lines)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      3 (l)
+                SWAP                     2
+        L3:     BUILD_LIST               0
+                SWAP                     2
+        L4:     FOR_ITER                38 (to L9)
+                STORE_FAST_LOAD_FAST    51 (l, l)
+                TO_BOOL
+        L5:     POP_JUMP_IF_TRUE         3 (to L6)
+                NOT_TAKEN
+                JUMP_BACKWARD           12 (to L4)
+        L6:     LOAD_FAST                3 (l)
+                LOAD_ATTR               11 (isspace + NULL|self)
+                CALL                     0
+                TO_BOOL
+        L7:     POP_JUMP_IF_FALSE        3 (to L8)
+                NOT_TAKEN
+                JUMP_BACKWARD           36 (to L4)
+        L8:     LOAD_FAST                3 (l)
+                LIST_APPEND              2
+                JUMP_BACKWARD           40 (to L4)
+        L9:     END_FOR
+                POP_ITER
+       L10:     STORE_FAST               4 (non_blank_lines)
+                STORE_FAST               3 (l)
+
+ 437            LOAD_GLOBAL             13 (min + NULL)
+                LOAD_FAST                4 (non_blank_lines)
+                LOAD_CONST               4 ('')
+                LOAD_CONST               5 (('default',))
+                CALL_KW                  2
+                STORE_FAST               5 (l1)
+
+ 438            LOAD_GLOBAL             15 (max + NULL)
+                LOAD_FAST                4 (non_blank_lines)
+                LOAD_CONST               4 ('')
+                LOAD_CONST               5 (('default',))
+                CALL_KW                  2
+                STORE_FAST               6 (l2)
+
+ 439            LOAD_SMALL_INT           0
+                STORE_FAST               7 (margin)
+
+ 440            LOAD_GLOBAL             17 (enumerate + NULL)
+                LOAD_FAST                5 (l1)
+                CALL                     1
+                GET_ITER
+       L11:     FOR_ITER                27 (to L13)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  120 (margin, c)
+
+ 441            LOAD_FAST_LOAD_FAST    134 (c, l2)
+                LOAD_FAST                7 (margin)
+                BINARY_OP               26 ([])
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_TRUE        10 (to L12)
+                NOT_TAKEN
+                LOAD_FAST                8 (c)
+                LOAD_CONST               6 (' \t')
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_TRUE         3 (to L12)
+                NOT_TAKEN
+                JUMP_BACKWARD           27 (to L11)
+
+ 442   L12:     POP_TOP
+                JUMP_FORWARD             2 (to L14)
+
+ 440   L13:     END_FOR
+                POP_ITER
+
+ 444   L14:     LOAD_CONST               1 ('\n')
+                LOAD_ATTR               19 (join + NULL|self)
+                LOAD_FAST                1 (lines)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      3 (l)
+                SWAP                     2
+       L15:     BUILD_LIST               0
+                SWAP                     2
+       L16:     FOR_ITER                30 (to L19)
+                STORE_FAST_LOAD_FAST    51 (l, l)
+                LOAD_ATTR               11 (isspace + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         5 (to L17)
+                NOT_TAKEN
+                LOAD_FAST_LOAD_FAST     55 (l, margin)
+                LOAD_CONST               3 (None)
+                BINARY_SLICE
+                JUMP_FORWARD             1 (to L18)
+       L17:     LOAD_CONST               4 ('')
+       L18:     LIST_APPEND              2
+                JUMP_BACKWARD           32 (to L16)
+       L19:     END_FOR
+                POP_ITER
+       L20:     SWAP                     2
+                STORE_FAST               3 (l)
+                CALL                     1
+                RETURN_VALUE
+
+  --   L21:     PUSH_EXC_INFO
+
+ 431            LOAD_GLOBAL              2 (AttributeError)
+                LOAD_GLOBAL              4 (TypeError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       39 (to L22)
+                NOT_TAKEN
+                POP_TOP
+
+ 432            LOAD_CONST               2 ('expected str object, not ')
+                LOAD_GLOBAL              7 (type + NULL)
+                LOAD_FAST                0 (text)
+                CALL                     1
+                LOAD_ATTR                8 (__qualname__)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                STORE_FAST               2 (msg)
+
+ 433            LOAD_GLOBAL              5 (TypeError + NULL)
+                LOAD_FAST                2 (msg)
+                CALL                     1
+                LOAD_CONST               3 (None)
+                RAISE_VARARGS            2
+
+ 431   L22:     RERAISE                  0
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L24:     SWAP                     2
+                POP_TOP
+
+ 436            SWAP                     2
+                STORE_FAST               3 (l)
+                RERAISE                  0
+
+  --   L25:     SWAP                     2
+                POP_TOP
+
+ 444            SWAP                     2
+                STORE_FAST               3 (l)
+                RERAISE                  0
+ExceptionTable:
+  L1 to L2 -> L21 [0]
+  L3 to L5 -> L24 [2]
+  L6 to L7 -> L24 [2]
+  L8 to L10 -> L24 [2]
+  L15 to L20 -> L25 [4]
+  L21 to L23 -> L23 [1] lasti
+
+Disassembly of <code object indent at 0x00000204BA36C400, file "textwrap.py", line 447>:
+447           RESUME                   0
+
+455           BUILD_LIST               0
+              STORE_FAST               3 (prefixed_lines)
+
+456           LOAD_FAST_BORROW         2 (predicate)
+              POP_JUMP_IF_NOT_NONE    82 (to L4)
+              NOT_TAKEN
+
+460           LOAD_FAST_BORROW         0 (text)
+              LOAD_ATTR                1 (splitlines + NULL|self)
+              LOAD_CONST               1 (True)
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER                59 (to L3)
+              STORE_FAST               4 (line)
+
+461           LOAD_FAST_BORROW         4 (line)
+              LOAD_ATTR                3 (isspace + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE        18 (to L2)
+              NOT_TAKEN
+
+462           LOAD_FAST_BORROW         3 (prefixed_lines)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (prefix)
+              CALL                     1
+              POP_TOP
+
+463   L2:     LOAD_FAST_BORROW         3 (prefixed_lines)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (line)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           61 (to L1)
+
+460   L3:     END_FOR
+              POP_ITER
+              JUMP_FORWARD            72 (to L8)
+
+465   L4:     LOAD_FAST_BORROW         0 (text)
+              LOAD_ATTR                1 (splitlines + NULL|self)
+              LOAD_CONST               1 (True)
+              CALL                     1
+              GET_ITER
+      L5:     FOR_ITER                51 (to L7)
+              STORE_FAST               4 (line)
+
+466           LOAD_FAST_BORROW         2 (predicate)
+              PUSH_NULL
+              LOAD_FAST_BORROW         4 (line)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L6)
+              NOT_TAKEN
+
+467           LOAD_FAST_BORROW         3 (prefixed_lines)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (prefix)
+              CALL                     1
+              POP_TOP
+
+468   L6:     LOAD_FAST_BORROW         3 (prefixed_lines)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (line)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           53 (to L5)
+
+465   L7:     END_FOR
+              POP_ITER
+
+469   L8:     LOAD_CONST               2 ('')
+              LOAD_ATTR                7 (join + NULL|self)
+              LOAD_FAST_BORROW         3 (prefixed_lines)
+              CALL                     1
+              RETURN_VALUE

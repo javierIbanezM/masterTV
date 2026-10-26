@@ -1,0 +1,178 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST ('QGroupBox', 'QHBoxLayout', 'QLabel', 'QPlainTextEdit', 'QPushButton', 'QTableWidget', 'QTableWidgetItem', 'QVBoxLayout', 'QHeaderView'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QGroupBox; STORE_NAME QGroupBox; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QPlainTextEdit; STORE_NAME QPlainTextEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QTableWidget; STORE_NAME QTableWidget; IMPORT_FROM QTableWidgetItem; STORE_NAME QTableWidgetItem; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout; IMPORT_FROM QHeaderView; STORE_NAME QHeaderView
+6: LOAD_SMALL_INT 3; LOAD_CONST ('wol',); IMPORT_NAME; IMPORT_FROM wol; STORE_NAME wol
+7: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+8: LOAD_SMALL_INT 2; LOAD_CONST ('confirm', 'info', 'warn'); IMPORT_NAME common; IMPORT_FROM confirm; STORE_NAME confirm; IMPORT_FROM info; STORE_NAME info; IMPORT_FROM warn; STORE_NAME warn
+11: LOAD_BUILD_CLASS; LOAD_CONST <code InfoTab>; MAKE_FUNCTION; LOAD_CONST 'InfoTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME InfoTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF InfoTab() @11
+  11: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'InfoTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 11; STORE_NAME __firstlineno__
+  12: LOAD_CONST 'Resumen y energía'; STORE_NAME title
+  14: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code InfoTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  50: LOAD_CONST <code InfoTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  54: LOAD_CONST <code InfoTab.on_activated>; MAKE_FUNCTION; STORE_NAME on_activated
+  59: LOAD_CONST <code InfoTab.refresh>; MAKE_FUNCTION; STORE_NAME refresh
+  74: LOAD_CONST <code InfoTab.detect_mac>; MAKE_FUNCTION; STORE_NAME detect_mac
+  95: LOAD_CONST <code InfoTab.power_on>; MAKE_FUNCTION; STORE_NAME power_on
+  119: LOAD_CONST <code InfoTab.standby>; MAKE_FUNCTION; STORE_NAME standby
+  123: LOAD_CONST <code InfoTab.reboot>; MAKE_FUNCTION; STORE_NAME reboot
+  129: LOAD_CONST <code InfoTab.power_off>; MAKE_FUNCTION; STORE_NAME power_off; LOAD_CONST ('mac_btn', 'refresh_btn', 'storage', 'table'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF InfoTab.__init__(self,ctx) @14
+    15: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    16: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW self; CALL; STORE_FAST lay
+    18: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Energía'; CALL; STORE_FAST power
+    19: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW power; CALL; STORE_FAST pl
+    20: LOAD_CONST '⏻ Encender'; LOAD_FAST_BORROW self; LOAD_ATTR power_on; BUILD_TUPLE; LOAD_CONST '☾ Standby'; LOAD_FAST_BORROW self; LOAD_ATTR standby; BUILD_TUPLE
+    21: LOAD_CONST '↻ Reiniciar'; LOAD_FAST_BORROW self; LOAD_ATTR reboot; BUILD_TUPLE; LOAD_CONST '⏹ Apagar del todo'; LOAD_FAST_BORROW self; LOAD_ATTR power_off; BUILD_TUPLE
+    20: BUILD_TUPLE; GET_ITER; <L208>; FOR_ITER ->332; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST text, slot
+    22: LOAD_GLOBAL QPushButton + NULL; LOAD_FAST_BORROW text; CALL; STORE_FAST b
+    23: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW slot; CALL
+    24: LOAD_FAST_BORROW pl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL; JUMP_BACKWARD ->208
+    20: <L332>; END_FOR; POP_ITER
+    25: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW power; CALL
+    27: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST top
+    28: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Actualizar información'; CALL; LOAD_FAST_BORROW self; STORE_ATTR refresh_btn
+    29: LOAD_FAST_BORROW self; LOAD_ATTR refresh_btn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR refresh; CALL
+    30: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Detectar y guardar MAC'; CALL; LOAD_FAST_BORROW self; STORE_ATTR mac_btn
+    31: LOAD_FAST_BORROW self; LOAD_ATTR mac_btn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR detect_mac; CALL
+    32: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR refresh_btn; CALL
+    33: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR mac_btn; CALL
+    34: LOAD_FAST_BORROW top; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    35: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW top; CALL
+    37: LOAD_GLOBAL QTableWidget + NULL; LOAD_SMALL_INT 0; LOAD_SMALL_INT 2; CALL; LOAD_FAST_BORROW self; STORE_ATTR table
+    38: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR setHorizontalHeaderLabels + NULL|self; LOAD_CONST 'Propiedad'; LOAD_CONST 'Valor'; BUILD_LIST; CALL
+    39: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR horizontalHeader + NULL|self; CALL; LOAD_ATTR setSectionResizeMode + NULL|self; LOAD_SMALL_INT 1; LOAD_GLOBAL QHeaderView; LOAD_ATTR ResizeMode; LOAD_ATTR Stretch; CALL
+    40: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR setEditTriggers + NULL|self; LOAD_GLOBAL QTableWidget; LOAD_ATTR EditTrigger; LOAD_ATTR NoEditTriggers; CALL
+    41: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR verticalHeader + NULL|self; CALL; LOAD_ATTR hide + NULL|self; CALL
+    42: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_SMALL_INT 3; CALL
+    44: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Almacenamiento y memoria'; CALL; CALL
+    45: LOAD_GLOBAL QPlainTextEdit + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR storage
+    46: LOAD_FAST_BORROW self; LOAD_ATTR storage; LOAD_ATTR setReadOnly + NULL|self; LOAD_CONST True; CALL
+    47: LOAD_FAST_BORROW self; LOAD_ATTR storage; LOAD_ATTR setStyleSheet + NULL|self; LOAD_CONST 'font-family: Consolas, monospace;'; CALL
+    48: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR storage; LOAD_SMALL_INT 2; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF InfoTab.on_device_changed(self) @50
+    51: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR setRowCount + NULL|self; LOAD_SMALL_INT 0; CALL
+    52: LOAD_FAST_BORROW self; LOAD_ATTR storage; LOAD_ATTR clear + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF InfoTab.on_activated(self) @54
+    55: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; TO_BOOL; POP_JUMP_IF_FALSE ->208; LOAD_FAST_BORROW self; LOAD_ATTR is_online + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->204; LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR rowCount + NULL|self; CALL; LOAD_SMALL_INT 0; COMPARE_OP bool(==); POP_JUMP_IF_FALSE ->200
+    56: LOAD_FAST_BORROW self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    55: <L200>; LOAD_CONST None; RETURN_VALUE; <L204>; LOAD_CONST None; RETURN_VALUE; <L208>; LOAD_CONST None; RETURN_VALUE
+
+    DEF InfoTab.refresh(self) @59
+    60: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.refresh.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    64: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.refresh.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    72: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW work, done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF InfoTab.refresh.<locals>.work(s) @60
+      61: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR device_info + NULL|self; LOAD_FAST_BORROW s; CALL
+      62: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'df -h; echo; head -n 4 /proc/meminfo'; LOAD_SMALL_INT 30; LOAD_CONST ('timeout',); CALL_KW; LOAD_ATTR out
+      61: BUILD_TUPLE; RETURN_VALUE
+
+      DEF InfoTab.refresh.<locals>.done(res) @64
+      65: LOAD_FAST_BORROW res; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST data, st
+      66: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR setRowCount + NULL|self; LOAD_GLOBAL len + NULL; LOAD_FAST_BORROW data; CALL; CALL
+      67: LOAD_GLOBAL enumerate + NULL; LOAD_FAST_BORROW data; LOAD_ATTR items + NULL|self; CALL; CALL; GET_ITER; <L134>; FOR_ITER ->306; UNPACK_SEQUENCE; STORE_FAST i; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST k, v
+      68: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR setItem + NULL|self; LOAD_FAST_BORROW i; LOAD_SMALL_INT 0; LOAD_GLOBAL QTableWidgetItem + NULL; LOAD_FAST_BORROW k; CALL; CALL
+      69: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR setItem + NULL|self; LOAD_FAST_BORROW i; LOAD_SMALL_INT 1; LOAD_GLOBAL QTableWidgetItem + NULL; LOAD_FAST_BORROW v; CALL; CALL; JUMP_BACKWARD ->134
+      67: <L306>; END_FOR; POP_ITER
+      70: LOAD_DEREF self; LOAD_ATTR storage; LOAD_ATTR setPlainText + NULL|self; LOAD_FAST_BORROW st; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF InfoTab.detect_mac(self) @74
+    75: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_DEREF d
+    76: LOAD_DEREF d; TO_BOOL; POP_JUMP_IF_TRUE ->92
+    77: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin dispositivo'; LOAD_CONST 'Selecciona una TV primero.'; CALL; RETURN_VALUE
+    79: <L92>; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.detect_mac.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    82: LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.detect_mac.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    92: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW work, done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF InfoTab.detect_mac.<locals>.work(s) @79
+      80: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR mac + NULL|self; LOAD_FAST_BORROW s; CALL; RETURN_VALUE
+
+      DEF InfoTab.detect_mac.<locals>.done(mac) @82
+      83: LOAD_FAST_BORROW mac; TO_BOOL; POP_JUMP_IF_TRUE ->46
+      84: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'MAC no encontrada'
+      85: LOAD_CONST 'La TV no expone su MAC y no está en la caché ARP del PC. Introdúcela a mano editando el dispositivo.'
+      84: CALL; RETURN_VALUE
+      87: <L46>; LOAD_FAST_BORROW mac; LOAD_DEREF d; STORE_ATTR mac
+      88: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR store; LOAD_ATTR update + NULL|self; LOAD_DEREF d; CALL
+      89: LOAD_GLOBAL info + NULL; LOAD_DEREF self; LOAD_CONST 'MAC guardada'; LOAD_DEREF d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST ': '; LOAD_FAST_BORROW mac; FORMAT_SIMPLE; BUILD_STRING; CALL
+      90: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR status_changed; LOAD_ATTR emit + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF InfoTab.power_on(self) @95
+    96: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_DEREF d
+    97: LOAD_DEREF d; TO_BOOL; POP_JUMP_IF_TRUE ->94
+    98: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin dispositivo'; LOAD_CONST 'Selecciona una TV primero.'; CALL; RETURN_VALUE
+    100: <L94>; LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.power_on.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_DEREF work
+    117: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW d; LOAD_FAST_BORROW work; BUILD_TUPLE; LOAD_CONST <code InfoTab.power_on.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.power_on.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF InfoTab.power_on.<locals>.work(s) @100
+      101: BUILD_LIST; STORE_FAST msgs
+      102: LOAD_DEREF d; LOAD_ATTR mac; TO_BOOL; POP_JUMP_IF_FALSE ->202
+      104: LOAD_GLOBAL wol; LOAD_ATTR send_magic_packet; LOAD_DEREF d; LOAD_ATTR mac; LOAD_DEREF d; LOAD_ATTR host; CALL; STORE_FAST sent
+      105: LOAD_FAST_BORROW msgs; LOAD_ATTR append + NULL|self; LOAD_CONST 'Wake-on-LAN enviado a '; LOAD_CONST ', '; LOAD_ATTR join + NULL|self; LOAD_FAST_BORROW sent; CALL; FORMAT_SIMPLE; BUILD_STRING; CALL
+      108: <L202>; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR state_of + NULL|self; LOAD_DEREF d; CALL; LOAD_CONST 'device'; COMPARE_OP bool(==); POP_JUMP_IF_FALSE ->572
+      109: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR keyevent + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'KEYCODE_WAKEUP'; CALL
+      110: LOAD_FAST_BORROW msgs; LOAD_ATTR append + NULL|self; LOAD_CONST 'KEYCODE_WAKEUP enviado por ADB'; CALL
+      111: LOAD_DEREF d; LOAD_ATTR kiosk_url; TO_BOOL; POP_JUMP_IF_FALSE ->570; LOAD_DEREF d; LOAD_ATTR kiosk_on_power_on; TO_BOOL; POP_JUMP_IF_FALSE ->570
+      112: LOAD_FAST_BORROW msgs; LOAD_ATTR append + NULL|self; LOAD_CONST 'kiosco: '; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR when_ready + NULL|self; LOAD_DEREF d; LOAD_CONST False; LOAD_CONST ('wait_adb',); CALL_KW; BINARY_OP +; CALL
+      None: <L570>; JUMP_FORWARD ->642
+      113: <L572>; LOAD_DEREF d; LOAD_ATTR mac; TO_BOOL; POP_JUMP_IF_TRUE ->642
+      114: LOAD_FAST_BORROW msgs; LOAD_ATTR append + NULL|self; LOAD_CONST 'TV sin conexión ADB y sin MAC guardada: no hay forma de despertarla.'; CALL
+      115: <L642>; LOAD_CONST '; '; LOAD_ATTR join + NULL|self; LOAD_FAST_BORROW msgs; CALL; RETURN_VALUE
+      None: PUSH_EXC_INFO
+      106: LOAD_GLOBAL ValueError; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->770; STORE_FAST e
+      107: LOAD_FAST msgs; LOAD_ATTR append + NULL|self; LOAD_GLOBAL str + NULL; LOAD_FAST e; CALL; CALL; POP_EXCEPT; LOAD_CONST None; STORE_FAST e; DELETE_FAST e; EXTENDED_ARG; JUMP_BACKWARD_NO_INTERRUPT ->202
+      None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+      106: <L770>; RERAISE
+      None: COPY; POP_EXCEPT; RERAISE
+
+      DEF InfoTab.power_on.<locals>.<lambda>() @117
+      117: LOAD_DEREF work; LOAD_DEREF d; LOAD_ATTR serial; CALL; RETURN_VALUE
+
+      DEF InfoTab.power_on.<locals>.<lambda>(m) @117
+      117: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_DEREF d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST ': '; LOAD_FAST_BORROW m; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF InfoTab.standby(self) @119
+    120: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.standby.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    121: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.standby.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    120: CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF InfoTab.standby.<locals>.<lambda>(s) @120
+      120: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR keyevent + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'KEYCODE_SLEEP'; CALL; RETURN_VALUE
+
+      DEF InfoTab.standby.<locals>.<lambda>(r) @121
+      121: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Standby enviado (KEYCODE_SLEEP)'; CALL; RETURN_VALUE
+
+    DEF InfoTab.reboot(self) @123
+    124: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    125: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->160; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Reiniciar TV'; LOAD_CONST 'Se reiniciará la TV y se perderá la conexión.'
+    126: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' reboot'; BUILD_STRING
+    125: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->156
+    127: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.reboot.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.reboot.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+    125: <L156>; LOAD_CONST None; RETURN_VALUE; <L160>; LOAD_CONST None; RETURN_VALUE
+
+      DEF InfoTab.reboot.<locals>.<lambda>(s) @127
+      127: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR reboot + NULL|self; LOAD_FAST_BORROW s; CALL; RETURN_VALUE
+
+      DEF InfoTab.reboot.<locals>.<lambda>(r) @127
+      127: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Reinicio enviado'; CALL; RETURN_VALUE
+
+    DEF InfoTab.power_off(self) @129
+    130: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    131: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->160; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Apagar del todo'
+    132: LOAD_CONST 'La TV se apagará por completo. Para encenderla tendrás que usar el mando o Wake-on-LAN (si tu modelo lo soporta).'
+    134: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell reboot -p'; BUILD_STRING
+    131: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->156
+    135: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.power_off.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code InfoTab.power_off.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+    131: <L156>; LOAD_CONST None; RETURN_VALUE; <L160>; LOAD_CONST None; RETURN_VALUE
+
+      DEF InfoTab.power_off.<locals>.<lambda>(s) @135
+      135: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR power_off + NULL|self; LOAD_FAST_BORROW s; CALL; RETURN_VALUE
+
+      DEF InfoTab.power_off.<locals>.<lambda>(r) @135
+      135: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Apagado enviado'; CALL; RETURN_VALUE

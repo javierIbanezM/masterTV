@@ -1,0 +1,3923 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ("Temporary files.\n\nThis module provides generic, low- and high-level interfaces for\ncreating temporary files and directories.  All of the interfaces\nprovided by this module can be used without fear of race conditions\nexcept for 'mktemp'.  'mktemp' is subject to race conditions and\nshould not be used; it is provided for backward compatibility only.\n\nThe default path names are returned as str.  If you supply bytes as\ninput, all return values will be in bytes.  Ex:\n\n    >>> tempfile.mkstemp()\n    (4, '/tmp/tmptpu9nin8')\n    >>> tempfile.mkdtemp(suffix=b'')\n    b'/tmp/tmppbi8f0hy'\n\nThis module also provides some data items to the user:\n\n  TMP_MAX  - maximum number of names that will be tried before\n             giving up.\n  tempdir  - If this is set to a string before the first use of\n             any routine from this module, it will be considered as\n             another candidate location to store temporary files.\n")
+              STORE_NAME               0 (__doc__)
+
+ 26           BUILD_LIST               0
+              LOAD_CONST              44 (('NamedTemporaryFile', 'TemporaryFile', 'SpooledTemporaryFile', 'TemporaryDirectory', 'mkstemp', 'mkdtemp', 'mktemp', 'TMP_MAX', 'gettempprefix', 'tempdir', 'gettempdir', 'gettempprefixb', 'gettempdirb'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (__all__)
+
+ 39           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              2 (functools)
+              STORE_NAME               3 (_functools)
+
+ 40           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              4 (warnings)
+              STORE_NAME               5 (_warnings)
+
+ 41           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              6 (io)
+              STORE_NAME               7 (_io)
+
+ 42           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              8 (os)
+              STORE_NAME               9 (_os)
+
+ 43           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME             10 (shutil)
+              STORE_NAME              11 (_shutil)
+
+ 44           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME             12 (errno)
+              STORE_NAME              13 (_errno)
+
+ 45           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('Random',))
+              IMPORT_NAME             14 (random)
+              IMPORT_FROM             15 (Random)
+              STORE_NAME              16 (_Random)
+              POP_TOP
+
+ 46           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME             17 (sys)
+              STORE_NAME              18 (_sys)
+
+ 47           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME             19 (types)
+              STORE_NAME              20 (_types)
+
+ 48           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME             21 (weakref)
+              STORE_NAME              22 (_weakref)
+
+ 49           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME             23 (_thread)
+              STORE_NAME              23 (_thread)
+
+ 50           LOAD_NAME               23 (_thread)
+              LOAD_ATTR               48 (allocate_lock)
+              STORE_NAME              25 (_allocate_lock)
+
+ 52           LOAD_NAME                9 (_os)
+              LOAD_ATTR               52 (O_RDWR)
+              LOAD_NAME                9 (_os)
+              LOAD_ATTR               54 (O_CREAT)
+              BINARY_OP                7 (|)
+              LOAD_NAME                9 (_os)
+              LOAD_ATTR               56 (O_EXCL)
+              BINARY_OP                7 (|)
+              STORE_NAME              29 (_text_openflags)
+
+ 53           LOAD_NAME               30 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (_os)
+              LOAD_CONST               6 ('O_NOFOLLOW')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L1)
+              NOT_TAKEN
+
+ 54           LOAD_NAME               29 (_text_openflags)
+              LOAD_NAME                9 (_os)
+              LOAD_ATTR               62 (O_NOFOLLOW)
+              BINARY_OP               20 (|=)
+              STORE_NAME              29 (_text_openflags)
+
+ 56   L1:     LOAD_NAME               29 (_text_openflags)
+              STORE_NAME              32 (_bin_openflags)
+
+ 57           LOAD_NAME               30 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (_os)
+              LOAD_CONST               7 ('O_BINARY')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L2)
+              NOT_TAKEN
+
+ 58           LOAD_NAME               32 (_bin_openflags)
+              LOAD_NAME                9 (_os)
+              LOAD_ATTR               66 (O_BINARY)
+              BINARY_OP               20 (|=)
+              STORE_NAME              32 (_bin_openflags)
+
+ 60   L2:     LOAD_NAME               30 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (_os)
+              LOAD_CONST               3 ('TMP_MAX')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       14 (to L3)
+              NOT_TAKEN
+
+ 61           LOAD_NAME                9 (_os)
+              LOAD_ATTR               68 (TMP_MAX)
+              STORE_NAME              34 (TMP_MAX)
+              JUMP_FORWARD             2 (to L4)
+
+ 63   L3:     LOAD_CONST               8 (10000)
+              STORE_NAME              34 (TMP_MAX)
+
+ 69   L4:     LOAD_CONST               9 ('tmp')
+              STORE_NAME              35 (template)
+
+ 73           LOAD_NAME               25 (_allocate_lock)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              36 (_once_lock)
+
+ 76           LOAD_CONST              10 (<code object _exists at 0x00000204B9FEF800, file "tempfile.py", line 76>)
+              MAKE_FUNCTION
+              STORE_NAME              37 (_exists)
+
+ 85           LOAD_CONST              11 (<code object _infer_return_type at 0x00000204BA366830, file "tempfile.py", line 85>)
+              MAKE_FUNCTION
+              STORE_NAME              38 (_infer_return_type)
+
+114           LOAD_CONST              12 (<code object _sanitize_params at 0x00000204B9FFAA60, file "tempfile.py", line 114>)
+              MAKE_FUNCTION
+              STORE_NAME              39 (_sanitize_params)
+
+132           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              13 (<code object _RandomNameSequence at 0x00000204BA0A6AF0, file "tempfile.py", line 132>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 ('_RandomNameSequence')
+              CALL                     2
+              STORE_NAME              40 (_RandomNameSequence)
+
+156           LOAD_CONST              15 (<code object _candidate_tempdir_list at 0x00000204BA3E8D40, file "tempfile.py", line 156>)
+              MAKE_FUNCTION
+              STORE_NAME              41 (_candidate_tempdir_list)
+
+183           LOAD_CONST              45 ((None,))
+              LOAD_CONST              16 (<code object _get_default_tempdir at 0x00000204B9D4D700, file "tempfile.py", line 183>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              42 (_get_default_tempdir)
+
+228           LOAD_CONST               4 (None)
+              STORE_GLOBAL            43 (_name_sequence)
+
+230           LOAD_CONST              17 (<code object _get_candidate_names at 0x00000204B9FFA8B0, file "tempfile.py", line 230>)
+              MAKE_FUNCTION
+              STORE_NAME              44 (_get_candidate_names)
+
+244           LOAD_CONST              18 (<code object _mkstemp_inner at 0x00000204BA432960, file "tempfile.py", line 244>)
+              MAKE_FUNCTION
+              STORE_NAME              45 (_mkstemp_inner)
+
+273           LOAD_CONST              19 (<code object _dont_follow_symlinks at 0x00000204B9FB7DB0, file "tempfile.py", line 273>)
+              MAKE_FUNCTION
+              STORE_NAME              46 (_dont_follow_symlinks)
+
+280           LOAD_CONST              20 (<code object _resetperms at 0x00000204BA660310, file "tempfile.py", line 280>)
+              MAKE_FUNCTION
+              STORE_NAME              47 (_resetperms)
+
+292           LOAD_CONST              21 (<code object gettempprefix at 0x00000204BA0FFEE0, file "tempfile.py", line 292>)
+              MAKE_FUNCTION
+              STORE_NAME              48 (gettempprefix)
+
+296           LOAD_CONST              22 (<code object gettempprefixb at 0x00000204BA0FC7A0, file "tempfile.py", line 296>)
+              MAKE_FUNCTION
+              STORE_NAME              49 (gettempprefixb)
+
+300           LOAD_CONST               4 (None)
+              STORE_GLOBAL            50 (tempdir)
+
+302           LOAD_CONST              23 (<code object _gettempdir at 0x00000204B9FFB2D0, file "tempfile.py", line 302>)
+              MAKE_FUNCTION
+              STORE_NAME              51 (_gettempdir)
+
+314           LOAD_CONST              24 (<code object gettempdir at 0x00000204BA0FF550, file "tempfile.py", line 314>)
+              MAKE_FUNCTION
+              STORE_NAME              52 (gettempdir)
+
+318           LOAD_CONST              25 (<code object gettempdirb at 0x00000204BA0FFDD0, file "tempfile.py", line 318>)
+              MAKE_FUNCTION
+              STORE_NAME              53 (gettempdirb)
+
+322           LOAD_CONST              46 ((None, None, None, False))
+              LOAD_CONST              26 (<code object mkstemp at 0x00000204BA0A91B0, file "tempfile.py", line 322>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              54 (mkstemp)
+
+361           LOAD_CONST              47 ((None, None, None))
+              LOAD_CONST              27 (<code object mkdtemp at 0x00000204BA381490, file "tempfile.py", line 361>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              55 (mkdtemp)
+
+401           LOAD_CONST              28 ('')
+              LOAD_NAME               35 (template)
+              LOAD_CONST               4 (None)
+              BUILD_TUPLE              3
+              LOAD_CONST              29 (<code object mktemp at 0x00000204B9F5AA30, file "tempfile.py", line 401>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              56 (mktemp)
+
+433           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              30 (<code object _TemporaryFileCloser at 0x00000204BA0BB9F0, file "tempfile.py", line 433>)
+              MAKE_FUNCTION
+              LOAD_CONST              31 ('_TemporaryFileCloser')
+              CALL                     2
+              STORE_NAME              57 (_TemporaryFileCloser)
+
+487           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              32 (<code object _TemporaryFileWrapper at 0x00000204BA100290, file "tempfile.py", line 487>)
+              MAKE_FUNCTION
+              LOAD_CONST              33 ('_TemporaryFileWrapper')
+              CALL                     2
+              STORE_NAME              58 (_TemporaryFileWrapper)
+
+558           LOAD_CONST              48 (('w+b', -1, None, None, None, None, None, True))
+              LOAD_CONST              35 ('errors')
+
+560           LOAD_CONST               4 (None)
+
+558           LOAD_CONST              36 ('delete_on_close')
+
+561           LOAD_CONST              34 (True)
+
+558           BUILD_MAP                2
+              LOAD_CONST              37 (<code object NamedTemporaryFile at 0x00000204BA586320, file "tempfile.py", line 558>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              59 (NamedTemporaryFile)
+
+620           LOAD_NAME                9 (_os)
+              LOAD_ATTR              120 (name)
+              LOAD_CONST              38 ('posix')
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_TRUE        18 (to L5)
+              NOT_TAKEN
+              LOAD_NAME               18 (_sys)
+              LOAD_ATTR              122 (platform)
+              LOAD_CONST              39 ('cygwin')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        4 (to L6)
+              NOT_TAKEN
+
+623   L5:     LOAD_NAME               59 (NamedTemporaryFile)
+              STORE_NAME              62 (TemporaryFile)
+              JUMP_FORWARD            18 (to L7)
+
+629   L6:     LOAD_NAME               30 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (_os)
+              LOAD_CONST              40 ('O_TMPFILE')
+              CALL                     2
+              STORE_GLOBAL            63 (_O_TMPFILE_WORKS)
+
+631           LOAD_CONST              49 (('w+b', -1, None, None, None, None, None))
+              LOAD_CONST              35 ('errors')
+
+633           LOAD_CONST               4 (None)
+
+631           BUILD_MAP                1
+              LOAD_CONST              41 (<code object TemporaryFile at 0x00000204BA586650, file "tempfile.py", line 631>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              62 (TemporaryFile)
+
+706   L7:     LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              42 (<code object SpooledTemporaryFile at 0x00000204BA3E0C20, file "tempfile.py", line 706>)
+              MAKE_FUNCTION
+              LOAD_CONST               1 ('SpooledTemporaryFile')
+              LOAD_NAME                7 (_io)
+              LOAD_ATTR              128 (IOBase)
+              CALL                     3
+              STORE_NAME              65 (SpooledTemporaryFile)
+
+885           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              43 (<code object TemporaryDirectory at 0x00000204BA660A40, file "tempfile.py", line 885>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('TemporaryDirectory')
+              CALL                     2
+              STORE_NAME              66 (TemporaryDirectory)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _exists at 0x00000204B9FEF800, file "tempfile.py", line 76>:
+  76           RESUME                   0
+
+  77           NOP
+
+  78   L1:     LOAD_GLOBAL              0 (_os)
+               LOAD_ATTR                2 (lstat)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (fn)
+               CALL                     1
+               POP_TOP
+
+  82   L2:     LOAD_CONST               0 (True)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  79           LOAD_GLOBAL              4 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  80   L4:     POP_EXCEPT
+               LOAD_CONST               1 (False)
+               RETURN_VALUE
+
+  79   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object _infer_return_type at 0x00000204BA366830, file "tempfile.py", line 85>:
+ 85            RESUME                   0
+
+ 87            LOAD_CONST               1 (None)
+               STORE_FAST               1 (return_type)
+
+ 88            LOAD_FAST_BORROW         0 (args)
+               GET_ITER
+       L1:     FOR_ITER               141 (to L7)
+               STORE_FAST               2 (arg)
+
+ 89            LOAD_FAST_BORROW         2 (arg)
+               POP_JUMP_IF_NOT_NONE     3 (to L2)
+               NOT_TAKEN
+
+ 90            JUMP_BACKWARD            9 (to L1)
+
+ 92    L2:     LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         2 (arg)
+               LOAD_GLOBAL              2 (_os)
+               LOAD_ATTR                4 (PathLike)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       23 (to L3)
+               NOT_TAKEN
+
+ 93            LOAD_GLOBAL              2 (_os)
+               LOAD_ATTR                6 (fspath)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (arg)
+               CALL                     1
+               STORE_FAST               2 (arg)
+
+ 95    L3:     LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         2 (arg)
+               LOAD_GLOBAL              8 (bytes)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       30 (to L5)
+               NOT_TAKEN
+
+ 96            LOAD_FAST_BORROW         1 (return_type)
+               LOAD_GLOBAL             10 (str)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       12 (to L4)
+               NOT_TAKEN
+
+ 97            LOAD_GLOBAL             13 (TypeError + NULL)
+               LOAD_CONST               2 ("Can't mix bytes and non-bytes in path components.")
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 99    L4:     LOAD_GLOBAL              8 (bytes)
+               STORE_FAST               1 (return_type)
+               JUMP_BACKWARD          114 (to L1)
+
+101    L5:     LOAD_FAST_BORROW         1 (return_type)
+               LOAD_GLOBAL              8 (bytes)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       12 (to L6)
+               NOT_TAKEN
+
+102            LOAD_GLOBAL             13 (TypeError + NULL)
+               LOAD_CONST               2 ("Can't mix bytes and non-bytes in path components.")
+               CALL                     1
+               RAISE_VARARGS            1
+
+104    L6:     LOAD_GLOBAL             10 (str)
+               STORE_FAST               1 (return_type)
+               JUMP_BACKWARD          143 (to L1)
+
+ 88    L7:     END_FOR
+               POP_ITER
+
+105            LOAD_FAST_BORROW         1 (return_type)
+               POP_JUMP_IF_NOT_NONE    47 (to L10)
+               NOT_TAKEN
+
+106            LOAD_GLOBAL             14 (tempdir)
+               POP_JUMP_IF_NONE        27 (to L8)
+               NOT_TAKEN
+               LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_GLOBAL             14 (tempdir)
+               LOAD_GLOBAL             10 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        7 (to L9)
+               NOT_TAKEN
+
+107    L8:     LOAD_GLOBAL             10 (str)
+               RETURN_VALUE
+
+110    L9:     LOAD_GLOBAL              8 (bytes)
+               RETURN_VALUE
+
+111   L10:     LOAD_FAST_BORROW         1 (return_type)
+               RETURN_VALUE
+
+Disassembly of <code object _sanitize_params at 0x00000204B9FFAA60, file "tempfile.py", line 114>:
+114           RESUME                   0
+
+116           LOAD_GLOBAL              1 (_infer_return_type + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (prefix, suffix)
+              LOAD_FAST_BORROW         2 (dir)
+              CALL                     3
+              STORE_FAST               3 (output_type)
+
+117           LOAD_FAST_BORROW         1 (suffix)
+              POP_JUMP_IF_NOT_NONE     8 (to L1)
+              NOT_TAKEN
+
+118           LOAD_FAST_BORROW         3 (output_type)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               1 (suffix)
+
+119   L1:     LOAD_FAST_BORROW         0 (prefix)
+              POP_JUMP_IF_NOT_NONE    44 (to L3)
+              NOT_TAKEN
+
+120           LOAD_FAST_BORROW         3 (output_type)
+              LOAD_GLOBAL              2 (str)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE        8 (to L2)
+              NOT_TAKEN
+
+121           LOAD_GLOBAL              4 (template)
+              STORE_FAST               0 (prefix)
+              JUMP_FORWARD            26 (to L3)
+
+123   L2:     LOAD_GLOBAL              6 (_os)
+              LOAD_ATTR                8 (fsencode)
+              PUSH_NULL
+              LOAD_GLOBAL              4 (template)
+              CALL                     1
+              STORE_FAST               0 (prefix)
+
+124   L3:     LOAD_FAST_BORROW         2 (dir)
+              POP_JUMP_IF_NOT_NONE    32 (to L5)
+              NOT_TAKEN
+
+125           LOAD_FAST_BORROW         3 (output_type)
+              LOAD_GLOBAL              2 (str)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       12 (to L4)
+              NOT_TAKEN
+
+126           LOAD_GLOBAL             11 (gettempdir + NULL)
+              CALL                     0
+              STORE_FAST               2 (dir)
+              JUMP_FORWARD            10 (to L5)
+
+128   L4:     LOAD_GLOBAL             13 (gettempdirb + NULL)
+              CALL                     0
+              STORE_FAST               2 (dir)
+
+129   L5:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (prefix, suffix)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (dir, output_type)
+              BUILD_TUPLE              4
+              RETURN_VALUE
+
+Disassembly of <code object _RandomNameSequence at 0x00000204BA0A6AF0, file "tempfile.py", line 132>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 132           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_RandomNameSequence')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         132
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 133           LOAD_CONST               1 ('An instance of _RandomNameSequence generates an endless\nsequence of unpredictable strings which can safely be incorporated\ninto file names.  Each string is eight characters long.  Multiple\nthreads can safely use the same instance at the same time.\n\n_RandomNameSequence is an iterator.')
+               STORE_NAME               4 (__doc__)
+
+ 140           LOAD_CONST               2 ('abcdefghijklmnopqrstuvwxyz0123456789_')
+               STORE_NAME               5 (characters)
+
+ 142           LOAD_NAME                6 (property)
+
+ 143           LOAD_CONST               3 (<code object rng at 0x00000204BA6601A0, file "tempfile.py", line 142>)
+               MAKE_FUNCTION
+
+ 142           CALL                     0
+
+ 143           STORE_NAME               7 (rng)
+
+ 150           LOAD_CONST               4 (<code object __iter__ at 0x00000204BA0C2CD0, file "tempfile.py", line 150>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__iter__)
+
+ 153           LOAD_CONST               5 (<code object __next__ at 0x00000204BA0A9070, file "tempfile.py", line 153>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__next__)
+               LOAD_CONST               6 (('_rng', '_rng_pid'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object rng at 0x00000204BA6601A0, file "tempfile.py", line 142>:
+142           RESUME                   0
+
+144           LOAD_GLOBAL              0 (_os)
+              LOAD_ATTR                2 (getpid)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               1 (cur_pid)
+
+145           LOAD_FAST_BORROW         1 (cur_pid)
+              LOAD_GLOBAL              5 (getattr + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_CONST               0 ('_rng_pid')
+              LOAD_CONST               1 (None)
+              CALL                     3
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE       22 (to L1)
+              NOT_TAKEN
+
+146           LOAD_GLOBAL              7 (_Random + NULL)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_rng)
+
+147           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (cur_pid, self)
+              STORE_ATTR               5 (_rng_pid)
+
+148   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_rng)
+              RETURN_VALUE
+
+Disassembly of <code object __iter__ at 0x00000204BA0C2CD0, file "tempfile.py", line 150>:
+150           RESUME                   0
+
+151           LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __next__ at 0x00000204BA0A9070, file "tempfile.py", line 153>:
+153           RESUME                   0
+
+154           LOAD_CONST               0 ('')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (rng)
+              LOAD_ATTR                5 (choices + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (characters)
+              LOAD_SMALL_INT           8
+              LOAD_CONST               1 (('k',))
+              CALL_KW                  2
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _candidate_tempdir_list at 0x00000204BA3E8D40, file "tempfile.py", line 156>:
+ 156            RESUME                   0
+
+ 160            BUILD_LIST               0
+                STORE_FAST               0 (dirlist)
+
+ 163            LOAD_CONST               8 (('TMPDIR', 'TEMP', 'TMP'))
+                GET_ITER
+        L1:     FOR_ITER                52 (to L3)
+                STORE_FAST               1 (envname)
+
+ 164            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                2 (getenv)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (envname)
+                CALL                     1
+                STORE_FAST               2 (dirname)
+
+ 165            LOAD_FAST_BORROW         2 (dirname)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L2)
+                NOT_TAKEN
+                JUMP_BACKWARD           35 (to L1)
+        L2:     LOAD_FAST_BORROW         0 (dirlist)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_FAST_BORROW         2 (dirname)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           54 (to L1)
+
+ 163    L3:     END_FOR
+                POP_ITER
+
+ 168            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                6 (name)
+                LOAD_CONST               1 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       83 (to L4)
+                NOT_TAKEN
+
+ 169            LOAD_FAST_BORROW         0 (dirlist)
+                LOAD_ATTR                9 (extend + NULL|self)
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               10 (path)
+                LOAD_ATTR               13 (expanduser + NULL|self)
+                LOAD_CONST               2 ('~\\AppData\\Local\\Temp')
+                CALL                     1
+
+ 170            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               10 (path)
+                LOAD_ATTR               15 (expandvars + NULL|self)
+                LOAD_CONST               3 ('%SYSTEMROOT%\\Temp')
+                CALL                     1
+
+ 171            LOAD_CONST               4 ('c:\\temp')
+                LOAD_CONST               5 ('c:\\tmp')
+                LOAD_CONST               6 ('\\temp')
+                LOAD_CONST               7 ('\\tmp')
+
+ 169            BUILD_LIST               6
+                CALL                     1
+                POP_TOP
+                JUMP_FORWARD            19 (to L5)
+
+ 173    L4:     LOAD_FAST_BORROW         0 (dirlist)
+                LOAD_ATTR                9 (extend + NULL|self)
+                BUILD_LIST               0
+                LOAD_CONST               9 (('/tmp', '/var/tmp', '/usr/tmp'))
+                LIST_EXTEND              1
+                CALL                     1
+                POP_TOP
+
+ 176    L5:     NOP
+
+ 177    L6:     LOAD_FAST_BORROW         0 (dirlist)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               16 (getcwd)
+                PUSH_NULL
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+ 181    L7:     LOAD_FAST_BORROW         0 (dirlist)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 178            LOAD_GLOBAL             18 (AttributeError)
+                LOAD_GLOBAL             20 (OSError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       36 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 179            LOAD_FAST                0 (dirlist)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               22 (curdir)
+                CALL                     1
+                POP_TOP
+        L9:     POP_EXCEPT
+
+ 181            LOAD_FAST                0 (dirlist)
+                RETURN_VALUE
+
+ 178   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L6 to L7 -> L8 [0]
+  L8 to L9 -> L11 [1] lasti
+  L10 to L11 -> L11 [1] lasti
+
+Disassembly of <code object _get_default_tempdir at 0x00000204B9D4D700, file "tempfile.py", line 183>:
+ 183            RESUME                   0
+
+ 192            LOAD_GLOBAL              1 (_RandomNameSequence + NULL)
+                CALL                     0
+                STORE_FAST               1 (namer)
+
+ 193            LOAD_FAST_BORROW         0 (dirlist)
+                POP_JUMP_IF_NOT_NONE    11 (to L1)
+                NOT_TAKEN
+
+ 194            LOAD_GLOBAL              3 (_candidate_tempdir_list + NULL)
+                CALL                     0
+                STORE_FAST               0 (dirlist)
+
+ 196    L1:     LOAD_FAST_BORROW         0 (dirlist)
+                GET_ITER
+        L2:     FOR_ITER               218 (to L13)
+                STORE_FAST               2 (dir)
+
+ 197            LOAD_FAST_BORROW         2 (dir)
+                LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR                6 (curdir)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       32 (to L3)
+                NOT_TAKEN
+
+ 198            LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               11 (abspath + NULL|self)
+                LOAD_FAST_BORROW         2 (dir)
+                CALL                     1
+                STORE_FAST               2 (dir)
+
+ 200    L3:     LOAD_GLOBAL             13 (range + NULL)
+                LOAD_SMALL_INT         100
+                CALL                     1
+                GET_ITER
+        L4:     FOR_ITER               148 (to L12)
+                STORE_FAST               3 (seq)
+
+ 201            LOAD_GLOBAL             15 (next + NULL)
+                LOAD_FAST_BORROW         1 (namer)
+                CALL                     1
+                STORE_FAST               4 (name)
+
+ 202            LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               17 (join + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (dir, name)
+                CALL                     2
+                STORE_FAST               5 (filename)
+
+ 203            NOP
+
+ 204    L5:     LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               18 (open)
+                PUSH_NULL
+                LOAD_FAST_BORROW         5 (filename)
+                LOAD_GLOBAL             20 (_bin_openflags)
+                LOAD_CONST               1 (384)
+                CALL                     3
+                STORE_FAST               6 (fd)
+
+ 205    L6:     NOP
+
+ 206            NOP
+
+ 207    L7:     LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               22 (write)
+                PUSH_NULL
+                LOAD_FAST_BORROW         6 (fd)
+                LOAD_CONST               2 (b'blat')
+                CALL                     2
+                POP_TOP
+
+ 209    L8:     LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               24 (close)
+                PUSH_NULL
+                LOAD_FAST_BORROW         6 (fd)
+                CALL                     1
+                POP_TOP
+        L9:     NOP
+
+ 211   L10:     LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               26 (unlink)
+                PUSH_NULL
+                LOAD_FAST_BORROW         5 (filename)
+                CALL                     1
+                POP_TOP
+
+ 212            LOAD_FAST_BORROW         2 (dir)
+       L11:     SWAP                     2
+                POP_TOP
+                SWAP                     2
+                POP_TOP
+                RETURN_VALUE
+
+ 200   L12:     END_FOR
+                POP_ITER
+                JUMP_BACKWARD          220 (to L2)
+
+ 196   L13:     END_FOR
+                POP_ITER
+
+ 224            LOAD_GLOBAL             43 (FileNotFoundError + NULL)
+                LOAD_GLOBAL             44 (_errno)
+                LOAD_ATTR               46 (ENOENT)
+
+ 225            LOAD_CONST               4 ('No usable temporary directory found in %s')
+
+ 226            LOAD_FAST_BORROW         0 (dirlist)
+
+ 225            BINARY_OP                6 (%)
+
+ 224            CALL                     2
+                RAISE_VARARGS            1
+
+  --   L14:     PUSH_EXC_INFO
+
+ 209            LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               24 (close)
+                PUSH_NULL
+                LOAD_FAST                6 (fd)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L16:     PUSH_EXC_INFO
+
+ 211            LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               26 (unlink)
+                PUSH_NULL
+                LOAD_FAST                5 (filename)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L17:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L18:     PUSH_EXC_INFO
+
+ 213            LOAD_GLOBAL             28 (FileExistsError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+ 214   L19:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          258 (to L4)
+
+ 215   L20:     LOAD_GLOBAL             30 (PermissionError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE      112 (to L27)
+       L21:     NOT_TAKEN
+       L22:     POP_TOP
+
+ 218            LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               32 (name)
+                LOAD_CONST               3 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       85 (to L26)
+                NOT_TAKEN
+                LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               35 (isdir + NULL|self)
+                LOAD_FAST                2 (dir)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       48 (to L26)
+       L23:     NOT_TAKEN
+
+ 219   L24:     LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               36 (access)
+                PUSH_NULL
+                LOAD_FAST                2 (dir)
+                LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               38 (W_OK)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L26)
+       L25:     NOT_TAKEN
+
+ 220            POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          373 (to L4)
+
+ 221   L26:     POP_EXCEPT
+                POP_TOP
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          444 (to L2)
+
+ 222   L27:     LOAD_GLOBAL             40 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        7 (to L31)
+       L28:     NOT_TAKEN
+       L29:     POP_TOP
+
+ 223   L30:     POP_EXCEPT
+                POP_TOP
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          459 (to L2)
+
+ 222   L31:     RERAISE                  0
+
+  --   L32:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L18 [2]
+  L7 to L8 -> L14 [2]
+  L8 to L9 -> L16 [2]
+  L10 to L11 -> L18 [2]
+  L14 to L15 -> L15 [3] lasti
+  L15 to L16 -> L16 [2]
+  L16 to L17 -> L17 [3] lasti
+  L17 to L18 -> L18 [2]
+  L18 to L19 -> L32 [3] lasti
+  L20 to L21 -> L32 [3] lasti
+  L22 to L23 -> L32 [3] lasti
+  L24 to L25 -> L32 [3] lasti
+  L27 to L28 -> L32 [3] lasti
+  L29 to L30 -> L32 [3] lasti
+  L31 to L32 -> L32 [3] lasti
+
+Disassembly of <code object _get_candidate_names at 0x00000204B9FFA8B0, file "tempfile.py", line 230>:
+ 230           RESUME                   0
+
+ 234           LOAD_GLOBAL              0 (_name_sequence)
+               POP_JUMP_IF_NOT_NONE    66 (to L3)
+               NOT_TAKEN
+
+ 235           LOAD_GLOBAL              2 (_once_lock)
+               LOAD_ATTR                5 (acquire + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 236           NOP
+
+ 237   L1:     LOAD_GLOBAL              0 (_name_sequence)
+               POP_JUMP_IF_NOT_NONE    11 (to L2)
+               NOT_TAKEN
+
+ 238           LOAD_GLOBAL              7 (_RandomNameSequence + NULL)
+               CALL                     0
+               STORE_GLOBAL             0 (_name_sequence)
+
+ 240   L2:     LOAD_GLOBAL              2 (_once_lock)
+               LOAD_ATTR                9 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 241           LOAD_GLOBAL              0 (_name_sequence)
+               RETURN_VALUE
+       L3:     LOAD_GLOBAL              0 (_name_sequence)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 240           LOAD_GLOBAL              2 (_once_lock)
+               LOAD_ATTR                9 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+  --   L5:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L5 [1] lasti
+
+Disassembly of <code object _mkstemp_inner at 0x00000204BA432960, file "tempfile.py", line 244>:
+ 244            RESUME                   0
+
+ 247            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR                5 (abspath + NULL|self)
+                LOAD_FAST_BORROW         0 (dir)
+                CALL                     1
+                STORE_FAST               0 (dir)
+
+ 248            LOAD_GLOBAL              7 (_get_candidate_names + NULL)
+                CALL                     0
+                STORE_FAST               5 (names)
+
+ 249            LOAD_FAST_BORROW         4 (output_type)
+                LOAD_GLOBAL              8 (bytes)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       27 (to L1)
+                NOT_TAKEN
+
+ 250            LOAD_GLOBAL             11 (map + NULL)
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               12 (fsencode)
+                LOAD_FAST_BORROW         5 (names)
+                CALL                     2
+                STORE_FAST               5 (names)
+
+ 252    L1:     LOAD_GLOBAL             15 (range + NULL)
+                LOAD_GLOBAL             16 (TMP_MAX)
+                CALL                     1
+                GET_ITER
+        L2:     FOR_ITER               109 (to L5)
+                STORE_FAST               6 (seq)
+
+ 253            LOAD_GLOBAL             19 (next + NULL)
+                LOAD_FAST_BORROW         5 (names)
+                CALL                     1
+                STORE_FAST               7 (name)
+
+ 254            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR               21 (join + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (dir, pre)
+                LOAD_FAST_BORROW         7 (name)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         2 (suf)
+                BINARY_OP                0 (+)
+                CALL                     2
+                STORE_FAST               8 (file)
+
+ 255            LOAD_GLOBAL             22 (_sys)
+                LOAD_ATTR               24 (audit)
+                PUSH_NULL
+                LOAD_CONST               1 ('tempfile.mkstemp')
+                LOAD_FAST_BORROW         8 (file)
+                CALL                     2
+                POP_TOP
+
+ 256            NOP
+
+ 257    L3:     LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               26 (open)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 131 (file, flags)
+                LOAD_CONST               2 (384)
+                CALL                     3
+                STORE_FAST               9 (fd)
+
+ 268    L4:     LOAD_FAST_LOAD_FAST    152 (fd, file)
+                BUILD_TUPLE              2
+                SWAP                     2
+                POP_TOP
+                RETURN_VALUE
+
+ 252    L5:     END_FOR
+                POP_ITER
+
+ 270            LOAD_GLOBAL             29 (FileExistsError + NULL)
+                LOAD_GLOBAL             40 (_errno)
+                LOAD_ATTR               42 (EEXIST)
+
+ 271            LOAD_CONST               4 ('No usable temporary file name found')
+
+ 270            CALL                     2
+                RAISE_VARARGS            1
+
+  --    L6:     PUSH_EXC_INFO
+
+ 258            LOAD_GLOBAL             28 (FileExistsError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+ 259    L7:     POP_EXCEPT
+                JUMP_BACKWARD          153 (to L2)
+
+ 260    L8:     LOAD_GLOBAL             30 (PermissionError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE      108 (to L15)
+        L9:     NOT_TAKEN
+       L10:     POP_TOP
+
+ 263            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               32 (name)
+                LOAD_CONST               3 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       85 (to L14)
+                NOT_TAKEN
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR               35 (isdir + NULL|self)
+                LOAD_FAST                0 (dir)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       48 (to L14)
+       L11:     NOT_TAKEN
+
+ 264   L12:     LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               36 (access)
+                PUSH_NULL
+                LOAD_FAST                0 (dir)
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               38 (W_OK)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L14)
+       L13:     NOT_TAKEN
+
+ 265            POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          268 (to L2)
+
+ 267   L14:     RAISE_VARARGS            0
+
+ 260   L15:     RERAISE                  0
+
+  --   L16:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L6 [1]
+  L6 to L7 -> L16 [2] lasti
+  L8 to L9 -> L16 [2] lasti
+  L10 to L11 -> L16 [2] lasti
+  L12 to L13 -> L16 [2] lasti
+  L14 to L16 -> L16 [2] lasti
+
+Disassembly of <code object _dont_follow_symlinks at 0x00000204B9FB7DB0, file "tempfile.py", line 273>:
+273           RESUME                   0
+
+275           LOAD_FAST_BORROW         0 (func)
+              LOAD_GLOBAL              0 (_os)
+              LOAD_ATTR                2 (supports_follow_symlinks)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       15 (to L1)
+              NOT_TAKEN
+
+276           LOAD_FAST_BORROW         0 (func)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (path)
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         2 (args)
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              LOAD_CONST               0 ('follow_symlinks')
+              LOAD_CONST               1 (False)
+              BUILD_MAP                1
+              CALL_FUNCTION_EX
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+277   L1:     LOAD_GLOBAL              0 (_os)
+              LOAD_ATTR                4 (path)
+              LOAD_ATTR                7 (islink + NULL|self)
+              LOAD_FAST_BORROW         1 (path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        13 (to L2)
+              NOT_TAKEN
+
+278           LOAD_FAST_BORROW         0 (func)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (path)
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         2 (args)
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+277   L2:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _resetperms at 0x00000204BA660310, file "tempfile.py", line 280>:
+ 280           RESUME                   0
+
+ 281           NOP
+
+ 282   L1:     LOAD_GLOBAL              0 (_os)
+               LOAD_ATTR                2 (chflags)
+               STORE_FAST               1 (chflags)
+
+ 286   L2:     LOAD_GLOBAL              5 (_dont_follow_symlinks + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (chflags, path)
+               LOAD_SMALL_INT           0
+               CALL                     3
+               POP_TOP
+
+ 287   L3:     LOAD_GLOBAL              5 (_dont_follow_symlinks + NULL)
+               LOAD_GLOBAL              0 (_os)
+               LOAD_ATTR                8 (chmod)
+               LOAD_FAST_BORROW         0 (path)
+               LOAD_CONST               1 (448)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 283           LOAD_GLOBAL              6 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 284   L5:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 42 (to L3)
+
+ 283   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object gettempprefix at 0x00000204BA0FFEE0, file "tempfile.py", line 292>:
+292           RESUME                   0
+
+294           LOAD_GLOBAL              0 (_os)
+              LOAD_ATTR                2 (fsdecode)
+              PUSH_NULL
+              LOAD_GLOBAL              4 (template)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object gettempprefixb at 0x00000204BA0FC7A0, file "tempfile.py", line 296>:
+296           RESUME                   0
+
+298           LOAD_GLOBAL              0 (_os)
+              LOAD_ATTR                2 (fsencode)
+              PUSH_NULL
+              LOAD_GLOBAL              4 (template)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _gettempdir at 0x00000204B9FFB2D0, file "tempfile.py", line 302>:
+ 302           RESUME                   0
+
+ 305           LOAD_GLOBAL              0 (tempdir)
+               POP_JUMP_IF_NOT_NONE    66 (to L3)
+               NOT_TAKEN
+
+ 306           LOAD_GLOBAL              2 (_once_lock)
+               LOAD_ATTR                5 (acquire + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 307           NOP
+
+ 308   L1:     LOAD_GLOBAL              0 (tempdir)
+               POP_JUMP_IF_NOT_NONE    11 (to L2)
+               NOT_TAKEN
+
+ 309           LOAD_GLOBAL              7 (_get_default_tempdir + NULL)
+               CALL                     0
+               STORE_GLOBAL             0 (tempdir)
+
+ 311   L2:     LOAD_GLOBAL              2 (_once_lock)
+               LOAD_ATTR                9 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 312           LOAD_GLOBAL              0 (tempdir)
+               RETURN_VALUE
+       L3:     LOAD_GLOBAL              0 (tempdir)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 311           LOAD_GLOBAL              2 (_once_lock)
+               LOAD_ATTR                9 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+  --   L5:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L5 [1] lasti
+
+Disassembly of <code object gettempdir at 0x00000204BA0FF550, file "tempfile.py", line 314>:
+314           RESUME                   0
+
+316           LOAD_GLOBAL              0 (_os)
+              LOAD_ATTR                2 (fsdecode)
+              PUSH_NULL
+              LOAD_GLOBAL              5 (_gettempdir + NULL)
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object gettempdirb at 0x00000204BA0FFDD0, file "tempfile.py", line 318>:
+318           RESUME                   0
+
+320           LOAD_GLOBAL              0 (_os)
+              LOAD_ATTR                2 (fsencode)
+              PUSH_NULL
+              LOAD_GLOBAL              5 (_gettempdir + NULL)
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object mkstemp at 0x00000204BA0A91B0, file "tempfile.py", line 322>:
+322           RESUME                   0
+
+351           LOAD_GLOBAL              1 (_sanitize_params + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (prefix, suffix)
+              LOAD_FAST_BORROW         2 (dir)
+              CALL                     3
+              UNPACK_SEQUENCE          4
+              STORE_FAST_STORE_FAST   16 (prefix, suffix)
+              STORE_FAST_STORE_FAST   36 (dir, output_type)
+
+353           LOAD_FAST_BORROW         3 (text)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        8 (to L1)
+              NOT_TAKEN
+
+354           LOAD_GLOBAL              2 (_text_openflags)
+              STORE_FAST               5 (flags)
+              JUMP_FORWARD             6 (to L2)
+
+356   L1:     LOAD_GLOBAL              4 (_bin_openflags)
+              STORE_FAST               5 (flags)
+
+358   L2:     LOAD_GLOBAL              7 (_mkstemp_inner + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (dir, prefix)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (suffix, flags)
+              LOAD_FAST_BORROW         4 (output_type)
+              CALL                     5
+              RETURN_VALUE
+
+Disassembly of <code object mkdtemp at 0x00000204BA381490, file "tempfile.py", line 361>:
+ 361            RESUME                   0
+
+ 374            LOAD_GLOBAL              1 (_sanitize_params + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (prefix, suffix)
+                LOAD_FAST_BORROW         2 (dir)
+                CALL                     3
+                UNPACK_SEQUENCE          4
+                STORE_FAST_STORE_FAST   16 (prefix, suffix)
+                STORE_FAST_STORE_FAST   35 (dir, output_type)
+
+ 376            LOAD_GLOBAL              3 (_get_candidate_names + NULL)
+                CALL                     0
+                STORE_FAST               4 (names)
+
+ 377            LOAD_FAST_BORROW         3 (output_type)
+                LOAD_GLOBAL              4 (bytes)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       27 (to L1)
+                NOT_TAKEN
+
+ 378            LOAD_GLOBAL              7 (map + NULL)
+                LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               10 (fsencode)
+                LOAD_FAST_BORROW         4 (names)
+                CALL                     2
+                STORE_FAST               4 (names)
+
+ 380    L1:     LOAD_GLOBAL             13 (range + NULL)
+                LOAD_GLOBAL             14 (TMP_MAX)
+                CALL                     1
+                GET_ITER
+        L2:     FOR_ITER               137 (to L5)
+                STORE_FAST               5 (seq)
+
+ 381            LOAD_GLOBAL             17 (next + NULL)
+                LOAD_FAST_BORROW         4 (names)
+                CALL                     1
+                STORE_FAST               6 (name)
+
+ 382            LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               18 (path)
+                LOAD_ATTR               21 (join + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (dir, prefix)
+                LOAD_FAST_BORROW         6 (name)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         0 (suffix)
+                BINARY_OP                0 (+)
+                CALL                     2
+                STORE_FAST               7 (file)
+
+ 383            LOAD_GLOBAL             22 (_sys)
+                LOAD_ATTR               24 (audit)
+                PUSH_NULL
+                LOAD_CONST               1 ('tempfile.mkdtemp')
+                LOAD_FAST_BORROW         7 (file)
+                CALL                     2
+                POP_TOP
+
+ 384            NOP
+
+ 385    L3:     LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               26 (mkdir)
+                PUSH_NULL
+                LOAD_FAST_BORROW         7 (file)
+                LOAD_CONST               2 (448)
+                CALL                     2
+                POP_TOP
+
+ 396    L4:     LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               18 (path)
+                LOAD_ATTR               41 (abspath + NULL|self)
+                LOAD_FAST                7 (file)
+                CALL                     1
+                SWAP                     2
+                POP_TOP
+                RETURN_VALUE
+
+ 380    L5:     END_FOR
+                POP_ITER
+
+ 398            LOAD_GLOBAL             29 (FileExistsError + NULL)
+                LOAD_GLOBAL             42 (_errno)
+                LOAD_ATTR               44 (EEXIST)
+
+ 399            LOAD_CONST               4 ('No usable temporary directory name found')
+
+ 398            CALL                     2
+                RAISE_VARARGS            1
+
+  --    L6:     PUSH_EXC_INFO
+
+ 386            LOAD_GLOBAL             28 (FileExistsError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+ 387    L7:     POP_EXCEPT
+                JUMP_BACKWARD          181 (to L2)
+
+ 388    L8:     LOAD_GLOBAL             30 (PermissionError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE      108 (to L15)
+        L9:     NOT_TAKEN
+       L10:     POP_TOP
+
+ 391            LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               32 (name)
+                LOAD_CONST               3 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       85 (to L14)
+                NOT_TAKEN
+                LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               18 (path)
+                LOAD_ATTR               35 (isdir + NULL|self)
+                LOAD_FAST                2 (dir)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       48 (to L14)
+       L11:     NOT_TAKEN
+
+ 392   L12:     LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               36 (access)
+                PUSH_NULL
+                LOAD_FAST                2 (dir)
+                LOAD_GLOBAL              8 (_os)
+                LOAD_ATTR               38 (W_OK)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L14)
+       L13:     NOT_TAKEN
+
+ 393            POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          296 (to L2)
+
+ 395   L14:     RAISE_VARARGS            0
+
+ 388   L15:     RERAISE                  0
+
+  --   L16:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L6 [1]
+  L6 to L7 -> L16 [2] lasti
+  L8 to L9 -> L16 [2] lasti
+  L10 to L11 -> L16 [2] lasti
+  L12 to L13 -> L16 [2] lasti
+  L14 to L16 -> L16 [2] lasti
+
+Disassembly of <code object mktemp at 0x00000204B9F5AA30, file "tempfile.py", line 401>:
+401           RESUME                   0
+
+419           LOAD_FAST_BORROW         2 (dir)
+              POP_JUMP_IF_NOT_NONE    11 (to L1)
+              NOT_TAKEN
+
+420           LOAD_GLOBAL              1 (gettempdir + NULL)
+              CALL                     0
+              STORE_FAST               2 (dir)
+
+422   L1:     LOAD_GLOBAL              3 (_get_candidate_names + NULL)
+              CALL                     0
+              STORE_FAST               3 (names)
+
+423           LOAD_GLOBAL              5 (range + NULL)
+              LOAD_GLOBAL              6 (TMP_MAX)
+              CALL                     1
+              GET_ITER
+      L2:     FOR_ITER                80 (to L4)
+              STORE_FAST               4 (seq)
+
+424           LOAD_GLOBAL              9 (next + NULL)
+              LOAD_FAST_BORROW         3 (names)
+              CALL                     1
+              STORE_FAST               5 (name)
+
+425           LOAD_GLOBAL             10 (_os)
+              LOAD_ATTR               12 (path)
+              LOAD_ATTR               15 (join + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (dir, prefix)
+              LOAD_FAST_BORROW         5 (name)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (suffix)
+              BINARY_OP                0 (+)
+              CALL                     2
+              STORE_FAST               6 (file)
+
+426           LOAD_GLOBAL             17 (_exists + NULL)
+              LOAD_FAST_BORROW         6 (file)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           78 (to L2)
+
+427   L3:     LOAD_FAST_BORROW         6 (file)
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+423   L4:     END_FOR
+              POP_ITER
+
+429           LOAD_GLOBAL             19 (FileExistsError + NULL)
+              LOAD_GLOBAL             20 (_errno)
+              LOAD_ATTR               22 (EEXIST)
+
+430           LOAD_CONST               1 ('No usable temporary filename found')
+
+429           CALL                     2
+              RAISE_VARARGS            1
+
+Disassembly of <code object _TemporaryFileCloser at 0x00000204BA0BB9F0, file "tempfile.py", line 433>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 433           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_TemporaryFileCloser')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (433)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 434           LOAD_CONST               2 ("A separate object allowing proper closing of a temporary file's\nunderlying file object, without adding a __del__ method to the\ntemporary file.")
+               STORE_NAME               4 (__doc__)
+
+ 438           LOAD_CONST               3 (False)
+               STORE_NAME               5 (cleanup_called)
+
+ 439           LOAD_CONST               3 (False)
+               STORE_NAME               6 (close_called)
+
+ 441           LOAD_CONST              11 ((True, True, 'Implicitly cleaning up unknown file'))
+               LOAD_CONST               4 (<code object __init__ at 0x00000204BA0A7E10, file "tempfile.py", line 441>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (__init__)
+
+ 455           LOAD_NAME                8 (_os)
+               LOAD_ATTR               18 (name)
+               LOAD_CONST               5 ('nt')
+               COMPARE_OP              72 (==)
+               LOAD_NAME                8 (_os)
+               LOAD_ATTR               20 (unlink)
+               BUILD_TUPLE              2
+               LOAD_CONST               6 (<code object cleanup at 0x00000204BA37E770, file "tempfile.py", line 455>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              11 (cleanup)
+
+ 471           LOAD_CONST               7 (<code object close at 0x00000204BA3E1B70, file "tempfile.py", line 471>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (close)
+
+ 480           LOAD_CONST               8 (<code object __del__ at 0x00000204BA660480, file "tempfile.py", line 480>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (__del__)
+               LOAD_CONST               9 (('cleanup_called', 'close_called', 'delete', 'delete_on_close', 'file', 'name', 'warn_message'))
+               STORE_NAME              14 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              15 (__classdictcell__)
+               LOAD_CONST              10 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7E10, file "tempfile.py", line 441>:
+441           RESUME                   0
+
+449           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (file, self)
+              STORE_ATTR               0 (file)
+
+450           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (name, self)
+              STORE_ATTR               1 (name)
+
+451           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (delete, self)
+              STORE_ATTR               2 (delete)
+
+452           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (delete_on_close, self)
+              STORE_ATTR               3 (delete_on_close)
+
+453           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (warn_message, self)
+              STORE_ATTR               4 (warn_message)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object cleanup at 0x00000204BA37E770, file "tempfile.py", line 455>:
+ 455            RESUME                   0
+
+ 456            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (cleanup_called)
+                TO_BOOL
+                POP_JUMP_IF_TRUE       129 (to L10)
+                NOT_TAKEN
+
+ 457            LOAD_CONST               0 (True)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (cleanup_called)
+
+ 458            NOP
+
+ 459    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (close_called)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        34 (to L4)
+        L2:     NOT_TAKEN
+
+ 460    L3:     LOAD_CONST               0 (True)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               1 (close_called)
+
+ 461            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (file)
+                LOAD_ATTR                7 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 465    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (delete)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       50 (to L9)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         1 (windows)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L5)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (delete_on_close)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        22 (to L8)
+                NOT_TAKEN
+
+ 466    L5:     NOP
+
+ 467    L6:     LOAD_FAST_BORROW         2 (unlink)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (name)
+                CALL                     1
+                POP_TOP
+        L7:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 465    L8:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+        L9:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 456   L10:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 468            LOAD_GLOBAL             14 (FileNotFoundError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 469   L12:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 468   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L15:     PUSH_EXC_INFO
+
+ 465            LOAD_FAST                0 (self)
+                LOAD_ATTR                8 (delete)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       65 (to L27)
+                NOT_TAKEN
+                LOAD_FAST                1 (windows)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L19)
+       L16:     NOT_TAKEN
+       L17:     LOAD_FAST                0 (self)
+                LOAD_ATTR               10 (delete_on_close)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        38 (to L26)
+       L18:     NOT_TAKEN
+
+ 466   L19:     NOP
+
+ 467   L20:     LOAD_FAST                2 (unlink)
+                PUSH_NULL
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (name)
+                CALL                     1
+                POP_TOP
+       L21:     RERAISE                  0
+
+  --   L22:     PUSH_EXC_INFO
+
+ 468            LOAD_GLOBAL             14 (FileNotFoundError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 469   L23:     POP_EXCEPT
+                RERAISE                  0
+
+ 468   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 465   L26:     RERAISE                  0
+       L27:     RERAISE                  0
+
+  --   L28:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L15 [0]
+  L3 to L4 -> L15 [0]
+  L6 to L7 -> L11 [0]
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+  L15 to L16 -> L28 [1] lasti
+  L17 to L18 -> L28 [1] lasti
+  L20 to L21 -> L22 [2]
+  L21 to L22 -> L28 [1] lasti
+  L22 to L23 -> L25 [3] lasti
+  L23 to L24 -> L28 [1] lasti
+  L24 to L25 -> L25 [3] lasti
+  L25 to L28 -> L28 [1] lasti
+
+Disassembly of <code object close at 0x00000204BA3E1B70, file "tempfile.py", line 471>:
+ 471            RESUME                   0
+
+ 472            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (close_called)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        93 (to L5)
+                NOT_TAKEN
+
+ 473            LOAD_CONST               0 (True)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (close_called)
+
+ 474            NOP
+
+ 475    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (file)
+                LOAD_ATTR                5 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 477    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (delete)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       39 (to L4)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (delete_on_close)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L3)
+                NOT_TAKEN
+
+ 478            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               11 (cleanup + NULL|self)
+                CALL                     0
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 477    L3:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+        L4:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 472    L5:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+ 477            LOAD_FAST                0 (self)
+                LOAD_ATTR                6 (delete)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       37 (to L10)
+                NOT_TAKEN
+                LOAD_FAST                0 (self)
+                LOAD_ATTR                8 (delete_on_close)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L9)
+        L7:     NOT_TAKEN
+
+ 478    L8:     LOAD_FAST                0 (self)
+                LOAD_ATTR               11 (cleanup + NULL|self)
+                CALL                     0
+                POP_TOP
+                RERAISE                  0
+
+ 477    L9:     RERAISE                  0
+       L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L6 to L7 -> L11 [1] lasti
+  L8 to L11 -> L11 [1] lasti
+
+Disassembly of <code object __del__ at 0x00000204BA660480, file "tempfile.py", line 480>:
+480           RESUME                   0
+
+481           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (close_called)
+              STORE_FAST               1 (close_called)
+
+482           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (cleanup + NULL|self)
+              CALL                     0
+              POP_TOP
+
+483           LOAD_FAST_BORROW         1 (close_called)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        40 (to L1)
+              NOT_TAKEN
+
+484           LOAD_GLOBAL              4 (_warnings)
+              LOAD_ATTR                6 (warn)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (warn_message)
+              LOAD_GLOBAL             10 (ResourceWarning)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+483   L1:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _TemporaryFileWrapper at 0x00000204BA100290, file "tempfile.py", line 487>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 487           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_TemporaryFileWrapper')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (487)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 488           LOAD_CONST               2 ('Temporary file wrapper\n\nThis class provides a wrapper around files opened for\ntemporary use.  In particular, it seeks to automatically\nremove the file when it is no longer needed.\n')
+               STORE_NAME               4 (__doc__)
+
+ 495           LOAD_CONST              12 ((True, True))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0A72D0, file "tempfile.py", line 495>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+ 506           LOAD_CONST               4 (<code object __repr__ at 0x00000204BA0AAAB0, file "tempfile.py", line 506>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__repr__)
+
+ 510           LOAD_CONST               5 (<code object __getattr__ at 0x00000204B9FA6310, file "tempfile.py", line 510>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__getattr__)
+
+ 531           LOAD_CONST               6 (<code object __enter__ at 0x00000204BA0FD020, file "tempfile.py", line 531>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__enter__)
+
+ 537           LOAD_CONST               7 (<code object __exit__ at 0x00000204BA0B9290, file "tempfile.py", line 537>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__exit__)
+
+ 542           LOAD_CONST               8 (<code object close at 0x00000204BA669130, file "tempfile.py", line 542>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (close)
+
+ 549           LOAD_CONST               9 (<code object __iter__ at 0x00000204BA669240, file "tempfile.py", line 549>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (__iter__)
+               LOAD_CONST              10 (('_closer', 'file', 'name'))
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_CONST              11 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A72D0, file "tempfile.py", line 495>:
+495           RESUME                   0
+
+496           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (file, self)
+              STORE_ATTR               0 (file)
+
+497           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (name, self)
+              STORE_ATTR               1 (name)
+
+498           LOAD_GLOBAL              5 (_TemporaryFileCloser + NULL)
+
+499           LOAD_FAST_BORROW         1 (file)
+
+500           LOAD_FAST_BORROW         2 (name)
+
+501           LOAD_FAST_BORROW         3 (delete)
+
+502           LOAD_FAST_BORROW         4 (delete_on_close)
+
+503           LOAD_CONST               0 ('Implicitly cleaning up ')
+              LOAD_FAST_BORROW         0 (self)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+
+498           LOAD_CONST               1 (('warn_message',))
+              CALL_KW                  5
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_closer)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0AAAB0, file "tempfile.py", line 506>:
+506           RESUME                   0
+
+507           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__dict__)
+              LOAD_CONST               0 ('file')
+              BINARY_OP               26 ([])
+              STORE_FAST               1 (file)
+
+508           LOAD_CONST               1 ('<')
+              LOAD_GLOBAL              3 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR                4 (__name__)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (' file=')
+              LOAD_FAST_BORROW         1 (file)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 ('>')
+              BUILD_STRING             5
+              RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x00000204B9FA6310, file "tempfile.py", line 510>:
+  --           MAKE_CELL                5 (func)
+
+ 510           RESUME                   0
+
+ 514           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (__dict__)
+               LOAD_CONST               0 ('file')
+               BINARY_OP               26 ([])
+               STORE_FAST               2 (file)
+
+ 515           LOAD_GLOBAL              3 (getattr + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (file, name)
+               CALL                     2
+               STORE_FAST               3 (a)
+
+ 516           LOAD_GLOBAL              5 (hasattr + NULL)
+               LOAD_FAST_BORROW         3 (a)
+               LOAD_CONST               1 ('__call__')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       53 (to L1)
+               NOT_TAKEN
+
+ 517           LOAD_FAST_BORROW         3 (a)
+               STORE_DEREF              5 (func)
+
+ 518           LOAD_GLOBAL              6 (_functools)
+               LOAD_ATTR                8 (wraps)
+               PUSH_NULL
+               LOAD_DEREF               5 (func)
+               CALL                     1
+
+ 519           LOAD_FAST_BORROW         5 (func)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object func_wrapper at 0x00000204BA0934B0, file "tempfile.py", line 518>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+
+ 518           CALL                     0
+
+ 519           STORE_FAST               4 (func_wrapper)
+
+ 523           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_closer)
+               LOAD_FAST_BORROW         4 (func_wrapper)
+               STORE_ATTR               5 (_closer)
+
+ 524           LOAD_FAST                4 (func_wrapper)
+               STORE_FAST               3 (a)
+
+ 525   L1:     LOAD_GLOBAL             13 (isinstance + NULL)
+               LOAD_FAST_BORROW         3 (a)
+               LOAD_GLOBAL             14 (int)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        13 (to L2)
+               NOT_TAKEN
+
+ 526           LOAD_GLOBAL             17 (setattr + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+               LOAD_FAST_BORROW         3 (a)
+               CALL                     3
+               POP_TOP
+
+ 527   L2:     LOAD_FAST_BORROW         3 (a)
+               RETURN_VALUE
+
+Disassembly of <code object func_wrapper at 0x00000204BA0934B0, file "tempfile.py", line 518>:
+  --           COPY_FREE_VARS           1
+
+ 518           RESUME                   0
+
+ 520           LOAD_DEREF               2 (func)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         1 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204BA0FD020, file "tempfile.py", line 531>:
+531           RESUME                   0
+
+532           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (file)
+              LOAD_ATTR                3 (__enter__ + NULL|self)
+              CALL                     0
+              POP_TOP
+
+533           LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA0B9290, file "tempfile.py", line 537>:
+537           RESUME                   0
+
+538           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (file)
+              LOAD_ATTR                3 (__exit__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (exc, value)
+              LOAD_FAST_BORROW         3 (tb)
+              CALL                     3
+              STORE_FAST               4 (result)
+
+539           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_closer)
+              LOAD_ATTR                7 (cleanup + NULL|self)
+              CALL                     0
+              POP_TOP
+
+540           LOAD_FAST_BORROW         4 (result)
+              RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204BA669130, file "tempfile.py", line 542>:
+542           RESUME                   0
+
+546           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_closer)
+              LOAD_ATTR                3 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __iter__ at 0x00000204BA669240, file "tempfile.py", line 549>:
+ 549           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+
+ 555           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (file)
+               GET_ITER
+       L2:     FOR_ITER                 7 (to L3)
+               STORE_FAST               1 (line)
+
+ 556           LOAD_FAST_BORROW         1 (line)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD            9 (to L2)
+
+ 555   L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object NamedTemporaryFile at 0x00000204BA586320, file "tempfile.py", line 558>:
+  --            MAKE_CELL                4 (suffix)
+                MAKE_CELL                5 (prefix)
+                MAKE_CELL                6 (dir)
+                MAKE_CELL               13 (flags)
+                MAKE_CELL               14 (name)
+                MAKE_CELL               15 (output_type)
+
+ 558            RESUME                   0
+
+ 585            LOAD_GLOBAL              1 (_sanitize_params + NULL)
+                LOAD_DEREF               5 (prefix)
+                LOAD_DEREF               4 (suffix)
+                LOAD_DEREF               6 (dir)
+                CALL                     3
+                UNPACK_SEQUENCE          4
+                STORE_DEREF              5 (prefix)
+                STORE_DEREF              4 (suffix)
+                STORE_DEREF              6 (dir)
+                STORE_DEREF             15 (output_type)
+
+ 587            LOAD_GLOBAL              2 (_bin_openflags)
+                STORE_DEREF             13 (flags)
+
+ 591            LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR                6 (name)
+                LOAD_CONST               1 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       40 (to L1)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         7 (delete)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       32 (to L1)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         9 (delete_on_close)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       24 (to L1)
+                NOT_TAKEN
+
+ 592            LOAD_DEREF              13 (flags)
+                LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR                8 (O_TEMPORARY)
+                BINARY_OP               20 (|=)
+                STORE_DEREF             13 (flags)
+
+ 594    L1:     LOAD_CONST               2 ('b')
+                LOAD_FAST_BORROW         0 (mode)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE       23 (to L2)
+                NOT_TAKEN
+
+ 595            LOAD_GLOBAL             10 (_io)
+                LOAD_ATTR               12 (text_encoding)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (encoding)
+                CALL                     1
+                STORE_FAST               2 (encoding)
+
+ 597    L2:     LOAD_CONST               3 (None)
+                STORE_DEREF             14 (name)
+
+ 598            LOAD_FAST_BORROW         6 (dir)
+                LOAD_FAST_BORROW        13 (flags)
+                LOAD_FAST_BORROW        14 (name)
+                LOAD_FAST_BORROW        15 (output_type)
+                LOAD_FAST_BORROW         5 (prefix)
+                LOAD_FAST_BORROW         4 (suffix)
+                BUILD_TUPLE              6
+                LOAD_CONST               4 (<code object opener at 0x00000204BA10A230, file "tempfile.py", line 598>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                STORE_FAST              10 (opener)
+
+ 602            NOP
+
+ 603    L3:     LOAD_GLOBAL             10 (_io)
+                LOAD_ATTR               14 (open)
+                PUSH_NULL
+                LOAD_DEREF               6 (dir)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (mode, buffering)
+
+ 604            LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (newline, encoding)
+                LOAD_FAST_BORROW         8 (errors)
+
+ 605            LOAD_FAST_BORROW        10 (opener)
+
+ 603            LOAD_CONST               5 (('buffering', 'newline', 'encoding', 'errors', 'opener'))
+                CALL_KW                  7
+                STORE_FAST              11 (file)
+
+ 606    L4:     NOP
+
+ 607    L5:     LOAD_GLOBAL             17 (getattr + NULL)
+                LOAD_FAST_BORROW        11 (file)
+                LOAD_CONST               6 ('buffer')
+                LOAD_FAST_BORROW        11 (file)
+                CALL                     3
+                STORE_FAST              12 (raw)
+
+ 608            LOAD_GLOBAL             17 (getattr + NULL)
+                LOAD_FAST_BORROW        12 (raw)
+                LOAD_CONST               7 ('raw')
+                LOAD_FAST_BORROW        12 (raw)
+                CALL                     3
+                STORE_FAST              12 (raw)
+
+ 609            LOAD_DEREF              14 (name)
+                LOAD_FAST_BORROW        12 (raw)
+                STORE_ATTR               3 (name)
+
+ 610            LOAD_GLOBAL             19 (_TemporaryFileWrapper + NULL)
+                LOAD_FAST_BORROW        11 (file)
+                LOAD_DEREF              14 (name)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 121 (delete, delete_on_close)
+                CALL                     4
+        L6:     RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 611            POP_TOP
+
+ 612            LOAD_FAST               11 (file)
+                LOAD_ATTR               21 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 613            RAISE_VARARGS            0
+
+  --    L8:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+        L9:     PUSH_EXC_INFO
+
+ 614            POP_TOP
+
+ 615            LOAD_DEREF              14 (name)
+                POP_JUMP_IF_NONE        60 (to L14)
+                NOT_TAKEN
+
+ 616            LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR                6 (name)
+                LOAD_CONST               1 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       17 (to L13)
+                NOT_TAKEN
+                LOAD_FAST                7 (delete)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        9 (to L13)
+       L10:     NOT_TAKEN
+       L11:     LOAD_FAST                9 (delete_on_close)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        23 (to L14)
+       L12:     NOT_TAKEN
+
+ 617   L13:     LOAD_GLOBAL              4 (_os)
+                LOAD_ATTR               22 (unlink)
+                PUSH_NULL
+                LOAD_DEREF              14 (name)
+                CALL                     1
+                POP_TOP
+
+ 618   L14:     RAISE_VARARGS            0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L9 [0]
+  L5 to L6 -> L7 [0]
+  L7 to L8 -> L8 [1] lasti
+  L8 to L9 -> L9 [0]
+  L9 to L10 -> L15 [1] lasti
+  L11 to L12 -> L15 [1] lasti
+  L13 to L15 -> L15 [1] lasti
+
+Disassembly of <code object opener at 0x00000204BA10A230, file "tempfile.py", line 598>:
+  --           COPY_FREE_VARS           6
+
+ 598           RESUME                   0
+
+ 600           LOAD_GLOBAL              1 (_mkstemp_inner + NULL)
+               LOAD_DEREF               2 (dir)
+               LOAD_DEREF               6 (prefix)
+               LOAD_DEREF               7 (suffix)
+               LOAD_DEREF               3 (flags)
+               LOAD_DEREF               5 (output_type)
+               CALL                     5
+               UNPACK_SEQUENCE          2
+               STORE_FAST               1 (fd)
+               STORE_DEREF              4 (name)
+
+ 601           LOAD_FAST_BORROW         1 (fd)
+               RETURN_VALUE
+
+Disassembly of <code object TemporaryFile at 0x00000204BA586650, file "tempfile.py", line 631>:
+  --            MAKE_CELL                4 (suffix)
+                MAKE_CELL                5 (prefix)
+                MAKE_CELL                6 (dir)
+                MAKE_CELL               11 (fd)
+                MAKE_CELL               12 (flags)
+                MAKE_CELL               13 (output_type)
+
+ 631            RESUME                   0
+
+ 649            LOAD_CONST               1 ('b')
+                LOAD_FAST_BORROW         0 (mode)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE       23 (to L1)
+                NOT_TAKEN
+
+ 650            LOAD_GLOBAL              0 (_io)
+                LOAD_ATTR                2 (text_encoding)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (encoding)
+                CALL                     1
+                STORE_FAST               2 (encoding)
+
+ 652    L1:     LOAD_GLOBAL              5 (_sanitize_params + NULL)
+                LOAD_DEREF               5 (prefix)
+                LOAD_DEREF               4 (suffix)
+                LOAD_DEREF               6 (dir)
+                CALL                     3
+                UNPACK_SEQUENCE          4
+                STORE_DEREF              5 (prefix)
+                STORE_DEREF              4 (suffix)
+                STORE_DEREF              6 (dir)
+                STORE_DEREF             13 (output_type)
+
+ 654            LOAD_GLOBAL              6 (_bin_openflags)
+                STORE_DEREF             12 (flags)
+
+ 655            LOAD_GLOBAL              8 (_O_TMPFILE_WORKS)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       73 (to L4)
+                NOT_TAKEN
+
+ 656            LOAD_CONST               2 (None)
+                STORE_DEREF             11 (fd)
+
+ 657            LOAD_FAST_BORROW         6 (dir)
+                LOAD_FAST_BORROW        11 (fd)
+                LOAD_FAST_BORROW        12 (flags)
+                BUILD_TUPLE              3
+                LOAD_CONST               3 (<code object opener at 0x00000204BA6608D0, file "tempfile.py", line 657>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                STORE_FAST               8 (opener)
+
+ 662            NOP
+
+ 663    L2:     LOAD_GLOBAL              0 (_io)
+                LOAD_ATTR               10 (open)
+                PUSH_NULL
+                LOAD_DEREF               6 (dir)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (mode, buffering)
+
+ 664            LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (newline, encoding)
+
+ 665            LOAD_FAST_BORROW_LOAD_FAST_BORROW 120 (errors, opener)
+
+ 663            LOAD_CONST               4 (('buffering', 'newline', 'encoding', 'errors', 'opener'))
+                CALL_KW                  7
+                STORE_FAST               9 (file)
+
+ 666            LOAD_GLOBAL             13 (getattr + NULL)
+                LOAD_FAST_BORROW         9 (file)
+                LOAD_CONST               5 ('buffer')
+                LOAD_FAST_BORROW         9 (file)
+                CALL                     3
+                STORE_FAST              10 (raw)
+
+ 667            LOAD_GLOBAL             13 (getattr + NULL)
+                LOAD_FAST_BORROW        10 (raw)
+                LOAD_CONST               6 ('raw')
+                LOAD_FAST_BORROW        10 (raw)
+                CALL                     3
+                STORE_FAST              10 (raw)
+
+ 668            LOAD_DEREF              11 (fd)
+                LOAD_FAST_BORROW        10 (raw)
+                STORE_ATTR               7 (name)
+
+ 669            LOAD_FAST_BORROW         9 (file)
+        L3:     RETURN_VALUE
+
+ 688    L4:     LOAD_CONST               2 (None)
+                STORE_DEREF             11 (fd)
+
+ 689            LOAD_FAST_BORROW         6 (dir)
+                LOAD_FAST_BORROW        11 (fd)
+                LOAD_FAST_BORROW        12 (flags)
+                LOAD_FAST_BORROW        13 (output_type)
+                LOAD_FAST_BORROW         5 (prefix)
+                LOAD_FAST_BORROW         4 (suffix)
+                BUILD_TUPLE              6
+                LOAD_CONST               8 (<code object opener at 0x00000204B9FB7930, file "tempfile.py", line 689>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                STORE_FAST               8 (opener)
+
+ 698            LOAD_GLOBAL              0 (_io)
+                LOAD_ATTR               10 (open)
+                PUSH_NULL
+                LOAD_DEREF               6 (dir)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (mode, buffering)
+
+ 699            LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (newline, encoding)
+                LOAD_FAST_BORROW         7 (errors)
+
+ 700            LOAD_FAST_BORROW         8 (opener)
+
+ 698            LOAD_CONST               4 (('buffering', 'newline', 'encoding', 'errors', 'opener'))
+                CALL_KW                  7
+                STORE_FAST               9 (file)
+
+ 701            LOAD_GLOBAL             13 (getattr + NULL)
+                LOAD_FAST_BORROW         9 (file)
+                LOAD_CONST               5 ('buffer')
+                LOAD_FAST_BORROW         9 (file)
+                CALL                     3
+                STORE_FAST              10 (raw)
+
+ 702            LOAD_GLOBAL             13 (getattr + NULL)
+                LOAD_FAST_BORROW        10 (raw)
+                LOAD_CONST               6 ('raw')
+                LOAD_FAST_BORROW        10 (raw)
+                CALL                     3
+                STORE_FAST              10 (raw)
+
+ 703            LOAD_DEREF              11 (fd)
+                LOAD_FAST_BORROW        10 (raw)
+                STORE_ATTR               7 (name)
+
+ 704            LOAD_FAST_BORROW         9 (file)
+                RETURN_VALUE
+
+  --    L5:     PUSH_EXC_INFO
+
+ 670            LOAD_GLOBAL             16 (IsADirectoryError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L7)
+                NOT_TAKEN
+                POP_TOP
+
+ 676            LOAD_CONST               7 (False)
+                STORE_GLOBAL             4 (_O_TMPFILE_WORKS)
+        L6:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 90 (to L4)
+
+ 677    L7:     LOAD_GLOBAL             18 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L11)
+        L8:     NOT_TAKEN
+        L9:     POP_TOP
+
+ 685   L10:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 102 (to L4)
+
+ 677   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L5 [0]
+  L5 to L6 -> L12 [1] lasti
+  L7 to L8 -> L12 [1] lasti
+  L9 to L10 -> L12 [1] lasti
+  L11 to L12 -> L12 [1] lasti
+
+Disassembly of <code object opener at 0x00000204BA6608D0, file "tempfile.py", line 657>:
+  --           COPY_FREE_VARS           3
+
+ 657           RESUME                   0
+
+ 659           LOAD_DEREF               4 (flags)
+               LOAD_GLOBAL              0 (_os)
+               LOAD_ATTR                2 (O_TMPFILE)
+               BINARY_OP                7 (|)
+               LOAD_GLOBAL              0 (_os)
+               LOAD_ATTR                4 (O_CREAT)
+               UNARY_INVERT
+               BINARY_OP                1 (&)
+               STORE_FAST               1 (flags2)
+
+ 660           LOAD_GLOBAL              0 (_os)
+               LOAD_ATTR                6 (open)
+               PUSH_NULL
+               LOAD_DEREF               2 (dir)
+               LOAD_FAST_BORROW         1 (flags2)
+               LOAD_CONST               0 (384)
+               CALL                     3
+               STORE_DEREF              3 (fd)
+
+ 661           LOAD_DEREF               3 (fd)
+               RETURN_VALUE
+
+Disassembly of <code object opener at 0x00000204B9FB7930, file "tempfile.py", line 689>:
+  --           COPY_FREE_VARS           6
+
+ 689           RESUME                   0
+
+ 691           LOAD_GLOBAL              1 (_mkstemp_inner + NULL)
+               LOAD_DEREF               3 (dir)
+               LOAD_DEREF               7 (prefix)
+               LOAD_DEREF               8 (suffix)
+               LOAD_DEREF               5 (flags)
+               LOAD_DEREF               6 (output_type)
+               CALL                     5
+               UNPACK_SEQUENCE          2
+               STORE_DEREF              4 (fd)
+               STORE_FAST               1 (name)
+
+ 692           NOP
+
+ 693   L1:     LOAD_GLOBAL              2 (_os)
+               LOAD_ATTR                4 (unlink)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     1
+               POP_TOP
+
+ 697   L2:     LOAD_DEREF               4 (fd)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 694           LOAD_GLOBAL              6 (BaseException)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       29 (to L6)
+               NOT_TAKEN
+               STORE_FAST               2 (e)
+
+ 695   L4:     LOAD_GLOBAL              2 (_os)
+               LOAD_ATTR                8 (close)
+               PUSH_NULL
+               LOAD_DEREF               4 (fd)
+               CALL                     1
+               POP_TOP
+
+ 696           RAISE_VARARGS            0
+
+  --   L5:     LOAD_CONST               0 (None)
+               STORE_FAST               2 (e)
+               DELETE_FAST              2 (e)
+               RERAISE                  1
+
+ 694   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L7 [1] lasti
+  L4 to L5 -> L5 [1] lasti
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object SpooledTemporaryFile at 0x00000204BA3E0C20, file "tempfile.py", line 706>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 706           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SpooledTemporaryFile')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (706)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 707           LOAD_CONST               2 ('Temporary file wrapper, specialized to switch from BytesIO\nor StringIO to a real file when it exceeds a certain size or\nwhen a fileno is needed.\n')
+               STORE_NAME               4 (__doc__)
+
+ 711           LOAD_CONST               3 (False)
+               STORE_NAME               5 (_rolled)
+
+ 713           LOAD_CONST              39 ((0, 'w+b', -1, None, None, None, None, None))
+               LOAD_CONST               5 ('errors')
+
+ 715           LOAD_CONST               4 (None)
+
+ 713           BUILD_MAP                1
+               LOAD_CONST               6 (<code object __init__ at 0x00000204B9FA7860, file "tempfile.py", line 713>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__init__)
+
+ 730           LOAD_NAME                7 (classmethod)
+               PUSH_NULL
+               LOAD_NAME                8 (_types)
+               LOAD_ATTR               18 (GenericAlias)
+               CALL                     1
+               STORE_NAME              10 (__class_getitem__)
+
+ 732           LOAD_CONST               7 (<code object _check at 0x00000204BA680030, file "tempfile.py", line 732>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (_check)
+
+ 738           LOAD_CONST               8 (<code object rollover at 0x00000204BA3ACFA0, file "tempfile.py", line 738>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (rollover)
+
+ 759           LOAD_CONST               9 (<code object __enter__ at 0x00000204BA102500, file "tempfile.py", line 759>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (__enter__)
+
+ 764           LOAD_CONST              10 (<code object __exit__ at 0x00000204BA669350, file "tempfile.py", line 764>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (__exit__)
+
+ 768           LOAD_CONST              11 (<code object __iter__ at 0x00000204BA669460, file "tempfile.py", line 768>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (__iter__)
+
+ 771           LOAD_CONST              12 (<code object __del__ at 0x00000204BA6801B0, file "tempfile.py", line 771>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (__del__)
+
+ 781           LOAD_CONST              13 (<code object close at 0x00000204BA669570, file "tempfile.py", line 781>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (close)
+
+ 784           LOAD_NAME               18 (property)
+
+ 785           LOAD_CONST              14 (<code object closed at 0x00000204BA10A730, file "tempfile.py", line 784>)
+               MAKE_FUNCTION
+
+ 784           CALL                     0
+
+ 785           STORE_NAME              19 (closed)
+
+ 788           LOAD_NAME               18 (property)
+
+ 789           LOAD_CONST              15 (<code object encoding at 0x00000204BA10A830, file "tempfile.py", line 788>)
+               MAKE_FUNCTION
+
+ 788           CALL                     0
+
+ 789           STORE_NAME              20 (encoding)
+
+ 792           LOAD_NAME               18 (property)
+
+ 793           LOAD_CONST              16 (<code object errors at 0x00000204BA10AF30, file "tempfile.py", line 792>)
+               MAKE_FUNCTION
+
+ 792           CALL                     0
+
+ 793           STORE_NAME              21 (errors)
+
+ 796           LOAD_CONST              17 (<code object fileno at 0x00000204BA101CB0, file "tempfile.py", line 796>)
+               MAKE_FUNCTION
+               STORE_NAME              22 (fileno)
+
+ 800           LOAD_CONST              18 (<code object flush at 0x00000204BA669680, file "tempfile.py", line 800>)
+               MAKE_FUNCTION
+               STORE_NAME              23 (flush)
+
+ 803           LOAD_CONST              19 (<code object isatty at 0x00000204BA669790, file "tempfile.py", line 803>)
+               MAKE_FUNCTION
+               STORE_NAME              24 (isatty)
+
+ 806           LOAD_NAME               18 (property)
+
+ 807           LOAD_CONST              20 (<code object mode at 0x00000204BA670570, file "tempfile.py", line 806>)
+               MAKE_FUNCTION
+
+ 806           CALL                     0
+
+ 807           STORE_NAME              25 (mode)
+
+ 813           LOAD_NAME               18 (property)
+
+ 814           LOAD_CONST              21 (<code object name at 0x00000204BA102760, file "tempfile.py", line 813>)
+               MAKE_FUNCTION
+
+ 813           CALL                     0
+
+ 814           STORE_NAME              26 (name)
+
+ 820           LOAD_NAME               18 (property)
+
+ 821           LOAD_CONST              22 (<code object newlines at 0x00000204BA10AB30, file "tempfile.py", line 820>)
+               MAKE_FUNCTION
+
+ 820           CALL                     0
+
+ 821           STORE_NAME              27 (newlines)
+
+ 824           LOAD_CONST              23 (<code object readable at 0x00000204BA6698A0, file "tempfile.py", line 824>)
+               MAKE_FUNCTION
+               STORE_NAME              28 (readable)
+
+ 827           LOAD_CONST              24 (<code object read at 0x00000204BA6699B0, file "tempfile.py", line 827>)
+               MAKE_FUNCTION
+               STORE_NAME              29 (read)
+
+ 830           LOAD_CONST              25 (<code object read1 at 0x00000204BA669AC0, file "tempfile.py", line 830>)
+               MAKE_FUNCTION
+               STORE_NAME              30 (read1)
+
+ 833           LOAD_CONST              26 (<code object readinto at 0x00000204BA669BD0, file "tempfile.py", line 833>)
+               MAKE_FUNCTION
+               STORE_NAME              31 (readinto)
+
+ 836           LOAD_CONST              27 (<code object readinto1 at 0x00000204BA669CE0, file "tempfile.py", line 836>)
+               MAKE_FUNCTION
+               STORE_NAME              32 (readinto1)
+
+ 839           LOAD_CONST              28 (<code object readline at 0x00000204BA669DF0, file "tempfile.py", line 839>)
+               MAKE_FUNCTION
+               STORE_NAME              33 (readline)
+
+ 842           LOAD_CONST              29 (<code object readlines at 0x00000204BA669F00, file "tempfile.py", line 842>)
+               MAKE_FUNCTION
+               STORE_NAME              34 (readlines)
+
+ 845           LOAD_CONST              30 (<code object seekable at 0x00000204BA66A010, file "tempfile.py", line 845>)
+               MAKE_FUNCTION
+               STORE_NAME              35 (seekable)
+
+ 848           LOAD_CONST              31 (<code object seek at 0x00000204BA66A120, file "tempfile.py", line 848>)
+               MAKE_FUNCTION
+               STORE_NAME              36 (seek)
+
+ 851           LOAD_CONST              32 (<code object tell at 0x00000204BA66A230, file "tempfile.py", line 851>)
+               MAKE_FUNCTION
+               STORE_NAME              37 (tell)
+
+ 854           LOAD_CONST              40 ((None,))
+               LOAD_CONST              33 (<code object truncate at 0x00000204BA129930, file "tempfile.py", line 854>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              38 (truncate)
+
+ 862           LOAD_CONST              34 (<code object writable at 0x00000204BA66A340, file "tempfile.py", line 862>)
+               MAKE_FUNCTION
+               STORE_NAME              39 (writable)
+
+ 865           LOAD_CONST              35 (<code object write at 0x00000204BA0AA830, file "tempfile.py", line 865>)
+               MAKE_FUNCTION
+               STORE_NAME              40 (write)
+
+ 871           LOAD_CONST              36 (<code object writelines at 0x00000204B9F5BA30, file "tempfile.py", line 871>)
+               MAKE_FUNCTION
+               STORE_NAME              41 (writelines)
+
+ 881           LOAD_CONST              37 (<code object detach at 0x00000204BA66A450, file "tempfile.py", line 881>)
+               MAKE_FUNCTION
+               STORE_NAME              42 (detach)
+               LOAD_CONST              38 (('_TemporaryFileArgs', '_file', '_max_size', '_rolled'))
+               STORE_NAME              43 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              44 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FA7860, file "tempfile.py", line 713>:
+713           RESUME                   0
+
+716           LOAD_CONST               0 ('b')
+              LOAD_FAST_BORROW         2 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       28 (to L1)
+              NOT_TAKEN
+
+717           LOAD_GLOBAL              0 (_io)
+              LOAD_ATTR                2 (BytesIO)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_file)
+              JUMP_FORWARD            71 (to L2)
+
+719   L1:     LOAD_GLOBAL              0 (_io)
+              LOAD_ATTR                6 (text_encoding)
+              PUSH_NULL
+              LOAD_FAST_BORROW         4 (encoding)
+              CALL                     1
+              STORE_FAST               4 (encoding)
+
+720           LOAD_GLOBAL              0 (_io)
+              LOAD_ATTR                8 (TextIOWrapper)
+              PUSH_NULL
+              LOAD_GLOBAL              0 (_io)
+              LOAD_ATTR                2 (BytesIO)
+              PUSH_NULL
+              CALL                     0
+
+721           LOAD_FAST_BORROW_LOAD_FAST_BORROW 73 (encoding, errors)
+
+722           LOAD_FAST_BORROW         5 (newline)
+
+720           LOAD_CONST               1 (('encoding', 'errors', 'newline'))
+              CALL_KW                  4
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_file)
+
+723   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (max_size, self)
+              STORE_ATTR               5 (_max_size)
+
+724           LOAD_CONST               2 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (_rolled)
+
+725           LOAD_CONST               3 ('mode')
+              LOAD_FAST_BORROW         2 (mode)
+              LOAD_CONST               4 ('buffering')
+              LOAD_FAST_BORROW         3 (buffering)
+
+726           LOAD_CONST               5 ('suffix')
+              LOAD_FAST_BORROW         6 (suffix)
+              LOAD_CONST               6 ('prefix')
+              LOAD_FAST_BORROW         7 (prefix)
+
+727           LOAD_CONST               7 ('encoding')
+              LOAD_FAST_BORROW         4 (encoding)
+              LOAD_CONST               8 ('newline')
+              LOAD_FAST_BORROW         5 (newline)
+
+728           LOAD_CONST               9 ('dir')
+              LOAD_FAST_BORROW         8 (dir)
+              LOAD_CONST              10 ('errors')
+              LOAD_FAST_BORROW         9 (errors)
+
+725           BUILD_MAP                8
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_TemporaryFileArgs)
+              LOAD_CONST              11 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _check at 0x00000204BA680030, file "tempfile.py", line 732>:
+732           RESUME                   0
+
+733           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_rolled)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+734   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_max_size)
+              STORE_FAST               2 (max_size)
+
+735           LOAD_FAST_BORROW         2 (max_size)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       42 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         1 (file)
+              LOAD_ATTR                5 (tell + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         2 (max_size)
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       19 (to L2)
+              NOT_TAKEN
+
+736           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (rollover + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+735   L2:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+      L3:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object rollover at 0x00000204BA3ACFA0, file "tempfile.py", line 738>:
+738           RESUME                   0
+
+739           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_rolled)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+740   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_file)
+              STORE_FAST               1 (file)
+
+741           LOAD_GLOBAL              5 (TemporaryFile + NULL)
+              LOAD_CONST               3 (())
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_TemporaryFileArgs)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              COPY                     1
+              STORE_FAST_LOAD_FAST    32 (newfile, self)
+              STORE_ATTR               1 (_file)
+
+742           LOAD_FAST_BORROW         0 (self)
+              DELETE_ATTR              3 (_TemporaryFileArgs)
+
+744           LOAD_FAST_BORROW         1 (file)
+              LOAD_ATTR                9 (tell + NULL|self)
+              CALL                     0
+              STORE_FAST               3 (pos)
+
+745           LOAD_GLOBAL             11 (hasattr + NULL)
+              LOAD_FAST_BORROW         2 (newfile)
+              LOAD_CONST               1 ('buffer')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       57 (to L2)
+              NOT_TAKEN
+
+746           LOAD_FAST_BORROW         2 (newfile)
+              LOAD_ATTR               12 (buffer)
+              LOAD_ATTR               15 (write + NULL|self)
+              LOAD_FAST_BORROW         1 (file)
+              LOAD_ATTR               17 (detach + NULL|self)
+              CALL                     0
+              LOAD_ATTR               19 (getvalue + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              JUMP_FORWARD            31 (to L3)
+
+748   L2:     LOAD_FAST_BORROW         2 (newfile)
+              LOAD_ATTR               15 (write + NULL|self)
+              LOAD_FAST_BORROW         1 (file)
+              LOAD_ATTR               19 (getvalue + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+
+749   L3:     LOAD_FAST_BORROW         2 (newfile)
+              LOAD_ATTR               21 (seek + NULL|self)
+              LOAD_FAST_BORROW         3 (pos)
+              LOAD_SMALL_INT           0
+              CALL                     2
+              POP_TOP
+
+751           LOAD_CONST               2 (True)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_rolled)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204BA102500, file "tempfile.py", line 759>:
+759           RESUME                   0
+
+760           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (closed)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+761           LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               0 ('Cannot enter context with closed file')
+              CALL                     1
+              RAISE_VARARGS            1
+
+762   L1:     LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA669350, file "tempfile.py", line 764>:
+764           RESUME                   0
+
+765           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __iter__ at 0x00000204BA669460, file "tempfile.py", line 768>:
+768           RESUME                   0
+
+769           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (__iter__ + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __del__ at 0x00000204BA6801B0, file "tempfile.py", line 771>:
+771           RESUME                   0
+
+772           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (closed)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        64 (to L1)
+              NOT_TAKEN
+
+773           LOAD_GLOBAL              2 (_warnings)
+              LOAD_ATTR                4 (warn)
+              PUSH_NULL
+
+774           LOAD_CONST               0 ('Unclosed file {!r}')
+              LOAD_ATTR                7 (format + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+
+775           LOAD_GLOBAL              8 (ResourceWarning)
+
+776           LOAD_SMALL_INT           2
+
+777           LOAD_FAST_BORROW         0 (self)
+
+773           LOAD_CONST               1 (('stacklevel', 'source'))
+              CALL_KW                  4
+              POP_TOP
+
+779           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+772   L1:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204BA669570, file "tempfile.py", line 781>:
+781           RESUME                   0
+
+782           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object closed at 0x00000204BA10A730, file "tempfile.py", line 784>:
+784           RESUME                   0
+
+786           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (closed)
+              RETURN_VALUE
+
+Disassembly of <code object encoding at 0x00000204BA10A830, file "tempfile.py", line 788>:
+788           RESUME                   0
+
+790           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (encoding)
+              RETURN_VALUE
+
+Disassembly of <code object errors at 0x00000204BA10AF30, file "tempfile.py", line 792>:
+792           RESUME                   0
+
+794           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (errors)
+              RETURN_VALUE
+
+Disassembly of <code object fileno at 0x00000204BA101CB0, file "tempfile.py", line 796>:
+796           RESUME                   0
+
+797           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (rollover + NULL|self)
+              CALL                     0
+              POP_TOP
+
+798           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_file)
+              LOAD_ATTR                5 (fileno + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object flush at 0x00000204BA669680, file "tempfile.py", line 800>:
+800           RESUME                   0
+
+801           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (flush + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object isatty at 0x00000204BA669790, file "tempfile.py", line 803>:
+803           RESUME                   0
+
+804           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (isatty + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object mode at 0x00000204BA670570, file "tempfile.py", line 806>:
+ 806           RESUME                   0
+
+ 808           NOP
+
+ 809   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_file)
+               LOAD_ATTR                2 (mode)
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 810           LOAD_GLOBAL              4 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       23 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 811           LOAD_FAST                0 (self)
+               LOAD_ATTR                6 (_TemporaryFileArgs)
+               LOAD_CONST               0 ('mode')
+               BINARY_OP               26 ([])
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 810   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object name at 0x00000204BA102760, file "tempfile.py", line 813>:
+ 813           RESUME                   0
+
+ 815           NOP
+
+ 816   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_file)
+               LOAD_ATTR                2 (name)
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 817           LOAD_GLOBAL              4 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 818   L4:     POP_EXCEPT
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+ 817   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object newlines at 0x00000204BA10AB30, file "tempfile.py", line 820>:
+820           RESUME                   0
+
+822           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (newlines)
+              RETURN_VALUE
+
+Disassembly of <code object readable at 0x00000204BA6698A0, file "tempfile.py", line 824>:
+824           RESUME                   0
+
+825           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (readable + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object read at 0x00000204BA6699B0, file "tempfile.py", line 827>:
+827           RESUME                   0
+
+828           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (read)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (args)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object read1 at 0x00000204BA669AC0, file "tempfile.py", line 830>:
+830           RESUME                   0
+
+831           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (read1)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (args)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object readinto at 0x00000204BA669BD0, file "tempfile.py", line 833>:
+833           RESUME                   0
+
+834           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (readinto + NULL|self)
+              LOAD_FAST_BORROW         1 (b)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readinto1 at 0x00000204BA669CE0, file "tempfile.py", line 836>:
+836           RESUME                   0
+
+837           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (readinto1 + NULL|self)
+              LOAD_FAST_BORROW         1 (b)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readline at 0x00000204BA669DF0, file "tempfile.py", line 839>:
+839           RESUME                   0
+
+840           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (readline)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (args)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object readlines at 0x00000204BA669F00, file "tempfile.py", line 842>:
+842           RESUME                   0
+
+843           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (readlines)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (args)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object seekable at 0x00000204BA66A010, file "tempfile.py", line 845>:
+845           RESUME                   0
+
+846           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (seekable + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object seek at 0x00000204BA66A120, file "tempfile.py", line 848>:
+848           RESUME                   0
+
+849           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                2 (seek)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (args)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object tell at 0x00000204BA66A230, file "tempfile.py", line 851>:
+851           RESUME                   0
+
+852           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (tell + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object truncate at 0x00000204BA129930, file "tempfile.py", line 854>:
+854           RESUME                   0
+
+855           LOAD_FAST_BORROW         1 (size)
+              POP_JUMP_IF_NOT_NONE    27 (to L1)
+              NOT_TAKEN
+
+856           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (truncate + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+858   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (size, self)
+              LOAD_ATTR                4 (_max_size)
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       17 (to L2)
+              NOT_TAKEN
+
+859           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (rollover + NULL|self)
+              CALL                     0
+              POP_TOP
+
+860   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (truncate + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object writable at 0x00000204BA66A340, file "tempfile.py", line 862>:
+862           RESUME                   0
+
+863           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (writable + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object write at 0x00000204BA0AA830, file "tempfile.py", line 865>:
+865           RESUME                   0
+
+866           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              STORE_FAST               2 (file)
+
+867           LOAD_FAST_BORROW         2 (file)
+              LOAD_ATTR                3 (write + NULL|self)
+              LOAD_FAST_BORROW         1 (s)
+              CALL                     1
+              STORE_FAST               3 (rv)
+
+868           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_check + NULL|self)
+              LOAD_FAST_BORROW         2 (file)
+              CALL                     1
+              POP_TOP
+
+869           LOAD_FAST_BORROW         3 (rv)
+              RETURN_VALUE
+
+Disassembly of <code object writelines at 0x00000204B9F5BA30, file "tempfile.py", line 871>:
+871           RESUME                   0
+
+872           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_max_size)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_TRUE        19 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_rolled)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L2)
+              NOT_TAKEN
+
+873   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_file)
+              LOAD_ATTR                7 (writelines + NULL|self)
+              LOAD_FAST_BORROW         1 (iterable)
+              CALL                     1
+              RETURN_VALUE
+
+875   L2:     LOAD_GLOBAL              9 (iter + NULL)
+              LOAD_FAST_BORROW         1 (iterable)
+              CALL                     1
+              STORE_FAST               2 (it)
+
+876           LOAD_FAST_BORROW         2 (it)
+              GET_ITER
+      L3:     FOR_ITER                67 (to L5)
+              STORE_FAST               3 (line)
+
+877           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (write + NULL|self)
+              LOAD_FAST_BORROW         3 (line)
+              CALL                     1
+              POP_TOP
+
+878           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_rolled)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           40 (to L3)
+
+879   L4:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_file)
+              LOAD_ATTR                7 (writelines + NULL|self)
+              LOAD_FAST_BORROW         2 (it)
+              CALL                     1
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+876   L5:     END_FOR
+              POP_ITER
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object detach at 0x00000204BA66A450, file "tempfile.py", line 881>:
+881           RESUME                   0
+
+882           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_file)
+              LOAD_ATTR                3 (detach + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object TemporaryDirectory at 0x00000204BA660A40, file "tempfile.py", line 885>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 885           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('TemporaryDirectory')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (885)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 886           LOAD_CONST               2 ('Create and return a temporary directory.  This has the same\nbehavior as mkdtemp but can be used as a context manager.  For\nexample:\n\n    with TemporaryDirectory() as tmpdir:\n        ...\n\nUpon exiting the context, the directory and everything contained\nin it are removed (unless delete=False is passed or an exception\nis raised during cleanup and ignore_cleanup_errors is not True).\n\nOptional Arguments:\n    suffix - A str suffix for the directory name.  (see mkdtemp)\n    prefix - A str prefix for the directory name.  (see mkdtemp)\n    dir - A directory to create this temp dir in.  (see mkdtemp)\n    ignore_cleanup_errors - False; ignore exceptions during cleanup?\n    delete - True; whether the directory is automatically deleted.\n')
+               STORE_NAME               4 (__doc__)
+
+ 905           LOAD_CONST              14 ((None, None, None, False))
+               LOAD_CONST               4 ('delete')
+
+ 906           LOAD_CONST               5 (True)
+
+ 905           BUILD_MAP                1
+               LOAD_CONST               6 (<code object __init__ at 0x00000204B9F9E4F0, file "tempfile.py", line 905>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+ 915           LOAD_NAME                6 (classmethod)
+
+ 916           LOAD_CONST              15 ((False, False))
+               LOAD_CONST               7 (<code object _rmtree at 0x00000204BA0A73F0, file "tempfile.py", line 915>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+ 915           CALL                     0
+
+ 916           STORE_NAME               7 (_rmtree)
+
+ 957           LOAD_NAME                6 (classmethod)
+
+ 958           LOAD_CONST              16 ((False, True))
+               LOAD_CONST               8 (<code object _cleanup at 0x00000204BA670960, file "tempfile.py", line 957>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+ 957           CALL                     0
+
+ 958           STORE_NAME               8 (_cleanup)
+
+ 963           LOAD_CONST               9 (<code object __repr__ at 0x00000204BA0AA470, file "tempfile.py", line 963>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__repr__)
+
+ 966           LOAD_CONST              10 (<code object __enter__ at 0x00000204BA0913E0, file "tempfile.py", line 966>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__enter__)
+
+ 969           LOAD_CONST              11 (<code object __exit__ at 0x00000204BA0A7AB0, file "tempfile.py", line 969>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (__exit__)
+
+ 973           LOAD_CONST              12 (<code object cleanup at 0x00000204B9F4E0D0, file "tempfile.py", line 973>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (cleanup)
+
+ 977           LOAD_NAME                6 (classmethod)
+               PUSH_NULL
+               LOAD_NAME               13 (_types)
+               LOAD_ATTR               28 (GenericAlias)
+               CALL                     1
+               STORE_NAME              15 (__class_getitem__)
+               LOAD_CONST              13 (('_delete', '_finalizer', '_ignore_cleanup_errors', 'name'))
+               STORE_NAME              16 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              17 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F9E4F0, file "tempfile.py", line 905>:
+905           RESUME                   0
+
+907           LOAD_GLOBAL              1 (mkdtemp + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (suffix, prefix)
+              LOAD_FAST_BORROW         3 (dir)
+              CALL                     3
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (name)
+
+908           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (ignore_cleanup_errors, self)
+              STORE_ATTR               2 (_ignore_cleanup_errors)
+
+909           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (delete, self)
+              STORE_ATTR               3 (_delete)
+
+910           LOAD_GLOBAL              8 (_weakref)
+              LOAD_ATTR               10 (finalize)
+              PUSH_NULL
+
+911           LOAD_FAST_BORROW_LOAD_FAST_BORROW 0 (self, self)
+              LOAD_ATTR               12 (_cleanup)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (name)
+
+912           LOAD_CONST               0 ('Implicitly cleaning up {!r}')
+              LOAD_ATTR               15 (format + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+
+913           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_ignore_cleanup_errors)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_delete)
+
+910           LOAD_CONST               1 (('warn_message', 'ignore_errors', 'delete'))
+              CALL_KW                  6
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_finalizer)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _rmtree at 0x00000204BA0A73F0, file "tempfile.py", line 915>:
+  --           MAKE_CELL                0 (cls)
+               MAKE_CELL                1 (name)
+               MAKE_CELL                2 (ignore_errors)
+               MAKE_CELL                3 (repeated)
+
+ 915           RESUME                   0
+
+ 917           LOAD_FAST_BORROW         0 (cls)
+               LOAD_FAST_BORROW         2 (ignore_errors)
+               LOAD_FAST_BORROW         1 (name)
+               LOAD_FAST_BORROW         3 (repeated)
+               BUILD_TUPLE              4
+               LOAD_CONST               0 (<code object onexc at 0x00000204BA50F6E0, file "tempfile.py", line 917>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               4 (onexc)
+
+ 955           LOAD_GLOBAL              0 (_shutil)
+               LOAD_ATTR                2 (rmtree)
+               PUSH_NULL
+               LOAD_DEREF               1 (name)
+               LOAD_FAST_BORROW         4 (onexc)
+               LOAD_CONST               1 (('onexc',))
+               CALL_KW                  2
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object onexc at 0x00000204BA50F6E0, file "tempfile.py", line 917>:
+  --            COPY_FREE_VARS           4
+
+ 917            RESUME                   0
+
+ 918            LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         2 (exc)
+                LOAD_GLOBAL              2 (PermissionError)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE      111 (to L8)
+                NOT_TAKEN
+
+ 919            LOAD_DEREF               6 (repeated)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L2)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         1 (path)
+                LOAD_DEREF               5 (name)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       12 (to L2)
+                NOT_TAKEN
+
+ 920            LOAD_DEREF               4 (ignore_errors)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+
+ 921            LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 922    L1:     RAISE_VARARGS            0
+
+ 924    L2:     NOP
+
+ 925    L3:     LOAD_FAST_BORROW         1 (path)
+                LOAD_DEREF               5 (name)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       41 (to L4)
+                NOT_TAKEN
+
+ 926            LOAD_GLOBAL              5 (_resetperms + NULL)
+                LOAD_GLOBAL              6 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               11 (dirname + NULL|self)
+                LOAD_FAST_BORROW         1 (path)
+                CALL                     1
+                CALL                     1
+                POP_TOP
+
+ 927    L4:     LOAD_GLOBAL              5 (_resetperms + NULL)
+                LOAD_FAST_BORROW         1 (path)
+                CALL                     1
+                POP_TOP
+
+ 929    L5:     NOP
+
+ 930    L6:     LOAD_GLOBAL              6 (_os)
+                LOAD_ATTR               12 (unlink)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (path)
+                CALL                     1
+                POP_TOP
+        L7:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 949    L8:     LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         2 (exc)
+                LOAD_GLOBAL             22 (FileNotFoundError)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L9)
+                NOT_TAKEN
+
+ 950            LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 952    L9:     LOAD_DEREF               4 (ignore_errors)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L10)
+                NOT_TAKEN
+
+ 953            RAISE_VARARGS            0
+
+ 952   L10:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 931            LOAD_GLOBAL             14 (IsADirectoryError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       24 (to L14)
+                NOT_TAKEN
+                POP_TOP
+
+ 932            LOAD_DEREF               3 (cls)
+                LOAD_ATTR               17 (_rmtree + NULL|self)
+                LOAD_FAST                1 (path)
+                LOAD_DEREF               4 (ignore_errors)
+                LOAD_CONST               1 (('ignore_errors',))
+                CALL_KW                  2
+                POP_TOP
+       L12:     POP_EXCEPT
+       L13:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 933   L14:     LOAD_GLOBAL              2 (PermissionError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE      114 (to L28)
+       L15:     NOT_TAKEN
+       L16:     POP_TOP
+
+ 941            LOAD_GLOBAL              6 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               19 (isdir + NULL|self)
+                LOAD_FAST                1 (path)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       38 (to L20)
+       L17:     NOT_TAKEN
+       L18:     LOAD_GLOBAL              6 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               21 (isjunction + NULL|self)
+                LOAD_FAST                1 (path)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L25)
+       L19:     NOT_TAKEN
+
+ 942   L20:     LOAD_DEREF               4 (ignore_errors)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        4 (to L24)
+       L21:     NOT_TAKEN
+
+ 943   L22:     POP_EXCEPT
+       L23:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 944   L24:     RAISE_VARARGS            0
+
+ 945   L25:     LOAD_DEREF               3 (cls)
+                LOAD_ATTR               17 (_rmtree + NULL|self)
+                LOAD_FAST                1 (path)
+                LOAD_DEREF               4 (ignore_errors)
+
+ 946            LOAD_FAST                1 (path)
+                LOAD_DEREF               5 (name)
+                COMPARE_OP              72 (==)
+
+ 945            LOAD_CONST               2 (('ignore_errors', 'repeated'))
+                CALL_KW                  3
+                POP_TOP
+       L26:     POP_EXCEPT
+       L27:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 933   L28:     RERAISE                  0
+
+  --   L29:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L30:     PUSH_EXC_INFO
+
+ 947            LOAD_GLOBAL             22 (FileNotFoundError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L32)
+                NOT_TAKEN
+                POP_TOP
+
+ 948   L31:     POP_EXCEPT
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 947   L32:     RERAISE                  0
+
+  --   L33:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L5 -> L30 [0]
+  L6 to L7 -> L11 [0]
+  L11 to L12 -> L29 [1] lasti
+  L12 to L13 -> L30 [0]
+  L14 to L15 -> L29 [1] lasti
+  L16 to L17 -> L29 [1] lasti
+  L18 to L19 -> L29 [1] lasti
+  L20 to L21 -> L29 [1] lasti
+  L22 to L23 -> L30 [0]
+  L24 to L26 -> L29 [1] lasti
+  L26 to L27 -> L30 [0]
+  L28 to L29 -> L29 [1] lasti
+  L29 to L30 -> L30 [0]
+  L30 to L31 -> L33 [1] lasti
+  L32 to L33 -> L33 [1] lasti
+
+Disassembly of <code object _cleanup at 0x00000204BA670960, file "tempfile.py", line 957>:
+957           RESUME                   0
+
+959           LOAD_FAST_BORROW         4 (delete)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       48 (to L1)
+              NOT_TAKEN
+
+960           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                1 (_rmtree + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (name, ignore_errors)
+              LOAD_CONST               0 (('ignore_errors',))
+              CALL_KW                  2
+              POP_TOP
+
+961           LOAD_GLOBAL              2 (_warnings)
+              LOAD_ATTR                4 (warn)
+              PUSH_NULL
+              LOAD_FAST_BORROW         2 (warn_message)
+              LOAD_GLOBAL              6 (ResourceWarning)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+959   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0AA470, file "tempfile.py", line 963>:
+963           RESUME                   0
+
+964           LOAD_CONST               0 ('<{} {!r}>')
+              LOAD_ATTR                1 (format + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__class__)
+              LOAD_ATTR                4 (__name__)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (name)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204BA0913E0, file "tempfile.py", line 966>:
+966           RESUME                   0
+
+967           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (name)
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA0A7AB0, file "tempfile.py", line 969>:
+969           RESUME                   0
+
+970           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_delete)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+971           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (cleanup + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+970   L1:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object cleanup at 0x00000204B9F4E0D0, file "tempfile.py", line 973>:
+973           RESUME                   0
+
+974           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_finalizer)
+              LOAD_ATTR                3 (detach + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE        48 (to L1)
+              NOT_TAKEN
+              LOAD_GLOBAL              4 (_os)
+              LOAD_ATTR                6 (path)
+              LOAD_ATTR                9 (exists + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (name)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       42 (to L2)
+              NOT_TAKEN
+
+975   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (_rmtree + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (name)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (_ignore_cleanup_errors)
+              LOAD_CONST               0 (('ignore_errors',))
+              CALL_KW                  2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+974   L2:     LOAD_CONST               1 (None)
+              RETURN_VALUE

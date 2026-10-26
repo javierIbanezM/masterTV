@@ -1,0 +1,32 @@
+<module>()  line 1
+    needsquoting(c, quotetabs, header)  line 19
+    quote(c)  line 34
+    encode(input, output, quotetabs, header)  line 42
+        encode.<locals>.write(s, output, lineEnd)  line 57
+    encodestring(s, quotetabs, header)  line 101
+    decode(input, output, header)  line 112
+    decodestring(s, header)  line 153
+    ishex(c)  line 165
+    unhex(s)  line 170
+    main()  line 188
+
+--- strings ---
+'Conversions to/from quoted-printable transport encoding as per RFC 1521.'
+"Decide whether a particular byte ordinal needs to be quoted.\n\nThe 'quotetabs' flag indicates whether embedded tabs and spaces should be\nquoted.  Note that line-ending tabs and spaces are always encoded, as per\nRFC 1521.\n"
+'Quote a single character.'
+"Read 'input', apply quoted-printable encoding, and write to 'output'.\n\n'input' and 'output' are binary file objects. The 'quotetabs' flag\nindicates whether embedded tabs and spaces should be quoted. Note that\nline-ending tabs and spaces are always encoded, as per RFC 1521.\nThe 'header' flag indicates whether we are encoding spaces as _ as per RFC\n1522."
+"Read 'input', apply quoted-printable decoding, and write to 'output'.\n'input' and 'output' are binary file objects.\nIf 'header' is true, decode underscore as space (per RFC 1522)."
+"Return true if the byte ordinal 'c' is a hexadecimal digit in ASCII."
+'Get the integer value of a hexadecimal number.'
+'non-hex digit '
+'td'
+'usage: quopri [-t | -d] [file] ...'
+'-t: quote tabs'
+'-d: decode; default encode'
+'-t'
+'-d'
+'-t and -d are mutually exclusive'
+'rb'
+": can't open ("
+')\n'
+'__main__'

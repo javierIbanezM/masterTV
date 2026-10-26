@@ -1,0 +1,199 @@
+<module>()  line 1
+    ANSIColors()  line 17
+    ThemeSection()  line 116
+        ThemeSection.__annotate__(format)  line 128
+        ThemeSection.__post_init__(self)  line 128
+        ThemeSection.__annotate__(format)  line 134
+        ThemeSection.copy_with(self)  line 134
+        ThemeSection.__annotate__(format)  line 142
+        ThemeSection.no_colors(cls)  line 141
+        ThemeSection.__annotate__(format)  line 148
+        ThemeSection.__getitem__(self, key)  line 148
+        ThemeSection.__annotate__(format)  line 151
+        ThemeSection.__len__(self)  line 151
+        ThemeSection.__annotate__(format)  line 154
+        ThemeSection.__iter__(self)  line 154
+        ThemeSection.__annotate__(format)  line 116
+    Argparse()  line 158
+        Argparse.__annotate__(format)  line 158
+    Syntax()  line 175
+        Syntax.__annotate__(format)  line 175
+    Traceback()  line 190
+        Traceback.__annotate__(format)  line 190
+    Unittest()  line 202
+        Unittest.__annotate__(format)  line 202
+    Theme()  line 211
+        Theme.__annotate__(format)  line 223
+        Theme.copy_with(self, argparse, syntax, traceback, unittest)  line 223
+        Theme.__annotate__(format)  line 244
+        Theme.no_colors(cls)  line 243
+        Theme.__annotate__(format)  line 211
+    __annotate__(format)  line 259
+    get_colors(colorize, file)  line 259
+    __annotate__(format)  line 268
+    decolor(text)  line 268
+    __annotate__(format)  line 275
+    can_colorize(file)  line 275
+        can_colorize.<locals>.__annotate__(format)  line 277
+        can_colorize.<locals>._safe_getenv(k, fallback)  line 277
+    __annotate__(format)  line 323
+    get_theme(tty_file, force_color, force_no_color)  line 323
+    __annotate__(format)  line 347
+    set_theme(t)  line 347
+    __annotate__(format)  line 1
+
+--- strings ---
+'ANSIColors'
+'\x1b[0m'
+'\x1b[30m'
+'\x1b[34m'
+'\x1b[36m'
+'\x1b[32m'
+'\x1b[90m'
+'\x1b[35m'
+'\x1b[31m'
+'\x1b[37m'
+'\x1b[33m'
+'\x1b[1m'
+'\x1b[1;30m'
+'\x1b[1;34m'
+'\x1b[1;36m'
+'\x1b[1;32m'
+'\x1b[1;35m'
+'\x1b[1;31m'
+'\x1b[1;37m'
+'\x1b[1;33m'
+'\x1b[94m'
+'\x1b[96m'
+'\x1b[92m'
+'\x1b[95m'
+'\x1b[91m'
+'\x1b[97m'
+'\x1b[93m'
+'\x1b[40m'
+'\x1b[44m'
+'\x1b[46m'
+'\x1b[42m'
+'\x1b[45m'
+'\x1b[41m'
+'\x1b[47m'
+'\x1b[43m'
+'\x1b[100m'
+'\x1b[104m'
+'\x1b[106m'
+'\x1b[102m'
+'\x1b[105m'
+'\x1b[101m'
+'\x1b[107m'
+'\x1b[103m'
+'ANSIColors'
+'__'
+'ThemeSection'
+'A mixin/base class for theme sections.\n\nIt enables dictionary access to a section, as well as implements convenience\nmethods.\n'
+'return'
+'_name_to_value'
+'kwargs'
+'return'
+'return'
+'key'
+'return'
+'return'
+'return'
+'__dataclass_fields__'
+'_name_to_value'
+'ThemeSection'
+'Argparse'
+'usage'
+'prog'
+'prog_extra'
+'heading'
+'summary_long_option'
+'summary_short_option'
+'summary_label'
+'summary_action'
+'long_option'
+'short_option'
+'label'
+'action'
+'reset'
+'Argparse'
+'Syntax'
+'prompt'
+'keyword'
+'keyword_constant'
+'builtin'
+'comment'
+'string'
+'number'
+'op'
+'definition'
+'soft_keyword'
+'reset'
+'Syntax'
+'Traceback'
+'type'
+'message'
+'filename'
+'line_no'
+'frame'
+'error_highlight'
+'error_range'
+'reset'
+'Traceback'
+'Unittest'
+'passed'
+'warn'
+'fail'
+'fail_info'
+'reset'
+'Unittest'
+'Theme'
+'A suite of themes for all sections of Python.\n\nWhen adding a new one, remember to also modify `copy_with` and `no_colors`\nbelow.\n'
+'argparse'
+'syntax'
+'traceback'
+'unittest'
+'argparse'
+'syntax'
+'traceback'
+'unittest'
+'return'
+'Return a new Theme based on this instance with some sections replaced.\n\nThemes are immutable to protect against accidental modifications that\ncould lead to invalid terminal states.\n'
+'return'
+'Return a new Theme where colors in all sections are empty strings.\n\nThis allows writing user code as if colors are always used. The color\nfields will be ANSI color code strings when colorization is desired\nand possible, and empty strings otherwise.\n'
+'argparse'
+'syntax'
+'traceback'
+'unittest'
+'Theme'
+'file'
+'colorize'
+'file'
+'return'
+'text'
+'return'
+'Remove ANSI color codes from a string.'
+'file'
+'return'
+'fallback'
+'return'
+'Exception-safe environment retrieval. See gh-128636.'
+'PYTHON_COLORS'
+'NO_COLOR'
+'FORCE_COLOR'
+'TERM'
+'dumb'
+'fileno'
+'win32'
+'isatty'
+'tty_file'
+'force_color'
+'force_no_color'
+'tty_file'
+'force_color'
+'force_no_color'
+'return'
+'Returns the currently set theme, potentially in a zero-color variant.\n\nIn cases where colorizing is not possible (see `can_colorize`), the returned\ntheme contains all empty strings in all color definitions.\nSee `Theme.no_colors()` for more information.\n\nIt is recommended not to cache the result of this function for extended\nperiods of time because the user might influence theme selection by\nthe interactive shell, a debugger, or application-specific code. The\nenvironment (including environment variable state and console configuration\non Windows) can also change in the course of the application life cycle.\n'
+'return'
+'Expected Theme object, found '
+'_theme'

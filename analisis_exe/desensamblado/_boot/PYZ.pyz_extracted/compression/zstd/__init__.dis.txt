@@ -1,0 +1,784 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Python bindings to the Zstandard (zstd) compression library (RFC-8878).')
+              STORE_NAME               0 (__doc__)
+
+  3           LOAD_CONST              17 (('COMPRESSION_LEVEL_DEFAULT', 'compress', 'CompressionParameter', 'decompress', 'DecompressionParameter', 'finalize_dict', 'get_frame_info', 'Strategy', 'train_dict', 'open', 'ZstdFile', 'get_frame_size', 'zstd_version', 'zstd_version_info', 'ZstdCompressor', 'ZstdDecompressor', 'ZstdDict', 'ZstdError'))
+              STORE_NAME               1 (__all__)
+
+ 29           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              2 (_zstd)
+              STORE_NAME               2 (_zstd)
+
+ 30           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              3 (enum)
+              STORE_NAME               3 (enum)
+
+ 31           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('ZstdCompressor', 'ZstdDecompressor', 'ZstdDict', 'ZstdError', 'get_frame_size', 'zstd_version'))
+              IMPORT_NAME              2 (_zstd)
+              IMPORT_FROM              4 (ZstdCompressor)
+              STORE_NAME               4 (ZstdCompressor)
+              IMPORT_FROM              5 (ZstdDecompressor)
+              STORE_NAME               5 (ZstdDecompressor)
+              IMPORT_FROM              6 (ZstdDict)
+              STORE_NAME               6 (ZstdDict)
+              IMPORT_FROM              7 (ZstdError)
+              STORE_NAME               7 (ZstdError)
+              IMPORT_FROM              8 (get_frame_size)
+              STORE_NAME               8 (get_frame_size)
+              IMPORT_FROM              9 (zstd_version)
+              STORE_NAME               9 (zstd_version)
+              POP_TOP
+
+ 33           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('ZstdFile', 'open', '_nbytes'))
+              IMPORT_NAME             10 (compression.zstd._zstdfile)
+              IMPORT_FROM             11 (ZstdFile)
+              STORE_NAME              11 (ZstdFile)
+              IMPORT_FROM             12 (open)
+              STORE_NAME              12 (open)
+              IMPORT_FROM             13 (_nbytes)
+              STORE_NAME              13 (_nbytes)
+              POP_TOP
+
+ 36           BUILD_LIST               0
+              LOAD_NAME               14 (divmod)
+              PUSH_NULL
+              LOAD_NAME                2 (_zstd)
+              LOAD_ATTR               30 (zstd_version_number)
+              LOAD_SMALL_INT         100
+              BINARY_OP                2 (//)
+              LOAD_SMALL_INT         100
+              CALL                     2
+              LIST_EXTEND              1
+
+ 37           LOAD_NAME                2 (_zstd)
+              LOAD_ATTR               30 (zstd_version_number)
+              LOAD_SMALL_INT         100
+              BINARY_OP                6 (%)
+
+ 36           LIST_APPEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              STORE_NAME              16 (zstd_version_info)
+
+ 38           NOP
+
+ 40           LOAD_NAME                2 (_zstd)
+              LOAD_ATTR               34 (ZSTD_CLEVEL_DEFAULT)
+              STORE_NAME              18 (COMPRESSION_LEVEL_DEFAULT)
+
+ 41           NOP
+
+ 44           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object FrameInfo at 0x00000204BA0A7630, file "compression\zstd\__init__.py", line 44>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('FrameInfo')
+              CALL                     2
+              STORE_NAME              19 (FrameInfo)
+
+ 61           LOAD_CONST               9 (<code object get_frame_info at 0x00000204BA0FFDD0, file "compression\zstd\__init__.py", line 61>)
+              MAKE_FUNCTION
+              STORE_NAME              20 (get_frame_info)
+
+ 78           LOAD_CONST              10 (<code object train_dict at 0x00000204BA3AC6F0, file "compression\zstd\__init__.py", line 78>)
+              MAKE_FUNCTION
+              STORE_NAME              21 (train_dict)
+
+ 99           LOAD_CONST              11 (<code object finalize_dict at 0x00000204BA38BBC0, file "compression\zstd\__init__.py", line 99>)
+              MAKE_FUNCTION
+              STORE_NAME              22 (finalize_dict)
+
+136           LOAD_CONST              18 ((None, None, None))
+              LOAD_CONST              12 (<code object compress at 0x00000204BA101DE0, file "compression\zstd\__init__.py", line 136>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              23 (compress)
+
+152           LOAD_CONST              19 ((None, None))
+              LOAD_CONST              13 (<code object decompress at 0x00000204B9F9EA30, file "compression\zstd\__init__.py", line 152>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              24 (decompress)
+
+175           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              14 (<code object CompressionParameter at 0x00000204BA449230, file "compression\zstd\__init__.py", line 175>)
+              MAKE_FUNCTION
+              LOAD_CONST               1 ('CompressionParameter')
+              LOAD_NAME                3 (enum)
+              LOAD_ATTR               50 (IntEnum)
+              CALL                     3
+              STORE_NAME              26 (CompressionParameter)
+
+209           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              15 (<code object DecompressionParameter at 0x00000204BA0A7CF0, file "compression\zstd\__init__.py", line 209>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('DecompressionParameter')
+              LOAD_NAME                3 (enum)
+              LOAD_ATTR               50 (IntEnum)
+              CALL                     3
+              STORE_NAME              27 (DecompressionParameter)
+
+222           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              16 (<code object Strategy at 0x00000204B9F4DD30, file "compression\zstd\__init__.py", line 222>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('Strategy')
+              LOAD_NAME                3 (enum)
+              LOAD_ATTR               50 (IntEnum)
+              CALL                     3
+              STORE_NAME              28 (Strategy)
+
+242           LOAD_NAME                2 (_zstd)
+              LOAD_ATTR               58 (set_parameter_types)
+              PUSH_NULL
+              LOAD_NAME               26 (CompressionParameter)
+              LOAD_NAME               27 (DecompressionParameter)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object FrameInfo at 0x00000204BA0A7630, file "compression\zstd\__init__.py", line 44>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  44           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('FrameInfo')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          44
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  45           LOAD_CONST               1 ('Information about a Zstandard frame.')
+               STORE_NAME               4 (__doc__)
+
+  47           LOAD_CONST               6 (('decompressed_size', 'dictionary_id'))
+               STORE_NAME               5 (__slots__)
+
+  49           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0A7BD0, file "compression\zstd\__init__.py", line 49>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               6 (__init__)
+
+  53           LOAD_CONST               3 (<code object __repr__ at 0x00000204BA0FECD0, file "compression\zstd\__init__.py", line 53>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__repr__)
+
+  57           LOAD_CONST               4 (<code object __setattr__ at 0x00000204BA093000, file "compression\zstd\__init__.py", line 57>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__setattr__)
+               LOAD_CONST               5 (())
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              11 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7BD0, file "compression\zstd\__init__.py", line 49>:
+  --           COPY_FREE_VARS           1
+
+  49           RESUME                   0
+
+  50           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__setattr__ + NULL|self)
+               LOAD_CONST               0 ('decompressed_size')
+               LOAD_FAST_BORROW         1 (decompressed_size)
+               CALL                     2
+               POP_TOP
+
+  51           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__setattr__ + NULL|self)
+               LOAD_CONST               1 ('dictionary_id')
+               LOAD_FAST_BORROW         2 (dictionary_id)
+               CALL                     2
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0FECD0, file "compression\zstd\__init__.py", line 53>:
+ 53           RESUME                   0
+
+ 54           LOAD_CONST               0 ('FrameInfo(decompressed_size=')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (decompressed_size)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (', dictionary_id=')
+
+ 55           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (dictionary_id)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (')')
+
+ 54           BUILD_STRING             5
+              RETURN_VALUE
+
+Disassembly of <code object __setattr__ at 0x00000204BA093000, file "compression\zstd\__init__.py", line 57>:
+ 57           RESUME                   0
+
+ 58           LOAD_GLOBAL              1 (AttributeError + NULL)
+              LOAD_CONST               0 ("can't set attribute ")
+              LOAD_FAST_BORROW         1 (name)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object get_frame_info at 0x00000204BA0FFDD0, file "compression\zstd\__init__.py", line 61>:
+ 61           RESUME                   0
+
+ 75           LOAD_GLOBAL              1 (FrameInfo + NULL)
+              LOAD_GLOBAL              2 (_zstd)
+              LOAD_ATTR                4 (get_frame_info)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (frame_buffer)
+              CALL                     1
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object train_dict at 0x00000204BA3AC6F0, file "compression\zstd\__init__.py", line 78>:
+ 78           RESUME                   0
+
+ 86           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (dict_size)
+              LOAD_GLOBAL              2 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        38 (to L1)
+              NOT_TAKEN
+
+ 87           LOAD_GLOBAL              5 (type + NULL)
+              LOAD_FAST_BORROW         1 (dict_size)
+              CALL                     1
+              LOAD_ATTR                6 (__qualname__)
+              STORE_FAST               2 (ds_cls)
+
+ 88           LOAD_GLOBAL              9 (TypeError + NULL)
+              LOAD_CONST               1 ('dict_size must be an int object, not ')
+              LOAD_FAST_BORROW         2 (ds_cls)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('.')
+              BUILD_STRING             3
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 90   L1:     LOAD_GLOBAL             11 (tuple + NULL)
+              LOAD_FAST_BORROW         0 (samples)
+              CALL                     1
+              STORE_FAST               0 (samples)
+
+ 91           LOAD_CONST               3 (b'')
+              LOAD_ATTR               13 (join + NULL|self)
+              LOAD_FAST_BORROW         0 (samples)
+              CALL                     1
+              STORE_FAST               3 (chunks)
+
+ 92           LOAD_GLOBAL             10 (tuple)
+              COPY                     1
+              LOAD_COMMON_CONSTANT     2 (tuple)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       20 (to L4)
+              NOT_TAKEN
+              POP_TOP
+              BUILD_LIST               0
+              LOAD_CONST               4 (<code object <genexpr> at 0x00000204BA0FF440, file "compression\zstd\__init__.py", line 92>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (samples)
+              GET_ITER
+              CALL                     0
+      L2:     FOR_ITER                 3 (to L3)
+              LIST_APPEND              2
+              JUMP_BACKWARD            5 (to L2)
+      L3:     END_FOR
+              POP_ITER
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              JUMP_FORWARD            13 (to L5)
+      L4:     PUSH_NULL
+              LOAD_CONST               4 (<code object <genexpr> at 0x00000204BA0FF440, file "compression\zstd\__init__.py", line 92>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (samples)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+      L5:     STORE_FAST               4 (chunk_sizes)
+
+ 93           LOAD_FAST_BORROW         3 (chunks)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L6)
+              NOT_TAKEN
+
+ 94           LOAD_GLOBAL             15 (ValueError + NULL)
+              LOAD_CONST               5 ("samples contained no data; can't train dictionary.")
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 95   L6:     LOAD_GLOBAL             16 (_zstd)
+              LOAD_ATTR               18 (train_dict)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (chunks, chunk_sizes)
+              LOAD_FAST_BORROW         1 (dict_size)
+              CALL                     3
+              STORE_FAST               5 (dict_content)
+
+ 96           LOAD_GLOBAL             21 (ZstdDict + NULL)
+              LOAD_FAST_BORROW         5 (dict_content)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FF440, file "compression\zstd\__init__.py", line 92>:
+  92           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                16 (to L3)
+               STORE_FAST               1 (sample)
+               LOAD_GLOBAL              1 (_nbytes + NULL)
+               LOAD_FAST_BORROW         1 (sample)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object finalize_dict at 0x00000204BA38BBC0, file "compression\zstd\__init__.py", line 99>:
+ 99           RESUME                   0
+
+118           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (zstd_dict)
+              LOAD_GLOBAL              2 (ZstdDict)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L1)
+              NOT_TAKEN
+
+119           LOAD_GLOBAL              5 (TypeError + NULL)
+              LOAD_CONST               1 ('zstd_dict argument should be a ZstdDict object.')
+              CALL                     1
+              RAISE_VARARGS            1
+
+120   L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         2 (dict_size)
+              LOAD_GLOBAL              6 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L2)
+              NOT_TAKEN
+
+121           LOAD_GLOBAL              5 (TypeError + NULL)
+              LOAD_CONST               2 ('dict_size argument should be an int object.')
+              CALL                     1
+              RAISE_VARARGS            1
+
+122   L2:     LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         3 (level)
+              LOAD_GLOBAL              6 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L3)
+              NOT_TAKEN
+
+123           LOAD_GLOBAL              5 (TypeError + NULL)
+              LOAD_CONST               3 ('level argument should be an int object.')
+              CALL                     1
+              RAISE_VARARGS            1
+
+125   L3:     LOAD_GLOBAL              9 (tuple + NULL)
+              LOAD_FAST_BORROW         1 (samples)
+              CALL                     1
+              STORE_FAST               1 (samples)
+
+126           LOAD_CONST               4 (b'')
+              LOAD_ATTR               11 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (samples)
+              CALL                     1
+              STORE_FAST               4 (chunks)
+
+127           LOAD_GLOBAL              8 (tuple)
+              COPY                     1
+              LOAD_COMMON_CONSTANT     2 (tuple)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       20 (to L6)
+              NOT_TAKEN
+              POP_TOP
+              BUILD_LIST               0
+              LOAD_CONST               5 (<code object <genexpr> at 0x00000204BA0FD020, file "compression\zstd\__init__.py", line 127>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         1 (samples)
+              GET_ITER
+              CALL                     0
+      L4:     FOR_ITER                 3 (to L5)
+              LIST_APPEND              2
+              JUMP_BACKWARD            5 (to L4)
+      L5:     END_FOR
+              POP_ITER
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              JUMP_FORWARD            13 (to L7)
+      L6:     PUSH_NULL
+              LOAD_CONST               5 (<code object <genexpr> at 0x00000204BA0FD020, file "compression\zstd\__init__.py", line 127>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         1 (samples)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+      L7:     STORE_FAST               5 (chunk_sizes)
+
+128           LOAD_FAST_BORROW         4 (chunks)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L8)
+              NOT_TAKEN
+
+129           LOAD_GLOBAL             13 (ValueError + NULL)
+              LOAD_CONST               6 ("The samples are empty content, can't finalize the dictionary.")
+              CALL                     1
+              RAISE_VARARGS            1
+
+131   L8:     LOAD_GLOBAL             14 (_zstd)
+              LOAD_ATTR               16 (finalize_dict)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (zstd_dict)
+              LOAD_ATTR               18 (dict_content)
+              LOAD_FAST_BORROW         4 (chunks)
+
+132           LOAD_FAST_BORROW_LOAD_FAST_BORROW 82 (chunk_sizes, dict_size)
+              LOAD_FAST_BORROW         3 (level)
+
+131           CALL                     5
+              STORE_FAST               6 (dict_content)
+
+133           LOAD_GLOBAL              3 (ZstdDict + NULL)
+              LOAD_FAST_BORROW         6 (dict_content)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FD020, file "compression\zstd\__init__.py", line 127>:
+ 127           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                16 (to L3)
+               STORE_FAST               1 (sample)
+               LOAD_GLOBAL              1 (_nbytes + NULL)
+               LOAD_FAST_BORROW         1 (sample)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object compress at 0x00000204BA101DE0, file "compression\zstd\__init__.py", line 136>:
+136           RESUME                   0
+
+148           LOAD_GLOBAL              1 (ZstdCompressor + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (level, options)
+              LOAD_FAST_BORROW         3 (zstd_dict)
+              LOAD_CONST               1 (('level', 'options', 'zstd_dict'))
+              CALL_KW                  3
+              STORE_FAST               4 (comp)
+
+149           LOAD_FAST_BORROW         4 (comp)
+              LOAD_ATTR                3 (compress + NULL|self)
+              LOAD_FAST_BORROW         0 (data)
+              LOAD_GLOBAL              0 (ZstdCompressor)
+              LOAD_ATTR                4 (FLUSH_FRAME)
+              LOAD_CONST               2 (('mode',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object decompress at 0x00000204B9F9EA30, file "compression\zstd\__init__.py", line 152>:
+152           RESUME                   0
+
+162           BUILD_LIST               0
+              STORE_FAST               3 (results)
+
+163   L1:     NOP
+
+164           LOAD_GLOBAL              1 (ZstdDecompressor + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (options, zstd_dict)
+              LOAD_CONST               1 (('options', 'zstd_dict'))
+              CALL_KW                  2
+              STORE_FAST               4 (decomp)
+
+165           LOAD_FAST_BORROW         3 (results)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (decomp)
+              LOAD_ATTR                5 (decompress + NULL|self)
+              LOAD_FAST_BORROW         0 (data)
+              CALL                     1
+              CALL                     1
+              POP_TOP
+
+166           LOAD_FAST_BORROW         4 (decomp)
+              LOAD_ATTR                6 (eof)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L2)
+              NOT_TAKEN
+
+167           LOAD_GLOBAL              9 (ZstdError + NULL)
+              LOAD_CONST               2 ('Compressed data ended before the end-of-stream marker was reached')
+              CALL                     1
+              RAISE_VARARGS            1
+
+169   L2:     LOAD_FAST_BORROW         4 (decomp)
+              LOAD_ATTR               10 (unused_data)
+              STORE_FAST               0 (data)
+
+170           LOAD_FAST_BORROW         0 (data)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           96 (to L1)
+
+171   L3:     NOP
+
+172           LOAD_CONST               3 (b'')
+              LOAD_ATTR               13 (join + NULL|self)
+              LOAD_FAST                3 (results)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object CompressionParameter at 0x00000204BA449230, file "compression\zstd\__init__.py", line 175>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 175           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('CompressionParameter')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         175
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 176           LOAD_CONST               1 ('Compression parameters.')
+               STORE_NAME               4 (__doc__)
+
+ 178           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               12 (ZSTD_c_compressionLevel)
+               STORE_NAME               7 (compression_level)
+
+ 179           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               16 (ZSTD_c_windowLog)
+               STORE_NAME               9 (window_log)
+
+ 180           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               20 (ZSTD_c_hashLog)
+               STORE_NAME              11 (hash_log)
+
+ 181           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               24 (ZSTD_c_chainLog)
+               STORE_NAME              13 (chain_log)
+
+ 182           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               28 (ZSTD_c_searchLog)
+               STORE_NAME              15 (search_log)
+
+ 183           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               32 (ZSTD_c_minMatch)
+               STORE_NAME              17 (min_match)
+
+ 184           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               36 (ZSTD_c_targetLength)
+               STORE_NAME              19 (target_length)
+
+ 185           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               40 (ZSTD_c_strategy)
+               STORE_NAME              21 (strategy)
+
+ 187           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               44 (ZSTD_c_enableLongDistanceMatching)
+               STORE_NAME              23 (enable_long_distance_matching)
+
+ 188           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               48 (ZSTD_c_ldmHashLog)
+               STORE_NAME              25 (ldm_hash_log)
+
+ 189           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               52 (ZSTD_c_ldmMinMatch)
+               STORE_NAME              27 (ldm_min_match)
+
+ 190           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               56 (ZSTD_c_ldmBucketSizeLog)
+               STORE_NAME              29 (ldm_bucket_size_log)
+
+ 191           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               60 (ZSTD_c_ldmHashRateLog)
+               STORE_NAME              31 (ldm_hash_rate_log)
+
+ 193           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               64 (ZSTD_c_contentSizeFlag)
+               STORE_NAME              33 (content_size_flag)
+
+ 194           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               68 (ZSTD_c_checksumFlag)
+               STORE_NAME              35 (checksum_flag)
+
+ 195           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               72 (ZSTD_c_dictIDFlag)
+               STORE_NAME              37 (dict_id_flag)
+
+ 197           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               76 (ZSTD_c_nbWorkers)
+               STORE_NAME              39 (nb_workers)
+
+ 198           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               80 (ZSTD_c_jobSize)
+               STORE_NAME              41 (job_size)
+
+ 199           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               84 (ZSTD_c_overlapLog)
+               STORE_NAME              43 (overlap_log)
+
+ 201           LOAD_CONST               2 (<code object bounds at 0x00000204BA0A68B0, file "compression\zstd\__init__.py", line 201>)
+               MAKE_FUNCTION
+               STORE_NAME              44 (bounds)
+               LOAD_CONST               3 (())
+               STORE_NAME              45 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              46 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object bounds at 0x00000204BA0A68B0, file "compression\zstd\__init__.py", line 201>:
+201           RESUME                   0
+
+206           LOAD_GLOBAL              0 (_zstd)
+              LOAD_ATTR                2 (get_param_bounds)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (value)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('is_compress',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object DecompressionParameter at 0x00000204BA0A7CF0, file "compression\zstd\__init__.py", line 209>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 209           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DecompressionParameter')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         209
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 210           LOAD_CONST               1 ('Decompression parameters.')
+               STORE_NAME               4 (__doc__)
+
+ 212           LOAD_NAME                5 (_zstd)
+               LOAD_ATTR               12 (ZSTD_d_windowLogMax)
+               STORE_NAME               7 (window_log_max)
+
+ 214           LOAD_CONST               2 (<code object bounds at 0x00000204BA0A6550, file "compression\zstd\__init__.py", line 214>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (bounds)
+               LOAD_CONST               3 (())
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object bounds at 0x00000204BA0A6550, file "compression\zstd\__init__.py", line 214>:
+214           RESUME                   0
+
+219           LOAD_GLOBAL              0 (_zstd)
+              LOAD_ATTR                2 (get_param_bounds)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (value)
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (('is_compress',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object Strategy at 0x00000204B9F4DD30, file "compression\zstd\__init__.py", line 222>:
+222           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Strategy')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         222
+              STORE_NAME               3 (__firstlineno__)
+
+223           LOAD_CONST               1 ('Compression strategies, listed from fastest to strongest.\n\nNote that new strategies might be added in the future.\nOnly the order (from fast to strong) is guaranteed,\nthe numeric value might change.\n')
+              STORE_NAME               4 (__doc__)
+
+230           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               12 (ZSTD_fast)
+              STORE_NAME               7 (fast)
+
+231           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               16 (ZSTD_dfast)
+              STORE_NAME               9 (dfast)
+
+232           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               20 (ZSTD_greedy)
+              STORE_NAME              11 (greedy)
+
+233           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               24 (ZSTD_lazy)
+              STORE_NAME              13 (lazy)
+
+234           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               28 (ZSTD_lazy2)
+              STORE_NAME              15 (lazy2)
+
+235           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               32 (ZSTD_btlazy2)
+              STORE_NAME              17 (btlazy2)
+
+236           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               36 (ZSTD_btopt)
+              STORE_NAME              19 (btopt)
+
+237           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               40 (ZSTD_btultra)
+              STORE_NAME              21 (btultra)
+
+238           LOAD_NAME                5 (_zstd)
+              LOAD_ATTR               44 (ZSTD_btultra2)
+              STORE_NAME              23 (btultra2)
+              LOAD_CONST               2 (())
+              STORE_NAME              24 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE

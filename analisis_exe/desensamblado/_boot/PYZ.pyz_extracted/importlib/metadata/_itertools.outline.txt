@@ -1,0 +1,7 @@
+<module>()  line 1
+    unique_everseen(iterable, key)  line 4
+    always_iterable(obj, base_type)  line 23
+
+--- strings ---
+'List unique elements, preserving order. Remember all elements ever seen.'
+"If *obj* is iterable, return an iterator over its items::\n\n    >>> obj = (1, 2, 3)\n    >>> list(always_iterable(obj))\n    [1, 2, 3]\n\nIf *obj* is not iterable, return a one-item iterable containing *obj*::\n\n    >>> obj = 1\n    >>> list(always_iterable(obj))\n    [1]\n\nIf *obj* is ``None``, return an empty iterable:\n\n    >>> obj = None\n    >>> list(always_iterable(None))\n    []\n\nBy default, binary and text strings are not considered iterable::\n\n    >>> obj = 'foo'\n    >>> list(always_iterable(obj))\n    ['foo']\n\nIf *base_type* is set, objects for which ``isinstance(obj, base_type)``\nreturns ``True`` won't be considered iterable.\n\n    >>> obj = {'a': 1}\n    >>> list(always_iterable(obj))  # Iterate over the dict's keys\n    ['a']\n    >>> list(always_iterable(obj, base_type=dict))  # Treat dicts as a unit\n    [{'a': 1}]\n\nSet *base_type* to ``None`` to avoid any special handling and treat objects\nPython considers iterable as iterable:\n\n    >>> obj = 'foo'\n    >>> list(always_iterable(obj, base_type=None))\n    ['f', 'o', 'o']\n"

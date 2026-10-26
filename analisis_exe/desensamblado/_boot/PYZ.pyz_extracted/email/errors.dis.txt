@@ -1,0 +1,810 @@
+  0           RESUME                   0
+
+  5           LOAD_CONST               0 ('email package exception classes.')
+              STORE_NAME               0 (__doc__)
+
+  8           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               1 (<code object MessageError at 0x00000204BA092F10, file "email\errors.py", line 8>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('MessageError')
+              LOAD_NAME                1 (Exception)
+              CALL                     3
+              STORE_NAME               2 (MessageError)
+
+ 12           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               3 (<code object MessageParseError at 0x00000204BA092A60, file "email\errors.py", line 12>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('MessageParseError')
+              LOAD_NAME                2 (MessageError)
+              CALL                     3
+              STORE_NAME               3 (MessageParseError)
+
+ 16           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               5 (<code object HeaderParseError at 0x00000204BA093E10, file "email\errors.py", line 16>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('HeaderParseError')
+              LOAD_NAME                3 (MessageParseError)
+              CALL                     3
+              STORE_NAME               4 (HeaderParseError)
+
+ 20           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object BoundaryError at 0x00000204BA0934B0, file "email\errors.py", line 20>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('BoundaryError')
+              LOAD_NAME                3 (MessageParseError)
+              CALL                     3
+              STORE_NAME               5 (BoundaryError)
+
+ 24           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object MultipartConversionError at 0x00000204BA093000, file "email\errors.py", line 24>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('MultipartConversionError')
+              LOAD_NAME                2 (MessageError)
+              LOAD_NAME                6 (TypeError)
+              CALL                     4
+              STORE_NAME               7 (MultipartConversionError)
+
+ 28           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object CharsetError at 0x00000204BA0926A0, file "email\errors.py", line 28>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 ('CharsetError')
+              LOAD_NAME                2 (MessageError)
+              CALL                     3
+              STORE_NAME               8 (CharsetError)
+
+ 32           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              13 (<code object HeaderWriteError at 0x00000204BA0913E0, file "email\errors.py", line 32>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 ('HeaderWriteError')
+              LOAD_NAME                2 (MessageError)
+              CALL                     3
+              STORE_NAME               9 (HeaderWriteError)
+
+ 37           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              15 (<code object MessageDefect at 0x00000204BA0FECD0, file "email\errors.py", line 37>)
+              MAKE_FUNCTION
+              LOAD_CONST              16 ('MessageDefect')
+              LOAD_NAME               10 (ValueError)
+              CALL                     3
+              STORE_NAME              11 (MessageDefect)
+
+ 45           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              17 (<code object NoBoundaryInMultipartDefect at 0x00000204BA0925B0, file "email\errors.py", line 45>)
+              MAKE_FUNCTION
+              LOAD_CONST              18 ('NoBoundaryInMultipartDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              12 (NoBoundaryInMultipartDefect)
+
+ 48           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              19 (<code object StartBoundaryNotFoundDefect at 0x00000204BA092C40, file "email\errors.py", line 48>)
+              MAKE_FUNCTION
+              LOAD_CONST              20 ('StartBoundaryNotFoundDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              13 (StartBoundaryNotFoundDefect)
+
+ 51           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              21 (<code object CloseBoundaryNotFoundDefect at 0x00000204BA092D30, file "email\errors.py", line 51>)
+              MAKE_FUNCTION
+              LOAD_CONST              22 ('CloseBoundaryNotFoundDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              14 (CloseBoundaryNotFoundDefect)
+
+ 54           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              23 (<code object FirstHeaderLineIsContinuationDefect at 0x00000204BA0930F0, file "email\errors.py", line 54>)
+              MAKE_FUNCTION
+              LOAD_CONST              24 ('FirstHeaderLineIsContinuationDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              15 (FirstHeaderLineIsContinuationDefect)
+
+ 57           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              25 (<code object MisplacedEnvelopeHeaderDefect at 0x00000204BA0924C0, file "email\errors.py", line 57>)
+              MAKE_FUNCTION
+              LOAD_CONST              26 ('MisplacedEnvelopeHeaderDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              16 (MisplacedEnvelopeHeaderDefect)
+
+ 60           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              27 (<code object MissingHeaderBodySeparatorDefect at 0x00000204BA092880, file "email\errors.py", line 60>)
+              MAKE_FUNCTION
+              LOAD_CONST              28 ('MissingHeaderBodySeparatorDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              17 (MissingHeaderBodySeparatorDefect)
+
+ 63           LOAD_NAME               17 (MissingHeaderBodySeparatorDefect)
+              STORE_NAME              18 (MalformedHeaderDefect)
+
+ 65           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              29 (<code object MultipartInvariantViolationDefect at 0x00000204BA093C30, file "email\errors.py", line 65>)
+              MAKE_FUNCTION
+              LOAD_CONST              30 ('MultipartInvariantViolationDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              19 (MultipartInvariantViolationDefect)
+
+ 68           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              31 (<code object InvalidMultipartContentTransferEncodingDefect at 0x00000204BA0932D0, file "email\errors.py", line 68>)
+              MAKE_FUNCTION
+              LOAD_CONST              32 ('InvalidMultipartContentTransferEncodingDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              20 (InvalidMultipartContentTransferEncodingDefect)
+
+ 71           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              33 (<code object UndecodableBytesDefect at 0x00000204BA093960, file "email\errors.py", line 71>)
+              MAKE_FUNCTION
+              LOAD_CONST              34 ('UndecodableBytesDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              21 (UndecodableBytesDefect)
+
+ 74           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              35 (<code object InvalidBase64PaddingDefect at 0x00000204BA0922E0, file "email\errors.py", line 74>)
+              MAKE_FUNCTION
+              LOAD_CONST              36 ('InvalidBase64PaddingDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              22 (InvalidBase64PaddingDefect)
+
+ 77           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              37 (<code object InvalidBase64CharactersDefect at 0x00000204BA0914D0, file "email\errors.py", line 77>)
+              MAKE_FUNCTION
+              LOAD_CONST              38 ('InvalidBase64CharactersDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              23 (InvalidBase64CharactersDefect)
+
+ 80           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              39 (<code object InvalidBase64LengthDefect at 0x00000204BA0935A0, file "email\errors.py", line 80>)
+              MAKE_FUNCTION
+              LOAD_CONST              40 ('InvalidBase64LengthDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              24 (InvalidBase64LengthDefect)
+
+ 85           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              41 (<code object HeaderDefect at 0x00000204BA0FFEE0, file "email\errors.py", line 85>)
+              MAKE_FUNCTION
+              LOAD_CONST              42 ('HeaderDefect')
+              LOAD_NAME               11 (MessageDefect)
+              CALL                     3
+              STORE_NAME              25 (HeaderDefect)
+
+ 91           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              43 (<code object InvalidHeaderDefect at 0x00000204BA092790, file "email\errors.py", line 91>)
+              MAKE_FUNCTION
+              LOAD_CONST              44 ('InvalidHeaderDefect')
+              LOAD_NAME               25 (HeaderDefect)
+              CALL                     3
+              STORE_NAME              26 (InvalidHeaderDefect)
+
+ 94           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              45 (<code object HeaderMissingRequiredValue at 0x00000204BA0931E0, file "email\errors.py", line 94>)
+              MAKE_FUNCTION
+              LOAD_CONST              46 ('HeaderMissingRequiredValue')
+              LOAD_NAME               25 (HeaderDefect)
+              CALL                     3
+              STORE_NAME              27 (HeaderMissingRequiredValue)
+
+ 97           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              47 (<code object NonPrintableDefect at 0x00000204BA0FC250, file "email\errors.py", line 97>)
+              MAKE_FUNCTION
+              LOAD_CONST              48 ('NonPrintableDefect')
+              LOAD_NAME               25 (HeaderDefect)
+              CALL                     3
+              STORE_NAME              28 (NonPrintableDefect)
+
+108           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              49 (<code object ObsoleteHeaderDefect at 0x00000204BA093870, file "email\errors.py", line 108>)
+              MAKE_FUNCTION
+              LOAD_CONST              50 ('ObsoleteHeaderDefect')
+              LOAD_NAME               25 (HeaderDefect)
+              CALL                     3
+              STORE_NAME              29 (ObsoleteHeaderDefect)
+
+111           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              51 (<code object NonASCIILocalPartDefect at 0x00000204BA093690, file "email\errors.py", line 111>)
+              MAKE_FUNCTION
+              LOAD_CONST              52 ('NonASCIILocalPartDefect')
+              LOAD_NAME               25 (HeaderDefect)
+              CALL                     3
+              STORE_NAME              30 (NonASCIILocalPartDefect)
+
+116           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              53 (<code object InvalidDateDefect at 0x00000204BA093A50, file "email\errors.py", line 116>)
+              MAKE_FUNCTION
+              LOAD_CONST              54 ('InvalidDateDefect')
+              LOAD_NAME               25 (HeaderDefect)
+              CALL                     3
+              STORE_NAME              31 (InvalidDateDefect)
+              LOAD_CONST              55 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MessageError at 0x00000204BA092F10, file "email\errors.py", line 8>:
+  8           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('MessageError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT           8
+              STORE_NAME               3 (__firstlineno__)
+
+  9           LOAD_CONST               1 ('Base class for errors in the email package.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MessageParseError at 0x00000204BA092A60, file "email\errors.py", line 12>:
+ 12           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('MessageParseError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          12
+              STORE_NAME               3 (__firstlineno__)
+
+ 13           LOAD_CONST               1 ('Base class for message parsing errors.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object HeaderParseError at 0x00000204BA093E10, file "email\errors.py", line 16>:
+ 16           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('HeaderParseError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          16
+              STORE_NAME               3 (__firstlineno__)
+
+ 17           LOAD_CONST               1 ('Error while parsing headers.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object BoundaryError at 0x00000204BA0934B0, file "email\errors.py", line 20>:
+ 20           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('BoundaryError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          20
+              STORE_NAME               3 (__firstlineno__)
+
+ 21           LOAD_CONST               1 ("Couldn't find terminating boundary.")
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MultipartConversionError at 0x00000204BA093000, file "email\errors.py", line 24>:
+ 24           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('MultipartConversionError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          24
+              STORE_NAME               3 (__firstlineno__)
+
+ 25           LOAD_CONST               1 ('Conversion to a multipart is prohibited.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object CharsetError at 0x00000204BA0926A0, file "email\errors.py", line 28>:
+ 28           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('CharsetError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          28
+              STORE_NAME               3 (__firstlineno__)
+
+ 29           LOAD_CONST               1 ('An illegal charset was given.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object HeaderWriteError at 0x00000204BA0913E0, file "email\errors.py", line 32>:
+ 32           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('HeaderWriteError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          32
+              STORE_NAME               3 (__firstlineno__)
+
+ 33           LOAD_CONST               1 ('Error while writing headers.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MessageDefect at 0x00000204BA0FECD0, file "email\errors.py", line 37>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  37           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('MessageDefect')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          37
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  38           LOAD_CONST               1 ('Base class for a message defect.')
+               STORE_NAME               4 (__doc__)
+
+  40           LOAD_CONST               4 ((None,))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0FC7A0, file "email\errors.py", line 40>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+               LOAD_CONST               3 (('line',))
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               8 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FC7A0, file "email\errors.py", line 40>:
+  --           COPY_FREE_VARS           1
+
+  40           RESUME                   0
+
+  41           LOAD_FAST_BORROW         1 (line)
+               POP_JUMP_IF_NONE        16 (to L1)
+               NOT_TAKEN
+
+  42           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               2 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (line)
+               CALL                     1
+               POP_TOP
+
+  43   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (line, self)
+               STORE_ATTR               2 (line)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object NoBoundaryInMultipartDefect at 0x00000204BA0925B0, file "email\errors.py", line 45>:
+ 45           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('NoBoundaryInMultipartDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          45
+              STORE_NAME               3 (__firstlineno__)
+
+ 46           LOAD_CONST               1 ('A message claimed to be a multipart but had no boundary parameter.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object StartBoundaryNotFoundDefect at 0x00000204BA092C40, file "email\errors.py", line 48>:
+ 48           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('StartBoundaryNotFoundDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          48
+              STORE_NAME               3 (__firstlineno__)
+
+ 49           LOAD_CONST               1 ('The claimed start boundary was never found.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object CloseBoundaryNotFoundDefect at 0x00000204BA092D30, file "email\errors.py", line 51>:
+ 51           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('CloseBoundaryNotFoundDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          51
+              STORE_NAME               3 (__firstlineno__)
+
+ 52           LOAD_CONST               1 ('A start boundary was found, but not the corresponding close boundary.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object FirstHeaderLineIsContinuationDefect at 0x00000204BA0930F0, file "email\errors.py", line 54>:
+ 54           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('FirstHeaderLineIsContinuationDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          54
+              STORE_NAME               3 (__firstlineno__)
+
+ 55           LOAD_CONST               1 ('A message had a continuation line as its first header line.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MisplacedEnvelopeHeaderDefect at 0x00000204BA0924C0, file "email\errors.py", line 57>:
+ 57           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('MisplacedEnvelopeHeaderDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          57
+              STORE_NAME               3 (__firstlineno__)
+
+ 58           LOAD_CONST               1 ("A 'Unix-from' header was found in the middle of a header block.")
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MissingHeaderBodySeparatorDefect at 0x00000204BA092880, file "email\errors.py", line 60>:
+ 60           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('MissingHeaderBodySeparatorDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          60
+              STORE_NAME               3 (__firstlineno__)
+
+ 61           LOAD_CONST               1 ('Found line with no leading whitespace and no colon before blank line.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MultipartInvariantViolationDefect at 0x00000204BA093C30, file "email\errors.py", line 65>:
+ 65           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('MultipartInvariantViolationDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          65
+              STORE_NAME               3 (__firstlineno__)
+
+ 66           LOAD_CONST               1 ('A message claimed to be a multipart but no subparts were found.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object InvalidMultipartContentTransferEncodingDefect at 0x00000204BA0932D0, file "email\errors.py", line 68>:
+ 68           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('InvalidMultipartContentTransferEncodingDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          68
+              STORE_NAME               3 (__firstlineno__)
+
+ 69           LOAD_CONST               1 ('An invalid content transfer encoding was set on the multipart itself.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object UndecodableBytesDefect at 0x00000204BA093960, file "email\errors.py", line 71>:
+ 71           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('UndecodableBytesDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          71
+              STORE_NAME               3 (__firstlineno__)
+
+ 72           LOAD_CONST               1 ('Header contained bytes that could not be decoded')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object InvalidBase64PaddingDefect at 0x00000204BA0922E0, file "email\errors.py", line 74>:
+ 74           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('InvalidBase64PaddingDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          74
+              STORE_NAME               3 (__firstlineno__)
+
+ 75           LOAD_CONST               1 ('base64 encoded sequence had an incorrect length')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object InvalidBase64CharactersDefect at 0x00000204BA0914D0, file "email\errors.py", line 77>:
+ 77           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('InvalidBase64CharactersDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          77
+              STORE_NAME               3 (__firstlineno__)
+
+ 78           LOAD_CONST               1 ('base64 encoded sequence had characters not in base64 alphabet')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object InvalidBase64LengthDefect at 0x00000204BA0935A0, file "email\errors.py", line 80>:
+ 80           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('InvalidBase64LengthDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          80
+              STORE_NAME               3 (__firstlineno__)
+
+ 81           LOAD_CONST               1 ('base64 encoded sequence had invalid length (1 mod 4)')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object HeaderDefect at 0x00000204BA0FFEE0, file "email\errors.py", line 85>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  85           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('HeaderDefect')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          85
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  86           LOAD_CONST               1 ('Base class for a header defect.')
+               STORE_NAME               4 (__doc__)
+
+  88           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA08AF30, file "email\errors.py", line 88>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               8 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA08AF30, file "email\errors.py", line 88>:
+  --           COPY_FREE_VARS           1
+
+  88           RESUME                   0
+
+  89           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (__init__)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object InvalidHeaderDefect at 0x00000204BA092790, file "email\errors.py", line 91>:
+ 91           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('InvalidHeaderDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          91
+              STORE_NAME               3 (__firstlineno__)
+
+ 92           LOAD_CONST               1 ('Header is not valid, message gives details.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object HeaderMissingRequiredValue at 0x00000204BA0931E0, file "email\errors.py", line 94>:
+ 94           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('HeaderMissingRequiredValue')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          94
+              STORE_NAME               3 (__firstlineno__)
+
+ 95           LOAD_CONST               1 ('A header that must have a value had none')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object NonPrintableDefect at 0x00000204BA0FC250, file "email\errors.py", line 97>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  97           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('NonPrintableDefect')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          97
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  98           LOAD_CONST               1 ('ASCII characters outside the ascii-printable range found')
+               STORE_NAME               4 (__doc__)
+
+ 100           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0FFCC0, file "email\errors.py", line 100>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+
+ 104           LOAD_CONST               3 (<code object __str__ at 0x00000204BA0FFDD0, file "email\errors.py", line 104>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__str__)
+               LOAD_CONST               4 (('non_printables',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               9 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FFCC0, file "email\errors.py", line 100>:
+  --           COPY_FREE_VARS           1
+
+ 100           RESUME                   0
+
+ 101           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               2 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (non_printables)
+               CALL                     1
+               POP_TOP
+
+ 102           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (non_printables, self)
+               STORE_ATTR               2 (non_printables)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204BA0FFDD0, file "email\errors.py", line 104>:
+104           RESUME                   0
+
+105           LOAD_CONST               0 ('the following ASCII non-printables found in header: {}')
+
+106           LOAD_ATTR                1 (format + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (non_printables)
+              CALL                     1
+
+105           RETURN_VALUE
+
+Disassembly of <code object ObsoleteHeaderDefect at 0x00000204BA093870, file "email\errors.py", line 108>:
+108           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ObsoleteHeaderDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         108
+              STORE_NAME               3 (__firstlineno__)
+
+109           LOAD_CONST               1 ('Header uses syntax declared obsolete by RFC 5322')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object NonASCIILocalPartDefect at 0x00000204BA093690, file "email\errors.py", line 111>:
+111           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('NonASCIILocalPartDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         111
+              STORE_NAME               3 (__firstlineno__)
+
+112           LOAD_CONST               1 ('local_part contains non-ASCII characters')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object InvalidDateDefect at 0x00000204BA093A50, file "email\errors.py", line 116>:
+116           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('InvalidDateDefect')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         116
+              STORE_NAME               3 (__firstlineno__)
+
+117           LOAD_CONST               1 ('Header has unparsable or invalid date')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE

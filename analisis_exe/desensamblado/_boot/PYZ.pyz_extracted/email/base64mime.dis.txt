@@ -1,0 +1,255 @@
+  0           RESUME                   0
+
+  5           LOAD_CONST               0 ("Base64 content transfer encoding per RFCs 2045-2047.\n\nThis module handles the content transfer encoding method defined in RFC 2045\nto encode arbitrary 8-bit data using the three 8-bit bytes in four 7-bit\ncharacters encoding known as Base64.\n\nIt is used in the MIME standards for email to attach images, audio, and text\nusing some 8-bit character sets to messages.\n\nThis module provides an interface to encode and decode both headers and bodies\nwith Base64 encoding.\n\nRFC 2045 defines a method for including character set information in an\n'encoded-word' in a header.  This method is commonly used for 8-bit real names\nin To:, From:, Cc:, etc. fields, as well as Subject: lines.\n\nThis module does not do the line wrapping or end-of-line character conversion\nnecessary for proper internationalized headers; it only does dumb encoding and\ndecoding.  To deal with the various line wrapping issues, use the email.header\nmodule.\n")
+              STORE_NAME               0 (__doc__)
+
+ 27           BUILD_LIST               0
+              LOAD_CONST              11 (('body_decode', 'body_encode', 'decode', 'decodestring', 'header_encode', 'header_length'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (__all__)
+
+ 37           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('b64encode',))
+              IMPORT_NAME              2 (base64)
+              IMPORT_FROM              3 (b64encode)
+              STORE_NAME               3 (b64encode)
+              POP_TOP
+
+ 38           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('b2a_base64', 'a2b_base64'))
+              IMPORT_NAME              4 (binascii)
+              IMPORT_FROM              5 (b2a_base64)
+              STORE_NAME               5 (b2a_base64)
+              IMPORT_FROM              6 (a2b_base64)
+              STORE_NAME               6 (a2b_base64)
+              POP_TOP
+
+ 40           LOAD_CONST               3 ('\r\n')
+              STORE_NAME               7 (CRLF)
+
+ 41           LOAD_CONST               4 ('\n')
+              STORE_NAME               8 (NL)
+
+ 42           LOAD_CONST               5 ('')
+              STORE_NAME               9 (EMPTYSTRING)
+
+ 45           LOAD_SMALL_INT           7
+              STORE_NAME              10 (MISC_LEN)
+
+ 49           LOAD_CONST               6 (<code object header_length at 0x00000204BA0A9BB0, file "email\base64mime.py", line 49>)
+              MAKE_FUNCTION
+              STORE_NAME              11 (header_length)
+
+ 59           LOAD_CONST              12 (('iso-8859-1',))
+              LOAD_CONST               7 (<code object header_encode at 0x00000204B9FB6D30, file "email\base64mime.py", line 59>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              12 (header_encode)
+
+ 73           LOAD_SMALL_INT          76
+              LOAD_NAME                8 (NL)
+              BUILD_TUPLE              2
+              LOAD_CONST               8 (<code object body_encode at 0x00000204BA36AFC0, file "email\base64mime.py", line 73>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              13 (body_encode)
+
+ 98           LOAD_CONST               9 (<code object decode at 0x00000204B9FF3280, file "email\base64mime.py", line 98>)
+              MAKE_FUNCTION
+              STORE_NAME              14 (decode)
+
+114           LOAD_NAME               14 (decode)
+              STORE_NAME              15 (body_decode)
+
+115           LOAD_NAME               14 (decode)
+              STORE_NAME              16 (decodestring)
+              LOAD_CONST              10 (None)
+              RETURN_VALUE
+
+Disassembly of <code object header_length at 0x00000204BA0A9BB0, file "email\base64mime.py", line 49>:
+ 49           RESUME                   0
+
+ 51           LOAD_GLOBAL              1 (divmod + NULL)
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (bytearray)
+              CALL                     1
+              LOAD_SMALL_INT           3
+              CALL                     2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   18 (groups_of_3, leftover)
+
+ 53           LOAD_FAST_BORROW         1 (groups_of_3)
+              LOAD_SMALL_INT           4
+              BINARY_OP                5 (*)
+              STORE_FAST               3 (n)
+
+ 54           LOAD_FAST_BORROW         2 (leftover)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       10 (to L1)
+              NOT_TAKEN
+
+ 55           LOAD_FAST_BORROW         3 (n)
+              LOAD_SMALL_INT           4
+              BINARY_OP               13 (+=)
+              STORE_FAST               3 (n)
+
+ 56   L1:     LOAD_FAST_BORROW         3 (n)
+              RETURN_VALUE
+
+Disassembly of <code object header_encode at 0x00000204B9FB6D30, file "email\base64mime.py", line 59>:
+ 59           RESUME                   0
+
+ 65           LOAD_FAST_BORROW         0 (header_bytes)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+ 66           LOAD_CONST               1 ('')
+              RETURN_VALUE
+
+ 67   L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (header_bytes)
+              LOAD_GLOBAL              2 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L2)
+              NOT_TAKEN
+
+ 68           LOAD_FAST_BORROW         0 (header_bytes)
+              LOAD_ATTR                5 (encode + NULL|self)
+              LOAD_FAST_BORROW         1 (charset)
+              CALL                     1
+              STORE_FAST               0 (header_bytes)
+
+ 69   L2:     LOAD_GLOBAL              7 (b64encode + NULL)
+              LOAD_FAST_BORROW         0 (header_bytes)
+              CALL                     1
+              LOAD_ATTR                9 (decode + NULL|self)
+              LOAD_CONST               2 ('ascii')
+              CALL                     1
+              STORE_FAST               2 (encoded)
+              LOAD_CONST               3 ('=?')
+
+ 70           LOAD_FAST_BORROW         1 (charset)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ('?b?')
+              LOAD_FAST_BORROW         2 (encoded)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 ('?=')
+              BUILD_STRING             5
+              RETURN_VALUE
+
+Disassembly of <code object body_encode at 0x00000204BA36AFC0, file "email\base64mime.py", line 73>:
+ 73           RESUME                   0
+
+ 83           LOAD_FAST_BORROW         0 (s)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+ 84           LOAD_CONST               1 ('')
+              RETURN_VALUE
+
+ 86   L1:     BUILD_LIST               0
+              STORE_FAST               3 (encvec)
+
+ 87           LOAD_FAST_BORROW         1 (maxlinelen)
+              LOAD_SMALL_INT           3
+              BINARY_OP                5 (*)
+              LOAD_SMALL_INT           4
+              BINARY_OP                2 (//)
+              STORE_FAST               4 (max_unencoded)
+
+ 88           LOAD_GLOBAL              1 (range + NULL)
+              LOAD_SMALL_INT           0
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (s)
+              CALL                     1
+              LOAD_FAST_BORROW         4 (max_unencoded)
+              CALL                     3
+              GET_ITER
+      L2:     FOR_ITER               104 (to L4)
+              STORE_FAST               5 (i)
+
+ 91           LOAD_GLOBAL              5 (b2a_base64 + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (s, i)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (i, max_unencoded)
+              BINARY_OP                0 (+)
+              BINARY_SLICE
+              CALL                     1
+              LOAD_ATTR                7 (decode + NULL|self)
+              LOAD_CONST               2 ('ascii')
+              CALL                     1
+              STORE_FAST               6 (enc)
+
+ 92           LOAD_FAST_BORROW         6 (enc)
+              LOAD_ATTR                9 (endswith + NULL|self)
+              LOAD_GLOBAL             10 (NL)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       24 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (eol)
+              LOAD_GLOBAL             10 (NL)
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE       13 (to L3)
+              NOT_TAKEN
+
+ 93           LOAD_FAST_BORROW         6 (enc)
+              LOAD_CONST               3 (None)
+              LOAD_CONST               4 (-1)
+              BINARY_SLICE
+              LOAD_FAST_BORROW         2 (eol)
+              BINARY_OP                0 (+)
+              STORE_FAST               6 (enc)
+
+ 94   L3:     LOAD_FAST_BORROW         3 (encvec)
+              LOAD_ATTR               13 (append + NULL|self)
+              LOAD_FAST_BORROW         6 (enc)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD          106 (to L2)
+
+ 88   L4:     END_FOR
+              POP_ITER
+
+ 95           LOAD_GLOBAL             14 (EMPTYSTRING)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         3 (encvec)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object decode at 0x00000204B9FF3280, file "email\base64mime.py", line 98>:
+ 98           RESUME                   0
+
+105           LOAD_FAST_BORROW         0 (string)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        11 (to L1)
+              NOT_TAKEN
+
+106           LOAD_GLOBAL              1 (bytes + NULL)
+              CALL                     0
+              RETURN_VALUE
+
+107   L1:     LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (string)
+              LOAD_GLOBAL              4 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L2)
+              NOT_TAKEN
+
+108           LOAD_GLOBAL              7 (a2b_base64 + NULL)
+              LOAD_FAST_BORROW         0 (string)
+              LOAD_ATTR                9 (encode + NULL|self)
+              LOAD_CONST               1 ('raw-unicode-escape')
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+110   L2:     LOAD_GLOBAL              7 (a2b_base64 + NULL)
+              LOAD_FAST_BORROW         0 (string)
+              CALL                     1
+              RETURN_VALUE

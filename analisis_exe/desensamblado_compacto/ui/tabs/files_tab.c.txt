@@ -1,0 +1,169 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME posixpath; STORE_NAME posixpath
+4: LOAD_SMALL_INT 0; LOAD_CONST ('Path',); IMPORT_NAME pathlib; IMPORT_FROM Path; STORE_NAME Path
+6: LOAD_SMALL_INT 0; LOAD_CONST ('QFileDialog', 'QHBoxLayout', 'QLineEdit', 'QPushButton', 'QTreeWidget', 'QTreeWidgetItem', 'QVBoxLayout'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QFileDialog; STORE_NAME QFileDialog; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLineEdit; STORE_NAME QLineEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QTreeWidget; STORE_NAME QTreeWidget; IMPORT_FROM QTreeWidgetItem; STORE_NAME QTreeWidgetItem; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout
+9: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+10: LOAD_SMALL_INT 2; LOAD_CONST ('confirm', 'warn'); IMPORT_NAME common; IMPORT_FROM confirm; STORE_NAME confirm; IMPORT_FROM warn; STORE_NAME warn
+13: LOAD_BUILD_CLASS; LOAD_CONST <code FilesTab>; MAKE_FUNCTION; LOAD_CONST 'FilesTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME FilesTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF FilesTab() @13
+  13: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'FilesTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 13; STORE_NAME __firstlineno__
+  14: LOAD_CONST 'Archivos'; STORE_NAME title
+  16: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code FilesTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  47: LOAD_CONST <code FilesTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  50: LOAD_CONST <code FilesTab.on_activated>; MAKE_FUNCTION; STORE_NAME on_activated
+  54: LOAD_CONST <code FilesTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code FilesTab.go>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME go
+  69: LOAD_CONST <code FilesTab.go_up>; MAKE_FUNCTION; STORE_NAME go_up
+  72: LOAD_CONST (0,); LOAD_CONST <code FilesTab._open>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME _open
+  77: LOAD_CONST <code FilesTab._sel>; MAKE_FUNCTION; STORE_NAME _sel
+  84: LOAD_CONST <code FilesTab.pull>; MAKE_FUNCTION; STORE_NAME pull
+  96: LOAD_CONST <code FilesTab.push>; MAKE_FUNCTION; STORE_NAME push
+  108: LOAD_CONST <code FilesTab.delete>; MAKE_FUNCTION; STORE_NAME delete; LOAD_CONST ('cwd', 'path', 'tree'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF FilesTab.__init__(self,ctx) @16
+    17: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_DEREF self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    18: LOAD_CONST '/sdcard'; LOAD_DEREF self; STORE_ATTR cwd
+    19: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_DEREF self; CALL; STORE_FAST lay
+    20: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST top
+    21: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '⬆ Subir nivel'; CALL; STORE_FAST up
+    22: LOAD_FAST_BORROW up; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR go_up; CALL
+    23: LOAD_GLOBAL QLineEdit + NULL; LOAD_DEREF self; LOAD_ATTR cwd; CALL; LOAD_DEREF self; STORE_ATTR path
+    24: LOAD_DEREF self; LOAD_ATTR path; LOAD_ATTR returnPressed; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    25: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Actualizar'; CALL; STORE_FAST refresh
+    26: LOAD_FAST_BORROW refresh; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    27: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW up; CALL
+    28: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR path; LOAD_SMALL_INT 1; CALL
+    29: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW refresh; CALL
+    30: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW top; CALL
+    32: LOAD_GLOBAL QTreeWidget + NULL; CALL; LOAD_DEREF self; STORE_ATTR tree
+    33: LOAD_DEREF self; LOAD_ATTR tree; LOAD_ATTR setHeaderLabels + NULL|self; BUILD_LIST; LOAD_CONST ('Nombre', 'Tamaño', 'Modificado'); LIST_EXTEND; CALL
+    34: LOAD_DEREF self; LOAD_ATTR tree; LOAD_ATTR setColumnWidth + NULL|self; LOAD_SMALL_INT 0; LOAD_CONST 420; CALL
+    35: LOAD_DEREF self; LOAD_ATTR tree; LOAD_ATTR itemDoubleClicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR _open; CALL
+    36: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR tree; LOAD_SMALL_INT 1; CALL
+    38: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST row
+    39: LOAD_CONST '⬇ Descargar al PC'; LOAD_DEREF self; LOAD_ATTR pull; BUILD_TUPLE; LOAD_CONST '⬆ Subir archivo…'; LOAD_DEREF self; LOAD_ATTR push; BUILD_TUPLE
+    40: LOAD_CONST '🗑 Eliminar…'; LOAD_DEREF self; LOAD_ATTR delete; BUILD_TUPLE
+    39: BUILD_TUPLE; GET_ITER; <L960>; FOR_ITER ->1084; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST text, slot
+    41: LOAD_GLOBAL QPushButton + NULL; LOAD_FAST_BORROW text; CALL; STORE_FAST b
+    42: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW slot; CALL
+    43: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL; JUMP_BACKWARD ->960
+    39: <L1084>; END_FOR; POP_ITER
+    44: LOAD_FAST_BORROW row; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    45: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW row; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF FilesTab.__init__.<locals>.<lambda>() @24
+      24: LOAD_DEREF self; LOAD_ATTR go + NULL|self; LOAD_DEREF self; LOAD_ATTR path; LOAD_ATTR text + NULL|self; CALL; CALL; RETURN_VALUE
+
+      DEF FilesTab.__init__.<locals>.<lambda>() @26
+      26: LOAD_DEREF self; LOAD_ATTR go + NULL|self; LOAD_DEREF self; LOAD_ATTR cwd; CALL; RETURN_VALUE
+
+    DEF FilesTab.on_device_changed(self) @47
+    48: LOAD_FAST_BORROW self; LOAD_ATTR tree; LOAD_ATTR clear + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF FilesTab.on_activated(self) @50
+    51: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; TO_BOOL; POP_JUMP_IF_FALSE ->230; LOAD_FAST_BORROW self; LOAD_ATTR is_online + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->226; LOAD_FAST_BORROW self; LOAD_ATTR tree; LOAD_ATTR topLevelItemCount + NULL|self; CALL; LOAD_SMALL_INT 0; COMPARE_OP bool(==); POP_JUMP_IF_FALSE ->222
+    52: LOAD_FAST_BORROW self; LOAD_ATTR go + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR cwd; CALL; LOAD_CONST None; RETURN_VALUE
+    51: <L222>; LOAD_CONST None; RETURN_VALUE; <L226>; LOAD_CONST None; RETURN_VALUE; <L230>; LOAD_CONST None; RETURN_VALUE
+
+    DEF FilesTab.go(self,path) @54
+    55: LOAD_GLOBAL posixpath; LOAD_ATTR normpath; LOAD_DEREF path; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->60; LOAD_CONST '/'; <L60>; CALL; STORE_DEREF path
+    57: LOAD_FAST_BORROW path; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.go.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    67: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW path; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.go.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF FilesTab.go.<locals>.done(entries) @57
+      58: LOAD_DEREF path; LOAD_DEREF self; STORE_ATTR cwd
+      59: LOAD_DEREF self; LOAD_ATTR path; LOAD_ATTR setText + NULL|self; LOAD_DEREF path; CALL
+      60: LOAD_DEREF self; LOAD_ATTR tree; LOAD_ATTR clear + NULL|self; CALL
+      61: LOAD_FAST_BORROW entries; GET_ITER; <L128>; FOR_ITER ->320; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST name, is_dir; STORE_FAST_STORE_FAST size, date
+      62: LOAD_GLOBAL QTreeWidgetItem + NULL; LOAD_FAST_BORROW is_dir; TO_BOOL; POP_JUMP_IF_FALSE ->170; LOAD_CONST '📁 '; JUMP_FORWARD ->172; <L170>; LOAD_CONST '📄 '; <L172>; LOAD_FAST_BORROW name; BINARY_OP +
+      63: LOAD_FAST_BORROW is_dir; TO_BOOL; POP_JUMP_IF_FALSE ->206; LOAD_CONST ''; JUMP_FORWARD ->208; <L206>; LOAD_FAST size; <L208>; LOAD_FAST_BORROW date
+      62: BUILD_LIST; CALL; STORE_FAST it
+      64: LOAD_FAST_BORROW it; LOAD_ATTR setData + NULL|self; LOAD_SMALL_INT 0; LOAD_CONST 256; LOAD_FAST_BORROW_LOAD_FAST_BORROW name, is_dir; BUILD_TUPLE; CALL
+      65: LOAD_DEREF self; LOAD_ATTR tree; LOAD_ATTR addTopLevelItem + NULL|self; LOAD_FAST_BORROW it; CALL; JUMP_BACKWARD ->128
+      61: <L320>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+
+      DEF FilesTab.go.<locals>.<lambda>(s) @67
+      67: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR ls + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF path; CALL; RETURN_VALUE
+
+    DEF FilesTab.go_up(self) @69
+    70: LOAD_FAST self; LOAD_ATTR go + NULL|self; LOAD_GLOBAL posixpath; LOAD_ATTR dirname; LOAD_FAST_BORROW self; LOAD_ATTR cwd; CALL; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->106; LOAD_CONST '/'; <L106>; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF FilesTab._open(self,item,_col) @72
+    73: LOAD_FAST_BORROW item; LOAD_ATTR data + NULL|self; LOAD_SMALL_INT 0; LOAD_CONST 256; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST name, is_dir
+    74: LOAD_FAST_BORROW is_dir; TO_BOOL; POP_JUMP_IF_FALSE ->158
+    75: LOAD_FAST_BORROW self; LOAD_ATTR go + NULL|self; LOAD_GLOBAL posixpath; LOAD_ATTR join; LOAD_FAST_BORROW self; LOAD_ATTR cwd; LOAD_FAST_BORROW name; CALL; CALL; LOAD_CONST None; RETURN_VALUE
+    74: <L158>; LOAD_CONST None; RETURN_VALUE
+
+    DEF FilesTab._sel(self) @77
+    78: LOAD_FAST_BORROW self; LOAD_ATTR tree; LOAD_ATTR currentItem + NULL|self; CALL; STORE_FAST it
+    79: LOAD_FAST_BORROW it; TO_BOOL; POP_JUMP_IF_TRUE ->100
+    80: LOAD_GLOBAL warn + NULL; LOAD_FAST_BORROW self; LOAD_CONST 'Sin selección'; LOAD_CONST 'Selecciona un archivo o carpeta.'; CALL
+    81: LOAD_CONST None; RETURN_VALUE
+    82: <L100>; LOAD_FAST_BORROW it; LOAD_ATTR data + NULL|self; LOAD_SMALL_INT 0; LOAD_CONST 256; CALL; RETURN_VALUE
+
+    DEF FilesTab.pull(self) @84
+    85: LOAD_DEREF self; LOAD_ATTR _sel + NULL|self; CALL; STORE_FAST sel
+    86: LOAD_FAST_BORROW sel; TO_BOOL; POP_JUMP_IF_TRUE ->60
+    87: LOAD_CONST None; RETURN_VALUE
+    88: <L60>; LOAD_FAST_BORROW sel; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST name, _
+    89: LOAD_GLOBAL QFileDialog; LOAD_ATTR getExistingDirectory; LOAD_DEREF self; LOAD_CONST 'Carpeta de destino en el PC'; CALL; STORE_DEREF dest
+    90: LOAD_DEREF dest; TO_BOOL; POP_JUMP_IF_FALSE ->318
+    91: LOAD_GLOBAL posixpath; LOAD_ATTR join; LOAD_DEREF self; LOAD_ATTR cwd; LOAD_FAST_BORROW name; CALL; STORE_DEREF remote
+    92: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Descargando '; LOAD_DEREF remote; FORMAT_SIMPLE; LOAD_CONST '…'; BUILD_STRING; CALL
+    93: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW dest; LOAD_FAST_BORROW remote; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.pull.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    94: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.pull.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    93: CALL; LOAD_CONST None; RETURN_VALUE
+    90: <L318>; LOAD_CONST None; RETURN_VALUE
+
+      DEF FilesTab.pull.<locals>.<lambda>(s) @93
+      93: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR pull + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF remote; LOAD_GLOBAL str + NULL; LOAD_GLOBAL Path + NULL; LOAD_DEREF dest; CALL; CALL; CALL; RETURN_VALUE
+
+      DEF FilesTab.pull.<locals>.<lambda>(r) @94
+      94: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_FAST_BORROW r; LOAD_ATTR text; CALL; RETURN_VALUE
+
+    DEF FilesTab.push(self) @96
+    97: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    98: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_TRUE ->58
+    99: LOAD_CONST None; RETURN_VALUE
+    100: <L58>; LOAD_GLOBAL QFileDialog; LOAD_ATTR getOpenFileName; LOAD_DEREF self; LOAD_CONST 'Archivo a subir a la TV'; CALL; UNPACK_SEQUENCE; STORE_DEREF local; STORE_FAST _
+    101: LOAD_DEREF local; TO_BOOL; POP_JUMP_IF_FALSE ->358; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Subir archivo'
+    102: LOAD_CONST 'Se copiará el archivo a '; LOAD_DEREF self; LOAD_ATTR cwd; FORMAT_SIMPLE; LOAD_CONST ' en la TV.'; BUILD_STRING
+    103: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' push "'; LOAD_DEREF local; FORMAT_SIMPLE; LOAD_CONST '" '; LOAD_DEREF self; LOAD_ATTR cwd; FORMAT_SIMPLE; LOAD_CONST '/'; BUILD_STRING
+    101: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->354
+    104: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Subiendo '; LOAD_DEREF local; FORMAT_SIMPLE; LOAD_CONST '…'; BUILD_STRING; CALL
+    105: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW local; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.push.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    106: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.push.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    105: CALL; LOAD_CONST None; RETURN_VALUE
+    101: <L354>; LOAD_CONST None; RETURN_VALUE; <L358>; LOAD_CONST None; RETURN_VALUE
+
+      DEF FilesTab.push.<locals>.<lambda>(s) @105
+      105: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR push + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF local; LOAD_DEREF self; LOAD_ATTR cwd; LOAD_CONST '/'; BINARY_OP +; CALL; RETURN_VALUE
+
+      DEF FilesTab.push.<locals>.<lambda>(r) @106
+      106: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_FAST_BORROW r; LOAD_ATTR text; CALL; LOAD_DEREF self; LOAD_ATTR go + NULL|self; LOAD_DEREF self; LOAD_ATTR cwd; CALL; BUILD_TUPLE; RETURN_VALUE
+
+    DEF FilesTab.delete(self) @108
+    109: LOAD_DEREF self; LOAD_ATTR _sel + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST_STORE_FAST s, sel
+    110: LOAD_FAST_BORROW sel; TO_BOOL; POP_JUMP_IF_FALSE ->100; LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_TRUE ->104
+    111: <L100>; LOAD_CONST None; RETURN_VALUE
+    112: <L104>; LOAD_FAST_BORROW sel; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST name, _
+    113: LOAD_GLOBAL posixpath; LOAD_ATTR join; LOAD_DEREF self; LOAD_ATTR cwd; LOAD_FAST_BORROW name; CALL; STORE_DEREF remote
+    114: LOAD_DEREF remote; LOAD_ATTR startswith + NULL|self; LOAD_CONST '/sdcard/'; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->296; LOAD_DEREF remote; LOAD_ATTR startswith + NULL|self; LOAD_CONST '/storage/'; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->296
+    115: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Ruta protegida'
+    116: LOAD_CONST 'Por seguridad solo se pueden eliminar archivos dentro de /sdcard o /storage.'
+    115: CALL; RETURN_VALUE
+    117: <L296>; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Eliminar'; LOAD_CONST 'Se eliminará definitivamente:\n'; LOAD_DEREF remote; FORMAT_SIMPLE; BUILD_STRING
+    118: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST " shell rm -rf '"; LOAD_DEREF remote; FORMAT_SIMPLE; LOAD_CONST "'"; BUILD_STRING
+    117: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->416
+    119: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW remote; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.delete.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    120: LOAD_FAST_BORROW remote; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code FilesTab.delete.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    119: CALL; LOAD_CONST None; RETURN_VALUE
+    117: <L416>; LOAD_CONST None; RETURN_VALUE
+
+      DEF FilesTab.delete.<locals>.<lambda>(s) @119
+      119: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR remove + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF remote; CALL; RETURN_VALUE
+
+      DEF FilesTab.delete.<locals>.<lambda>(r) @120
+      120: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Eliminado '; LOAD_DEREF remote; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_DEREF self; LOAD_ATTR go + NULL|self; LOAD_DEREF self; LOAD_ATTR cwd; CALL; BUILD_TUPLE; RETURN_VALUE

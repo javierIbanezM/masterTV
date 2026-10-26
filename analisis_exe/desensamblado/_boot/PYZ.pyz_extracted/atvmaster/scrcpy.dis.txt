@@ -1,0 +1,339 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Lanzador de scrcpy (escritorio remoto: espejo de pantalla con ratón y teclado).')
+              STORE_NAME               0 (__doc__)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              1 (__future__)
+              IMPORT_FROM              2 (annotations)
+              STORE_NAME               2 (annotations)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (os)
+              STORE_NAME               3 (os)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              4 (subprocess)
+              STORE_NAME               4 (subprocess)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('dataclass',))
+              IMPORT_NAME              5 (dataclasses)
+              IMPORT_FROM              6 (dataclass)
+              STORE_NAME               6 (dataclass)
+              POP_TOP
+
+  9           LOAD_NAME                6 (dataclass)
+
+ 10           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object ScrcpyOptions at 0x00000204B9FB6D30, file "atvmaster\scrcpy.py", line 9>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('ScrcpyOptions')
+              CALL                     2
+
+  9           CALL                     0
+
+ 10           STORE_NAME               7 (ScrcpyOptions)
+
+ 40           LOAD_CONST               6 (<code object __annotate__ at 0x00000204BA08AD30, file "atvmaster\scrcpy.py", line 40>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 (<code object launch at 0x00000204B9FC34B0, file "atvmaster\scrcpy.py", line 40>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               8 (launch)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ScrcpyOptions at 0x00000204B9FB6D30, file "atvmaster\scrcpy.py", line 9>:
+  9           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ScrcpyOptions')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT           9
+              STORE_NAME               3 (__firstlineno__)
+              SETUP_ANNOTATIONS
+
+ 11           LOAD_SMALL_INT           0
+              STORE_NAME               4 (max_size)
+              LOAD_CONST               1 ('int')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST               2 ('max_size')
+              STORE_SUBSCR
+
+ 12           LOAD_SMALL_INT           8
+              STORE_NAME               6 (bitrate_mbps)
+              LOAD_CONST               1 ('int')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST               3 ('bitrate_mbps')
+              STORE_SUBSCR
+
+ 13           LOAD_SMALL_INT          30
+              STORE_NAME               7 (max_fps)
+              LOAD_CONST               1 ('int')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST               4 ('max_fps')
+              STORE_SUBSCR
+
+ 14           LOAD_CONST               5 (True)
+              STORE_NAME               8 (no_audio)
+              LOAD_CONST               6 ('bool')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST               7 ('no_audio')
+              STORE_SUBSCR
+
+ 15           LOAD_CONST               5 (True)
+              STORE_NAME               9 (stay_awake)
+              LOAD_CONST               6 ('bool')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST               8 ('stay_awake')
+              STORE_SUBSCR
+
+ 16           LOAD_CONST               9 (False)
+              STORE_NAME              10 (screen_off)
+              LOAD_CONST               6 ('bool')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST              10 ('screen_off')
+              STORE_SUBSCR
+
+ 17           LOAD_CONST               9 (False)
+              STORE_NAME              11 (fullscreen)
+              LOAD_CONST               6 ('bool')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST              11 ('fullscreen')
+              STORE_SUBSCR
+
+ 18           LOAD_CONST               9 (False)
+              STORE_NAME              12 (always_on_top)
+              LOAD_CONST               6 ('bool')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST              12 ('always_on_top')
+              STORE_SUBSCR
+
+ 19           LOAD_CONST              13 ('')
+              STORE_NAME              13 (record_path)
+              LOAD_CONST              14 ('str')
+              LOAD_NAME                5 (__annotations__)
+              LOAD_CONST              15 ('record_path')
+              STORE_SUBSCR
+
+ 21           LOAD_CONST              16 (<code object __annotate__ at 0x00000204BA093960, file "atvmaster\scrcpy.py", line 21>)
+              MAKE_FUNCTION
+              LOAD_CONST              17 (<code object to_args at 0x00000204BA3781B0, file "atvmaster\scrcpy.py", line 21>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              14 (to_args)
+              LOAD_CONST              18 (())
+              STORE_NAME              15 (__static_attributes__)
+              LOAD_CONST              19 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093960, file "atvmaster\scrcpy.py", line 21>:
+ 21           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('list[str]')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object to_args at 0x00000204BA3781B0, file "atvmaster\scrcpy.py", line 21>:
+ 21           RESUME                   0
+
+ 22           LOAD_CONST               0 ('--video-bit-rate=')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (bitrate_mbps)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('M')
+              BUILD_STRING             3
+              LOAD_CONST               2 ('--max-fps=')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (max_fps)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BUILD_LIST               2
+              STORE_FAST               1 (a)
+
+ 23           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (max_size)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       31 (to L1)
+              NOT_TAKEN
+
+ 24           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_CONST               3 ('--max-size=')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (max_size)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              POP_TOP
+
+ 25   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (no_audio)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L2)
+              NOT_TAKEN
+
+ 26           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_CONST               4 ('--no-audio')
+              CALL                     1
+              POP_TOP
+
+ 27   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (stay_awake)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L3)
+              NOT_TAKEN
+
+ 28           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_CONST               5 ('--stay-awake')
+              CALL                     1
+              POP_TOP
+
+ 29   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (screen_off)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L4)
+              NOT_TAKEN
+
+ 30           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_CONST               6 ('--turn-screen-off')
+              CALL                     1
+              POP_TOP
+
+ 31   L4:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (fullscreen)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L5)
+              NOT_TAKEN
+
+ 32           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_CONST               7 ('--fullscreen')
+              CALL                     1
+              POP_TOP
+
+ 33   L5:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (always_on_top)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L6)
+              NOT_TAKEN
+
+ 34           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_CONST               8 ('--always-on-top')
+              CALL                     1
+              POP_TOP
+
+ 35   L6:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (record_path)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       31 (to L7)
+              NOT_TAKEN
+
+ 36           LOAD_FAST_BORROW         1 (a)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_CONST               9 ('--record=')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (record_path)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              POP_TOP
+
+ 37   L7:     LOAD_FAST_BORROW         1 (a)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08AD30, file "atvmaster\scrcpy.py", line 40>:
+ 40           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('scrcpy_path')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('adb_path')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               5 ('title')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               6 ('opts')
+
+ 41           LOAD_CONST               7 ('ScrcpyOptions')
+
+ 40           LOAD_CONST               8 ('return')
+
+ 41           LOAD_CONST               9 ('subprocess.Popen')
+
+ 40           BUILD_MAP                6
+              RETURN_VALUE
+
+Disassembly of <code object launch at 0x00000204B9FC34B0, file "atvmaster\scrcpy.py", line 40>:
+ 40           RESUME                   0
+
+ 42           LOAD_GLOBAL              1 (dict + NULL)
+              LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                4 (environ)
+              LOAD_FAST_BORROW         1 (adb_path)
+              LOAD_CONST               0 (('ADB',))
+              CALL_KW                  2
+              STORE_FAST               5 (env)
+
+ 43           LOAD_FAST_BORROW         0 (scrcpy_path)
+              LOAD_CONST               1 ('-s')
+              LOAD_FAST_BORROW         2 (serial)
+              LOAD_CONST               2 ('--window-title=')
+              LOAD_FAST_BORROW         3 (title)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              BUILD_LIST               4
+              LOAD_FAST_BORROW         4 (opts)
+              LOAD_ATTR                7 (to_args + NULL|self)
+              CALL                     0
+              LIST_EXTEND              1
+              STORE_FAST               6 (cmd)
+
+ 44           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                8 (name)
+              LOAD_CONST               3 ('nt')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               4 (134217728)
+              JUMP_FORWARD             1 (to L2)
+      L1:     LOAD_SMALL_INT           0
+      L2:     STORE_FAST               7 (flags)
+
+ 45           LOAD_GLOBAL             10 (subprocess)
+              LOAD_ATTR               12 (Popen)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 101 (cmd, env)
+              LOAD_FAST_BORROW         7 (flags)
+
+ 46           LOAD_GLOBAL             10 (subprocess)
+              LOAD_ATTR               14 (DEVNULL)
+              LOAD_GLOBAL             10 (subprocess)
+              LOAD_ATTR               16 (PIPE)
+
+ 45           LOAD_CONST               5 (('env', 'creationflags', 'stdout', 'stderr'))
+              CALL_KW                  5
+              RETURN_VALUE

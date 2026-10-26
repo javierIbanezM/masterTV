@@ -1,0 +1,82 @@
+<module>()  line 1
+    parsedate_tz(data)  line 45
+    _parsedate_tz(data)  line 57
+    parsedate(data)  line 182
+    mktime_tz(data)  line 191
+    quote(str)  line 204
+    AddrlistClass()  line 214
+        AddrlistClass.__init__(self, field)  line 224
+        AddrlistClass.gotonext(self)  line 243
+        AddrlistClass.getaddrlist(self)  line 257
+        AddrlistClass.getaddress(self)  line 271
+        AddrlistClass.getrouteaddr(self)  line 330
+        AddrlistClass.getaddrspec(self)  line 362
+        AddrlistClass.getdomain(self)  line 400
+        AddrlistClass.getdelimited(self, beginchar, endchars, allowcomments)  line 423
+        AddrlistClass.getquote(self)  line 460
+        AddrlistClass.getcomment(self)  line 464
+        AddrlistClass.getdomainliteral(self)  line 468
+        AddrlistClass.getatom(self, atomends)  line 472
+        AddrlistClass.getphraselist(self)  line 492
+    AddressList()  line 515
+        AddressList.__init__(self, field)  line 517
+        AddressList.__len__(self)  line 524
+        AddressList.__add__(self, other)  line 527
+        AddressList.__iadd__(self, other)  line 536
+        AddressList.__sub__(self, other)  line 543
+        AddressList.__isub__(self, other)  line 551
+        AddressList.__getitem__(self, index)  line 558
+
+--- strings ---
+'Email address parsing code.\n\nLifted directly from rfc822.py.  This should eventually be rewritten.\n'
+', '
+'UT'
+'UTC'
+'GMT'
+'AST'
+'ADT'
+'EST'
+'EDT'
+'CST'
+'CDT'
+'MST'
+'MDT'
+'PST'
+'PDT'
+'Convert a date string to a time tuple.\n\nAccounts for military timezones.\n'
+'Convert date to extended time tuple.\n\nThe last (additional) element is the time zone offset in seconds, except if\nthe timezone was specified as -0000.  In that case the last element is\nNone.  This indicates a UTC timestamp that explicitly declaims knowledge of\nthe source timezone, as opposed to a +0000 timestamp that indicates the\nsource timezone really was UTC.\n\n'
+'Convert a time string to a time tuple.'
+'Turn a 10-tuple as returned by parsedate_tz() into a POSIX timestamp.'
+'Prepare string to be used in a quoted string.\n\nTurns backslash and double quote characters into quoted pairs.  These\nare the only characters that need to be quoted inside a quoted string.\nDoes not add the surrounding double quotes.\n'
+'\\\\'
+'\\"'
+'AddrlistClass'
+'Address parser class by Ben Escoto.\n\nTo understand what this class does, it helps to have a copy of RFC 2822 in\nfront of you.\n\nNote: this class interface is deprecated and may be removed in the future.\nUse email.utils.AddressList instead.\n'
+"Initialize a new instance.\n\n'field' is an unparsed address header field, containing\none or more addresses.\n"
+'()<>@,:;."[]'
+' \t'
+'\r\n'
+'Skip white space and extract comments.'
+'\n\r'
+'Parse all addresses.\n\nReturns a list containing all of the addresses.\n'
+'Parse the next address.'
+'.@'
+' ('
+'Parse a route address (Return-path value).\n\nThis method just skips all the route stuff and returns the addrspec.\n'
+'Parse an RFC 2822 addr-spec.'
+'"%s"'
+'Get the complete domain name from an address.'
+"Parse a header fragment delimited by special characters.\n\n'beginchar' is the start character for the fragment.\nIf self is not looking at an instance of 'beginchar' then\ngetdelimited returns the empty string.\n\n'endchars' is a sequence of allowable end-delimiting characters.\nParsing stops when one of these is encountered.\n\nIf 'allowcomments' is non-zero, embedded RFC 2822 comments are allowed\nwithin the parsed fragment.\n"
+"Get a quote-delimited fragment from self's field."
+'"\r'
+"Get a parenthesis-delimited fragment from self's field."
+')\r'
+'Parse an RFC 2822 domain-literal.'
+'[%s]'
+']\r'
+"Parse an RFC 2822 atom.\n\nOptional atomends specifies a different set of end token delimiters\n(the default is to use self.atomends).  This is used e.g. in\ngetphraselist() since phrase endings must not include the '.' (which\nis legal in phrases)."
+'Parse a sequence of RFC 2822 phrases.\n\nA phrase is a sequence of words, which are in turn either RFC 2822\natoms or quoted-strings.  Phrases are canonicalized by squeezing all\nruns of continuous whitespace into one space.\n'
+'AddrlistClass'
+'AddressList'
+'An AddressList encapsulates a list of parsed RFC 2822 addresses.'
+'AddressList'

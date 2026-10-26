@@ -1,0 +1,527 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ("Utilities to compile possibly incomplete Python source code.\n\nThis module provides two interfaces, broadly similar to the builtin\nfunction compile(), which take program text, a filename and a 'mode'\nand:\n\n- Return code object if the command is complete and valid\n- Return None if the command is incomplete\n- Raise SyntaxError, ValueError or OverflowError if the command is a\n  syntax error (OverflowError and ValueError can be produced by\n  malformed literals).\n\nThe two interfaces are:\n\ncompile_command(source, filename, symbol):\n\n    Compiles a single command in the manner described above.\n\nCommandCompiler():\n\n    Instances of this class have __call__ methods identical in\n    signature to compile_command; the difference is that if the\n    instance compiles program text containing a __future__ statement,\n    the instance 'remembers' and compiles all subsequent program texts\n    with the statement in force.\n\nThe module also provides another class:\n\nCompile():\n\n    Instances of this class act like the built-in function compile,\n    but with 'memory' in the sense described above.\n")
+               STORE_NAME               0 (__doc__)
+
+  35           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (__future__)
+               STORE_NAME               1 (__future__)
+
+  36           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              2 (warnings)
+               STORE_NAME               2 (warnings)
+
+  39           LOAD_NAME                1 (__future__)
+               LOAD_ATTR                6 (all_feature_names)
+               GET_ITER
+
+  38           LOAD_FAST_AND_CLEAR      0 (fname)
+               SWAP                     2
+       L1:     BUILD_LIST               0
+               SWAP                     2
+
+  39   L2:     FOR_ITER                12 (to L3)
+               STORE_FAST               0 (fname)
+
+  38           LOAD_NAME                4 (getattr)
+               PUSH_NULL
+               LOAD_NAME                1 (__future__)
+               LOAD_FAST_BORROW         0 (fname)
+               CALL                     2
+               LIST_APPEND              2
+               JUMP_BACKWARD           14 (to L2)
+
+  39   L3:     END_FOR
+               POP_ITER
+
+  38   L4:     SWAP                     2
+               STORE_FAST               0 (fname)
+               STORE_NAME               5 (_features)
+
+  41           BUILD_LIST               0
+               LOAD_CONST              13 (('compile_command', 'Compile', 'CommandCompiler'))
+               LIST_EXTEND              1
+               STORE_NAME               6 (__all__)
+
+  46           LOAD_CONST               4 (512)
+               STORE_NAME               7 (PyCF_DONT_IMPLY_DEDENT)
+
+  47           LOAD_CONST               5 (1024)
+               STORE_NAME               8 (PyCF_ONLY_AST)
+
+  48           LOAD_CONST               6 (16384)
+               STORE_NAME               9 (PyCF_ALLOW_INCOMPLETE_INPUT)
+
+  50           LOAD_CONST               7 (<code object _maybe_compile at 0x00000204BA3735D0, file "codeop.py", line 50>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (_maybe_compile)
+
+  77           LOAD_CONST              14 ((True,))
+               LOAD_CONST               8 ('flags')
+               LOAD_SMALL_INT           0
+               BUILD_MAP                1
+               LOAD_CONST               9 (<code object _compile at 0x00000204B9FEF800, file "codeop.py", line 77>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              11 (_compile)
+
+  83           LOAD_CONST              15 (('<input>', 'single', 0))
+               LOAD_CONST              10 (<code object compile_command at 0x00000204BA08AF30, file "codeop.py", line 83>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (compile_command)
+
+ 104           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              11 (<code object Compile at 0x00000204BA0FF440, file "codeop.py", line 104>)
+               MAKE_FUNCTION
+               LOAD_CONST               2 ('Compile')
+               CALL                     2
+               STORE_NAME              13 (Compile)
+
+ 125           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              12 (<code object CommandCompiler at 0x00000204BA0FC250, file "codeop.py", line 125>)
+               MAKE_FUNCTION
+               LOAD_CONST               3 ('CommandCompiler')
+               CALL                     2
+               STORE_NAME              14 (CommandCompiler)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L5:     SWAP                     2
+               POP_TOP
+
+  38           SWAP                     2
+               STORE_FAST               0 (fname)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L5 [2]
+
+Disassembly of <code object _maybe_compile at 0x00000204BA3735D0, file "codeop.py", line 50>:
+  50            RESUME                   0
+
+  52            LOAD_FAST_BORROW         1 (source)
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST               0 ('\n')
+                CALL                     1
+                GET_ITER
+        L1:     FOR_ITER                45 (to L4)
+                STORE_FAST               5 (line)
+
+  53            LOAD_FAST_BORROW         5 (line)
+                LOAD_ATTR                3 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               5 (line)
+
+  54            LOAD_FAST_BORROW         5 (line)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L2)
+                NOT_TAKEN
+                JUMP_BACKWARD           29 (to L1)
+        L2:     LOAD_FAST_BORROW         5 (line)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_CONST               1 ('#')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_TRUE         3 (to L3)
+                NOT_TAKEN
+                JUMP_BACKWARD           45 (to L1)
+
+  55    L3:     POP_TOP
+                JUMP_FORWARD            11 (to L5)
+
+  52    L4:     END_FOR
+                POP_ITER
+
+  57            LOAD_FAST_BORROW         3 (symbol)
+                LOAD_CONST               2 ('eval')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE        3 (to L5)
+                NOT_TAKEN
+
+  58            LOAD_CONST               3 ('pass')
+                STORE_FAST               1 (source)
+
+  61    L5:     LOAD_GLOBAL              4 (warnings)
+                LOAD_ATTR                6 (catch_warnings)
+                PUSH_NULL
+                CALL                     0
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L6:     POP_TOP
+
+  62            LOAD_GLOBAL              4 (warnings)
+                LOAD_ATTR                8 (simplefilter)
+                PUSH_NULL
+                LOAD_CONST               4 ('ignore')
+                LOAD_GLOBAL             10 (SyntaxWarning)
+                LOAD_GLOBAL             12 (DeprecationWarning)
+                BUILD_TUPLE              2
+                CALL                     2
+                POP_TOP
+
+  63    L7:     NOP
+
+  64    L8:     LOAD_FAST_BORROW         0 (compiler)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (source, filename)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (symbol, flags)
+                LOAD_CONST               5 (('flags',))
+                CALL_KW                  4
+                POP_TOP
+
+  61    L9:     LOAD_CONST               6 (None)
+                LOAD_CONST               6 (None)
+                LOAD_CONST               6 (None)
+                CALL                     3
+                POP_TOP
+
+  75   L10:     LOAD_FAST                0 (compiler)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST     18 (source, filename)
+                LOAD_FAST                3 (symbol)
+                LOAD_CONST               7 (False)
+                LOAD_CONST               8 (('incomplete_input',))
+                CALL_KW                  4
+                RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+  65            LOAD_GLOBAL             14 (SyntaxError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       86 (to L29)
+                NOT_TAKEN
+                POP_TOP
+
+  66   L12:     NOP
+
+  67   L13:     LOAD_FAST                0 (compiler)
+                PUSH_NULL
+                LOAD_FAST                1 (source)
+                LOAD_CONST               0 ('\n')
+                BINARY_OP                0 (+)
+                LOAD_FAST_LOAD_FAST     35 (filename, symbol)
+                LOAD_FAST                4 (flags)
+                LOAD_CONST               5 (('flags',))
+                CALL_KW                  4
+                POP_TOP
+
+  68   L14:     POP_EXCEPT
+
+  61   L15:     LOAD_CONST               6 (None)
+                LOAD_CONST               6 (None)
+                LOAD_CONST               6 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               6 (None)
+                RETURN_VALUE
+
+  --   L16:     PUSH_EXC_INFO
+
+  69            LOAD_GLOBAL             16 (_IncompleteInputError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       21 (to L21)
+                NOT_TAKEN
+                STORE_FAST               6 (e)
+
+  70   L17:     POP_EXCEPT
+                LOAD_CONST               6 (None)
+                STORE_FAST               6 (e)
+                DELETE_FAST              6 (e)
+       L18:     POP_EXCEPT
+
+  61   L19:     LOAD_CONST               6 (None)
+                LOAD_CONST               6 (None)
+                LOAD_CONST               6 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               6 (None)
+                RETURN_VALUE
+
+  --   L20:     LOAD_CONST               6 (None)
+                STORE_FAST               6 (e)
+                DELETE_FAST              6 (e)
+                RERAISE                  1
+
+  71   L21:     LOAD_GLOBAL             14 (SyntaxError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       12 (to L27)
+       L22:     NOT_TAKEN
+       L23:     STORE_FAST               6 (e)
+
+  72   L24:     POP_EXCEPT
+                LOAD_CONST               6 (None)
+                STORE_FAST               6 (e)
+                DELETE_FAST              6 (e)
+       L25:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 106 (to L9)
+
+  --   L26:     LOAD_CONST               6 (None)
+                STORE_FAST               6 (e)
+                DELETE_FAST              6 (e)
+                RERAISE                  1
+
+  71   L27:     RERAISE                  0
+
+  --   L28:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  65   L29:     RERAISE                  0
+
+  --   L30:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  61   L31:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L32)
+                NOT_TAKEN
+                RERAISE                  2
+       L32:     POP_TOP
+       L33:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 126 (to L10)
+
+  --   L34:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L6 to L7 -> L31 [2] lasti
+  L8 to L9 -> L11 [2]
+  L11 to L12 -> L30 [3] lasti
+  L13 to L14 -> L16 [3]
+  L14 to L15 -> L31 [2] lasti
+  L16 to L17 -> L28 [4] lasti
+  L17 to L18 -> L30 [3] lasti
+  L18 to L19 -> L31 [2] lasti
+  L20 to L22 -> L28 [4] lasti
+  L23 to L24 -> L28 [4] lasti
+  L24 to L25 -> L30 [3] lasti
+  L25 to L26 -> L31 [2] lasti
+  L26 to L28 -> L28 [4] lasti
+  L28 to L30 -> L30 [3] lasti
+  L30 to L31 -> L31 [2] lasti
+  L31 to L33 -> L34 [4] lasti
+
+Disassembly of <code object _compile at 0x00000204B9FEF800, file "codeop.py", line 77>:
+ 77           RESUME                   0
+
+ 78           LOAD_FAST_BORROW         3 (incomplete_input)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+ 79           LOAD_FAST_BORROW         4 (flags)
+              LOAD_GLOBAL              0 (PyCF_ALLOW_INCOMPLETE_INPUT)
+              BINARY_OP               20 (|=)
+              STORE_FAST               4 (flags)
+
+ 80           LOAD_FAST_BORROW         4 (flags)
+              LOAD_GLOBAL              2 (PyCF_DONT_IMPLY_DEDENT)
+              BINARY_OP               20 (|=)
+              STORE_FAST               4 (flags)
+
+ 81   L1:     LOAD_GLOBAL              5 (compile + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (source, filename)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (symbol, flags)
+              CALL                     4
+              RETURN_VALUE
+
+Disassembly of <code object compile_command at 0x00000204BA08AF30, file "codeop.py", line 83>:
+ 83           RESUME                   0
+
+102           LOAD_GLOBAL              1 (_maybe_compile + NULL)
+              LOAD_GLOBAL              2 (_compile)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (source, filename)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (symbol, flags)
+              CALL                     5
+              RETURN_VALUE
+
+Disassembly of <code object Compile at 0x00000204BA0FF440, file "codeop.py", line 104>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 104           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Compile')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         104
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 105           LOAD_CONST               1 ('Instances of this class behave much like the built-in compile\nfunction, but if one is used to compile text containing a future\nstatement, it "remembers" and compiles all subsequent program texts\nwith the statement in force.')
+               STORE_NAME               4 (__doc__)
+
+ 109           LOAD_CONST               2 (<code object __init__ at 0x00000204BA0FD020, file "codeop.py", line 109>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 112           LOAD_CONST               6 ((0,))
+               LOAD_CONST               3 (<code object __call__ at 0x00000204BA381AB0, file "codeop.py", line 112>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__call__)
+               LOAD_CONST               4 (('flags',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FD020, file "codeop.py", line 109>:
+109           RESUME                   0
+
+110           LOAD_GLOBAL              0 (PyCF_DONT_IMPLY_DEDENT)
+              LOAD_GLOBAL              2 (PyCF_ALLOW_INCOMPLETE_INPUT)
+              BINARY_OP                7 (|)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (flags)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x00000204BA381AB0, file "codeop.py", line 112>:
+112           RESUME                   0
+
+113           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (flags, self)
+              LOAD_ATTR                0 (flags)
+              BINARY_OP               20 (|=)
+              STORE_FAST               4 (flags)
+
+114           LOAD_FAST_BORROW         5 (kwargs)
+              LOAD_ATTR                3 (get + NULL|self)
+              LOAD_CONST               0 ('incomplete_input')
+              LOAD_CONST               1 (True)
+              CALL                     2
+              LOAD_CONST               2 (False)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       29 (to L1)
+              NOT_TAKEN
+
+115           LOAD_FAST_BORROW         4 (flags)
+              LOAD_GLOBAL              4 (PyCF_DONT_IMPLY_DEDENT)
+              UNARY_INVERT
+              BINARY_OP               14 (&=)
+              STORE_FAST               4 (flags)
+
+116           LOAD_FAST_BORROW         4 (flags)
+              LOAD_GLOBAL              6 (PyCF_ALLOW_INCOMPLETE_INPUT)
+              UNARY_INVERT
+              BINARY_OP               14 (&=)
+              STORE_FAST               4 (flags)
+
+117   L1:     LOAD_GLOBAL              9 (compile + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (source, filename)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (symbol, flags)
+              LOAD_CONST               1 (True)
+              CALL                     5
+              STORE_FAST               6 (codeob)
+
+118           LOAD_FAST_BORROW         4 (flags)
+              LOAD_GLOBAL             10 (PyCF_ONLY_AST)
+              BINARY_OP                1 (&)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+119           LOAD_FAST_BORROW         6 (codeob)
+              RETURN_VALUE
+
+120   L2:     LOAD_GLOBAL             12 (_features)
+              GET_ITER
+      L3:     FOR_ITER                75 (to L5)
+              STORE_FAST               7 (feature)
+
+121           LOAD_FAST_BORROW         6 (codeob)
+              LOAD_ATTR               14 (co_flags)
+              LOAD_FAST_BORROW         7 (feature)
+              LOAD_ATTR               16 (compiler_flag)
+              BINARY_OP                1 (&)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           40 (to L3)
+
+122   L4:     LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (flags)
+              LOAD_FAST_BORROW         7 (feature)
+              LOAD_ATTR               16 (compiler_flag)
+              BINARY_OP               20 (|=)
+              SWAP                     2
+              STORE_ATTR               0 (flags)
+              JUMP_BACKWARD           77 (to L3)
+
+120   L5:     END_FOR
+              POP_ITER
+
+123           LOAD_FAST_BORROW         6 (codeob)
+              RETURN_VALUE
+
+Disassembly of <code object CommandCompiler at 0x00000204BA0FC250, file "codeop.py", line 125>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 125           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('CommandCompiler')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         125
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 126           LOAD_CONST               1 ("Instances of this class have __call__ methods identical in\nsignature to compile_command; the difference is that if the\ninstance compiles program text containing a __future__ statement,\nthe instance 'remembers' and compiles all subsequent program texts\nwith the statement in force.")
+               STORE_NAME               4 (__doc__)
+
+ 132           LOAD_CONST               2 (<code object __init__ at 0x00000204BA08A530, file "codeop.py", line 132>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 135           LOAD_CONST               6 (('<input>', 'single'))
+               LOAD_CONST               3 (<code object __call__ at 0x00000204BA101CB0, file "codeop.py", line 135>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__call__)
+               LOAD_CONST               4 (('compiler',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA08A530, file "codeop.py", line 132>:
+132           RESUME                   0
+
+133           LOAD_GLOBAL              1 (Compile + NULL)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (compiler)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x00000204BA101CB0, file "codeop.py", line 135>:
+135           RESUME                   0
+
+154           LOAD_GLOBAL              1 (_maybe_compile + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (compiler)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (source, filename)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (symbol, self)
+              LOAD_ATTR                2 (compiler)
+              LOAD_ATTR                4 (flags)
+              LOAD_CONST               1 (('flags',))
+              CALL_KW                  5
+              RETURN_VALUE

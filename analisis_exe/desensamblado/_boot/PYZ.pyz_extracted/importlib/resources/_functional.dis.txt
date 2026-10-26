@@ -1,0 +1,257 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Simplified function-based API for importlib.resources')
+              STORE_NAME               0 (__doc__)
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (warnings)
+              STORE_NAME               1 (warnings)
+
+  5           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('files', 'as_file'))
+              IMPORT_NAME              2 (_common)
+              IMPORT_FROM              3 (files)
+              STORE_NAME               3 (files)
+              IMPORT_FROM              4 (as_file)
+              STORE_NAME               4 (as_file)
+              POP_TOP
+
+  8           LOAD_NAME                5 (object)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME               6 (_MISSING)
+
+ 11           LOAD_CONST               3 (<code object open_binary at 0x00000204BA083110, file "importlib\resources\_functional.py", line 11>)
+              MAKE_FUNCTION
+              STORE_NAME               7 (open_binary)
+
+ 16           LOAD_CONST               4 ('encoding')
+              LOAD_NAME                6 (_MISSING)
+              LOAD_CONST               5 ('errors')
+              LOAD_CONST               6 ('strict')
+              BUILD_MAP                2
+              LOAD_CONST               7 (<code object open_text at 0x00000204BA102500, file "importlib\resources\_functional.py", line 16>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              STORE_NAME               8 (open_text)
+
+ 23           LOAD_CONST               8 (<code object read_binary at 0x00000204BA0FF550, file "importlib\resources\_functional.py", line 23>)
+              MAKE_FUNCTION
+              STORE_NAME               9 (read_binary)
+
+ 28           LOAD_CONST               4 ('encoding')
+              LOAD_NAME                6 (_MISSING)
+              LOAD_CONST               5 ('errors')
+              LOAD_CONST               6 ('strict')
+              BUILD_MAP                2
+              LOAD_CONST               9 (<code object read_text at 0x00000204BA103B90, file "importlib\resources\_functional.py", line 28>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              STORE_NAME              10 (read_text)
+
+ 35           LOAD_CONST              10 (<code object path at 0x00000204BA08B130, file "importlib\resources\_functional.py", line 35>)
+              MAKE_FUNCTION
+              STORE_NAME              11 (path)
+
+ 40           LOAD_CONST              11 (<code object is_resource at 0x00000204BA0FD020, file "importlib\resources\_functional.py", line 40>)
+              MAKE_FUNCTION
+              STORE_NAME              12 (is_resource)
+
+ 48           LOAD_CONST              12 (<code object contents at 0x00000204BA0B8960, file "importlib\resources\_functional.py", line 48>)
+              MAKE_FUNCTION
+              STORE_NAME              13 (contents)
+
+ 63           LOAD_CONST              13 (<code object _get_encoding_arg at 0x00000204BA103210, file "importlib\resources\_functional.py", line 63>)
+              MAKE_FUNCTION
+              STORE_NAME              14 (_get_encoding_arg)
+
+ 78           LOAD_CONST              14 (<code object _get_resource at 0x00000204BA102E80, file "importlib\resources\_functional.py", line 78>)
+              MAKE_FUNCTION
+              STORE_NAME              15 (_get_resource)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object open_binary at 0x00000204BA083110, file "importlib\resources\_functional.py", line 11>:
+ 11           RESUME                   0
+
+ 13           LOAD_GLOBAL              1 (_get_resource + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (anchor, path_names)
+              CALL                     2
+              LOAD_ATTR                3 (open + NULL|self)
+              LOAD_CONST               1 ('rb')
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object open_text at 0x00000204BA102500, file "importlib\resources\_functional.py", line 16>:
+ 16           RESUME                   0
+
+ 18           LOAD_GLOBAL              1 (_get_encoding_arg + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (path_names, encoding)
+              CALL                     2
+              STORE_FAST               1 (encoding)
+
+ 19           LOAD_GLOBAL              3 (_get_resource + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (anchor, path_names)
+              CALL                     2
+              STORE_FAST               4 (resource)
+
+ 20           LOAD_FAST_BORROW         4 (resource)
+              LOAD_ATTR                5 (open + NULL|self)
+              LOAD_CONST               1 ('r')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (encoding, errors)
+              LOAD_CONST               2 (('encoding', 'errors'))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object read_binary at 0x00000204BA0FF550, file "importlib\resources\_functional.py", line 23>:
+ 23           RESUME                   0
+
+ 25           LOAD_GLOBAL              1 (_get_resource + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (anchor, path_names)
+              CALL                     2
+              LOAD_ATTR                3 (read_bytes + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object read_text at 0x00000204BA103B90, file "importlib\resources\_functional.py", line 28>:
+ 28           RESUME                   0
+
+ 30           LOAD_GLOBAL              1 (_get_encoding_arg + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (path_names, encoding)
+              CALL                     2
+              STORE_FAST               1 (encoding)
+
+ 31           LOAD_GLOBAL              3 (_get_resource + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (anchor, path_names)
+              CALL                     2
+              STORE_FAST               4 (resource)
+
+ 32           LOAD_FAST_BORROW         4 (resource)
+              LOAD_ATTR                5 (read_text + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (encoding, errors)
+              LOAD_CONST               1 (('encoding', 'errors'))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object path at 0x00000204BA08B130, file "importlib\resources\_functional.py", line 35>:
+ 35           RESUME                   0
+
+ 37           LOAD_GLOBAL              1 (as_file + NULL)
+              LOAD_GLOBAL              3 (_get_resource + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (anchor, path_names)
+              CALL                     2
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object is_resource at 0x00000204BA0FD020, file "importlib\resources\_functional.py", line 40>:
+ 40           RESUME                   0
+
+ 45           LOAD_GLOBAL              1 (_get_resource + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (anchor, path_names)
+              CALL                     2
+              LOAD_ATTR                3 (is_file + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object contents at 0x00000204BA0B8960, file "importlib\resources\_functional.py", line 48>:
+ 48           RESUME                   0
+
+ 54           LOAD_GLOBAL              0 (warnings)
+              LOAD_ATTR                2 (warn)
+              PUSH_NULL
+
+ 55           LOAD_CONST               1 ('importlib.resources.contents is deprecated. Use files(anchor).iterdir() instead.')
+
+ 57           LOAD_GLOBAL              4 (DeprecationWarning)
+
+ 58           LOAD_SMALL_INT           1
+
+ 54           LOAD_CONST               2 (('stacklevel',))
+              CALL_KW                  3
+              POP_TOP
+
+ 60           LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA0FFCC0, file "importlib\resources\_functional.py", line 60>)
+              MAKE_FUNCTION
+              LOAD_GLOBAL              7 (_get_resource + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (anchor, path_names)
+              CALL                     2
+              LOAD_ATTR                9 (iterdir + NULL|self)
+              CALL                     0
+              GET_ITER
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FFCC0, file "importlib\resources\_functional.py", line 60>:
+  60           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                16 (to L3)
+               STORE_FAST_LOAD_FAST    17 (resource, resource)
+               LOAD_ATTR                0 (name)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object _get_encoding_arg at 0x00000204BA103210, file "importlib\resources\_functional.py", line 63>:
+ 63           RESUME                   0
+
+ 68           LOAD_FAST_BORROW         1 (encoding)
+              LOAD_GLOBAL              0 (_MISSING)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       30 (to L2)
+              NOT_TAKEN
+
+ 69           LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (path_names)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 70           LOAD_GLOBAL              5 (TypeError + NULL)
+
+ 71           LOAD_CONST               1 ("'encoding' argument required with multiple path names")
+
+ 70           CALL                     1
+              RAISE_VARARGS            1
+
+ 74   L1:     LOAD_CONST               2 ('utf-8')
+              RETURN_VALUE
+
+ 75   L2:     LOAD_FAST_BORROW         1 (encoding)
+              RETURN_VALUE
+
+Disassembly of <code object _get_resource at 0x00000204BA102E80, file "importlib\resources\_functional.py", line 78>:
+ 78           RESUME                   0
+
+ 79           LOAD_FAST_BORROW         0 (anchor)
+              POP_JUMP_IF_NOT_NONE    12 (to L1)
+              NOT_TAKEN
+
+ 80           LOAD_GLOBAL              1 (TypeError + NULL)
+              LOAD_CONST               1 ('anchor must be module or string, got None')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 81   L1:     LOAD_GLOBAL              3 (files + NULL)
+              LOAD_FAST_BORROW         0 (anchor)
+              CALL                     1
+              LOAD_ATTR                4 (joinpath)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (path_names)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE

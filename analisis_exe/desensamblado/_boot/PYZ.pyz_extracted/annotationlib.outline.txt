@@ -1,0 +1,142 @@
+<module>()  line 1
+    Format()  line 22
+    ForwardRef()  line 53
+        ForwardRef.__init__(self, arg, module, owner, is_argument, is_class)  line 68
+        ForwardRef.__init_subclass__(cls)  line 95
+        ForwardRef.evaluate(self, globals, locals, type_params, owner, format)  line 98
+        ForwardRef._evaluate(self, globalns, localns, type_params, recursive_guard)  line 205
+        ForwardRef.__forward_arg__(self)  line 228
+        ForwardRef.__forward_code__(self)  line 239
+        ForwardRef.__eq__(self, other)  line 257
+        ForwardRef.__hash__(self)  line 275
+        ForwardRef.__or__(self, other)  line 286
+        ForwardRef.__ror__(self, other)  line 289
+        ForwardRef.__repr__(self)  line 292
+    _Stringifier()  line 306
+        _Stringifier.__init__(self, node, globals, owner, is_class, cell, stringifier_dict, extra_names)  line 311
+        _Stringifier.__convert_to_ast(self, other)  line 337
+        _Stringifier.__convert_to_ast_getitem(self, other)  line 380
+            _Stringifier.__convert_to_ast_getitem.<locals>.conv(obj)  line 384
+        _Stringifier.__get_ast(self)  line 400
+        _Stringifier.__make_new(self, node, extra_names)  line 406
+        _Stringifier.__hash__(self)  line 425
+        _Stringifier.__getitem__(self, other)  line 428
+        _Stringifier.__getattr__(self, attr)  line 447
+        _Stringifier.__call__(self)  line 450
+        _Stringifier.__iter__(self)  line 466
+        _Stringifier.__repr__(self)  line 469
+        _Stringifier.__format__(self, format_spec)  line 474
+        _Stringifier.__annotate__(format)  line 477
+        _Stringifier._make_binop(op)  line 477
+            _Stringifier._make_binop.<locals>.binop(self, other)  line 478
+        _Stringifier.__annotate__(format)  line 502
+        _Stringifier._make_rbinop(op)  line 502
+            _Stringifier._make_rbinop.<locals>.rbinop(self, other)  line 503
+        _Stringifier._make_compare(op)  line 527
+            _Stringifier._make_compare.<locals>.compare(self, other)  line 528
+        _Stringifier._make_unary_op(op)  line 550
+            _Stringifier._make_unary_op.<locals>.unary_op(self)  line 551
+    _template_to_ast(template)  line 563
+    _StringifierDict()  line 589
+        _StringifierDict.__init__(self, namespace, globals, owner, is_class, format)  line 590
+        _StringifierDict.__missing__(self, key)  line 600
+        _StringifierDict.transmogrify(self)  line 611
+        _StringifierDict.create_unique_name(self)  line 619
+    call_evaluate_function(evaluate, format, owner)  line 625
+    call_annotate_function(annotate, format, owner, _is_evaluate)  line 633
+    _build_closure(annotate, owner, is_class, stringifier_dict, allow_evaluation)  line 774
+    _stringify_single(anno)  line 807
+    get_annotate_from_class_namespace(obj)  line 819
+    get_annotations(obj, globals, locals, eval_str, format)  line 831
+    type_repr(value)  line 996
+    annotations_to_string(annotations)  line 1016
+    _get_and_call_annotate(obj, format)  line 1027
+    _get_dunder_annotations(obj)  line 1044
+
+--- strings ---
+'Helpers for introspecting and wrapping annotations.'
+'Format'
+'ForwardRef'
+'Format'
+"name '{name:.200}' is not defined"
+'ForwardRef'
+'Wrapper that holds a forward reference.\n\nConstructor arguments:\n* arg: a string representing the code to be evaluated.\n* module: the module where the forward reference was created.\n  Must be a string, not a module object.\n* owner: The owning object (module, class, or function).\n* is_argument: Does nothing, retained for compatibility.\n* is_class: True if the forward reference was created in class scope.\n\n'
+'module'
+'owner'
+'is_argument'
+'is_class'
+'Forward reference must be a string -- got '
+'Cannot subclass ForwardRef'
+'globals'
+'locals'
+'type_params'
+'format'
+'Evaluate the forward reference and return the value.\n\nIf the forward reference cannot be evaluated, raise an exception.\n'
+'__dict__'
+'__module__'
+'__globals__'
+'__type_params__'
+'typing.ForwardRef._evaluate'
+'ForwardRef._evaluate'
+'{name} is a private API and is retained for compatibility, but will be removed in Python 3.16. Use ForwardRef.evaluate() or typing.evaluate_forward_ref() instead.'
+"Attempted to access '__forward_arg__' on an uninitialized ForwardRef"
+',)[0]'
+'<string>'
+'eval'
+'Forward reference must be an expression -- got '
+', module='
+', is_class=True'
+', owner='
+'ForwardRef('
+'_Stringifier'
+'extra_names'
+'__classdict__'
+'Cannot stringify annotation containing string formatting'
+'op'
+'op'
+'_Stringifier'
+'_StringifierDict'
+'globals'
+'owner'
+'is_class'
+'__annotationlib_name_'
+'__'
+'_StringifierDict'
+'owner'
+'Call an evaluate function. Evaluate functions are normally generated for\nthe value of type aliases and the bounds, constraints, and defaults of\ntype parameter objects.\n'
+'_is_evaluate'
+'Call an __annotate__ function. __annotate__ functions are normally\ngenerated by the compiler to defer the evaluation of annotations. They\ncan be called with any of the format arguments in the Format enum, but\ncompiler-generated __annotate__ functions only support the VALUE format.\nThis function provides additional functionality to call __annotate__\nfunctions with the FORWARDREF and STRING formats.\n\n*annotate* must be an __annotate__ function, which takes a single argument\nand returns a dict of annotations.\n\n*format* must be a member of the Format enum or one of the corresponding\ninteger values.\n\n*owner* can be the object that owns the annotations (i.e., the module,\nclass, or function that the __annotate__ function derives from). With the\nFORWARDREF format, it is used to provide better evaluation capabilities\non the generated ForwardRef objects.\n\n'
+'The VALUE_WITH_FAKE_GLOBALS format is for internal use only'
+'annotate function does not support VALUE format'
+'Invalid format: '
+'__cell__'
+'...'
+'Retrieve the annotate function from a class namespace dictionary.\n\nReturn None if the namespace does not contain an annotate function.\nThis is useful in metaclass ``__new__`` methods to retrieve the annotate function.\n'
+'__annotate__'
+'__annotate_func__'
+'globals'
+'locals'
+'eval_str'
+'format'
+'Compute the annotations dict for an object.\n\nobj may be a callable, class, module, or other object with\n__annotate__ or __annotations__ attributes.\nPassing any other object raises TypeError.\n\nThe *format* parameter controls the format in which annotations are returned,\nand must be a member of the Format enum or its integer equivalent.\nFor the VALUE format, the __annotations__ is tried first; if it\ndoes not exist, the __annotate__ function is called. The\nFORWARDREF format uses __annotations__ if it exists and can be\nevaluated, and otherwise falls back to calling the __annotate__ function.\nThe SOURCE format tries __annotate__ first, and falls back to\nusing __annotations__, stringified using annotations_to_string().\n\nThis function handles several details for you:\n\n  * If eval_str is true, values of type str will\n    be un-stringized using eval().  This is intended\n    for use with stringized annotations\n    ("from __future__ import annotations").\n  * If obj doesn\'t have an annotations dict, returns an\n    empty dict.  (Functions and methods always have an\n    annotations dict; classes, modules, and other types of\n    callables may not.)\n  * Ignores inherited annotations on classes.  If a class\n    doesn\'t have its own annotations dict, returns an empty dict.\n  * All accesses to object members and dict values are done\n    using getattr() and dict.get() for safety.\n  * Always, always, always returns a freshly-created dict.\n\neval_str controls whether or not values of type str are replaced\nwith the result of calling eval() on those values:\n\n  * If eval_str is true, eval() is called on values of type str.\n  * If eval_str is false (the default), values of type str are unchanged.\n\nglobals and locals are passed in to eval(); see the documentation\nfor eval() for more information.  If either globals or locals is\nNone, this function may replace that value with a context-specific\ndefault, contingent on type(obj):\n\n  * If obj is a module, globals defaults to obj.__dict__.\n  * If obj is a class, globals defaults to\n    sys.modules[obj.__module__].__dict__ and locals\n    defaults to the obj class namespace.\n  * If obj is a callable, globals defaults to obj.__globals__,\n    although if obj is a wrapped function (using\n    functools.update_wrapper()) it is first unwrapped.\n'
+'eval_str=True is only supported with format=Format.VALUE'
+'The VALUE_WITH_FAKE_GLOBALS format is for internal use only'
+'Unsupported format '
+' does not have annotations'
+'__module__'
+'__dict__'
+'__globals__'
+'__wrapped__'
+'functools'
+'__type_params__'
+'Convert a Python value to a format suitable for use with the STRING format.\n\nThis is intended as a helper for tools that support the STRING format but do\nnot have access to the code that originally produced the annotations. It uses\nrepr() for most objects.\n\n'
+'builtins'
+'...'
+'Convert an annotation dict containing values to approximately the STRING format.\n\nAlways returns a fresh a dictionary.\n'
+'Get the __annotate__ function and call it.\n\nMay not return a fresh dictionary.\n'
+'__annotate__'
+'.__annotate__ returned a non-dict'
+'__annotations__'
+'Return the annotations for an object, checking that it is a dictionary.\n\nDoes not return a fresh dictionary.\n'
+'__annotations__'
+'.__annotations__ is neither a dict nor None'

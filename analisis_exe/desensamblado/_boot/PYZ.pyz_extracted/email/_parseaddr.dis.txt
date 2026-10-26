@@ -1,0 +1,2478 @@
+  0           RESUME                   0
+
+  4           LOAD_CONST               0 ('Email address parsing code.\n\nLifted directly from rfc822.py.  This should eventually be rewritten.\n')
+              STORE_NAME               0 (__doc__)
+
+  9           BUILD_LIST               0
+              LOAD_CONST              28 (('mktime_tz', 'parsedate', 'parsedate_tz', 'quote'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (__all__)
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (time)
+              STORE_NAME               2 (time)
+
+ 18           LOAD_CONST               2 (' ')
+              STORE_NAME               3 (SPACE)
+
+ 19           LOAD_CONST               3 ('')
+              STORE_NAME               4 (EMPTYSTRING)
+
+ 20           LOAD_CONST               4 (', ')
+              STORE_NAME               5 (COMMASPACE)
+
+ 23           BUILD_LIST               0
+              LOAD_CONST              29 (('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'))
+              LIST_EXTEND              1
+              STORE_NAME               6 (_monthnames)
+
+ 28           BUILD_LIST               0
+              LOAD_CONST              30 (('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'))
+              LIST_EXTEND              1
+              STORE_NAME               7 (_daynames)
+
+ 36           LOAD_CONST               5 ('UT')
+              LOAD_SMALL_INT           0
+              LOAD_CONST               6 ('UTC')
+              LOAD_SMALL_INT           0
+              LOAD_CONST               7 ('GMT')
+              LOAD_SMALL_INT           0
+              LOAD_CONST               8 ('Z')
+              LOAD_SMALL_INT           0
+
+ 37           LOAD_CONST               9 ('AST')
+              LOAD_CONST              31 (-400)
+              LOAD_CONST              10 ('ADT')
+              LOAD_CONST              32 (-300)
+
+ 38           LOAD_CONST              11 ('EST')
+              LOAD_CONST              33 (-500)
+              LOAD_CONST              12 ('EDT')
+              LOAD_CONST              31 (-400)
+
+ 39           LOAD_CONST              13 ('CST')
+              LOAD_CONST              34 (-600)
+              LOAD_CONST              14 ('CDT')
+              LOAD_CONST              33 (-500)
+
+ 40           LOAD_CONST              15 ('MST')
+              LOAD_CONST              35 (-700)
+              LOAD_CONST              16 ('MDT')
+              LOAD_CONST              34 (-600)
+
+ 41           LOAD_CONST              17 ('PST')
+              LOAD_CONST              36 (-800)
+              LOAD_CONST              18 ('PDT')
+              LOAD_CONST              35 (-700)
+
+ 36           BUILD_MAP               14
+              STORE_NAME               8 (_timezones)
+
+ 45           LOAD_CONST              19 (<code object parsedate_tz at 0x00000204BA0A9BB0, file "email\_parseaddr.py", line 45>)
+              MAKE_FUNCTION
+              STORE_NAME               9 (parsedate_tz)
+
+ 57           LOAD_CONST              20 (<code object _parsedate_tz at 0x00000204BA492E00, file "email\_parseaddr.py", line 57>)
+              MAKE_FUNCTION
+              STORE_NAME              10 (_parsedate_tz)
+
+182           LOAD_CONST              21 (<code object parsedate at 0x00000204BA6E0030, file "email\_parseaddr.py", line 182>)
+              MAKE_FUNCTION
+              STORE_NAME              11 (parsedate)
+
+191           LOAD_CONST              22 (<code object mktime_tz at 0x00000204B9FB74B0, file "email\_parseaddr.py", line 191>)
+              MAKE_FUNCTION
+              STORE_NAME              12 (mktime_tz)
+
+204           LOAD_CONST              23 (<code object quote at 0x00000204BA0A6D30, file "email\_parseaddr.py", line 204>)
+              MAKE_FUNCTION
+              STORE_NAME              13 (quote)
+
+214           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              24 (<code object AddrlistClass at 0x00000204BA0BB210, file "email\_parseaddr.py", line 214>)
+              MAKE_FUNCTION
+              LOAD_CONST              25 ('AddrlistClass')
+              CALL                     2
+              STORE_NAME              14 (AddrlistClass)
+
+515           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              26 (<code object AddressList at 0x00000204BA0A6E50, file "email\_parseaddr.py", line 515>)
+              MAKE_FUNCTION
+              LOAD_CONST              27 ('AddressList')
+              LOAD_NAME               14 (AddrlistClass)
+              CALL                     3
+              STORE_NAME              15 (AddressList)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object parsedate_tz at 0x00000204BA0A9BB0, file "email\_parseaddr.py", line 45>:
+ 45           RESUME                   0
+
+ 50           LOAD_GLOBAL              1 (_parsedate_tz + NULL)
+              LOAD_FAST_BORROW         0 (data)
+              CALL                     1
+              STORE_FAST               1 (res)
+
+ 51           LOAD_FAST_BORROW         1 (res)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+ 52           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 53   L1:     LOAD_FAST_BORROW         1 (res)
+              LOAD_SMALL_INT           9
+              BINARY_OP               26 ([])
+              POP_JUMP_IF_NOT_NONE     6 (to L2)
+              NOT_TAKEN
+
+ 54           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         1 (res)
+              LOAD_SMALL_INT           9
+              STORE_SUBSCR
+
+ 55   L2:     LOAD_GLOBAL              3 (tuple + NULL)
+              LOAD_FAST_BORROW         1 (res)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _parsedate_tz at 0x00000204BA492E00, file "email\_parseaddr.py", line 57>:
+  57            RESUME                   0
+
+  67            LOAD_FAST_BORROW         0 (data)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L1)
+                NOT_TAKEN
+
+  68            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  69    L1:     LOAD_FAST_BORROW         0 (data)
+                LOAD_ATTR                1 (split + NULL|self)
+                CALL                     0
+                STORE_FAST               0 (data)
+
+  70            LOAD_FAST_BORROW         0 (data)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L2)
+                NOT_TAKEN
+
+  71            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  74    L2:     LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_ATTR                3 (endswith + NULL|self)
+                LOAD_CONST               2 (',')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        33 (to L3)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_ATTR                5 (lower + NULL|self)
+                CALL                     0
+                LOAD_GLOBAL              6 (_daynames)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE        5 (to L4)
+                NOT_TAKEN
+
+  76    L3:     LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           0
+                DELETE_SUBSCR
+                JUMP_FORWARD            53 (to L5)
+
+  78    L4:     LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_ATTR                9 (rfind + NULL|self)
+                LOAD_CONST               2 (',')
+                CALL                     1
+                STORE_FAST               1 (i)
+
+  79            LOAD_FAST_BORROW         1 (i)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE       23 (to L5)
+                NOT_TAKEN
+
+  80            LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW         1 (i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_CONST               1 (None)
+                BINARY_SLICE
+                LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           0
+                STORE_SUBSCR
+
+  81    L5:     LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         0 (data)
+                CALL                     1
+                LOAD_SMALL_INT           3
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       56 (to L6)
+                NOT_TAKEN
+
+  82            LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST               3 ('-')
+                CALL                     1
+                STORE_FAST               2 (stuff)
+
+  83            LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         2 (stuff)
+                CALL                     1
+                LOAD_SMALL_INT           3
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       16 (to L6)
+                NOT_TAKEN
+
+  84            LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (stuff, data)
+                LOAD_CONST               4 (slice(1, None, None))
+                BINARY_OP               26 ([])
+                BINARY_OP                0 (+)
+                STORE_FAST               0 (data)
+
+  85    L6:     LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         0 (data)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       88 (to L9)
+                NOT_TAKEN
+
+  86            LOAD_FAST_BORROW         0 (data)
+                LOAD_SMALL_INT           3
+                BINARY_OP               26 ([])
+                STORE_FAST               3 (s)
+
+  87            LOAD_FAST_BORROW         3 (s)
+                LOAD_ATTR               13 (find + NULL|self)
+                LOAD_CONST               5 ('+')
+                CALL                     1
+                STORE_FAST               1 (i)
+
+  88            LOAD_FAST_BORROW         1 (i)
+                LOAD_CONST              15 (-1)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L7)
+                NOT_TAKEN
+
+  89            LOAD_FAST_BORROW         3 (s)
+                LOAD_ATTR               13 (find + NULL|self)
+                LOAD_CONST               3 ('-')
+                CALL                     1
+                STORE_FAST               1 (i)
+
+  90    L7:     LOAD_FAST_BORROW         1 (i)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       14 (to L8)
+                NOT_TAKEN
+
+  91            LOAD_FAST_BORROW         3 (s)
+                LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         1 (i)
+                BINARY_SLICE
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (s, i)
+                LOAD_CONST               1 (None)
+                BINARY_SLICE
+                BUILD_LIST               2
+                LOAD_FAST_BORROW         0 (data)
+                LOAD_CONST               6 (slice(3, None, None))
+                STORE_SUBSCR
+                JUMP_FORWARD            17 (to L9)
+
+  93    L8:     LOAD_FAST_BORROW         0 (data)
+                LOAD_ATTR               15 (append + NULL|self)
+                LOAD_CONST               7 ('')
+                CALL                     1
+                POP_TOP
+
+  94    L9:     LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         0 (data)
+                CALL                     1
+                LOAD_SMALL_INT           5
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        3 (to L10)
+                NOT_TAKEN
+
+  95            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  96   L10:     LOAD_FAST_BORROW         0 (data)
+                LOAD_CONST               8 (slice(None, 5, None))
+                BINARY_OP               26 ([])
+                STORE_FAST               0 (data)
+
+  97            LOAD_FAST_BORROW         0 (data)
+                UNPACK_SEQUENCE          5
+                STORE_FAST_STORE_FAST   69 (dd, mm)
+                STORE_FAST_STORE_FAST  103 (yy, tm)
+                STORE_FAST               8 (tz)
+
+  98            LOAD_FAST_BORROW         4 (dd)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L11)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         5 (mm)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        9 (to L11)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         6 (yy)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L12)
+                NOT_TAKEN
+
+  99   L11:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 100   L12:     LOAD_FAST_BORROW         5 (mm)
+                LOAD_ATTR                5 (lower + NULL|self)
+                CALL                     0
+                STORE_FAST               5 (mm)
+
+ 101            LOAD_FAST_BORROW         5 (mm)
+                LOAD_GLOBAL             16 (_monthnames)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE       30 (to L13)
+                NOT_TAKEN
+
+ 102            LOAD_FAST_LOAD_FAST     84 (mm, dd)
+                LOAD_ATTR                5 (lower + NULL|self)
+                CALL                     0
+                STORE_FAST_STORE_FAST   84 (mm, dd)
+
+ 103            LOAD_FAST_BORROW         5 (mm)
+                LOAD_GLOBAL             16 (_monthnames)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        3 (to L13)
+                NOT_TAKEN
+
+ 104            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 105   L13:     LOAD_GLOBAL             16 (_monthnames)
+                LOAD_ATTR               19 (index + NULL|self)
+                LOAD_FAST_BORROW         5 (mm)
+                CALL                     1
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                STORE_FAST               5 (mm)
+
+ 106            LOAD_FAST_BORROW         5 (mm)
+                LOAD_SMALL_INT          12
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       10 (to L14)
+                NOT_TAKEN
+
+ 107            LOAD_FAST_BORROW         5 (mm)
+                LOAD_SMALL_INT          12
+                BINARY_OP               23 (-=)
+                STORE_FAST               5 (mm)
+
+ 108   L14:     LOAD_FAST_BORROW         4 (dd)
+                LOAD_CONST              15 (-1)
+                BINARY_OP               26 ([])
+                LOAD_CONST               2 (',')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L15)
+                NOT_TAKEN
+
+ 109            LOAD_FAST_BORROW         4 (dd)
+                LOAD_CONST               1 (None)
+                LOAD_CONST              15 (-1)
+                BINARY_SLICE
+                STORE_FAST               4 (dd)
+
+ 110   L15:     LOAD_FAST_BORROW         6 (yy)
+                LOAD_ATTR               13 (find + NULL|self)
+                LOAD_CONST               9 (':')
+                CALL                     1
+                STORE_FAST               1 (i)
+
+ 111            LOAD_FAST_BORROW         1 (i)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE        3 (to L16)
+                NOT_TAKEN
+
+ 112            LOAD_FAST_LOAD_FAST    118 (tm, yy)
+                STORE_FAST_STORE_FAST  118 (tm, yy)
+
+ 113   L16:     LOAD_FAST_BORROW         6 (yy)
+                LOAD_CONST              15 (-1)
+                BINARY_OP               26 ([])
+                LOAD_CONST               2 (',')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       16 (to L17)
+                NOT_TAKEN
+
+ 114            LOAD_FAST_BORROW         6 (yy)
+                LOAD_CONST               1 (None)
+                LOAD_CONST              15 (-1)
+                BINARY_SLICE
+                STORE_FAST               6 (yy)
+
+ 115            LOAD_FAST_BORROW         6 (yy)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L17)
+                NOT_TAKEN
+
+ 116            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 117   L17:     LOAD_FAST_BORROW         6 (yy)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_ATTR               21 (isdigit + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L18)
+                NOT_TAKEN
+
+ 118            LOAD_FAST_LOAD_FAST    134 (tz, yy)
+                STORE_FAST_STORE_FAST  134 (tz, yy)
+
+ 119   L18:     LOAD_FAST_BORROW         7 (tm)
+                LOAD_CONST              15 (-1)
+                BINARY_OP               26 ([])
+                LOAD_CONST               2 (',')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L19)
+                NOT_TAKEN
+
+ 120            LOAD_FAST_BORROW         7 (tm)
+                LOAD_CONST               1 (None)
+                LOAD_CONST              15 (-1)
+                BINARY_SLICE
+                STORE_FAST               7 (tm)
+
+ 121   L19:     LOAD_FAST_BORROW         7 (tm)
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST               9 (':')
+                CALL                     1
+                STORE_FAST               7 (tm)
+
+ 122            LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         7 (tm)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        8 (to L20)
+                NOT_TAKEN
+
+ 123            LOAD_FAST_BORROW         7 (tm)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  154 (thh, tmm)
+
+ 124            LOAD_CONST              10 ('0')
+                STORE_FAST              11 (tss)
+                JUMP_FORWARD           125 (to L25)
+
+ 125   L20:     LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         7 (tm)
+                CALL                     1
+                LOAD_SMALL_INT           3
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        7 (to L21)
+                NOT_TAKEN
+
+ 126            LOAD_FAST_BORROW         7 (tm)
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST  154 (thh, tmm)
+                STORE_FAST              11 (tss)
+                JUMP_FORWARD           103 (to L25)
+
+ 127   L21:     LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         7 (tm)
+                CALL                     1
+                LOAD_SMALL_INT           1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       86 (to L24)
+                NOT_TAKEN
+                LOAD_CONST              11 ('.')
+                LOAD_FAST_BORROW         7 (tm)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       72 (to L24)
+                NOT_TAKEN
+
+ 129            LOAD_FAST_BORROW         7 (tm)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST              11 ('.')
+                CALL                     1
+                STORE_FAST               7 (tm)
+
+ 130            LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         7 (tm)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        8 (to L22)
+                NOT_TAKEN
+
+ 131            LOAD_FAST_BORROW         7 (tm)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  154 (thh, tmm)
+
+ 132            LOAD_SMALL_INT           0
+                STORE_FAST              11 (tss)
+                JUMP_FORWARD            26 (to L25)
+
+ 133   L22:     LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         7 (tm)
+                CALL                     1
+                LOAD_SMALL_INT           3
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        7 (to L23)
+                NOT_TAKEN
+
+ 134            LOAD_FAST_BORROW         7 (tm)
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST  154 (thh, tmm)
+                STORE_FAST              11 (tss)
+                JUMP_FORWARD             4 (to L25)
+
+ 136   L23:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 138   L24:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 139   L25:     NOP
+
+ 140   L26:     LOAD_GLOBAL             23 (int + NULL)
+                LOAD_FAST_BORROW         6 (yy)
+                CALL                     1
+                STORE_FAST               6 (yy)
+
+ 141            LOAD_GLOBAL             23 (int + NULL)
+                LOAD_FAST_BORROW         4 (dd)
+                CALL                     1
+                STORE_FAST               4 (dd)
+
+ 142            LOAD_GLOBAL             23 (int + NULL)
+                LOAD_FAST_BORROW         9 (thh)
+                CALL                     1
+                STORE_FAST               9 (thh)
+
+ 143            LOAD_GLOBAL             23 (int + NULL)
+                LOAD_FAST_BORROW        10 (tmm)
+                CALL                     1
+                STORE_FAST              10 (tmm)
+
+ 144            LOAD_GLOBAL             23 (int + NULL)
+                LOAD_FAST_BORROW        11 (tss)
+                CALL                     1
+                STORE_FAST              11 (tss)
+
+ 152   L27:     LOAD_FAST                6 (yy)
+                LOAD_SMALL_INT         100
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       27 (to L29)
+                NOT_TAKEN
+
+ 154            LOAD_FAST                6 (yy)
+                LOAD_SMALL_INT          68
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       11 (to L28)
+                NOT_TAKEN
+
+ 155            LOAD_FAST                6 (yy)
+                LOAD_CONST              12 (1900)
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (yy)
+                JUMP_FORWARD             9 (to L29)
+
+ 158   L28:     LOAD_FAST                6 (yy)
+                LOAD_CONST              13 (2000)
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (yy)
+
+ 159   L29:     LOAD_CONST               1 (None)
+                STORE_FAST              12 (tzoffset)
+
+ 160            LOAD_FAST                8 (tz)
+                LOAD_ATTR               27 (upper + NULL|self)
+                CALL                     0
+                STORE_FAST               8 (tz)
+
+ 161            LOAD_FAST                8 (tz)
+                LOAD_GLOBAL             28 (_timezones)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       15 (to L30)
+                NOT_TAKEN
+
+ 162            LOAD_GLOBAL             28 (_timezones)
+                LOAD_FAST                8 (tz)
+                BINARY_OP               26 ([])
+                STORE_FAST              12 (tzoffset)
+                JUMP_FORWARD            44 (to L33)
+
+ 164   L30:     NOP
+
+ 165   L31:     LOAD_GLOBAL             23 (int + NULL)
+                LOAD_FAST                8 (tz)
+                CALL                     1
+                STORE_FAST              12 (tzoffset)
+
+ 168   L32:     LOAD_FAST               12 (tzoffset)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       26 (to L33)
+                NOT_TAKEN
+                LOAD_FAST                8 (tz)
+                LOAD_ATTR               31 (startswith + NULL|self)
+                LOAD_CONST               3 ('-')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L33)
+                NOT_TAKEN
+
+ 169            LOAD_CONST               1 (None)
+                STORE_FAST              12 (tzoffset)
+
+ 171   L33:     LOAD_FAST               12 (tzoffset)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       59 (to L36)
+                NOT_TAKEN
+
+ 172            LOAD_FAST               12 (tzoffset)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        7 (to L34)
+                NOT_TAKEN
+
+ 173            LOAD_CONST              15 (-1)
+                STORE_FAST              13 (tzsign)
+
+ 174            LOAD_FAST               12 (tzoffset)
+                UNARY_NEGATIVE
+                STORE_FAST              12 (tzoffset)
+                JUMP_FORWARD             2 (to L35)
+
+ 176   L34:     LOAD_SMALL_INT           1
+                STORE_FAST              13 (tzsign)
+
+ 177   L35:     LOAD_FAST_LOAD_FAST    220 (tzsign, tzoffset)
+                LOAD_SMALL_INT         100
+                BINARY_OP                2 (//)
+                LOAD_CONST              14 (3600)
+                BINARY_OP                5 (*)
+                LOAD_FAST               12 (tzoffset)
+                LOAD_SMALL_INT         100
+                BINARY_OP                6 (%)
+                LOAD_SMALL_INT          60
+                BINARY_OP                5 (*)
+                BINARY_OP                0 (+)
+                BINARY_OP                5 (*)
+                STORE_FAST              12 (tzoffset)
+
+ 179   L36:     LOAD_FAST_LOAD_FAST    101 (yy, mm)
+                LOAD_FAST_LOAD_FAST     73 (dd, thh)
+                LOAD_FAST_LOAD_FAST    171 (tmm, tss)
+                LOAD_SMALL_INT           0
+                LOAD_SMALL_INT           1
+                LOAD_CONST              15 (-1)
+                LOAD_FAST               12 (tzoffset)
+                BUILD_LIST              10
+                RETURN_VALUE
+
+  --   L37:     PUSH_EXC_INFO
+
+ 145            LOAD_GLOBAL             24 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L39)
+                NOT_TAKEN
+                POP_TOP
+
+ 146   L38:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 145   L39:     RERAISE                  0
+
+  --   L40:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L41:     PUSH_EXC_INFO
+
+ 166            LOAD_GLOBAL             24 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L43)
+                NOT_TAKEN
+                POP_TOP
+
+ 167   L42:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 138 (to L32)
+
+ 166   L43:     RERAISE                  0
+
+  --   L44:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L26 to L27 -> L37 [0]
+  L31 to L32 -> L41 [0]
+  L37 to L38 -> L40 [1] lasti
+  L39 to L40 -> L40 [1] lasti
+  L41 to L42 -> L44 [1] lasti
+  L43 to L44 -> L44 [1] lasti
+
+Disassembly of <code object parsedate at 0x00000204BA6E0030, file "email\_parseaddr.py", line 182>:
+182           RESUME                   0
+
+184           LOAD_GLOBAL              1 (parsedate_tz + NULL)
+              LOAD_FAST_BORROW         0 (data)
+              CALL                     1
+              STORE_FAST               1 (t)
+
+185           LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (t)
+              LOAD_GLOBAL              4 (tuple)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       10 (to L1)
+              NOT_TAKEN
+
+186           LOAD_FAST_BORROW         1 (t)
+              LOAD_CONST               1 (slice(None, 9, None))
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+188   L1:     LOAD_FAST_BORROW         1 (t)
+              RETURN_VALUE
+
+Disassembly of <code object mktime_tz at 0x00000204B9FB74B0, file "email\_parseaddr.py", line 191>:
+191           RESUME                   0
+
+193           LOAD_FAST_BORROW         0 (data)
+              LOAD_SMALL_INT           9
+              BINARY_OP               26 ([])
+              POP_JUMP_IF_NOT_NONE    37 (to L1)
+              NOT_TAKEN
+
+195           LOAD_GLOBAL              0 (time)
+              LOAD_ATTR                2 (mktime)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (data)
+              LOAD_CONST               2 (slice(None, 8, None))
+              BINARY_OP               26 ([])
+              LOAD_CONST               3 ((-1,))
+              BINARY_OP                0 (+)
+              CALL                     1
+              RETURN_VALUE
+
+198   L1:     LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (calendar)
+              STORE_FAST               1 (calendar)
+
+200           LOAD_FAST_BORROW         1 (calendar)
+              LOAD_ATTR                7 (timegm + NULL|self)
+              LOAD_FAST_BORROW         0 (data)
+              CALL                     1
+              STORE_FAST               2 (t)
+
+201           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (t, data)
+              LOAD_SMALL_INT           9
+              BINARY_OP               26 ([])
+              BINARY_OP               10 (-)
+              RETURN_VALUE
+
+Disassembly of <code object quote at 0x00000204BA0A6D30, file "email\_parseaddr.py", line 204>:
+204           RESUME                   0
+
+211           LOAD_FAST_BORROW         0 (str)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               1 ('\\')
+              LOAD_CONST               2 ('\\\\')
+              CALL                     2
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               3 ('"')
+              LOAD_CONST               4 ('\\"')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object AddrlistClass at 0x00000204BA0BB210, file "email\_parseaddr.py", line 214>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 214           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('AddrlistClass')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         214
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 215           LOAD_CONST               1 ('Address parser class by Ben Escoto.\n\nTo understand what this class does, it helps to have a copy of RFC 2822 in\nfront of you.\n\nNote: this class interface is deprecated and may be removed in the future.\nUse email.utils.AddressList instead.\n')
+               STORE_NAME               4 (__doc__)
+
+ 224           LOAD_CONST               2 (<code object __init__ at 0x00000204BA446050, file "email\_parseaddr.py", line 224>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 243           LOAD_CONST               3 (<code object gotonext at 0x00000204BA388300, file "email\_parseaddr.py", line 243>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (gotonext)
+
+ 257           LOAD_CONST               4 (<code object getaddrlist at 0x00000204BA12A740, file "email\_parseaddr.py", line 257>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (getaddrlist)
+
+ 271           LOAD_CONST               5 (<code object getaddress at 0x00000204BA493730, file "email\_parseaddr.py", line 271>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (getaddress)
+
+ 330           LOAD_CONST               6 (<code object getrouteaddr at 0x00000204BA3BE460, file "email\_parseaddr.py", line 330>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (getrouteaddr)
+
+ 362           LOAD_CONST               7 (<code object getaddrspec at 0x00000204BA4947C0, file "email\_parseaddr.py", line 362>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (getaddrspec)
+
+ 400           LOAD_CONST               8 (<code object getdomain at 0x00000204BA4634A0, file "email\_parseaddr.py", line 400>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (getdomain)
+
+ 423           LOAD_CONST              17 ((True,))
+               LOAD_CONST               9 (<code object getdelimited at 0x00000204BA4951B0, file "email\_parseaddr.py", line 423>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (getdelimited)
+
+ 460           LOAD_CONST              10 (<code object getquote at 0x00000204BA08B330, file "email\_parseaddr.py", line 460>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (getquote)
+
+ 464           LOAD_CONST              11 (<code object getcomment at 0x00000204BA10A330, file "email\_parseaddr.py", line 464>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (getcomment)
+
+ 468           LOAD_CONST              12 (<code object getdomainliteral at 0x00000204BA6BDDF0, file "email\_parseaddr.py", line 468>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (getdomainliteral)
+
+ 472           LOAD_CONST              18 ((None,))
+               LOAD_CONST              14 (<code object getatom at 0x00000204BA3AC4A0, file "email\_parseaddr.py", line 472>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              16 (getatom)
+
+ 492           LOAD_CONST              15 (<code object getphraselist at 0x00000204BA4955E0, file "email\_parseaddr.py", line 492>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (getphraselist)
+               LOAD_CONST              16 (('CR', 'FWS', 'LWS', 'atomends', 'commentlist', 'field', 'phraseends', 'pos', 'specials'))
+               STORE_NAME              18 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              19 (__classdictcell__)
+               LOAD_CONST              13 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA446050, file "email\_parseaddr.py", line 224>:
+224           RESUME                   0
+
+230           LOAD_CONST               1 ('()<>@,:;."[]')
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (specials)
+
+231           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (pos)
+
+232           LOAD_CONST               2 (' \t')
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (LWS)
+
+233           LOAD_CONST               3 ('\r\n')
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (CR)
+
+234           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (LWS)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (CR)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (FWS)
+
+235           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (specials)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (LWS)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (CR)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (atomends)
+
+239           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (atomends)
+              LOAD_ATTR               13 (replace + NULL|self)
+              LOAD_CONST               4 ('.')
+              LOAD_CONST               5 ('')
+              CALL                     2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (phraseends)
+
+240           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (field, self)
+              STORE_ATTR               8 (field)
+
+241           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               9 (commentlist)
+              LOAD_CONST               6 (None)
+              RETURN_VALUE
+
+Disassembly of <code object gotonext at 0x00000204BA388300, file "email\_parseaddr.py", line 243>:
+243           RESUME                   0
+
+245           BUILD_LIST               0
+              STORE_FAST               1 (wslist)
+
+246   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE      236 (to L5)
+              NOT_TAKEN
+
+247           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (LWS)
+              LOAD_CONST               1 ('\n\r')
+              BINARY_OP                0 (+)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE      106 (to L3)
+              NOT_TAKEN
+
+248           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               1 ('\n\r')
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       45 (to L2)
+              NOT_TAKEN
+
+249           LOAD_FAST_BORROW         1 (wslist)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              CALL                     1
+              POP_TOP
+
+250   L2:     LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               0 (pos)
+              JUMP_BACKWARD          192 (to L1)
+
+251   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               2 ('(')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       45 (to L4)
+              NOT_TAKEN
+
+252           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (commentlist)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (getcomment + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          270 (to L1)
+
+254   L4:     NOP
+
+255   L5:     LOAD_GLOBAL             14 (EMPTYSTRING)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (wslist)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object getaddrlist at 0x00000204BA12A740, file "email\_parseaddr.py", line 257>:
+257           RESUME                   0
+
+262           BUILD_LIST               0
+              STORE_FAST               1 (result)
+
+263   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       54 (to L3)
+              NOT_TAKEN
+
+264           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (getaddress + NULL|self)
+              CALL                     0
+              STORE_FAST               2 (ad)
+
+265           LOAD_FAST_BORROW         2 (ad)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       11 (to L2)
+              NOT_TAKEN
+
+266           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (result, ad)
+              BINARY_OP               13 (+=)
+              STORE_FAST               1 (result)
+              JUMP_BACKWARD           70 (to L1)
+
+268   L2:     LOAD_FAST_BORROW         1 (result)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_CONST               1 (('', ''))
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           89 (to L1)
+
+269   L3:     LOAD_FAST_BORROW         1 (result)
+              RETURN_VALUE
+
+Disassembly of <code object getaddress at 0x00000204BA493730, file "email\_parseaddr.py", line 271>:
+ 271            RESUME                   0
+
+ 273            BUILD_LIST               0
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (commentlist)
+
+ 274            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (gotonext + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 276            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                STORE_FAST               1 (oldpos)
+
+ 277            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (commentlist)
+                STORE_FAST               2 (oldcl)
+
+ 278            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                7 (getphraselist + NULL|self)
+                CALL                     0
+                STORE_FAST               3 (plist)
+
+ 280            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (gotonext + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 281            BUILD_LIST               0
+                STORE_FAST               4 (returnlist)
+
+ 283            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                LOAD_GLOBAL              9 (len + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                CALL                     1
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE       52 (to L2)
+                NOT_TAKEN
+
+ 285            LOAD_FAST_BORROW         3 (plist)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       42 (to L1)
+                NOT_TAKEN
+
+ 286            LOAD_GLOBAL             12 (SPACE)
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (commentlist)
+                CALL                     1
+                LOAD_FAST_BORROW         3 (plist)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                BUILD_TUPLE              2
+                BUILD_LIST               1
+                STORE_FAST               4 (returnlist)
+
+  --    L1:     EXTENDED_ARG             2
+                JUMP_FORWARD           619 (to L11)
+
+ 288    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                BINARY_OP               26 ([])
+                LOAD_CONST               1 ('.@')
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       65 (to L3)
+                NOT_TAKEN
+
+ 291            LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (oldpos, self)
+                STORE_ATTR               2 (pos)
+
+ 292            LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (oldcl, self)
+                STORE_ATTR               0 (commentlist)
+
+ 293            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               17 (getaddrspec + NULL|self)
+                CALL                     0
+                STORE_FAST               5 (addrspec)
+
+ 294            LOAD_GLOBAL             12 (SPACE)
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (commentlist)
+                CALL                     1
+                LOAD_FAST_BORROW         5 (addrspec)
+                BUILD_TUPLE              2
+                BUILD_LIST               1
+                STORE_FAST               4 (returnlist)
+                EXTENDED_ARG             2
+                JUMP_FORWARD           521 (to L11)
+
+ 296    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                BINARY_OP               26 ([])
+                LOAD_CONST               2 (':')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      205 (to L7)
+                NOT_TAKEN
+
+ 298            BUILD_LIST               0
+                STORE_FAST               4 (returnlist)
+
+ 300            LOAD_GLOBAL              9 (len + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                CALL                     1
+                STORE_FAST               6 (fieldlen)
+
+ 301            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR                4 (pos)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR               2 (pos)
+
+ 302    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                LOAD_GLOBAL              9 (len + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                CALL                     1
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE      119 (to L6)
+                NOT_TAKEN
+
+ 303            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (gotonext + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 304            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                LOAD_FAST_BORROW         6 (fieldlen)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       62 (to L5)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                BINARY_OP               26 ([])
+                LOAD_CONST               3 (';')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L5)
+                NOT_TAKEN
+
+ 305            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR                4 (pos)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR               2 (pos)
+
+ 306            EXTENDED_ARG             1
+                JUMP_FORWARD           309 (to L11)
+
+ 307    L5:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (returnlist, self)
+                LOAD_ATTR               19 (getaddress + NULL|self)
+                CALL                     0
+                BINARY_OP                0 (+)
+                STORE_FAST               4 (returnlist)
+                JUMP_BACKWARD          154 (to L4)
+
+ 302    L6:     EXTENDED_ARG             1
+                JUMP_FORWARD           283 (to L11)
+
+ 309    L7:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                BINARY_OP               26 ([])
+                LOAD_CONST               4 ('<')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      131 (to L9)
+                NOT_TAKEN
+
+ 311            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               21 (getrouteaddr + NULL|self)
+                CALL                     0
+                STORE_FAST               7 (routeaddr)
+
+ 313            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (commentlist)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       72 (to L8)
+                NOT_TAKEN
+
+ 314            LOAD_GLOBAL             12 (SPACE)
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         3 (plist)
+                CALL                     1
+                LOAD_CONST               5 (' (')
+                BINARY_OP                0 (+)
+
+ 315            LOAD_CONST               6 (' ')
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (commentlist)
+                CALL                     1
+
+ 314            BINARY_OP                0 (+)
+
+ 315            LOAD_CONST               7 (')')
+
+ 314            BINARY_OP                0 (+)
+
+ 315            LOAD_FAST_BORROW         7 (routeaddr)
+
+ 314            BUILD_TUPLE              2
+                BUILD_LIST               1
+                STORE_FAST               4 (returnlist)
+                JUMP_FORWARD           144 (to L11)
+
+ 317    L8:     LOAD_GLOBAL             12 (SPACE)
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         3 (plist)
+                CALL                     1
+                LOAD_FAST_BORROW         7 (routeaddr)
+                BUILD_TUPLE              2
+                BUILD_LIST               1
+                STORE_FAST               4 (returnlist)
+                JUMP_FORWARD           119 (to L11)
+
+ 320    L9:     LOAD_FAST_BORROW         3 (plist)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       43 (to L10)
+                NOT_TAKEN
+
+ 321            LOAD_GLOBAL             12 (SPACE)
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (commentlist)
+                CALL                     1
+                LOAD_FAST_BORROW         3 (plist)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                BUILD_TUPLE              2
+                BUILD_LIST               1
+                STORE_FAST               4 (returnlist)
+                JUMP_FORWARD            69 (to L11)
+
+ 322   L10:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               22 (specials)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       26 (to L11)
+                NOT_TAKEN
+
+ 323            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR                4 (pos)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR               2 (pos)
+
+ 325   L11:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (gotonext + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 326            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                LOAD_GLOBAL              9 (len + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                CALL                     1
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       60 (to L12)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (field)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (pos)
+                BINARY_OP               26 ([])
+                LOAD_CONST               8 (',')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       26 (to L12)
+                NOT_TAKEN
+
+ 327            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR                4 (pos)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR               2 (pos)
+
+ 328   L12:     LOAD_FAST_BORROW         4 (returnlist)
+                RETURN_VALUE
+
+Disassembly of <code object getrouteaddr at 0x00000204BA3BE460, file "email\_parseaddr.py", line 330>:
+330           RESUME                   0
+
+335           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               1 ('<')
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+336           LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+338   L1:     LOAD_CONST               3 (False)
+              STORE_FAST               1 (expectroute)
+
+339           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+
+340           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (gotonext + NULL|self)
+              CALL                     0
+              POP_TOP
+
+341           LOAD_CONST               4 ('')
+              STORE_FAST               2 (adlist)
+
+342   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              LOAD_GLOBAL              7 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              EXTENDED_ARG             1
+              POP_JUMP_IF_FALSE      275 (to L8)
+              NOT_TAKEN
+
+343           LOAD_FAST_BORROW         1 (expectroute)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L3)
+              NOT_TAKEN
+
+344           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (getdomain + NULL|self)
+              CALL                     0
+              POP_TOP
+
+345           LOAD_CONST               3 (False)
+              STORE_FAST               1 (expectroute)
+              JUMP_FORWARD           228 (to L7)
+
+346   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               5 ('>')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       29 (to L4)
+              NOT_TAKEN
+
+347           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+
+348           NOP
+
+360           LOAD_FAST_BORROW         2 (adlist)
+              RETURN_VALUE
+
+349   L4:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               6 ('@')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       29 (to L5)
+              NOT_TAKEN
+
+350           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+
+351           LOAD_CONST               7 (True)
+              STORE_FAST               1 (expectroute)
+              JUMP_FORWARD           104 (to L7)
+
+352   L5:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               8 (':')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       27 (to L6)
+              NOT_TAKEN
+
+353           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+              JUMP_FORWARD            44 (to L7)
+
+355   L6:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (getaddrspec + NULL|self)
+              CALL                     0
+              STORE_FAST               2 (adlist)
+
+356           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+
+357           NOP
+
+360           LOAD_FAST_BORROW         2 (adlist)
+              RETURN_VALUE
+
+358   L7:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (gotonext + NULL|self)
+              CALL                     0
+              POP_TOP
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          311 (to L2)
+
+360   L8:     LOAD_FAST_BORROW         2 (adlist)
+              RETURN_VALUE
+
+Disassembly of <code object getaddrspec at 0x00000204BA4947C0, file "email\_parseaddr.py", line 362>:
+362            RESUME                   0
+
+364            BUILD_LIST               0
+               STORE_FAST               1 (aslist)
+
+366            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (gotonext + NULL|self)
+               CALL                     0
+               POP_TOP
+
+367    L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (pos)
+               LOAD_GLOBAL              5 (len + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (field)
+               CALL                     1
+               COMPARE_OP              18 (bool(<))
+               EXTENDED_ARG             1
+               POP_JUMP_IF_FALSE      404 (to L10)
+               NOT_TAKEN
+
+368            LOAD_CONST               1 (True)
+               STORE_FAST               2 (preserve_ws)
+
+369            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (field)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (pos)
+               BINARY_OP               26 ([])
+               LOAD_CONST               2 ('.')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       99 (to L3)
+               NOT_TAKEN
+
+370            LOAD_FAST_BORROW         1 (aslist)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       46 (to L2)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         1 (aslist)
+               LOAD_CONST               7 (-1)
+               BINARY_OP               26 ([])
+               LOAD_ATTR                9 (strip + NULL|self)
+               CALL                     0
+               TO_BOOL
+               POP_JUMP_IF_TRUE        17 (to L2)
+               NOT_TAKEN
+
+371            LOAD_FAST_BORROW         1 (aslist)
+               LOAD_ATTR               11 (pop + NULL|self)
+               CALL                     0
+               POP_TOP
+
+372    L2:     LOAD_FAST_BORROW         1 (aslist)
+               LOAD_ATTR               13 (append + NULL|self)
+               LOAD_CONST               2 ('.')
+               CALL                     1
+               POP_TOP
+
+373            LOAD_FAST_BORROW         0 (self)
+               COPY                     1
+               LOAD_ATTR                2 (pos)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               SWAP                     2
+               STORE_ATTR               1 (pos)
+
+374            LOAD_CONST               3 (False)
+               STORE_FAST               2 (preserve_ws)
+               JUMP_FORWARD           211 (to L7)
+
+375    L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (field)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (pos)
+               BINARY_OP               26 ([])
+               LOAD_CONST               4 ('"')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       49 (to L4)
+               NOT_TAKEN
+
+376            LOAD_FAST_BORROW         1 (aslist)
+               LOAD_ATTR               13 (append + NULL|self)
+               LOAD_CONST               5 ('"%s"')
+               LOAD_GLOBAL             15 (quote + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               17 (getquote + NULL|self)
+               CALL                     0
+               CALL                     1
+               BINARY_OP                6 (%)
+               CALL                     1
+               POP_TOP
+               JUMP_FORWARD           129 (to L7)
+
+377    L4:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (field)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (pos)
+               BINARY_OP               26 ([])
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (atomends)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       55 (to L6)
+               NOT_TAKEN
+
+378            LOAD_FAST_BORROW         1 (aslist)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       46 (to L5)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         1 (aslist)
+               LOAD_CONST               7 (-1)
+               BINARY_OP               26 ([])
+               LOAD_ATTR                9 (strip + NULL|self)
+               CALL                     0
+               TO_BOOL
+               POP_JUMP_IF_TRUE        17 (to L5)
+               NOT_TAKEN
+
+379            LOAD_FAST_BORROW         1 (aslist)
+               LOAD_ATTR               11 (pop + NULL|self)
+               CALL                     0
+               POP_TOP
+
+380    L5:     JUMP_FORWARD            89 (to L10)
+
+382    L6:     LOAD_FAST_BORROW         1 (aslist)
+               LOAD_ATTR               13 (append + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               21 (getatom + NULL|self)
+               CALL                     0
+               CALL                     1
+               POP_TOP
+
+383    L7:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (gotonext + NULL|self)
+               CALL                     0
+               STORE_FAST               3 (ws)
+
+384            LOAD_FAST_BORROW         2 (preserve_ws)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         4 (to L8)
+               NOT_TAKEN
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          409 (to L1)
+       L8:     LOAD_FAST_BORROW         3 (ws)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         4 (to L9)
+               NOT_TAKEN
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          420 (to L1)
+
+385    L9:     LOAD_FAST_BORROW         1 (aslist)
+               LOAD_ATTR               13 (append + NULL|self)
+               LOAD_FAST_BORROW         3 (ws)
+               CALL                     1
+               POP_TOP
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          440 (to L1)
+
+387   L10:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (pos)
+               LOAD_GLOBAL              5 (len + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (field)
+               CALL                     1
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_TRUE        35 (to L11)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (field)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (pos)
+               BINARY_OP               26 ([])
+               LOAD_CONST               6 ('@')
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       22 (to L12)
+               NOT_TAKEN
+
+388   L11:     LOAD_GLOBAL             22 (EMPTYSTRING)
+               LOAD_ATTR               25 (join + NULL|self)
+               LOAD_FAST_BORROW         1 (aslist)
+               CALL                     1
+               RETURN_VALUE
+
+390   L12:     LOAD_FAST_BORROW         1 (aslist)
+               LOAD_ATTR               13 (append + NULL|self)
+               LOAD_CONST               6 ('@')
+               CALL                     1
+               POP_TOP
+
+391            LOAD_FAST_BORROW         0 (self)
+               COPY                     1
+               LOAD_ATTR                2 (pos)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               SWAP                     2
+               STORE_ATTR               1 (pos)
+
+392            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (gotonext + NULL|self)
+               CALL                     0
+               POP_TOP
+
+393            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               27 (getdomain + NULL|self)
+               CALL                     0
+               STORE_FAST               4 (domain)
+
+394            LOAD_FAST_BORROW         4 (domain)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         7 (to L13)
+               NOT_TAKEN
+
+397            LOAD_GLOBAL             22 (EMPTYSTRING)
+               RETURN_VALUE
+
+398   L13:     LOAD_GLOBAL             22 (EMPTYSTRING)
+               LOAD_ATTR               25 (join + NULL|self)
+               LOAD_FAST_BORROW         1 (aslist)
+               CALL                     1
+               LOAD_FAST_BORROW         4 (domain)
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+Disassembly of <code object getdomain at 0x00000204BA4634A0, file "email\_parseaddr.py", line 400>:
+400           RESUME                   0
+
+402           BUILD_LIST               0
+              STORE_FAST               1 (sdlist)
+
+403   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              EXTENDED_ARG             1
+              POP_JUMP_IF_FALSE      414 (to L8)
+              NOT_TAKEN
+
+404           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (LWS)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       28 (to L2)
+              NOT_TAKEN
+
+405           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               0 (pos)
+              JUMP_BACKWARD          108 (to L1)
+
+406   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               1 ('(')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       44 (to L3)
+              NOT_TAKEN
+
+407           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (commentlist)
+              LOAD_ATTR               11 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (getcomment + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD          185 (to L1)
+
+408   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               2 ('[')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       34 (to L4)
+              NOT_TAKEN
+
+409           LOAD_FAST_BORROW         1 (sdlist)
+              LOAD_ATTR               11 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               15 (getdomainliteral + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD          252 (to L1)
+
+410   L4:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               3 ('.')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       46 (to L5)
+              NOT_TAKEN
+
+411           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               0 (pos)
+
+412           LOAD_FAST_BORROW         1 (sdlist)
+              LOAD_ATTR               11 (append + NULL|self)
+              LOAD_CONST               3 ('.')
+              CALL                     1
+              POP_TOP
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          331 (to L1)
+
+413   L5:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               4 ('@')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        7 (to L6)
+              NOT_TAKEN
+
+416           LOAD_GLOBAL             16 (EMPTYSTRING)
+              RETURN_VALUE
+
+417   L6:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (atomends)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        2 (to L7)
+              NOT_TAKEN
+
+418           JUMP_FORWARD            34 (to L8)
+
+420   L7:     LOAD_FAST_BORROW         1 (sdlist)
+              LOAD_ATTR               11 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               21 (getatom + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          450 (to L1)
+
+421   L8:     LOAD_GLOBAL             16 (EMPTYSTRING)
+              LOAD_ATTR               23 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (sdlist)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object getdelimited at 0x00000204BA4951B0, file "email\_parseaddr.py", line 423>:
+423           RESUME                   0
+
+436           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         1 (beginchar)
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+437           LOAD_CONST               1 ('')
+              RETURN_VALUE
+
+439   L1:     LOAD_CONST               1 ('')
+              BUILD_LIST               1
+              STORE_FAST               4 (slist)
+
+440           LOAD_CONST               2 (False)
+              STORE_FAST               5 (quote)
+
+441           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+
+442   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              EXTENDED_ARG             1
+              POP_JUMP_IF_FALSE      300 (to L8)
+              NOT_TAKEN
+
+443           LOAD_FAST_BORROW         5 (quote)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       48 (to L3)
+              NOT_TAKEN
+
+444           LOAD_FAST_BORROW         4 (slist)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              CALL                     1
+              POP_TOP
+
+445           LOAD_CONST               2 (False)
+              STORE_FAST               5 (quote)
+              JUMP_FORWARD           216 (to L7)
+
+446   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         2 (endchars)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       27 (to L4)
+              NOT_TAKEN
+
+447           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+
+448           JUMP_FORWARD           184 (to L8)
+
+449   L4:     LOAD_FAST_BORROW         3 (allowcomments)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       68 (to L5)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               3 ('(')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       34 (to L5)
+              NOT_TAKEN
+
+450           LOAD_FAST_BORROW         4 (slist)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (getcomment + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+
+451           JUMP_BACKWARD          227 (to L2)
+
+452   L5:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               4 ('\\')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        4 (to L6)
+              NOT_TAKEN
+
+453           LOAD_CONST               5 (True)
+              STORE_FAST               5 (quote)
+              JUMP_FORWARD            44 (to L7)
+
+455   L6:     LOAD_FAST_BORROW         4 (slist)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              CALL                     1
+              POP_TOP
+
+456   L7:     LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          336 (to L2)
+
+458   L8:     LOAD_GLOBAL             10 (EMPTYSTRING)
+              LOAD_ATTR               13 (join + NULL|self)
+              LOAD_FAST_BORROW         4 (slist)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object getquote at 0x00000204BA08B330, file "email\_parseaddr.py", line 460>:
+460           RESUME                   0
+
+462           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (getdelimited + NULL|self)
+              LOAD_CONST               1 ('"')
+              LOAD_CONST               2 ('"\r')
+              LOAD_CONST               3 (False)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object getcomment at 0x00000204BA10A330, file "email\_parseaddr.py", line 464>:
+464           RESUME                   0
+
+466           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (getdelimited + NULL|self)
+              LOAD_CONST               1 ('(')
+              LOAD_CONST               2 (')\r')
+              LOAD_CONST               3 (True)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object getdomainliteral at 0x00000204BA6BDDF0, file "email\_parseaddr.py", line 468>:
+468           RESUME                   0
+
+470           LOAD_CONST               1 ('[%s]')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (getdelimited + NULL|self)
+              LOAD_CONST               2 ('[')
+              LOAD_CONST               3 (']\r')
+              LOAD_CONST               4 (False)
+              CALL                     3
+              BINARY_OP                6 (%)
+              RETURN_VALUE
+
+Disassembly of <code object getatom at 0x00000204BA3AC4A0, file "email\_parseaddr.py", line 472>:
+472           RESUME                   0
+
+479           LOAD_CONST               1 ('')
+              BUILD_LIST               1
+              STORE_FAST               2 (atomlist)
+
+480           LOAD_FAST_BORROW         1 (atomends)
+              POP_JUMP_IF_NOT_NONE    13 (to L1)
+              NOT_TAKEN
+
+481           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (atomends)
+              STORE_FAST               1 (atomends)
+
+483   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (field)
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE      107 (to L3)
+              NOT_TAKEN
+
+484           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         1 (atomends)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        2 (to L2)
+              NOT_TAKEN
+
+485           JUMP_FORWARD            71 (to L3)
+
+487   L2:     LOAD_FAST_BORROW         2 (atomlist)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (pos)
+              BINARY_OP               26 ([])
+              CALL                     1
+              POP_TOP
+
+488           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                2 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               1 (pos)
+              JUMP_BACKWARD          142 (to L1)
+
+490   L3:     LOAD_GLOBAL             10 (EMPTYSTRING)
+              LOAD_ATTR               13 (join + NULL|self)
+              LOAD_FAST_BORROW         2 (atomlist)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object getphraselist at 0x00000204BA4955E0, file "email\_parseaddr.py", line 492>:
+492           RESUME                   0
+
+499           BUILD_LIST               0
+              STORE_FAST               1 (plist)
+
+501   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              EXTENDED_ARG             1
+              POP_JUMP_IF_FALSE      308 (to L6)
+              NOT_TAKEN
+
+502           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (FWS)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       28 (to L2)
+              NOT_TAKEN
+
+503           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (pos)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               0 (pos)
+              JUMP_BACKWARD          108 (to L1)
+
+504   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               1 ('"')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       34 (to L3)
+              NOT_TAKEN
+
+505           LOAD_FAST_BORROW         1 (plist)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (getquote + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD          175 (to L1)
+
+506   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_CONST               2 ('(')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       44 (to L4)
+              NOT_TAKEN
+
+507           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (commentlist)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               15 (getcomment + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD          252 (to L1)
+
+508   L4:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (field)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pos)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (phraseends)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        4 (to L5)
+              NOT_TAKEN
+
+509           NOP
+
+513           LOAD_FAST_BORROW         1 (plist)
+              RETURN_VALUE
+
+511   L5:     LOAD_FAST_BORROW         1 (plist)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               19 (getatom + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (phraseends)
+              CALL                     1
+              CALL                     1
+              POP_TOP
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          344 (to L1)
+
+513   L6:     LOAD_FAST_BORROW         1 (plist)
+              RETURN_VALUE
+
+Disassembly of <code object AddressList at 0x00000204BA0A6E50, file "email\_parseaddr.py", line 515>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 515           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('AddressList')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (515)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 516           LOAD_CONST               2 ('An AddressList encapsulates a list of parsed RFC 2822 addresses.')
+               STORE_NAME               4 (__doc__)
+
+ 517           LOAD_CONST               3 (<code object __init__ at 0x00000204BA0BB360, file "email\_parseaddr.py", line 517>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 524           LOAD_CONST               4 (<code object __len__ at 0x00000204BA108E30, file "email\_parseaddr.py", line 524>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__len__)
+
+ 527           LOAD_CONST               5 (<code object __add__ at 0x00000204B9F6F290, file "email\_parseaddr.py", line 527>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__add__)
+
+ 536           LOAD_CONST               6 (<code object __iadd__ at 0x00000204B9F72550, file "email\_parseaddr.py", line 536>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__iadd__)
+
+ 543           LOAD_CONST               7 (<code object __sub__ at 0x00000204BA6D4480, file "email\_parseaddr.py", line 543>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__sub__)
+
+ 551           LOAD_CONST               8 (<code object __isub__ at 0x00000204B9F73470, file "email\_parseaddr.py", line 551>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__isub__)
+
+ 558           LOAD_CONST               9 (<code object __getitem__ at 0x00000204BA109330, file "email\_parseaddr.py", line 558>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (__getitem__)
+               LOAD_CONST              10 (('addresslist',))
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_CONST              11 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BB360, file "email\_parseaddr.py", line 517>:
+517           RESUME                   0
+
+518           LOAD_GLOBAL              0 (AddrlistClass)
+              LOAD_ATTR                3 (__init__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, field)
+              CALL                     2
+              POP_TOP
+
+519           LOAD_FAST_BORROW         1 (field)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       24 (to L1)
+              NOT_TAKEN
+
+520           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (getaddrlist + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (addresslist)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+522   L1:     BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (addresslist)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __len__ at 0x00000204BA108E30, file "email\_parseaddr.py", line 524>:
+524           RESUME                   0
+
+525           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (addresslist)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __add__ at 0x00000204B9F6F290, file "email\_parseaddr.py", line 527>:
+527           RESUME                   0
+
+529           LOAD_GLOBAL              1 (AddressList + NULL)
+              LOAD_CONST               0 (None)
+              CALL                     1
+              STORE_FAST               2 (newaddr)
+
+530           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (addresslist)
+              LOAD_CONST               1 (slice(None, None, None))
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         2 (newaddr)
+              STORE_ATTR               1 (addresslist)
+
+531           LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                2 (addresslist)
+              GET_ITER
+      L1:     FOR_ITER                48 (to L3)
+              STORE_FAST               3 (x)
+
+532           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (x, self)
+              LOAD_ATTR                2 (addresslist)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           21 (to L1)
+
+533   L2:     LOAD_FAST_BORROW         2 (newaddr)
+              LOAD_ATTR                2 (addresslist)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         3 (x)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           50 (to L1)
+
+531   L3:     END_FOR
+              POP_ITER
+
+534           LOAD_FAST_BORROW         2 (newaddr)
+              RETURN_VALUE
+
+Disassembly of <code object __iadd__ at 0x00000204B9F72550, file "email\_parseaddr.py", line 536>:
+536           RESUME                   0
+
+538           LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                0 (addresslist)
+              GET_ITER
+      L1:     FOR_ITER                48 (to L3)
+              STORE_FAST               2 (x)
+
+539           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (x, self)
+              LOAD_ATTR                0 (addresslist)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           21 (to L1)
+
+540   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (addresslist)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         2 (x)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           50 (to L1)
+
+538   L3:     END_FOR
+              POP_ITER
+
+541           LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __sub__ at 0x00000204BA6D4480, file "email\_parseaddr.py", line 543>:
+543           RESUME                   0
+
+545           LOAD_GLOBAL              1 (AddressList + NULL)
+              LOAD_CONST               0 (None)
+              CALL                     1
+              STORE_FAST               2 (newaddr)
+
+546           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (addresslist)
+              GET_ITER
+      L1:     FOR_ITER                48 (to L3)
+              STORE_FAST               3 (x)
+
+547           LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (x, other)
+              LOAD_ATTR                2 (addresslist)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           21 (to L1)
+
+548   L2:     LOAD_FAST_BORROW         2 (newaddr)
+              LOAD_ATTR                2 (addresslist)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_FAST_BORROW         3 (x)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           50 (to L1)
+
+546   L3:     END_FOR
+              POP_ITER
+
+549           LOAD_FAST_BORROW         2 (newaddr)
+              RETURN_VALUE
+
+Disassembly of <code object __isub__ at 0x00000204B9F73470, file "email\_parseaddr.py", line 551>:
+551           RESUME                   0
+
+553           LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                0 (addresslist)
+              GET_ITER
+      L1:     FOR_ITER                48 (to L3)
+              STORE_FAST               2 (x)
+
+554           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (x, self)
+              LOAD_ATTR                0 (addresslist)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           21 (to L1)
+
+555   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (addresslist)
+              LOAD_ATTR                3 (remove + NULL|self)
+              LOAD_FAST_BORROW         2 (x)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           50 (to L1)
+
+553   L3:     END_FOR
+              POP_ITER
+
+556           LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __getitem__ at 0x00000204BA109330, file "email\_parseaddr.py", line 558>:
+558           RESUME                   0
+
+560           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (addresslist)
+              LOAD_FAST_BORROW         1 (index)
+              BINARY_OP               26 ([])
+              RETURN_VALUE

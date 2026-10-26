@@ -1,0 +1,198 @@
+  0           RESUME                   0
+
+ 16           LOAD_CONST               0 (<code object _pyi_rthook at 0x00000204BA3735D0, file "pyi_rth_pyqt6.py", line 16>)
+              MAKE_FUNCTION
+              STORE_NAME               0 (_pyi_rthook)
+
+ 69           LOAD_NAME                0 (_pyi_rthook)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+
+ 70           DELETE_NAME              0 (_pyi_rthook)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _pyi_rthook at 0x00000204BA3735D0, file "pyi_rth_pyqt6.py", line 16>:
+ 16           RESUME                   0
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (os)
+              STORE_FAST               0 (os)
+
+ 18           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (sys)
+              STORE_FAST               1 (sys)
+
+ 20           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('is_macos_app_bundle', 'prepend_path_to_environment_variable'))
+              IMPORT_NAME              2 (_pyi_rth_utils)
+              IMPORT_FROM              3 (is_macos_app_bundle)
+              STORE_FAST               2 (is_macos_app_bundle)
+              IMPORT_FROM              4 (prepend_path_to_environment_variable)
+              STORE_FAST               3 (prepend_path_to_environment_variable)
+              POP_TOP
+
+ 21           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('qt',))
+              IMPORT_NAME              2 (_pyi_rth_utils)
+              IMPORT_FROM              5 (qt)
+              STORE_FAST               4 (qt_rth_utils)
+              POP_TOP
+
+ 24           LOAD_FAST_BORROW         4 (qt_rth_utils)
+              LOAD_ATTR               13 (ensure_single_qt_bindings_package + NULL|self)
+              LOAD_CONST               4 ('PyQt6')
+              CALL                     1
+              POP_TOP
+
+ 27           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (sys)
+              LOAD_ATTR               18 (_MEIPASS)
+              LOAD_CONST               4 ('PyQt6')
+              LOAD_CONST               5 ('Qt6')
+              CALL                     3
+              STORE_FAST               5 (pyqt_path)
+
+ 28           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               21 (isdir + NULL|self)
+              LOAD_FAST_BORROW         5 (pyqt_path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        40 (to L1)
+              NOT_TAKEN
+
+ 30           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (sys)
+              LOAD_ATTR               18 (_MEIPASS)
+              LOAD_CONST               4 ('PyQt6')
+              LOAD_CONST               6 ('Qt')
+              CALL                     3
+              STORE_FAST               5 (pyqt_path)
+
+ 32   L1:     LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         5 (pyqt_path)
+              LOAD_CONST               7 ('plugins')
+              CALL                     2
+              LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               22 (environ)
+              LOAD_CONST               8 ('QT_PLUGIN_PATH')
+              STORE_SUBSCR
+
+ 34           LOAD_FAST_BORROW         2 (is_macos_app_bundle)
+              TO_BOOL
+              POP_JUMP_IF_FALSE      196 (to L2)
+              NOT_TAKEN
+
+ 41           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               25 (normpath + NULL|self)
+
+ 42           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (sys)
+              LOAD_ATTR               18 (_MEIPASS)
+              LOAD_CONST               9 ('..')
+              LOAD_CONST              10 ('Resources')
+              LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               27 (relpath + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (pyqt_path, sys)
+              LOAD_ATTR               18 (_MEIPASS)
+              CALL                     2
+              CALL                     4
+
+ 41           CALL                     1
+              STORE_FAST               6 (pyqt_path_res)
+
+ 44           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               28 (pathsep)
+              LOAD_ATTR               17 (join + NULL|self)
+
+ 45           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         6 (pyqt_path_res)
+              LOAD_CONST              11 ('qml')
+              CALL                     2
+
+ 46           LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         5 (pyqt_path)
+              LOAD_CONST              11 ('qml')
+              CALL                     2
+
+ 44           BUILD_LIST               2
+              CALL                     1
+              LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               22 (environ)
+              LOAD_CONST              12 ('QML2_IMPORT_PATH')
+              STORE_SUBSCR
+              JUMP_FORWARD            41 (to L3)
+
+ 49   L2:     LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               14 (path)
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         5 (pyqt_path)
+              LOAD_CONST              11 ('qml')
+              CALL                     2
+              LOAD_FAST_BORROW         0 (os)
+              LOAD_ATTR               22 (environ)
+              LOAD_CONST              12 ('QML2_IMPORT_PATH')
+              STORE_SUBSCR
+
+ 53   L3:     LOAD_FAST_BORROW         1 (sys)
+              LOAD_ATTR               30 (platform)
+              LOAD_ATTR               33 (startswith + NULL|self)
+              LOAD_CONST              13 ('win')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L4)
+              NOT_TAKEN
+
+ 54           LOAD_FAST_BORROW         3 (prepend_path_to_environment_variable)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (sys)
+              LOAD_ATTR               18 (_MEIPASS)
+              LOAD_CONST              14 ('PATH')
+              CALL                     2
+              POP_TOP
+
+ 59   L4:     LOAD_FAST_BORROW         1 (sys)
+              LOAD_ATTR               30 (platform)
+              LOAD_CONST              15 ('darwin')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       28 (to L5)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (is_macos_app_bundle)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        20 (to L5)
+              NOT_TAKEN
+
+ 60           LOAD_FAST_BORROW         3 (prepend_path_to_environment_variable)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (sys)
+              LOAD_ATTR               18 (_MEIPASS)
+              LOAD_CONST              16 ('DYLD_LIBRARY_PATH')
+              CALL                     2
+              POP_TOP
+
+ 66   L5:     LOAD_FAST_BORROW         4 (qt_rth_utils)
+              LOAD_ATTR               35 (create_embedded_qt_conf + NULL|self)
+              LOAD_CONST               4 ('PyQt6')
+              LOAD_FAST_BORROW         5 (pyqt_path)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

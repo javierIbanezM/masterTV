@@ -1,0 +1,59 @@
+<module>()  line 1
+    package_to_anchor(func)  line 19
+        package_to_anchor.<locals>.wrapper(anchor, package)  line 33
+    __annotate__(format)  line 52
+    files(anchor)  line 51
+    __annotate__(format)  line 59
+    get_resource_reader(package)  line 59
+    __annotate__(format)  line 76
+    resolve(cand)  line 75
+    __annotate__(format)  line 81
+    _(cand)  line 80
+    __annotate__(format)  line 86
+    _(cand)  line 85
+    _infer_caller()  line 90
+        _infer_caller.<locals>.is_this_file(frame_info)  line 95
+        _infer_caller.<locals>.is_wrapper(frame_info)  line 98
+    __annotate__(format)  line 108
+    from_package(package)  line 108
+    _tempfile(reader, suffix, _os_remove)  line 121
+    _temp_file(path)  line 148
+    __annotate__(format)  line 152
+    _is_present_dir(path)  line 152
+    as_file(path)  line 165
+    _(path)  line 174
+    __annotate__(format)  line 184
+    _temp_path(dir)  line 183
+    _temp_dir(path)  line 192
+    _write_contents(target, source)  line 203
+
+--- strings ---
+"\nReplace 'package' parameter as 'anchor' and warn about the change.\n\nOther errors should fall through.\n\n>>> files('a', 'b')\nTraceback (most recent call last):\nTypeError: files() takes from 0 to 1 positional arguments but 2 were given\n\nRemove this compatibility in Python 3.14.\n"
+"First parameter to files is renamed to 'anchor'"
+'anchor'
+'return'
+'\nGet a Traversable resource for an anchor.\n'
+'package'
+'return'
+"\nReturn the package's loader if it's a ResourceReader.\n"
+'get_resource_reader'
+'cand'
+'return'
+'cand'
+'return'
+'cand'
+'return'
+'__name__'
+'\nWalk the stack and find the frame of the first caller not in this module.\n'
+'wrapper'
+'package'
+'\nReturn a Traversable object for the given package.\n\n'
+'_os_remove'
+'path'
+'return'
+"\nSome Traversables implement ``is_dir()`` to raise an\nexception (i.e. ``FileNotFoundError``) when the\ndirectory doesn't exist. This function wraps that call\nto always return a boolean and only return True\nif there's a dir and it exists.\n"
+'\nGiven a Traversable object, return that object as a\npath on the local file system in a context manager.\n'
+'\nDegenerate behavior for pathlib.Path objects.\n'
+'dir'
+'\nWrap tempfile.TemporaryDirectory to return a pathlib object.\n'
+'\nGiven a traversable dir, recursively replicate the whole tree\nto the file system in a context manager.\n'

@@ -1,0 +1,134 @@
+<module>()  line 1
+    Number()  line 37
+    Complex()  line 57
+        Complex.__complex__(self)  line 70
+        Complex.__bool__(self)  line 74
+        Complex.real(self)  line 78
+        Complex.imag(self)  line 87
+        Complex.__add__(self, other)  line 96
+        Complex.__radd__(self, other)  line 101
+        Complex.__neg__(self)  line 106
+        Complex.__pos__(self)  line 111
+        Complex.__sub__(self, other)  line 116
+        Complex.__rsub__(self, other)  line 120
+        Complex.__mul__(self, other)  line 124
+        Complex.__rmul__(self, other)  line 129
+        Complex.__truediv__(self, other)  line 134
+        Complex.__rtruediv__(self, other)  line 139
+        Complex.__pow__(self, exponent)  line 144
+        Complex.__rpow__(self, base)  line 149
+        Complex.__abs__(self)  line 154
+        Complex.conjugate(self)  line 159
+        Complex.__eq__(self, other)  line 164
+    Real()  line 172
+        Real.__float__(self)  line 183
+        Real.__trunc__(self)  line 190
+        Real.__floor__(self)  line 203
+        Real.__ceil__(self)  line 208
+        Real.__round__(self, ndigits)  line 213
+        Real.__divmod__(self, other)  line 222
+        Real.__rdivmod__(self, other)  line 230
+        Real.__floordiv__(self, other)  line 238
+        Real.__rfloordiv__(self, other)  line 243
+        Real.__mod__(self, other)  line 248
+        Real.__rmod__(self, other)  line 253
+        Real.__lt__(self, other)  line 258
+        Real.__le__(self, other)  line 265
+        Real.__complex__(self)  line 271
+        Real.real(self)  line 275
+        Real.imag(self)  line 280
+        Real.conjugate(self)  line 285
+    Rational()  line 292
+        Rational.numerator(self)  line 297
+        Rational.denominator(self)  line 302
+        Rational.__float__(self)  line 308
+    Integral()  line 319
+        Integral.__int__(self)  line 328
+        Integral.__index__(self)  line 333
+        Integral.__pow__(self, exponent, modulus)  line 337
+        Integral.__lshift__(self, other)  line 348
+        Integral.__rlshift__(self, other)  line 353
+        Integral.__rshift__(self, other)  line 358
+        Integral.__rrshift__(self, other)  line 363
+        Integral.__and__(self, other)  line 368
+        Integral.__rand__(self, other)  line 373
+        Integral.__xor__(self, other)  line 378
+        Integral.__rxor__(self, other)  line 383
+        Integral.__or__(self, other)  line 388
+        Integral.__ror__(self, other)  line 393
+        Integral.__invert__(self)  line 398
+        Integral.__float__(self)  line 404
+        Integral.numerator(self)  line 408
+        Integral.denominator(self)  line 413
+
+--- strings ---
+'Abstract Base Classes (ABCs) for numbers, according to PEP 3141.\n\nTODO: Fill out more detailed documentation on the operators.'
+'Number'
+'Complex'
+'Real'
+'Rational'
+'Integral'
+'Number'
+'All numbers inherit from this class.\n\nIf you just want to check if an argument x is a number, without\ncaring what kind, use isinstance(x, Number).\n'
+'Complex'
+"Complex defines the operations that work on the builtin complex type.\n\nIn short, those are: a conversion to complex, .real, .imag, +, -,\n*, /, **, abs(), .conjugate, ==, and !=.\n\nIf it is given heterogeneous arguments, and doesn't have special\nknowledge about them, it should fall back to the builtin complex\ntype as described below.\n"
+'Return a builtin complex instance. Called for complex(self).'
+'True if self != 0. Called for bool(self).'
+'Retrieve the real component of this number.\n\nThis should subclass Real.\n'
+'Retrieve the imaginary component of this number.\n\nThis should subclass Real.\n'
+'self + other'
+'other + self'
+'-self'
+'+self'
+'self - other'
+'other - self'
+'self * other'
+'other * self'
+'self / other: Should promote to float when necessary.'
+'other / self'
+'self ** exponent; should promote to float or complex when necessary.'
+'base ** self'
+'Returns the Real distance from 0. Called for abs(self).'
+'(x+y*i).conjugate() returns (x-y*i).'
+'self == other'
+'Real'
+'To Complex, Real adds the operations that work on real numbers.\n\nIn short, those are: a conversion to float, trunc(), divmod,\n%, <, <=, >, and >=.\n\nReal also provides defaults for the derived operations.\n'
+'Any Real can be converted to a native float object.\n\nCalled for float(self).'
+'trunc(self): Truncates self to an Integral.\n\nReturns an Integral i such that:\n  * i > 0 iff self > 0;\n  * abs(i) <= abs(self);\n  * for any Integral j satisfying the first two conditions,\n    abs(i) >= abs(j) [i.e. i has "maximal" abs among those].\ni.e. "truncate towards 0".\n'
+'Finds the greatest Integral <= self.'
+'Finds the least Integral >= self.'
+'Rounds self to ndigits decimal places, defaulting to 0.\n\nIf ndigits is omitted or None, returns an Integral, otherwise\nreturns a Real. Rounds half toward even.\n'
+'divmod(self, other): The pair (self // other, self % other).\n\nSometimes this can be computed faster than the pair of\noperations.\n'
+'divmod(other, self): The pair (other // self, other % self).\n\nSometimes this can be computed faster than the pair of\noperations.\n'
+'self // other: The floor() of self/other.'
+'other // self: The floor() of other/self.'
+'self % other'
+'other % self'
+'self < other\n\n< on Reals defines a total ordering, except perhaps for NaN.'
+'self <= other'
+'complex(self) == complex(float(self), 0)'
+'Real numbers are their real component.'
+'Real numbers have no imaginary component.'
+'Conjugate is a no-op for Reals.'
+'Rational'
+'.numerator and .denominator should be in lowest terms.'
+'float(self) = self.numerator / self.denominator\n\nIt\'s important that this conversion use the integer\'s "true"\ndivision rather than casting one side to float before dividing\nso that ratios of huge integers convert without overflowing.\n\n'
+'Integral'
+'Integral adds methods that work on integral numbers.\n\nIn short, these are conversion to int, pow with modulus, and the\nbit-string operations.\n'
+'int(self)'
+'Called whenever an index is needed, such as in slicing'
+"self ** exponent % modulus, but maybe faster.\n\nAccept the modulus argument if you want to support the\n3-argument version of pow(). Raise a TypeError if exponent < 0\nor any argument isn't Integral. Otherwise, just implement the\n2-argument version described in Complex.\n"
+'self << other'
+'other << self'
+'self >> other'
+'other >> self'
+'self & other'
+'other & self'
+'self ^ other'
+'other ^ self'
+'self | other'
+'other | self'
+'~self'
+'float(self) == float(int(self))'
+'Integers are their own numerators.'
+'Integers have a denominator of 1.'

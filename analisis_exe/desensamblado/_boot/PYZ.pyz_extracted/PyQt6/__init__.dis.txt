@@ -1,0 +1,155 @@
+  0           RESUME                   0
+
+ 20           LOAD_NAME                0 (__import__)
+              PUSH_NULL
+              LOAD_CONST               0 ('pkgutil')
+              CALL                     1
+              LOAD_ATTR                3 (extend_path + NULL|self)
+              LOAD_NAME                2 (__path__)
+              LOAD_NAME                3 (__name__)
+              CALL                     2
+              STORE_NAME               2 (__path__)
+
+ 23           LOAD_CONST               1 (<code object find_qt at 0x00000204BA466B60, file "PyQt6\__init__.py", line 23>)
+              MAKE_FUNCTION
+              STORE_NAME               4 (find_qt)
+
+ 49           LOAD_NAME                4 (find_qt)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+
+ 50           DELETE_NAME              4 (find_qt)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object find_qt at 0x00000204BA466B60, file "PyQt6\__init__.py", line 23>:
+  23            RESUME                   0
+
+  24            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              0 (os)
+                STORE_FAST               0 (os)
+                LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (sys)
+                STORE_FAST               1 (sys)
+
+  26            LOAD_CONST               2 ('\\Qt6Core.dll')
+                STORE_FAST               2 (qtcore_dll)
+
+  28            LOAD_FAST_BORROW         0 (os)
+                LOAD_ATTR                4 (path)
+                LOAD_ATTR                7 (dirname + NULL|self)
+                LOAD_FAST_BORROW         1 (sys)
+                LOAD_ATTR                8 (executable)
+                CALL                     1
+                STORE_FAST               3 (dll_dir)
+
+  29            LOAD_FAST_BORROW         0 (os)
+                LOAD_ATTR                4 (path)
+                LOAD_ATTR               11 (isfile + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (dll_dir, qtcore_dll)
+                BINARY_OP                0 (+)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE       195 (to L5)
+                NOT_TAKEN
+
+  30            LOAD_FAST_BORROW         0 (os)
+                LOAD_ATTR               12 (environ)
+                LOAD_CONST               3 ('PATH')
+                BINARY_OP               26 ([])
+                STORE_FAST               4 (path)
+
+  32            LOAD_FAST_BORROW         0 (os)
+                LOAD_ATTR                4 (path)
+                LOAD_ATTR                7 (dirname + NULL|self)
+                LOAD_GLOBAL             14 (__file__)
+                CALL                     1
+                LOAD_CONST               4 ('\\Qt6\\bin')
+                BINARY_OP                0 (+)
+                STORE_FAST               3 (dll_dir)
+
+  33            LOAD_FAST_BORROW         0 (os)
+                LOAD_ATTR                4 (path)
+                LOAD_ATTR               11 (isfile + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (dll_dir, qtcore_dll)
+                BINARY_OP                0 (+)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       32 (to L1)
+                NOT_TAKEN
+
+  34            LOAD_FAST_BORROW         3 (dll_dir)
+                LOAD_CONST               5 (';')
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         4 (path)
+                BINARY_OP                0 (+)
+                STORE_FAST               4 (path)
+
+  35            LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (path, os)
+                LOAD_ATTR               12 (environ)
+                LOAD_CONST               3 ('PATH')
+                STORE_SUBSCR
+                JUMP_FORWARD            67 (to L5)
+
+  37    L1:     LOAD_FAST_BORROW         4 (path)
+                LOAD_ATTR               17 (split + NULL|self)
+                LOAD_CONST               5 (';')
+                CALL                     1
+                GET_ITER
+        L2:     FOR_ITER                44 (to L4)
+                STORE_FAST               3 (dll_dir)
+
+  38            LOAD_FAST_BORROW         0 (os)
+                LOAD_ATTR                4 (path)
+                LOAD_ATTR               11 (isfile + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (dll_dir, qtcore_dll)
+                BINARY_OP                0 (+)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L3)
+                NOT_TAKEN
+                JUMP_BACKWARD           44 (to L2)
+
+  39    L3:     POP_TOP
+                JUMP_FORWARD             4 (to L5)
+
+  37    L4:     END_FOR
+                POP_ITER
+
+  41            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  43    L5:     NOP
+
+  44    L6:     LOAD_FAST_BORROW         0 (os)
+                LOAD_ATTR               19 (add_dll_directory + NULL|self)
+                LOAD_FAST_BORROW         3 (dll_dir)
+                CALL                     1
+                POP_TOP
+        L7:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+  45            LOAD_GLOBAL             20 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+  46    L9:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  45   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L6 to L7 -> L8 [0]
+  L8 to L9 -> L11 [1] lasti
+  L10 to L11 -> L11 [1] lasti

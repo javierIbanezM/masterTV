@@ -1,0 +1,259 @@
+  0           RESUME                   0
+
+ 13           LOAD_CONST               0 (<code object _pyi_rthook at 0x00000204B9FB5E30, file "pyi_rth_multiprocessing.py", line 13>)
+              MAKE_FUNCTION
+              STORE_NAME               0 (_pyi_rthook)
+
+ 87           LOAD_NAME                0 (_pyi_rthook)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+
+ 88           DELETE_NAME              0 (_pyi_rthook)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _pyi_rthook at 0x00000204B9FB5E30, file "pyi_rth_multiprocessing.py", line 13>:
+  --           MAKE_CELL                1 (_args_from_interpreter_flags)
+               MAKE_CELL                2 (_divert_multiprocessing_helper)
+               MAKE_CELL                3 (multiprocessing)
+               MAKE_CELL                4 (sys)
+
+  13           RESUME                   0
+
+  14           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (sys)
+               STORE_DEREF              4 (sys)
+
+  16           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (multiprocessing)
+               STORE_DEREF              3 (multiprocessing)
+
+  17           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              2 (multiprocessing.spawn)
+               STORE_DEREF              3 (multiprocessing)
+
+  19           LOAD_SMALL_INT           0
+               LOAD_CONST               2 (('_args_from_interpreter_flags',))
+               IMPORT_NAME              3 (subprocess)
+               IMPORT_FROM              4 (_args_from_interpreter_flags)
+               STORE_DEREF              1 (_args_from_interpreter_flags)
+               POP_TOP
+
+  22           LOAD_CONST               1 (None)
+               LOAD_DEREF               3 (multiprocessing)
+               LOAD_ATTR               10 (process)
+               STORE_ATTR               6 (ORIGINAL_DIR)
+
+  24           LOAD_FAST_BORROW         1 (_args_from_interpreter_flags)
+               LOAD_FAST_BORROW         4 (sys)
+               BUILD_TUPLE              2
+               LOAD_CONST               3 (<code object _divert_multiprocessing_helper at 0x00000204BA37F1E0, file "pyi_rth_multiprocessing.py", line 24>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_DEREF              2 (_divert_multiprocessing_helper)
+
+  67           LOAD_FAST_BORROW         2 (_divert_multiprocessing_helper)
+               LOAD_FAST_BORROW         3 (multiprocessing)
+               LOAD_FAST_BORROW         4 (sys)
+               BUILD_TUPLE              3
+               LOAD_CONST               4 (<code object _freeze_support at 0x00000204BA36B440, file "pyi_rth_multiprocessing.py", line 67>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               0 (_freeze_support)
+
+  84           LOAD_FAST_BORROW         0 (_freeze_support)
+               COPY                     1
+               LOAD_DEREF               3 (multiprocessing)
+               STORE_ATTR               7 (freeze_support)
+               LOAD_DEREF               3 (multiprocessing)
+               LOAD_ATTR               16 (spawn)
+               STORE_ATTR               7 (freeze_support)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _divert_multiprocessing_helper at 0x00000204BA37F1E0, file "pyi_rth_multiprocessing.py", line 24>:
+  --           COPY_FREE_VARS           2
+
+  24           RESUME                   0
+
+  35           NOP
+
+  36   L1:     LOAD_DEREF               4 (sys)
+               LOAD_ATTR                0 (argv)
+               LOAD_ATTR                3 (index + NULL|self)
+               LOAD_CONST               0 ('-c')
+               CALL                     1
+               STORE_FAST               0 (command_switch_idx)
+
+  41   L2:     LOAD_GLOBAL              7 (set + NULL)
+               LOAD_DEREF               4 (sys)
+               LOAD_ATTR                0 (argv)
+               LOAD_SMALL_INT           1
+               LOAD_FAST                0 (command_switch_idx)
+               BINARY_SLICE
+               CALL                     1
+               LOAD_GLOBAL              7 (set + NULL)
+               LOAD_DEREF               3 (_args_from_interpreter_flags)
+               PUSH_NULL
+               CALL                     0
+               CALL                     1
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+
+  42           LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  47   L3:     LOAD_GLOBAL              9 (len + NULL)
+               LOAD_DEREF               4 (sys)
+               LOAD_ATTR                0 (argv)
+               CALL                     1
+               LOAD_FAST                0 (command_switch_idx)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+
+  48           LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  49   L4:     LOAD_DEREF               4 (sys)
+               LOAD_ATTR                0 (argv)
+               LOAD_FAST                0 (command_switch_idx)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               BINARY_OP               26 ([])
+               STORE_FAST               1 (command)
+
+  51           LOAD_CONST               2 (('from multiprocessing.resource_tracker import main', 'from multiprocessing.forkserver import main', 'import sys; from multiprocessing.forkserver import main'))
+               STORE_FAST               2 (COMMAND_PREFIXES)
+
+  60           LOAD_FAST                1 (command)
+               LOAD_ATTR               11 (startswith + NULL|self)
+               LOAD_FAST                2 (COMMAND_PREFIXES)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L5)
+               NOT_TAKEN
+
+  61           LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  64   L5:     LOAD_GLOBAL             13 (exec + NULL)
+               LOAD_FAST                1 (command)
+               CALL                     1
+               POP_TOP
+
+  65           LOAD_DEREF               4 (sys)
+               LOAD_ATTR               15 (exit + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+  37           LOAD_GLOBAL              4 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+  38   L7:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  37   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object _freeze_support at 0x00000204BA36B440, file "pyi_rth_multiprocessing.py", line 67>:
+  --           COPY_FREE_VARS           3
+
+  67           RESUME                   0
+
+  70           LOAD_DEREF               4 (_divert_multiprocessing_helper)
+               PUSH_NULL
+               CALL                     0
+               POP_TOP
+
+  73           LOAD_DEREF               5 (multiprocessing)
+               LOAD_ATTR                0 (spawn)
+               LOAD_ATTR                3 (is_forking + NULL|self)
+               LOAD_DEREF               6 (sys)
+               LOAD_ATTR                4 (argv)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE      120 (to L4)
+               NOT_TAKEN
+
+  74           BUILD_MAP                0
+               STORE_FAST               0 (kwds)
+
+  75           LOAD_DEREF               6 (sys)
+               LOAD_ATTR                4 (argv)
+               LOAD_CONST               0 (slice(2, None, None))
+               BINARY_OP               26 ([])
+               GET_ITER
+       L1:     FOR_ITER                48 (to L3)
+               STORE_FAST               1 (arg)
+
+  76           LOAD_FAST_BORROW         1 (arg)
+               LOAD_ATTR                7 (split + NULL|self)
+               LOAD_CONST               1 ('=')
+               CALL                     1
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   35 (name, value)
+
+  77           LOAD_FAST_BORROW         3 (value)
+               LOAD_CONST               2 ('None')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        7 (to L2)
+               NOT_TAKEN
+
+  78           LOAD_CONST               3 (None)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (kwds, name)
+               STORE_SUBSCR
+               JUMP_BACKWARD           35 (to L1)
+
+  80   L2:     LOAD_GLOBAL              9 (int + NULL)
+               LOAD_FAST_BORROW         3 (value)
+               CALL                     1
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (kwds, name)
+               STORE_SUBSCR
+               JUMP_BACKWARD           50 (to L1)
+
+  75   L3:     END_FOR
+               POP_ITER
+
+  81           LOAD_DEREF               5 (multiprocessing)
+               LOAD_ATTR                0 (spawn)
+               LOAD_ATTR               10 (spawn_main)
+               PUSH_NULL
+               LOAD_CONST               4 (())
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         0 (kwds)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+
+  82           LOAD_DEREF               6 (sys)
+               LOAD_ATTR               13 (exit + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  73   L4:     LOAD_CONST               3 (None)
+               RETURN_VALUE

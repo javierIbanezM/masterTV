@@ -1,0 +1,236 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST ('QComboBox', 'QGroupBox', 'QHBoxLayout', 'QHeaderView', 'QInputDialog', 'QLabel', 'QLineEdit', 'QPushButton', 'QSpinBox', 'QTableWidget', 'QTableWidgetItem', 'QVBoxLayout'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QComboBox; STORE_NAME QComboBox; IMPORT_FROM QGroupBox; STORE_NAME QGroupBox; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QHeaderView; STORE_NAME QHeaderView; IMPORT_FROM QInputDialog; STORE_NAME QInputDialog; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QLineEdit; STORE_NAME QLineEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QSpinBox; STORE_NAME QSpinBox; IMPORT_FROM QTableWidget; STORE_NAME QTableWidget; IMPORT_FROM QTableWidgetItem; STORE_NAME QTableWidgetItem; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout
+7: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+8: LOAD_SMALL_INT 2; LOAD_CONST ('confirm', 'warn'); IMPORT_NAME common; IMPORT_FROM confirm; STORE_NAME confirm; IMPORT_FROM warn; STORE_NAME warn
+11: LOAD_BUILD_CLASS; LOAD_CONST <code SettingsTab>; MAKE_FUNCTION; LOAD_CONST 'SettingsTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME SettingsTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF SettingsTab() @11
+  11: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'SettingsTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 11; STORE_NAME __firstlineno__
+  12: LOAD_CONST 'Ajustes del sistema'; STORE_NAME title
+  14: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code SettingsTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  92: LOAD_CONST <code SettingsTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  96: LOAD_CONST <code SettingsTab.on_activated>; MAKE_FUNCTION; STORE_NAME on_activated
+  101: LOAD_CONST <code SettingsTab.load>; MAKE_FUNCTION; STORE_NAME load
+  110: LOAD_CONST <code SettingsTab._fill>; MAKE_FUNCTION; STORE_NAME _fill
+  118: LOAD_CONST <code SettingsTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code SettingsTab._put>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _put
+  133: LOAD_CONST <code SettingsTab.edit>; MAKE_FUNCTION; STORE_NAME edit
+  143: LOAD_CONST <code SettingsTab.add>; MAKE_FUNCTION; STORE_NAME add
+  152: LOAD_CONST <code SettingsTab.set_timeout>; MAKE_FUNCTION; STORE_NAME set_timeout
+  155: LOAD_CONST <code SettingsTab.set_anim>; MAKE_FUNCTION; STORE_NAME set_anim
+  172: LOAD_CONST <code SettingsTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code SettingsTab._wm>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _wm
+  178: LOAD_CONST <code SettingsTab.set_size>; MAKE_FUNCTION; STORE_NAME set_size
+  183: LOAD_CONST <code SettingsTab.reset_size>; MAKE_FUNCTION; STORE_NAME reset_size
+  186: LOAD_CONST <code SettingsTab.set_density>; MAKE_FUNCTION; STORE_NAME set_density
+  190: LOAD_CONST <code SettingsTab.reset_density>; MAKE_FUNCTION; STORE_NAME reset_density; LOAD_CONST ('anim', 'data', 'dpi', 'filter', 'h', 'ns', 'table', 'timeout', 'w'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF SettingsTab.__init__(self,ctx) @14
+    15: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_DEREF self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    16: BUILD_MAP; LOAD_DEREF self; STORE_ATTR data
+    17: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_DEREF self; CALL; STORE_FAST lay
+    20: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Ajustes rápidos (cada cambio pide confirmación)'; CALL; STORE_FAST quick
+    21: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW quick; CALL; STORE_FAST ql
+    22: LOAD_GLOBAL QComboBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR timeout
+    23: LOAD_CONST (('15 s', 15000), ('1 min', 60000), ('5 min', 300000), ('30 min', 1800000), ('Nunca (24 h)', 86400000)); GET_ITER; <L150>; FOR_ITER ->218; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST label, ms
+    25: LOAD_DEREF self; LOAD_ATTR timeout; LOAD_ATTR addItem + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW label, ms; CALL; JUMP_BACKWARD ->150
+    23: <L218>; END_FOR; POP_ITER
+    26: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Aplicar'; CALL; STORE_FAST t_btn
+    27: LOAD_FAST_BORROW t_btn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR set_timeout; CALL
+    28: LOAD_FAST_BORROW ql; LOAD_ATTR addWidget + NULL|self; LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Apagado de pantalla:'; CALL; CALL
+    29: LOAD_FAST_BORROW ql; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR timeout; CALL
+    30: LOAD_FAST_BORROW ql; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW t_btn; CALL
+    32: LOAD_GLOBAL QComboBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR anim
+    33: LOAD_CONST (('Sin animaciones (0)', '0'), ('Rápidas (0.5)', '0.5'), ('Normales (1)', '1')); GET_ITER; <L492>; FOR_ITER ->560; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST label, v
+    34: LOAD_DEREF self; LOAD_ATTR anim; LOAD_ATTR addItem + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW label, v; CALL; JUMP_BACKWARD ->492
+    33: <L560>; END_FOR; POP_ITER
+    35: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Aplicar'; CALL; STORE_FAST a_btn
+    36: LOAD_FAST_BORROW a_btn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR set_anim; CALL
+    37: LOAD_FAST_BORROW ql; LOAD_ATTR addWidget + NULL|self; LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Animaciones:'; CALL; CALL
+    38: LOAD_FAST_BORROW ql; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR anim; CALL
+    39: LOAD_FAST_BORROW ql; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW a_btn; CALL
+    40: LOAD_FAST_BORROW ql; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    41: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW quick; CALL
+    43: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Resolución y densidad (wm)'; CALL; STORE_FAST disp
+    44: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW disp; CALL; STORE_FAST dl
+    45: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_GLOBAL QSpinBox + NULL; CALL; SWAP; LOAD_DEREF self; STORE_ATTR w; LOAD_DEREF self; STORE_ATTR h; LOAD_DEREF self; STORE_ATTR dpi
+    46: LOAD_DEREF self; LOAD_ATTR w; LOAD_ATTR setRange + NULL|self; LOAD_CONST 320; LOAD_CONST 7680; CALL; LOAD_DEREF self; LOAD_ATTR w; LOAD_ATTR setValue + NULL|self; LOAD_CONST 1920; CALL
+    47: LOAD_DEREF self; LOAD_ATTR h; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 240; LOAD_CONST 4320; CALL; LOAD_DEREF self; LOAD_ATTR h; LOAD_ATTR setValue + NULL|self; LOAD_CONST 1080; CALL
+    48: LOAD_DEREF self; LOAD_ATTR dpi; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 72; LOAD_CONST 640; CALL; LOAD_DEREF self; LOAD_ATTR dpi; LOAD_ATTR setValue + NULL|self; LOAD_CONST 320; CALL
+    49: LOAD_CONST 'Ancho'; LOAD_DEREF self; LOAD_ATTR w; BUILD_TUPLE; LOAD_CONST 'Alto'; LOAD_DEREF self; LOAD_ATTR h; BUILD_TUPLE; BUILD_TUPLE; GET_ITER; <L1390>; FOR_ITER ->1490; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST lbl, w
+    50: LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_GLOBAL QLabel + NULL; LOAD_FAST_BORROW lbl; CALL; CALL; LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW w; CALL; JUMP_BACKWARD ->1390
+    49: <L1490>; END_FOR; POP_ITER
+    51: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Aplicar tamaño'; CALL; STORE_FAST_LOAD_FAST sz, sz; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR set_size; CALL
+    52: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Restaurar tamaño'; CALL; STORE_FAST_LOAD_FAST szr, szr; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR reset_size; CALL
+    53: LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW sz; CALL; LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW szr; CALL
+    54: LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Densidad'; CALL; CALL
+    55: LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR dpi; CALL
+    56: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Aplicar densidad'; CALL; STORE_FAST dn; LOAD_FAST_BORROW dn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR set_density; CALL
+    57: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Restaurar densidad'; CALL; STORE_FAST dnr; LOAD_FAST_BORROW dnr; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR reset_density; CALL
+    58: LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW dn; CALL; LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW dnr; CALL
+    59: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW disp; CALL
+    62: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST top
+    63: LOAD_GLOBAL QComboBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR ns
+    64: LOAD_DEREF self; LOAD_ATTR ns; LOAD_ATTR addItems + NULL|self; BUILD_LIST; LOAD_CONST ('global', 'secure', 'system'); LIST_EXTEND; CALL
+    65: LOAD_DEREF self; LOAD_ATTR ns; LOAD_ATTR currentIndexChanged; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR load; CALL
+    66: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR filter
+    67: LOAD_DEREF self; LOAD_ATTR filter; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Filtrar claves o valores…'; CALL
+    68: LOAD_DEREF self; LOAD_ATTR filter; LOAD_ATTR textChanged; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR _fill; CALL
+    69: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Cargar'; CALL; STORE_FAST load
+    70: LOAD_FAST_BORROW load; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR load; CALL
+    71: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Editar valor…'; CALL; STORE_FAST edit
+    72: LOAD_FAST_BORROW edit; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR edit; CALL
+    73: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Añadir clave…'; CALL; STORE_FAST new
+    74: LOAD_FAST_BORROW new; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR add; CALL
+    75: LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Espacio:'; CALL; LOAD_DEREF self; LOAD_ATTR ns; BUILD_TUPLE; GET_ITER; <L2864>; FOR_ITER ->2908; STORE_FAST w
+    76: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW w; CALL; JUMP_BACKWARD ->2864
+    75: <L2908>; END_FOR; POP_ITER
+    77: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR filter; LOAD_SMALL_INT 1; CALL
+    78: LOAD_FAST_BORROW load; LOAD_FAST_BORROW edit; LOAD_FAST_BORROW new; BUILD_TUPLE; GET_ITER; <L2978>; FOR_ITER ->3022; STORE_FAST w
+    79: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW w; CALL; JUMP_BACKWARD ->2978
+    78: <L3022>; END_FOR; POP_ITER
+    80: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW top; CALL
+    82: LOAD_GLOBAL QTableWidget + NULL; LOAD_SMALL_INT 0; LOAD_SMALL_INT 2; CALL; LOAD_DEREF self; STORE_ATTR table
+    83: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR setHorizontalHeaderLabels + NULL|self; LOAD_CONST 'Clave'; LOAD_CONST 'Valor'; BUILD_LIST; CALL
+    84: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR horizontalHeader + NULL|self; CALL; LOAD_ATTR setSectionResizeMode + NULL|self; LOAD_SMALL_INT 0; LOAD_GLOBAL QHeaderView; LOAD_ATTR ResizeMode; LOAD_ATTR Stretch; CALL
+    85: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR horizontalHeader + NULL|self; CALL; LOAD_ATTR setSectionResizeMode + NULL|self; LOAD_SMALL_INT 1; LOAD_GLOBAL QHeaderView; LOAD_ATTR ResizeMode; LOAD_ATTR Stretch; CALL
+    86: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR setEditTriggers + NULL|self; LOAD_GLOBAL QTableWidget; LOAD_ATTR EditTrigger; LOAD_ATTR NoEditTriggers; CALL
+    87: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR setSelectionBehavior + NULL|self; LOAD_GLOBAL QTableWidget; LOAD_ATTR SelectionBehavior; LOAD_ATTR SelectRows; CALL
+    88: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR verticalHeader + NULL|self; CALL; LOAD_ATTR hide + NULL|self; CALL
+    89: LOAD_DEREF self; LOAD_ATTR table; LOAD_ATTR doubleClicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code SettingsTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    90: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR table; LOAD_SMALL_INT 1; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab.__init__.<locals>.<lambda>(_) @89
+      89: LOAD_DEREF self; LOAD_ATTR edit + NULL|self; CALL; RETURN_VALUE
+
+    DEF SettingsTab.on_device_changed(self) @92
+    93: BUILD_MAP; LOAD_FAST_BORROW self; STORE_ATTR data
+    94: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR setRowCount + NULL|self; LOAD_SMALL_INT 0; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.on_activated(self) @96
+    97: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; TO_BOOL; POP_JUMP_IF_FALSE ->182; LOAD_FAST_BORROW self; LOAD_ATTR is_online + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->178; LOAD_FAST_BORROW self; LOAD_ATTR data; TO_BOOL; POP_JUMP_IF_TRUE ->174
+    98: LOAD_FAST_BORROW self; LOAD_ATTR load + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    97: <L174>; LOAD_CONST None; RETURN_VALUE; <L178>; LOAD_CONST None; RETURN_VALUE; <L182>; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.load(self) @101
+    102: LOAD_DEREF self; LOAD_ATTR ns; LOAD_ATTR currentText + NULL|self; CALL; STORE_DEREF ns
+    104: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code SettingsTab.load.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    108: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW ns; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code SettingsTab.load.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab.load.<locals>.done(d) @104
+      105: LOAD_FAST_BORROW d; LOAD_DEREF self; STORE_ATTR data
+      106: LOAD_DEREF self; LOAD_ATTR _fill + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab.load.<locals>.<lambda>(s) @108
+      108: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR settings_list + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF ns; CALL; RETURN_VALUE
+
+    DEF SettingsTab._fill(self) @110
+    111: LOAD_FAST_BORROW self; LOAD_ATTR filter; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR lower + NULL|self; CALL; STORE_FAST txt
+    112: LOAD_GLOBAL sorted + NULL; LOAD_FAST_BORROW self; LOAD_ATTR data; LOAD_ATTR items + NULL|self; CALL; CALL; GET_ITER; LOAD_FAST_AND_CLEAR k; LOAD_FAST_AND_CLEAR v; SWAP; BUILD_LIST; SWAP; <L162>; FOR_ITER ->266; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST k, v; LOAD_FAST_BORROW_LOAD_FAST_BORROW txt, k; LOAD_ATTR lower + NULL|self; CALL; CONTAINS_OP in; POP_JUMP_IF_TRUE ->256; LOAD_FAST_BORROW_LOAD_FAST_BORROW txt, v; LOAD_ATTR lower + NULL|self; CALL; CONTAINS_OP in; POP_JUMP_IF_TRUE ->256; JUMP_BACKWARD ->162; <L256>; LOAD_FAST_BORROW_LOAD_FAST_BORROW k, v; BUILD_TUPLE; LIST_APPEND; JUMP_BACKWARD ->162; <L266>; END_FOR; POP_ITER; STORE_FAST rows; STORE_FAST k; STORE_FAST v
+    113: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR setRowCount + NULL|self; LOAD_GLOBAL len + NULL; LOAD_FAST_BORROW rows; CALL; CALL
+    114: LOAD_GLOBAL enumerate + NULL; LOAD_FAST_BORROW rows; CALL; GET_ITER; <L370>; FOR_ITER ->542; UNPACK_SEQUENCE; STORE_FAST i; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST k, v
+    115: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR setItem + NULL|self; LOAD_FAST_BORROW i; LOAD_SMALL_INT 0; LOAD_GLOBAL QTableWidgetItem + NULL; LOAD_FAST_BORROW k; CALL; CALL
+    116: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR setItem + NULL|self; LOAD_FAST_BORROW i; LOAD_SMALL_INT 1; LOAD_GLOBAL QTableWidgetItem + NULL; LOAD_FAST_BORROW v; CALL; CALL; JUMP_BACKWARD ->370
+    114: <L542>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+    None: SWAP
+    112: SWAP; STORE_FAST v; STORE_FAST k; RERAISE
+
+    DEF SettingsTab._put(self,ns,key,value) @118
+    119: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    120: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_TRUE ->62
+    121: LOAD_CONST None; RETURN_VALUE
+    122: <L62>; LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell settings put '; LOAD_DEREF ns; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_DEREF key; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_DEREF value; FORMAT_SIMPLE; BUILD_STRING; STORE_FAST cmd
+    123: LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Cambiar ajuste del sistema'
+    124: LOAD_CONST 'Se cambiará '; LOAD_DEREF ns; FORMAT_SIMPLE; LOAD_CONST '/'; LOAD_DEREF key; FORMAT_SIMPLE; LOAD_CONST ' a «'; LOAD_DEREF value; FORMAT_SIMPLE; LOAD_CONST '».'; BUILD_STRING; LOAD_FAST_BORROW cmd
+    123: CALL; TO_BOOL; POP_JUMP_IF_TRUE ->154
+    125: LOAD_CONST None; RETURN_VALUE
+    127: <L154>; LOAD_FAST_BORROW key; LOAD_FAST_BORROW ns; LOAD_FAST_BORROW self; LOAD_FAST_BORROW value; BUILD_TUPLE; LOAD_CONST <code SettingsTab._put.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    131: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW key; LOAD_FAST_BORROW ns; LOAD_FAST_BORROW self; LOAD_FAST_BORROW value; BUILD_TUPLE; LOAD_CONST <code SettingsTab._put.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab._put.<locals>.done(r) @127
+      128: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'settings put '; LOAD_DEREF ns; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_DEREF key; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_DEREF value; FORMAT_SIMPLE; LOAD_CONST ': '; LOAD_FAST_BORROW r; LOAD_ATTR ok; TO_BOOL; POP_JUMP_IF_FALSE ->106; LOAD_CONST 'OK'; JUMP_FORWARD ->128; <L106>; LOAD_FAST_BORROW r; LOAD_ATTR text; <L128>; FORMAT_SIMPLE; BUILD_STRING; CALL
+      129: LOAD_DEREF self; LOAD_ATTR load + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab._put.<locals>.<lambda>(s) @131
+      131: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR settings_put + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF ns; LOAD_DEREF key; LOAD_DEREF value; CALL; RETURN_VALUE
+
+    DEF SettingsTab.edit(self) @133
+    134: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR currentRow + NULL|self; CALL; STORE_FAST row
+    135: LOAD_FAST_BORROW row; LOAD_SMALL_INT 0; COMPARE_OP bool(<); POP_JUMP_IF_FALSE ->94
+    136: LOAD_GLOBAL warn + NULL; LOAD_FAST_BORROW self; LOAD_CONST 'Sin selección'; LOAD_CONST 'Selecciona una fila de la tabla.'; CALL; RETURN_VALUE
+    137: <L94>; LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR item + NULL|self; LOAD_FAST_BORROW row; LOAD_SMALL_INT 0; CALL; LOAD_ATTR text + NULL|self; CALL; STORE_FAST key
+    138: LOAD_FAST_BORROW self; LOAD_ATTR table; LOAD_ATTR item + NULL|self; LOAD_FAST_BORROW row; LOAD_SMALL_INT 1; CALL; LOAD_ATTR text + NULL|self; CALL; STORE_FAST cur
+    139: LOAD_GLOBAL QInputDialog; LOAD_ATTR getText; LOAD_FAST_BORROW self; LOAD_CONST 'Editar valor'; LOAD_FAST_BORROW self; LOAD_ATTR ns; LOAD_ATTR currentText + NULL|self; CALL; FORMAT_SIMPLE; LOAD_CONST '/'; LOAD_FAST_BORROW key; FORMAT_SIMPLE; LOAD_CONST ':'; BUILD_STRING; LOAD_FAST_BORROW cur; LOAD_CONST ('text',); CALL_KW; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST val, ok
+    140: LOAD_FAST_BORROW ok; TO_BOOL; POP_JUMP_IF_FALSE ->498; LOAD_FAST_BORROW_LOAD_FAST_BORROW val, cur; COMPARE_OP bool(!=); POP_JUMP_IF_FALSE ->494
+    141: LOAD_FAST_BORROW self; LOAD_ATTR _put + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR ns; LOAD_ATTR currentText + NULL|self; CALL; LOAD_FAST_BORROW_LOAD_FAST_BORROW key, val; CALL; LOAD_CONST None; RETURN_VALUE
+    140: <L494>; LOAD_CONST None; RETURN_VALUE; <L498>; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.add(self) @143
+    144: LOAD_GLOBAL QInputDialog; LOAD_ATTR getText; LOAD_FAST_BORROW self; LOAD_CONST 'Nueva clave'; LOAD_CONST 'Nombre de la clave:'; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST key, ok
+    145: LOAD_FAST_BORROW ok; TO_BOOL; POP_JUMP_IF_FALSE ->114; LOAD_FAST_BORROW key; LOAD_ATTR strip + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->118
+    146: <L114>; LOAD_CONST None; RETURN_VALUE
+    147: <L118>; LOAD_GLOBAL QInputDialog; LOAD_ATTR getText; LOAD_FAST_BORROW self; LOAD_CONST 'Nueva clave'; LOAD_CONST 'Valor de '; LOAD_FAST_BORROW key; FORMAT_SIMPLE; LOAD_CONST ':'; BUILD_STRING; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST val, ok
+    148: LOAD_FAST_BORROW ok; TO_BOOL; POP_JUMP_IF_FALSE ->312
+    149: LOAD_FAST_BORROW self; LOAD_ATTR _put + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR ns; LOAD_ATTR currentText + NULL|self; CALL; LOAD_FAST_BORROW key; LOAD_ATTR strip + NULL|self; CALL; LOAD_FAST_BORROW val; CALL; LOAD_CONST None; RETURN_VALUE
+    148: <L312>; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.set_timeout(self) @152
+    153: LOAD_FAST_BORROW self; LOAD_ATTR _put + NULL|self; LOAD_CONST 'system'; LOAD_CONST 'screen_off_timeout'; LOAD_GLOBAL str + NULL; LOAD_FAST_BORROW self; LOAD_ATTR timeout; LOAD_ATTR currentData + NULL|self; CALL; CALL; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.set_anim(self) @155
+    156: LOAD_DEREF self; LOAD_ATTR anim; LOAD_ATTR currentData + NULL|self; CALL; STORE_DEREF v
+    157: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_DEREF s
+    158: LOAD_DEREF s; TO_BOOL; POP_JUMP_IF_FALSE ->208; LOAD_GLOBAL confirm + NULL
+    159: LOAD_DEREF self; LOAD_CONST 'Cambiar animaciones'; LOAD_CONST 'Se pondrán las 3 escalas de animación a '; LOAD_DEREF v; FORMAT_SIMPLE; LOAD_CONST '.'; BUILD_STRING
+    160: LOAD_CONST '\n'; LOAD_ATTR join + NULL|self; LOAD_FAST_BORROW s; LOAD_FAST_BORROW v; BUILD_TUPLE; LOAD_CONST <code SettingsTab.set_anim.<locals>.<genexpr>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    161: LOAD_CONST ('window_animation_scale', 'transition_animation_scale', 'animator_duration_scale'); GET_ITER
+    160: CALL; CALL
+    158: CALL; TO_BOOL; POP_JUMP_IF_TRUE ->212
+    163: <L208>; LOAD_CONST None; RETURN_VALUE
+    165: <L212>; LOAD_FAST_BORROW self; LOAD_FAST_BORROW v; BUILD_TUPLE; LOAD_CONST <code SettingsTab.set_anim.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    170: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW work; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code SettingsTab.set_anim.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab.set_anim.<locals>.<genexpr>(.0) @160
+      160: RETURN_GENERATOR; LOAD_FAST .0
+      161: <L10>; FOR_ITER ->46
+      160: STORE_FAST k; LOAD_CONST 'adb -s '; LOAD_DEREF s; FORMAT_SIMPLE; LOAD_CONST ' shell settings put global '; LOAD_FAST_BORROW k; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_DEREF v; FORMAT_SIMPLE; BUILD_STRING; YIELD_VALUE; JUMP_BACKWARD ->10
+      161: <L46>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+      None: CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR; RERAISE
+
+      DEF SettingsTab.set_anim.<locals>.work(s) @165
+      166: LOAD_CONST ('window_animation_scale', 'transition_animation_scale', 'animator_duration_scale'); GET_ITER; <L8>; FOR_ITER ->98; STORE_FAST k
+      168: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR settings_put + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'global'; LOAD_FAST_BORROW k; LOAD_DEREF v; CALL; JUMP_BACKWARD ->8
+      166: <L98>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab.set_anim.<locals>.<lambda>(r) @170
+      170: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Animaciones actualizadas'; CALL; LOAD_DEREF self; LOAD_ATTR load + NULL|self; CALL; BUILD_TUPLE; RETURN_VALUE
+
+    DEF SettingsTab._wm(self,args,title,text) @172
+    173: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    174: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->168; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_FAST_BORROW_LOAD_FAST_BORROW title, text; LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell wm '; LOAD_DEREF args; FORMAT_SIMPLE; BUILD_STRING; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->164
+    175: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW args; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code SettingsTab._wm.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    176: LOAD_FAST_BORROW args; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code SettingsTab._wm.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    175: CALL; LOAD_CONST None; RETURN_VALUE
+    174: <L164>; LOAD_CONST None; RETURN_VALUE; <L168>; LOAD_CONST None; RETURN_VALUE
+
+      DEF SettingsTab._wm.<locals>.<lambda>(s) @175
+      175: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'wm '; LOAD_DEREF args; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+      DEF SettingsTab._wm.<locals>.<lambda>(r) @176
+      176: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'wm '; LOAD_DEREF args; FORMAT_SIMPLE; LOAD_CONST ': '; LOAD_FAST_BORROW r; LOAD_ATTR text; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->96; LOAD_CONST 'OK'; <L96>; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF SettingsTab.set_size(self) @178
+    179: LOAD_FAST_BORROW self; LOAD_ATTR _wm + NULL|self; LOAD_CONST 'size '; LOAD_FAST_BORROW self; LOAD_ATTR w; LOAD_ATTR value + NULL|self; CALL; FORMAT_SIMPLE; LOAD_CONST 'x'; LOAD_FAST_BORROW self; LOAD_ATTR h; LOAD_ATTR value + NULL|self; CALL; FORMAT_SIMPLE; BUILD_STRING; LOAD_CONST 'Cambiar resolución'
+    180: LOAD_CONST 'Una resolución no soportada puede dejar la imagen ilegible. Si ocurre, usa «Restaurar tamaño».'
+    179: CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.reset_size(self) @183
+    184: LOAD_FAST_BORROW self; LOAD_ATTR _wm + NULL|self; LOAD_CONST 'size reset'; LOAD_CONST 'Restaurar resolución'; LOAD_CONST 'Se vuelve a la resolución física.'; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.set_density(self) @186
+    187: LOAD_FAST_BORROW self; LOAD_ATTR _wm + NULL|self; LOAD_CONST 'density '; LOAD_FAST_BORROW self; LOAD_ATTR dpi; LOAD_ATTR value + NULL|self; CALL; FORMAT_SIMPLE; BUILD_STRING; LOAD_CONST 'Cambiar densidad'
+    188: LOAD_CONST 'Cambia el tamaño de la interfaz de la TV.'
+    187: CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF SettingsTab.reset_density(self) @190
+    191: LOAD_FAST_BORROW self; LOAD_ATTR _wm + NULL|self; LOAD_CONST 'density reset'; LOAD_CONST 'Restaurar densidad'; LOAD_CONST 'Se vuelve a la densidad física.'; CALL; LOAD_CONST None; RETURN_VALUE

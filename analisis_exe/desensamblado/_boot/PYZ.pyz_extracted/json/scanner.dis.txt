@@ -1,0 +1,493 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('JSON token scanner\n')
+               STORE_NAME               0 (__doc__)
+
+   3           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (re)
+               STORE_NAME               1 (re)
+
+   4           NOP
+
+   5   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               2 (('make_scanner',))
+               IMPORT_NAME              2 (_json)
+               IMPORT_FROM              3 (make_scanner)
+               STORE_NAME               4 (c_make_scanner)
+               POP_TOP
+
+   9   L2:     LOAD_CONST               3 ('make_scanner')
+               BUILD_LIST               1
+               STORE_NAME               6 (__all__)
+
+  11           LOAD_NAME                1 (re)
+               LOAD_ATTR               14 (compile)
+               PUSH_NULL
+
+  12           LOAD_CONST               4 ('(-?(?:0|[1-9][0-9]*))(\\.[0-9]+)?([eE][-+]?[0-9]+)?')
+
+  13           LOAD_NAME                1 (re)
+               LOAD_ATTR               16 (VERBOSE)
+               LOAD_NAME                1 (re)
+               LOAD_ATTR               18 (MULTILINE)
+               BINARY_OP                7 (|)
+               LOAD_NAME                1 (re)
+               LOAD_ATTR               20 (DOTALL)
+               BINARY_OP                7 (|)
+
+  11           CALL                     2
+               STORE_NAME              11 (NUMBER_RE)
+
+  15           LOAD_CONST               5 (<code object py_make_scanner at 0x00000204BA36B8C0, file "json\scanner.py", line 15>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (py_make_scanner)
+
+  73           LOAD_NAME                4 (c_make_scanner)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L3)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_NAME               12 (py_make_scanner)
+       L3:     STORE_NAME               3 (make_scanner)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+   6           LOAD_NAME                5 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+   7           LOAD_CONST               1 (None)
+               STORE_NAME               4 (c_make_scanner)
+       L5:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 94 (to L2)
+
+   6   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object py_make_scanner at 0x00000204BA36B8C0, file "json\scanner.py", line 15>:
+  --           MAKE_CELL                2 (_scan_once)
+               MAKE_CELL                3 (match_number)
+               MAKE_CELL                4 (memo)
+               MAKE_CELL                5 (object_hook)
+               MAKE_CELL                6 (object_pairs_hook)
+               MAKE_CELL                7 (parse_array)
+               MAKE_CELL                8 (parse_constant)
+               MAKE_CELL                9 (parse_float)
+               MAKE_CELL               10 (parse_int)
+               MAKE_CELL               11 (parse_object)
+               MAKE_CELL               12 (parse_string)
+               MAKE_CELL               13 (strict)
+
+  15           RESUME                   0
+
+  16           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR                0 (parse_object)
+               STORE_DEREF             11 (parse_object)
+
+  17           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR                2 (parse_array)
+               STORE_DEREF              7 (parse_array)
+
+  18           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR                4 (parse_string)
+               STORE_DEREF             12 (parse_string)
+
+  19           LOAD_GLOBAL              6 (NUMBER_RE)
+               LOAD_ATTR                8 (match)
+               STORE_DEREF              3 (match_number)
+
+  20           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR               10 (strict)
+               STORE_DEREF             13 (strict)
+
+  21           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR               12 (parse_float)
+               STORE_DEREF              9 (parse_float)
+
+  22           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR               14 (parse_int)
+               STORE_DEREF             10 (parse_int)
+
+  23           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR               16 (parse_constant)
+               STORE_DEREF              8 (parse_constant)
+
+  24           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR               18 (object_hook)
+               STORE_DEREF              5 (object_hook)
+
+  25           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR               20 (object_pairs_hook)
+               STORE_DEREF              6 (object_pairs_hook)
+
+  26           LOAD_FAST_BORROW         0 (context)
+               LOAD_ATTR               22 (memo)
+               STORE_DEREF              4 (memo)
+
+  28           LOAD_FAST_BORROW         2 (_scan_once)
+               LOAD_FAST_BORROW         3 (match_number)
+               LOAD_FAST_BORROW         4 (memo)
+               LOAD_FAST_BORROW         5 (object_hook)
+               LOAD_FAST_BORROW         6 (object_pairs_hook)
+               LOAD_FAST_BORROW         7 (parse_array)
+               LOAD_FAST_BORROW         8 (parse_constant)
+               LOAD_FAST_BORROW         9 (parse_float)
+               LOAD_FAST_BORROW        10 (parse_int)
+               LOAD_FAST_BORROW        11 (parse_object)
+               LOAD_FAST_BORROW        12 (parse_string)
+               LOAD_FAST_BORROW        13 (strict)
+               BUILD_TUPLE             12
+               LOAD_CONST               0 (<code object _scan_once at 0x00000204BA462B80, file "json\scanner.py", line 28>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_DEREF              2 (_scan_once)
+
+  65           LOAD_FAST_BORROW         2 (_scan_once)
+               LOAD_FAST_BORROW         4 (memo)
+               BUILD_TUPLE              2
+               LOAD_CONST               1 (<code object scan_once at 0x00000204B9FEF0E0, file "json\scanner.py", line 65>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               1 (scan_once)
+
+  71           LOAD_FAST_BORROW         1 (scan_once)
+               RETURN_VALUE
+
+Disassembly of <code object _scan_once at 0x00000204BA462B80, file "json\scanner.py", line 28>:
+  --            COPY_FREE_VARS          12
+
+  28            RESUME                   0
+
+  29            NOP
+
+  30    L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (string, idx)
+                BINARY_OP               26 ([])
+                STORE_FAST               2 (nextchar)
+
+  34    L2:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST               1 ('"')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       17 (to L3)
+                NOT_TAKEN
+
+  35            LOAD_DEREF              18 (parse_string)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_DEREF              19 (strict)
+                CALL                     3
+                RETURN_VALUE
+
+  36    L3:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST               2 ('{')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       22 (to L4)
+                NOT_TAKEN
+
+  37            LOAD_DEREF              17 (parse_object)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                LOAD_DEREF              19 (strict)
+
+  38            LOAD_DEREF               8 (_scan_once)
+                LOAD_DEREF              11 (object_hook)
+                LOAD_DEREF              12 (object_pairs_hook)
+                LOAD_DEREF              10 (memo)
+
+  37            CALL                     6
+                RETURN_VALUE
+
+  39    L4:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST               3 ('[')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L5)
+                NOT_TAKEN
+
+  40            LOAD_DEREF              13 (parse_array)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                LOAD_DEREF               8 (_scan_once)
+                CALL                     2
+                RETURN_VALUE
+
+  41    L5:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST               4 ('n')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L6)
+                NOT_TAKEN
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           4
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST               5 ('null')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       12 (to L6)
+                NOT_TAKEN
+
+  42            LOAD_CONST               0 (None)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           4
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  43    L6:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST               6 ('t')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L7)
+                NOT_TAKEN
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           4
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST               7 ('true')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       12 (to L7)
+                NOT_TAKEN
+
+  44            LOAD_CONST               8 (True)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           4
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  45    L7:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST               9 ('f')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L8)
+                NOT_TAKEN
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           5
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST              10 ('false')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       12 (to L8)
+                NOT_TAKEN
+
+  46            LOAD_CONST              11 (False)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           5
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  48    L8:     LOAD_DEREF               9 (match_number)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                CALL                     2
+                STORE_FAST               3 (m)
+
+  49            LOAD_FAST                3 (m)
+                POP_JUMP_IF_NONE       103 (to L14)
+                NOT_TAKEN
+
+  50            LOAD_FAST                3 (m)
+                LOAD_ATTR                5 (groups + NULL|self)
+                CALL                     0
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   69 (integer, frac)
+                STORE_FAST               6 (exp)
+
+  51            LOAD_FAST                5 (frac)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         9 (to L9)
+                NOT_TAKEN
+                LOAD_FAST                6 (exp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       43 (to L12)
+                NOT_TAKEN
+
+  52    L9:     LOAD_DEREF              15 (parse_float)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST     69 (integer, frac)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L10)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST              12 ('')
+       L10:     BINARY_OP                0 (+)
+                LOAD_FAST                6 (exp)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L11)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST              12 ('')
+       L11:     BINARY_OP                0 (+)
+                CALL                     1
+                STORE_FAST               7 (res)
+                JUMP_FORWARD             8 (to L13)
+
+  54   L12:     LOAD_DEREF              16 (parse_int)
+                PUSH_NULL
+                LOAD_FAST                4 (integer)
+                CALL                     1
+                STORE_FAST               7 (res)
+
+  55   L13:     LOAD_FAST_LOAD_FAST    115 (res, m)
+                LOAD_ATTR                7 (end + NULL|self)
+                CALL                     0
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  56   L14:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST              13 ('N')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       34 (to L15)
+                NOT_TAKEN
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           3
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST              14 ('NaN')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L15)
+                NOT_TAKEN
+
+  57            LOAD_DEREF              14 (parse_constant)
+                PUSH_NULL
+                LOAD_CONST              14 ('NaN')
+                CALL                     1
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           3
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  58   L15:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST              15 ('I')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       34 (to L16)
+                NOT_TAKEN
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           8
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST              16 ('Infinity')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L16)
+                NOT_TAKEN
+
+  59            LOAD_DEREF              14 (parse_constant)
+                PUSH_NULL
+                LOAD_CONST              16 ('Infinity')
+                CALL                     1
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           8
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  60   L16:     LOAD_FAST                2 (nextchar)
+                LOAD_CONST              17 ('-')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       34 (to L17)
+                NOT_TAKEN
+                LOAD_FAST_LOAD_FAST      1 (string, idx)
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           9
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST              18 ('-Infinity')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       18 (to L17)
+                NOT_TAKEN
+
+  61            LOAD_DEREF              14 (parse_constant)
+                PUSH_NULL
+                LOAD_CONST              18 ('-Infinity')
+                CALL                     1
+                LOAD_FAST                1 (idx)
+                LOAD_SMALL_INT           9
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  63   L17:     LOAD_GLOBAL              3 (StopIteration + NULL)
+                LOAD_FAST                1 (idx)
+                CALL                     1
+                RAISE_VARARGS            1
+
+  --   L18:     PUSH_EXC_INFO
+
+  31            LOAD_GLOBAL              0 (IndexError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       14 (to L19)
+                NOT_TAKEN
+                POP_TOP
+
+  32            LOAD_GLOBAL              3 (StopIteration + NULL)
+                LOAD_FAST                1 (idx)
+                CALL                     1
+                LOAD_CONST               0 (None)
+                RAISE_VARARGS            2
+
+  31   L19:     RERAISE                  0
+
+  --   L20:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L18 [0]
+  L18 to L20 -> L20 [1] lasti
+
+Disassembly of <code object scan_once at 0x00000204B9FEF0E0, file "json\scanner.py", line 65>:
+  --           COPY_FREE_VARS           2
+
+  65           RESUME                   0
+
+  66           NOP
+
+  67   L1:     LOAD_DEREF               2 (_scan_once)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (string, idx)
+               CALL                     2
+
+  69   L2:     LOAD_DEREF               3 (memo)
+               LOAD_ATTR                1 (clear + NULL|self)
+               CALL                     0
+               POP_TOP
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  69           LOAD_DEREF               3 (memo)
+               LOAD_ATTR                1 (clear + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+  --   L4:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L4 [1] lasti

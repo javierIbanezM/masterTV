@@ -1,0 +1,61 @@
+<module>()  line 1
+    TextWrapper()  line 17
+        TextWrapper.__init__(self, width, initial_indent, subsequent_indent, expand_tabs, replace_whitespace, fix_sentence_endings, break_long_words, drop_whitespace, break_on_hyphens, tabsize, max_lines, placeholder)  line 112
+        TextWrapper._munge_whitespace(self, text)  line 143
+        TextWrapper._split(self, text)  line 157
+        TextWrapper._fix_sentence_endings(self, chunks)  line 179
+        TextWrapper._handle_long_word(self, reversed_chunks, cur_line, cur_len, width)  line 197
+            TextWrapper._handle_long_word.<locals>.<genexpr>(.0)  line 221
+        TextWrapper._wrap_chunks(self, chunks)  line 238
+        TextWrapper._split_chunks(self, text)  line 341
+        TextWrapper.wrap(self, text)  line 347
+        TextWrapper.fill(self, text)  line 361
+    wrap(text, width)  line 373
+    fill(text, width)  line 386
+    shorten(text, width)  line 398
+    dedent(text)  line 416
+    indent(text, prefix, predicate)  line 447
+
+--- strings ---
+'Text wrapping and filling.\n'
+'TextWrapper'
+'\t\n\x0b\x0c\r '
+'TextWrapper'
+'\nObject for wrapping/filling text.  The public interface consists of\nthe wrap() and fill() methods; the other methods are just there for\nsubclasses to override in order to tweak the default behaviour.\nIf you want to completely replace the main wrapping algorithm,\nyou\'ll probably have to override _wrap_chunks().\n\nSeveral instance attributes control various aspects of wrapping:\n  width (default: 70)\n    the maximum width of wrapped lines (unless break_long_words\n    is false)\n  initial_indent (default: "")\n    string that will be prepended to the first line of wrapped\n    output.  Counts towards the line\'s width.\n  subsequent_indent (default: "")\n    string that will be prepended to all lines save the first\n    of wrapped output; also counts towards each line\'s width.\n  expand_tabs (default: true)\n    Expand tabs in input text to spaces before further processing.\n    Each tab will become 0 .. \'tabsize\' spaces, depending on its position\n    in its line.  If false, each tab is treated as a single character.\n  tabsize (default: 8)\n    Expand tabs in input text to 0 .. \'tabsize\' spaces, unless\n    \'expand_tabs\' is false.\n  replace_whitespace (default: true)\n    Replace all whitespace characters in the input text by spaces\n    after tab expansion.  Note that if expand_tabs is false and\n    replace_whitespace is true, every tab will be converted to a\n    single space!\n  fix_sentence_endings (default: false)\n    Ensure that sentence-ending punctuation is always followed\n    by two spaces.  Off by default because the algorithm is\n    (unavoidably) imperfect.\n  break_long_words (default: true)\n    Break words longer than \'width\'.  If false, those words will not\n    be broken, and some lines might be longer than \'width\'.\n  break_on_hyphens (default: true)\n    Allow breaking hyphenated words. If true, wrapping will occur\n    preferably on whitespaces and right after hyphens part of\n    compound words.\n  drop_whitespace (default: true)\n    Drop leading and trailing whitespace from lines.\n  max_lines (default: None)\n    Truncate wrapped lines.\n  placeholder (default: \' [...]\')\n    Append to the last line of truncated text.\n'
+'[\\w!"\\\'&.,?]'
+'[^\\d\\W]'
+'[%s]'
+'[^'
+'\n        ( # any whitespace\n          %(ws)s+\n        | # em-dash between words\n          (?<=%(wp)s) -{2,} (?=\\w)\n        | # word, possibly hyphenated\n          %(nws)s+? (?:\n            # hyphenated word\n              -(?: (?<=%(lt)s{2}-) | (?<=%(lt)s-%(lt)s-))\n              (?= %(lt)s -? %(lt)s)\n            | # end of word\n              (?=%(ws)s|\\z)\n            | # em-dash\n              (?<=%(wp)s) (?=-{2,}\\w)\n            )\n        )'
+'wp'
+'lt'
+'ws'
+'nws'
+'(%s+)'
+'[a-z][\\.\\!\\?][\\"\\\']?\\z'
+'max_lines'
+'placeholder'
+' [...]'
+'_munge_whitespace(text : string) -> string\n\nMunge whitespace in text: expand tabs and convert all other\nwhitespace characters to spaces.  Eg. " foo\\tbar\\n\\nbaz"\nbecomes " foo    bar  baz".\n'
+"_split(text : string) -> [string]\n\nSplit the text to wrap into indivisible chunks.  Chunks are\nnot quite the same as words; see _wrap_chunks() for full\ndetails.  As an example, the text\n  Look, goof-ball -- use the -b option!\nbreaks into the following chunks:\n  'Look,', ' ', 'goof-', 'ball', ' ', '--', ' ',\n  'use', ' ', 'the', ' ', '-b', ' ', 'option!'\nif break_on_hyphens is True, or in:\n  'Look,', ' ', 'goof-ball', ' ', '--', ' ',\n  'use', ' ', 'the', ' ', '-b', ' ', option!'\notherwise.\n"
+'_fix_sentence_endings(chunks : [string])\n\nCorrect for sentence endings buried in \'chunks\'.  Eg. when the\noriginal text contains "... foo.\\nBar ...", munge_whitespace()\nand split() will convert that to [..., "foo.", " ", "Bar", ...]\nwhich has one too few spaces; this method simply changes the one\nspace to two.\n'
+'  '
+'_handle_long_word(chunks : [string],\n                     cur_line : [string],\n                     cur_len : int, width : int)\n\nHandle a chunk of text (most likely a word, not whitespace) that\nis too long to fit in any line.\n'
+'_wrap_chunks(chunks : [string]) -> [string]\n\nWrap a sequence of text chunks and return a list of lines of\nlength \'self.width\' or less.  (If \'break_long_words\' is false,\nsome lines may be longer than this.)  Chunks correspond roughly\nto words and the whitespace between them: each chunk is\nindivisible (modulo \'break_long_words\'), but a line break can\ncome between any two chunks.  Chunks should not have internal\nwhitespace; ie. a chunk is either all whitespace or a "word".\nWhitespace chunks will be removed from the beginning and end of\nlines, but apart from that whitespace is preserved.\n'
+'invalid width %r (must be > 0)'
+'placeholder too large for max width'
+"wrap(text : string) -> [string]\n\nReformat the single paragraph in 'text' so it fits in lines of\nno more than 'self.width' columns, and return a list of wrapped\nlines.  Tabs in 'text' are expanded with string.expandtabs(),\nand all other whitespace characters (including newline) are\nconverted to space.\n"
+"fill(text : string) -> string\n\nReformat the single paragraph in 'text' to fit in lines of no\nmore than 'self.width' columns, and return a new string\ncontaining the entire wrapped paragraph.\n"
+"Wrap a single paragraph of text, returning a list of wrapped lines.\n\nReformat the single paragraph in 'text' so it fits in lines of no\nmore than 'width' columns, and return a list of wrapped lines.  By\ndefault, tabs in 'text' are expanded with string.expandtabs(), and\nall other whitespace characters (including newline) are converted to\nspace.  See TextWrapper class for available keyword args to customize\nwrapping behaviour.\n"
+'width'
+"Fill a single paragraph of text, returning a new string.\n\nReformat the single paragraph in 'text' to fit in lines of no more\nthan 'width' columns, and return a new string containing the entire\nwrapped paragraph.  As with wrap(), tabs are expanded and other\nwhitespace characters converted to space.  See TextWrapper class for\navailable keyword args to customize wrapping behaviour.\n"
+'width'
+'Collapse and truncate the given text to fit in the given width.\n\nThe text first has its whitespace collapsed.  If it then fits in\nthe *width*, it is returned as is.  Otherwise, as many words\nas possible are joined and then the placeholder is appended::\n\n    >>> textwrap.shorten("Hello  world!", width=12)\n    \'Hello world!\'\n    >>> textwrap.shorten("Hello  world!", width=11)\n    \'Hello [...]\'\n'
+'width'
+'max_lines'
+'Remove any common leading whitespace from every line in `text`.\n\nThis can be used to make triple-quoted strings line up with the left\nedge of the display, while still presenting them in the source code\nin indented form.\n\nNote that tabs and spaces are both treated as whitespace, but they\nare not equal: the lines "  hello" and "\\thello" are\nconsidered to have no common leading whitespace.\n\nEntirely blank lines are normalized to a newline character.\n'
+'expected str object, not '
+' \t'
+"Adds 'prefix' to the beginning of selected lines in 'text'.\n\nIf 'predicate' is provided, 'prefix' will only be added to the lines\nwhere 'predicate(line)' is True. If 'predicate' is not provided,\nit will default to adding 'prefix' to all non-empty lines that do not\nconsist solely of whitespace characters.\n"
+'__main__'
+'Hello there.\n  This is indented.'

@@ -1,0 +1,34 @@
+<module>()  line 1
+    GetoptError()  line 36
+        GetoptError.__init__(self, msg, opt)  line 39
+        GetoptError.__str__(self)  line 44
+    getopt(args, shortopts, longopts)  line 49
+    gnu_getopt(args, shortopts, longopts)  line 94
+    do_longs(opts, opt, longopts, args)  line 155
+    long_has_args(opt, longopts)  line 177
+    do_shorts(opts, optstring, shortopts, args)  line 204
+    short_has_arg(opt, shortopts)  line 220
+
+--- strings ---
+"Parser for command line options.\n\nThis module helps scripts to parse the command line arguments in\nsys.argv.  It supports the same conventions as the Unix getopt()\nfunction (including the special meanings of arguments of the form '-'\nand '--').  Long options similar to those supported by GNU software\nmay be used as well via an optional third argument.  This module\nprovides two functions and an exception:\n\ngetopt() -- Parse command line options\ngnu_getopt() -- Like getopt(), but allow option and non-option arguments\nto be intermixed.\nGetoptError -- exception (class) raised with 'opt' attribute, which is the\noption involved with the exception.\n"
+'GetoptError'
+'GetoptError'
+'getopt(args, options[, long_options]) -> opts, args\n\nParses command line options and parameter list.  args is the\nargument list to be parsed, without the leading reference to the\nrunning program.  Typically, this means "sys.argv[1:]".  shortopts\nis the string of option letters that the script wants to\nrecognize, with options that require an argument followed by a\ncolon and options that accept an optional argument followed by\ntwo colons (i.e., the same format that Unix getopt() uses).  If\nspecified, longopts is a list of strings with the names of the\nlong options which should be supported.  The leading \'--\'\ncharacters should not be included in the option name.  Options\nwhich require an argument should be followed by an equal sign\n(\'=\').  Options which accept an optional argument should be\nfollowed by an equal sign and question mark (\'=?\').\n\nThe return value consists of two elements: the first is a list of\n(option, value) pairs; the second is the list of program arguments\nleft after the option list was stripped (this is a trailing slice\nof the first argument).  Each option-and-value pair returned has\nthe option as its first element, prefixed with a hyphen (e.g.,\n\'-x\'), and the option argument as its second element, or an empty\nstring if the option has no argument.  The options occur in the\nlist in the same order in which they were found, thus allowing\nmultiple occurrences.  Long and short options may be mixed.\n\n'
+'--'
+"getopt(args, options[, long_options]) -> opts, args\n\nThis function works like getopt(), except that GNU style scanning\nmode is used by default. This means that option and non-option\narguments may be intermixed. The getopt() function stops\nprocessing options as soon as a non-option argument is\nencountered.\n\nIf the first character of the option string is '+', or if the\nenvironment variable POSIXLY_CORRECT is set, then option\nprocessing stops as soon as a non-option argument is encountered.\n\n"
+'POSIXLY_CORRECT'
+'--'
+'option --%s requires argument'
+'option --%s must not have an argument'
+'--'
+'option --%s not recognized'
+'=?'
+'option --%s not a unique prefix; possible options: %s'
+', '
+'option -%s requires argument'
+'::'
+'option -%s not recognized'
+'__main__'
+'a:b'
+'alpha='
+'beta'

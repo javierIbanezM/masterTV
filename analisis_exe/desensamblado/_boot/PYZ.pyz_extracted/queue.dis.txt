@@ -1,0 +1,1534 @@
+   0            RESUME                   0
+
+   1            LOAD_CONST               0 ('A multi-producer, multi-consumer queue.')
+                STORE_NAME               0 (__doc__)
+
+   3            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (threading)
+                STORE_NAME               1 (threading)
+
+   4            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              2 (types)
+                STORE_NAME               2 (types)
+
+   5            LOAD_SMALL_INT           0
+                LOAD_CONST               2 (('deque',))
+                IMPORT_NAME              3 (collections)
+                IMPORT_FROM              4 (deque)
+                STORE_NAME               4 (deque)
+                POP_TOP
+
+   6            LOAD_SMALL_INT           0
+                LOAD_CONST               3 (('heappush', 'heappop'))
+                IMPORT_NAME              5 (heapq)
+                IMPORT_FROM              6 (heappush)
+                STORE_NAME               6 (heappush)
+                IMPORT_FROM              7 (heappop)
+                STORE_NAME               7 (heappop)
+                POP_TOP
+
+   7            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (('monotonic',))
+                IMPORT_NAME              8 (time)
+                IMPORT_FROM              9 (monotonic)
+                STORE_NAME               8 (time)
+                POP_TOP
+
+   8            NOP
+
+   9    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               5 (('SimpleQueue',))
+                IMPORT_NAME             10 (_queue)
+                IMPORT_FROM             11 (SimpleQueue)
+                STORE_NAME              11 (SimpleQueue)
+                POP_TOP
+
+  13    L2:     BUILD_LIST               0
+                LOAD_CONST              21 (('Empty', 'Full', 'ShutDown', 'Queue', 'PriorityQueue', 'LifoQueue', 'SimpleQueue'))
+                LIST_EXTEND              1
+                STORE_NAME              13 (__all__)
+
+  24            NOP
+
+  25    L3:     LOAD_SMALL_INT           0
+                LOAD_CONST              12 (('Empty',))
+                IMPORT_NAME             10 (_queue)
+                IMPORT_FROM             14 (Empty)
+                STORE_NAME              14 (Empty)
+                POP_TOP
+
+  31    L4:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              14 (<code object Full at 0x00000204BA092C40, file "queue.py", line 31>)
+                MAKE_FUNCTION
+                LOAD_CONST               7 ('Full')
+                LOAD_NAME               15 (Exception)
+                CALL                     3
+                STORE_NAME              16 (Full)
+
+  36            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              15 (<code object ShutDown at 0x00000204BA0913E0, file "queue.py", line 36>)
+                MAKE_FUNCTION
+                LOAD_CONST               8 ('ShutDown')
+                LOAD_NAME               15 (Exception)
+                CALL                     3
+                STORE_NAME              17 (ShutDown)
+
+  40            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              16 (<code object Queue at 0x00000204BA129160, file "queue.py", line 40>)
+                MAKE_FUNCTION
+                LOAD_CONST               9 ('Queue')
+                CALL                     2
+                STORE_NAME              18 (Queue)
+
+ 281            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              17 (<code object PriorityQueue at 0x00000204BA0FFDD0, file "queue.py", line 281>)
+                MAKE_FUNCTION
+                LOAD_CONST              10 ('PriorityQueue')
+                LOAD_NAME               18 (Queue)
+                CALL                     3
+                STORE_NAME              19 (PriorityQueue)
+
+ 300            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              18 (<code object LifoQueue at 0x00000204BA0FF440, file "queue.py", line 300>)
+                MAKE_FUNCTION
+                LOAD_CONST              11 ('LifoQueue')
+                LOAD_NAME               18 (Queue)
+                CALL                     3
+                STORE_NAME              20 (LifoQueue)
+
+ 316            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              19 (<code object _PySimpleQueue at 0x00000204BA0BAF70, file "queue.py", line 316>)
+                MAKE_FUNCTION
+                LOAD_CONST              20 ('_PySimpleQueue')
+                CALL                     2
+                STORE_NAME              21 (_PySimpleQueue)
+
+ 383            LOAD_NAME               11 (SimpleQueue)
+                POP_JUMP_IF_NOT_NONE     5 (to L5)
+                NOT_TAKEN
+
+ 384            LOAD_NAME               21 (_PySimpleQueue)
+                STORE_NAME              11 (SimpleQueue)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 383    L5:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+  10            LOAD_NAME               12 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+  11            LOAD_CONST               1 (None)
+                STORE_NAME              11 (SimpleQueue)
+        L7:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 96 (to L2)
+
+  10    L8:     RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     PUSH_EXC_INFO
+
+  26            LOAD_NAME               12 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       15 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+  27            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              13 (<code object Empty at 0x00000204BA092F10, file "queue.py", line 27>)
+                MAKE_FUNCTION
+                LOAD_CONST               6 ('Empty')
+                LOAD_NAME               15 (Exception)
+                CALL                     3
+                STORE_NAME              14 (Empty)
+       L11:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 109 (to L4)
+
+  26   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L3 to L4 -> L10 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+  L10 to L11 -> L13 [1] lasti
+  L12 to L13 -> L13 [1] lasti
+
+Disassembly of <code object Empty at 0x00000204BA092F10, file "queue.py", line 27>:
+ 27           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Empty')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          27
+              STORE_NAME               3 (__firstlineno__)
+
+ 28           LOAD_CONST               1 ('Exception raised by Queue.get(block=0)/get_nowait().')
+              STORE_NAME               4 (__doc__)
+
+ 29           LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Full at 0x00000204BA092C40, file "queue.py", line 31>:
+ 31           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Full')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          31
+              STORE_NAME               3 (__firstlineno__)
+
+ 32           LOAD_CONST               1 ('Exception raised by Queue.put(block=0)/put_nowait().')
+              STORE_NAME               4 (__doc__)
+
+ 33           LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ShutDown at 0x00000204BA0913E0, file "queue.py", line 36>:
+ 36           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ShutDown')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          36
+              STORE_NAME               3 (__firstlineno__)
+
+ 37           LOAD_CONST               1 ('Raised when put/get with shut-down queue.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Queue at 0x00000204BA129160, file "queue.py", line 40>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  40           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Queue')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          40
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  41           LOAD_CONST               1 ('Create a queue object with a given maximum size.\n\nIf maxsize is <= 0, the queue size is infinite.\n')
+               STORE_NAME               4 (__doc__)
+
+  46           LOAD_CONST              19 ((0,))
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA36AFC0, file "queue.py", line 46>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+  72           LOAD_CONST               3 (<code object task_done at 0x00000204B9F4E810, file "queue.py", line 72>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (task_done)
+
+  97           LOAD_CONST               4 (<code object join at 0x00000204B9F6F290, file "queue.py", line 97>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (join)
+
+ 110           LOAD_CONST               5 (<code object qsize at 0x00000204B9F72AD0, file "queue.py", line 110>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (qsize)
+
+ 115           LOAD_CONST               6 (<code object empty at 0x00000204BA610030, file "queue.py", line 115>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (empty)
+
+ 129           LOAD_CONST               7 (<code object full at 0x00000204B9F6F0F0, file "queue.py", line 129>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (full)
+
+ 140           LOAD_CONST              20 ((True, None))
+               LOAD_CONST               9 (<code object put at 0x00000204BA388300, file "queue.py", line 140>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              11 (put)
+
+ 180           LOAD_CONST              20 ((True, None))
+               LOAD_CONST              10 (<code object get at 0x00000204BA3735D0, file "queue.py", line 180>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (get)
+
+ 220           LOAD_CONST              11 (<code object put_nowait at 0x00000204BA08A530, file "queue.py", line 220>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (put_nowait)
+
+ 228           LOAD_CONST              12 (<code object get_nowait at 0x00000204BA08B130, file "queue.py", line 228>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (get_nowait)
+
+ 236           LOAD_CONST              21 ((False,))
+               LOAD_CONST              13 (<code object shutdown at 0x00000204BA446FF0, file "queue.py", line 236>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              15 (shutdown)
+
+ 264           LOAD_CONST              14 (<code object _init at 0x00000204BA08B330, file "queue.py", line 264>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (_init)
+
+ 267           LOAD_CONST              15 (<code object _qsize at 0x00000204BA08AC30, file "queue.py", line 267>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (_qsize)
+
+ 271           LOAD_CONST              16 (<code object _put at 0x00000204BA083110, file "queue.py", line 271>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (_put)
+
+ 275           LOAD_CONST              17 (<code object _get at 0x00000204BA0FFEE0, file "queue.py", line 275>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (_get)
+
+ 278           LOAD_NAME               20 (classmethod)
+               PUSH_NULL
+               LOAD_NAME               21 (types)
+               LOAD_ATTR               44 (GenericAlias)
+               CALL                     1
+               STORE_NAME              23 (__class_getitem__)
+               LOAD_CONST              18 (('all_tasks_done', 'is_shutdown', 'maxsize', 'mutex', 'not_empty', 'not_full', 'queue', 'unfinished_tasks'))
+               STORE_NAME              24 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              25 (__classdictcell__)
+               LOAD_CONST               8 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA36AFC0, file "queue.py", line 46>:
+ 46           RESUME                   0
+
+ 47           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (maxsize, self)
+              STORE_ATTR               0 (maxsize)
+
+ 48           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_init + NULL|self)
+              LOAD_FAST_BORROW         1 (maxsize)
+              CALL                     1
+              POP_TOP
+
+ 54           LOAD_GLOBAL              4 (threading)
+              LOAD_ATTR                6 (Lock)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (mutex)
+
+ 58           LOAD_GLOBAL              4 (threading)
+              LOAD_ATTR               10 (Condition)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (mutex)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (not_empty)
+
+ 62           LOAD_GLOBAL              4 (threading)
+              LOAD_ATTR               10 (Condition)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (mutex)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (not_full)
+
+ 66           LOAD_GLOBAL              4 (threading)
+              LOAD_ATTR               10 (Condition)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (mutex)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (all_tasks_done)
+
+ 67           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               9 (unfinished_tasks)
+
+ 70           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              10 (is_shutdown)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object task_done at 0x00000204B9F4E810, file "queue.py", line 72>:
+  72           RESUME                   0
+
+  89           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (all_tasks_done)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+  90           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (unfinished_tasks)
+               LOAD_SMALL_INT           1
+               BINARY_OP               10 (-)
+               STORE_FAST               1 (unfinished)
+
+  91           LOAD_FAST_BORROW         1 (unfinished)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       45 (to L3)
+               NOT_TAKEN
+
+  92           LOAD_FAST_BORROW         1 (unfinished)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       12 (to L2)
+               NOT_TAKEN
+
+  93           LOAD_GLOBAL              5 (ValueError + NULL)
+               LOAD_CONST               1 ('task_done() called too many times')
+               CALL                     1
+               RAISE_VARARGS            1
+
+  94   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (all_tasks_done)
+               LOAD_ATTR                7 (notify_all + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  95   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (unfinished, self)
+               STORE_ATTR               1 (unfinished_tasks)
+
+  89   L4:     LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+       L5:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L6)
+               NOT_TAKEN
+               RERAISE                  2
+       L6:     POP_TOP
+       L7:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L5 [2] lasti
+  L5 to L7 -> L8 [4] lasti
+
+Disassembly of <code object join at 0x00000204B9F6F290, file "queue.py", line 97>:
+  97           RESUME                   0
+
+ 106           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (all_tasks_done)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 107   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (unfinished_tasks)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       29 (to L5)
+       L3:     NOT_TAKEN
+
+ 108   L4:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (all_tasks_done)
+               LOAD_ATTR                5 (wait + NULL|self)
+               CALL                     0
+               POP_TOP
+               JUMP_BACKWARD           46 (to L2)
+
+ 107   L5:     NOP
+
+ 106           LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+       L6:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L7)
+               NOT_TAKEN
+               RERAISE                  2
+       L7:     POP_TOP
+       L8:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [2] lasti
+  L4 to L5 -> L6 [2] lasti
+  L6 to L8 -> L9 [4] lasti
+
+Disassembly of <code object qsize at 0x00000204B9F72AD0, file "queue.py", line 110>:
+ 110           RESUME                   0
+
+ 112           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (mutex)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 113           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                3 (_qsize + NULL|self)
+               CALL                     0
+
+ 112   L2:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object empty at 0x00000204BA610030, file "queue.py", line 115>:
+ 115           RESUME                   0
+
+ 126           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (mutex)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 127           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                3 (_qsize + NULL|self)
+               CALL                     0
+               TO_BOOL
+               UNARY_NOT
+
+ 126   L2:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object full at 0x00000204B9F6F0F0, file "queue.py", line 129>:
+ 129           RESUME                   0
+
+ 137           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (mutex)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 138           LOAD_SMALL_INT           0
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (maxsize)
+               SWAP                     2
+               COPY                     2
+               COMPARE_OP               2 (<)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       20 (to L2)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (_qsize + NULL|self)
+               CALL                     0
+               COMPARE_OP              42 (<=)
+               JUMP_FORWARD             2 (to L3)
+       L2:     SWAP                     2
+               POP_TOP
+
+ 137   L3:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L4:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L5)
+               NOT_TAKEN
+               RERAISE                  2
+       L5:     POP_TOP
+       L6:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L4 [2] lasti
+  L4 to L6 -> L7 [4] lasti
+
+Disassembly of <code object put at 0x00000204BA388300, file "queue.py", line 140>:
+ 140            RESUME                   0
+
+ 153            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (not_full)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+ 154            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (is_shutdown)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L2)
+                NOT_TAKEN
+
+ 155            LOAD_GLOBAL              4 (ShutDown)
+                RAISE_VARARGS            1
+
+ 156    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (maxsize)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                EXTENDED_ARG             1
+                POP_JUMP_IF_FALSE      284 (to L17)
+                NOT_TAKEN
+
+ 157            LOAD_FAST_BORROW         2 (block)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        39 (to L6)
+        L3:     NOT_TAKEN
+
+ 158    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                9 (_qsize + NULL|self)
+                CALL                     0
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (maxsize)
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE        7 (to L5)
+                NOT_TAKEN
+
+ 159            LOAD_GLOBAL             10 (Full)
+                RAISE_VARARGS            1
+
+ 158    L5:     JUMP_FORWARD           237 (to L17)
+
+ 160    L6:     LOAD_FAST_BORROW         3 (timeout)
+                POP_JUMP_IF_NOT_NONE    85 (to L11)
+                NOT_TAKEN
+
+ 161    L7:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                9 (_qsize + NULL|self)
+                CALL                     0
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (maxsize)
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE       53 (to L10)
+                NOT_TAKEN
+
+ 162            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (not_full)
+                LOAD_ATTR               13 (wait + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 163            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (is_shutdown)
+                TO_BOOL
+        L8:     POP_JUMP_IF_TRUE         3 (to L9)
+                NOT_TAKEN
+                JUMP_BACKWARD           77 (to L7)
+
+ 164    L9:     LOAD_GLOBAL              4 (ShutDown)
+                RAISE_VARARGS            1
+
+ 161   L10:     JUMP_FORWARD           149 (to L17)
+
+ 165   L11:     LOAD_FAST_BORROW         3 (timeout)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L12)
+                NOT_TAKEN
+
+ 166            LOAD_GLOBAL             15 (ValueError + NULL)
+                LOAD_CONST               2 ("'timeout' must be a non-negative number")
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 168   L12:     LOAD_GLOBAL             17 (time + NULL)
+                CALL                     0
+                LOAD_FAST_BORROW         3 (timeout)
+                BINARY_OP                0 (+)
+                STORE_FAST               4 (endtime)
+
+ 169   L13:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                9 (_qsize + NULL|self)
+                CALL                     0
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (maxsize)
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE       84 (to L17)
+                NOT_TAKEN
+
+ 170            LOAD_FAST_BORROW         4 (endtime)
+                LOAD_GLOBAL             17 (time + NULL)
+                CALL                     0
+                BINARY_OP               10 (-)
+                STORE_FAST               5 (remaining)
+
+ 171            LOAD_FAST_BORROW         5 (remaining)
+                LOAD_CONST               3 (0.0)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        7 (to L14)
+                NOT_TAKEN
+
+ 172            LOAD_GLOBAL             10 (Full)
+                RAISE_VARARGS            1
+
+ 173   L14:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (not_full)
+                LOAD_ATTR               13 (wait + NULL|self)
+                LOAD_FAST_BORROW         5 (remaining)
+                CALL                     1
+                POP_TOP
+
+ 174            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (is_shutdown)
+                TO_BOOL
+       L15:     POP_JUMP_IF_TRUE         3 (to L16)
+                NOT_TAKEN
+                JUMP_BACKWARD          108 (to L13)
+
+ 175   L16:     LOAD_GLOBAL              4 (ShutDown)
+                RAISE_VARARGS            1
+
+ 176   L17:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               19 (_put + NULL|self)
+                LOAD_FAST_BORROW         1 (item)
+                CALL                     1
+                POP_TOP
+
+ 177            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR               20 (unfinished_tasks)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     2
+                STORE_ATTR              10 (unfinished_tasks)
+
+ 178            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               22 (not_empty)
+                LOAD_ATTR               25 (notify + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 153   L18:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+       L19:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L20)
+                NOT_TAKEN
+                RERAISE                  2
+       L20:     POP_TOP
+       L21:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L22:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L19 [2] lasti
+  L4 to L8 -> L19 [2] lasti
+  L9 to L15 -> L19 [2] lasti
+  L16 to L18 -> L19 [2] lasti
+  L19 to L21 -> L22 [4] lasti
+
+Disassembly of <code object get at 0x00000204BA3735D0, file "queue.py", line 180>:
+ 180            RESUME                   0
+
+ 194            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (not_empty)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+ 195            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (is_shutdown)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       29 (to L4)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_qsize + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         7 (to L4)
+        L2:     NOT_TAKEN
+
+ 196    L3:     LOAD_GLOBAL              6 (ShutDown)
+                RAISE_VARARGS            1
+
+ 197    L4:     LOAD_FAST_BORROW         1 (block)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        31 (to L10)
+        L5:     NOT_TAKEN
+
+ 198    L6:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_qsize + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         7 (to L9)
+        L7:     NOT_TAKEN
+
+ 199    L8:     LOAD_GLOBAL              8 (Empty)
+                RAISE_VARARGS            1
+
+ 198    L9:     EXTENDED_ARG             1
+                JUMP_FORWARD           267 (to L29)
+
+ 200   L10:     LOAD_FAST_BORROW         2 (timeout)
+                POP_JUMP_IF_NOT_NONE   100 (to L19)
+                NOT_TAKEN
+
+ 201   L11:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_qsize + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE        77 (to L18)
+       L12:     NOT_TAKEN
+
+ 202   L13:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (not_empty)
+                LOAD_ATTR               11 (wait + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 203            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (is_shutdown)
+                TO_BOOL
+       L14:     POP_JUMP_IF_TRUE         3 (to L15)
+                NOT_TAKEN
+                JUMP_BACKWARD           68 (to L11)
+       L15:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_qsize + NULL|self)
+                CALL                     0
+                TO_BOOL
+       L16:     POP_JUMP_IF_FALSE        3 (to L17)
+                NOT_TAKEN
+                JUMP_BACKWARD           92 (to L11)
+
+ 204   L17:     LOAD_GLOBAL              6 (ShutDown)
+                RAISE_VARARGS            1
+
+ 201   L18:     JUMP_FORWARD           164 (to L29)
+
+ 205   L19:     LOAD_FAST_BORROW         2 (timeout)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L20)
+                NOT_TAKEN
+
+ 206            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST               2 ("'timeout' must be a non-negative number")
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 208   L20:     LOAD_GLOBAL             15 (time + NULL)
+                CALL                     0
+                LOAD_FAST_BORROW         2 (timeout)
+                BINARY_OP                0 (+)
+                STORE_FAST               3 (endtime)
+
+ 209   L21:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_qsize + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE       108 (to L29)
+       L22:     NOT_TAKEN
+
+ 210   L23:     LOAD_FAST_BORROW         3 (endtime)
+                LOAD_GLOBAL             15 (time + NULL)
+                CALL                     0
+                BINARY_OP               10 (-)
+                STORE_FAST               4 (remaining)
+
+ 211            LOAD_FAST_BORROW         4 (remaining)
+                LOAD_CONST               3 (0.0)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        7 (to L24)
+                NOT_TAKEN
+
+ 212            LOAD_GLOBAL              8 (Empty)
+                RAISE_VARARGS            1
+
+ 213   L24:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (not_empty)
+                LOAD_ATTR               11 (wait + NULL|self)
+                LOAD_FAST_BORROW         4 (remaining)
+                CALL                     1
+                POP_TOP
+
+ 214            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (is_shutdown)
+                TO_BOOL
+       L25:     POP_JUMP_IF_TRUE         3 (to L26)
+                NOT_TAKEN
+                JUMP_BACKWARD           99 (to L21)
+       L26:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_qsize + NULL|self)
+                CALL                     0
+                TO_BOOL
+       L27:     POP_JUMP_IF_FALSE        3 (to L28)
+                NOT_TAKEN
+                JUMP_BACKWARD          123 (to L21)
+
+ 215   L28:     LOAD_GLOBAL              6 (ShutDown)
+                RAISE_VARARGS            1
+
+ 216   L29:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               17 (_get + NULL|self)
+                CALL                     0
+                STORE_FAST               5 (item)
+
+ 217            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               18 (not_full)
+                LOAD_ATTR               21 (notify + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 218            LOAD_FAST_BORROW         5 (item)
+
+ 194   L30:     SWAP                     3
+                SWAP                     2
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                RETURN_VALUE
+       L31:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L32)
+                NOT_TAKEN
+                RERAISE                  2
+       L32:     POP_TOP
+       L33:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L34:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L31 [2] lasti
+  L3 to L5 -> L31 [2] lasti
+  L6 to L7 -> L31 [2] lasti
+  L8 to L12 -> L31 [2] lasti
+  L13 to L14 -> L31 [2] lasti
+  L15 to L16 -> L31 [2] lasti
+  L17 to L22 -> L31 [2] lasti
+  L23 to L25 -> L31 [2] lasti
+  L26 to L27 -> L31 [2] lasti
+  L28 to L30 -> L31 [2] lasti
+  L31 to L33 -> L34 [4] lasti
+
+Disassembly of <code object put_nowait at 0x00000204BA08A530, file "queue.py", line 220>:
+220           RESUME                   0
+
+226           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (put + NULL|self)
+              LOAD_FAST_BORROW         1 (item)
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (('block',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object get_nowait at 0x00000204BA08B130, file "queue.py", line 228>:
+228           RESUME                   0
+
+234           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (get + NULL|self)
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (('block',))
+              CALL_KW                  1
+              RETURN_VALUE
+
+Disassembly of <code object shutdown at 0x00000204BA446FF0, file "queue.py", line 236>:
+ 236            RESUME                   0
+
+ 246            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (mutex)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+ 247            LOAD_CONST               1 (True)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               1 (is_shutdown)
+
+ 248            LOAD_FAST_BORROW         1 (immediate)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      111 (to L8)
+                NOT_TAKEN
+
+ 249    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_qsize + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE       63 (to L7)
+        L3:     NOT_TAKEN
+
+ 250    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                7 (_get + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 251            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (unfinished_tasks)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+        L5:     POP_JUMP_IF_TRUE         3 (to L6)
+                NOT_TAKEN
+                JUMP_BACKWARD           57 (to L2)
+
+ 252    L6:     LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR                8 (unfinished_tasks)
+                LOAD_SMALL_INT           1
+                BINARY_OP               23 (-=)
+                SWAP                     2
+                STORE_ATTR               4 (unfinished_tasks)
+                JUMP_BACKWARD           84 (to L2)
+
+ 254    L7:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (all_tasks_done)
+                LOAD_ATTR               13 (notify_all + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 256    L8:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (not_empty)
+                LOAD_ATTR               13 (notify_all + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 257            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               16 (not_full)
+                LOAD_ATTR               13 (notify_all + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 246    L9:     LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+       L10:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L11)
+                NOT_TAKEN
+                RERAISE                  2
+       L11:     POP_TOP
+       L12:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L10 [2] lasti
+  L4 to L5 -> L10 [2] lasti
+  L6 to L9 -> L10 [2] lasti
+  L10 to L12 -> L13 [4] lasti
+
+Disassembly of <code object _init at 0x00000204BA08B330, file "queue.py", line 264>:
+264           RESUME                   0
+
+265           LOAD_GLOBAL              1 (deque + NULL)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (queue)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _qsize at 0x00000204BA08AC30, file "queue.py", line 267>:
+267           RESUME                   0
+
+268           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (queue)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _put at 0x00000204BA083110, file "queue.py", line 271>:
+271           RESUME                   0
+
+272           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (queue)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (item)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _get at 0x00000204BA0FFEE0, file "queue.py", line 275>:
+275           RESUME                   0
+
+276           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (queue)
+              LOAD_ATTR                3 (popleft + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object PriorityQueue at 0x00000204BA0FFDD0, file "queue.py", line 281>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 281           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('PriorityQueue')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (281)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 282           LOAD_CONST               2 ('Variant of Queue that retrieves open entries in priority order (lowest first).\n\nEntries are typically tuples of the form:  (priority number, data).\n')
+               STORE_NAME               4 (__doc__)
+
+ 287           LOAD_CONST               3 (<code object _init at 0x00000204BA092A60, file "queue.py", line 287>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_init)
+
+ 290           LOAD_CONST               4 (<code object _qsize at 0x00000204BA08AF30, file "queue.py", line 290>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_qsize)
+
+ 293           LOAD_CONST               5 (<code object _put at 0x00000204BA0FECD0, file "queue.py", line 293>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (_put)
+
+ 296           LOAD_CONST               6 (<code object _get at 0x00000204BA10AD30, file "queue.py", line 296>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (_get)
+               LOAD_CONST               7 (('queue',))
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               8 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _init at 0x00000204BA092A60, file "queue.py", line 287>:
+287           RESUME                   0
+
+288           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (queue)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _qsize at 0x00000204BA08AF30, file "queue.py", line 290>:
+290           RESUME                   0
+
+291           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (queue)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _put at 0x00000204BA0FECD0, file "queue.py", line 293>:
+293           RESUME                   0
+
+294           LOAD_GLOBAL              1 (heappush + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (queue)
+              LOAD_FAST_BORROW         1 (item)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _get at 0x00000204BA10AD30, file "queue.py", line 296>:
+296           RESUME                   0
+
+297           LOAD_GLOBAL              1 (heappop + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (queue)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object LifoQueue at 0x00000204BA0FF440, file "queue.py", line 300>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 300           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('LifoQueue')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (300)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 301           LOAD_CONST               2 ('Variant of Queue that retrieves most recently added entries first.')
+               STORE_NAME               4 (__doc__)
+
+ 303           LOAD_CONST               3 (<code object _init at 0x00000204BA093C30, file "queue.py", line 303>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_init)
+
+ 306           LOAD_CONST               4 (<code object _qsize at 0x00000204BA10AE30, file "queue.py", line 306>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_qsize)
+
+ 309           LOAD_CONST               5 (<code object _put at 0x00000204BA0FC7A0, file "queue.py", line 309>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (_put)
+
+ 312           LOAD_CONST               6 (<code object _get at 0x00000204BA0FC250, file "queue.py", line 312>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (_get)
+               LOAD_CONST               7 (('queue',))
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               8 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _init at 0x00000204BA093C30, file "queue.py", line 303>:
+303           RESUME                   0
+
+304           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (queue)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _qsize at 0x00000204BA10AE30, file "queue.py", line 306>:
+306           RESUME                   0
+
+307           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (queue)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _put at 0x00000204BA0FC7A0, file "queue.py", line 309>:
+309           RESUME                   0
+
+310           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (queue)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (item)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _get at 0x00000204BA0FC250, file "queue.py", line 312>:
+312           RESUME                   0
+
+313           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (queue)
+              LOAD_ATTR                3 (pop + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object _PySimpleQueue at 0x00000204BA0BAF70, file "queue.py", line 316>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 316           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_PySimpleQueue')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (316)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 317           LOAD_CONST               2 ('Simple, unbounded FIFO queue.\n\nThis pure Python implementation is not reentrant.\n')
+               STORE_NAME               4 (__doc__)
+
+ 326           LOAD_CONST               3 (<code object __init__ at 0x00000204B9FEF0E0, file "queue.py", line 326>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 330           LOAD_CONST              12 ((True, None))
+               LOAD_CONST               5 (<code object put at 0x00000204BA0AAD30, file "queue.py", line 330>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (put)
+
+ 339           LOAD_CONST              12 ((True, None))
+               LOAD_CONST               6 (<code object get at 0x00000204B9FB7DB0, file "queue.py", line 339>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (get)
+
+ 356           LOAD_CONST               7 (<code object put_nowait at 0x00000204BA10B030, file "queue.py", line 356>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (put_nowait)
+
+ 364           LOAD_CONST               8 (<code object get_nowait at 0x00000204BA10A430, file "queue.py", line 364>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (get_nowait)
+
+ 372           LOAD_CONST               9 (<code object empty at 0x00000204BA0FD020, file "queue.py", line 372>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (empty)
+
+ 376           LOAD_CONST              10 (<code object qsize at 0x00000204BA10A930, file "queue.py", line 376>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (qsize)
+
+ 380           LOAD_NAME               12 (classmethod)
+               PUSH_NULL
+               LOAD_NAME               13 (types)
+               LOAD_ATTR               28 (GenericAlias)
+               CALL                     1
+               STORE_NAME              15 (__class_getitem__)
+               LOAD_CONST              11 (('_count', '_queue'))
+               STORE_NAME              16 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              17 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FEF0E0, file "queue.py", line 326>:
+326           RESUME                   0
+
+327           LOAD_GLOBAL              1 (deque + NULL)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_queue)
+
+328           LOAD_GLOBAL              4 (threading)
+              LOAD_ATTR                6 (Semaphore)
+              PUSH_NULL
+              LOAD_SMALL_INT           0
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_count)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object put at 0x00000204BA0AAD30, file "queue.py", line 330>:
+330           RESUME                   0
+
+336           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_queue)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (item)
+              CALL                     1
+              POP_TOP
+
+337           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_count)
+              LOAD_ATTR                7 (release + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get at 0x00000204B9FB7DB0, file "queue.py", line 339>:
+339           RESUME                   0
+
+350           LOAD_FAST_BORROW         2 (timeout)
+              POP_JUMP_IF_NONE        19 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (timeout)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+351           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ("'timeout' must be a non-negative number")
+              CALL                     1
+              RAISE_VARARGS            1
+
+352   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_count)
+              LOAD_ATTR                5 (acquire + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (block, timeout)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         7 (to L2)
+              NOT_TAKEN
+
+353           LOAD_GLOBAL              6 (Empty)
+              RAISE_VARARGS            1
+
+354   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_queue)
+              LOAD_ATTR               11 (popleft + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object put_nowait at 0x00000204BA10B030, file "queue.py", line 356>:
+356           RESUME                   0
+
+362           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (put + NULL|self)
+              LOAD_FAST_BORROW         1 (item)
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (('block',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object get_nowait at 0x00000204BA10A430, file "queue.py", line 364>:
+364           RESUME                   0
+
+370           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (get + NULL|self)
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (('block',))
+              CALL_KW                  1
+              RETURN_VALUE
+
+Disassembly of <code object empty at 0x00000204BA0FD020, file "queue.py", line 372>:
+372           RESUME                   0
+
+374           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_queue)
+              CALL                     1
+              LOAD_SMALL_INT           0
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object qsize at 0x00000204BA10A930, file "queue.py", line 376>:
+376           RESUME                   0
+
+378           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_queue)
+              CALL                     1
+              RETURN_VALUE

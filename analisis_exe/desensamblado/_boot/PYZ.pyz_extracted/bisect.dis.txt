@@ -1,0 +1,334 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('Bisection algorithms.')
+               STORE_NAME               0 (__doc__)
+
+   4           LOAD_CONST               8 ((0, None))
+               LOAD_CONST               2 ('key')
+               LOAD_CONST               1 (None)
+               BUILD_MAP                1
+               LOAD_CONST               3 (<code object insort_right at 0x00000204BA0BB360, file "bisect.py", line 4>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               1 (insort_right)
+
+  21           LOAD_CONST               8 ((0, None))
+               LOAD_CONST               2 ('key')
+               LOAD_CONST               1 (None)
+               BUILD_MAP                1
+               LOAD_CONST               4 (<code object bisect_right at 0x00000204BA608030, file "bisect.py", line 21>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               2 (bisect_right)
+
+  57           LOAD_CONST               8 ((0, None))
+               LOAD_CONST               2 ('key')
+               LOAD_CONST               1 (None)
+               BUILD_MAP                1
+               LOAD_CONST               5 (<code object insort_left at 0x00000204BA0BB600, file "bisect.py", line 57>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               3 (insort_left)
+
+  74           LOAD_CONST               8 ((0, None))
+               LOAD_CONST               2 ('key')
+               LOAD_CONST               1 (None)
+               BUILD_MAP                1
+               LOAD_CONST               6 (<code object bisect_left at 0x00000204BA608230, file "bisect.py", line 74>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (bisect_left)
+
+ 111           NOP
+
+ 112   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               7 (('*',))
+               IMPORT_NAME              5 (_bisect)
+               CALL_INTRINSIC_1         2 (INTRINSIC_IMPORT_STAR)
+               POP_TOP
+
+ 117   L2:     LOAD_NAME                2 (bisect_right)
+               STORE_NAME               7 (bisect)
+
+ 118           LOAD_NAME                1 (insort_right)
+               STORE_NAME               8 (insort)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 113           LOAD_NAME                6 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 114   L4:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 15 (to L2)
+
+ 113   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object insort_right at 0x00000204BA0BB360, file "bisect.py", line 4>:
+  4           RESUME                   0
+
+ 14           LOAD_FAST_BORROW         4 (key)
+              POP_JUMP_IF_NOT_NONE    14 (to L1)
+              NOT_TAKEN
+
+ 15           LOAD_GLOBAL              1 (bisect_right + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (a, x)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              CALL                     4
+              STORE_FAST               2 (lo)
+              JUMP_FORWARD            20 (to L2)
+
+ 17   L1:     LOAD_GLOBAL              1 (bisect_right + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 4 (a, key)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (x)
+              CALL                     1
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              LOAD_FAST_BORROW         4 (key)
+              LOAD_CONST               2 (('key',))
+              CALL_KW                  5
+              STORE_FAST               2 (lo)
+
+ 18   L2:     LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                3 (insert + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (lo, x)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object bisect_right at 0x00000204BA608030, file "bisect.py", line 21>:
+ 21           RESUME                   0
+
+ 34           LOAD_FAST_BORROW         2 (lo)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 35           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('lo must be non-negative')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 36   L1:     LOAD_FAST_BORROW         3 (hi)
+              POP_JUMP_IF_NOT_NONE    12 (to L2)
+              NOT_TAKEN
+
+ 37           LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (a)
+              CALL                     1
+              STORE_FAST               3 (hi)
+
+ 40   L2:     LOAD_FAST_BORROW         4 (key)
+              POP_JUMP_IF_NOT_NONE    53 (to L6)
+              NOT_TAKEN
+
+ 41   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       44 (to L5)
+              NOT_TAKEN
+
+ 42           LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           2
+              BINARY_OP                2 (//)
+              STORE_FAST               5 (mid)
+
+ 43           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (x, a)
+              LOAD_FAST_BORROW         5 (mid)
+              BINARY_OP               26 ([])
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE        5 (to L4)
+              NOT_TAKEN
+
+ 44           LOAD_FAST                5 (mid)
+              STORE_FAST               3 (hi)
+              JUMP_BACKWARD           38 (to L3)
+
+ 46   L4:     LOAD_FAST_BORROW         5 (mid)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               2 (lo)
+              JUMP_BACKWARD           49 (to L3)
+
+ 41   L5:     NOP
+
+ 54           LOAD_FAST_BORROW         2 (lo)
+              RETURN_VALUE
+
+ 48   L6:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       49 (to L8)
+              NOT_TAKEN
+
+ 49           LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           2
+              BINARY_OP                2 (//)
+              STORE_FAST               5 (mid)
+
+ 50           LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (x, key)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (a, mid)
+              BINARY_OP               26 ([])
+              CALL                     1
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE        5 (to L7)
+              NOT_TAKEN
+
+ 51           LOAD_FAST                5 (mid)
+              STORE_FAST               3 (hi)
+              JUMP_BACKWARD           43 (to L6)
+
+ 53   L7:     LOAD_FAST_BORROW         5 (mid)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               2 (lo)
+              JUMP_BACKWARD           54 (to L6)
+
+ 54   L8:     LOAD_FAST_BORROW         2 (lo)
+              RETURN_VALUE
+
+Disassembly of <code object insort_left at 0x00000204BA0BB600, file "bisect.py", line 57>:
+ 57           RESUME                   0
+
+ 68           LOAD_FAST_BORROW         4 (key)
+              POP_JUMP_IF_NOT_NONE    14 (to L1)
+              NOT_TAKEN
+
+ 69           LOAD_GLOBAL              1 (bisect_left + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (a, x)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              CALL                     4
+              STORE_FAST               2 (lo)
+              JUMP_FORWARD            20 (to L2)
+
+ 71   L1:     LOAD_GLOBAL              1 (bisect_left + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 4 (a, key)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (x)
+              CALL                     1
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              LOAD_FAST_BORROW         4 (key)
+              LOAD_CONST               2 (('key',))
+              CALL_KW                  5
+              STORE_FAST               2 (lo)
+
+ 72   L2:     LOAD_FAST_BORROW         0 (a)
+              LOAD_ATTR                3 (insert + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (lo, x)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object bisect_left at 0x00000204BA608230, file "bisect.py", line 74>:
+ 74           RESUME                   0
+
+ 87           LOAD_FAST_BORROW         2 (lo)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 88           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('lo must be non-negative')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 89   L1:     LOAD_FAST_BORROW         3 (hi)
+              POP_JUMP_IF_NOT_NONE    12 (to L2)
+              NOT_TAKEN
+
+ 90           LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (a)
+              CALL                     1
+              STORE_FAST               3 (hi)
+
+ 93   L2:     LOAD_FAST_BORROW         4 (key)
+              POP_JUMP_IF_NOT_NONE    53 (to L6)
+              NOT_TAKEN
+
+ 94   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       44 (to L5)
+              NOT_TAKEN
+
+ 95           LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           2
+              BINARY_OP                2 (//)
+              STORE_FAST               5 (mid)
+
+ 96           LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (a, mid)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         1 (x)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L4)
+              NOT_TAKEN
+
+ 97           LOAD_FAST_BORROW         5 (mid)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               2 (lo)
+              JUMP_BACKWARD           45 (to L3)
+
+ 99   L4:     LOAD_FAST                5 (mid)
+              STORE_FAST               3 (hi)
+              JUMP_BACKWARD           49 (to L3)
+
+ 94   L5:     NOP
+
+107           LOAD_FAST_BORROW         2 (lo)
+              RETURN_VALUE
+
+101   L6:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       50 (to L8)
+              NOT_TAKEN
+
+102           LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (lo, hi)
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           2
+              BINARY_OP                2 (//)
+              STORE_FAST               5 (mid)
+
+103           LOAD_FAST_BORROW         4 (key)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (a, mid)
+              BINARY_OP               26 ([])
+              CALL                     1
+              LOAD_FAST_BORROW         1 (x)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L7)
+              NOT_TAKEN
+
+104           LOAD_FAST_BORROW         5 (mid)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               2 (lo)
+              JUMP_BACKWARD           51 (to L6)
+
+106   L7:     LOAD_FAST                5 (mid)
+              STORE_FAST               3 (hi)
+              JUMP_BACKWARD           55 (to L6)
+
+107   L8:     LOAD_FAST_BORROW         2 (lo)
+              RETURN_VALUE

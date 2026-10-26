@@ -1,0 +1,151 @@
+<module>()  line 1
+    _hash_algorithm(numerator, denominator)  line 23
+    _round_to_exponent(n, d, exponent, no_neg_zero)  line 73
+    _round_to_figures(n, d, figures)  line 102
+    Fraction()  line 182
+        Fraction.__new__(cls, numerator, denominator)  line 206
+        Fraction.from_number(cls, number)  line 313
+        Fraction.from_float(cls, f)  line 335
+        Fraction.from_decimal(cls, dec)  line 349
+        Fraction._from_coprime_ints(cls, numerator, denominator)  line 361
+        Fraction.is_integer(self)  line 373
+        Fraction.as_integer_ratio(self)  line 377
+        Fraction.limit_denominator(self, max_denominator)  line 384
+        Fraction.numerator(a)  line 441
+        Fraction.denominator(a)  line 445
+        Fraction.__repr__(self)  line 449
+        Fraction.__str__(self)  line 454
+        Fraction._format_general(self, match)  line 461
+        Fraction._format_float_style(self, match)  line 495
+            Fraction._format_float_style.<locals>.<genexpr>(.0)  line 564
+            Fraction._format_float_style.<locals>.<genexpr>(.0)  line 580
+        Fraction.__format__(self, format_spec)  line 599
+        Fraction._operator_fallbacks(monomorphic_operator, fallback_operator, handle_complex)  line 616
+            Fraction._operator_fallbacks.<locals>.forward(a, b)  line 697
+            Fraction._operator_fallbacks.<locals>.reverse(b, a)  line 711
+        Fraction._add(a, b)  line 794
+        Fraction._sub(a, b)  line 810
+        Fraction._mul(a, b)  line 826
+        Fraction._div(a, b)  line 842
+        Fraction._floordiv(a, b)  line 864
+        Fraction._divmod(a, b)  line 870
+        Fraction._mod(a, b)  line 878
+        Fraction.__pow__(a, b, modulo)  line 885
+        Fraction.__rpow__(b, a, modulo)  line 919
+        Fraction.__pos__(a)  line 935
+        Fraction.__neg__(a)  line 939
+        Fraction.__abs__(a)  line 943
+        Fraction.__int__(a, _index)  line 947
+        Fraction.__trunc__(a)  line 954
+        Fraction.__floor__(a)  line 961
+        Fraction.__ceil__(a)  line 965
+        Fraction.__round__(self, ndigits)  line 970
+        Fraction.__hash__(self)  line 996
+        Fraction.__eq__(a, b)  line 1000
+        Fraction._richcmp(self, other, op)  line 1021
+        Fraction.__lt__(a, b)  line 1043
+        Fraction.__gt__(a, b)  line 1047
+        Fraction.__le__(a, b)  line 1051
+        Fraction.__ge__(a, b)  line 1055
+        Fraction.__bool__(a)  line 1059
+        Fraction.__reduce__(self)  line 1067
+        Fraction.__copy__(self)  line 1070
+        Fraction.__deepcopy__(self, memo)  line 1075
+
+--- strings ---
+'Fraction, infinite-precision, rational numbers.'
+'Fraction'
+'\n    \\A\\s*                                  # optional whitespace at the start,\n    (?P<sign>[-+]?)                        # an optional sign, then\n    (?=\\d|\\.\\d)                            # lookahead for digit or .digit\n    (?P<num>\\d*|\\d+(_\\d+)*)                # numerator (possibly empty)\n    (?:                                    # followed by\n       (?:\\s*/\\s*(?P<denom>\\d+(_\\d+)*))?   # an optional denominator\n    |                                      # or\n       (?:\\.(?P<decimal>\\d*|\\d+(_\\d+)*))?  # an optional fractional part\n       (?:E(?P<exp>[-+]?\\d+(_\\d+)*))?      # and optional exponent\n    )\n    \\s*\\z                                  # and optional whitespace to finish\n'
+'Round a rational number to the nearest multiple of a given power of 10.\n\nRounds the rational number n/d to the nearest integer multiple of\n10**exponent, rounding to the nearest even integer multiple in the case of\na tie. Returns a pair (sign: bool, significand: int) representing the\nrounded value (-1)**sign * significand * 10**exponent.\n\nIf no_neg_zero is true, then the returned sign will always be False when\nthe significand is zero. Otherwise, the sign reflects the sign of the\ninput.\n\nd must be positive, but n and d need not be relatively prime.\n'
+'Round a rational number to a given number of significant figures.\n\nRounds the rational number n/d to the given number of significant figures\nusing the round-ties-to-even rule, and returns a triple\n(sign: bool, significand: int, exponent: int) representing the rounded\nvalue (-1)**sign * significand * 10**exponent.\n\nIn the special case where n = 0, returns a significand of zero and\nan exponent of 1 - figures, for compatibility with formatting.\nOtherwise, the returned significand satisfies\n10**(figures - 1) <= significand < 10**figures.\n\nd must be positive, but n and d need not be relatively prime.\nfigures must be positive.\n'
+"\n    (?:\n        (?P<fill>.)?\n        (?P<align>[<>=^])\n    )?\n    (?P<sign>[-+ ]?)\n    # Alt flag forces a slash and denominator in the output, even for\n    # integer-valued Fraction objects.\n    (?P<alt>\\#)?\n    # We don't implement the zeropad flag since there's no single obvious way\n    # to interpret it.\n    (?P<minimumwidth>0|[1-9][0-9]*)?\n    (?P<thousands_sep>[,_])?\n"
+"\n    (?:\n        (?P<fill>.)?\n        (?P<align>[<>=^])\n    )?\n    (?P<sign>[-+ ]?)\n    (?P<no_neg_zero>z)?\n    (?P<alt>\\#)?\n    # A '0' that's *not* followed by another digit is parsed as a minimum width\n    # rather than a zeropad flag.\n    (?P<zeropad>0(?=[0-9]))?\n    (?P<minimumwidth>[0-9]+)?\n    (?P<thousands_sep>[,_])?\n    (?:\\.\n        (?=[,_0-9])  # lookahead for digit or separator\n        (?P<precision>[0-9]+)?\n        (?P<frac_separators>[,_])?\n    )?\n    (?P<presentation_type>[eEfFgG%])\n"
+'Fraction'
+"This class implements rational numbers.\n\nIn the two-argument form of the constructor, Fraction(8, 6) will\nproduce a rational number equivalent to 4/3. Both arguments must\nbe Rational. The numerator defaults to 0 and the denominator\ndefaults to 1 so that Fraction(3) == 3 and Fraction() == 0.\n\nFractions can also be constructed from:\n\n  - numeric strings similar to those accepted by the\n    float constructor (for example, '-2.3' or '1e10')\n\n  - strings of the form '123/456'\n\n  - float and Decimal instances\n\n  - other Rational instances (including integers)\n\n"
+"Constructs a Rational.\n\nTakes a string like '3/2' or '1.5', another Rational instance, a\nnumerator/denominator pair, or a float.\n\nExamples\n--------\n\n>>> Fraction(10, -8)\nFraction(-5, 4)\n>>> Fraction(Fraction(1, 7), 5)\nFraction(1, 35)\n>>> Fraction(Fraction(1, 7), Fraction(2, 3))\nFraction(3, 14)\n>>> Fraction('314')\nFraction(314, 1)\n>>> Fraction('-35/4')\nFraction(-35, 4)\n>>> Fraction('3.1415') # conversion from numeric string\nFraction(6283, 2000)\n>>> Fraction('-47e-2') # string may include a decimal exponent\nFraction(-47, 100)\n>>> Fraction(1.47)  # direct construction from float (exact conversion)\nFraction(6620291452234629, 4503599627370496)\n>>> Fraction(2.25)\nFraction(9, 4)\n>>> Fraction(Decimal('1.47'))\nFraction(147, 100)\n\n"
+'as_integer_ratio'
+'Invalid literal for Fraction: %r'
+'num'
+'denom'
+'decimal'
+'exp'
+'sign'
+'argument should be a string or a Rational instance or have the as_integer_ratio() method'
+'both arguments should be Rational instances'
+'Fraction(%s, 0)'
+'Converts a finite real number to a rational number, exactly.\n\nBeware that Fraction.from_number(0.3) != Fraction(3, 10).\n\n'
+'as_integer_ratio'
+'argument should be a Rational instance or have the as_integer_ratio() method'
+'Converts a finite float to a rational number, exactly.\n\nBeware that Fraction.from_float(0.3) != Fraction(3, 10).\n\n'
+'.from_float() only takes floats, not '
+' ('
+'Converts a finite Decimal instance to a rational number, exactly.'
+'.from_decimal() only takes Decimals, not '
+' ('
+'Convert a pair of ints to a rational number, for internal use.\n\nThe ratio of integers should be in lowest terms and the denominator\nshould be positive.\n'
+'Return True if the Fraction is an integer.'
+'Return a pair of integers, whose ratio is equal to the original Fraction.\n\nThe ratio is in lowest terms and has a positive denominator.\n'
+"Closest Fraction to self with denominator at most max_denominator.\n\n>>> Fraction('3.141592653589793').limit_denominator(10)\nFraction(22, 7)\n>>> Fraction('3.141592653589793').limit_denominator(100)\nFraction(311, 99)\n>>> Fraction(4321, 8765).limit_denominator(10000)\nFraction(4321, 8765)\n\n"
+'max_denominator should be at least 1'
+'repr(self)'
+', '
+'str(self)'
+'Helper method for __format__.\n\nHandles fill, alignment, signs, and thousands separators in the\ncase of no presentation type.\n'
+'fill'
+'align'
+'sign'
+'alt'
+'minimumwidth'
+'thousands_sep'
+'Helper method for __format__; handles float presentation types.'
+'fill'
+'align'
+'sign'
+'no_neg_zero'
+'alt'
+'zeropad'
+'minimumwidth'
+'thousands_sep'
+'precision'
+'frac_separators'
+'presentation_type'
+'gG'
+'EFG'
+'fF%'
+'eE'
+'+03d'
+'Format this fraction according to the given format specification.'
+'align'
+'zeropad'
+'Invalid format specifier '
+' for object of type '
+'Generates forward and reverse operators given a purely-rational\noperator and a function from the operator module.\n\nUse this like:\n__op__, __rop__ = _operator_fallbacks(just_rational_op, operator.op)\n\nIn general, we want to implement the arithmetic operations so\nthat mixed-mode operations either call an implementation whose\nauthor knew about the types of both arguments, or convert both\nto the nearest built in type and do the operation there. In\nFraction, that means that we define __add__ and __radd__ as:\n\n    def __add__(self, other):\n        # Both types have numerators/denominator attributes,\n        # so do the operation directly\n        if isinstance(other, (int, Fraction)):\n            return Fraction(self.numerator * other.denominator +\n                            other.numerator * self.denominator,\n                            self.denominator * other.denominator)\n        # float and complex don\'t have those operations, but we\n        # know about those types, so special case them.\n        elif isinstance(other, float):\n            return float(self) + other\n        elif isinstance(other, complex):\n            return complex(self) + other\n        # Let the other type take over.\n        return NotImplemented\n\n    def __radd__(self, other):\n        # radd handles more types than add because there\'s\n        # nothing left to fall back to.\n        if isinstance(other, numbers.Rational):\n            return Fraction(self.numerator * other.denominator +\n                            other.numerator * self.denominator,\n                            self.denominator * other.denominator)\n        elif isinstance(other, Real):\n            return float(other) + float(self)\n        elif isinstance(other, Complex):\n            return complex(other) + complex(self)\n        return NotImplemented\n\n\nThere are 5 different cases for a mixed-type addition on\nFraction. I\'ll refer to all of the above code that doesn\'t\nrefer to Fraction, float, or complex as "boilerplate". \'r\'\nwill be an instance of Fraction, which is a subtype of\nRational (r : Fraction <: Rational), and b : B <:\nComplex. The first three involve \'r + b\':\n\n    1. If B <: Fraction, int, float, or complex, we handle\n       that specially, and all is well.\n    2. If Fraction falls back to the boilerplate code, and it\n       were to return a value from __add__, we\'d miss the\n       possibility that B defines a more intelligent __radd__,\n       so the boilerplate should return NotImplemented from\n       __add__. In particular, we don\'t handle Rational\n       here, even though we could get an exact answer, in case\n       the other type wants to do something special.\n    3. If B <: Fraction, Python tries B.__radd__ before\n       Fraction.__add__. This is ok, because it was\n       implemented with knowledge of Fraction, so it can\n       handle those instances before delegating to Real or\n       Complex.\n\nThe next two situations describe \'b + r\'. We assume that b\ndidn\'t know about Fraction in its implementation, and that it\nuses similar boilerplate code:\n\n    4. If B <: Rational, then __radd_ converts both to the\n       builtin rational type (hey look, that\'s us) and\n       proceeds.\n    5. Otherwise, __radd__ tries to find the nearest common\n       base ABC, and fall back to its builtin type. Since this\n       class doesn\'t subclass a concrete type, there\'s no\n       implementation to fall back to, so we need to try as\n       hard as possible to return an actual value, or the user\n       will get a TypeError.\n\n'
+'__'
+'__r'
+'a + b'
+'a - b'
+'a * b'
+'a / b'
+'Fraction(%s, 0)'
+'a // b'
+'(a // b, a % b)'
+'a % b'
+'a ** b\n\nIf b is not an integer, the result will be a float or complex\nsince roots are generally irrational. If b is an integer, the\nresult will be rational.\n\n'
+'Fraction(%s, 0)'
+'a ** b'
+'+a: Coerces a subclass instance to Fraction'
+'-a'
+'abs(a)'
+'int(a)'
+'math.trunc(a)'
+'math.floor(a)'
+'math.ceil(a)'
+'round(self, ndigits)\n\nRounds half toward even.\n'
+'hash(self)'
+'a == b'
+'Helper for comparison operators, for internal use only.\n\nImplement comparison between a Rational instance `self`, and\neither another Rational instance or a float `other`.  If\n`other` is not a Rational instance or a float, return\nNotImplemented. `op` should be one of the six standard\ncomparison operators.\n\n'
+'a < b'
+'a > b'
+'a <= b'
+'a >= b'
+'a != 0'

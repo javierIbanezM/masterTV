@@ -1,0 +1,1670 @@
+  0           RESUME                   0
+
+ 18           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (os)
+              STORE_NAME               0 (os)
+
+ 19           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (signal)
+              STORE_NAME               1 (signal)
+
+ 20           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (sys)
+              STORE_NAME               2 (sys)
+
+ 21           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (threading)
+              STORE_NAME               3 (threading)
+
+ 22           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (warnings)
+              STORE_NAME               4 (warnings)
+
+ 24           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('spawn',))
+              IMPORT_NAME              5
+              IMPORT_FROM              6 (spawn)
+              STORE_NAME               6 (spawn)
+              POP_TOP
+
+ 25           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('util',))
+              IMPORT_NAME              5
+              IMPORT_FROM              7 (util)
+              STORE_NAME               7 (util)
+              POP_TOP
+
+ 27           BUILD_LIST               0
+              LOAD_CONST              18 (('ensure_running', 'register', 'unregister'))
+              LIST_EXTEND              1
+              STORE_NAME               8 (__all__)
+
+ 29           LOAD_NAME                9 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                1 (signal)
+              LOAD_CONST               4 ('pthread_sigmask')
+              CALL                     2
+              STORE_NAME              10 (_HAVE_SIGMASK)
+
+ 30           LOAD_NAME                1 (signal)
+              LOAD_ATTR               22 (SIGINT)
+              LOAD_NAME                1 (signal)
+              LOAD_ATTR               24 (SIGTERM)
+              BUILD_TUPLE              2
+              STORE_NAME              13 (_IGNORED_SIGNALS)
+
+ 32           LOAD_CONST               5 (<code object cleanup_noop at 0x00000204BA092E20, file "multiprocessing\resource_tracker.py", line 32>)
+              MAKE_FUNCTION
+              STORE_NAME              14 (cleanup_noop)
+
+ 36           LOAD_CONST               6 ('noop')
+              LOAD_NAME               14 (cleanup_noop)
+
+ 37           LOAD_CONST               7 ('dummy')
+              LOAD_CONST               8 (<code object <lambda> at 0x00000204BA0C2CD0, file "multiprocessing\resource_tracker.py", line 37>)
+              MAKE_FUNCTION
+
+ 35           BUILD_MAP                2
+              STORE_NAME              15 (_CLEANUP_FUNCS)
+
+ 40           LOAD_NAME                0 (os)
+              LOAD_ATTR               32 (name)
+              LOAD_CONST               9 ('posix')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       54 (to L2)
+              NOT_TAKEN
+
+ 41           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME             17 (_multiprocessing)
+              STORE_NAME              17 (_multiprocessing)
+
+ 42           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME             18 (_posixshmem)
+              STORE_NAME              18 (_posixshmem)
+
+ 49           LOAD_NAME                9 (hasattr)
+              PUSH_NULL
+              LOAD_NAME               17 (_multiprocessing)
+              LOAD_CONST              10 ('sem_unlink')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       16 (to L1)
+              NOT_TAKEN
+
+ 50           LOAD_NAME               17 (_multiprocessing)
+              LOAD_ATTR               38 (sem_unlink)
+              LOAD_NAME               15 (_CLEANUP_FUNCS)
+              LOAD_CONST              11 ('semaphore')
+              STORE_SUBSCR
+
+ 51   L1:     LOAD_NAME               18 (_posixshmem)
+              LOAD_ATTR               40 (shm_unlink)
+              LOAD_NAME               15 (_CLEANUP_FUNCS)
+              LOAD_CONST              12 ('shared_memory')
+              STORE_SUBSCR
+
+ 54   L2:     LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              13 (<code object ReentrantCallError at 0x00000204BA092880, file "multiprocessing\resource_tracker.py", line 54>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 ('ReentrantCallError')
+              LOAD_NAME               21 (RuntimeError)
+              CALL                     3
+              STORE_NAME              22 (ReentrantCallError)
+
+ 58           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              15 (<code object ResourceTracker at 0x00000204B9FB7DB0, file "multiprocessing\resource_tracker.py", line 58>)
+              MAKE_FUNCTION
+              LOAD_CONST              16 ('ResourceTracker')
+              LOAD_NAME               23 (object)
+              CALL                     3
+              STORE_NAME              24 (ResourceTracker)
+
+236           LOAD_NAME               24 (ResourceTracker)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              25 (_resource_tracker)
+
+237           LOAD_NAME               25 (_resource_tracker)
+              LOAD_ATTR               52 (ensure_running)
+              STORE_NAME              26 (ensure_running)
+
+238           LOAD_NAME               25 (_resource_tracker)
+              LOAD_ATTR               54 (register)
+              STORE_NAME              27 (register)
+
+239           LOAD_NAME               25 (_resource_tracker)
+              LOAD_ATTR               56 (unregister)
+              STORE_NAME              28 (unregister)
+
+240           LOAD_NAME               25 (_resource_tracker)
+              LOAD_ATTR               58 (getfd)
+              STORE_NAME              29 (getfd)
+
+243           LOAD_CONST              17 (<code object main at 0x00000204BA443F60, file "multiprocessing\resource_tracker.py", line 243>)
+              MAKE_FUNCTION
+              STORE_NAME              30 (main)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object cleanup_noop at 0x00000204BA092E20, file "multiprocessing\resource_tracker.py", line 32>:
+ 32           RESUME                   0
+
+ 33           LOAD_GLOBAL              1 (RuntimeError + NULL)
+              LOAD_CONST               0 ('noop should never be registered or cleaned up')
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object <lambda> at 0x00000204BA0C2CD0, file "multiprocessing\resource_tracker.py", line 37>:
+ 37           RESUME                   0
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ReentrantCallError at 0x00000204BA092880, file "multiprocessing\resource_tracker.py", line 54>:
+ 54           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ReentrantCallError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          54
+              STORE_NAME               3 (__firstlineno__)
+
+ 55           LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ResourceTracker at 0x00000204B9FB7DB0, file "multiprocessing\resource_tracker.py", line 58>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  58           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ResourceTracker')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          58
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  60           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0A91B0, file "multiprocessing\resource_tracker.py", line 60>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  66           LOAD_CONST               2 (<code object _reentrant_call_error at 0x00000204BA0935A0, file "multiprocessing\resource_tracker.py", line 66>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_reentrant_call_error)
+
+  74           LOAD_CONST               3 (<code object __del__ at 0x00000204BA08AC30, file "multiprocessing\resource_tracker.py", line 74>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__del__)
+
+  80           LOAD_CONST              14 ((True,))
+               LOAD_CONST               4 (<code object _stop at 0x00000204BA366350, file "multiprocessing\resource_tracker.py", line 80>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (_stop)
+
+  94           LOAD_NAME                8 (os)
+               LOAD_ATTR               18 (close)
+
+  95           LOAD_NAME                8 (os)
+               LOAD_ATTR               20 (waitpid)
+
+  96           LOAD_NAME                8 (os)
+               LOAD_ATTR               22 (waitstatus_to_exitcode)
+
+  92           BUILD_TUPLE              3
+               LOAD_CONST               5 (<code object _stop_locked at 0x00000204BA36AFC0, file "multiprocessing\resource_tracker.py", line 92>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (_stop_locked)
+
+ 122           LOAD_CONST               6 (<code object getfd at 0x00000204BA083110, file "multiprocessing\resource_tracker.py", line 122>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (getfd)
+
+ 126           LOAD_CONST               7 (<code object ensure_running at 0x00000204BA37E210, file "multiprocessing\resource_tracker.py", line 126>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (ensure_running)
+
+ 195           LOAD_CONST               8 (<code object _check_alive at 0x00000204BA0A9570, file "multiprocessing\resource_tracker.py", line 195>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (_check_alive)
+
+ 206           LOAD_CONST               9 (<code object register at 0x00000204BA088330, file "multiprocessing\resource_tracker.py", line 206>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (register)
+
+ 210           LOAD_CONST              10 (<code object unregister at 0x00000204BA08AD30, file "multiprocessing\resource_tracker.py", line 210>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (unregister)
+
+ 214           LOAD_CONST              11 (<code object _send at 0x00000204BA37F1E0, file "multiprocessing\resource_tracker.py", line 214>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (_send)
+               LOAD_CONST              12 (('_exitcode', '_fd', '_lock', '_pid'))
+               STORE_NAME              19 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              20 (__classdictcell__)
+               LOAD_CONST              13 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A91B0, file "multiprocessing\resource_tracker.py", line 60>:
+ 60           RESUME                   0
+
+ 61           LOAD_GLOBAL              0 (threading)
+              LOAD_ATTR                2 (RLock)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_lock)
+
+ 62           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_fd)
+
+ 63           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_pid)
+
+ 64           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_exitcode)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _reentrant_call_error at 0x00000204BA0935A0, file "multiprocessing\resource_tracker.py", line 66>:
+ 66           RESUME                   0
+
+ 71           LOAD_GLOBAL              1 (ReentrantCallError + NULL)
+
+ 72           LOAD_CONST               0 ('Reentrant call into the multiprocessing resource tracker')
+
+ 71           CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object __del__ at 0x00000204BA08AC30, file "multiprocessing\resource_tracker.py", line 74>:
+ 74           RESUME                   0
+
+ 78           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stop + NULL|self)
+              LOAD_CONST               0 (False)
+              LOAD_CONST               1 (('use_blocking_lock',))
+              CALL_KW                  1
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _stop at 0x00000204BA366350, file "multiprocessing\resource_tracker.py", line 80>:
+  80            RESUME                   0
+
+  81            LOAD_FAST_BORROW         1 (use_blocking_lock)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       48 (to L3)
+                NOT_TAKEN
+
+  82            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+  83            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (_stop_locked + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  82    L2:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  85    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR                5 (acquire + NULL|self)
+                LOAD_CONST               1 (False)
+                LOAD_CONST               2 (('blocking',))
+                CALL_KW                  1
+                STORE_FAST               2 (acquired)
+
+  86            NOP
+
+  87    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (_stop_locked + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  89    L5:     LOAD_FAST_BORROW         2 (acquired)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       29 (to L6)
+                NOT_TAKEN
+
+  90            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR                7 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  89    L6:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  82    L7:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L8)
+                NOT_TAKEN
+                RERAISE                  2
+        L8:     POP_TOP
+        L9:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+  89            LOAD_FAST                2 (acquired)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       28 (to L12)
+                NOT_TAKEN
+
+  90            LOAD_FAST                0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR                7 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+                RERAISE                  0
+
+  89   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L7 [2] lasti
+  L4 to L5 -> L11 [0]
+  L7 to L9 -> L10 [4] lasti
+  L11 to L13 -> L13 [1] lasti
+
+Disassembly of <code object _stop_locked at 0x00000204BA36AFC0, file "multiprocessing\resource_tracker.py", line 92>:
+  92           RESUME                   0
+
+ 100           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_lock)
+               LOAD_ATTR                3 (_recursion_count + NULL|self)
+               CALL                     0
+               LOAD_SMALL_INT           1
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       17 (to L1)
+               NOT_TAKEN
+
+ 101           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (_reentrant_call_error + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+
+ 102   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_fd)
+               POP_JUMP_IF_NOT_NONE     3 (to L2)
+               NOT_TAKEN
+
+ 104           LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 105   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_pid)
+               POP_JUMP_IF_NOT_NONE     3 (to L3)
+               NOT_TAKEN
+
+ 106           LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 109   L3:     LOAD_FAST_BORROW         1 (close)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_fd)
+               CALL                     1
+               POP_TOP
+
+ 110           LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_fd)
+
+ 112           LOAD_FAST_BORROW         2 (waitpid)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_pid)
+               LOAD_SMALL_INT           0
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   69 (_, status)
+
+ 114           LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_pid)
+
+ 116           NOP
+
+ 117   L4:     LOAD_FAST_BORROW         3 (waitstatus_to_exitcode)
+               PUSH_NULL
+               LOAD_FAST_BORROW         5 (status)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               5 (_exitcode)
+       L5:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 118           LOAD_GLOBAL             12 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       12 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+ 120           LOAD_CONST               1 (None)
+               LOAD_FAST                0 (self)
+               STORE_ATTR               5 (_exitcode)
+       L7:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 118   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object getfd at 0x00000204BA083110, file "multiprocessing\resource_tracker.py", line 122>:
+122           RESUME                   0
+
+123           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (ensure_running + NULL|self)
+              CALL                     0
+              POP_TOP
+
+124           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_fd)
+              RETURN_VALUE
+
+Disassembly of <code object ensure_running at 0x00000204BA37E210, file "multiprocessing\resource_tracker.py", line 126>:
+ 126            RESUME                   0
+
+ 131            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+ 132            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR                3 (_recursion_count + NULL|self)
+                CALL                     0
+                LOAD_SMALL_INT           1
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       27 (to L3)
+                NOT_TAKEN
+
+ 134            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                5 (_reentrant_call_error + NULL|self)
+                CALL                     0
+
+ 131    L2:     SWAP                     3
+                SWAP                     2
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                RETURN_VALUE
+
+ 135    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_fd)
+                POP_JUMP_IF_NONE       157 (to L11)
+                NOT_TAKEN
+
+ 137            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                9 (_check_alive + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L7)
+        L4:     NOT_TAKEN
+
+ 139    L5:     NOP
+
+ 131    L6:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 141    L7:     LOAD_GLOBAL             10 (os)
+                LOAD_ATTR               12 (close)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_fd)
+                CALL                     1
+                POP_TOP
+
+ 144    L8:     NOP
+
+ 147    L9:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_pid)
+                POP_JUMP_IF_NONE        34 (to L10)
+                NOT_TAKEN
+
+ 148            LOAD_GLOBAL             10 (os)
+                LOAD_ATTR               16 (waitpid)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_pid)
+                LOAD_SMALL_INT           0
+                CALL                     2
+                POP_TOP
+
+ 152   L10:     LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               3 (_fd)
+
+ 153            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               7 (_pid)
+
+ 154            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              10 (_exitcode)
+
+ 156            LOAD_GLOBAL             22 (warnings)
+                LOAD_ATTR               24 (warn)
+                PUSH_NULL
+                LOAD_CONST               2 ('resource_tracker: process died unexpectedly, relaunching.  Some resources might leak.')
+                CALL                     1
+                POP_TOP
+
+ 159   L11:     BUILD_LIST               0
+                STORE_FAST               1 (fds_to_pass)
+
+ 160   L12:     NOP
+
+ 161   L13:     LOAD_FAST_BORROW         1 (fds_to_pass)
+                LOAD_ATTR               27 (append + NULL|self)
+                LOAD_GLOBAL             28 (sys)
+                LOAD_ATTR               30 (stderr)
+                LOAD_ATTR               33 (fileno + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+ 164   L14:     LOAD_CONST               3 ('from multiprocessing.resource_tracker import main;main(%d)')
+                STORE_FAST               2 (cmd)
+
+ 165            LOAD_GLOBAL             10 (os)
+                LOAD_ATTR               36 (pipe)
+                PUSH_NULL
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   52 (r, w)
+
+ 166   L15:     NOP
+
+ 167   L16:     LOAD_FAST_BORROW         1 (fds_to_pass)
+                LOAD_ATTR               27 (append + NULL|self)
+                LOAD_FAST_BORROW         3 (r)
+                CALL                     1
+                POP_TOP
+
+ 169            LOAD_GLOBAL             38 (spawn)
+                LOAD_ATTR               40 (get_executable)
+                PUSH_NULL
+                CALL                     0
+                STORE_FAST               5 (exe)
+
+ 170            LOAD_FAST_BORROW         5 (exe)
+                BUILD_LIST               1
+                LOAD_GLOBAL             42 (util)
+                LOAD_ATTR               44 (_args_from_interpreter_flags)
+                PUSH_NULL
+                CALL                     0
+                BINARY_OP                0 (+)
+                STORE_FAST               6 (args)
+
+ 171            LOAD_FAST_BORROW         6 (args)
+                LOAD_CONST               4 ('-c')
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (cmd, r)
+                BINARY_OP                6 (%)
+                BUILD_LIST               2
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (args)
+
+ 178            LOAD_CONST               1 (None)
+                STORE_FAST               7 (prev_sigmask)
+
+ 179   L17:     NOP
+
+ 180   L18:     LOAD_GLOBAL             46 (_HAVE_SIGMASK)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       42 (to L19)
+                NOT_TAKEN
+
+ 181            LOAD_GLOBAL             48 (signal)
+                LOAD_ATTR               50 (pthread_sigmask)
+                PUSH_NULL
+                LOAD_GLOBAL             48 (signal)
+                LOAD_ATTR               52 (SIG_BLOCK)
+                LOAD_GLOBAL             54 (_IGNORED_SIGNALS)
+                CALL                     2
+                STORE_FAST               7 (prev_sigmask)
+
+ 182   L19:     LOAD_GLOBAL             42 (util)
+                LOAD_ATTR               56 (spawnv_passfds)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (exe, args)
+                LOAD_FAST_BORROW         1 (fds_to_pass)
+                CALL                     3
+                STORE_FAST               8 (pid)
+
+ 184   L20:     LOAD_FAST_BORROW         7 (prev_sigmask)
+                POP_JUMP_IF_NONE        38 (to L21)
+                NOT_TAKEN
+
+ 185            LOAD_GLOBAL             48 (signal)
+                LOAD_ATTR               50 (pthread_sigmask)
+                PUSH_NULL
+                LOAD_GLOBAL             48 (signal)
+                LOAD_ATTR               58 (SIG_SETMASK)
+                LOAD_FAST_BORROW         7 (prev_sigmask)
+                CALL                     2
+                POP_TOP
+
+ 190   L21:     LOAD_FAST_LOAD_FAST     64 (w, self)
+                STORE_ATTR               3 (_fd)
+
+ 191            LOAD_FAST_LOAD_FAST    128 (pid, self)
+                STORE_ATTR               7 (_pid)
+       L22:     NOP
+
+ 193   L23:     LOAD_GLOBAL             10 (os)
+                LOAD_ATTR               12 (close)
+                PUSH_NULL
+                LOAD_FAST                3 (r)
+                CALL                     1
+                POP_TOP
+       L24:     NOP
+
+ 131            LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L25:     PUSH_EXC_INFO
+
+ 149            LOAD_GLOBAL             18 (ChildProcessError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L27)
+                NOT_TAKEN
+                POP_TOP
+
+ 151   L26:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 381 (to L10)
+
+ 149   L27:     RERAISE                  0
+
+  --   L28:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L29:     PUSH_EXC_INFO
+
+ 162            LOAD_GLOBAL             34 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L31)
+                NOT_TAKEN
+                POP_TOP
+
+ 163   L30:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 308 (to L14)
+
+ 162   L31:     RERAISE                  0
+
+  --   L32:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L33:     PUSH_EXC_INFO
+
+ 184            LOAD_FAST                7 (prev_sigmask)
+                POP_JUMP_IF_NONE        39 (to L34)
+                NOT_TAKEN
+
+ 185            LOAD_GLOBAL             48 (signal)
+                LOAD_ATTR               50 (pthread_sigmask)
+                PUSH_NULL
+                LOAD_GLOBAL             48 (signal)
+                LOAD_ATTR               58 (SIG_SETMASK)
+                LOAD_FAST                7 (prev_sigmask)
+                CALL                     2
+                POP_TOP
+                RERAISE                  0
+
+ 184   L34:     RERAISE                  0
+
+  --   L35:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L36:     PUSH_EXC_INFO
+
+ 186            POP_TOP
+
+ 187            LOAD_GLOBAL             10 (os)
+                LOAD_ATTR               12 (close)
+                PUSH_NULL
+                LOAD_FAST                4 (w)
+                CALL                     1
+                POP_TOP
+
+ 188            RAISE_VARARGS            0
+
+  --   L37:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L38:     PUSH_EXC_INFO
+
+ 193            LOAD_GLOBAL             10 (os)
+                LOAD_ATTR               12 (close)
+                PUSH_NULL
+                LOAD_FAST                3 (r)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L39:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 131   L40:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L41)
+                NOT_TAKEN
+                RERAISE                  2
+       L41:     POP_TOP
+       L42:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L43:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L40 [2] lasti
+  L3 to L4 -> L40 [2] lasti
+  L5 to L6 -> L40 [2] lasti
+  L7 to L8 -> L40 [2] lasti
+  L9 to L10 -> L25 [2]
+  L10 to L12 -> L40 [2] lasti
+  L13 to L14 -> L29 [2]
+  L14 to L15 -> L40 [2] lasti
+  L16 to L17 -> L36 [2]
+  L18 to L20 -> L33 [2]
+  L20 to L21 -> L36 [2]
+  L21 to L22 -> L38 [2]
+  L23 to L24 -> L40 [2] lasti
+  L25 to L26 -> L28 [3] lasti
+  L26 to L27 -> L40 [2] lasti
+  L27 to L28 -> L28 [3] lasti
+  L28 to L29 -> L40 [2] lasti
+  L29 to L30 -> L32 [3] lasti
+  L30 to L31 -> L40 [2] lasti
+  L31 to L32 -> L32 [3] lasti
+  L32 to L33 -> L40 [2] lasti
+  L33 to L35 -> L35 [3] lasti
+  L35 to L36 -> L36 [2]
+  L36 to L37 -> L37 [3] lasti
+  L37 to L38 -> L38 [2]
+  L38 to L39 -> L39 [3] lasti
+  L39 to L40 -> L40 [2] lasti
+  L40 to L42 -> L43 [4] lasti
+
+Disassembly of <code object _check_alive at 0x00000204BA0A9570, file "multiprocessing\resource_tracker.py", line 195>:
+ 195           RESUME                   0
+
+ 197           NOP
+
+ 200   L1:     LOAD_GLOBAL              0 (os)
+               LOAD_ATTR                2 (write)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_fd)
+               LOAD_CONST               1 (b'PROBE:0:noop\n')
+               CALL                     2
+               POP_TOP
+
+ 204   L2:     LOAD_CONST               2 (True)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 201           LOAD_GLOBAL              6 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 202   L4:     POP_EXCEPT
+               LOAD_CONST               3 (False)
+               RETURN_VALUE
+
+ 201   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object register at 0x00000204BA088330, file "multiprocessing\resource_tracker.py", line 206>:
+206           RESUME                   0
+
+208           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_send + NULL|self)
+              LOAD_CONST               1 ('REGISTER')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, rtype)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object unregister at 0x00000204BA08AD30, file "multiprocessing\resource_tracker.py", line 210>:
+210           RESUME                   0
+
+212           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_send + NULL|self)
+              LOAD_CONST               1 ('UNREGISTER')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, rtype)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _send at 0x00000204BA37F1E0, file "multiprocessing\resource_tracker.py", line 214>:
+ 214           RESUME                   0
+
+ 215           NOP
+
+ 216   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (ensure_running + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 226   L2:     LOAD_CONST               3 ('{0}:{1}:{2}\n')
+               LOAD_ATTR                9 (format + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (cmd, name)
+               LOAD_FAST_BORROW         3 (rtype)
+               CALL                     3
+               LOAD_ATTR               11 (encode + NULL|self)
+               LOAD_CONST               4 ('ascii')
+               CALL                     1
+               STORE_FAST               4 (msg)
+
+ 227           LOAD_GLOBAL             13 (len + NULL)
+               LOAD_FAST_BORROW         4 (msg)
+               CALL                     1
+               LOAD_CONST               5 (512)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       12 (to L3)
+               NOT_TAKEN
+
+ 230           LOAD_GLOBAL             15 (ValueError + NULL)
+               LOAD_CONST               6 ('msg too long')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 231   L3:     LOAD_GLOBAL             16 (os)
+               LOAD_ATTR               18 (write)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               20 (_fd)
+               LOAD_FAST_BORROW         4 (msg)
+               CALL                     2
+               STORE_FAST               5 (nbytes)
+
+ 232           LOAD_FAST_BORROW         5 (nbytes)
+               LOAD_GLOBAL             13 (len + NULL)
+               LOAD_FAST_BORROW         4 (msg)
+               CALL                     1
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_TRUE        33 (to L4)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+               LOAD_CONST               7 ('nbytes {0:n} but len(msg) {1:n}')
+               LOAD_ATTR                9 (format + NULL|self)
+
+ 233           LOAD_FAST_BORROW         5 (nbytes)
+               LOAD_GLOBAL             13 (len + NULL)
+               LOAD_FAST_BORROW         4 (msg)
+               CALL                     1
+
+ 232           CALL                     2
+               CALL                     0
+               RAISE_VARARGS            1
+       L4:     LOAD_CONST               8 (None)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 217           LOAD_GLOBAL              2 (ReentrantCallError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       34 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 222           LOAD_GLOBAL              4 (warnings)
+               LOAD_ATTR                6 (warn)
+               PUSH_NULL
+
+ 223           LOAD_CONST               0 ('ResourceTracker called reentrantly for resource cleanup, which is unsupported. The ')
+
+ 225           LOAD_FAST                3 (rtype)
+               FORMAT_SIMPLE
+               LOAD_CONST               1 (' object ')
+               LOAD_FAST                2 (name)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               LOAD_CONST               2 (' might leak.')
+
+ 223           BUILD_STRING             5
+
+ 222           CALL                     1
+               POP_TOP
+       L6:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 186 (to L2)
+
+ 217   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object main at 0x00000204BA443F60, file "multiprocessing\resource_tracker.py", line 243>:
+ 243            RESUME                   0
+
+ 246            LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR                0 (signal)
+                PUSH_NULL
+                LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR                2 (SIGINT)
+                LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR                4 (SIG_IGN)
+                CALL                     2
+                POP_TOP
+
+ 247            LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR                0 (signal)
+                PUSH_NULL
+                LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR                6 (SIGTERM)
+                LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR                4 (SIG_IGN)
+                CALL                     2
+                POP_TOP
+
+ 248            LOAD_GLOBAL              8 (_HAVE_SIGMASK)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       42 (to L1)
+                NOT_TAKEN
+
+ 249            LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR               10 (pthread_sigmask)
+                PUSH_NULL
+                LOAD_GLOBAL              0 (signal)
+                LOAD_ATTR               12 (SIG_UNBLOCK)
+                LOAD_GLOBAL             14 (_IGNORED_SIGNALS)
+                CALL                     2
+                POP_TOP
+
+ 251    L1:     LOAD_GLOBAL             16 (sys)
+                LOAD_ATTR               18 (stdin)
+                LOAD_GLOBAL             16 (sys)
+                LOAD_ATTR               20 (stdout)
+                BUILD_TUPLE              2
+                GET_ITER
+        L2:     FOR_ITER                20 (to L5)
+                STORE_FAST               1 (f)
+
+ 252            NOP
+
+ 253    L3:     LOAD_FAST_BORROW         1 (f)
+                LOAD_ATTR               23 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+        L4:     JUMP_BACKWARD           22 (to L2)
+
+ 251    L5:     END_FOR
+                POP_ITER
+
+ 257            LOAD_GLOBAL             26 (_CLEANUP_FUNCS)
+                LOAD_ATTR               29 (keys + NULL|self)
+                CALL                     0
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      2 (rtype)
+                SWAP                     2
+        L6:     BUILD_MAP                0
+                SWAP                     2
+        L7:     FOR_ITER                13 (to L8)
+                STORE_FAST_LOAD_FAST    34 (rtype, rtype)
+                LOAD_GLOBAL             31 (set + NULL)
+                CALL                     0
+                MAP_ADD                  2
+                JUMP_BACKWARD           15 (to L7)
+        L8:     END_FOR
+                POP_ITER
+        L9:     STORE_FAST               3 (cache)
+                STORE_FAST               2 (rtype)
+
+ 258            LOAD_SMALL_INT           0
+                STORE_FAST               4 (exit_code)
+
+ 260            NOP
+
+ 262   L10:     LOAD_GLOBAL             33 (open + NULL)
+                LOAD_FAST_BORROW         0 (fd)
+                LOAD_CONST               1 ('rb')
+                CALL                     2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+       L11:     STORE_FAST               1 (f)
+
+ 263            LOAD_FAST_BORROW         1 (f)
+                GET_ITER
+       L12:     FOR_ITER               185 (to L22)
+                STORE_FAST               5 (line)
+
+ 264   L13:     NOP
+
+ 265   L14:     LOAD_FAST_BORROW         5 (line)
+                LOAD_ATTR               35 (strip + NULL|self)
+                CALL                     0
+                LOAD_ATTR               37 (decode + NULL|self)
+                LOAD_CONST               2 ('ascii')
+                CALL                     1
+                LOAD_ATTR               39 (split + NULL|self)
+                LOAD_CONST               3 (':')
+                CALL                     1
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST  103 (cmd, name)
+                STORE_FAST               2 (rtype)
+
+ 266            LOAD_GLOBAL             26 (_CLEANUP_FUNCS)
+                LOAD_ATTR               41 (get + NULL|self)
+                LOAD_FAST_BORROW         2 (rtype)
+                LOAD_CONST               4 (None)
+                CALL                     2
+                STORE_FAST               8 (cleanup_func)
+
+ 267            LOAD_FAST_BORROW         8 (cleanup_func)
+                POP_JUMP_IF_NOT_NONE    18 (to L15)
+                NOT_TAKEN
+
+ 268            LOAD_GLOBAL             43 (ValueError + NULL)
+
+ 269            LOAD_CONST               5 ('Cannot register ')
+                LOAD_FAST_BORROW         7 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST               6 (' for automatic cleanup: unknown resource type ')
+
+ 270            LOAD_FAST_BORROW         2 (rtype)
+                FORMAT_SIMPLE
+
+ 269            BUILD_STRING             4
+
+ 268            CALL                     1
+                RAISE_VARARGS            1
+
+ 272   L15:     LOAD_FAST_BORROW         6 (cmd)
+                LOAD_CONST               7 ('REGISTER')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       26 (to L17)
+                NOT_TAKEN
+
+ 273            LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (cache, rtype)
+                BINARY_OP               26 ([])
+                LOAD_ATTR               45 (add + NULL|self)
+                LOAD_FAST_BORROW         7 (name)
+                CALL                     1
+                POP_TOP
+       L16:     JUMP_BACKWARD          128 (to L12)
+
+ 274   L17:     LOAD_FAST_BORROW         6 (cmd)
+                LOAD_CONST               8 ('UNREGISTER')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       26 (to L19)
+                NOT_TAKEN
+
+ 275            LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (cache, rtype)
+                BINARY_OP               26 ([])
+                LOAD_ATTR               47 (remove + NULL|self)
+                LOAD_FAST_BORROW         7 (name)
+                CALL                     1
+                POP_TOP
+       L18:     JUMP_BACKWARD          160 (to L12)
+
+ 276   L19:     LOAD_FAST_BORROW         6 (cmd)
+                LOAD_CONST               9 ('PROBE')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L21)
+                NOT_TAKEN
+
+ 277   L20:     JUMP_BACKWARD          169 (to L12)
+
+ 279   L21:     LOAD_GLOBAL             49 (RuntimeError + NULL)
+                LOAD_CONST              10 ('unrecognized command %r')
+                LOAD_FAST_BORROW         6 (cmd)
+                BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 263   L22:     END_FOR
+                POP_ITER
+
+ 262   L23:     LOAD_CONST               4 (None)
+                LOAD_CONST               4 (None)
+                LOAD_CONST               4 (None)
+                CALL                     3
+                POP_TOP
+
+ 288   L24:     LOAD_FAST_BORROW         3 (cache)
+                LOAD_ATTR               55 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+       L25:     FOR_ITER                95 (to L35)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   41 (rtype, rtype_cache)
+
+ 289            LOAD_FAST_BORROW         9 (rtype_cache)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       53 (to L30)
+                NOT_TAKEN
+
+ 290            NOP
+
+ 291   L26:     LOAD_SMALL_INT           1
+                STORE_FAST               4 (exit_code)
+
+ 292            LOAD_FAST_BORROW         2 (rtype)
+                LOAD_CONST              11 ('dummy')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        2 (to L28)
+                NOT_TAKEN
+
+ 295   L27:     JUMP_FORWARD            41 (to L30)
+
+ 297   L28:     LOAD_GLOBAL             56 (warnings)
+                LOAD_ATTR               58 (warn)
+                PUSH_NULL
+
+ 298            LOAD_CONST              12 ('resource_tracker: There appear to be ')
+
+ 299            LOAD_GLOBAL             61 (len + NULL)
+                LOAD_FAST_BORROW         9 (rtype_cache)
+                CALL                     1
+                FORMAT_SIMPLE
+                LOAD_CONST              13 (' leaked ')
+                LOAD_FAST_BORROW         2 (rtype)
+                FORMAT_SIMPLE
+                LOAD_CONST              14 (' objects to clean up at shutdown: ')
+
+ 300            LOAD_FAST_BORROW         9 (rtype_cache)
+                FORMAT_SIMPLE
+
+ 298            BUILD_STRING             6
+
+ 297            CALL                     1
+                POP_TOP
+       L29:     NOP
+
+ 304   L30:     LOAD_FAST_BORROW         9 (rtype_cache)
+                GET_ITER
+       L31:     FOR_ITER                24 (to L34)
+                STORE_FAST               7 (name)
+
+ 308            NOP
+
+ 309            NOP
+
+ 310   L32:     LOAD_GLOBAL             26 (_CLEANUP_FUNCS)
+                LOAD_FAST_BORROW         2 (rtype)
+                BINARY_OP               26 ([])
+                PUSH_NULL
+                LOAD_FAST_BORROW         7 (name)
+                CALL                     1
+                POP_TOP
+
+ 315   L33:     JUMP_BACKWARD           26 (to L31)
+
+ 304   L34:     END_FOR
+                POP_ITER
+                JUMP_BACKWARD           97 (to L25)
+
+ 288   L35:     END_FOR
+                POP_ITER
+
+ 317            LOAD_GLOBAL             16 (sys)
+                LOAD_ATTR               62 (exit)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (exit_code)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST               4 (None)
+                RETURN_VALUE
+
+  --   L36:     PUSH_EXC_INFO
+
+ 254            LOAD_GLOBAL             24 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L38)
+                NOT_TAKEN
+                POP_TOP
+
+ 255   L37:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          444 (to L2)
+
+ 254   L38:     RERAISE                  0
+
+  --   L39:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L40:     SWAP                     2
+                POP_TOP
+
+ 257            SWAP                     2
+                STORE_FAST               2 (rtype)
+                RERAISE                  0
+
+  --   L41:     PUSH_EXC_INFO
+
+ 280            LOAD_GLOBAL             24 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       58 (to L49)
+                NOT_TAKEN
+                POP_TOP
+
+ 281            LOAD_SMALL_INT           3
+                STORE_FAST               4 (exit_code)
+
+ 282   L42:     NOP
+
+ 283   L43:     LOAD_GLOBAL             16 (sys)
+                LOAD_ATTR               50 (excepthook)
+                PUSH_NULL
+                LOAD_GLOBAL             16 (sys)
+                LOAD_ATTR               52 (exc_info)
+                PUSH_NULL
+                CALL                     0
+                PUSH_NULL
+                CALL_FUNCTION_EX
+                POP_TOP
+       L44:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          417 (to L12)
+
+  --   L45:     PUSH_EXC_INFO
+
+ 284            POP_TOP
+
+ 285   L46:     POP_EXCEPT
+       L47:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          424 (to L12)
+
+  --   L48:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 280   L49:     RERAISE                  0
+
+  --   L50:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 262   L51:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L52)
+                NOT_TAKEN
+                RERAISE                  2
+       L52:     POP_TOP
+       L53:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 250 (to L24)
+
+  --   L54:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L55:     PUSH_EXC_INFO
+
+ 302            LOAD_GLOBAL             24 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L57)
+                NOT_TAKEN
+                POP_TOP
+
+ 303   L56:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 185 (to L30)
+
+ 302   L57:     RERAISE                  0
+
+  --   L58:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L59:     PUSH_EXC_INFO
+
+ 311            LOAD_GLOBAL             24 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       43 (to L63)
+                NOT_TAKEN
+                STORE_FAST              10 (e)
+
+ 312   L60:     LOAD_SMALL_INT           2
+                STORE_FAST               4 (exit_code)
+
+ 313            LOAD_GLOBAL             56 (warnings)
+                LOAD_ATTR               58 (warn)
+                PUSH_NULL
+                LOAD_CONST              15 ('resource_tracker: ')
+                LOAD_FAST                7 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST              16 (': ')
+                LOAD_FAST               10 (e)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                BUILD_STRING             4
+                CALL                     1
+                POP_TOP
+       L61:     POP_EXCEPT
+                LOAD_CONST               4 (None)
+                STORE_FAST              10 (e)
+                DELETE_FAST             10 (e)
+                JUMP_BACKWARD_NO_INTERRUPT 211 (to L33)
+
+  --   L62:     LOAD_CONST               4 (None)
+                STORE_FAST              10 (e)
+                DELETE_FAST             10 (e)
+                RERAISE                  1
+
+ 311   L63:     RERAISE                  0
+
+  --   L64:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L65:     PUSH_EXC_INFO
+
+ 315            RERAISE                  0
+
+  --   L66:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L67:     PUSH_EXC_INFO
+
+ 288            LOAD_FAST                3 (cache)
+                LOAD_ATTR               55 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+       L68:     FOR_ITER               174 (to L93)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   41 (rtype, rtype_cache)
+
+ 289            LOAD_FAST                9 (rtype_cache)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       70 (to L78)
+                NOT_TAKEN
+
+ 290   L69:     NOP
+
+ 291   L70:     LOAD_SMALL_INT           1
+                STORE_FAST               4 (exit_code)
+
+ 292            LOAD_FAST                2 (rtype)
+                LOAD_CONST              11 ('dummy')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        2 (to L72)
+                NOT_TAKEN
+
+ 295   L71:     JUMP_FORWARD            58 (to L78)
+
+ 297   L72:     LOAD_GLOBAL             56 (warnings)
+                LOAD_ATTR               58 (warn)
+                PUSH_NULL
+
+ 298            LOAD_CONST              12 ('resource_tracker: There appear to be ')
+
+ 299            LOAD_GLOBAL             61 (len + NULL)
+                LOAD_FAST                9 (rtype_cache)
+                CALL                     1
+                FORMAT_SIMPLE
+                LOAD_CONST              13 (' leaked ')
+                LOAD_FAST                2 (rtype)
+                FORMAT_SIMPLE
+                LOAD_CONST              14 (' objects to clean up at shutdown: ')
+
+ 300            LOAD_FAST                9 (rtype_cache)
+                FORMAT_SIMPLE
+
+ 298            BUILD_STRING             6
+
+ 297            CALL                     1
+                POP_TOP
+       L73:     JUMP_FORWARD            17 (to L78)
+
+  --   L74:     PUSH_EXC_INFO
+
+ 302            LOAD_GLOBAL             24 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L76)
+                NOT_TAKEN
+                POP_TOP
+
+ 303   L75:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L78)
+
+ 302   L76:     RERAISE                  0
+
+  --   L77:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 304   L78:     LOAD_FAST                9 (rtype_cache)
+                GET_ITER
+       L79:     FOR_ITER                86 (to L92)
+                STORE_FAST               7 (name)
+
+ 308   L80:     NOP
+
+ 309            NOP
+
+ 310   L81:     LOAD_GLOBAL             26 (_CLEANUP_FUNCS)
+                LOAD_FAST                2 (rtype)
+                BINARY_OP               26 ([])
+                PUSH_NULL
+                LOAD_FAST                7 (name)
+                CALL                     1
+                POP_TOP
+       L82:     JUMP_FORWARD            56 (to L89)
+
+  --   L83:     PUSH_EXC_INFO
+
+ 311            LOAD_GLOBAL             24 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       43 (to L87)
+                NOT_TAKEN
+                STORE_FAST              10 (e)
+
+ 312   L84:     LOAD_SMALL_INT           2
+                STORE_FAST               4 (exit_code)
+
+ 313            LOAD_GLOBAL             56 (warnings)
+                LOAD_ATTR               58 (warn)
+                PUSH_NULL
+                LOAD_CONST              15 ('resource_tracker: ')
+                LOAD_FAST                7 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST              16 (': ')
+                LOAD_FAST               10 (e)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                BUILD_STRING             4
+                CALL                     1
+                POP_TOP
+       L85:     POP_EXCEPT
+                LOAD_CONST               4 (None)
+                STORE_FAST              10 (e)
+                DELETE_FAST             10 (e)
+                JUMP_FORWARD             8 (to L89)
+
+  --   L86:     LOAD_CONST               4 (None)
+                STORE_FAST              10 (e)
+                DELETE_FAST             10 (e)
+                RERAISE                  1
+
+ 311   L87:     RERAISE                  0
+
+  --   L88:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 315   L89:     JUMP_BACKWARD           83 (to L79)
+
+  --   L90:     PUSH_EXC_INFO
+
+ 315            RERAISE                  0
+
+  --   L91:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 304   L92:     END_FOR
+                POP_ITER
+                JUMP_BACKWARD          176 (to L68)
+
+ 288   L93:     END_FOR
+                POP_ITER
+
+ 317            LOAD_GLOBAL             16 (sys)
+                LOAD_ATTR               62 (exit)
+                PUSH_NULL
+                LOAD_FAST                4 (exit_code)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L94:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L36 [1]
+  L6 to L9 -> L40 [2]
+  L10 to L11 -> L67 [0]
+  L11 to L13 -> L51 [2] lasti
+  L14 to L16 -> L41 [3]
+  L16 to L17 -> L51 [2] lasti
+  L17 to L18 -> L41 [3]
+  L18 to L19 -> L51 [2] lasti
+  L19 to L20 -> L41 [3]
+  L20 to L21 -> L51 [2] lasti
+  L21 to L22 -> L41 [3]
+  L22 to L23 -> L51 [2] lasti
+  L23 to L24 -> L67 [0]
+  L26 to L27 -> L55 [1]
+  L28 to L29 -> L55 [1]
+  L32 to L33 -> L59 [2]
+  L36 to L37 -> L39 [2] lasti
+  L38 to L39 -> L39 [2] lasti
+  L41 to L42 -> L50 [4] lasti
+  L43 to L44 -> L45 [4]
+  L44 to L45 -> L51 [2] lasti
+  L45 to L46 -> L48 [5] lasti
+  L46 to L47 -> L50 [4] lasti
+  L47 to L48 -> L51 [2] lasti
+  L48 to L50 -> L50 [4] lasti
+  L50 to L51 -> L51 [2] lasti
+  L51 to L53 -> L54 [4] lasti
+  L53 to L55 -> L67 [0]
+  L55 to L56 -> L58 [2] lasti
+  L57 to L58 -> L58 [2] lasti
+  L59 to L60 -> L64 [3] lasti
+  L60 to L61 -> L62 [3] lasti
+  L61 to L62 -> L65 [2]
+  L62 to L64 -> L64 [3] lasti
+  L64 to L65 -> L65 [2]
+  L65 to L66 -> L66 [3] lasti
+  L67 to L69 -> L94 [1] lasti
+  L70 to L71 -> L74 [3]
+  L71 to L72 -> L94 [1] lasti
+  L72 to L73 -> L74 [3]
+  L73 to L74 -> L94 [1] lasti
+  L74 to L75 -> L77 [4] lasti
+  L75 to L76 -> L94 [1] lasti
+  L76 to L77 -> L77 [4] lasti
+  L77 to L80 -> L94 [1] lasti
+  L81 to L82 -> L83 [4]
+  L82 to L83 -> L90 [4]
+  L83 to L84 -> L88 [5] lasti
+  L84 to L85 -> L86 [5] lasti
+  L85 to L86 -> L90 [4]
+  L86 to L88 -> L88 [5] lasti
+  L88 to L89 -> L90 [4]
+  L89 to L90 -> L94 [1] lasti
+  L90 to L91 -> L91 [5] lasti
+  L91 to L94 -> L94 [1] lasti

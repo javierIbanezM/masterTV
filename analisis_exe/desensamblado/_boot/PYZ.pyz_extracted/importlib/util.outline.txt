@@ -1,0 +1,62 @@
+<module>()  line 1
+    source_hash(source_bytes)  line 18
+    resolve_name(name, package)  line 23
+    _find_spec_from_path(name, path)  line 38
+    find_spec(name, package)  line 69
+    _incompatible_extension_module_restrictions()  line 118
+        _incompatible_extension_module_restrictions.__init__(self, disable_check)  line 150
+        _incompatible_extension_module_restrictions.__enter__(self)  line 153
+        _incompatible_extension_module_restrictions.__exit__(self)  line 157
+        _incompatible_extension_module_restrictions.override(self)  line 162
+    _LazyModule()  line 167
+        _LazyModule.__getattribute__(self, attr)  line 171
+        _LazyModule.__delattr__(self, attr)  line 226
+    LazyLoader()  line 234
+        LazyLoader.__check_eager_loader(loader)  line 238
+        LazyLoader.factory(cls, loader)  line 243
+            LazyLoader.factory.<locals>.<lambda>()  line 247
+        LazyLoader.__init__(self, loader)  line 249
+        LazyLoader.create_module(self, spec)  line 253
+        LazyLoader.exec_module(self, module)  line 256
+
+--- strings ---
+'Utility code for constructing importers, etc.'
+'Return the hash of *source_bytes* as used in hash-based pyc files.'
+'Resolve a relative module name to an absolute one.'
+'no package specified for '
+' (required for relative module names)'
+"Return the spec for the specified module.\n\nFirst, sys.modules is checked to see if the module was already imported. If\nso, then sys.modules[name].__spec__ is returned. If that happens to be\nset to None, then ValueError is raised. If the module is not in\nsys.modules, then sys.meta_path is searched for a suitable spec with the\nvalue of 'path' given to the finders. None is returned if no spec could\nbe found.\n\nDotted names do not have their parent packages implicitly imported. You will\nmost likely need to explicitly import all parent packages in the proper\norder for a submodule to get the correct spec.\n\n"
+'.__spec__ is None'
+'.__spec__ is not set'
+"Return the spec for the specified module.\n\nFirst, sys.modules is checked to see if the module was already imported. If\nso, then sys.modules[name].__spec__ is returned. If that happens to be\nset to None, then ValueError is raised. If the module is not in\nsys.modules, then sys.meta_path is searched for a suitable spec with the\nvalue of 'path' given to the finders. None is returned if no spec could\nbe found.\n\nIf the name is for submodule (contains a dot), the parent module is\nautomatically imported.\n\nThe name and package arguments work the same as importlib.import_module().\nIn other words, relative module names (with leading dots) work.\n\n"
+'__path__'
+'__path__ attribute not found on '
+' while trying to find '
+'.__spec__ is None'
+'.__spec__ is not set'
+'_incompatible_extension_module_restrictions'
+'A context manager that can temporarily skip the compatibility check.\n\nNOTE: This function is meant to accommodate an unusual case; one\nwhich is likely to eventually go away.  There\'s is a pretty good\nchance this is not what you were looking for.\n\nWARNING: Using this function to disable the check can lead to\nunexpected behavior and even crashes.  It should only be used during\nextension module development.\n\nIf "disable_check" is True then the compatibility check will not\nhappen while the context manager is active.  Otherwise the check\n*will* happen.\n\nNormally, extensions that do not support multiple interpreters\nmay not be imported in a subinterpreter.  That implies modules\nthat do not implement multi-phase init or that explicitly of out.\n\nLikewise for modules import in a subinterpreter with its own GIL\nwhen the extension does not support a per-interpreter GIL.  This\nimplies the module does not have a Py_mod_multiple_interpreters slot\nset to Py_MOD_PER_INTERPRETER_GIL_SUPPORTED.\n\nIn both cases, this context manager may be used to temporarily\ndisable the check for compatible extension modules.\n\nYou can get the same effect as this function by implementing the\nbasic interface of multi-phase init (PEP 489) and lying about\nsupport for multiple interpreters (or per-interpreter GIL).\n'
+'_incompatible_extension_module_restrictions'
+'_LazyModule'
+'A subclass of the module type which triggers loading upon attribute access.'
+'Trigger the load of the module and return the attribute.'
+'__spec__'
+'lock'
+'__class__'
+'is_loading'
+'__dict__'
+'module object for '
+' substituted in sys.modules during a lazy load'
+'Trigger the load and then perform the deletion.'
+'_LazyModule'
+'LazyLoader'
+'A loader that creates a module which defers loading until attribute access.'
+'exec_module'
+'loader must define exec_module()'
+'Construct a callable which returns the eager loader made lazy.'
+'Make the module load lazily.'
+'__dict__'
+'__class__'
+'lock'
+'is_loading'
+'LazyLoader'

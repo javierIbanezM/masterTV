@@ -1,0 +1,6 @@
+<module>()  line 1
+    only(iterable, default, too_long)  line 2
+
+--- strings ---
+"If *iterable* has only one item, return it.\nIf it has zero items, return *default*.\nIf it has more than one item, raise the exception given by *too_long*,\nwhich is ``ValueError`` by default.\n>>> only([], default='missing')\n'missing'\n>>> only([1])\n1\n>>> only([1, 2])  # doctest: +IGNORE_EXCEPTION_DETAIL\nTraceback (most recent call last):\n...\nValueError: Expected exactly one item in iterable, but got 1, 2,\n and perhaps more.'\n>>> only([1, 2], too_long=TypeError)  # doctest: +IGNORE_EXCEPTION_DETAIL\nTraceback (most recent call last):\n...\nTypeError\nNote that :func:`only` attempts to advance *iterable* twice to ensure there\nis only one item.  See :func:`spy` or :func:`peekable` to check\niterable contents less destructively.\n"
+'Expected exactly one item in iterable, but got {!r}, {!r}, and perhaps more.'

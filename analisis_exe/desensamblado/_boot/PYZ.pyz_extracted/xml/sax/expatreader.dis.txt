@@ -1,0 +1,2181 @@
+   0            RESUME                   0
+
+   1            LOAD_CONST               0 ("\nSAX driver for the pyexpat C module.  This driver works with\npyexpat.__version__ == '2.22'.\n")
+                STORE_NAME               0 (__doc__)
+
+   6            LOAD_CONST               1 ('0.20')
+                STORE_NAME               1 (version)
+
+   8            LOAD_SMALL_INT           0
+                LOAD_CONST               2 (('*',))
+                IMPORT_NAME              2 (xml.sax._exceptions)
+                CALL_INTRINSIC_1         2 (INTRINSIC_IMPORT_STAR)
+                POP_TOP
+
+   9            LOAD_SMALL_INT           0
+                LOAD_CONST               3 (('feature_validation', 'feature_namespaces'))
+                IMPORT_NAME              3 (xml.sax.handler)
+                IMPORT_FROM              4 (feature_validation)
+                STORE_NAME               4 (feature_validation)
+                IMPORT_FROM              5 (feature_namespaces)
+                STORE_NAME               5 (feature_namespaces)
+                POP_TOP
+
+  10            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (('feature_namespace_prefixes',))
+                IMPORT_NAME              3 (xml.sax.handler)
+                IMPORT_FROM              6 (feature_namespace_prefixes)
+                STORE_NAME               6 (feature_namespace_prefixes)
+                POP_TOP
+
+  11            LOAD_SMALL_INT           0
+                LOAD_CONST               5 (('feature_external_ges', 'feature_external_pes'))
+                IMPORT_NAME              3 (xml.sax.handler)
+                IMPORT_FROM              7 (feature_external_ges)
+                STORE_NAME               7 (feature_external_ges)
+                IMPORT_FROM              8 (feature_external_pes)
+                STORE_NAME               8 (feature_external_pes)
+                POP_TOP
+
+  12            LOAD_SMALL_INT           0
+                LOAD_CONST               6 (('feature_string_interning',))
+                IMPORT_NAME              3 (xml.sax.handler)
+                IMPORT_FROM              9 (feature_string_interning)
+                STORE_NAME               9 (feature_string_interning)
+                POP_TOP
+
+  13            LOAD_SMALL_INT           0
+                LOAD_CONST               7 (('property_xml_string', 'property_interning_dict'))
+                IMPORT_NAME              3 (xml.sax.handler)
+                IMPORT_FROM             10 (property_xml_string)
+                STORE_NAME              10 (property_xml_string)
+                IMPORT_FROM             11 (property_interning_dict)
+                STORE_NAME              11 (property_interning_dict)
+                POP_TOP
+
+  15            NOP
+
+  16    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               8 (('expat',))
+                IMPORT_NAME             12 (xml.parsers)
+                IMPORT_FROM             13 (expat)
+                STORE_NAME              13 (expat)
+                POP_TOP
+
+  20    L2:     LOAD_NAME               14 (hasattr)
+                PUSH_NULL
+                LOAD_NAME               13 (expat)
+                LOAD_CONST               9 ('ParserCreate')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        10 (to L3)
+                NOT_TAKEN
+
+  21            LOAD_NAME               15 (SAXReaderNotAvailable)
+                PUSH_NULL
+                LOAD_CONST              10 ('expat not supported')
+                LOAD_CONST              11 (None)
+                CALL                     2
+                RAISE_VARARGS            1
+
+  20    L3:     NOP
+
+  22            LOAD_SMALL_INT           0
+                LOAD_CONST              12 (('xmlreader', 'saxutils', 'handler'))
+                IMPORT_NAME             17 (xml.sax)
+                IMPORT_FROM             18 (xmlreader)
+                STORE_NAME              18 (xmlreader)
+                IMPORT_FROM             19 (saxutils)
+                STORE_NAME              19 (saxutils)
+                IMPORT_FROM             20 (handler)
+                STORE_NAME              20 (handler)
+                POP_TOP
+
+  24            LOAD_NAME               18 (xmlreader)
+                LOAD_ATTR               42 (AttributesImpl)
+                STORE_NAME              21 (AttributesImpl)
+
+  25            LOAD_NAME               18 (xmlreader)
+                LOAD_ATTR               44 (AttributesNSImpl)
+                STORE_NAME              22 (AttributesNSImpl)
+
+  30            NOP
+
+  31    L4:     LOAD_SMALL_INT           0
+                LOAD_CONST              11 (None)
+                IMPORT_NAME             23 (_weakref)
+                STORE_NAME              23 (_weakref)
+
+  36    L5:     LOAD_SMALL_INT           0
+                LOAD_CONST              11 (None)
+                IMPORT_NAME             24 (weakref)
+                STORE_NAME              24 (weakref)
+
+  37            LOAD_NAME               24 (weakref)
+                LOAD_ATTR               50 (proxy)
+                STORE_NAME              26 (_mkproxy)
+
+  38            DELETE_NAME             24 (weakref)
+                DELETE_NAME             23 (_weakref)
+
+  40    L6:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              14 (<code object _ClosedParser at 0x00000204BA093960, file "xml\sax\expatreader.py", line 40>)
+                MAKE_FUNCTION
+                LOAD_CONST              15 ('_ClosedParser')
+                CALL                     2
+                STORE_NAME              27 (_ClosedParser)
+
+  45            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              16 (<code object ExpatLocator at 0x00000204BA0A6E50, file "xml\sax\expatreader.py", line 45>)
+                MAKE_FUNCTION
+                LOAD_CONST              17 ('ExpatLocator')
+                LOAD_NAME               18 (xmlreader)
+                LOAD_ATTR               56 (Locator)
+                CALL                     3
+                STORE_NAME              29 (ExpatLocator)
+
+  81            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              18 (<code object ExpatParser at 0x00000204B9F9F130, file "xml\sax\expatreader.py", line 81>)
+                MAKE_FUNCTION
+                LOAD_CONST              19 ('ExpatParser')
+                LOAD_NAME               18 (xmlreader)
+                LOAD_ATTR               60 (IncrementalParser)
+                LOAD_NAME               18 (xmlreader)
+                LOAD_ATTR               56 (Locator)
+                CALL                     4
+                STORE_NAME              31 (ExpatParser)
+
+ 444            LOAD_CONST              20 (<code object create_parser at 0x00000204BA0914D0, file "xml\sax\expatreader.py", line 444>)
+                MAKE_FUNCTION
+                STORE_NAME              32 (create_parser)
+
+ 449            LOAD_NAME               33 (__name__)
+                LOAD_CONST              21 ('__main__')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      123 (to L7)
+                NOT_TAKEN
+
+ 450            LOAD_SMALL_INT           0
+                LOAD_CONST              11 (None)
+                IMPORT_NAME             34 (xml.sax.saxutils)
+                STORE_NAME              35 (xml)
+
+ 451            LOAD_NAME               32 (create_parser)
+                PUSH_NULL
+                CALL                     0
+                STORE_NAME              36 (p)
+
+ 452            LOAD_NAME               36 (p)
+                LOAD_ATTR               75 (setContentHandler + NULL|self)
+                LOAD_NAME               35 (xml)
+                LOAD_ATTR               76 (sax)
+                LOAD_ATTR               38 (saxutils)
+                LOAD_ATTR               79 (XMLGenerator + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+ 453            LOAD_NAME               36 (p)
+                LOAD_ATTR               81 (setErrorHandler + NULL|self)
+                LOAD_NAME               35 (xml)
+                LOAD_ATTR               76 (sax)
+                LOAD_ATTR               83 (ErrorHandler + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+ 454            LOAD_NAME               36 (p)
+                LOAD_ATTR               85 (parse + NULL|self)
+                LOAD_CONST              22 ('http://www.ibiblio.org/xml/examples/shakespeare/hamlet.xml')
+                CALL                     1
+                POP_TOP
+                LOAD_CONST              11 (None)
+                RETURN_VALUE
+
+ 449    L7:     LOAD_CONST              11 (None)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+  17            LOAD_NAME               16 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       11 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+  18            LOAD_NAME               15 (SAXReaderNotAvailable)
+                PUSH_NULL
+                LOAD_CONST              10 ('expat not supported')
+                LOAD_CONST              11 (None)
+                CALL                     2
+                RAISE_VARARGS            1
+
+  17    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+  32            LOAD_NAME               16 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        7 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+  33            LOAD_CONST              13 (<code object _mkproxy at 0x00000204BA730030, file "xml\sax\expatreader.py", line 33>)
+                MAKE_FUNCTION
+                STORE_NAME              26 (_mkproxy)
+       L12:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 229 (to L6)
+
+  32   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L8 [0]
+  L4 to L5 -> L11 [0]
+  L8 to L10 -> L10 [1] lasti
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object _mkproxy at 0x00000204BA730030, file "xml\sax\expatreader.py", line 33>:
+ 33           RESUME                   0
+
+ 34           LOAD_FAST_BORROW         0 (o)
+              RETURN_VALUE
+
+Disassembly of <code object _ClosedParser at 0x00000204BA093960, file "xml\sax\expatreader.py", line 40>:
+ 40           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('_ClosedParser')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          40
+              STORE_NAME               3 (__firstlineno__)
+
+ 41           LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ExpatLocator at 0x00000204BA0A6E50, file "xml\sax\expatreader.py", line 45>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  45           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ExpatLocator')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          45
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  46           LOAD_CONST               1 ('Locator for use with the ExpatParser class.\n\nThis uses a weak reference to the parser object to avoid creating\na circular reference between the parser and the content handler.\n')
+               STORE_NAME               4 (__doc__)
+
+  51           LOAD_CONST               2 (<code object __init__ at 0x00000204BA08AD30, file "xml\sax\expatreader.py", line 51>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  54           LOAD_CONST               3 (<code object getColumnNumber at 0x00000204BA0ABC30, file "xml\sax\expatreader.py", line 54>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (getColumnNumber)
+
+  60           LOAD_CONST               4 (<code object getLineNumber at 0x00000204BA0AABF0, file "xml\sax\expatreader.py", line 60>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (getLineNumber)
+
+  66           LOAD_CONST               5 (<code object getPublicId at 0x00000204B9FEF0E0, file "xml\sax\expatreader.py", line 66>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (getPublicId)
+
+  72           LOAD_CONST               6 (<code object getSystemId at 0x00000204B9FEF800, file "xml\sax\expatreader.py", line 72>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (getSystemId)
+               LOAD_CONST               7 (('_ref',))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               8 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA08AD30, file "xml\sax\expatreader.py", line 51>:
+ 51           RESUME                   0
+
+ 52           LOAD_GLOBAL              1 (_mkproxy + NULL)
+              LOAD_FAST_BORROW         1 (parser)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_ref)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getColumnNumber at 0x00000204BA0ABC30, file "xml\sax\expatreader.py", line 54>:
+ 54           RESUME                   0
+
+ 55           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ref)
+              STORE_FAST               1 (parser)
+
+ 56           LOAD_FAST_BORROW         1 (parser)
+              LOAD_ATTR                2 (_parser)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+ 57           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+ 58   L1:     LOAD_FAST_BORROW         1 (parser)
+              LOAD_ATTR                2 (_parser)
+              LOAD_ATTR                4 (ErrorColumnNumber)
+              RETURN_VALUE
+
+Disassembly of <code object getLineNumber at 0x00000204BA0AABF0, file "xml\sax\expatreader.py", line 60>:
+ 60           RESUME                   0
+
+ 61           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ref)
+              STORE_FAST               1 (parser)
+
+ 62           LOAD_FAST_BORROW         1 (parser)
+              LOAD_ATTR                2 (_parser)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+ 63           LOAD_SMALL_INT           1
+              RETURN_VALUE
+
+ 64   L1:     LOAD_FAST_BORROW         1 (parser)
+              LOAD_ATTR                2 (_parser)
+              LOAD_ATTR                4 (ErrorLineNumber)
+              RETURN_VALUE
+
+Disassembly of <code object getPublicId at 0x00000204B9FEF0E0, file "xml\sax\expatreader.py", line 66>:
+ 66           RESUME                   0
+
+ 67           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ref)
+              STORE_FAST               1 (parser)
+
+ 68           LOAD_FAST_BORROW         1 (parser)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+ 69           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+ 70   L1:     LOAD_FAST_BORROW         1 (parser)
+              LOAD_ATTR                2 (_source)
+              LOAD_ATTR                5 (getPublicId + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object getSystemId at 0x00000204B9FEF800, file "xml\sax\expatreader.py", line 72>:
+ 72           RESUME                   0
+
+ 73           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_ref)
+              STORE_FAST               1 (parser)
+
+ 74           LOAD_FAST_BORROW         1 (parser)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+ 75           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+ 76   L1:     LOAD_FAST_BORROW         1 (parser)
+              LOAD_ATTR                2 (_source)
+              LOAD_ATTR                5 (getSystemId + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object ExpatParser at 0x00000204B9F9F130, file "xml\sax\expatreader.py", line 81>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  81           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ExpatParser')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          81
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  82           LOAD_CONST               1 ('SAX driver for the pyexpat C module.')
+               STORE_NAME               4 (__doc__)
+
+  84           LOAD_CONST              36 ((0, 65516))
+               LOAD_CONST               2 (<code object __init__ at 0x00000204B9FFB120, file "xml\sax\expatreader.py", line 84>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+  97           LOAD_CONST               3 (<code object parse at 0x00000204B9FA7860, file "xml\sax\expatreader.py", line 97>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (parse)
+
+ 113           LOAD_CONST               4 (<code object prepareParser at 0x00000204BA0BBB40, file "xml\sax\expatreader.py", line 113>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (prepareParser)
+
+ 119           LOAD_CONST               5 (<code object setContentHandler at 0x00000204B9F731B0, file "xml\sax\expatreader.py", line 119>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (setContentHandler)
+
+ 124           LOAD_CONST               6 (<code object getFeature at 0x00000204B9F9E4F0, file "xml\sax\expatreader.py", line 124>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (getFeature)
+
+ 136           LOAD_CONST               7 (<code object setFeature at 0x00000204BA4E6250, file "xml\sax\expatreader.py", line 136>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (setFeature)
+
+ 166           LOAD_CONST               8 (<code object getProperty at 0x00000204BA36AFC0, file "xml\sax\expatreader.py", line 166>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (getProperty)
+
+ 184           LOAD_CONST               9 (<code object setProperty at 0x00000204B9FC2970, file "xml\sax\expatreader.py", line 184>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (setProperty)
+
+ 200           LOAD_CONST              37 ((False,))
+               LOAD_CONST              10 (<code object feed at 0x00000204BA366350, file "xml\sax\expatreader.py", line 200>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              13 (feed)
+
+ 217           LOAD_CONST              11 (<code object flush at 0x00000204BA33C8F0, file "xml\sax\expatreader.py", line 217>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (flush)
+
+ 231           LOAD_CONST              12 (<code object _close_source at 0x00000204B9FC23D0, file "xml\sax\expatreader.py", line 231>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (_close_source)
+
+ 242           LOAD_CONST              13 (<code object close at 0x00000204BA338F90, file "xml\sax\expatreader.py", line 242>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (close)
+
+ 263           LOAD_CONST              14 (<code object _reset_cont_handler at 0x00000204B9FF3280, file "xml\sax\expatreader.py", line 263>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (_reset_cont_handler)
+
+ 268           LOAD_CONST              15 (<code object _reset_lex_handler_prop at 0x00000204BA46DC20, file "xml\sax\expatreader.py", line 268>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (_reset_lex_handler_prop)
+
+ 284           LOAD_CONST              16 (<code object reset at 0x00000204BA3735D0, file "xml\sax\expatreader.py", line 284>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (reset)
+
+ 323           LOAD_CONST              17 (<code object getColumnNumber at 0x00000204BA0A7990, file "xml\sax\expatreader.py", line 323>)
+               MAKE_FUNCTION
+               STORE_NAME              20 (getColumnNumber)
+
+ 328           LOAD_CONST              18 (<code object getLineNumber at 0x00000204BA0A45D0, file "xml\sax\expatreader.py", line 328>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (getLineNumber)
+
+ 333           LOAD_CONST              19 (<code object getPublicId at 0x00000204BA0FF440, file "xml\sax\expatreader.py", line 333>)
+               MAKE_FUNCTION
+               STORE_NAME              22 (getPublicId)
+
+ 336           LOAD_CONST              20 (<code object getSystemId at 0x00000204BA0FECD0, file "xml\sax\expatreader.py", line 336>)
+               MAKE_FUNCTION
+               STORE_NAME              23 (getSystemId)
+
+ 340           LOAD_CONST              21 (<code object start_element at 0x00000204BA0A71B0, file "xml\sax\expatreader.py", line 340>)
+               MAKE_FUNCTION
+               STORE_NAME              24 (start_element)
+
+ 343           LOAD_CONST              22 (<code object end_element at 0x00000204BA0FC7A0, file "xml\sax\expatreader.py", line 343>)
+               MAKE_FUNCTION
+               STORE_NAME              25 (end_element)
+
+ 346           LOAD_CONST              23 (<code object start_element_ns at 0x00000204BA388300, file "xml\sax\expatreader.py", line 346>)
+               MAKE_FUNCTION
+               STORE_NAME              26 (start_element_ns)
+
+ 380           LOAD_CONST              24 (<code object end_element_ns at 0x00000204B9F9F9F0, file "xml\sax\expatreader.py", line 380>)
+               MAKE_FUNCTION
+               STORE_NAME              27 (end_element_ns)
+
+ 392           LOAD_CONST              25 (<code object processing_instruction at 0x00000204BA0FFEE0, file "xml\sax\expatreader.py", line 392>)
+               MAKE_FUNCTION
+               STORE_NAME              28 (processing_instruction)
+
+ 396           LOAD_CONST              26 (<code object character_data at 0x00000204BA0FC250, file "xml\sax\expatreader.py", line 396>)
+               MAKE_FUNCTION
+               STORE_NAME              29 (character_data)
+
+ 399           LOAD_CONST              27 (<code object start_namespace_decl at 0x00000204BA0FF550, file "xml\sax\expatreader.py", line 399>)
+               MAKE_FUNCTION
+               STORE_NAME              30 (start_namespace_decl)
+
+ 402           LOAD_CONST              28 (<code object end_namespace_decl at 0x00000204BA728030, file "xml\sax\expatreader.py", line 402>)
+               MAKE_FUNCTION
+               STORE_NAME              31 (end_namespace_decl)
+
+ 405           LOAD_CONST              29 (<code object start_doctype_decl at 0x00000204BA728140, file "xml\sax\expatreader.py", line 405>)
+               MAKE_FUNCTION
+               STORE_NAME              32 (start_doctype_decl)
+
+ 408           LOAD_CONST              30 (<code object unparsed_entity_decl at 0x00000204BA728250, file "xml\sax\expatreader.py", line 408>)
+               MAKE_FUNCTION
+               STORE_NAME              33 (unparsed_entity_decl)
+
+ 411           LOAD_CONST              31 (<code object notation_decl at 0x00000204BA728360, file "xml\sax\expatreader.py", line 411>)
+               MAKE_FUNCTION
+               STORE_NAME              34 (notation_decl)
+
+ 414           LOAD_CONST              32 (<code object external_entity_ref at 0x00000204BA3E6B90, file "xml\sax\expatreader.py", line 414>)
+               MAKE_FUNCTION
+               STORE_NAME              35 (external_entity_ref)
+
+ 436           LOAD_CONST              33 (<code object skipped_entity_handler at 0x00000204BA101B80, file "xml\sax\expatreader.py", line 436>)
+               MAKE_FUNCTION
+               STORE_NAME              36 (skipped_entity_handler)
+               LOAD_CONST              34 (('_decl_handler_prop', '_entity_stack', '_external_ges', '_interning', '_lex_handler_prop', '_namespaces', '_parser', '_parsing', '_source'))
+               STORE_NAME              37 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              38 (__classdictcell__)
+               LOAD_CONST              35 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FFB120, file "xml\sax\expatreader.py", line 84>:
+ 84           RESUME                   0
+
+ 85           LOAD_GLOBAL              0 (xmlreader)
+              LOAD_ATTR                2 (IncrementalParser)
+              LOAD_ATTR                5 (__init__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (self, bufsize)
+              CALL                     2
+              POP_TOP
+
+ 86           LOAD_GLOBAL              0 (xmlreader)
+              LOAD_ATTR                6 (InputSource)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_source)
+
+ 87           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_parser)
+
+ 88           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (namespaceHandling, self)
+              STORE_ATTR               6 (_namespaces)
+
+ 89           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_lex_handler_prop)
+
+ 90           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_parsing)
+
+ 91           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               9 (_entity_stack)
+
+ 92           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              10 (_external_ges)
+
+ 93           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              11 (_interning)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204B9FA7860, file "xml\sax\expatreader.py", line 97>:
+  97           RESUME                   0
+
+  99           LOAD_GLOBAL              0 (saxutils)
+               LOAD_ATTR                2 (prepare_input_source)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (source)
+               CALL                     1
+               STORE_FAST               1 (source)
+
+ 101           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (source, self)
+               STORE_ATTR               2 (_source)
+
+ 102           NOP
+
+ 103   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                7 (reset + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 104           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_cont_handler)
+               LOAD_ATTR               11 (setDocumentLocator + NULL|self)
+               LOAD_GLOBAL             13 (ExpatLocator + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               CALL                     1
+               POP_TOP
+
+ 105           LOAD_GLOBAL             14 (xmlreader)
+               LOAD_ATTR               16 (IncrementalParser)
+               LOAD_ATTR               19 (parse + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, source)
+               CALL                     2
+               POP_TOP
+       L2:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 106           POP_TOP
+
+ 110           LOAD_FAST                0 (self)
+               LOAD_ATTR               21 (_close_source + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 111           RAISE_VARARGS            0
+
+  --   L4:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L4 [1] lasti
+
+Disassembly of <code object prepareParser at 0x00000204BA0BBB40, file "xml\sax\expatreader.py", line 113>:
+113           RESUME                   0
+
+114           LOAD_FAST_BORROW         1 (source)
+              LOAD_ATTR                1 (getSystemId + NULL|self)
+              CALL                     0
+              POP_JUMP_IF_NONE        44 (to L1)
+              NOT_TAKEN
+
+115           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_parser)
+              LOAD_ATTR                5 (SetBase + NULL|self)
+              LOAD_FAST_BORROW         1 (source)
+              LOAD_ATTR                1 (getSystemId + NULL|self)
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+114   L1:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object setContentHandler at 0x00000204B9F731B0, file "xml\sax\expatreader.py", line 119>:
+119           RESUME                   0
+
+120           LOAD_GLOBAL              0 (xmlreader)
+              LOAD_ATTR                2 (IncrementalParser)
+              LOAD_ATTR                5 (setContentHandler + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, handler)
+              CALL                     2
+              POP_TOP
+
+121           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_parsing)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+122           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (_reset_cont_handler + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+121   L1:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getFeature at 0x00000204B9F9E4F0, file "xml\sax\expatreader.py", line 124>:
+124           RESUME                   0
+
+125           LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL              0 (feature_namespaces)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+126           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_namespaces)
+              RETURN_VALUE
+
+127   L1:     LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL              4 (feature_string_interning)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       15 (to L2)
+              NOT_TAKEN
+
+128           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_interning)
+              LOAD_CONST               0 (None)
+              IS_OP                    1 (is not)
+              RETURN_VALUE
+
+129   L2:     LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL              8 (feature_validation)
+              LOAD_GLOBAL             10 (feature_external_pes)
+
+130           LOAD_GLOBAL             12 (feature_namespace_prefixes)
+
+129           BUILD_TUPLE              3
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+131           LOAD_SMALL_INT           0
+              RETURN_VALUE
+
+132   L3:     LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL             14 (feature_external_ges)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L4)
+              NOT_TAKEN
+
+133           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (_external_ges)
+              RETURN_VALUE
+
+134   L4:     LOAD_GLOBAL             19 (SAXNotRecognizedException + NULL)
+              LOAD_CONST               1 ("Feature '%s' not recognized")
+              LOAD_FAST_BORROW         1 (name)
+              BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object setFeature at 0x00000204BA4E6250, file "xml\sax\expatreader.py", line 136>:
+136            RESUME                   0
+
+137            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_parsing)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       12 (to L1)
+               NOT_TAKEN
+
+138            LOAD_GLOBAL              3 (SAXNotSupportedException + NULL)
+               LOAD_CONST               0 ('Cannot set features while parsing')
+               CALL                     1
+               RAISE_VARARGS            1
+
+140    L1:     LOAD_FAST_BORROW         1 (name)
+               LOAD_GLOBAL              4 (feature_namespaces)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        9 (to L2)
+               NOT_TAKEN
+
+141            LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (state, self)
+               STORE_ATTR               3 (_namespaces)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+142    L2:     LOAD_FAST_BORROW         1 (name)
+               LOAD_GLOBAL              8 (feature_external_ges)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        9 (to L3)
+               NOT_TAKEN
+
+143            LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (state, self)
+               STORE_ATTR               5 (_external_ges)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+144    L3:     LOAD_FAST_BORROW         1 (name)
+               LOAD_GLOBAL             12 (feature_string_interning)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       43 (to L6)
+               NOT_TAKEN
+
+145            LOAD_FAST_BORROW         2 (state)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       26 (to L5)
+               NOT_TAKEN
+
+146            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               14 (_interning)
+               POP_JUMP_IF_NOT_NONE    10 (to L4)
+               NOT_TAKEN
+
+147            BUILD_MAP                0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (_interning)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+146    L4:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+149    L5:     LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (_interning)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+150    L6:     LOAD_FAST_BORROW         1 (name)
+               LOAD_GLOBAL             16 (feature_validation)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       22 (to L8)
+               NOT_TAKEN
+
+151            LOAD_FAST_BORROW         2 (state)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       12 (to L7)
+               NOT_TAKEN
+
+152            LOAD_GLOBAL              3 (SAXNotSupportedException + NULL)
+
+153            LOAD_CONST               2 ('expat does not support validation')
+
+152            CALL                     1
+               RAISE_VARARGS            1
+
+151    L7:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+154    L8:     LOAD_FAST_BORROW         1 (name)
+               LOAD_GLOBAL             18 (feature_external_pes)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       22 (to L10)
+               NOT_TAKEN
+
+155            LOAD_FAST_BORROW         2 (state)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       12 (to L9)
+               NOT_TAKEN
+
+156            LOAD_GLOBAL              3 (SAXNotSupportedException + NULL)
+
+157            LOAD_CONST               3 ('expat does not read external parameter entities')
+
+156            CALL                     1
+               RAISE_VARARGS            1
+
+155    L9:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+158   L10:     LOAD_FAST_BORROW         1 (name)
+               LOAD_GLOBAL             20 (feature_namespace_prefixes)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       22 (to L12)
+               NOT_TAKEN
+
+159            LOAD_FAST_BORROW         2 (state)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       12 (to L11)
+               NOT_TAKEN
+
+160            LOAD_GLOBAL              3 (SAXNotSupportedException + NULL)
+
+161            LOAD_CONST               4 ('expat does not report namespace prefixes')
+
+160            CALL                     1
+               RAISE_VARARGS            1
+
+159   L11:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+163   L12:     LOAD_GLOBAL             23 (SAXNotRecognizedException + NULL)
+
+164            LOAD_CONST               5 ("Feature '%s' not recognized")
+               LOAD_FAST_BORROW         1 (name)
+               BINARY_OP                6 (%)
+
+163            CALL                     1
+               RAISE_VARARGS            1
+
+Disassembly of <code object getProperty at 0x00000204BA36AFC0, file "xml\sax\expatreader.py", line 166>:
+166           RESUME                   0
+
+167           LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL              0 (handler)
+              LOAD_ATTR                2 (property_lexical_handler)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+168           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_lex_handler_prop)
+              RETURN_VALUE
+
+169   L1:     LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL              6 (property_interning_dict)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L2)
+              NOT_TAKEN
+
+170           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_interning)
+              RETURN_VALUE
+
+171   L2:     LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL             10 (property_xml_string)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       95 (to L5)
+              NOT_TAKEN
+
+172           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_parser)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       66 (to L4)
+              NOT_TAKEN
+
+173           LOAD_GLOBAL             15 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_parser)
+              LOAD_CONST               0 ('GetInputContext')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L3)
+              NOT_TAKEN
+
+174           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_parser)
+              LOAD_ATTR               17 (GetInputContext + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+176   L3:     LOAD_GLOBAL             19 (SAXNotRecognizedException + NULL)
+
+177           LOAD_CONST               1 ('This version of expat does not support getting the XML string')
+
+176           CALL                     1
+              RAISE_VARARGS            1
+
+180   L4:     LOAD_GLOBAL             21 (SAXNotSupportedException + NULL)
+
+181           LOAD_CONST               2 ('XML string cannot be returned when not parsing')
+
+180           CALL                     1
+              RAISE_VARARGS            1
+
+182   L5:     LOAD_GLOBAL             19 (SAXNotRecognizedException + NULL)
+              LOAD_CONST               3 ("Property '%s' not recognized")
+              LOAD_FAST_BORROW         1 (name)
+              BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object setProperty at 0x00000204B9FC2970, file "xml\sax\expatreader.py", line 184>:
+184           RESUME                   0
+
+185           LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL              0 (handler)
+              LOAD_ATTR                2 (property_lexical_handler)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       45 (to L2)
+              NOT_TAKEN
+
+186           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (value, self)
+              STORE_ATTR               2 (_lex_handler_prop)
+
+187           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_parsing)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+188           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (_reset_lex_handler_prop + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+187   L1:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+189   L2:     LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL             10 (property_interning_dict)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        9 (to L3)
+              NOT_TAKEN
+
+190           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (value, self)
+              STORE_ATTR               6 (_interning)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+191   L3:     LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL             14 (property_xml_string)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       19 (to L4)
+              NOT_TAKEN
+
+192           LOAD_GLOBAL             17 (SAXNotSupportedException + NULL)
+              LOAD_CONST               0 ("Property '%s' cannot be set")
+
+193           LOAD_FAST_BORROW         1 (name)
+
+192           BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+195   L4:     LOAD_GLOBAL             19 (SAXNotRecognizedException + NULL)
+              LOAD_CONST               1 ("Property '%s' not recognized")
+
+196           LOAD_FAST_BORROW         1 (name)
+
+195           BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object feed at 0x00000204BA366350, file "xml\sax\expatreader.py", line 200>:
+ 200           RESUME                   0
+
+ 201           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_parsing)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        50 (to L1)
+               NOT_TAKEN
+
+ 202           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                3 (reset + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 203           LOAD_CONST               0 (True)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_parsing)
+
+ 204           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_cont_handler)
+               LOAD_ATTR                7 (startDocument + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 206   L1:     NOP
+
+ 211   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_parser)
+               LOAD_ATTR               11 (Parse + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (data, isFinal)
+               CALL                     2
+               POP_TOP
+       L3:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 212           LOAD_GLOBAL             12 (expat)
+               LOAD_ATTR               14 (error)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       81 (to L8)
+               NOT_TAKEN
+               STORE_FAST               3 (e)
+
+ 213   L5:     LOAD_GLOBAL             17 (SAXParseException + NULL)
+               LOAD_GLOBAL             12 (expat)
+               LOAD_ATTR               18 (ErrorString)
+               PUSH_NULL
+               LOAD_FAST                3 (e)
+               LOAD_ATTR               20 (code)
+               CALL                     1
+               LOAD_FAST_LOAD_FAST     48 (e, self)
+               CALL                     3
+               STORE_FAST               4 (exc)
+
+ 215           LOAD_FAST                0 (self)
+               LOAD_ATTR               22 (_err_handler)
+               LOAD_ATTR               25 (fatalError + NULL|self)
+               LOAD_FAST                4 (exc)
+               CALL                     1
+               POP_TOP
+       L6:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               STORE_FAST               3 (e)
+               DELETE_FAST              3 (e)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L7:     LOAD_CONST               1 (None)
+               STORE_FAST               3 (e)
+               DELETE_FAST              3 (e)
+               RERAISE                  1
+
+ 212   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L9 [1] lasti
+  L5 to L6 -> L7 [1] lasti
+  L7 to L9 -> L9 [1] lasti
+
+Disassembly of <code object flush at 0x00000204BA33C8F0, file "xml\sax\expatreader.py", line 217>:
+ 217            RESUME                   0
+
+ 218            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_parser)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+
+ 219            LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 221    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_parser)
+                LOAD_ATTR                3 (GetReparseDeferralEnabled + NULL|self)
+                CALL                     0
+                STORE_FAST               1 (was_enabled)
+
+ 222            NOP
+
+ 223    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_parser)
+                LOAD_ATTR                5 (SetReparseDeferralEnabled + NULL|self)
+                LOAD_CONST               1 (False)
+                CALL                     1
+                POP_TOP
+
+ 224            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_parser)
+                LOAD_ATTR                7 (Parse + NULL|self)
+                LOAD_CONST               2 (b'')
+                LOAD_CONST               1 (False)
+                CALL                     2
+                POP_TOP
+
+ 229    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_parser)
+                LOAD_ATTR                5 (SetReparseDeferralEnabled + NULL|self)
+                LOAD_FAST_BORROW         1 (was_enabled)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --    L4:     PUSH_EXC_INFO
+
+ 225            LOAD_GLOBAL              8 (expat)
+                LOAD_ATTR               10 (error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       80 (to L8)
+                NOT_TAKEN
+                STORE_FAST               2 (e)
+
+ 226    L5:     LOAD_GLOBAL             13 (SAXParseException + NULL)
+                LOAD_GLOBAL              8 (expat)
+                LOAD_ATTR               14 (ErrorString)
+                PUSH_NULL
+                LOAD_FAST                2 (e)
+                LOAD_ATTR               16 (code)
+                CALL                     1
+                LOAD_FAST_LOAD_FAST     32 (e, self)
+                CALL                     3
+                STORE_FAST               3 (exc)
+
+ 227            LOAD_FAST                0 (self)
+                LOAD_ATTR               18 (_err_handler)
+                LOAD_ATTR               21 (fatalError + NULL|self)
+                LOAD_FAST                3 (exc)
+                CALL                     1
+                POP_TOP
+        L6:     POP_EXCEPT
+                LOAD_CONST               0 (None)
+                STORE_FAST               2 (e)
+                DELETE_FAST              2 (e)
+                JUMP_BACKWARD_NO_INTERRUPT 124 (to L3)
+
+  --    L7:     LOAD_CONST               0 (None)
+                STORE_FAST               2 (e)
+                DELETE_FAST              2 (e)
+                RERAISE                  1
+
+ 225    L8:     RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     PUSH_EXC_INFO
+
+ 229            LOAD_FAST                0 (self)
+                LOAD_ATTR                0 (_parser)
+                LOAD_ATTR                5 (SetReparseDeferralEnabled + NULL|self)
+                LOAD_FAST                1 (was_enabled)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L9 [1] lasti
+  L5 to L6 -> L7 [1] lasti
+  L6 to L7 -> L10 [0]
+  L7 to L9 -> L9 [1] lasti
+  L9 to L10 -> L10 [0]
+  L10 to L11 -> L11 [1] lasti
+
+Disassembly of <code object _close_source at 0x00000204B9FC23D0, file "xml\sax\expatreader.py", line 231>:
+ 231           RESUME                   0
+
+ 232           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_source)
+               STORE_FAST               1 (source)
+
+ 233           NOP
+
+ 234   L1:     LOAD_FAST_BORROW         1 (source)
+               LOAD_ATTR                3 (getCharacterStream + NULL|self)
+               CALL                     0
+               STORE_FAST               2 (file)
+
+ 235           LOAD_FAST_BORROW         2 (file)
+               POP_JUMP_IF_NONE        17 (to L2)
+               NOT_TAKEN
+
+ 236           LOAD_FAST_BORROW         2 (file)
+               LOAD_ATTR                5 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 238   L2:     LOAD_FAST_BORROW         1 (source)
+               LOAD_ATTR                7 (getByteStream + NULL|self)
+               CALL                     0
+               STORE_FAST               2 (file)
+
+ 239           LOAD_FAST_BORROW         2 (file)
+               POP_JUMP_IF_NONE        19 (to L3)
+               NOT_TAKEN
+
+ 240           LOAD_FAST_BORROW         2 (file)
+               LOAD_ATTR                5 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+ 239   L3:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 238           LOAD_FAST                1 (source)
+               LOAD_ATTR                7 (getByteStream + NULL|self)
+               CALL                     0
+               STORE_FAST               2 (file)
+
+ 239           LOAD_FAST                2 (file)
+               POP_JUMP_IF_NONE        18 (to L5)
+               NOT_TAKEN
+
+ 240           LOAD_FAST                2 (file)
+               LOAD_ATTR                5 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+ 239   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L6 -> L6 [1] lasti
+
+Disassembly of <code object close at 0x00000204BA338F90, file "xml\sax\expatreader.py", line 242>:
+ 242           RESUME                   0
+
+ 243           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_entity_stack)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        47 (to L1)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_parser)
+               POP_JUMP_IF_NONE        33 (to L1)
+               NOT_TAKEN
+
+ 244           LOAD_GLOBAL              5 (isinstance + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_parser)
+               LOAD_GLOBAL              6 (_ClosedParser)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L2)
+               NOT_TAKEN
+
+ 246   L1:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+ 247   L2:     NOP
+
+ 248   L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                9 (feed + NULL|self)
+               LOAD_CONST               1 (b'')
+               LOAD_CONST               2 (True)
+               LOAD_CONST               3 (('isFinal',))
+               CALL_KW                  2
+               POP_TOP
+
+ 249           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_cont_handler)
+               LOAD_ATTR               13 (endDocument + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 250           LOAD_CONST               4 (False)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (_parsing)
+
+ 252           LOAD_CONST               0 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_parser)
+
+ 254   L4:     LOAD_CONST               4 (False)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (_parsing)
+
+ 255           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_parser)
+               POP_JUMP_IF_NONE        71 (to L5)
+               NOT_TAKEN
+
+ 257           LOAD_GLOBAL              7 (_ClosedParser + NULL)
+               CALL                     0
+               STORE_FAST               1 (parser)
+
+ 258           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_parser)
+               LOAD_ATTR               16 (ErrorColumnNumber)
+               LOAD_FAST_BORROW         1 (parser)
+               STORE_ATTR               8 (ErrorColumnNumber)
+
+ 259           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_parser)
+               LOAD_ATTR               18 (ErrorLineNumber)
+               LOAD_FAST_BORROW         1 (parser)
+               STORE_ATTR               9 (ErrorLineNumber)
+
+ 260           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (parser, self)
+               STORE_ATTR               1 (_parser)
+
+ 261   L5:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               21 (_close_source + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 254           LOAD_CONST               4 (False)
+               LOAD_FAST                0 (self)
+               STORE_ATTR               7 (_parsing)
+
+ 255           LOAD_FAST                0 (self)
+               LOAD_ATTR                2 (_parser)
+               POP_JUMP_IF_NONE        71 (to L7)
+               NOT_TAKEN
+
+ 257           LOAD_GLOBAL              7 (_ClosedParser + NULL)
+               CALL                     0
+               STORE_FAST               1 (parser)
+
+ 258           LOAD_FAST                0 (self)
+               LOAD_ATTR                2 (_parser)
+               LOAD_ATTR               16 (ErrorColumnNumber)
+               LOAD_FAST                1 (parser)
+               STORE_ATTR               8 (ErrorColumnNumber)
+
+ 259           LOAD_FAST                0 (self)
+               LOAD_ATTR                2 (_parser)
+               LOAD_ATTR               18 (ErrorLineNumber)
+               LOAD_FAST                1 (parser)
+               STORE_ATTR               9 (ErrorLineNumber)
+
+ 260           LOAD_FAST_LOAD_FAST     16 (parser, self)
+               STORE_ATTR               1 (_parser)
+
+ 261   L7:     LOAD_FAST                0 (self)
+               LOAD_ATTR               21 (_close_source + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L6 [0]
+  L6 to L8 -> L8 [1] lasti
+
+Disassembly of <code object _reset_cont_handler at 0x00000204B9FF3280, file "xml\sax\expatreader.py", line 263>:
+263           RESUME                   0
+
+265           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                2 (processingInstruction)
+
+264           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_parser)
+              STORE_ATTR               3 (ProcessingInstructionHandler)
+
+266           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                8 (characters)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_parser)
+              STORE_ATTR               5 (CharacterDataHandler)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _reset_lex_handler_prop at 0x00000204BA46DC20, file "xml\sax\expatreader.py", line 268>:
+268           RESUME                   0
+
+269           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_lex_handler_prop)
+              STORE_FAST               1 (lex)
+
+270           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_parser)
+              STORE_FAST               2 (parser)
+
+271           LOAD_FAST_BORROW         1 (lex)
+              POP_JUMP_IF_NOT_NONE    38 (to L1)
+              NOT_TAKEN
+
+272           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               2 (CommentHandler)
+
+273           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               3 (StartCdataSectionHandler)
+
+274           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               4 (EndCdataSectionHandler)
+
+275           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               5 (StartDoctypeDeclHandler)
+
+276           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               6 (EndDoctypeDeclHandler)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+278   L1:     LOAD_FAST_BORROW         1 (lex)
+              LOAD_ATTR               14 (comment)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               2 (CommentHandler)
+
+279           LOAD_FAST_BORROW         1 (lex)
+              LOAD_ATTR               16 (startCDATA)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               3 (StartCdataSectionHandler)
+
+280           LOAD_FAST_BORROW         1 (lex)
+              LOAD_ATTR               18 (endCDATA)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               4 (EndCdataSectionHandler)
+
+281           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               20 (start_doctype_decl)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               5 (StartDoctypeDeclHandler)
+
+282           LOAD_FAST_BORROW         1 (lex)
+              LOAD_ATTR               22 (endDTD)
+              LOAD_FAST_BORROW         2 (parser)
+              STORE_ATTR               6 (EndDoctypeDeclHandler)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object reset at 0x00000204BA3735D0, file "xml\sax\expatreader.py", line 284>:
+ 284           RESUME                   0
+
+ 285           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_namespaces)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      137 (to L1)
+               NOT_TAKEN
+
+ 286           LOAD_GLOBAL              2 (expat)
+               LOAD_ATTR                4 (ParserCreate)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_source)
+               LOAD_ATTR                9 (getEncoding + NULL|self)
+               CALL                     0
+               LOAD_CONST               0 (' ')
+
+ 287           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_interning)
+
+ 286           LOAD_CONST               1 (('intern',))
+               CALL_KW                  3
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               6 (_parser)
+
+ 288           LOAD_SMALL_INT           1
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR               7 (namespace_prefixes)
+
+ 289           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               16 (start_element_ns)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR               9 (StartElementHandler)
+
+ 290           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               20 (end_element_ns)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              11 (EndElementHandler)
+               JUMP_FORWARD           117 (to L2)
+
+ 292   L1:     LOAD_GLOBAL              2 (expat)
+               LOAD_ATTR                4 (ParserCreate)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_source)
+               LOAD_ATTR                9 (getEncoding + NULL|self)
+               CALL                     0
+
+ 293           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_interning)
+
+ 292           LOAD_CONST               1 (('intern',))
+               CALL_KW                  2
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               6 (_parser)
+
+ 294           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               24 (start_element)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR               9 (StartElementHandler)
+
+ 295           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               26 (end_element)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              11 (EndElementHandler)
+
+ 297   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               29 (_reset_cont_handler + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 298           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               30 (unparsed_entity_decl)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              16 (UnparsedEntityDeclHandler)
+
+ 299           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               34 (notation_decl)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              18 (NotationDeclHandler)
+
+ 300           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               38 (start_namespace_decl)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              20 (StartNamespaceDeclHandler)
+
+ 301           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               42 (end_namespace_decl)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              22 (EndNamespaceDeclHandler)
+
+ 303           LOAD_CONST               2 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              23 (_decl_handler_prop)
+
+ 304           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               48 (_lex_handler_prop)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       17 (to L3)
+               NOT_TAKEN
+
+ 305           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               51 (_reset_lex_handler_prop + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 309   L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               52 (external_entity_ref)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              27 (ExternalEntityRefHandler)
+
+ 310           NOP
+
+ 311   L4:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               56 (skipped_entity_handler)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               STORE_ATTR              29 (SkippedEntityHandler)
+
+ 315   L5:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_parser)
+               LOAD_ATTR               63 (SetParamEntityParsing + NULL|self)
+
+ 316           LOAD_GLOBAL              2 (expat)
+               LOAD_ATTR               64 (XML_PARAM_ENTITY_PARSING_UNLESS_STANDALONE)
+
+ 315           CALL                     1
+               POP_TOP
+
+ 318           LOAD_CONST               3 (False)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              33 (_parsing)
+
+ 319           BUILD_LIST               0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              34 (_entity_stack)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 312           LOAD_GLOBAL             60 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+ 314   L7:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 70 (to L5)
+
+ 312   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object getColumnNumber at 0x00000204BA0A7990, file "xml\sax\expatreader.py", line 323>:
+323           RESUME                   0
+
+324           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parser)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+325           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+326   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parser)
+              LOAD_ATTR                2 (ErrorColumnNumber)
+              RETURN_VALUE
+
+Disassembly of <code object getLineNumber at 0x00000204BA0A45D0, file "xml\sax\expatreader.py", line 328>:
+328           RESUME                   0
+
+329           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parser)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+330           LOAD_SMALL_INT           1
+              RETURN_VALUE
+
+331   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parser)
+              LOAD_ATTR                2 (ErrorLineNumber)
+              RETURN_VALUE
+
+Disassembly of <code object getPublicId at 0x00000204BA0FF440, file "xml\sax\expatreader.py", line 333>:
+333           RESUME                   0
+
+334           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_source)
+              LOAD_ATTR                3 (getPublicId + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object getSystemId at 0x00000204BA0FECD0, file "xml\sax\expatreader.py", line 336>:
+336           RESUME                   0
+
+337           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_source)
+              LOAD_ATTR                3 (getSystemId + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object start_element at 0x00000204BA0A71B0, file "xml\sax\expatreader.py", line 340>:
+340           RESUME                   0
+
+341           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (startElement + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_GLOBAL              5 (AttributesImpl + NULL)
+              LOAD_FAST_BORROW         2 (attrs)
+              CALL                     1
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object end_element at 0x00000204BA0FC7A0, file "xml\sax\expatreader.py", line 343>:
+343           RESUME                   0
+
+344           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (endElement + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object start_element_ns at 0x00000204BA388300, file "xml\sax\expatreader.py", line 346>:
+346           RESUME                   0
+
+347           LOAD_FAST_BORROW         1 (name)
+              LOAD_ATTR                1 (split + NULL|self)
+              CALL                     0
+              STORE_FAST               3 (pair)
+
+348           LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         3 (pair)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+
+350           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         1 (name)
+              BUILD_TUPLE              2
+              STORE_FAST               3 (pair)
+              JUMP_FORWARD            46 (to L3)
+
+351   L1:     LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         3 (pair)
+              CALL                     1
+              LOAD_SMALL_INT           3
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       20 (to L2)
+              NOT_TAKEN
+
+352           LOAD_FAST_BORROW         3 (pair)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         3 (pair)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              BUILD_TUPLE              2
+              STORE_FAST               3 (pair)
+              JUMP_FORWARD            11 (to L3)
+
+355   L2:     LOAD_GLOBAL              5 (tuple + NULL)
+              LOAD_FAST_BORROW         3 (pair)
+              CALL                     1
+              STORE_FAST               3 (pair)
+
+357   L3:     BUILD_MAP                0
+              STORE_FAST               4 (newattrs)
+
+358           BUILD_MAP                0
+              STORE_FAST               5 (qnames)
+
+359           LOAD_FAST_BORROW         2 (attrs)
+              LOAD_ATTR                7 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L4:     FOR_ITER               123 (to L8)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  103 (aname, value)
+
+360           LOAD_FAST_BORROW         6 (aname)
+              LOAD_ATTR                1 (split + NULL|self)
+              CALL                     0
+              STORE_FAST               8 (parts)
+
+361           LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         8 (parts)
+              CALL                     1
+              STORE_FAST               9 (length)
+
+362           LOAD_FAST_BORROW         9 (length)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        8 (to L5)
+              NOT_TAKEN
+
+364           LOAD_FAST                6 (aname)
+              STORE_FAST              10 (qname)
+
+365           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         6 (aname)
+              BUILD_TUPLE              2
+              STORE_FAST              11 (apair)
+              JUMP_FORWARD            69 (to L7)
+
+366   L5:     LOAD_FAST_BORROW         9 (length)
+              LOAD_SMALL_INT           3
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       43 (to L6)
+              NOT_TAKEN
+
+367           LOAD_FAST_BORROW         8 (parts)
+              LOAD_SMALL_INT           2
+              BINARY_OP               26 ([])
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (':')
+              LOAD_FAST_BORROW         8 (parts)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              STORE_FAST              10 (qname)
+
+368           LOAD_FAST_BORROW         8 (parts)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         8 (parts)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              BUILD_TUPLE              2
+              STORE_FAST              11 (apair)
+              JUMP_FORWARD            20 (to L7)
+
+371   L6:     LOAD_FAST_BORROW         8 (parts)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              STORE_FAST              10 (qname)
+
+372           LOAD_GLOBAL              5 (tuple + NULL)
+              LOAD_FAST_BORROW         8 (parts)
+              CALL                     1
+              STORE_FAST              11 (apair)
+
+374   L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 116 (value, newattrs)
+              LOAD_FAST_BORROW        11 (apair)
+              STORE_SUBSCR
+
+375           LOAD_FAST_BORROW_LOAD_FAST_BORROW 165 (qname, qnames)
+              LOAD_FAST_BORROW        11 (apair)
+              STORE_SUBSCR
+              JUMP_BACKWARD          125 (to L4)
+
+359   L8:     END_FOR
+              POP_ITER
+
+377           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_cont_handler)
+              LOAD_ATTR               11 (startElementNS + NULL|self)
+              LOAD_FAST_BORROW         3 (pair)
+              LOAD_CONST               1 (None)
+
+378           LOAD_GLOBAL             13 (AttributesNSImpl + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (newattrs, qnames)
+              CALL                     2
+
+377           CALL                     3
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object end_element_ns at 0x00000204B9F9F9F0, file "xml\sax\expatreader.py", line 380>:
+380           RESUME                   0
+
+381           LOAD_FAST_BORROW         1 (name)
+              LOAD_ATTR                1 (split + NULL|self)
+              CALL                     0
+              STORE_FAST               2 (pair)
+
+382           LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         2 (pair)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+
+383           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         1 (name)
+              BUILD_TUPLE              2
+              STORE_FAST               2 (pair)
+              JUMP_FORWARD            46 (to L3)
+
+384   L1:     LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         2 (pair)
+              CALL                     1
+              LOAD_SMALL_INT           3
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       20 (to L2)
+              NOT_TAKEN
+
+385           LOAD_FAST_BORROW         2 (pair)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         2 (pair)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              BUILD_TUPLE              2
+              STORE_FAST               2 (pair)
+              JUMP_FORWARD            11 (to L3)
+
+387   L2:     LOAD_GLOBAL              5 (tuple + NULL)
+              LOAD_FAST_BORROW         2 (pair)
+              CALL                     1
+              STORE_FAST               2 (pair)
+
+389   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_cont_handler)
+              LOAD_ATTR                9 (endElementNS + NULL|self)
+              LOAD_FAST_BORROW         2 (pair)
+              LOAD_CONST               1 (None)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object processing_instruction at 0x00000204BA0FFEE0, file "xml\sax\expatreader.py", line 392>:
+392           RESUME                   0
+
+393           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (processingInstruction + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (target, data)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object character_data at 0x00000204BA0FC250, file "xml\sax\expatreader.py", line 396>:
+396           RESUME                   0
+
+397           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (characters + NULL|self)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object start_namespace_decl at 0x00000204BA0FF550, file "xml\sax\expatreader.py", line 399>:
+399           RESUME                   0
+
+400           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (startPrefixMapping + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (prefix, uri)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object end_namespace_decl at 0x00000204BA728030, file "xml\sax\expatreader.py", line 402>:
+402           RESUME                   0
+
+403           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (endPrefixMapping + NULL|self)
+              LOAD_FAST_BORROW         1 (prefix)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object start_doctype_decl at 0x00000204BA728140, file "xml\sax\expatreader.py", line 405>:
+405           RESUME                   0
+
+406           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_lex_handler_prop)
+              LOAD_ATTR                3 (startDTD + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (name, pubid)
+              LOAD_FAST_BORROW         2 (sysid)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object unparsed_entity_decl at 0x00000204BA728250, file "xml\sax\expatreader.py", line 408>:
+408           RESUME                   0
+
+409           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_dtd_handler)
+              LOAD_ATTR                3 (unparsedEntityDecl + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (name, pubid)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (sysid, notation_name)
+              CALL                     4
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object notation_decl at 0x00000204BA728360, file "xml\sax\expatreader.py", line 411>:
+411           RESUME                   0
+
+412           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_dtd_handler)
+              LOAD_ATTR                3 (notationDecl + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (name, pubid)
+              LOAD_FAST_BORROW         3 (sysid)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object external_entity_ref at 0x00000204BA3E6B90, file "xml\sax\expatreader.py", line 414>:
+ 414           RESUME                   0
+
+ 415           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_external_ges)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L1)
+               NOT_TAKEN
+
+ 416           LOAD_SMALL_INT           1
+               RETURN_VALUE
+
+ 418   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_ent_handler)
+               LOAD_ATTR                5 (resolveEntity + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (pubid, sysid)
+               CALL                     2
+               STORE_FAST               5 (source)
+
+ 419           LOAD_GLOBAL              6 (saxutils)
+               LOAD_ATTR                8 (prepare_input_source)
+               PUSH_NULL
+               LOAD_FAST                5 (source)
+
+ 420           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_source)
+               LOAD_ATTR               13 (getSystemId + NULL|self)
+               CALL                     0
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+               POP_TOP
+
+ 421           LOAD_CONST               1 ('')
+
+ 419   L2:     CALL                     2
+               STORE_FAST               5 (source)
+
+ 423           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               14 (_entity_stack)
+               LOAD_ATTR               17 (append + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (_parser)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_source)
+               BUILD_TUPLE              2
+               CALL                     1
+               POP_TOP
+
+ 424           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (_parser)
+               LOAD_ATTR               21 (ExternalEntityParserCreate + NULL|self)
+               LOAD_FAST_BORROW         1 (context)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               9 (_parser)
+
+ 425           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (source, self)
+               STORE_ATTR               5 (_source)
+
+ 427           NOP
+
+ 428   L3:     LOAD_GLOBAL             22 (xmlreader)
+               LOAD_ATTR               24 (IncrementalParser)
+               LOAD_ATTR               27 (parse + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (self, source)
+               CALL                     2
+               POP_TOP
+
+ 432   L4:     LOAD_FAST                0 (self)
+               LOAD_ATTR               14 (_entity_stack)
+               LOAD_CONST               2 (-1)
+               BINARY_OP               26 ([])
+               UNPACK_SEQUENCE          2
+               LOAD_FAST                0 (self)
+               STORE_ATTR               9 (_parser)
+               LOAD_FAST                0 (self)
+               STORE_ATTR               5 (_source)
+
+ 433           LOAD_FAST                0 (self)
+               LOAD_ATTR               14 (_entity_stack)
+               LOAD_CONST               2 (-1)
+               DELETE_SUBSCR
+
+ 434           LOAD_SMALL_INT           1
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 429           POP_TOP
+
+ 430   L6:     POP_EXCEPT
+               LOAD_SMALL_INT           0
+               RETURN_VALUE
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L7 [1] lasti
+
+Disassembly of <code object skipped_entity_handler at 0x00000204BA101B80, file "xml\sax\expatreader.py", line 436>:
+436           RESUME                   0
+
+437           LOAD_FAST_BORROW         2 (is_pe)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       10 (to L1)
+              NOT_TAKEN
+
+439           LOAD_CONST               0 ('%')
+              LOAD_FAST_BORROW         1 (name)
+              BINARY_OP                0 (+)
+              STORE_FAST               1 (name)
+
+440   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cont_handler)
+              LOAD_ATTR                3 (skippedEntity + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object create_parser at 0x00000204BA0914D0, file "xml\sax\expatreader.py", line 444>:
+444           RESUME                   0
+
+445           LOAD_GLOBAL              1 (ExpatParser + NULL)
+              LOAD_FAST_BORROW         0 (args)
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         1 (kwargs)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE

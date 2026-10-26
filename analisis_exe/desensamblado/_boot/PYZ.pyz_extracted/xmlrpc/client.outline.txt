@@ -1,0 +1,331 @@
+<module>()  line 1
+    escape(s)  line 149
+    Error()  line 187
+    ProtocolError()  line 201
+        ProtocolError.__init__(self, url, errcode, errmsg, headers)  line 203
+        ProtocolError.__repr__(self)  line 209
+    ResponseError()  line 220
+    Fault()  line 233
+        Fault.__init__(self, faultCode, faultString)  line 235
+        Fault.__repr__(self)  line 239
+    _iso8601_format(value)  line 251
+    _strftime(value)  line 259
+    DateTime()  line 270
+        DateTime.__init__(self, value)  line 276
+        DateTime.make_comparable(self, other)  line 282
+        DateTime.__lt__(self, other)  line 300
+        DateTime.__le__(self, other)  line 306
+        DateTime.__gt__(self, other)  line 312
+        DateTime.__ge__(self, other)  line 318
+        DateTime.__eq__(self, other)  line 324
+        DateTime.timetuple(self)  line 330
+        DateTime.__str__(self)  line 338
+        DateTime.__repr__(self)  line 341
+        DateTime.decode(self, data)  line 344
+        DateTime.encode(self, out)  line 347
+    _datetime(data)  line 352
+    _datetime_type(data)  line 358
+    Binary()  line 367
+        Binary.__init__(self, data)  line 370
+        Binary.__str__(self)  line 385
+        Binary.__eq__(self, other)  line 388
+        Binary.decode(self, data)  line 393
+        Binary.encode(self, out)  line 396
+    _binary(data)  line 402
+    ExpatParser()  line 413
+        ExpatParser.__init__(self, target)  line 415
+        ExpatParser.feed(self, data)  line 424
+        ExpatParser.close(self)  line 427
+    Marshaller()  line 446
+        Marshaller.__init__(self, encoding, allow_none)  line 459
+        Marshaller.dumps(self, values)  line 467
+        Marshaller.__dump(self, value, write)  line 494
+        Marshaller.dump_nil(self, value, write)  line 512
+        Marshaller.dump_bool(self, value, write)  line 518
+        Marshaller.dump_long(self, value, write)  line 524
+        Marshaller.dump_double(self, value, write)  line 535
+        Marshaller.dump_unicode(self, value, write, escape)  line 541
+        Marshaller.dump_bytes(self, value, write)  line 547
+        Marshaller.dump_array(self, value, write)  line 555
+        Marshaller.dump_struct(self, value, write, escape)  line 569
+        Marshaller.dump_datetime(self, value, write)  line 587
+        Marshaller.dump_instance(self, value, write)  line 593
+    Unmarshaller()  line 613
+        Unmarshaller.__init__(self, use_datetime, use_builtin_types)  line 625
+        Unmarshaller.close(self)  line 637
+        Unmarshaller.getmethodname(self)  line 645
+        Unmarshaller.xml(self, encoding, standalone)  line 651
+        Unmarshaller.start(self, tag, attrs)  line 655
+        Unmarshaller.data(self, text)  line 666
+        Unmarshaller.end(self, tag)  line 669
+        Unmarshaller.end_dispatch(self, tag, data)  line 685
+        Unmarshaller.end_nil(self, data)  line 703
+        Unmarshaller.end_boolean(self, data)  line 708
+        Unmarshaller.end_int(self, data)  line 718
+        Unmarshaller.end_double(self, data)  line 728
+        Unmarshaller.end_bigdecimal(self, data)  line 734
+        Unmarshaller.end_string(self, data)  line 739
+        Unmarshaller.end_array(self, data)  line 747
+        Unmarshaller.end_struct(self, data)  line 754
+        Unmarshaller.end_base64(self, data)  line 765
+        Unmarshaller.end_dateTime(self, data)  line 774
+        Unmarshaller.end_value(self, data)  line 782
+        Unmarshaller.end_params(self, data)  line 789
+        Unmarshaller.end_fault(self, data)  line 793
+        Unmarshaller.end_methodName(self, data)  line 797
+    _MultiCallMethod()  line 807
+        _MultiCallMethod.__init__(self, call_list, name)  line 810
+        _MultiCallMethod.__getattr__(self, name)  line 813
+        _MultiCallMethod.__call__(self)  line 815
+    MultiCallIterator()  line 818
+        MultiCallIterator.__init__(self, results)  line 822
+        MultiCallIterator.__getitem__(self, i)  line 825
+    MultiCall()  line 834
+        MultiCall.__init__(self, server)  line 851
+        MultiCall.__repr__(self)  line 855
+        MultiCall.__getattr__(self, name)  line 858
+        MultiCall.__call__(self)  line 861
+    getparser(use_datetime, use_builtin_types)  line 879
+    dumps(params, methodname, methodresponse, encoding, allow_none)  line 918
+    loads(data, use_datetime, use_builtin_types)  line 993
+    gzip_encode(data)  line 1015
+    gzip_decode(data, max_decode)  line 1039
+    GzipDecodedResponse()  line 1065
+        GzipDecodedResponse.__init__(self, response)  line 1069
+        GzipDecodedResponse.close(self)  line 1077
+    _Method()  line 1087
+        _Method.__init__(self, send, name)  line 1090
+        _Method.__getattr__(self, name)  line 1093
+        _Method.__call__(self)  line 1095
+    Transport()  line 1104
+        Transport.__init__(self, use_datetime, use_builtin_types, headers)  line 1118
+        Transport.request(self, host, handler, request_body, verbose)  line 1136
+        Transport.single_request(self, host, handler, request_body, verbose)  line 1149
+        Transport.getparser(self)  line 1182
+        Transport.get_host_info(self, host)  line 1197
+        Transport.make_connection(self, host)  line 1223
+        Transport.close(self)  line 1237
+        Transport.send_request(self, host, handler, request_body, debug)  line 1252
+        Transport.send_headers(self, connection, headers)  line 1275
+        Transport.send_content(self, connection, request_body)  line 1286
+        Transport.parse_response(self, response)  line 1303
+    SafeTransport()  line 1330
+        SafeTransport.__init__(self, use_datetime, use_builtin_types, headers, context)  line 1333
+        SafeTransport.make_connection(self, host)  line 1342
+    ServerProxy()  line 1373
+        ServerProxy.__init__(self, uri, transport, encoding, verbose, allow_none, use_datetime, use_builtin_types, headers, context)  line 1395
+        ServerProxy.__close(self)  line 1426
+        ServerProxy.__request(self, methodname, params)  line 1429
+        ServerProxy.__repr__(self)  line 1447
+        ServerProxy.__getattr__(self, name)  line 1453
+        ServerProxy.__call__(self, attr)  line 1460
+        ServerProxy.__enter__(self)  line 1470
+        ServerProxy.__exit__(self)  line 1473
+
+--- strings ---
+'\nAn XML-RPC client interface for Python.\n\nThe marshalling and response parser code can also be used to\nimplement XML-RPC servers.\n\nExported exceptions:\n\n  Error          Base class for client errors\n  ProtocolError  Indicates an HTTP protocol error\n  ResponseError  Indicates a broken response package\n  Fault          Indicates an XML-RPC fault package\n\nExported classes:\n\n  ServerProxy    Represents a logical connection to an XML-RPC server\n\n  MultiCall      Executor of boxcared xmlrpc requests\n  DateTime       dateTime wrapper for an ISO 8601 string or time tuple or\n                 localtime integer value to generate a "dateTime.iso8601"\n                 XML-RPC value\n  Binary         binary data wrapper\n\n  Marshaller     Generate an XML-RPC params chunk from a Python data structure\n  Unmarshaller   Unmarshal an XML-RPC response from incoming XML event message\n  Transport      Handles an HTTP transaction to an XML-RPC server\n  SafeTransport  Handles an HTTPS transaction to an XML-RPC server\n\nExported constants:\n\n  (none)\n\nExported functions:\n\n  getparser      Create instance of the fastest available parser & attach\n                 to an unmarshalling object\n  dumps          Convert an argument tuple or a Fault instance to an XML-RPC\n                 request (or response, if the methodresponse option is used).\n  loads          Convert an XML-RPC packet to unmarshalled data plus a method\n                 name (None if not present).\n'
+'&amp;'
+'&lt;'
+'&gt;'
+'%d.%d'
+'Error'
+'Base class for client errors.'
+'Error'
+'ProtocolError'
+'Indicates an HTTP protocol error.'
+' for '
+': '
+'ProtocolError'
+'ResponseError'
+'Indicates a broken response package.'
+'ResponseError'
+'Fault'
+'Indicates an XML-RPC fault package.'
+': '
+'Fault'
+'seconds'
+'%04d%02d%02dT%02d:%02d:%02d'
+'DateTime'
+"DateTime wrapper for an ISO 8601 string or time tuple or\nlocaltime integer value to generate 'dateTime.iso8601' XML-RPC\nvalue.\n"
+'timetuple'
+'%Y%m%dT%H:%M:%S'
+'<%s %r at %#x>'
+'<value><dateTime.iso8601>'
+'</dateTime.iso8601></value>\n'
+'DateTime'
+'%Y%m%dT%H:%M:%S'
+'Binary'
+'Wrapper for binary data.'
+'expected bytes or bytearray, not %s'
+'latin-1'
+'<value><base64>\n'
+'ascii'
+'</base64></value>\n'
+'Binary'
+'ExpatParser'
+'ExpatParser'
+'Marshaller'
+'Generate an XML-RPC params chunk from a Python data structure.\n\nCreate a Marshaller instance for each set of parameters, and use\nthe "dumps" method to convert your data (represented as a tuple)\nto an XML-RPC params chunk.  To write a fault response, pass a\nFault instance instead.  You may prefer to use the "dumps" module\nfunction for this purpose.\n'
+'<fault>\n'
+'faultCode'
+'faultString'
+'</fault>\n'
+'<params>\n'
+'<param>\n'
+'</param>\n'
+'</params>\n'
+'__dict__'
+'cannot marshal %s objects'
+'_arbitrary_instance'
+'cannot marshal None unless allow_none is enabled'
+'<value><nil/></value>'
+'<value><boolean>'
+'</boolean></value>\n'
+'int exceeds XML-RPC limits'
+'<value><int>'
+'</int></value>\n'
+'<value><double>'
+'</double></value>\n'
+'<value><string>'
+'</string></value>\n'
+'<value><base64>\n'
+'ascii'
+'</base64></value>\n'
+'cannot marshal recursive sequences'
+'<value><array><data>\n'
+'</data></array></value>\n'
+'cannot marshal recursive dictionaries'
+'<value><struct>\n'
+'<member>\n'
+'dictionary key must be string'
+'<name>%s</name>\n'
+'</member>\n'
+'</struct></value>\n'
+'<value><dateTime.iso8601>'
+'</dateTime.iso8601></value>\n'
+'_arbitrary_instance'
+'Marshaller'
+'Unmarshaller'
+'Unmarshal an XML-RPC response, based on incoming XML event\nmessages (start, data, end).  Call close() to get the resulting\ndata structure.\n\nNote that this reader is fairly tolerant, and gladly accepts bogus\nXML-RPC data without complaining (but not bogus XML).\n'
+'utf-8'
+'fault'
+'array'
+'struct'
+'unknown tag %r'
+'value'
+'nil'
+'bad boolean value'
+'boolean'
+'i1'
+'i2'
+'i4'
+'i8'
+'int'
+'biginteger'
+'double'
+'float'
+'bigdecimal'
+'string'
+'name'
+'array'
+'struct'
+'ascii'
+'base64'
+'dateTime.iso8601'
+'value'
+'params'
+'params'
+'fault'
+'fault'
+'methodName'
+'methodName'
+'Unmarshaller'
+'_MultiCallMethod'
+'_MultiCallMethod'
+'MultiCallIterator'
+'Iterates over the results of a multicall. Exceptions are\nraised in response to xmlrpc faults.'
+'faultCode'
+'faultString'
+'unexpected type in multicall result'
+'MultiCallIterator'
+'MultiCall'
+'server -> an object used to boxcar method calls\n\nserver should be a ServerProxy object.\n\nMethods can be added to the MultiCall using normal\nmethod call syntax e.g.:\n\nmulticall = MultiCall(server_proxy)\nmulticall.add(2,3)\nmulticall.get_address("Guido")\n\nTo execute the multicall, call the MultiCall object e.g.:\n\nadd_result, address = multicall()\n'
+'<%s at %#x>'
+'methodName'
+'params'
+'MultiCall'
+'getparser() -> parser, unmarshaller\n\nCreate an instance of the fastest available parser, and attach it\nto an unmarshalling object.  Return both objects.\n'
+'data [,options] -> marshalled data\n\nConvert an argument tuple or a Fault instance to an XML-RPC\nrequest (or response, if the methodresponse option is used).\n\nIn addition to the data object, the following options can be given\nas keyword arguments:\n\n    methodname: the method name for a methodCall packet\n\n    methodresponse: true to create a methodResponse packet.\n    If this option is used with a tuple, the tuple must be\n    a singleton (i.e. it can contain only one element).\n\n    encoding: the packet encoding (default is UTF-8)\n\nAll byte strings in the data structure are assumed to use the\npacket encoding.  Unicode strings are automatically converted,\nwhere necessary.\n'
+'argument must be tuple or Fault instance'
+'response tuple must be a singleton'
+'utf-8'
+"<?xml version='1.0' encoding='%s'?>\n"
+"<?xml version='1.0'?>\n"
+'<methodCall>\n<methodName>'
+'</methodName>\n'
+'</methodCall>\n'
+'<methodResponse>\n'
+'</methodResponse>\n'
+'data -> unmarshalled data, method name\n\nConvert an XML-RPC packet to unmarshalled data plus a method\nname (None if not present).\n\nIf the XML-RPC packet represents a fault condition, this function\nraises a Fault exception.\n'
+'data -> gzip encoded data\n\nEncode data using the gzip content encoding as described in RFC 1952\n'
+'wb'
+'gzip encoded data -> unencoded data\n\nDecode data using the gzip content encoding as described in RFC 1952\n'
+'rb'
+'invalid data'
+'max gzipped payload length exceeded'
+'GzipDecodedResponse'
+'a file-like object to decode a response encoded with the gzip\nmethod, as described in RFC 1952.\n'
+'rb'
+'GzipDecodedResponse'
+'_Method'
+'_Method'
+'Transport'
+'Handles an HTTP transaction to an XML-RPC server.'
+'Python-xmlrpc/%s'
+'headers'
+'content-length'
+'utf-8'
+'Authorization'
+'Basic '
+'POST'
+'User-Agent'
+'Content-Encoding'
+'gzip'
+'Content-Length'
+'getheader'
+'Content-Encoding'
+'gzip'
+'body:'
+'Transport'
+'SafeTransport'
+'Handles an HTTPS transaction to an XML-RPC server.'
+'headers'
+'context'
+'HTTPSConnection'
+"your version of http.client doesn't support HTTPS"
+'context'
+'SafeTransport'
+'ServerProxy'
+'uri [,options] -> a logical connection to an XML-RPC server\n\nuri is the connection point on the server, given as\nscheme://host/target.\n\nThe standard implementation always supports the "http" scheme.  If\nSSL socket support is available (Python 2.0), it also supports\n"https".\n\nIf the target part and the slash preceding it are both omitted,\n"/RPC2" is assumed.\n\nThe following options can be given as keyword arguments:\n\n    transport: a transport factory\n    encoding: the request encoding (default is UTF-8)\n\nAll 8-bit strings passed to the server proxy are assumed to use\nthe given encoding.\n'
+'headers'
+'context'
+'http'
+'https'
+'unsupported XML-RPC protocol'
+'/RPC2'
+'context'
+'use_datetime'
+'use_builtin_types'
+'headers'
+'utf-8'
+'xmlcharrefreplace'
+' for '
+'A workaround to get special attributes on the ServerProxy\nwithout interfering with the magic __getattr__\n'
+'close'
+'transport'
+'Attribute '
+' not found'
+'ServerProxy'
+'__main__'
+'http://localhost:8000'
+'ERROR'

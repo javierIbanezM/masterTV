@@ -1,0 +1,445 @@
+<module>()  line 1
+    urlopen(url, data, timeout, context)  line 137
+    install_opener(opener)  line 189
+    urlretrieve(url, filename, reporthook, data)  line 194
+    urlcleanup()  line 254
+    request_host(request)  line 269
+    Request()  line 285
+        Request.__init__(self, url, data, headers, origin_req_host, unverifiable, method)  line 287
+        Request.full_url(self)  line 305
+        Request.full_url(self, url)  line 311
+        Request.full_url(self)  line 318
+        Request.data(self)  line 324
+        Request.data(self, data)  line 328
+        Request.data(self)  line 338
+        Request._parse(self)  line 342
+        Request.get_method(self)  line 350
+        Request.get_full_url(self)  line 355
+        Request.set_proxy(self, host, type)  line 358
+        Request.has_proxy(self)  line 366
+        Request.add_header(self, key, val)  line 369
+        Request.add_unredirected_header(self, key, val)  line 373
+        Request.has_header(self, header_name)  line 377
+        Request.get_header(self, header_name, default)  line 381
+        Request.remove_header(self, header_name)  line 386
+        Request.header_items(self)  line 390
+    OpenerDirector()  line 394
+        OpenerDirector.__init__(self)  line 395
+        OpenerDirector.add_handler(self, handler)  line 406
+        OpenerDirector.close(self)  line 453
+        OpenerDirector._call_chain(self, chain, kind, meth_name)  line 457
+        OpenerDirector.open(self, fullurl, data, timeout)  line 468
+        OpenerDirector._open(self, req, data)  line 497
+        OpenerDirector.error(self, proto)  line 512
+    build_opener()  line 537
+    BaseHandler()  line 573
+        BaseHandler.add_parent(self, parent)  line 576
+        BaseHandler.close(self)  line 579
+        BaseHandler.__lt__(self, other)  line 583
+    HTTPErrorProcessor()  line 592
+        HTTPErrorProcessor.http_response(self, request, response)  line 596
+    HTTPDefaultErrorHandler()  line 609
+        HTTPDefaultErrorHandler.http_error_default(self, req, fp, code, msg, hdrs)  line 610
+    HTTPRedirectHandler()  line 613
+        HTTPRedirectHandler.redirect_request(self, req, fp, code, msg, headers, newurl)  line 621
+        HTTPRedirectHandler.http_error_302(self, req, fp, code, msg, headers)  line 660
+    _parse_proxy(proxy)  line 727
+    ProxyHandler()  line 760
+        ProxyHandler.__init__(self, proxies)  line 764
+            ProxyHandler.__init__.<locals>.<lambda>(r, proxy, type, meth)  line 772
+        ProxyHandler.proxy_open(self, req, proxy, type)  line 775
+    HTTPPasswordMgr()  line 803
+        HTTPPasswordMgr.__init__(self)  line 805
+        HTTPPasswordMgr.add_password(self, realm, uri, user, passwd)  line 808
+            HTTPPasswordMgr.add_password.<locals>.<genexpr>(.0)  line 815
+        HTTPPasswordMgr.find_user_password(self, realm, authuri)  line 819
+        HTTPPasswordMgr.reduce_uri(self, uri, default_port)  line 829
+        HTTPPasswordMgr.is_suburi(self, base, test)  line 852
+    HTTPPasswordMgrWithDefaultRealm()  line 867
+        HTTPPasswordMgrWithDefaultRealm.find_user_password(self, realm, authuri)  line 869
+    HTTPPasswordMgrWithPriorAuth()  line 877
+        HTTPPasswordMgrWithPriorAuth.__init__(self)  line 879
+        HTTPPasswordMgrWithPriorAuth.add_password(self, realm, uri, user, passwd, is_authenticated)  line 883
+        HTTPPasswordMgrWithPriorAuth.update_authenticated(self, uri, is_authenticated)  line 890
+        HTTPPasswordMgrWithPriorAuth.is_authenticated(self, authuri)  line 900
+    AbstractBasicAuthHandler()  line 908
+        AbstractBasicAuthHandler.__init__(self, password_mgr)  line 929
+        AbstractBasicAuthHandler._parse_realm(self, header)  line 935
+        AbstractBasicAuthHandler.http_error_auth_reqed(self, authreq, host, req, headers)  line 956
+        AbstractBasicAuthHandler.retry_http_basic_auth(self, host, req, realm)  line 982
+        AbstractBasicAuthHandler.http_request(self, req)  line 994
+        AbstractBasicAuthHandler.http_response(self, req, response)  line 1007
+    HTTPBasicAuthHandler()  line 1020
+        HTTPBasicAuthHandler.http_error_401(self, req, fp, code, msg, headers)  line 1024
+    ProxyBasicAuthHandler()  line 1031
+        ProxyBasicAuthHandler.http_error_407(self, req, fp, code, msg, headers)  line 1035
+    AbstractDigestAuthHandler()  line 1050
+        AbstractDigestAuthHandler.__init__(self, passwd)  line 1061
+        AbstractDigestAuthHandler.reset_retry_count(self)  line 1070
+        AbstractDigestAuthHandler.http_error_auth_reqed(self, auth_header, host, req, headers)  line 1073
+        AbstractDigestAuthHandler.retry_http_digest_auth(self, req, auth)  line 1093
+        AbstractDigestAuthHandler.get_cnonce(self, nonce)  line 1105
+        AbstractDigestAuthHandler.get_authorization(self, req, chal)  line 1116
+        AbstractDigestAuthHandler.get_algorithm_impls(self, algorithm)  line 1178
+            AbstractDigestAuthHandler.get_algorithm_impls.<locals>.<lambda>(x)  line 1182
+            AbstractDigestAuthHandler.get_algorithm_impls.<locals>.<lambda>(x)  line 1184
+            AbstractDigestAuthHandler.get_algorithm_impls.<locals>.<lambda>(x)  line 1186
+            AbstractDigestAuthHandler.get_algorithm_impls.<locals>.<lambda>(s, d)  line 1191
+        AbstractDigestAuthHandler.get_entity_digest(self, data, chal)  line 1194
+    HTTPDigestAuthHandler()  line 1199
+        HTTPDigestAuthHandler.http_error_401(self, req, fp, code, msg, headers)  line 1209
+    ProxyDigestAuthHandler()  line 1217
+        ProxyDigestAuthHandler.http_error_407(self, req, fp, code, msg, headers)  line 1222
+    AbstractHTTPHandler()  line 1229
+        AbstractHTTPHandler.__init__(self, debuglevel)  line 1231
+        AbstractHTTPHandler.set_http_debuglevel(self, level)  line 1234
+        AbstractHTTPHandler._get_content_length(self, request)  line 1237
+        AbstractHTTPHandler.do_request_(self, request)  line 1242
+        AbstractHTTPHandler.do_open(self, http_class, req)  line 1280
+    HTTPHandler()  line 1347
+        HTTPHandler.http_open(self, req)  line 1349
+    HTTPSHandler()  line 1356
+        HTTPSHandler.__init__(self, debuglevel, context, check_hostname)  line 1358
+        HTTPSHandler.https_open(self, req)  line 1368
+    HTTPCookieProcessor()  line 1376
+        HTTPCookieProcessor.__init__(self, cookiejar)  line 1377
+        HTTPCookieProcessor.http_request(self, request)  line 1383
+        HTTPCookieProcessor.http_response(self, request, response)  line 1387
+    UnknownHandler()  line 1394
+        UnknownHandler.unknown_open(self, req)  line 1395
+    parse_keqv_list(l)  line 1399
+    parse_http_list(s)  line 1409
+    FileHandler()  line 1452
+        FileHandler.get_names(self)  line 1455
+        FileHandler.open_local_file(self, req)  line 1466
+    _is_local_authority(authority, resolve)  line 1485
+    FTPHandler()  line 1505
+        FTPHandler.ftp_open(self, req)  line 1506
+        FTPHandler.connect_ftp(self, user, passwd, host, port, dirs, timeout)  line 1558
+    CacheFTPHandler()  line 1562
+        CacheFTPHandler.__init__(self)  line 1565
+        CacheFTPHandler.setTimeout(self, t)  line 1572
+        CacheFTPHandler.setMaxConns(self, m)  line 1575
+        CacheFTPHandler.connect_ftp(self, user, passwd, host, port, dirs, timeout)  line 1578
+        CacheFTPHandler.check_cache(self)  line 1589
+        CacheFTPHandler.clear_cache(self)  line 1609
+    DataHandler()  line 1615
+        DataHandler.data_open(self, req)  line 1616
+    url2pathname(url, require_scheme, resolve_host)  line 1648
+    pathname2url(pathname, add_scheme)  line 1687
+    localhost()  line 1725
+    thishost()  line 1733
+    ftperrors()  line 1744
+    noheaders()  line 1753
+    ftpwrapper()  line 1763
+        ftpwrapper.__init__(self, user, passwd, host, port, dirs, timeout, persistent)  line 1766
+        ftpwrapper.init(self)  line 1782
+        ftpwrapper.retrfile(self, file, type)  line 1791
+        ftpwrapper.endtransfer(self)  line 1835
+        ftpwrapper.close(self)  line 1844
+        ftpwrapper.file_close(self)  line 1849
+        ftpwrapper.real_close(self)  line 1855
+    getproxies_environment()  line 1863
+    proxy_bypass_environment(host, proxies)  line 1898
+    _proxy_bypass_macosx_sysconf(host, proxy_settings)  line 1935
+        _proxy_bypass_macosx_sysconf.<locals>.ip2num(ipAddr)  line 1952
+    _proxy_bypass_winreg_override(host, override)  line 1999
+    proxy_bypass_macosx_sysconf(host)  line 2026
+    getproxies_macosx_sysconf()  line 2030
+    proxy_bypass(host)  line 2040
+    getproxies()  line 2053
+    getproxies_registry()  line 2058
+    getproxies()  line 2107
+    proxy_bypass_registry(host)  line 2116
+    proxy_bypass(host)  line 2136
+
+--- strings ---
+'An extensible library for opening URLs using a variety of protocols\n\nThe simplest way to use this module is to call the urlopen function,\nwhich accepts a string containing a URL or a Request object (described\nbelow).  It opens the URL and returns the results as file-like\nobject; the returned object has some extra methods described below.\n\nThe OpenerDirector manages a collection of Handler objects that do\nall the actual work.  Each Handler implements a particular protocol or\noption.  The OpenerDirector is a composite object that invokes the\nHandlers needed to open the requested URL.  For example, the\nHTTPHandler performs HTTP GET and POST requests and deals with\nnon-error returns.  The HTTPRedirectHandler automatically deals with\nHTTP 301, 302, 303, 307, and 308 redirect errors, and the\nHTTPDigestAuthHandler deals with digest authentication.\n\nurlopen(url, data=None) -- Basic usage is the same as original\nurllib.  pass the url and optionally data to post to an HTTP URL, and\nget a file-like object back.  One difference is that you can also pass\na Request instance instead of URL.  Raises a URLError (subclass of\nOSError); for HTTP errors, raises an HTTPError, which can also be\ntreated as a valid response.\n\nbuild_opener -- Function that creates a new OpenerDirector instance.\nWill install the default handlers.  Accepts one or more Handlers as\narguments, either instances or Handler classes that it will\ninstantiate.  If one of the argument is a subclass of the default\nhandler, the argument will be installed instead of the default.\n\ninstall_opener -- Installs a new opener as the default opener.\n\nobjects of interest:\n\nOpenerDirector -- Sets up the User Agent as the Python-urllib client and manages\nthe Handler classes, while dealing with requests and responses.\n\nRequest -- An object that encapsulates the state of a request.  The\nstate can be as simple as the URL.  It can also include extra HTTP\nheaders, e.g. a User-Agent.\n\nBaseHandler --\n\ninternals:\nBaseHandler and parent\n_call_chain conventions\n\nExample usage:\n\nimport urllib.request\n\n# set up authentication info\nauthinfo = urllib.request.HTTPBasicAuthHandler()\nauthinfo.add_password(realm=\'PDQ Application\',\n                      uri=\'https://mahler:8092/site-updates.py\',\n                      user=\'klem\',\n                      passwd=\'geheim$parole\')\n\nproxy_support = urllib.request.ProxyHandler({"http" : "http://ahad-haam:3128"})\n\n# build a new opener that adds authentication and caching FTP handlers\nopener = urllib.request.build_opener(proxy_support, authinfo,\n                                     urllib.request.CacheFTPHandler)\n\n# install it\nurllib.request.install_opener(opener)\n\nf = urllib.request.urlopen(\'https://www.python.org/\')\n'
+'Request'
+'OpenerDirector'
+'BaseHandler'
+'HTTPDefaultErrorHandler'
+'HTTPRedirectHandler'
+'HTTPCookieProcessor'
+'ProxyHandler'
+'HTTPPasswordMgr'
+'HTTPPasswordMgrWithDefaultRealm'
+'HTTPPasswordMgrWithPriorAuth'
+'AbstractBasicAuthHandler'
+'HTTPBasicAuthHandler'
+'ProxyBasicAuthHandler'
+'AbstractDigestAuthHandler'
+'HTTPDigestAuthHandler'
+'ProxyDigestAuthHandler'
+'HTTPHandler'
+'FileHandler'
+'FTPHandler'
+'CacheFTPHandler'
+'DataHandler'
+'UnknownHandler'
+'HTTPErrorProcessor'
+'urlopen'
+'install_opener'
+'build_opener'
+'pathname2url'
+'url2pathname'
+'getproxies'
+'urlretrieve'
+'urlcleanup'
+'%d.%d'
+'context'
+'Open the URL url, which can be either a string or a Request object.\n\n*data* must be an object specifying additional data to be sent to\nthe server, or None if no such data is needed.  See Request for\ndetails.\n\nurllib.request module uses HTTP/1.1 and includes a "Connection:close"\nheader in its HTTP requests.\n\nThe optional *timeout* parameter specifies a timeout in seconds for\nblocking operations like the connection attempt (if not specified, the\nglobal default timeout setting will be used). This only works for HTTP,\nHTTPS and FTP connections.\n\nIf *context* is specified, it must be a ssl.SSLContext instance describing\nthe various SSL options. See HTTPSConnection for more details.\n\n\nThis function always returns an object which can work as a\ncontext manager and has the properties url, headers, and status.\nSee urllib.response.addinfourl for more detail on these properties.\n\nFor HTTP and HTTPS URLs, this function returns a http.client.HTTPResponse\nobject slightly modified. In addition to the three new methods above, the\nmsg attribute contains the same information as the reason attribute ---\nthe reason phrase returned by the server --- instead of the response\nheaders as it is specified in the documentation for HTTPResponse.\n\nFor FTP, file, and data URLs, this function returns a\nurllib.response.addinfourl object.\n\nNote that None may be returned if no handler handles the request (though\nthe default installed global OpenerDirector uses UnknownHandler to ensure\nthis never happens).\n\nIn addition, if proxy settings are detected (for example, when a *_proxy\nenvironment variable like http_proxy is set), ProxyHandler is default\ninstalled and makes sure the requests are handled through the proxy.\n\n'
+'\nRetrieve a URL into a temporary location on disk.\n\nRequires a URL argument. If a filename is passed, it is used as\nthe temporary file location. The reporthook argument should be\na callable that accepts a block number, a read size, and the\ntotal file size of the URL target. The data argument should be\nvalid URL encoded data.\n\nIf a filename is passed and the URL points to a local resource,\nthe result is a copy from local file to new file.\n\nReturns a tuple containing the path to the newly created\ndata file as well as the resulting HTTPMessage object.\n'
+'file'
+'wb'
+'content-length'
+'Content-Length'
+'retrieval incomplete: got only %i out of %i bytes'
+'Clean up temporary files from urlretrieve calls.'
+':\\d+$'
+'Return request-host, as defined by RFC 2965.\n\nVariation from RFC: returned value is lowercased, for convenient\ncomparison.\n\n'
+'Host'
+'Request'
+'{}#{}'
+'Content-length'
+'unknown url type: %r'
+'Return a string indicating the HTTP request method.'
+'POST'
+'GET'
+'method'
+'https'
+'OpenerDirector'
+'Python-urllib/%s'
+'User-agent'
+'add_parent'
+'expected BaseHandler instance, got %r'
+'error'
+'open'
+'response'
+'request'
+'_request'
+'urllib.Request'
+'_response'
+'default'
+'default_open'
+'_open'
+'unknown'
+'unknown_open'
+'http'
+'http_error_%s'
+'_error'
+'default'
+'http_error_default'
+'Create an opener object from a list of handlers.\n\nThe opener will use several default handlers, including support\nfor HTTP, FTP and when applicable HTTPS.\n\nIf any of the handlers passed as arguments are subclasses of the\ndefault handlers, the default handlers will not be used.\n'
+'HTTPSConnection'
+'BaseHandler'
+'handler_order'
+'HTTPErrorProcessor'
+'Process HTTP error responses.'
+'http'
+'HTTPDefaultErrorHandler'
+'HTTPRedirectHandler'
+"Return a Request or None in response to a redirect.\n\nThis is called by the http_error_30x methods when a\nredirection response is received.  If a redirection should\ntake place, return a new Request to allow http_error_30x to\nperform the redirect.  Otherwise, raise HTTPError if no-one\nelse should try to handle this url.  Return None if you can't\nbut another Handler might.\n"
+'GET'
+'HEAD'
+'POST'
+'%20'
+'location'
+'uri'
+" - Redirection to url '"
+"' is not allowed"
+'iso-8859-1'
+'redirect_dict'
+'The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\n'
+'Return (scheme, user, password, host/port) given a URL or an authority.\n\nIf a URL is supplied, it must have an authority (host:port) component.\nAccording to RFC 3986, having an authority component means the URL must\nhave two slashes after the scheme.\n'
+'//'
+'proxy URL with no authority: %r'
+'ProxyHandler'
+'keys'
+'proxies must be a mapping'
+'%s_open'
+'ascii'
+'Proxy-authorization'
+'Basic '
+'https'
+'HTTPPasswordMgr'
+'Accept authority or URI and extract only the authority and path.'
+'http'
+'https'
+'%s:%d'
+'Check if test is below base in a URI tree\n\nBoth args must be URIs in reduced form.\n'
+'HTTPPasswordMgrWithDefaultRealm'
+'HTTPPasswordMgrWithPriorAuth'
+'AbstractBasicAuthHandler'
+'(?:^|,)[ \t]*([^ \t,]+)[ \t]+realm=(["\']?)([^"\']*)\\2'
+'Basic Auth Realm was unquoted'
+'basic'
+'AbstractBasicAuthHandler does not support the following scheme: '
+'Basic '
+'ascii'
+'is_authenticated'
+'Authorization'
+'{0}:{1}'
+'Basic {}'
+'is_authenticated'
+'HTTPBasicAuthHandler'
+'Authorization'
+'www-authenticate'
+'ProxyBasicAuthHandler'
+'Proxy-authorization'
+'proxy-authenticate'
+'AbstractDigestAuthHandler'
+'digest auth failed'
+'digest'
+'basic'
+"AbstractDigestAuthHandler does not support the following scheme: '%s'"
+'Digest %s'
+'ascii'
+'realm'
+'nonce'
+'qop'
+'algorithm'
+'MD5'
+'opaque'
+'auth'
+'%08x'
+"qop '%s' is not supported."
+'username="'
+'", realm="'
+'", nonce="'
+'", uri="'
+'", response="'
+', opaque="%s"'
+', digest="%s"'
+', algorithm="%s"'
+', qop=auth, nc='
+', cnonce="'
+'MD5'
+'ascii'
+'SHA'
+'ascii'
+'SHA-256'
+'ascii'
+'Unsupported digest authentication algorithm %r'
+'HTTPDigestAuthHandler'
+'An authentication protocol defined by RFC 2069\n\nDigest authentication improves on basic authentication because it\ndoes not transmit passwords in the clear.\n'
+'Authorization'
+'www-authenticate'
+'ProxyDigestAuthHandler'
+'Proxy-Authorization'
+'proxy-authenticate'
+'AbstractHTTPHandler'
+'no host given'
+'POST data should be bytes, an iterable of bytes, or a file object. It cannot be of type str.'
+'Content-type'
+'application/x-www-form-urlencoded'
+'Content-length'
+'Transfer-encoding'
+'chunked'
+'Host'
+'Return an HTTPResponse object for the request, using http_class.\n\nhttp_class must implement the HTTPConnection API from http.client.\n'
+'no host given'
+'timeout'
+'close'
+'Connection'
+'Proxy-Authorization'
+'Transfer-encoding'
+'AbstractHTTPHandler'
+'HTTPHandler'
+'HTTPSConnection'
+'HTTPSHandler'
+'HTTPSHandler'
+'HTTPCookieProcessor'
+'UnknownHandler'
+'unknown url type: %s'
+'Parse list of key=value strings where keys are not duplicated.'
+'Parse lists as described by RFC 2068 Section 2.\n\nIn particular, parse comma-separated lists where the elements of\nthe list may include quoted-strings.  A quoted-string could\ncontain a comma.  A non-quoted string could have quotes in the\nmiddle.  Neither commas nor quotes count if they are escaped.\nOnly double-quotes count, not single-quotes.\n'
+'FileHandler'
+'localhost'
+'Content-type: %s\nContent-length: %d\nLast-modified: %s\n'
+'text/plain'
+'rb'
+'localhost'
+'FTPHandler'
+'ftp error: no host given'
+'type'
+'Content-type: %s\n'
+'Content-length: %d\n'
+'ftp error: '
+'CacheFTPHandler'
+'DataHandler'
+';base64'
+'text/plain;charset=US-ASCII'
+'Content-type: %s\nContent-length: %d\n'
+'require_scheme'
+'resolve_host'
+"Convert the given file URL to a local file system path.\n\nThe 'file:' scheme prefix must be omitted unless *require_scheme*\nis set to true.\n\nThe URL authority may be resolved with gethostbyname() if\n*resolve_host* is set to true.\n"
+'file:'
+'file'
+"URL is missing a 'file:' scheme"
+'nt'
+'//'
+'///'
+'file:// scheme is supported only on localhost'
+'add_scheme'
+"Convert the given local file system path to a file URL.\n\nThe 'file:' scheme prefix is omitted unless *add_scheme*\nis set to true.\n"
+'nt'
+'file:'
+'//?/'
+'UNC/'
+'//'
+'///'
+'/:'
+"Return the IP address of the magic hostname 'localhost'."
+'localhost'
+'Return the IP addresses of the current host.'
+'localhost'
+'Return the set of errors raised by the FTP class.'
+'Return an empty email Message object.'
+'ftpwrapper'
+'Class used by open_ftp() for cache of open FTP connections.'
+'TYPE A'
+'TYPE '
+'RETR '
+'550'
+'ftp error: '
+'ftp error: %r'
+'LIST '
+'LIST'
+'rb'
+'ftpwrapper'
+'Return a dictionary of scheme -> proxy server URL mappings.\n\nScan the environment for variables named <scheme>_proxy;\nthis seems to be the standard convention.\n'
+'proxy'
+'REQUEST_METHOD'
+'http'
+'_proxy'
+"Test if proxies should not be used for a particular host.\n\nChecks the proxy dict for the value of no_proxy, which should\nbe a list of comma separated DNS suffixes, or '*' for all hosts.\n\n"
+'no'
+"\nReturn True iff this host shouldn't be accessed using a proxy\n\nThis function uses the MacOSX framework SystemConfiguration\nto fetch the proxy information.\n\nproxy_settings come from _scproxy._get_proxy_settings or get mocked ie:\n{ 'exclude_simple': bool,\n  'exceptions': ['foo.bar', '*.bar.com', '127.0.0.1', '10.1', '10.0/16']\n}\n"
+'exclude_simple'
+'exceptions'
+'(\\d+(?:\\.\\d+)*)(/\\d+)?'
+'Return True if the host should bypass the proxy server.\n\nThe proxy override list is obtained from the Windows\nInternet settings proxy override registry value.\n\nAn example of a proxy override value is:\n"www.example.com;*.example.net; 192.168.0.1"\n'
+'<local>'
+'darwin'
+'Return a dictionary of scheme -> proxy server URL mappings.\n\nThis function uses the MacOSX framework SystemConfiguration\nto fetch the proxy information.\n'
+'Return True, if host should be bypassed.\n\nChecks proxy settings gathered from the environment, if specified,\nor from the MacOSX framework SystemConfiguration.\n\n'
+'nt'
+'Return a dictionary of scheme -> proxy server URL mappings.\n\nWin32 uses the registry to store proxies.\n\n'
+'Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings'
+'ProxyEnable'
+'ProxyServer'
+'http={0};https={0};ftp={0}'
+'(?:[^/:]+)://'
+'http'
+'https'
+'http://'
+'socks'
+'socks://'
+'^socks://'
+'socks4://'
+'Return a dictionary of scheme -> proxy server URL mappings.\n\nReturns settings gathered from the environment, if specified,\nor the registry.\n\n'
+'Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings'
+'ProxyEnable'
+'ProxyOverride'
+'Return True, if host should be bypassed.\n\nChecks proxy settings gathered from the environment, if specified,\nor the registry.\n\n'

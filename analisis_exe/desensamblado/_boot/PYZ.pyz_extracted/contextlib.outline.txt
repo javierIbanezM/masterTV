@@ -1,0 +1,176 @@
+<module>()  line 1
+    AbstractContextManager()  line 17
+        AbstractContextManager.__enter__(self)  line 25
+        AbstractContextManager.__exit__(self, exc_type, exc_value, traceback)  line 29
+        AbstractContextManager.__subclasshook__(cls, C)  line 34
+    AbstractAsyncContextManager()  line 41
+        AbstractAsyncContextManager.__aenter__(self)  line 49
+        AbstractAsyncContextManager.__aexit__(self, exc_type, exc_value, traceback)  line 53
+        AbstractAsyncContextManager.__subclasshook__(cls, C)  line 58
+    ContextDecorator()  line 66
+        ContextDecorator._recreate_cm(self)  line 69
+        ContextDecorator.__call__(self, func)  line 81
+            ContextDecorator.__call__.<locals>.inner()  line 82
+    AsyncContextDecorator()  line 89
+        AsyncContextDecorator._recreate_cm(self)  line 92
+        AsyncContextDecorator.__call__(self, func)  line 97
+            AsyncContextDecorator.__call__.<locals>.inner()  line 98
+    _GeneratorContextManagerBase()  line 105
+        _GeneratorContextManagerBase.__init__(self, func, args, kwds)  line 108
+        _GeneratorContextManagerBase._recreate_cm(self)  line 122
+    _GeneratorContextManager()  line 129
+        _GeneratorContextManager.__enter__(self)  line 136
+        _GeneratorContextManager.__exit__(self, typ, value, traceback)  line 145
+    _AsyncGeneratorContextManager()  line 202
+        _AsyncGeneratorContextManager.__aenter__(self)  line 209
+        _AsyncGeneratorContextManager.__aexit__(self, typ, value, traceback)  line 218
+    contextmanager(func)  line 276
+        contextmanager.<locals>.helper()  line 303
+    asynccontextmanager(func)  line 309
+        asynccontextmanager.<locals>.helper()  line 336
+    closing()  line 342
+        closing.__init__(self, thing)  line 359
+        closing.__enter__(self)  line 361
+        closing.__exit__(self)  line 363
+    aclosing()  line 367
+        aclosing.__init__(self, thing)  line 385
+        aclosing.__aenter__(self)  line 387
+        aclosing.__aexit__(self)  line 389
+    _RedirectStream()  line 393
+        _RedirectStream.__init__(self, new_target)  line 397
+        _RedirectStream.__enter__(self)  line 402
+        _RedirectStream.__exit__(self, exctype, excinst, exctb)  line 407
+    redirect_stdout()  line 411
+    redirect_stderr()  line 427
+    suppress()  line 433
+        suppress.__init__(self)  line 444
+        suppress.__enter__(self)  line 447
+        suppress.__exit__(self, exctype, excinst, exctb)  line 450
+    _BaseExitStack()  line 472
+        _BaseExitStack._create_exit_wrapper(cm, cm_exit)  line 475
+        _BaseExitStack._create_cb_wrapper(callback)  line 479
+            _BaseExitStack._create_cb_wrapper.<locals>._exit_wrapper(exc_type, exc, tb)  line 481
+        _BaseExitStack.__init__(self)  line 485
+        _BaseExitStack.pop_all(self)  line 488
+        _BaseExitStack.push(self, exit)  line 495
+        _BaseExitStack.enter_context(self, cm)  line 515
+        _BaseExitStack.callback(self, callback)  line 534
+        _BaseExitStack._push_cm_exit(self, cm, cm_exit)  line 547
+        _BaseExitStack._push_exit_callback(self, callback, is_sync)  line 552
+    ExitStack()  line 557
+        ExitStack.__enter__(self)  line 568
+        ExitStack.__exit__(self)  line 571
+            ExitStack.__exit__.<locals>._fix_exception_context(new_exc, old_exc)  line 578
+        ExitStack.close(self)  line 625
+    AsyncExitStack()  line 631
+        AsyncExitStack._create_async_exit_wrapper(cm, cm_exit)  line 644
+        AsyncExitStack._create_async_cb_wrapper(callback)  line 648
+            AsyncExitStack._create_async_cb_wrapper.<locals>._exit_wrapper(exc_type, exc, tb)  line 650
+        AsyncExitStack.enter_async_context(self, cm)  line 654
+        AsyncExitStack.push_async_exit(self, exit)  line 672
+        AsyncExitStack.push_async_callback(self, callback)  line 690
+        AsyncExitStack.aclose(self)  line 703
+        AsyncExitStack._push_async_cm_exit(self, cm, cm_exit)  line 707
+        AsyncExitStack.__aenter__(self)  line 713
+        AsyncExitStack.__aexit__(self)  line 716
+            AsyncExitStack.__aexit__.<locals>._fix_exception_context(new_exc, old_exc)  line 723
+    nullcontext()  line 775
+        nullcontext.__init__(self, enter_result)  line 786
+        nullcontext.__enter__(self)  line 789
+        nullcontext.__exit__(self)  line 792
+        nullcontext.__aenter__(self)  line 795
+        nullcontext.__aexit__(self)  line 798
+    chdir()  line 802
+        chdir.__init__(self, path)  line 805
+        chdir.__enter__(self)  line 809
+        chdir.__exit__(self)  line 813
+
+--- strings ---
+'Utilities for with-statement contexts.  See PEP 343.'
+'closing'
+'nullcontext'
+'AbstractContextManager'
+'AbstractAsyncContextManager'
+'AsyncExitStack'
+'ContextDecorator'
+'ExitStack'
+'redirect_stdout'
+'redirect_stderr'
+'suppress'
+'aclosing'
+'chdir'
+'AbstractContextManager'
+'An abstract base class for context managers.'
+'Return `self` upon entering the runtime context.'
+'Raise any exception triggered within the runtime context.'
+'__enter__'
+'__exit__'
+'AbstractAsyncContextManager'
+'An abstract base class for asynchronous context managers.'
+'Return `self` upon entering the runtime context.'
+'Raise any exception triggered within the runtime context.'
+'__aenter__'
+'__aexit__'
+'ContextDecorator'
+'A base class or mixin that enables context managers to work as decorators.'
+'Return a recreated instance of self.\n\nAllows an otherwise one-shot context manager like\n_GeneratorContextManager to support use as\na decorator via implicit recreation.\n\nThis is a private interface just for _GeneratorContextManager.\nSee issue #11647 for details.\n'
+'AsyncContextDecorator'
+'A base class or mixin that enables async context managers to work as decorators.'
+'Return a recreated instance of self.\n        '
+'AsyncContextDecorator'
+'_GeneratorContextManagerBase'
+'Shared functionality for @contextmanager and @asynccontextmanager.'
+'__doc__'
+'_GeneratorContextManagerBase'
+'_GeneratorContextManager'
+'Helper for @contextmanager decorator.'
+"generator didn't yield"
+"generator didn't stop"
+"generator didn't stop after throw()"
+'_GeneratorContextManager'
+'_AsyncGeneratorContextManager'
+'Helper for @asynccontextmanager decorator.'
+"generator didn't yield"
+"generator didn't stop"
+"generator didn't stop after athrow()"
+'_AsyncGeneratorContextManager'
+'@contextmanager decorator.\n\nTypical usage:\n\n    @contextmanager\n    def some_generator(<arguments>):\n        <setup>\n        try:\n            yield <value>\n        finally:\n            <cleanup>\n\nThis makes this:\n\n    with some_generator(<arguments>) as <variable>:\n        <body>\n\nequivalent to this:\n\n    <setup>\n    try:\n        <variable> = <value>\n        <body>\n    finally:\n        <cleanup>\n'
+'@asynccontextmanager decorator.\n\nTypical usage:\n\n    @asynccontextmanager\n    async def some_async_generator(<arguments>):\n        <setup>\n        try:\n            yield <value>\n        finally:\n            <cleanup>\n\nThis makes this:\n\n    async with some_async_generator(<arguments>) as <variable>:\n        <body>\n\nequivalent to this:\n\n    <setup>\n    try:\n        <variable> = <value>\n        <body>\n    finally:\n        <cleanup>\n'
+'closing'
+'Context to automatically close something at the end of a block.\n\nCode like this:\n\n    with closing(<module>.open(<arguments>)) as f:\n        <block>\n\nis equivalent to this:\n\n    f = <module>.open(<arguments>)\n    try:\n        <block>\n    finally:\n        f.close()\n\n'
+'aclosing'
+'Async context manager for safely finalizing an asynchronously cleaned-up\nresource such as an async generator, calling its ``aclose()`` method.\n\nCode like this:\n\n    async with aclosing(<module>.fetch(<arguments>)) as agen:\n        <block>\n\nis equivalent to this:\n\n    agen = <module>.fetch(<arguments>)\n    try:\n        <block>\n    finally:\n        await agen.aclose()\n\n'
+'_RedirectStream'
+'_RedirectStream'
+'redirect_stdout'
+"Context manager for temporarily redirecting stdout to another file.\n\n# How to send help() to stderr\nwith redirect_stdout(sys.stderr):\n    help(dir)\n\n# How to write help() to a file\nwith open('help.txt', 'w') as f:\n    with redirect_stdout(f):\n        help(pow)\n"
+'stdout'
+'redirect_stderr'
+'Context manager for temporarily redirecting stderr to another file.'
+'stderr'
+'suppress'
+'Context manager to suppress specified exceptions\n\nAfter the exception is suppressed, execution proceeds with the next\nstatement following the with statement.\n\n     with suppress(FileNotFoundError):\n         os.remove(somefile)\n     # Execution still resumes here if the file was already removed\n'
+'_BaseExitStack'
+'A base class for ExitStack and AsyncExitStack.'
+'Preserve the context stack by transferring it to a new instance.'
+'Registers a callback with the standard __exit__ method signature.\n\nCan suppress exceptions the same way __exit__ method can.\nAlso accepts any object with an __exit__ method (registering a call\nto the method instead of the object itself).\n'
+'Enters the supplied context manager.\n\nIf successful, also pushes its __exit__ method as a callback and\nreturns the result of the __enter__ method.\n'
+"' object does not support the context manager protocol"
+'Registers an arbitrary callback and arguments.\n\nCannot suppress exceptions.\n'
+'Helper to correctly register callbacks to __exit__ methods.'
+'_BaseExitStack'
+'ExitStack'
+'Context manager for dynamic management of a stack of exit callbacks.\n\nFor example:\n    with ExitStack() as stack:\n        files = [stack.enter_context(open(fname)) for fname in filenames]\n        # All opened files will automatically be closed at the end of\n        # the with statement, even if attempts to open files later\n        # in the list raise an exception.\n'
+'Immediately unwind the context stack.'
+'AsyncExitStack'
+'Async context manager for dynamic management of a stack of exit\ncallbacks.\n\nFor example:\n    async with AsyncExitStack() as stack:\n        connections = [await stack.enter_async_context(get_connection())\n            for i in range(5)]\n        # All opened connections will automatically be released at the\n        # end of the async with statement, even if attempts to open a\n        # connection later in the list raise an exception.\n'
+'Enters the supplied async context manager.\n\nIf successful, also pushes its __aexit__ method as a callback and\nreturns the result of the __aenter__ method.\n'
+"' object does not support the asynchronous context manager protocol"
+'Registers a coroutine function with the standard __aexit__ method\nsignature.\n\nCan suppress exceptions the same way __aexit__ method can.\nAlso accepts any object with an __aexit__ method (registering a call\nto the method instead of the object itself).\n'
+'Registers an arbitrary coroutine function and arguments.\n\nCannot suppress exceptions.\n'
+'Immediately unwind the context stack.'
+'Helper to correctly register coroutine function to __aexit__\nmethod.'
+'nullcontext'
+'Context manager that does no additional processing.\n\nUsed as a stand-in for a normal context manager, when a particular\nblock of code is only sometimes used with a normal context manager:\n\ncm = optional_cm if condition else nullcontext()\nwith cm:\n    # Perform operation, using optional_cm if condition is True\n'
+'chdir'
+'Non thread-safe context manager to change the current working directory.'

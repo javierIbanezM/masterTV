@@ -1,0 +1,359 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Different kinds of SAX Exceptions')
+              STORE_NAME               0 (__doc__)
+
+  5           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               1 (<code object SAXException at 0x00000204BA0A6E50, file "xml\sax\_exceptions.py", line 5>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('SAXException')
+              LOAD_NAME                1 (Exception)
+              CALL                     3
+              STORE_NAME               2 (SAXException)
+
+ 42           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               3 (<code object SAXParseException at 0x00000204BA0A7990, file "xml\sax\_exceptions.py", line 42>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('SAXParseException')
+              LOAD_NAME                2 (SAXException)
+              CALL                     3
+              STORE_NAME               3 (SAXParseException)
+
+101           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               5 (<code object SAXNotRecognizedException at 0x00000204BA71C300, file "xml\sax\_exceptions.py", line 101>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('SAXNotRecognizedException')
+              LOAD_NAME                2 (SAXException)
+              CALL                     3
+              STORE_NAME               4 (SAXNotRecognizedException)
+
+111           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object SAXNotSupportedException at 0x00000204BA71C3F0, file "xml\sax\_exceptions.py", line 111>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('SAXNotSupportedException')
+              LOAD_NAME                2 (SAXException)
+              CALL                     3
+              STORE_NAME               5 (SAXNotSupportedException)
+
+121           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object SAXReaderNotAvailable at 0x00000204BA71C4E0, file "xml\sax\_exceptions.py", line 121>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('SAXReaderNotAvailable')
+              LOAD_NAME                5 (SAXNotSupportedException)
+              CALL                     3
+              STORE_NAME               6 (SAXReaderNotAvailable)
+              LOAD_CONST              11 (None)
+              RETURN_VALUE
+
+Disassembly of <code object SAXException at 0x00000204BA0A6E50, file "xml\sax\_exceptions.py", line 5>:
+  --           MAKE_CELL                0 (__classdict__)
+
+   5           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SAXException')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT           5
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+   6           LOAD_CONST               1 ('Encapsulate an XML error or warning. This class can contain\nbasic error or warning information from either the XML parser or\nthe application: you can subclass it to provide additional\nfunctionality, or to add localization. Note that although you will\nreceive a SAXException as the argument to the handlers in the\nErrorHandler interface, you are not actually required to raise\nthe exception; instead, you can simply read the information in\nit.')
+               STORE_NAME               4 (__doc__)
+
+  15           LOAD_CONST               9 ((None,))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0A7870, file "xml\sax\_exceptions.py", line 15>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+  22           LOAD_CONST               4 (<code object getMessage at 0x00000204BA0930F0, file "xml\sax\_exceptions.py", line 22>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (getMessage)
+
+  26           LOAD_CONST               5 (<code object getException at 0x00000204BA0931E0, file "xml\sax\_exceptions.py", line 26>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (getException)
+
+  30           LOAD_CONST               6 (<code object __str__ at 0x00000204BA092790, file "xml\sax\_exceptions.py", line 30>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__str__)
+
+  34           LOAD_CONST               7 (<code object __getitem__ at 0x00000204BA0933C0, file "xml\sax\_exceptions.py", line 34>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__getitem__)
+               LOAD_CONST               8 (('_exception', '_msg'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7870, file "xml\sax\_exceptions.py", line 15>:
+ 15           RESUME                   0
+
+ 18           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (msg, self)
+              STORE_ATTR               0 (_msg)
+
+ 19           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (exception, self)
+              STORE_ATTR               1 (_exception)
+
+ 20           LOAD_GLOBAL              4 (Exception)
+              LOAD_ATTR                7 (__init__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, msg)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getMessage at 0x00000204BA0930F0, file "xml\sax\_exceptions.py", line 22>:
+ 22           RESUME                   0
+
+ 24           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_msg)
+              RETURN_VALUE
+
+Disassembly of <code object getException at 0x00000204BA0931E0, file "xml\sax\_exceptions.py", line 26>:
+ 26           RESUME                   0
+
+ 28           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_exception)
+              RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204BA092790, file "xml\sax\_exceptions.py", line 30>:
+ 30           RESUME                   0
+
+ 32           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_msg)
+              RETURN_VALUE
+
+Disassembly of <code object __getitem__ at 0x00000204BA0933C0, file "xml\sax\_exceptions.py", line 34>:
+ 34           RESUME                   0
+
+ 37           LOAD_GLOBAL              1 (AttributeError + NULL)
+              LOAD_CONST               1 ('__getitem__')
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object SAXParseException at 0x00000204BA0A7990, file "xml\sax\_exceptions.py", line 42>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  42           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SAXParseException')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          42
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  43           LOAD_CONST               1 ('Encapsulate an XML parse error or warning.\n\nThis exception will include information for locating the error in\nthe original XML document. Note that although the application will\nreceive a SAXParseException as the argument to the handlers in the\nErrorHandler interface, the application is not actually required\nto raise the exception; instead, it can simply read the\ninformation in it and take a different action.\n\nSince this exception is a subclass of SAXException, it inherits\nthe ability to wrap another exception.')
+               STORE_NAME               4 (__doc__)
+
+  55           LOAD_CONST               2 (<code object __init__ at 0x00000204B9F4E640, file "xml\sax\_exceptions.py", line 55>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  68           LOAD_CONST               3 (<code object getColumnNumber at 0x00000204BA092E20, file "xml\sax\_exceptions.py", line 68>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (getColumnNumber)
+
+  73           LOAD_CONST               4 (<code object getLineNumber at 0x00000204BA71C120, file "xml\sax\_exceptions.py", line 73>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (getLineNumber)
+
+  77           LOAD_CONST               5 (<code object getPublicId at 0x00000204BA083110, file "xml\sax\_exceptions.py", line 77>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (getPublicId)
+
+  81           LOAD_CONST               6 (<code object getSystemId at 0x00000204BA71C210, file "xml\sax\_exceptions.py", line 81>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (getSystemId)
+
+  85           LOAD_CONST               7 (<code object __str__ at 0x00000204BA0B7230, file "xml\sax\_exceptions.py", line 85>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__str__)
+               LOAD_CONST               8 (('_colnum', '_linenum', '_locator', '_systemId'))
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               9 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F4E640, file "xml\sax\_exceptions.py", line 55>:
+ 55           RESUME                   0
+
+ 57           LOAD_GLOBAL              0 (SAXException)
+              LOAD_ATTR                3 (__init__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, msg)
+              LOAD_FAST_BORROW         2 (exception)
+              CALL                     3
+              POP_TOP
+
+ 58           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (locator, self)
+              STORE_ATTR               2 (_locator)
+
+ 64           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_locator)
+              LOAD_ATTR                7 (getSystemId + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_systemId)
+
+ 65           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_locator)
+              LOAD_ATTR               11 (getColumnNumber + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (_colnum)
+
+ 66           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_locator)
+              LOAD_ATTR               15 (getLineNumber + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_linenum)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getColumnNumber at 0x00000204BA092E20, file "xml\sax\_exceptions.py", line 68>:
+ 68           RESUME                   0
+
+ 71           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_colnum)
+              RETURN_VALUE
+
+Disassembly of <code object getLineNumber at 0x00000204BA71C120, file "xml\sax\_exceptions.py", line 73>:
+ 73           RESUME                   0
+
+ 75           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_linenum)
+              RETURN_VALUE
+
+Disassembly of <code object getPublicId at 0x00000204BA083110, file "xml\sax\_exceptions.py", line 77>:
+ 77           RESUME                   0
+
+ 79           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_locator)
+              LOAD_ATTR                3 (getPublicId + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object getSystemId at 0x00000204BA71C210, file "xml\sax\_exceptions.py", line 81>:
+ 81           RESUME                   0
+
+ 83           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_systemId)
+              RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204BA0B7230, file "xml\sax\_exceptions.py", line 85>:
+ 85           RESUME                   0
+
+ 87           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (getSystemId + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (sysid)
+
+ 88           LOAD_FAST_BORROW         1 (sysid)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+ 89           LOAD_CONST               1 ('<unknown>')
+              STORE_FAST               1 (sysid)
+
+ 90   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (getLineNumber + NULL|self)
+              CALL                     0
+              STORE_FAST               2 (linenum)
+
+ 91           LOAD_FAST_BORROW         2 (linenum)
+              POP_JUMP_IF_NOT_NONE     3 (to L2)
+              NOT_TAKEN
+
+ 92           LOAD_CONST               2 ('?')
+              STORE_FAST               2 (linenum)
+
+ 93   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (getColumnNumber + NULL|self)
+              CALL                     0
+              STORE_FAST               3 (colnum)
+
+ 94           LOAD_FAST_BORROW         3 (colnum)
+              POP_JUMP_IF_NOT_NONE     3 (to L3)
+              NOT_TAKEN
+
+ 95           LOAD_CONST               2 ('?')
+              STORE_FAST               3 (colnum)
+
+ 96   L3:     LOAD_FAST_BORROW         1 (sysid)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (':')
+              LOAD_FAST_BORROW         2 (linenum)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (':')
+              LOAD_FAST_BORROW         3 (colnum)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (': ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_msg)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              BUILD_STRING             7
+              RETURN_VALUE
+
+Disassembly of <code object SAXNotRecognizedException at 0x00000204BA71C300, file "xml\sax\_exceptions.py", line 101>:
+101           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('SAXNotRecognizedException')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         101
+              STORE_NAME               3 (__firstlineno__)
+
+102           LOAD_CONST               1 ('Exception class for an unrecognized identifier.\n\nAn XMLReader will raise this exception when it is confronted with an\nunrecognized feature or property. SAX applications and extensions may\nuse this class for similar purposes.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object SAXNotSupportedException at 0x00000204BA71C3F0, file "xml\sax\_exceptions.py", line 111>:
+111           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('SAXNotSupportedException')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         111
+              STORE_NAME               3 (__firstlineno__)
+
+112           LOAD_CONST               1 ('Exception class for an unsupported operation.\n\nAn XMLReader will raise this exception when a service it cannot\nperform is requested (specifically setting a state or value). SAX\napplications and extensions may use this class for similar\npurposes.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object SAXReaderNotAvailable at 0x00000204BA71C4E0, file "xml\sax\_exceptions.py", line 121>:
+121           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('SAXReaderNotAvailable')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         121
+              STORE_NAME               3 (__firstlineno__)
+
+122           LOAD_CONST               1 ('Exception class for a missing driver.\n\nAn XMLReader module (driver) should raise this exception when it\nis first imported, e.g. when a support module cannot be imported.\nIt also may be raised during parsing, e.g. if executing an external\nprogram is not permitted.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE

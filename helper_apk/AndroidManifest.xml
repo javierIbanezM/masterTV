@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ADB Keeper: app auxiliar mínima que mantiene encendida la depuración inalámbrica (Android 11+).
+  Se instala desde Android TV Master, que además le concede UNA vez el permiso WRITE_SECURE_SETTINGS
+  con `adb shell pm grant`; ese permiso sobrevive a los reinicios.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.atvmaster.adbkeeper"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Solo se puede conceder por adb (pm grant) o desde el sistema: ninguna app lo obtiene sola. -->
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+
+    <application
+        android:label="ADB Keeper"
+        android:allowBackup="false"
+        android:theme="@android:style/Theme.DeviceDefault.Light">
+
+        <!-- Pantalla de estado. Abrirla una vez saca a la app del estado «detenida» (Android no
+             entrega BOOT_COMPLETED a una app recién instalada que nunca se ha abierto). -->
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".BootReceiver" android:exported="true" android:directBootAware="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".KeepJob" android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+</manifest>

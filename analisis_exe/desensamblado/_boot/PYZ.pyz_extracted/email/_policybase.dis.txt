@@ -1,0 +1,1010 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Policy framework for the email package.\n\nAllows fine grained feature control of how the package parses and emits data.\n')
+              STORE_NAME               0 (__doc__)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (abc)
+              STORE_NAME               1 (abc)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (re)
+              STORE_NAME               2 (re)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('header',))
+              IMPORT_NAME              3 (email)
+              IMPORT_FROM              4 (header)
+              STORE_NAME               4 (header)
+              POP_TOP
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('charset',))
+              IMPORT_NAME              3 (email)
+              IMPORT_FROM              5 (charset)
+              STORE_NAME               6 (_charset)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('_has_surrogates',))
+              IMPORT_NAME              7 (email.utils)
+              IMPORT_FROM              8 (_has_surrogates)
+              STORE_NAME               8 (_has_surrogates)
+              POP_TOP
+
+ 12           BUILD_LIST               0
+              LOAD_CONST              16 (('Policy', 'Compat32', 'compat32'))
+              LIST_EXTEND              1
+              STORE_NAME               9 (__all__)
+
+ 19           LOAD_NAME                2 (re)
+              LOAD_ATTR               20 (compile)
+              PUSH_NULL
+              LOAD_CONST               7 ('[!-9;-~]+$')
+              CALL                     1
+              STORE_NAME              11 (valid_header_name_re)
+
+ 21           LOAD_CONST               8 (<code object validate_header_name at 0x00000204B9FEF800, file "email\_policybase.py", line 21>)
+              MAKE_FUNCTION
+              STORE_NAME              12 (validate_header_name)
+
+ 27           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object _PolicyBase at 0x00000204BA0A7AB0, file "email\_policybase.py", line 27>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('_PolicyBase')
+              CALL                     2
+              STORE_NAME              13 (_PolicyBase)
+
+103           LOAD_CONST              11 (<code object _append_doc at 0x00000204B9F735D0, file "email\_policybase.py", line 103>)
+              MAKE_FUNCTION
+              STORE_NAME              14 (_append_doc)
+
+108           LOAD_CONST              12 (<code object _extend_docstrings at 0x00000204BA3E8A30, file "email\_policybase.py", line 108>)
+              MAKE_FUNCTION
+              STORE_NAME              15 (_extend_docstrings)
+
+121           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              13 (<code object Policy at 0x00000204B9FC3870, file "email\_policybase.py", line 121>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('Policy')
+              LOAD_NAME               13 (_PolicyBase)
+              LOAD_NAME                1 (abc)
+              LOAD_ATTR               32 (ABCMeta)
+              LOAD_CONST              14 (('metaclass',))
+              CALL_KW                  4
+              STORE_NAME              17 (Policy)
+
+288           LOAD_NAME               15 (_extend_docstrings)
+
+289           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              15 (<code object Compat32 at 0x00000204BA103A60, file "email\_policybase.py", line 288>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('Compat32')
+              LOAD_NAME               17 (Policy)
+              CALL                     3
+
+288           CALL                     0
+
+289           STORE_NAME              18 (Compat32)
+
+392           LOAD_NAME               18 (Compat32)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              19 (compat32)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object validate_header_name at 0x00000204B9FEF800, file "email\_policybase.py", line 21>:
+ 21           RESUME                   0
+
+ 23           LOAD_GLOBAL              0 (valid_header_name_re)
+              LOAD_ATTR                3 (match + NULL|self)
+              LOAD_FAST_BORROW         0 (name)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        16 (to L1)
+              NOT_TAKEN
+
+ 24           LOAD_GLOBAL              5 (ValueError + NULL)
+
+ 25           LOAD_CONST               0 ('Header field name contains invalid characters: ')
+              LOAD_FAST_BORROW         0 (name)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+
+ 24           CALL                     1
+              RAISE_VARARGS            1
+
+ 23   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _PolicyBase at 0x00000204BA0A7AB0, file "email\_policybase.py", line 27>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  27           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_PolicyBase')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          27
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  29           LOAD_CONST               1 ('Policy Object basic framework.\n\nThis class is useless unless subclassed.  A subclass should define\nclass attributes with defaults for any values that are to be\nmanaged by the Policy object.  The constructor will then allow\nnon-default values to be set for these attributes at instance\ncreation time.  The instance will be callable, taking these same\nattributes keyword arguments, and returning a new instance\nidentical to the called instance except for those values changed\nby the keyword arguments.  Instances may be added, yielding new\ninstances with any non-default values from the right hand\noperand overriding those in the left hand operand.  That is,\n\n    A + B == A(<non-default values of B>)\n\nThe repr of an instance can be used to reconstruct the object\nif and only if the repr of the values can be used to reconstruct\nthose values.\n\n')
+               STORE_NAME               4 (__doc__)
+
+  50           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204B9FFA8B0, file "email\_policybase.py", line 50>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+
+  64           LOAD_CONST               3 (<code object __repr__ at 0x00000204B9F9F4B0, file "email\_policybase.py", line 64>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__repr__)
+
+  69           LOAD_CONST               4 (<code object clone at 0x00000204BA57FD30, file "email\_policybase.py", line 69>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (clone)
+
+  87           LOAD_CONST               5 (<code object __setattr__ at 0x00000204B9F73E10, file "email\_policybase.py", line 87>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__setattr__)
+
+  94           LOAD_CONST               6 (<code object __add__ at 0x00000204BA0FF440, file "email\_policybase.py", line 94>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__add__)
+               LOAD_CONST               7 (())
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              12 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FFA8B0, file "email\_policybase.py", line 50>:
+  --           COPY_FREE_VARS           1
+
+  50           RESUME                   0
+
+  56           LOAD_FAST_BORROW         1 (kw)
+               LOAD_ATTR                1 (items + NULL|self)
+               CALL                     0
+               GET_ITER
+       L1:     FOR_ITER                87 (to L3)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   35 (name, value)
+
+  57           LOAD_GLOBAL              3 (hasattr + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (self, name)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       22 (to L2)
+               NOT_TAKEN
+
+  58           LOAD_GLOBAL              4 (super)
+               LOAD_GLOBAL              6 (_PolicyBase)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         19 (__setattr__ + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (name, value)
+               CALL                     2
+               POP_TOP
+               JUMP_BACKWARD           43 (to L1)
+
+  60   L2:     LOAD_GLOBAL             11 (TypeError + NULL)
+
+  61           LOAD_CONST               1 ('{!r} is an invalid keyword argument for {}')
+               LOAD_ATTR               13 (format + NULL|self)
+
+  62           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (name, self)
+               LOAD_ATTR               14 (__class__)
+               LOAD_ATTR               16 (__name__)
+
+  61           CALL                     2
+
+  60           CALL                     1
+               RAISE_VARARGS            1
+
+  56   L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204B9F9F4B0, file "email\_policybase.py", line 64>:
+  64           RESUME                   0
+
+  66           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (__dict__)
+               LOAD_ATTR                3 (items + NULL|self)
+               CALL                     0
+               GET_ITER
+
+  65           LOAD_FAST_AND_CLEAR      1 (name)
+               LOAD_FAST_AND_CLEAR      2 (value)
+               SWAP                     3
+       L1:     BUILD_LIST               0
+               SWAP                     2
+
+  66   L2:     FOR_ITER                22 (to L3)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   18 (name, value)
+
+  65           LOAD_CONST               0 ('{}={!r}')
+               LOAD_ATTR                5 (format + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, value)
+               CALL                     2
+               LIST_APPEND              2
+               JUMP_BACKWARD           24 (to L2)
+
+  66   L3:     END_FOR
+               POP_ITER
+
+  65   L4:     STORE_FAST               3 (args)
+               STORE_FAST               1 (name)
+               STORE_FAST               2 (value)
+
+  67           LOAD_CONST               1 ('{}({})')
+               LOAD_ATTR                5 (format + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (__class__)
+               LOAD_ATTR                8 (__name__)
+               LOAD_CONST               2 (', ')
+               LOAD_ATTR               11 (join + NULL|self)
+               LOAD_FAST_BORROW         3 (args)
+               CALL                     1
+               CALL                     2
+               RETURN_VALUE
+
+  --   L5:     SWAP                     2
+               POP_TOP
+
+  65           SWAP                     3
+               STORE_FAST               2 (value)
+               STORE_FAST               1 (name)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L5 [3]
+
+Disassembly of <code object clone at 0x00000204BA57FD30, file "email\_policybase.py", line 69>:
+ 69           RESUME                   0
+
+ 76           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR                3 (__new__ + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              CALL                     1
+              STORE_FAST               2 (newpolicy)
+
+ 77           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (__dict__)
+              LOAD_ATTR                7 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                27 (to L2)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   52 (attr, value)
+
+ 78           LOAD_GLOBAL              8 (object)
+              LOAD_ATTR               11 (__setattr__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (newpolicy, attr)
+              LOAD_FAST_BORROW         4 (value)
+              CALL                     3
+              POP_TOP
+              JUMP_BACKWARD           29 (to L1)
+
+ 77   L2:     END_FOR
+              POP_ITER
+
+ 79           LOAD_FAST_BORROW         1 (kw)
+              LOAD_ATTR                7 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L3:     FOR_ITER                90 (to L5)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   52 (attr, value)
+
+ 80           LOAD_GLOBAL             13 (hasattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (self, attr)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        47 (to L4)
+              NOT_TAKEN
+
+ 81           LOAD_GLOBAL             15 (TypeError + NULL)
+
+ 82           LOAD_CONST               1 ('{!r} is an invalid keyword argument for {}')
+              LOAD_ATTR               17 (format + NULL|self)
+
+ 83           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (attr, self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR               18 (__name__)
+
+ 82           CALL                     2
+
+ 81           CALL                     1
+              RAISE_VARARGS            1
+
+ 84   L4:     LOAD_GLOBAL              8 (object)
+              LOAD_ATTR               11 (__setattr__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (newpolicy, attr)
+              LOAD_FAST_BORROW         4 (value)
+              CALL                     3
+              POP_TOP
+              JUMP_BACKWARD           92 (to L3)
+
+ 79   L5:     END_FOR
+              POP_ITER
+
+ 85           LOAD_FAST_BORROW         2 (newpolicy)
+              RETURN_VALUE
+
+Disassembly of <code object __setattr__ at 0x00000204B9F73E10, file "email\_policybase.py", line 87>:
+ 87           RESUME                   0
+
+ 88           LOAD_GLOBAL              1 (hasattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        4 (to L1)
+              NOT_TAKEN
+
+ 89           LOAD_CONST               0 ('{!r} object attribute {!r} is read-only')
+              STORE_FAST               3 (msg)
+              JUMP_FORWARD             2 (to L2)
+
+ 91   L1:     LOAD_CONST               1 ('{!r} object has no attribute {!r}')
+              STORE_FAST               3 (msg)
+
+ 92   L2:     LOAD_GLOBAL              3 (AttributeError + NULL)
+              LOAD_FAST_BORROW         3 (msg)
+              LOAD_ATTR                5 (format + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (__class__)
+              LOAD_ATTR                8 (__name__)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     2
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object __add__ at 0x00000204BA0FF440, file "email\_policybase.py", line 94>:
+ 94           RESUME                   0
+
+100           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (clone)
+              PUSH_NULL
+              LOAD_CONST               1 (())
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                2 (__dict__)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object _append_doc at 0x00000204B9F735D0, file "email\_policybase.py", line 103>:
+103           RESUME                   0
+
+104           LOAD_FAST_BORROW         0 (doc)
+              LOAD_ATTR                1 (rsplit + NULL|self)
+              LOAD_CONST               0 ('\n')
+              LOAD_SMALL_INT           1
+              CALL                     2
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              STORE_FAST               0 (doc)
+
+105           LOAD_FAST_BORROW         1 (added_doc)
+              LOAD_ATTR                3 (split + NULL|self)
+              LOAD_CONST               0 ('\n')
+              LOAD_SMALL_INT           1
+              CALL                     2
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              STORE_FAST               1 (added_doc)
+
+106           LOAD_FAST_BORROW         0 (doc)
+              LOAD_CONST               0 ('\n')
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         1 (added_doc)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object _extend_docstrings at 0x00000204BA3E8A30, file "email\_policybase.py", line 108>:
+108           RESUME                   0
+
+109           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (__doc__)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       88 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (__doc__)
+              LOAD_ATTR                3 (startswith + NULL|self)
+              LOAD_CONST               0 ('+')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       55 (to L1)
+              NOT_TAKEN
+
+110           LOAD_GLOBAL              5 (_append_doc + NULL)
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                6 (__bases__)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_ATTR                0 (__doc__)
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (__doc__)
+              CALL                     2
+              LOAD_FAST_BORROW         0 (cls)
+              STORE_ATTR               0 (__doc__)
+
+111   L1:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                8 (__dict__)
+              LOAD_ATTR               11 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L2:     FOR_ITER               144 (to L8)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   18 (name, attr)
+
+112           LOAD_FAST_BORROW         2 (attr)
+              LOAD_ATTR                0 (__doc__)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           25 (to L2)
+      L3:     LOAD_FAST_BORROW         2 (attr)
+              LOAD_ATTR                0 (__doc__)
+              LOAD_ATTR                3 (startswith + NULL|self)
+              LOAD_CONST               0 ('+')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           60 (to L2)
+
+113   L4:     LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0A7990, file "email\_policybase.py", line 113>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                6 (__bases__)
+              GET_ITER
+              CALL                     0
+              GET_ITER
+      L5:     FOR_ITER                61 (to L7)
+              STORE_FAST               3 (c)
+
+114           LOAD_GLOBAL             13 (getattr + NULL)
+              LOAD_GLOBAL             13 (getattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (c, name)
+              CALL                     2
+              LOAD_CONST               2 ('__doc__')
+              CALL                     2
+              STORE_FAST               4 (doc)
+
+115           LOAD_FAST_BORROW         4 (doc)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L6)
+              NOT_TAKEN
+              JUMP_BACKWARD           34 (to L5)
+
+116   L6:     LOAD_GLOBAL              5 (_append_doc + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (doc, attr)
+              LOAD_ATTR                0 (__doc__)
+              CALL                     2
+              LOAD_FAST_BORROW         2 (attr)
+              STORE_ATTR               0 (__doc__)
+
+117           POP_TOP
+              JUMP_BACKWARD          142 (to L2)
+
+113   L7:     END_FOR
+              POP_ITER
+              JUMP_BACKWARD          146 (to L2)
+
+111   L8:     END_FOR
+              POP_ITER
+
+118           LOAD_FAST_BORROW         0 (cls)
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A7990, file "email\_policybase.py", line 113>:
+ 113           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                28 (to L5)
+               STORE_FAST_LOAD_FAST    17 (base, base)
+               LOAD_ATTR                1 (mro + NULL|self)
+               CALL                     0
+               GET_ITER
+       L3:     FOR_ITER                 6 (to L4)
+               STORE_FAST_LOAD_FAST    34 (c, c)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD            8 (to L3)
+       L4:     END_FOR
+               POP_ITER
+               JUMP_BACKWARD           30 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L6 -> L6 [0] lasti
+
+Disassembly of <code object Policy at 0x00000204B9FC3870, file "email\_policybase.py", line 121>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 121           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Policy')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         121
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 123           LOAD_CONST               1 ("Controls for how messages are interpreted and formatted.\n\nMost of the classes and many of the methods in the email package accept\nPolicy objects as parameters.  A Policy object contains a set of values and\nfunctions that control how input is interpreted and how output is rendered.\nFor example, the parameter 'raise_on_defect' controls whether or not an RFC\nviolation results in an error being raised or not, while 'max_line_length'\ncontrols the maximum length of output lines when a Message is serialized.\n\nAny valid attribute may be overridden when a Policy is created by passing\nit as a keyword argument to the constructor.  Policy objects are immutable,\nbut a new Policy object can be created with only certain values changed by\ncalling the Policy instance with keyword arguments.  Policy objects can\nalso be added, producing a new Policy object in which the non-default\nattributes set in the right hand operand overwrite those specified in the\nleft operand.\n\nSettable attributes:\n\nraise_on_defect     -- If true, then defects should be raised as errors.\n                       Default: False.\n\nlinesep             -- string containing the value to use as separation\n                       between output lines.  Default '\\n'.\n\ncte_type            -- Type of allowed content transfer encodings\n\n                       7bit  -- ASCII only\n                       8bit  -- Content-Transfer-Encoding: 8bit is allowed\n\n                       Default: 8bit.  Also controls the disposition of\n                       (RFC invalid) binary data in headers; see the\n                       documentation of the binary_fold method.\n\nmax_line_length     -- maximum length of lines, excluding 'linesep',\n                       during serialization.  None or 0 means no line\n                       wrapping is done.  Default is 78.\n\nmangle_from_        -- a flag that, when True escapes From_ lines in the\n                       body of the message by putting a '>' in front of\n                       them. This is used when the message is being\n                       serialized by a generator. Default: False.\n\nmessage_factory     -- the class to use to create new message objects.\n                       If the value is None, the default is Message.\n\nverify_generated_headers\n                    -- if true, the generator verifies that each header\n                       they are properly folded, so that a parser won't\n                       treat it as multiple headers, start-of-body, or\n                       part of another header.\n                       This is a check against custom Header & fold()\n                       implementations.\n")
+               STORE_NAME               4 (__doc__)
+
+ 178           LOAD_CONST               2 (False)
+               STORE_NAME               5 (raise_on_defect)
+
+ 179           LOAD_CONST               3 ('\n')
+               STORE_NAME               6 (linesep)
+
+ 180           LOAD_CONST               4 ('8bit')
+               STORE_NAME               7 (cte_type)
+
+ 181           LOAD_SMALL_INT          78
+               STORE_NAME               8 (max_line_length)
+
+ 182           LOAD_CONST               2 (False)
+               STORE_NAME               9 (mangle_from_)
+
+ 183           LOAD_CONST               5 (None)
+               STORE_NAME              10 (message_factory)
+
+ 184           LOAD_CONST               6 (True)
+               STORE_NAME              11 (verify_generated_headers)
+
+ 186           LOAD_CONST               7 (<code object handle_defect at 0x00000204BA0A7630, file "email\_policybase.py", line 186>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (handle_defect)
+
+ 205           LOAD_CONST               8 (<code object register_defect at 0x00000204BA0FC7A0, file "email\_policybase.py", line 205>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (register_defect)
+
+ 218           LOAD_CONST               9 (<code object header_max_count at 0x00000204BA6B8FF0, file "email\_policybase.py", line 218>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (header_max_count)
+
+ 237           LOAD_NAME               15 (abc)
+               LOAD_ATTR               32 (abstractmethod)
+
+ 238           LOAD_CONST              10 (<code object header_source_parse at 0x00000204BA6B90D0, file "email\_policybase.py", line 237>)
+               MAKE_FUNCTION
+
+ 237           CALL                     0
+
+ 238           STORE_NAME              17 (header_source_parse)
+
+ 247           LOAD_NAME               15 (abc)
+               LOAD_ATTR               32 (abstractmethod)
+
+ 248           LOAD_CONST              11 (<code object header_store_parse at 0x00000204BA6B91B0, file "email\_policybase.py", line 247>)
+               MAKE_FUNCTION
+
+ 247           CALL                     0
+
+ 248           STORE_NAME              18 (header_store_parse)
+
+ 254           LOAD_NAME               15 (abc)
+               LOAD_ATTR               32 (abstractmethod)
+
+ 255           LOAD_CONST              12 (<code object header_fetch_parse at 0x00000204BA6B9290, file "email\_policybase.py", line 254>)
+               MAKE_FUNCTION
+
+ 254           CALL                     0
+
+ 255           STORE_NAME              19 (header_fetch_parse)
+
+ 265           LOAD_NAME               15 (abc)
+               LOAD_ATTR               32 (abstractmethod)
+
+ 266           LOAD_CONST              13 (<code object fold at 0x00000204BA6B8570, file "email\_policybase.py", line 265>)
+               MAKE_FUNCTION
+
+ 265           CALL                     0
+
+ 266           STORE_NAME              20 (fold)
+
+ 277           LOAD_NAME               15 (abc)
+               LOAD_ATTR               32 (abstractmethod)
+
+ 278           LOAD_CONST              14 (<code object fold_binary at 0x00000204BA6B8030, file "email\_policybase.py", line 277>)
+               MAKE_FUNCTION
+
+ 277           CALL                     0
+
+ 278           STORE_NAME              21 (fold_binary)
+               LOAD_CONST              15 (())
+               STORE_NAME              22 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              23 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object handle_defect at 0x00000204BA0A7630, file "email\_policybase.py", line 186>:
+186           RESUME                   0
+
+201           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (raise_on_defect)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+202           LOAD_FAST_BORROW         2 (defect)
+              RAISE_VARARGS            1
+
+203   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (register_defect + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (obj, defect)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object register_defect at 0x00000204BA0FC7A0, file "email\_policybase.py", line 205>:
+205           RESUME                   0
+
+216           LOAD_FAST_BORROW         1 (obj)
+              LOAD_ATTR                0 (defects)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         2 (defect)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object header_max_count at 0x00000204BA6B8FF0, file "email\_policybase.py", line 218>:
+218           RESUME                   0
+
+235           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object header_source_parse at 0x00000204BA6B90D0, file "email\_policybase.py", line 237>:
+237           RESUME                   0
+
+245           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object header_store_parse at 0x00000204BA6B91B0, file "email\_policybase.py", line 247>:
+247           RESUME                   0
+
+252           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object header_fetch_parse at 0x00000204BA6B9290, file "email\_policybase.py", line 254>:
+254           RESUME                   0
+
+263           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object fold at 0x00000204BA6B8570, file "email\_policybase.py", line 265>:
+265           RESUME                   0
+
+275           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object fold_binary at 0x00000204BA6B8030, file "email\_policybase.py", line 277>:
+277           RESUME                   0
+
+285           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object Compat32 at 0x00000204BA103A60, file "email\_policybase.py", line 288>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 288           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Compat32')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (288)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 291           LOAD_CONST               2 ('+\nThis particular policy is the backward compatibility Policy.  It\nreplicates the behavior of the email package version 5.1.\n')
+               STORE_NAME               4 (__doc__)
+
+ 296           LOAD_CONST               3 (True)
+               STORE_NAME               5 (mangle_from_)
+
+ 298           LOAD_CONST               4 (<code object _sanitize_header at 0x00000204B9FB6D30, file "email\_policybase.py", line 298>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_sanitize_header)
+
+ 310           LOAD_CONST               5 (<code object header_source_parse at 0x00000204BA129DE0, file "email\_policybase.py", line 310>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (header_source_parse)
+
+ 322           LOAD_CONST               6 (<code object header_store_parse at 0x00000204BA092F10, file "email\_policybase.py", line 322>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (header_store_parse)
+
+ 329           LOAD_CONST               7 (<code object header_fetch_parse at 0x00000204BA08B130, file "email\_policybase.py", line 329>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (header_fetch_parse)
+
+ 336           LOAD_CONST               8 (<code object fold at 0x00000204BA08AD30, file "email\_policybase.py", line 336>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (fold)
+
+ 346           LOAD_CONST               9 (<code object fold_binary at 0x00000204BA0AAE70, file "email\_policybase.py", line 346>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (fold_binary)
+
+ 358           LOAD_CONST              10 (<code object _fold at 0x00000204BA3E9980, file "email\_policybase.py", line 358>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (_fold)
+               LOAD_CONST              11 (())
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_CONST              12 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _sanitize_header at 0x00000204B9FB6D30, file "email\_policybase.py", line 298>:
+298           RESUME                   0
+
+301           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         2 (value)
+              LOAD_GLOBAL              2 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+303           LOAD_FAST_BORROW         2 (value)
+              RETURN_VALUE
+
+304   L1:     LOAD_GLOBAL              5 (_has_surrogates + NULL)
+              LOAD_FAST_BORROW         2 (value)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       40 (to L2)
+              NOT_TAKEN
+
+305           LOAD_GLOBAL              6 (header)
+              LOAD_ATTR                8 (Header)
+              PUSH_NULL
+              LOAD_FAST_BORROW         2 (value)
+              LOAD_GLOBAL             10 (_charset)
+              LOAD_ATTR               12 (UNKNOWN8BIT)
+
+306           LOAD_FAST_BORROW         1 (name)
+
+305           LOAD_CONST               0 (('charset', 'header_name'))
+              CALL_KW                  3
+              RETURN_VALUE
+
+308   L2:     LOAD_FAST_BORROW         2 (value)
+              RETURN_VALUE
+
+Disassembly of <code object header_source_parse at 0x00000204BA129DE0, file "email\_policybase.py", line 310>:
+310           RESUME                   0
+
+318           LOAD_FAST_BORROW         1 (sourcelines)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_ATTR                1 (split + NULL|self)
+              LOAD_CONST               1 (':')
+              LOAD_SMALL_INT           1
+              CALL                     2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   35 (name, value)
+
+319           LOAD_CONST               2 ('')
+              LOAD_ATTR                3 (join + NULL|self)
+              LOAD_FAST_BORROW         3 (value)
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         1 (sourcelines)
+              LOAD_CONST               3 (slice(1, None, None))
+              BINARY_OP               26 ([])
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              CALL                     1
+              LOAD_ATTR                5 (lstrip + NULL|self)
+              LOAD_CONST               4 (' \t\r\n')
+              CALL                     1
+              STORE_FAST               3 (value)
+
+320           LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (name, value)
+              LOAD_ATTR                7 (rstrip + NULL|self)
+              LOAD_CONST               5 ('\r\n')
+              CALL                     1
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object header_store_parse at 0x00000204BA092F10, file "email\_policybase.py", line 322>:
+322           RESUME                   0
+
+326           LOAD_GLOBAL              1 (validate_header_name + NULL)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              POP_TOP
+
+327           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, value)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object header_fetch_parse at 0x00000204BA08B130, file "email\_policybase.py", line 329>:
+329           RESUME                   0
+
+334           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_sanitize_header + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, value)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object fold at 0x00000204BA08AD30, file "email\_policybase.py", line 336>:
+336           RESUME                   0
+
+344           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_fold + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, value)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('sanitize',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object fold_binary at 0x00000204BA0AAE70, file "email\_policybase.py", line 346>:
+346           RESUME                   0
+
+355           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_fold + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, value)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (cte_type)
+              LOAD_CONST               1 ('7bit')
+              COMPARE_OP              72 (==)
+              LOAD_CONST               2 (('sanitize',))
+              CALL_KW                  3
+              STORE_FAST               3 (folded)
+
+356           LOAD_FAST_BORROW         3 (folded)
+              LOAD_ATTR                5 (encode + NULL|self)
+              LOAD_CONST               3 ('ascii')
+              LOAD_CONST               4 ('surrogateescape')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _fold at 0x00000204BA3E9980, file "email\_policybase.py", line 358>:
+358           RESUME                   0
+
+359           BUILD_LIST               0
+              STORE_FAST               4 (parts)
+
+360           LOAD_FAST_BORROW         4 (parts)
+              LOAD_ATTR                1 (append + NULL|self)
+              LOAD_CONST               0 ('%s: ')
+              LOAD_FAST_BORROW         1 (name)
+              BINARY_OP                6 (%)
+              CALL                     1
+              POP_TOP
+
+361           LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         2 (value)
+              LOAD_GLOBAL              4 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE      110 (to L3)
+              NOT_TAKEN
+
+362           LOAD_GLOBAL              7 (_has_surrogates + NULL)
+              LOAD_FAST_BORROW         2 (value)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       69 (to L2)
+              NOT_TAKEN
+
+363           LOAD_FAST_BORROW         3 (sanitize)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       41 (to L1)
+              NOT_TAKEN
+
+364           LOAD_GLOBAL              8 (header)
+              LOAD_ATTR               10 (Header)
+              PUSH_NULL
+              LOAD_FAST_BORROW         2 (value)
+
+365           LOAD_GLOBAL             12 (_charset)
+              LOAD_ATTR               14 (UNKNOWN8BIT)
+
+366           LOAD_FAST_BORROW         1 (name)
+
+364           LOAD_CONST               1 (('charset', 'header_name'))
+              CALL_KW                  3
+              STORE_FAST               5 (h)
+              JUMP_FORWARD            46 (to L4)
+
+374   L1:     LOAD_FAST_BORROW         4 (parts)
+              LOAD_ATTR                1 (append + NULL|self)
+              LOAD_FAST_BORROW         2 (value)
+              CALL                     1
+              POP_TOP
+
+375           LOAD_CONST               2 (None)
+              STORE_FAST               5 (h)
+              JUMP_FORWARD            26 (to L4)
+
+377   L2:     LOAD_GLOBAL              8 (header)
+              LOAD_ATTR               10 (Header)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (value, name)
+              LOAD_CONST               3 (('header_name',))
+              CALL_KW                  2
+              STORE_FAST               5 (h)
+              JUMP_FORWARD             2 (to L4)
+
+380   L3:     LOAD_FAST                2 (value)
+              STORE_FAST               5 (h)
+
+381   L4:     LOAD_FAST_BORROW         5 (h)
+              POP_JUMP_IF_NONE        73 (to L6)
+              NOT_TAKEN
+
+384           LOAD_SMALL_INT           0
+              STORE_FAST               6 (maxlinelen)
+
+385           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (max_line_length)
+              POP_JUMP_IF_NONE        13 (to L5)
+              NOT_TAKEN
+
+386           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (max_line_length)
+              STORE_FAST               6 (maxlinelen)
+
+387   L5:     LOAD_FAST_BORROW         4 (parts)
+              LOAD_ATTR                1 (append + NULL|self)
+              LOAD_FAST_BORROW         5 (h)
+              LOAD_ATTR               19 (encode + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               20 (linesep)
+              LOAD_FAST_BORROW         6 (maxlinelen)
+              LOAD_CONST               4 (('linesep', 'maxlinelen'))
+              CALL_KW                  2
+              CALL                     1
+              POP_TOP
+
+388   L6:     LOAD_FAST_BORROW         4 (parts)
+              LOAD_ATTR                1 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               20 (linesep)
+              CALL                     1
+              POP_TOP
+
+389           LOAD_CONST               5 ('')
+              LOAD_ATTR               23 (join + NULL|self)
+              LOAD_FAST_BORROW         4 (parts)
+              CALL                     1
+              RETURN_VALUE

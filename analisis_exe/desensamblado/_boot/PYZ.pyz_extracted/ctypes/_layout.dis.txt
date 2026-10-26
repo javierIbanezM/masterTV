@@ -1,0 +1,1164 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Python implementation of computing the layout of a struct/union\n\nThis code is internal and tightly coupled to the C part. The interface\nmay change at any time.\n')
+              STORE_NAME               0 (__doc__)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (sys)
+              STORE_NAME               1 (sys)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (warnings)
+              STORE_NAME               2 (warnings)
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('CField', 'buffer_info'))
+              IMPORT_NAME              3 (_ctypes)
+              IMPORT_FROM              4 (CField)
+              STORE_NAME               4 (CField)
+              IMPORT_FROM              5 (buffer_info)
+              STORE_NAME               5 (buffer_info)
+              POP_TOP
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              6 (ctypes)
+              STORE_NAME               6 (ctypes)
+
+ 13           LOAD_CONST               3 (<code object round_down at 0x00000204BA0A7630, file "ctypes\_layout.py", line 13>)
+              MAKE_FUNCTION
+              STORE_NAME               7 (round_down)
+
+ 18           LOAD_CONST               4 (<code object round_up at 0x00000204B9FEF0E0, file "ctypes\_layout.py", line 18>)
+              MAKE_FUNCTION
+              STORE_NAME               8 (round_up)
+
+ 23           LOAD_SMALL_INT           1
+              LOAD_NAME                6 (ctypes)
+              LOAD_ATTR               18 (sizeof)
+              PUSH_NULL
+              LOAD_NAME                6 (ctypes)
+              LOAD_ATTR               20 (c_int)
+              CALL                     1
+              LOAD_SMALL_INT           8
+              BINARY_OP                5 (*)
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+              BINARY_OP                3 (<<)
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+              STORE_NAME              11 (_INT_MAX)
+
+ 26           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               5 (<code object StructUnionLayout at 0x00000204BA08AF30, file "ctypes\_layout.py", line 26>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('StructUnionLayout')
+              CALL                     2
+              STORE_NAME              12 (StructUnionLayout)
+
+ 42           LOAD_CONST               7 (<code object get_layout at 0x00000204BA446CF0, file "ctypes\_layout.py", line 42>)
+              MAKE_FUNCTION
+              STORE_NAME              13 (get_layout)
+
+325           LOAD_CONST               8 (<code object padding_spec at 0x00000204BA08B030, file "ctypes\_layout.py", line 325>)
+              MAKE_FUNCTION
+              STORE_NAME              14 (padding_spec)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object round_down at 0x00000204BA0A7630, file "ctypes\_layout.py", line 13>:
+ 13           RESUME                   0
+
+ 14           LOAD_FAST_BORROW         0 (n)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+ 15   L1:     LOAD_FAST_BORROW         1 (multiple)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+ 16   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (n, multiple)
+              BINARY_OP                2 (//)
+              LOAD_FAST_BORROW         1 (multiple)
+              BINARY_OP                5 (*)
+              RETURN_VALUE
+
+Disassembly of <code object round_up at 0x00000204B9FEF0E0, file "ctypes\_layout.py", line 18>:
+ 18           RESUME                   0
+
+ 19           LOAD_FAST_BORROW         0 (n)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+ 20   L1:     LOAD_FAST_BORROW         1 (multiple)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+ 21   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (n, multiple)
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+              LOAD_FAST_BORROW         1 (multiple)
+              BINARY_OP                2 (//)
+              LOAD_FAST_BORROW         1 (multiple)
+              BINARY_OP                5 (*)
+              RETURN_VALUE
+
+Disassembly of <code object StructUnionLayout at 0x00000204BA08AF30, file "ctypes\_layout.py", line 26>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  26           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('StructUnionLayout')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          26
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  27           LOAD_CONST               1 (<code object __init__ at 0x00000204BA083110, file "ctypes\_layout.py", line 27>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+               LOAD_CONST               2 (('align', 'fields', 'format_spec', 'size'))
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA083110, file "ctypes\_layout.py", line 27>:
+ 27           RESUME                   0
+
+ 29           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fields, self)
+              STORE_ATTR               0 (fields)
+
+ 32           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (size, self)
+              STORE_ATTR               1 (size)
+
+ 35           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (align, self)
+              STORE_ATTR               2 (align)
+
+ 39           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (format_spec, self)
+              STORE_ATTR               3 (format_spec)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_layout at 0x00000204BA446CF0, file "ctypes\_layout.py", line 42>:
+  42            RESUME                   0
+
+  70            LOAD_GLOBAL              1 (getattr + NULL)
+                LOAD_FAST_BORROW         0 (cls)
+                LOAD_CONST               1 ('_pack_')
+                LOAD_CONST               2 (None)
+                CALL                     3
+                STORE_FAST               4 (pack)
+
+  72            LOAD_GLOBAL              1 (getattr + NULL)
+                LOAD_FAST_BORROW         0 (cls)
+                LOAD_CONST               3 ('_layout_')
+                LOAD_CONST               2 (None)
+                CALL                     3
+                STORE_FAST               5 (layout)
+
+  73            LOAD_FAST_BORROW         5 (layout)
+                POP_JUMP_IF_NOT_NONE   122 (to L5)
+                NOT_TAKEN
+
+  74            LOAD_GLOBAL              2 (sys)
+                LOAD_ATTR                4 (platform)
+                LOAD_CONST               4 ('win32')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        4 (to L1)
+                NOT_TAKEN
+
+  75            LOAD_CONST               5 (False)
+                STORE_FAST               6 (gcc_layout)
+                JUMP_FORWARD           132 (to L8)
+
+  76    L1:     LOAD_FAST_BORROW         4 (pack)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       87 (to L4)
+                NOT_TAKEN
+
+  77            LOAD_FAST_BORROW         2 (is_struct)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        4 (to L2)
+                NOT_TAKEN
+
+  78            LOAD_CONST               6 ('Structure')
+                STORE_FAST               7 (base_type_name)
+                JUMP_FORWARD             2 (to L3)
+
+  80    L2:     LOAD_CONST               7 ('Union')
+                STORE_FAST               7 (base_type_name)
+
+  81    L3:     LOAD_GLOBAL              6 (warnings)
+                LOAD_ATTR                8 (_deprecated)
+                PUSH_NULL
+
+  82            LOAD_CONST               8 ('_pack_ without _layout_')
+
+  83            LOAD_CONST               9 ("Due to '_pack_', the '")
+                LOAD_FAST_BORROW         0 (cls)
+                LOAD_ATTR               10 (__name__)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 ("' ")
+                LOAD_FAST_BORROW         7 (base_type_name)
+                FORMAT_SIMPLE
+                LOAD_CONST              11 (' will ')
+                BUILD_STRING             5
+
+  84            LOAD_CONST              12 ('use memory layout compatible with MSVC (Windows). ')
+
+  83            BINARY_OP                0 (+)
+
+  85            LOAD_CONST              13 ("If this is intended, set _layout_ to 'ms'. ")
+
+  83            BINARY_OP                0 (+)
+
+  86            LOAD_CONST              14 ('The implicit default is deprecated and slated to become ')
+
+  83            BINARY_OP                0 (+)
+
+  87            LOAD_CONST              15 ('an error in Python {remove}.')
+
+  83            BINARY_OP                0 (+)
+
+  88            LOAD_CONST              44 ((3, 19))
+
+  81            LOAD_CONST              16 (('remove',))
+                CALL_KW                  3
+                POP_TOP
+
+  90            LOAD_CONST               5 (False)
+                STORE_FAST               6 (gcc_layout)
+                JUMP_FORWARD            38 (to L8)
+
+  92    L4:     LOAD_CONST              17 (True)
+                STORE_FAST               6 (gcc_layout)
+                JUMP_FORWARD            35 (to L8)
+
+  93    L5:     LOAD_FAST_BORROW         5 (layout)
+                LOAD_CONST              18 ('ms')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        4 (to L6)
+                NOT_TAKEN
+
+  94            LOAD_CONST               5 (False)
+                STORE_FAST               6 (gcc_layout)
+                JUMP_FORWARD            25 (to L8)
+
+  95    L6:     LOAD_FAST_BORROW         5 (layout)
+                LOAD_CONST              19 ('gcc-sysv')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        4 (to L7)
+                NOT_TAKEN
+
+  96            LOAD_CONST              17 (True)
+                STORE_FAST               6 (gcc_layout)
+                JUMP_FORWARD            15 (to L8)
+
+  98    L7:     LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST              20 ('unknown _layout_: ')
+                LOAD_FAST_BORROW         5 (layout)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 100    L8:     LOAD_GLOBAL              1 (getattr + NULL)
+                LOAD_FAST_BORROW         0 (cls)
+                LOAD_CONST              21 ('_align_')
+                LOAD_SMALL_INT           1
+                CALL                     3
+                STORE_FAST               8 (align)
+
+ 101            LOAD_FAST_BORROW         8 (align)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L9)
+                NOT_TAKEN
+
+ 102            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST              22 ('_align_ must be a non-negative integer')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 103    L9:     LOAD_FAST_BORROW         8 (align)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L10)
+                NOT_TAKEN
+
+ 105            LOAD_SMALL_INT           1
+                STORE_FAST               8 (align)
+
+ 107   L10:     LOAD_FAST_BORROW         3 (base)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       33 (to L11)
+                NOT_TAKEN
+
+ 108            LOAD_GLOBAL             15 (max + NULL)
+                LOAD_GLOBAL             16 (ctypes)
+                LOAD_ATTR               18 (alignment)
+                PUSH_NULL
+                LOAD_FAST_BORROW         3 (base)
+                CALL                     1
+                LOAD_FAST_BORROW         8 (align)
+                CALL                     2
+                STORE_FAST               8 (align)
+
+ 110   L11:     LOAD_GLOBAL             21 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (cls)
+                LOAD_CONST              23 ('_swappedbytes_')
+                CALL                     2
+                STORE_FAST               9 (swapped_bytes)
+
+ 111            LOAD_FAST_BORROW         9 (swapped_bytes)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       21 (to L12)
+                NOT_TAKEN
+
+ 112            LOAD_GLOBAL              2 (sys)
+                LOAD_ATTR               22 (byteorder)
+                LOAD_CONST              24 ('little')
+                COMPARE_OP              72 (==)
+                STORE_FAST              10 (big_endian)
+                JUMP_FORWARD            19 (to L13)
+
+ 114   L12:     LOAD_GLOBAL              2 (sys)
+                LOAD_ATTR               22 (byteorder)
+                LOAD_CONST              25 ('big')
+                COMPARE_OP              72 (==)
+                STORE_FAST              10 (big_endian)
+
+ 116   L13:     LOAD_FAST_BORROW         4 (pack)
+                POP_JUMP_IF_NONE        72 (to L18)
+                NOT_TAKEN
+
+ 117            NOP
+
+ 118   L14:     LOAD_GLOBAL             25 (int + NULL)
+                LOAD_FAST_BORROW         4 (pack)
+                CALL                     1
+                STORE_FAST               4 (pack)
+
+ 121   L15:     LOAD_FAST                4 (pack)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L16)
+                NOT_TAKEN
+
+ 122            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST              27 ('_pack_ must be a non-negative integer')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 123   L16:     LOAD_FAST                4 (pack)
+                LOAD_GLOBAL             28 (_INT_MAX)
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       12 (to L17)
+                NOT_TAKEN
+
+ 124            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST              28 ('_pack_ too big')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 125   L17:     LOAD_FAST                6 (gcc_layout)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L18)
+                NOT_TAKEN
+
+ 126            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST              29 ('_pack_ is not compatible with gcc-sysv layout')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 128   L18:     BUILD_LIST               0
+                STORE_FAST              11 (result_fields)
+
+ 130            LOAD_FAST_BORROW         2 (is_struct)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L19)
+                NOT_TAKEN
+
+ 131            LOAD_CONST              30 ('T{')
+                BUILD_LIST               1
+                STORE_FAST              12 (format_spec_parts)
+                JUMP_FORWARD             3 (to L20)
+
+ 133   L19:     LOAD_CONST              31 ('B')
+                BUILD_LIST               1
+                STORE_FAST              12 (format_spec_parts)
+
+ 135   L20:     LOAD_SMALL_INT           0
+                STORE_FAST              13 (last_field_bit_size)
+
+ 139            LOAD_SMALL_INT           0
+                STORE_FAST              14 (next_bit_offset)
+
+ 140            LOAD_SMALL_INT           0
+                STORE_FAST              15 (next_byte_offset)
+
+ 143            LOAD_SMALL_INT           0
+                STORE_FAST              16 (struct_size)
+
+ 145            LOAD_SMALL_INT           0
+                STORE_FAST              17 (union_size)
+
+ 147            LOAD_FAST_BORROW         3 (base)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       43 (to L22)
+                NOT_TAKEN
+
+ 148            LOAD_GLOBAL             16 (ctypes)
+                LOAD_ATTR               30 (sizeof)
+                PUSH_NULL
+                LOAD_FAST_BORROW         3 (base)
+                CALL                     1
+                STORE_FAST              16 (struct_size)
+
+ 149            LOAD_FAST_BORROW         6 (gcc_layout)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       11 (to L21)
+                NOT_TAKEN
+
+ 150            LOAD_FAST_BORROW        16 (struct_size)
+                LOAD_SMALL_INT           8
+                BINARY_OP                5 (*)
+                STORE_FAST              14 (next_bit_offset)
+                JUMP_FORWARD             2 (to L22)
+
+ 152   L21:     LOAD_FAST               16 (struct_size)
+                STORE_FAST              15 (next_byte_offset)
+
+ 154   L22:     LOAD_FAST               16 (struct_size)
+                STORE_FAST              18 (last_size)
+
+ 155            LOAD_GLOBAL             33 (enumerate + NULL)
+                LOAD_FAST_BORROW         1 (input_fields)
+                CALL                     1
+                GET_ITER
+       L23:     EXTENDED_ARG             3
+                FOR_ITER               770 (to L55)
+                UNPACK_SEQUENCE          2
+                STORE_FAST              19 (i)
+                STORE_FAST              20 (field)
+
+ 156            LOAD_FAST_BORROW         2 (is_struct)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         7 (to L24)
+                NOT_TAKEN
+
+ 158            LOAD_SMALL_INT           0
+                STORE_FAST              13 (last_field_bit_size)
+
+ 159            LOAD_SMALL_INT           0
+                STORE_FAST              14 (next_bit_offset)
+
+ 160            LOAD_SMALL_INT           0
+                STORE_FAST              15 (next_byte_offset)
+
+ 163   L24:     LOAD_GLOBAL             35 (tuple + NULL)
+                LOAD_FAST_BORROW        20 (field)
+                CALL                     1
+                STORE_FAST              20 (field)
+
+ 164            NOP
+
+ 165   L25:     LOAD_FAST_BORROW        20 (field)
+                UNPACK_SEQUENCE          2
+                STORE_FAST              21 (name)
+                STORE_FAST              22 (ctype)
+
+ 182   L26:     LOAD_CONST               5 (False)
+                STORE_FAST              23 (is_bitfield)
+
+ 183            LOAD_GLOBAL             16 (ctypes)
+                LOAD_ATTR               30 (sizeof)
+                PUSH_NULL
+                LOAD_FAST_BORROW        22 (ctype)
+                CALL                     1
+                STORE_FAST              24 (type_size)
+
+ 184            LOAD_FAST_BORROW        24 (type_size)
+                LOAD_SMALL_INT           8
+                BINARY_OP                5 (*)
+                STORE_FAST              25 (bit_size)
+
+ 186   L27:     LOAD_FAST               24 (type_size)
+                LOAD_SMALL_INT           8
+                BINARY_OP                5 (*)
+                STORE_FAST              27 (type_bit_size)
+
+ 187            LOAD_GLOBAL             16 (ctypes)
+                LOAD_ATTR               18 (alignment)
+                PUSH_NULL
+                LOAD_FAST               22 (ctype)
+                CALL                     1
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L28)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_SMALL_INT           1
+       L28:     STORE_FAST              28 (type_align)
+
+ 188            LOAD_FAST               28 (type_align)
+                LOAD_SMALL_INT           8
+                BINARY_OP                5 (*)
+                STORE_FAST              29 (type_bit_align)
+
+ 190            LOAD_FAST                6 (gcc_layout)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      163 (to L35)
+                NOT_TAKEN
+
+ 192            LOAD_FAST                4 (pack)
+                POP_JUMP_IF_NONE         3 (to L29)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+
+ 193   L29:     LOAD_FAST               15 (next_byte_offset)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         3 (to L30)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+
+ 199   L30:     LOAD_GLOBAL             37 (round_down + NULL)
+                LOAD_FAST               14 (next_bit_offset)
+                LOAD_FAST               29 (type_bit_align)
+                CALL                     2
+                STORE_FAST              30 (slot_start_bit)
+
+ 200            LOAD_FAST               30 (slot_start_bit)
+                LOAD_FAST               27 (type_bit_size)
+                BINARY_OP                0 (+)
+                STORE_FAST              31 (slot_end_bit)
+
+ 202            LOAD_FAST               14 (next_bit_offset)
+                LOAD_FAST               25 (bit_size)
+                BINARY_OP                0 (+)
+                STORE_FAST              32 (field_end_bit)
+
+ 203            LOAD_FAST               32 (field_end_bit)
+                LOAD_FAST               31 (slot_end_bit)
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       13 (to L31)
+                NOT_TAKEN
+
+ 206            LOAD_GLOBAL             39 (round_up + NULL)
+                LOAD_FAST               14 (next_bit_offset)
+                LOAD_FAST               29 (type_bit_align)
+                CALL                     2
+                STORE_FAST              14 (next_bit_offset)
+
+ 208   L31:     LOAD_GLOBAL             37 (round_down + NULL)
+                LOAD_FAST               14 (next_bit_offset)
+                LOAD_FAST               29 (type_bit_align)
+                CALL                     2
+                LOAD_SMALL_INT           8
+                BINARY_OP                2 (//)
+                STORE_FAST              33 (offset)
+
+ 209            LOAD_FAST               23 (is_bitfield)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L33)
+                NOT_TAKEN
+
+ 210            LOAD_FAST               14 (next_bit_offset)
+                LOAD_SMALL_INT           8
+                LOAD_FAST               33 (offset)
+                BINARY_OP                5 (*)
+                BINARY_OP               10 (-)
+                STORE_FAST              34 (bit_offset)
+
+ 211            LOAD_FAST               34 (bit_offset)
+                LOAD_FAST               27 (type_bit_size)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_TRUE         3 (to L32)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+       L32:     JUMP_FORWARD            16 (to L34)
+
+ 213   L33:     LOAD_FAST               33 (offset)
+                LOAD_FAST               14 (next_bit_offset)
+                LOAD_SMALL_INT           8
+                BINARY_OP               11 (/)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         3 (to L34)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+
+ 215   L34:     LOAD_FAST               14 (next_bit_offset)
+                LOAD_FAST               25 (bit_size)
+                BINARY_OP               13 (+=)
+                STORE_FAST              14 (next_bit_offset)
+
+ 216            LOAD_GLOBAL             39 (round_up + NULL)
+                LOAD_FAST               14 (next_bit_offset)
+                LOAD_SMALL_INT           8
+                CALL                     2
+                LOAD_SMALL_INT           8
+                BINARY_OP                2 (//)
+                STORE_FAST              16 (struct_size)
+                JUMP_FORWARD           156 (to L43)
+
+ 218   L35:     LOAD_FAST                4 (pack)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L36)
+                NOT_TAKEN
+
+ 219            LOAD_GLOBAL             41 (min + NULL)
+                LOAD_FAST                4 (pack)
+                LOAD_FAST               28 (type_align)
+                CALL                     2
+                STORE_FAST              28 (type_align)
+
+ 226   L36:     LOAD_SMALL_INT           0
+                LOAD_FAST               14 (next_bit_offset)
+                LOAD_FAST               25 (bit_size)
+                BINARY_OP                0 (+)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_TRUE         8 (to L37)
+                NOT_TAKEN
+
+ 227            LOAD_FAST               27 (type_bit_size)
+                LOAD_FAST               13 (last_field_bit_size)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       27 (to L38)
+                NOT_TAKEN
+
+ 231   L37:     LOAD_GLOBAL             39 (round_up + NULL)
+                LOAD_FAST               15 (next_byte_offset)
+                LOAD_FAST               28 (type_align)
+                CALL                     2
+                STORE_FAST              15 (next_byte_offset)
+
+ 233            LOAD_FAST               15 (next_byte_offset)
+                LOAD_FAST               24 (type_size)
+                BINARY_OP               13 (+=)
+                STORE_FAST              15 (next_byte_offset)
+
+ 235            LOAD_FAST               27 (type_bit_size)
+                STORE_FAST              13 (last_field_bit_size)
+
+ 240            LOAD_FAST               13 (last_field_bit_size)
+                UNARY_NEGATIVE
+                STORE_FAST              14 (next_bit_offset)
+
+ 242   L38:     LOAD_FAST               27 (type_bit_size)
+                LOAD_FAST               13 (last_field_bit_size)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         3 (to L39)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+
+ 244   L39:     LOAD_FAST_LOAD_FAST    253 (next_byte_offset, last_field_bit_size)
+                LOAD_SMALL_INT           8
+                BINARY_OP                2 (//)
+                BINARY_OP               10 (-)
+                STORE_FAST              33 (offset)
+
+ 245            LOAD_FAST               23 (is_bitfield)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       24 (to L41)
+                NOT_TAKEN
+
+ 246            LOAD_SMALL_INT           0
+                LOAD_FAST_LOAD_FAST    222 (last_field_bit_size, next_bit_offset)
+                BINARY_OP                0 (+)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_TRUE         3 (to L40)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+
+ 247   L40:     LOAD_FAST_LOAD_FAST    222 (last_field_bit_size, next_bit_offset)
+                BINARY_OP                0 (+)
+                STORE_FAST              34 (bit_offset)
+
+ 248   L41:     LOAD_FAST               27 (type_bit_size)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       16 (to L42)
+                NOT_TAKEN
+
+ 249            LOAD_FAST_LOAD_FAST    222 (last_field_bit_size, next_bit_offset)
+                BINARY_OP                0 (+)
+                LOAD_FAST               27 (type_bit_size)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_TRUE         3 (to L42)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+
+ 251   L42:     LOAD_FAST               14 (next_bit_offset)
+                LOAD_FAST               25 (bit_size)
+                BINARY_OP               13 (+=)
+                STORE_FAST              14 (next_bit_offset)
+
+ 252            LOAD_FAST               15 (next_byte_offset)
+                STORE_FAST              16 (struct_size)
+
+ 254   L43:     LOAD_FAST               23 (is_bitfield)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       25 (to L44)
+                NOT_TAKEN
+                LOAD_FAST               10 (big_endian)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L44)
+                NOT_TAKEN
+
+ 257            LOAD_FAST               27 (type_bit_size)
+                LOAD_FAST               25 (bit_size)
+                BINARY_OP               10 (-)
+                LOAD_FAST_CHECK         34 (bit_offset)
+                BINARY_OP               10 (-)
+                STORE_FAST              34 (bit_offset)
+
+ 260   L44:     LOAD_FAST                2 (is_struct)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      168 (to L48)
+                NOT_TAKEN
+
+ 261            LOAD_FAST               33 (offset)
+                LOAD_FAST               18 (last_size)
+                BINARY_OP               10 (-)
+                STORE_FAST              35 (padding)
+
+ 262            LOAD_FAST               12 (format_spec_parts)
+                LOAD_ATTR               43 (append + NULL|self)
+                LOAD_GLOBAL             45 (padding_spec + NULL)
+                LOAD_FAST               35 (padding)
+                CALL                     1
+                CALL                     1
+                POP_TOP
+
+ 264            LOAD_GLOBAL             47 (buffer_info + NULL)
+                LOAD_FAST               22 (ctype)
+                CALL                     1
+                UNPACK_SEQUENCE          3
+                STORE_FAST              36 (fieldfmt)
+                STORE_FAST              37 (bf_ndim)
+                STORE_FAST              38 (bf_shape)
+
+ 266            LOAD_FAST               38 (bf_shape)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       43 (to L45)
+                NOT_TAKEN
+
+ 267            LOAD_FAST               12 (format_spec_parts)
+                LOAD_ATTR               49 (extend + NULL|self)
+
+ 268            LOAD_CONST              33 ('(')
+
+ 269            LOAD_CONST              34 (',')
+                LOAD_ATTR               51 (join + NULL|self)
+                LOAD_CONST              35 (<code object <genexpr> at 0x00000204BA0FC250, file "ctypes\_layout.py", line 269>)
+                MAKE_FUNCTION
+                LOAD_FAST               38 (bf_shape)
+                GET_ITER
+                CALL                     0
+                CALL                     1
+
+ 270            LOAD_CONST              36 (')')
+
+ 267            BUILD_TUPLE              3
+                CALL                     1
+                POP_TOP
+
+ 273   L45:     LOAD_FAST               36 (fieldfmt)
+                POP_JUMP_IF_NOT_NONE     3 (to L46)
+                NOT_TAKEN
+
+ 274            LOAD_CONST              31 ('B')
+                STORE_FAST              36 (fieldfmt)
+
+ 275   L46:     LOAD_GLOBAL             53 (isinstance + NULL)
+                LOAD_FAST               21 (name)
+                LOAD_GLOBAL             54 (bytes)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L47)
+                NOT_TAKEN
+
+ 278            LOAD_GLOBAL             27 (TypeError + NULL)
+
+ 279            LOAD_CONST              37 ('field ')
+                LOAD_FAST               21 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST              38 (': name must be a string, not bytes')
+                BUILD_STRING             3
+
+ 278            CALL                     1
+                RAISE_VARARGS            1
+
+ 280   L47:     LOAD_FAST               12 (format_spec_parts)
+                LOAD_ATTR               43 (append + NULL|self)
+                LOAD_FAST               36 (fieldfmt)
+                FORMAT_SIMPLE
+                LOAD_CONST              39 (':')
+                LOAD_FAST               21 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              39 (':')
+                BUILD_STRING             4
+                CALL                     1
+                POP_TOP
+
+ 282   L48:     LOAD_FAST               11 (result_fields)
+                LOAD_ATTR               43 (append + NULL|self)
+                LOAD_GLOBAL             57 (CField + NULL)
+
+ 283            LOAD_FAST               21 (name)
+
+ 284            LOAD_FAST               22 (ctype)
+
+ 285            LOAD_FAST               24 (type_size)
+
+ 286            LOAD_FAST               33 (offset)
+
+ 287            LOAD_FAST               23 (is_bitfield)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L49)
+                NOT_TAKEN
+                LOAD_FAST               25 (bit_size)
+                JUMP_FORWARD             1 (to L50)
+       L49:     LOAD_CONST               2 (None)
+
+ 288   L50:     LOAD_FAST               23 (is_bitfield)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L51)
+                NOT_TAKEN
+                LOAD_FAST_CHECK         34 (bit_offset)
+                JUMP_FORWARD             1 (to L52)
+       L51:     LOAD_CONST               2 (None)
+
+ 289   L52:     LOAD_FAST               19 (i)
+
+ 293            LOAD_CONST              17 (True)
+
+ 282            LOAD_CONST              40 (('name', 'type', 'byte_size', 'byte_offset', 'bit_size', 'bit_offset', 'index', '_internal_use'))
+                CALL_KW                  8
+                CALL                     1
+                POP_TOP
+
+ 295            LOAD_FAST               23 (is_bitfield)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L53)
+                NOT_TAKEN
+                LOAD_FAST                6 (gcc_layout)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        10 (to L53)
+                NOT_TAKEN
+
+ 296            LOAD_FAST               27 (type_bit_size)
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_TRUE         3 (to L53)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                RAISE_VARARGS            1
+
+ 298   L53:     LOAD_GLOBAL             15 (max + NULL)
+                LOAD_FAST                8 (align)
+                LOAD_FAST               28 (type_align)
+                CALL                     2
+                STORE_FAST               8 (align)
+
+ 299            LOAD_FAST               16 (struct_size)
+                STORE_FAST              18 (last_size)
+
+ 300            LOAD_FAST                2 (is_struct)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        4 (to L54)
+                NOT_TAKEN
+                EXTENDED_ARG             2
+                JUMP_BACKWARD          758 (to L23)
+
+ 301   L54:     LOAD_GLOBAL             15 (max + NULL)
+                LOAD_FAST               16 (struct_size)
+                LOAD_FAST               17 (union_size)
+                CALL                     2
+                STORE_FAST              17 (union_size)
+                EXTENDED_ARG             3
+                JUMP_BACKWARD          773 (to L23)
+
+ 155   L55:     END_FOR
+                POP_ITER
+
+ 303            LOAD_FAST_BORROW         2 (is_struct)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        4 (to L56)
+                NOT_TAKEN
+
+ 304            LOAD_FAST               16 (struct_size)
+                STORE_FAST              39 (total_size)
+                JUMP_FORWARD             2 (to L57)
+
+ 306   L56:     LOAD_FAST               17 (union_size)
+                STORE_FAST              39 (total_size)
+
+ 309   L57:     LOAD_GLOBAL             39 (round_up + NULL)
+                LOAD_FAST_BORROW        39 (total_size)
+                LOAD_FAST_BORROW         8 (align)
+                CALL                     2
+                STORE_FAST              40 (aligned_size)
+
+ 312            LOAD_FAST_BORROW         2 (is_struct)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       53 (to L58)
+                NOT_TAKEN
+
+ 313            LOAD_FAST_BORROW        40 (aligned_size)
+                LOAD_FAST_BORROW        39 (total_size)
+                BINARY_OP               10 (-)
+                STORE_FAST              35 (padding)
+
+ 314            LOAD_FAST_BORROW        12 (format_spec_parts)
+                LOAD_ATTR               43 (append + NULL|self)
+                LOAD_GLOBAL             45 (padding_spec + NULL)
+                LOAD_FAST_BORROW        35 (padding)
+                CALL                     1
+                CALL                     1
+                POP_TOP
+
+ 315            LOAD_FAST_BORROW        12 (format_spec_parts)
+                LOAD_ATTR               43 (append + NULL|self)
+                LOAD_CONST              41 ('}')
+                CALL                     1
+                POP_TOP
+
+ 317   L58:     LOAD_GLOBAL             59 (StructUnionLayout + NULL)
+
+ 318            LOAD_FAST_BORROW        11 (result_fields)
+
+ 319            LOAD_FAST_BORROW        40 (aligned_size)
+
+ 320            LOAD_FAST_BORROW         8 (align)
+
+ 321            LOAD_CONST              42 ('')
+                LOAD_ATTR               51 (join + NULL|self)
+                LOAD_FAST_BORROW        12 (format_spec_parts)
+                CALL                     1
+
+ 317            LOAD_CONST              43 (('fields', 'size', 'align', 'format_spec'))
+                CALL_KW                  4
+                RETURN_VALUE
+
+  --   L59:     PUSH_EXC_INFO
+
+ 119            LOAD_GLOBAL             26 (TypeError)
+                LOAD_GLOBAL             12 (ValueError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       13 (to L60)
+                NOT_TAKEN
+                POP_TOP
+
+ 120            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST              26 ('_pack_ must be an integer')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 119   L60:     RERAISE                  0
+
+  --   L61:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L62:     PUSH_EXC_INFO
+
+ 166            LOAD_GLOBAL             12 (ValueError)
+                LOAD_GLOBAL             26 (TypeError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE      125 (to L74)
+                NOT_TAKEN
+                POP_TOP
+
+ 167   L63:     NOP
+
+ 168   L64:     LOAD_FAST               20 (field)
+                UNPACK_SEQUENCE          3
+                STORE_FAST              21 (name)
+                STORE_FAST              22 (ctype)
+                STORE_FAST              25 (bit_size)
+       L65:     JUMP_FORWARD            37 (to L71)
+
+  --   L66:     PUSH_EXC_INFO
+
+ 169            LOAD_GLOBAL             12 (ValueError)
+                LOAD_GLOBAL             26 (TypeError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       18 (to L69)
+                NOT_TAKEN
+                STORE_FAST              26 (exc)
+
+ 170   L67:     LOAD_GLOBAL             13 (ValueError + NULL)
+
+ 171            LOAD_CONST              45 ('_fields_ must be a sequence of (name, C type) pairs or (name, C type, bit size) triples')
+
+ 170            CALL                     1
+
+ 172            LOAD_FAST               26 (exc)
+
+ 170            RAISE_VARARGS            2
+
+  --   L68:     LOAD_CONST               2 (None)
+                STORE_FAST              26 (exc)
+                DELETE_FAST             26 (exc)
+                RERAISE                  1
+
+ 169   L69:     RERAISE                  0
+
+  --   L70:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 173   L71:     LOAD_CONST              17 (True)
+                STORE_FAST              23 (is_bitfield)
+
+ 174            LOAD_FAST               25 (bit_size)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       16 (to L72)
+                NOT_TAKEN
+
+ 175            LOAD_GLOBAL             13 (ValueError + NULL)
+
+ 176            LOAD_CONST              32 ('number of bits invalid for bit field ')
+                LOAD_FAST               21 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+
+ 175            CALL                     1
+                RAISE_VARARGS            1
+
+ 177   L72:     LOAD_GLOBAL             16 (ctypes)
+                LOAD_ATTR               30 (sizeof)
+                PUSH_NULL
+                LOAD_FAST               22 (ctype)
+                CALL                     1
+                STORE_FAST              24 (type_size)
+
+ 178            LOAD_FAST               25 (bit_size)
+                LOAD_FAST               24 (type_size)
+                LOAD_SMALL_INT           8
+                BINARY_OP                5 (*)
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       16 (to L73)
+                NOT_TAKEN
+
+ 179            LOAD_GLOBAL             13 (ValueError + NULL)
+
+ 180            LOAD_CONST              32 ('number of bits invalid for bit field ')
+                LOAD_FAST               21 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+
+ 179            CALL                     1
+                RAISE_VARARGS            1
+
+ 178   L73:     POP_EXCEPT
+                EXTENDED_ARG             3
+                JUMP_BACKWARD_NO_INTERRUPT 991 (to L27)
+
+ 166   L74:     RERAISE                  0
+
+  --   L75:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L14 to L15 -> L59 [0]
+  L25 to L26 -> L62 [1]
+  L59 to L61 -> L61 [1] lasti
+  L62 to L63 -> L75 [2] lasti
+  L64 to L65 -> L66 [2]
+  L65 to L66 -> L75 [2] lasti
+  L66 to L67 -> L70 [3] lasti
+  L67 to L68 -> L68 [3] lasti
+  L68 to L70 -> L70 [3] lasti
+  L70 to L73 -> L75 [2] lasti
+  L74 to L75 -> L75 [2] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FC250, file "ctypes\_layout.py", line 269>:
+ 269           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                16 (to L3)
+               STORE_FAST               1 (n)
+               LOAD_GLOBAL              1 (str + NULL)
+               LOAD_FAST_BORROW         1 (n)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object padding_spec at 0x00000204BA08B030, file "ctypes\_layout.py", line 325>:
+325           RESUME                   0
+
+326           LOAD_FAST_BORROW         0 (padding)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+327           LOAD_CONST               1 ('')
+              RETURN_VALUE
+
+328   L1:     LOAD_FAST_BORROW         0 (padding)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+329           LOAD_CONST               2 ('x')
+              RETURN_VALUE
+
+330   L2:     LOAD_FAST_BORROW         0 (padding)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('x')
+              BUILD_STRING             2
+              RETURN_VALUE

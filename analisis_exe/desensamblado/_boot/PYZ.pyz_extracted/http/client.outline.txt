@@ -1,0 +1,280 @@
+<module>()  line 1
+    _encode(data, name)  line 161
+    __annotate__(format)  line 175
+    _strip_ipv6_iface(enc_name)  line 175
+    HTTPMessage()  line 183
+        HTTPMessage.getallmatchingheaders(self, name)  line 190
+    _read_headers(fp)  line 213
+    _parse_header_lines(header_lines, _class)  line 231
+    parse_headers(fp, _class)  line 245
+    HTTPResponse()  line 252
+        HTTPResponse.__init__(self, sock, debuglevel, method, url)  line 261
+        HTTPResponse._read_status(self)  line 291
+        HTTPResponse.begin(self)  line 324
+        HTTPResponse._check_close(self)  line 396
+        HTTPResponse._close_conn(self)  line 425
+        HTTPResponse.close(self)  line 430
+        HTTPResponse.flush(self)  line 442
+        HTTPResponse.readable(self)  line 447
+        HTTPResponse.isclosed(self)  line 453
+        HTTPResponse.read(self, amt)  line 463
+        HTTPResponse.readinto(self, b)  line 503
+        HTTPResponse._read_next_chunk_size(self)  line 537
+        HTTPResponse._read_and_discard_trailer(self)  line 553
+        HTTPResponse._get_chunk_left(self)  line 567
+        HTTPResponse._read_chunked(self, amt)  line 591
+        HTTPResponse._readinto_chunked(self, b)  line 611
+        HTTPResponse._safe_read(self, amt)  line 635
+        HTTPResponse._safe_readinto(self, b)  line 647
+        HTTPResponse.read1(self, n)  line 655
+        HTTPResponse.peek(self, n)  line 674
+        HTTPResponse.readline(self, limit)  line 683
+        HTTPResponse._read1_chunked(self, n)  line 700
+        HTTPResponse._peek_chunked(self, n)  line 714
+        HTTPResponse.fileno(self)  line 727
+        HTTPResponse.getheader(self, name, default)  line 730
+        HTTPResponse.getheaders(self)  line 750
+        HTTPResponse.__iter__(self)  line 758
+        HTTPResponse.info(self)  line 763
+        HTTPResponse.geturl(self)  line 786
+        HTTPResponse.getcode(self)  line 798
+    _create_https_context(http_version)  line 806
+    HTTPConnection()  line 819
+        HTTPConnection._is_textIO(stream)  line 829
+        HTTPConnection._get_content_length(body, method)  line 835
+        HTTPConnection.__init__(self, host, port, timeout, source_address, blocksize)  line 867
+        HTTPConnection.set_tunnel(self, host, port, headers)  line 890
+            HTTPConnection.set_tunnel.<locals>.<genexpr>(.0)  line 921
+        HTTPConnection._get_hostport(self, host, port)  line 926
+        HTTPConnection.set_debuglevel(self, level)  line 946
+        HTTPConnection._wrap_ipv6(self, ip)  line 949
+        HTTPConnection._tunnel(self)  line 954
+        HTTPConnection.get_proxy_response_headers(self)  line 986
+        HTTPConnection.connect(self)  line 1000
+        HTTPConnection.close(self)  line 1015
+        HTTPConnection.send(self, data)  line 1029
+        HTTPConnection._output(self, s)  line 1066
+        HTTPConnection._read_readable(self, readable)  line 1073
+        HTTPConnection._send_output(self, message_body, encode_chunked)  line 1084
+        HTTPConnection.putrequest(self, method, url, skip_host, skip_accept_encoding)  line 1138
+        HTTPConnection._encode_request(self, request)  line 1265
+        HTTPConnection._validate_method(self, method)  line 1269
+        HTTPConnection._validate_path(self, url)  line 1278
+        HTTPConnection._validate_host(self, host)  line 1286
+        HTTPConnection.putheader(self, header)  line 1294
+        HTTPConnection.endheaders(self, message_body, encode_chunked)  line 1322
+        HTTPConnection.request(self, method, url, body, headers, encode_chunked)  line 1335
+        HTTPConnection._send_request(self, method, url, body, headers, encode_chunked)  line 1340
+            HTTPConnection._send_request.<locals>.<genexpr>(.0)  line 1342
+        HTTPConnection.getresponse(self)  line 1386
+    HTTPSConnection()  line 1454
+        HTTPSConnection.__init__(self, host, port, timeout, source_address, context, blocksize)  line 1459
+        HTTPSConnection.connect(self)  line 1469
+    HTTPException()  line 1484
+    NotConnected()  line 1489
+    InvalidURL()  line 1492
+    UnknownProtocol()  line 1495
+        UnknownProtocol.__init__(self, version)  line 1496
+    UnknownTransferEncoding()  line 1500
+    UnimplementedFileMode()  line 1503
+    IncompleteRead()  line 1506
+        IncompleteRead.__init__(self, partial, expected)  line 1507
+        IncompleteRead.__repr__(self)  line 1511
+    ImproperConnectionState()  line 1520
+    CannotSendRequest()  line 1523
+    CannotSendHeader()  line 1526
+    ResponseNotReady()  line 1529
+    BadStatusLine()  line 1532
+        BadStatusLine.__init__(self, line)  line 1533
+    LineTooLong()  line 1539
+        LineTooLong.__init__(self, line_type)  line 1540
+    RemoteDisconnected()  line 1544
+        RemoteDisconnected.__init__(self)  line 1545
+
+--- strings ---
+'HTTP/1.1 client library\n\n<intro stuff goes here>\n<other stuff, too>\n\nHTTPConnection goes through a number of "states", which define when a client\nmay legally make another request or fetch the response for a particular\nrequest. This diagram details these state transitions:\n\n    (null)\n      |\n      | HTTPConnection()\n      v\n    Idle\n      |\n      | putrequest()\n      v\n    Request-started\n      |\n      | ( putheader() )*  endheaders()\n      v\n    Request-sent\n      |\\_____________________________\n      |                              | getresponse() raises\n      | response = getresponse()     | ConnectionError\n      v                              v\n    Unread-response                Idle\n    [Response-headers-read]\n      |\\____________________\n      |                     |\n      | response.read()     | putrequest()\n      v                     v\n    Idle                  Req-started-unread-response\n                     ______/|\n                   /        |\n   response.read() |        | ( putheader() )*  endheaders()\n                   v        v\n       Request-started    Req-sent-unread-response\n                            |\n                            | response.read()\n                            v\n                          Request-sent\n\nThis diagram presents the following rules:\n  -- a second request may not be started until {response-headers-read}\n  -- a response [object] cannot be retrieved until {request-sent}\n  -- there is no differentiation between an unread response body and a\n     partially read response body\n\nNote: this enforcement is applied by the HTTPConnection class. The\n      HTTPResponse class does not enforce this state machine, which\n      implies sophisticated clients may accelerate the request/response\n      pipeline. Caution should be taken, though: accelerating the states\n      beyond the above pattern may imply knowledge of the server\'s\n      connection-close behavior for certain requests. For example, it\n      is impossible to tell whether the server will close the connection\n      UNTIL the response headers have been read; this means that further\n      requests cannot be placed into the pipeline until it is known that\n      the server will NOT be closing the connection.\n\nLogical State                  __state            __response\n-------------                  -------            ----------\nIdle                           _CS_IDLE           None\nRequest-started                _CS_REQ_STARTED    None\nRequest-sent                   _CS_REQ_SENT       None\nUnread-response                _CS_IDLE           <response_class>\nReq-started-unread-response    _CS_REQ_STARTED    <response_class>\nReq-sent-unread-response       _CS_REQ_SENT       <response_class>\n'
+'HTTPResponse'
+'HTTPConnection'
+'HTTPException'
+'NotConnected'
+'UnknownProtocol'
+'UnknownTransferEncoding'
+'UnimplementedFileMode'
+'IncompleteRead'
+'InvalidURL'
+'ImproperConnectionState'
+'CannotSendRequest'
+'CannotSendHeader'
+'ResponseNotReady'
+'BadStatusLine'
+'LineTooLong'
+'RemoteDisconnected'
+'UNKNOWN'
+'Idle'
+'Request-started'
+'Request-sent'
+'[\x00- \x7f]'
+'[\x00-\x1f]'
+'Call data.encode("latin-1") but show a better error message.'
+'latin-1'
+' ('
+'.20'
+') is not valid Latin-1. Use '
+".encode('utf-8') if you want to send it encoded in UTF-8."
+'enc_name'
+'return'
+'Remove interface scope from IPv6 address.'
+'HTTPMessage'
+'Find all header lines matching a given header name.\n\nLook through the list of headers and find all lines matching a given\nheader name (and their continuation lines).  A list of the lines is\nreturned, without interpretation.  If the header does not occur, an\nempty list is returned.  If the header occurs multiple times, all\noccurrences are returned.  Case is not important in the header name.\n\n'
+'HTTPMessage'
+'Reads potential header lines into a list from a file pointer.\n\nLength of line is limited by _MAXLINE, and number of\nheaders is limited by _MAXHEADERS.\n'
+'header line'
+'got more than %d headers'
+'\nParses only RFC2822 headers from header lines.\n\nemail Parser wants to see strings rather than bytes.\nBut a TextIOWrapper around self.rfile would buffer too many bytes\nfrom the stream, bytes which we later need to read as bytes.\nSo we read the correct bytes here, as bytes, for email Parser\nto parse.\n\n'
+'iso-8859-1'
+'Parses only RFC2822 headers from a file pointer.'
+'HTTPResponse'
+'rb'
+'iso-8859-1'
+'status line'
+'reply:'
+'Remote end closed connection without response'
+'HTTP/'
+'headers:'
+'HTTP/1.'
+'header:'
+'transfer-encoding'
+'chunked'
+'content-length'
+'HEAD'
+'connection'
+'close'
+'keep-alive'
+'proxy-connection'
+'Always returns True'
+'True if the connection is closed.'
+'Read and return the response body, or up to the next amt bytes.'
+'HEAD'
+'Read up to len(b) bytes into bytearray b and return the number\nof bytes read.\n'
+'HEAD'
+'chunk size'
+'trailer line'
+'Read the number of bytes requested.\n\nThis function should be used when <amt> bytes "should" be present for\nreading. If the bytes are truly not available (due to EOF), then the\nIncompleteRead exception can be used to detect the problem.\n'
+'Same as _safe_read, but for reading into a buffer.'
+'Read with at most one underlying system call.  If at least one\nbyte is buffered, return that instead.\n'
+'HEAD'
+'HEAD'
+'HEAD'
+'Returns the value of the header matching *name*.\n\nIf there are multiple matching headers, the values are\ncombined into a single string separated by commas and spaces.\n\nIf no matching header is found, returns *default* or None if\nthe *default* is not specified.\n\nIf the headers are unknown, raises http.client.ResponseNotReady.\n\n'
+'__iter__'
+', '
+'Return list of (header, value) tuples.'
+"Returns an instance of the class mimetools.Message containing\nmeta-information associated with the URL.\n\nWhen the method is HTTP, these headers are those returned by\nthe server at the head of the retrieved HTML page (including\nContent-Length and Content-Type).\n\nWhen the method is FTP, a Content-Length header will be\npresent if (as is now usual) the server passed back a file\nlength in response to the FTP retrieval request. A\nContent-Type header will be present if the MIME type can be\nguessed.\n\nWhen the method is local-file, returned headers will include\na Date representing the file's last-modified time, a\nContent-Length giving file size, and a Content-Type\ncontaining a guess at the file's type. See also the\ndescription of the mimetools module.\n\n"
+'Return the real URL of the page.\n\nIn some cases, the HTTP server redirects a client to another\nURL. The urlopen() function handles this transparently, but in\nsome cases the caller needs to know which URL the client was\nredirected to. The geturl() method can be used to get at this\nredirected URL.\n\n'
+'Return the HTTP status code that was sent with the response,\nor None if the URL is not an HTTP URL.\n\n'
+'http/1.1'
+'HTTPConnection'
+'HTTP/1.1'
+'Test whether a file-like object is a text or a binary stream.\n        '
+'Get the content-length based on the body.\n\nIf the body is None, we set Content-Length: 0 for methods that expect\na body (RFC 7230, Section 3.3.2). We also set the Content-Length for\nany method if the body is a str or bytes-like object and not a file.\n'
+'read'
+'Set up host and port for HTTP CONNECT tunnelling.\n\nIn a connection that uses HTTP CONNECT tunnelling, the host passed to\nthe constructor is used as a proxy server that relays all communication\nto the endpoint passed to `set_tunnel`. This done by sending an HTTP\nCONNECT request to the proxy server when the connection is established.\n\nThis method must be called before the HTTP connection has been\nestablished.\n\nThe headers argument should be a mapping of extra HTTP headers to send\nwith the CONNECT request.\n\nAs HTTP/1.1 is used for HTTP CONNECT tunnelling request, as per the RFC\n(https://tools.ietf.org/html/rfc7231#section-4.3.6), a HTTP Host:\nheader must be provided, matching the authority-form of the request\ntarget provided as the destination for the CONNECT request. If a\nHTTP Host: header is not provided via the headers argument, one\nis generated and transmitted automatically.\n'
+"Can't set up tunnel for established connection"
+'host'
+'idna'
+'ascii'
+'%s:%d'
+'Host'
+"nonnumeric port: '%s'"
+'idna'
+'ascii'
+': '
+'\r\n'
+'latin-1'
+'header:'
+'Tunnel connection failed: '
+'\nReturns a dictionary with the headers of the response\nreceived from the proxy server to the CONNECT request\nsent to set the tunnel.\n\nIf the CONNECT request was not sent, the method returns None.\n'
+'Connect to the host and port specified in __init__.'
+'http.client.connect'
+'Close the connection to the HTTP server.'
+"Send 'data' to the server.\n``data`` can be a string object, a bytes object, an array object, a\nfile-like object that supports a .read() method, or an iterable object.\n"
+'send:'
+'read'
+'sending a readable'
+'encoding file using iso-8859-1'
+'iso-8859-1'
+'http.client.send'
+'data should be a bytes-like object or an iterable, got %r'
+'Add a line of output to the current request buffer.\n\nAssumes that the line does *not* end with \\r\\n.\n'
+'reading a readable'
+'encoding file using iso-8859-1'
+'iso-8859-1'
+'Send the currently buffered request and clear the buffer.\n\nAppends an extra \\r\\n to the buffer.\nA message_body may be specified, to be appended to the request.\n'
+'read'
+'message_body should be a bytes-like object or an iterable, got %r'
+'Zero length chunk ignored'
+'\r\n'
+'ascii'
+"Send a request to the server.\n\n'method' specifies an HTTP request method, e.g. 'GET'.\n'url' specifies the object being requested, e.g. '/index.html'.\n'skip_host' if True does not add automatically a 'Host:' header\n'skip_accept_encoding' if True does not add automatically an\n   'Accept-Encoding:' header\n"
+'http'
+'ascii'
+'idna'
+'Host'
+'Accept-Encoding'
+'identity'
+'ascii'
+'Validate a method name for putrequest.'
+"method can't contain control characters. "
+' (found at least '
+'Validate a url for putrequest.'
+"URL can't contain control characters. "
+' (found at least '
+"Validate a host so it doesn't contain control characters."
+"URL can't contain control characters. "
+' (found at least '
+"Send a request header line to the server.\n\nFor example: h.putheader('Accept', 'text/html')\n"
+'encode'
+'ascii'
+'Invalid header name '
+'latin-1'
+'Invalid header value '
+'encode_chunked'
+'Indicate that the last header line has been sent to the server.\n\nThis method sends the request to the server.  The optional message_body\nargument can be used to pass a message body associated with the\nrequest.\n'
+'Send a complete request to the server.'
+'host'
+'skip_host'
+'accept-encoding'
+'skip_accept_encoding'
+'content-length'
+'transfer-encoding'
+'Unable to determine size of %r'
+'Transfer-Encoding'
+'chunked'
+'Content-Length'
+'body'
+'Get the response from the server.\n\nIf the HTTPConnection is in the correct state, returns an\ninstance of HTTPResponse or of whatever object is returned by\nthe response_class variable.\n\nIf a request has not been sent or if a previous response has\nnot be handled, ResponseNotReady is raised.  If the HTTP\nresponse indicates that the connection should be closed, then\nit will be closed before the response is returned.  When the\nconnection is closed, the underlying socket is closed.\n'
+'HTTPSConnection'
+'This class allows communication via SSL.'
+'timeout'
+'source_address'
+'context'
+'blocksize'
+'Connect to a host on a given (SSL) port.'
+'HTTPSConnection'
+'HTTPException'
+'NotConnected'
+'InvalidURL'
+'UnknownProtocol'
+'UnknownTransferEncoding'
+'UnimplementedFileMode'
+'IncompleteRead'
+', %i more expected'
+'%s(%i bytes read%s)'
+'ImproperConnectionState'
+'CannotSendRequest'
+'CannotSendHeader'
+'ResponseNotReady'
+'BadStatusLine'
+'LineTooLong'
+'got more than %d bytes when reading %s'
+'RemoteDisconnected'

@@ -1,0 +1,37 @@
+<module>()  line 1
+    Parser()  line 16
+        Parser.__init__(self, _class, policy)  line 17
+        Parser.parse(self, fp, headersonly)  line 41
+        Parser.parsestr(self, text, headersonly)  line 56
+    HeaderParser()  line 67
+        HeaderParser.parse(self, fp, headersonly)  line 68
+        HeaderParser.parsestr(self, text, headersonly)  line 71
+    BytesParser()  line 75
+        BytesParser.__init__(self)  line 77
+        BytesParser.parse(self, fp, headersonly)  line 95
+        BytesParser.parsebytes(self, text, headersonly)  line 110
+    BytesHeaderParser()  line 122
+        BytesHeaderParser.parse(self, fp, headersonly)  line 123
+        BytesHeaderParser.parsebytes(self, text, headersonly)  line 126
+
+--- strings ---
+'A parser of RFC 2822 and MIME email messages.'
+'Parser'
+'HeaderParser'
+'BytesParser'
+'BytesHeaderParser'
+'Parser'
+'policy'
+"Parser of RFC 2822 and MIME email messages.\n\nCreates an in-memory object tree representing the email message, which\ncan then be manipulated and turned over to a Generator to return the\ntextual representation of the message.\n\nThe string must be formatted as a block of RFC 2822 headers and header\ncontinuation lines, optionally preceded by a 'Unix-from' header.  The\nheader block is terminated either by the end of the string or by a\nblank line.\n\n_class is the class to instantiate for new message objects when they\nmust be created.  This class must have a constructor that can take\nzero arguments.  Default is Message.Message.\n\nThe policy keyword specifies a policy object that controls a number of\naspects of the parser's operation.  The default policy maintains\nbackward compatibility.\n\n"
+'Create a message structure from the data in a file.\n\nReads all the data from the file and returns the root of the message\nstructure.  Optional headersonly is a flag specifying whether to stop\nparsing after reading the headers or not.  The default is False,\nmeaning it parses the entire contents of the file.\n'
+'Create a message structure from a string.\n\nReturns the root of the message structure.  Optional headersonly is a\nflag specifying whether to stop parsing after reading the headers or\nnot.  The default is False, meaning it parses the entire contents of\nthe file.\n'
+'HeaderParser'
+'BytesParser'
+"Parser of binary RFC 2822 and MIME email messages.\n\nCreates an in-memory object tree representing the email message, which\ncan then be manipulated and turned over to a Generator to return the\ntextual representation of the message.\n\nThe input must be formatted as a block of RFC 2822 headers and header\ncontinuation lines, optionally preceded by a 'Unix-from' header.  The\nheader block is terminated either by the end of the input or by a\nblank line.\n\n_class is the class to instantiate for new message objects when they\nmust be created.  This class must have a constructor that can take\nzero arguments.  Default is Message.Message.\n"
+'Create a message structure from the data in a binary file.\n\nReads all the data from the file and returns the root of the message\nstructure.  Optional headersonly is a flag specifying whether to stop\nparsing after reading the headers or not.  The default is False,\nmeaning it parses the entire contents of the file.\n'
+'ascii'
+'surrogateescape'
+'Create a message structure from a byte string.\n\nReturns the root of the message structure.  Optional headersonly is a\nflag specifying whether to stop parsing after reading the headers or\nnot.  The default is False, meaning it parses the entire contents of\nthe file.\n'
+'ASCII'
+'surrogateescape'
+'BytesHeaderParser'

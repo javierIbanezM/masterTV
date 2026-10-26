@@ -1,0 +1,251 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME os; STORE_NAME os
+4: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME time; STORE_NAME time
+5: LOAD_SMALL_INT 0; LOAD_CONST ('Path',); IMPORT_NAME pathlib; IMPORT_FROM Path; STORE_NAME Path
+7: LOAD_SMALL_INT 0; LOAD_CONST ('Qt', 'QTimer', 'QUrl'); IMPORT_NAME PyQt6.QtCore; IMPORT_FROM Qt; STORE_NAME Qt; IMPORT_FROM QTimer; STORE_NAME QTimer; IMPORT_FROM QUrl; STORE_NAME QUrl
+8: LOAD_SMALL_INT 0; LOAD_CONST ('QDesktopServices', 'QPixmap'); IMPORT_NAME PyQt6.QtGui; IMPORT_FROM QDesktopServices; STORE_NAME QDesktopServices; IMPORT_FROM QPixmap; STORE_NAME QPixmap
+9: LOAD_SMALL_INT 0; LOAD_CONST ('QCheckBox', 'QFormLayout', 'QGroupBox', 'QHBoxLayout', 'QLabel', 'QPushButton', 'QSpinBox', 'QVBoxLayout', 'QSizePolicy'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QCheckBox; STORE_NAME QCheckBox; IMPORT_FROM QFormLayout; STORE_NAME QFormLayout; IMPORT_FROM QGroupBox; STORE_NAME QGroupBox; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QSpinBox; STORE_NAME QSpinBox; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout; IMPORT_FROM QSizePolicy; STORE_NAME QSizePolicy
+12: LOAD_SMALL_INT 3; LOAD_CONST ('paths', 'scrcpy'); IMPORT_NAME; IMPORT_FROM paths; STORE_NAME paths; IMPORT_FROM scrcpy; STORE_NAME scrcpy
+13: LOAD_SMALL_INT 3; LOAD_CONST ('save_bytes',); IMPORT_NAME adb; IMPORT_FROM save_bytes; STORE_NAME save_bytes
+14: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+15: LOAD_SMALL_INT 2; LOAD_CONST ('info', 'warn'); IMPORT_NAME common; IMPORT_FROM info; STORE_NAME info; IMPORT_FROM warn; STORE_NAME warn
+18: LOAD_BUILD_CLASS; LOAD_CONST <code ScreenTab>; MAKE_FUNCTION; LOAD_CONST 'ScreenTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME ScreenTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF ScreenTab() @18
+  18: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'ScreenTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 18; STORE_NAME __firstlineno__
+  19: LOAD_CONST 'Pantalla y escritorio remoto'; STORE_NAME title
+  21: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code ScreenTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  100: LOAD_CONST <code ScreenTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ScreenTab._dir>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _dir
+  106: LOAD_CONST <code ScreenTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ScreenTab._stamp>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _stamp
+  110: LOAD_CONST <code ScreenTab.on_activated>; MAKE_FUNCTION; STORE_NAME on_activated
+  113: LOAD_CONST <code ScreenTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  116: LOAD_CONST <code ScreenTab._refresh_scrcpy_note>; MAKE_FUNCTION; STORE_NAME _refresh_scrcpy_note
+  126: LOAD_CONST <code ScreenTab.capture>; MAKE_FUNCTION; STORE_NAME capture
+  135: LOAD_CONST <code ScreenTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ScreenTab._show>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _show
+  142: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code ScreenTab.resizeEvent>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME resizeEvent
+  147: LOAD_CONST <code ScreenTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ScreenTab._toggle_live>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _toggle_live
+  157: LOAD_CONST <code ScreenTab._live_tick>; MAKE_FUNCTION; STORE_NAME _live_tick
+  175: LOAD_CONST <code ScreenTab.open_remote>; MAKE_FUNCTION; STORE_NAME open_remote
+  209: LOAD_CONST <code ScreenTab.record>; MAKE_FUNCTION; STORE_NAME record; LOAD_CONST ('_busy', '_last_png', '_procs', 'audio', 'awake', 'bitrate', 'dur', 'fps', 'full', 'live', 'max_size', 'preview', 'scrcpy_btn', 'scrcpy_note', 'screen_off', 'timer', 'top'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF ScreenTab.__init__(self,ctx) @21
+    22: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_DEREF self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    23: BUILD_LIST; LOAD_DEREF self; STORE_ATTR _procs
+    24: LOAD_CONST False; LOAD_DEREF self; STORE_ATTR _busy
+    25: LOAD_CONST None; LOAD_DEREF self; STORE_ATTR _last_png
+    26: LOAD_GLOBAL QTimer + NULL; LOAD_DEREF self; CALL; LOAD_DEREF self; STORE_ATTR timer
+    27: LOAD_DEREF self; LOAD_ATTR timer; LOAD_ATTR timeout; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR _live_tick; CALL
+    29: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_DEREF self; CALL; STORE_FAST lay
+    31: LOAD_GLOBAL QVBoxLayout + NULL; CALL; STORE_FAST left
+    32: LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Sin captura'; CALL; LOAD_DEREF self; STORE_ATTR preview
+    33: LOAD_DEREF self; LOAD_ATTR preview; LOAD_ATTR setAlignment + NULL|self; LOAD_GLOBAL Qt; LOAD_ATTR AlignmentFlag; LOAD_ATTR AlignCenter; CALL
+    34: LOAD_DEREF self; LOAD_ATTR preview; LOAD_ATTR setMinimumSize + NULL|self; LOAD_CONST 480; LOAD_CONST 270; CALL
+    35: LOAD_DEREF self; LOAD_ATTR preview; LOAD_ATTR setSizePolicy + NULL|self; LOAD_GLOBAL QSizePolicy; LOAD_ATTR Policy; LOAD_ATTR Expanding; LOAD_GLOBAL QSizePolicy; LOAD_ATTR Policy; LOAD_ATTR Expanding; CALL
+    36: LOAD_DEREF self; LOAD_ATTR preview; LOAD_ATTR setStyleSheet + NULL|self; LOAD_CONST 'background:#111; border:1px solid #444;'; CALL
+    37: LOAD_FAST_BORROW left; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR preview; LOAD_SMALL_INT 1; CALL
+    38: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST row
+    39: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '📷 Captura'; CALL; STORE_FAST b
+    40: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR capture; CALL
+    41: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Vista previa en vivo (≈1 fps)'; CALL; LOAD_DEREF self; STORE_ATTR live
+    42: LOAD_DEREF self; LOAD_ATTR live; LOAD_ATTR toggled; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR _toggle_live; CALL
+    43: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Abrir carpeta de capturas'; CALL; STORE_FAST folder
+    44: LOAD_FAST_BORROW folder; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    45: LOAD_FAST_BORROW b; LOAD_DEREF self; LOAD_ATTR live; LOAD_FAST_BORROW folder; BUILD_TUPLE; GET_ITER; <L1054>; FOR_ITER ->1098; STORE_FAST w
+    46: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW w; CALL; JUMP_BACKWARD ->1054
+    45: <L1098>; END_FOR; POP_ITER
+    47: LOAD_FAST_BORROW row; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    48: LOAD_FAST_BORROW left; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW row; CALL
+    49: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW left; LOAD_SMALL_INT 3; CALL
+    51: LOAD_GLOBAL QVBoxLayout + NULL; CALL; STORE_FAST right
+    52: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Escritorio remoto (scrcpy)'; CALL; STORE_FAST box
+    53: LOAD_GLOBAL QFormLayout + NULL; LOAD_FAST_BORROW box; CALL; STORE_FAST f
+    54: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR max_size
+    55: LOAD_DEREF self; LOAD_ATTR max_size; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 0; LOAD_CONST 3840; CALL
+    56: LOAD_DEREF self; LOAD_ATTR max_size; LOAD_ATTR setSpecialValueText + NULL|self; LOAD_CONST 'Nativa'; CALL
+    57: LOAD_DEREF self; LOAD_ATTR max_size; LOAD_ATTR setSuffix + NULL|self; LOAD_CONST ' px'; CALL
+    58: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR bitrate
+    59: LOAD_DEREF self; LOAD_ATTR bitrate; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 1; LOAD_SMALL_INT 64; CALL
+    60: LOAD_DEREF self; LOAD_ATTR bitrate; LOAD_ATTR setValue + NULL|self; LOAD_SMALL_INT 8; CALL
+    61: LOAD_DEREF self; LOAD_ATTR bitrate; LOAD_ATTR setSuffix + NULL|self; LOAD_CONST ' Mbps'; CALL
+    62: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR fps
+    63: LOAD_DEREF self; LOAD_ATTR fps; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 5; LOAD_SMALL_INT 120; CALL
+    64: LOAD_DEREF self; LOAD_ATTR fps; LOAD_ATTR setValue + NULL|self; LOAD_SMALL_INT 30; CALL
+    65: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Reenviar audio al PC'; CALL; LOAD_DEREF self; STORE_ATTR audio
+    66: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Mantener la TV despierta'; CALL; LOAD_DEREF self; STORE_ATTR awake
+    67: LOAD_DEREF self; LOAD_ATTR awake; LOAD_ATTR setChecked + NULL|self; LOAD_CONST True; CALL
+    68: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Apagar la pantalla de la TV durante la sesión'; CALL; LOAD_DEREF self; STORE_ATTR screen_off
+    69: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Pantalla completa'; CALL; LOAD_DEREF self; STORE_ATTR full
+    70: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Siempre visible'; CALL; LOAD_DEREF self; STORE_ATTR top
+    71: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Resolución máx.'; LOAD_DEREF self; LOAD_ATTR max_size; CALL
+    72: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Bitrate'; LOAD_DEREF self; LOAD_ATTR bitrate; CALL
+    73: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'FPS máx.'; LOAD_DEREF self; LOAD_ATTR fps; CALL
+    74: LOAD_DEREF self; LOAD_ATTR audio; LOAD_DEREF self; LOAD_ATTR awake; LOAD_DEREF self; LOAD_ATTR screen_off; LOAD_DEREF self; LOAD_ATTR full; LOAD_DEREF self; LOAD_ATTR top; BUILD_TUPLE; GET_ITER; <L2294>; FOR_ITER ->2338; STORE_FAST w
+    75: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_FAST_BORROW w; CALL; JUMP_BACKWARD ->2294
+    74: <L2338>; END_FOR; POP_ITER
+    76: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '🖥 Abrir escritorio remoto'; CALL; LOAD_DEREF self; STORE_ATTR scrcpy_btn
+    77: LOAD_DEREF self; LOAD_ATTR scrcpy_btn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR open_remote; CALL
+    78: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_DEREF self; LOAD_ATTR scrcpy_btn; CALL
+    79: LOAD_GLOBAL QLabel + NULL; CALL; LOAD_DEREF self; STORE_ATTR scrcpy_note
+    80: LOAD_DEREF self; LOAD_ATTR scrcpy_note; LOAD_ATTR setWordWrap + NULL|self; LOAD_CONST True; CALL
+    81: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_DEREF self; LOAD_ATTR scrcpy_note; CALL
+    82: LOAD_FAST_BORROW right; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW box; CALL
+    84: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Grabación de pantalla (screenrecord)'; CALL; STORE_FAST rec
+    85: LOAD_GLOBAL QHBoxLayout + NULL; LOAD_FAST_BORROW rec; CALL; STORE_FAST rl
+    86: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR dur
+    87: LOAD_DEREF self; LOAD_ATTR dur; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 3; LOAD_SMALL_INT 180; CALL
+    88: LOAD_DEREF self; LOAD_ATTR dur; LOAD_ATTR setValue + NULL|self; LOAD_SMALL_INT 15; CALL
+    89: LOAD_DEREF self; LOAD_ATTR dur; LOAD_ATTR setSuffix + NULL|self; LOAD_CONST ' s'; CALL
+    90: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '⏺ Grabar y descargar'; CALL; STORE_FAST rb
+    91: LOAD_FAST_BORROW rb; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR record; CALL
+    92: LOAD_FAST_BORROW rl; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR dur; CALL
+    93: LOAD_FAST_BORROW rl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW rb; CALL
+    94: LOAD_FAST_BORROW right; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW rec; CALL
+    95: LOAD_FAST_BORROW right; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    96: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW right; LOAD_SMALL_INT 2; CALL
+    97: LOAD_DEREF self; LOAD_ATTR _refresh_scrcpy_note + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ScreenTab.__init__.<locals>.<lambda>() @44
+      44: LOAD_GLOBAL QDesktopServices; LOAD_ATTR openUrl; LOAD_GLOBAL QUrl; LOAD_ATTR fromLocalFile; LOAD_GLOBAL str + NULL; LOAD_DEREF self; LOAD_ATTR _dir + NULL|self; CALL; CALL; CALL; CALL; RETURN_VALUE
+
+    DEF ScreenTab._dir(self) @100
+    101: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'capture_dir'; CALL; STORE_FAST custom
+    102: LOAD_FAST_BORROW custom; TO_BOOL; POP_JUMP_IF_FALSE ->114; LOAD_GLOBAL Path + NULL; LOAD_FAST_BORROW custom; CALL; JUMP_FORWARD ->154; <L114>; LOAD_GLOBAL paths; LOAD_ATTR default_capture_dir; CALL; <L154>; STORE_FAST d
+    103: LOAD_FAST_BORROW d; LOAD_ATTR mkdir + NULL|self; LOAD_CONST True; LOAD_CONST True; LOAD_CONST ('parents', 'exist_ok'); CALL_KW
+    104: LOAD_FAST_BORROW d; RETURN_VALUE
+
+    DEF ScreenTab._stamp(self) @106
+    107: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; TO_BOOL; POP_JUMP_IF_FALSE ->122; LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; LOAD_ATTR name; JUMP_FORWARD ->124; <L122>; LOAD_CONST 'tv'; <L124>; LOAD_ATTR replace + NULL|self; LOAD_CONST ' '; LOAD_CONST '_'; CALL; STORE_FAST name
+    108: LOAD_FAST_BORROW name; FORMAT_SIMPLE; LOAD_CONST '_'; LOAD_GLOBAL time; LOAD_ATTR strftime; LOAD_CONST '%Y%m%d_%H%M%S'; CALL; FORMAT_SIMPLE; BUILD_STRING; RETURN_VALUE
+
+    DEF ScreenTab.on_activated(self) @110
+    111: LOAD_FAST_BORROW self; LOAD_ATTR _refresh_scrcpy_note + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScreenTab.on_device_changed(self) @113
+    114: LOAD_FAST_BORROW self; LOAD_ATTR live; LOAD_ATTR setChecked + NULL|self; LOAD_CONST False; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScreenTab._refresh_scrcpy_note(self) @116
+    117: LOAD_GLOBAL paths; LOAD_ATTR find_scrcpy; LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'scrcpy_path'; CALL; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->126; LOAD_CONST None; <L126>; CALL; STORE_FAST found
+    118: LOAD_FAST_BORROW found; TO_BOOL; POP_JUMP_IF_FALSE ->216
+    119: LOAD_FAST_BORROW self; LOAD_ATTR scrcpy_note; LOAD_ATTR setText + NULL|self; LOAD_CONST 'scrcpy: '; LOAD_FAST_BORROW found; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+    121: <L216>; LOAD_FAST_BORROW self; LOAD_ATTR scrcpy_note; LOAD_ATTR setText + NULL|self
+    122: LOAD_CONST '⚠ scrcpy no encontrado. Colócalo en tools/scrcpy/ (junto a la app) o indica su ruta en Configuración.'
+    121: CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScreenTab.capture(self) @126
+    127: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab.capture.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    133: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab.capture.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ScreenTab.capture.<locals>.done(png) @127
+      128: LOAD_DEREF self; LOAD_ATTR _show + NULL|self; LOAD_FAST_BORROW png; CALL
+      129: LOAD_DEREF self; LOAD_ATTR _dir + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR _stamp + NULL|self; CALL; FORMAT_SIMPLE; LOAD_CONST '.png'; BUILD_STRING; BINARY_OP /; STORE_FAST p
+      130: LOAD_GLOBAL save_bytes + NULL; LOAD_FAST_BORROW_LOAD_FAST_BORROW p, png; CALL
+      131: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Captura guardada: '; LOAD_FAST_BORROW p; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ScreenTab.capture.<locals>.<lambda>(s) @133
+      133: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR screencap + NULL|self; LOAD_FAST_BORROW s; CALL; RETURN_VALUE
+
+    DEF ScreenTab._show(self,png) @135
+    136: LOAD_FAST_BORROW_LOAD_FAST_BORROW png, self; STORE_ATTR _last_png
+    137: LOAD_GLOBAL QPixmap + NULL; CALL; STORE_FAST pm
+    138: LOAD_FAST_BORROW pm; LOAD_ATTR loadFromData + NULL|self; LOAD_FAST_BORROW png; CALL
+    139: LOAD_FAST_BORROW self; LOAD_ATTR preview; LOAD_ATTR setPixmap + NULL|self; LOAD_FAST_BORROW pm; LOAD_ATTR scaled + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR preview; LOAD_ATTR size + NULL|self; CALL; LOAD_GLOBAL Qt; LOAD_ATTR AspectRatioMode; LOAD_ATTR KeepAspectRatio
+    140: LOAD_GLOBAL Qt; LOAD_ATTR TransformationMode; LOAD_ATTR SmoothTransformation
+    139: CALL; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScreenTab.resizeEvent(self,e) @142
+    143: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR resizeEvent + NULL|self; LOAD_FAST_BORROW e; CALL
+    144: LOAD_FAST_BORROW self; LOAD_ATTR _last_png; TO_BOOL; POP_JUMP_IF_FALSE ->128
+    145: LOAD_FAST_BORROW self; LOAD_ATTR _show + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR _last_png; CALL; LOAD_CONST None; RETURN_VALUE
+    144: <L128>; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScreenTab._toggle_live(self,on) @147
+    148: LOAD_FAST_BORROW on; TO_BOOL; POP_JUMP_IF_FALSE ->210
+    149: LOAD_FAST_BORROW self; LOAD_ATTR serial + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->120
+    150: LOAD_FAST_BORROW self; LOAD_ATTR live; LOAD_ATTR setChecked + NULL|self; LOAD_CONST False; CALL
+    151: LOAD_CONST None; RETURN_VALUE
+    152: <L120>; LOAD_FAST_BORROW self; LOAD_ATTR _live_tick + NULL|self; CALL
+    153: LOAD_FAST_BORROW self; LOAD_ATTR timer; LOAD_ATTR start + NULL|self; LOAD_CONST 1000; CALL; LOAD_CONST None; RETURN_VALUE
+    155: <L210>; LOAD_FAST_BORROW self; LOAD_ATTR timer; LOAD_ATTR stop + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScreenTab._live_tick(self) @157
+    158: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR serial; STORE_DEREF s
+    159: LOAD_DEREF self; LOAD_ATTR _busy; TO_BOOL; POP_JUMP_IF_TRUE ->102; LOAD_DEREF s; TO_BOOL; POP_JUMP_IF_TRUE ->106
+    160: <L102>; LOAD_CONST None; RETURN_VALUE
+    161: <L106>; LOAD_CONST True; LOAD_DEREF self; STORE_ATTR _busy
+    163: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab._live_tick.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    167: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab._live_tick.<locals>.err>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST err
+    172: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW s; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab._live_tick.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW_LOAD_FAST_BORROW done, err; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ScreenTab._live_tick.<locals>.done(png) @163
+      164: LOAD_CONST False; LOAD_DEREF self; STORE_ATTR _busy
+      165: LOAD_DEREF self; LOAD_ATTR _show + NULL|self; LOAD_FAST_BORROW png; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ScreenTab._live_tick.<locals>.err(msg) @167
+      168: LOAD_CONST False; LOAD_DEREF self; STORE_ATTR _busy
+      169: LOAD_DEREF self; LOAD_ATTR live; LOAD_ATTR setChecked + NULL|self; LOAD_CONST False; CALL
+      170: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST '✖ Vista previa detenida: '; LOAD_FAST_BORROW msg; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ScreenTab._live_tick.<locals>.<lambda>() @172
+      172: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR screencap + NULL|self; LOAD_DEREF s; CALL; RETURN_VALUE
+
+    DEF ScreenTab.open_remote(self) @175
+    176: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_FAST d
+    177: LOAD_FAST_BORROW d; TO_BOOL; POP_JUMP_IF_TRUE ->92
+    178: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin dispositivo'; LOAD_CONST 'Selecciona una TV primero.'; CALL; RETURN_VALUE
+    179: <L92>; LOAD_GLOBAL paths; LOAD_ATTR find_scrcpy; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR settings; LOAD_ATTR get + NULL|self; LOAD_CONST 'scrcpy_path'; CALL; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->216; LOAD_CONST None; <L216>; CALL; STORE_FAST exe
+    180: LOAD_FAST_BORROW exe; TO_BOOL; POP_JUMP_IF_TRUE ->268
+    181: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'scrcpy no encontrado'
+    182: LOAD_CONST 'Descarga scrcpy (https://github.com/Genymobile/scrcpy/releases) y descomprímelo en la carpeta tools/scrcpy/ junto a la aplicación, o indica su ruta en Configuración.'
+    181: CALL; RETURN_VALUE
+    185: <L268>; LOAD_GLOBAL scrcpy; LOAD_ATTR ScrcpyOptions
+    186: LOAD_DEREF self; LOAD_ATTR max_size; LOAD_ATTR value + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR bitrate; LOAD_ATTR value + NULL|self; CALL
+    187: LOAD_DEREF self; LOAD_ATTR fps; LOAD_ATTR value + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR audio; LOAD_ATTR isChecked + NULL|self; CALL; TO_BOOL; UNARY_NOT
+    188: LOAD_DEREF self; LOAD_ATTR awake; LOAD_ATTR isChecked + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR screen_off; LOAD_ATTR isChecked + NULL|self; CALL
+    189: LOAD_DEREF self; LOAD_ATTR full; LOAD_ATTR isChecked + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR top; LOAD_ATTR isChecked + NULL|self; CALL
+    185: LOAD_CONST ('max_size', 'bitrate_mbps', 'max_fps', 'no_audio', 'stay_awake', 'screen_off', 'fullscreen', 'always_on_top'); CALL_KW; STORE_FAST opts
+    191: LOAD_GLOBAL scrcpy; LOAD_ATTR launch; LOAD_FAST_BORROW exe; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR path; LOAD_FAST_BORROW d; LOAD_ATTR serial; LOAD_FAST_BORROW d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST ' ('; LOAD_FAST_BORROW d; LOAD_ATTR host; FORMAT_SIMPLE; LOAD_CONST ')'; BUILD_STRING; LOAD_FAST_BORROW opts; CALL; STORE_DEREF proc
+    194: LOAD_DEREF self; LOAD_ATTR _procs; LOAD_ATTR append + NULL|self; LOAD_DEREF proc; CALL
+    195: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Escritorio remoto abierto para '; LOAD_FAST d; LOAD_ATTR name; FORMAT_SIMPLE; BUILD_STRING; CALL
+    197: LOAD_FAST proc; BUILD_TUPLE; LOAD_CONST <code ScreenTab.open_remote.<locals>.wait>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST wait
+    201: LOAD_FAST self; BUILD_TUPLE; LOAD_CONST <code ScreenTab.open_remote.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    206: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_LOAD_FAST wait, done; CALL; LOAD_CONST None; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    192: LOAD_GLOBAL OSError; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->1208; STORE_FAST e
+    193: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'No se pudo lanzar scrcpy'; LOAD_GLOBAL str + NULL; LOAD_FAST e; CALL; CALL; SWAP; POP_EXCEPT; LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RETURN_VALUE
+    None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+    192: <L1208>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+      DEF ScreenTab.open_remote.<locals>.wait() @197
+      198: LOAD_DEREF proc; LOAD_ATTR communicate + NULL|self; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST _, err
+      199: LOAD_DEREF proc; LOAD_ATTR returncode; LOAD_FAST_BORROW err; LOAD_ATTR decode + NULL|self; LOAD_CONST 'utf-8'; LOAD_CONST 'replace'; CALL; LOAD_ATTR strip + NULL|self; CALL; BUILD_TUPLE; RETURN_VALUE
+
+      DEF ScreenTab.open_remote.<locals>.done(res) @201
+      202: LOAD_FAST_BORROW res; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST rc, err
+      203: LOAD_FAST_BORROW rc; LOAD_CONST (0, None); CONTAINS_OP not in; POP_JUMP_IF_FALSE ->102
+      204: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'scrcpy terminó con error ('; LOAD_FAST_BORROW rc; FORMAT_SIMPLE; LOAD_CONST '): '; LOAD_FAST_BORROW err; LOAD_CONST -400; LOAD_CONST None; BINARY_SLICE; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+      203: <L102>; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScreenTab.record(self) @209
+    210: LOAD_DEREF self; LOAD_ATTR dur; LOAD_ATTR value + NULL|self; CALL; STORE_DEREF secs
+    211: LOAD_CONST '/sdcard/atvmaster_rec.mp4'; STORE_DEREF remote
+    212: LOAD_DEREF self; LOAD_ATTR _dir + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR _stamp + NULL|self; CALL; FORMAT_SIMPLE; LOAD_CONST '.mp4'; BUILD_STRING; BINARY_OP /; STORE_DEREF local
+    213: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Grabando '; LOAD_DEREF secs; FORMAT_SIMPLE; LOAD_CONST 's en la TV…'; BUILD_STRING; CALL
+    215: LOAD_FAST_BORROW local; LOAD_FAST_BORROW remote; LOAD_FAST_BORROW secs; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab.record.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    226: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW work; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code ScreenTab.record.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF ScreenTab.record.<locals>.work(s) @215
+      216: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; STORE_FAST a
+      217: LOAD_FAST_BORROW a; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'screenrecord --time-limit '; LOAD_DEREF secs; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_DEREF remote; FORMAT_SIMPLE; BUILD_STRING; LOAD_DEREF secs; LOAD_SMALL_INT 30; BINARY_OP +; LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+      218: LOAD_FAST_BORROW r; LOAD_ATTR ok; TO_BOOL; POP_JUMP_IF_TRUE ->234; LOAD_CONST 'not found'; LOAD_FAST_BORROW r; LOAD_ATTR text; LOAD_ATTR lower + NULL|self; CALL; CONTAINS_OP in; POP_JUMP_IF_FALSE ->234
+      219: LOAD_GLOBAL RuntimeError + NULL; LOAD_CONST 'Esta TV no incluye screenrecord'; CALL; RAISE_VARARGS
+      220: <L234>; LOAD_FAST_BORROW a; LOAD_ATTR pull + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF remote; LOAD_GLOBAL str + NULL; LOAD_DEREF local; CALL; CALL; STORE_FAST p
+      221: LOAD_FAST_BORROW a; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'rm -f '; LOAD_DEREF remote; FORMAT_SIMPLE; BUILD_STRING; CALL
+      222: LOAD_FAST_BORROW p; LOAD_ATTR ok; TO_BOOL; POP_JUMP_IF_TRUE ->410
+      223: LOAD_GLOBAL RuntimeError + NULL; LOAD_FAST_BORROW p; LOAD_ATTR text; CALL; RAISE_VARARGS
+      224: <L410>; LOAD_GLOBAL str + NULL; LOAD_DEREF local; CALL; RETURN_VALUE
+
+      DEF ScreenTab.record.<locals>.<lambda>(p) @226
+      226: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Grabación guardada: '; LOAD_FAST_BORROW p; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE

@@ -1,0 +1,174 @@
+<module>()  line 1
+    _set_module(module)  line 24
+    _Context()  line 52
+        _Context.__init__(self, filters)  line 53
+        _Context.copy(self)  line 57
+        _Context._record_warning(self, msg)  line 63
+    _GlobalContext()  line 67
+        _GlobalContext.__init__(self)  line 68
+        _GlobalContext._filters(self)  line 71
+    _get_context()  line 89
+    _set_context(context)  line 98
+    _new_context()  line 103
+    _get_filters()  line 111
+    _filters_mutated_lock_held()  line 117
+    showwarning(message, category, filename, lineno, file, line)  line 121
+    formatwarning(message, category, filename, lineno, line)  line 127
+    _showwarnmsg_impl(msg)  line 133
+    _formatwarnmsg_impl(msg)  line 153
+    _showwarnmsg(msg)  line 217
+    _formatwarnmsg(msg)  line 240
+    filterwarnings(action, message, category, module, lineno, append)  line 254
+    simplefilter(action, category, lineno, append)  line 294
+    _filters_mutated()  line 313
+    _add_filter(append)  line 320
+    resetwarnings()  line 337
+    _OptionError()  line 344
+    _processoptions(args)  line 350
+    _setoption(arg)  line 359
+    _getaction(action)  line 388
+    _getcategory(category)  line 398
+    _is_internal_filename(filename)  line 419
+    _is_filename_to_skip(filename, skip_file_prefixes)  line 423
+        _is_filename_to_skip.<locals>.<genexpr>(.0)  line 424
+    _is_internal_frame(frame)  line 427
+    _next_external_frame(frame, skip_file_prefixes)  line 432
+    warn(message, category, stacklevel, source, skip_file_prefixes)  line 443
+    warn_explicit(message, category, filename, lineno, module, registry, module_globals, source)  line 498
+    WarningMessage()  line 571
+        WarningMessage.__init__(self, message, category, filename, lineno, file, line, source)  line 576
+        WarningMessage.__str__(self)  line 587
+    catch_warnings()  line 593
+        catch_warnings.__init__(self, record, module, action, category, lineno, append)  line 613
+        catch_warnings.__repr__(self)  line 627
+        catch_warnings.__enter__(self)  line 636
+        catch_warnings.__exit__(self)  line 665
+    deprecated()  line 678
+        deprecated.__annotate__(format)  line 720
+        deprecated.__init__(self, message, category, stacklevel)  line 720
+        deprecated.__call__(self, arg)  line 736
+            deprecated.__call__.<locals>.__new__(cls)  line 751
+            deprecated.__call__.<locals>.__init_subclass__()  line 771
+            deprecated.__call__.<locals>.__init_subclass__()  line 780
+            deprecated.__call__.<locals>.wrapper()  line 794
+    _deprecated(name, message, remove, _version)  line 814
+    _warn_unawaited_coroutine(coro)  line 834
+        _warn_unawaited_coroutine.<locals>.extract()  line 840
+    _setup_defaults()  line 858
+
+--- strings ---
+'Python part of the warnings subsystem.'
+'catch_warnings'
+'deprecated'
+'default'
+'_Context'
+'_Context'
+'_GlobalContext'
+'_GlobalContext'
+'warnings_context'
+'Return the current list of filters.  This is a non-public API used by\nmodule functions and by the unit tests.'
+'Hook to write a warning to a file; replace if you like.'
+'Function to format a warning the standard way.'
+': '
+'  %s\n'
+'Object allocated at (most recent call last):\n'
+'  File "'
+'", lineno '
+'    %s\n'
+': Enable tracemalloc to get the object allocation traceback\n'
+'Hook to write a warning to a file; replace if you like.'
+'warnings.showwarning() must be set to a function or method'
+'Function to format a warning the standard way.'
+'Insert an entry into the list of warnings filters (at the front).\n\n\'action\' -- one of "error", "ignore", "always", "all", "default", "module",\n            or "once"\n\'message\' -- a regex that the warning message must match\n\'category\' -- a class that the warning must be a subclass of\n\'module\' -- a regex that the module name must match\n\'lineno\' -- an integer line number, 0 matches all warnings\n\'append\' -- if true, append to the list of filters\n'
+'invalid action: '
+'message must be a string'
+'category must be a Warning subclass'
+'module must be a string'
+'lineno must be an int'
+'lineno must be an int >= 0'
+'Insert a simple entry into the list of warnings filters (at the front).\n\nA simple filter matches all modules and messages.\n\'action\' -- one of "error", "ignore", "always", "all", "default", "module",\n            or "once"\n\'category\' -- a class that the warning must be a subclass of\n\'lineno\' -- an integer line number, 0 matches all warnings\n\'append\' -- if true, append to the list of filters\n'
+'invalid action: '
+'lineno must be an int'
+'lineno must be an int >= 0'
+'Clear the list of warning filters, so that no filters are active.'
+'_OptionError'
+'Exception used by option processing helpers.'
+'_OptionError'
+'Invalid -W option ignored:'
+'too many fields (max 5): '
+'\\z'
+'invalid lineno '
+'default'
+'invalid action: '
+'invalid module name: '
+'unknown warning category: '
+'invalid warning category: '
+'importlib'
+'_bootstrap'
+'Signal whether the frame is an internal CPython implementation detail.'
+"Find the next frame that doesn't involve Python or user internals."
+'skip_file_prefixes'
+'Issue a warning, or maybe ignore it or raise an exception.'
+"category must be a Warning subclass, not '{:s}'"
+'skip_file_prefixes must be a tuple of strs.'
+'<sys>'
+'__name__'
+'<string>'
+'__warningregistry__'
+'<unknown>'
+'.py'
+'version'
+'ignore'
+'error'
+'once'
+'module'
+'default'
+'Unrecognized action ('
+') in warnings.filters:\n '
+'WarningMessage'
+'{message : '
+', category : '
+', filename : '
+', lineno : '
+', line : '
+'WarningMessage'
+'catch_warnings'
+"A context manager that copies and restores the warnings filter upon\nexiting the context.\n\nThe 'record' argument specifies whether warnings should be captured by a\ncustom implementation of warnings.showwarning() and be appended to a list\nreturned by the context manager. Otherwise None is returned by the context\nmanager. The objects appended to the list are arguments whose attributes\nmirror the arguments to showwarning().\n\nThe 'module' argument is to specify an alternative module to the module\nnamed 'warnings' and imported under that name. This argument is only useful\nwhen testing the warnings module itself.\n\nIf the 'action' argument is not None, the remaining arguments are passed\nto warnings.simplefilter() as if it were called immediately on entering the\ncontext.\n"
+'record'
+'module'
+'action'
+'category'
+'lineno'
+'append'
+"Specify whether to record warnings and if an alternative module\nshould be used other than sys.modules['warnings'].\n\n"
+'warnings'
+'record=True'
+'warnings'
+'module=%r'
+', '
+'Cannot enter %r twice'
+'Cannot exit %r without entering first'
+'deprecated'
+'Indicate that a class, function or overload is deprecated.\n\nWhen this decorator is applied to an object, the type checker\nwill generate a diagnostic on usage of the deprecated object.\n\nUsage:\n\n    @deprecated("Use B instead")\n    class A:\n        pass\n\n    @deprecated("Use g instead")\n    def f():\n        pass\n\n    @overload\n    @deprecated("int support is deprecated")\n    def g(x: int) -> int: ...\n    @overload\n    def g(x: str) -> int: ...\n\nThe warning specified by *category* will be emitted at runtime\non use of deprecated objects. For functions, that happens on calls;\nfor classes, on instantiation and on creation of subclasses.\nIf the *category* is ``None``, no warning is emitted at runtime.\nThe *stacklevel* determines where the\nwarning is emitted. If it is ``1`` (the default), the warning\nis emitted at the direct caller of the deprecated object; if it\nis higher, it is emitted further up the stack.\nStatic type checker behavior is not affected by the *category*\nand *stacklevel* arguments.\n\nThe deprecation message passed to the decorator is saved in the\n``__deprecated__`` attribute on the decorated object.\nIf applied to an overload, the decorator\nmust be after the ``@overload`` decorator for the attribute to\nexist on the overload as returned by ``get_overloads()``.\n\nSee PEP 702 for details.\n\n'
+'category'
+'stacklevel'
+'message'
+'category'
+'stacklevel'
+'return'
+"Expected an object of type str for 'message', not "
+'() takes no arguments'
+'@deprecated decorator with non-None category must be applied to a class or callable, not '
+'{name!r} is deprecated and slated for removal in Python {remove}'
+'_version'
+'Warn that *name* is deprecated or should be removed.\n\nRuntimeError is raised if *remove* specifies a major/minor tuple older than\nthe current Python version or the same version but past the alpha.\n\nThe *message* argument is formatted with *name* and *remove* as a Python\nversion tuple (e.g. (3, 11)).\n\n'
+'alpha'
+' was slated for removal after Python '
+' alpha'
+"coroutine '"
+"' was never awaited\n"
+'Coroutine created at (most recent call last)\n'
+'gettotalrefcount'
+'default'
+'__main__'
+'ignore'

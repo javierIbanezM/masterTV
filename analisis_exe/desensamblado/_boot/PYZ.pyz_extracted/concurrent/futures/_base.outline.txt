@@ -1,0 +1,146 @@
+<module>()  line 1
+    Error()  line 39
+    CancelledError()  line 43
+    InvalidStateError()  line 49
+    _Waiter()  line 53
+        _Waiter.__init__(self)  line 55
+        _Waiter.add_result(self, future)  line 59
+        _Waiter.add_exception(self, future)  line 62
+        _Waiter.add_cancelled(self, future)  line 65
+    _AsCompletedWaiter()  line 68
+        _AsCompletedWaiter.__init__(self)  line 71
+        _AsCompletedWaiter.add_result(self, future)  line 75
+        _AsCompletedWaiter.add_exception(self, future)  line 80
+        _AsCompletedWaiter.add_cancelled(self, future)  line 85
+    _FirstCompletedWaiter()  line 90
+        _FirstCompletedWaiter.add_result(self, future)  line 93
+        _FirstCompletedWaiter.add_exception(self, future)  line 97
+        _FirstCompletedWaiter.add_cancelled(self, future)  line 101
+    _AllCompletedWaiter()  line 105
+        _AllCompletedWaiter.__init__(self, num_pending_calls, stop_on_exception)  line 108
+        _AllCompletedWaiter._decrement_pending_calls(self)  line 114
+        _AllCompletedWaiter.add_result(self, future)  line 120
+        _AllCompletedWaiter.add_exception(self, future)  line 124
+        _AllCompletedWaiter.add_cancelled(self, future)  line 131
+    _AcquireFutures()  line 135
+        _AcquireFutures.__init__(self, futures)  line 138
+        _AcquireFutures.__enter__(self)  line 141
+        _AcquireFutures.__exit__(self)  line 145
+    _create_and_install_waiters(fs, return_when)  line 149
+        _create_and_install_waiters.<locals>.<genexpr>(.0)  line 155
+    _yield_finished_futures(fs, waiter, ref_collect)  line 171
+    as_completed(fs, timeout)  line 193
+        as_completed.<locals>.<genexpr>(.0)  line 217
+    wait(fs, timeout, return_when)  line 257
+        wait.<locals>.<genexpr>(.0)  line 290
+    _result_or_cancel(fut, timeout)  line 308
+    Future()  line 319
+        Future.__init__(self)  line 322
+        Future._invoke_callbacks(self)  line 331
+        Future.__repr__(self)  line 338
+        Future.cancel(self)  line 358
+        Future.cancelled(self)  line 377
+        Future.running(self)  line 382
+        Future.done(self)  line 387
+        Future.__get_result(self)  line 392
+        Future.add_done_callback(self, fn)  line 402
+        Future.result(self, timeout)  line 422
+        Future.exception(self, timeout)  line 457
+        Future.set_running_or_notify_cancel(self)  line 491
+        Future.set_result(self, result)  line 531
+        Future.set_exception(self, exception)  line 546
+    Executor()  line 563
+        Executor.submit(self, fn)  line 566
+        Executor.map(self, fn, timeout, chunksize, buffersize)  line 577
+            Executor.map.<locals>.<genexpr>(.0)  line 614
+            Executor.map.<locals>.result_iterator()  line 626
+        Executor.shutdown(self, wait, cancel_futures)  line 647
+        Executor.__enter__(self)  line 663
+        Executor.__exit__(self, exc_type, exc_val, exc_tb)  line 666
+    BrokenExecutor()  line 671
+
+--- strings ---
+'Brian Quinlan (brian@sweetapp.com)'
+'FIRST_COMPLETED'
+'FIRST_EXCEPTION'
+'ALL_COMPLETED'
+'_AS_COMPLETED'
+'PENDING'
+'RUNNING'
+'CANCELLED'
+'CANCELLED_AND_NOTIFIED'
+'FINISHED'
+'pending'
+'running'
+'cancelled'
+'finished'
+'concurrent.futures'
+'Error'
+'Base class for all future-related exceptions.'
+'Error'
+'CancelledError'
+'The Future was cancelled.'
+'CancelledError'
+'InvalidStateError'
+'The operation is not allowed in this state.'
+'InvalidStateError'
+'_Waiter'
+'Provides the event that wait() and as_completed() block on.'
+'_Waiter'
+'_AsCompletedWaiter'
+'Used by as_completed().'
+'_AsCompletedWaiter'
+'_FirstCompletedWaiter'
+'Used by wait(return_when=FIRST_COMPLETED).'
+'_FirstCompletedWaiter'
+'_AllCompletedWaiter'
+'Used by wait(return_when=FIRST_EXCEPTION and ALL_COMPLETED).'
+'_AllCompletedWaiter'
+'_AcquireFutures'
+'A context manager that does an ordered acquire of Future conditions.'
+'_AcquireFutures'
+'Invalid return condition: %r'
+'\nIterate on the list *fs*, yielding finished futures one by one in\nreverse order.\nBefore yielding a future, *waiter* is removed from its waiters\nand the future is removed from each set in the collection of sets\n*ref_collect*.\n\nThe aim of this function is to avoid keeping stale references after\nthe future is yielded and before the iterator resumes.\n'
+'An iterator over the given futures that yields each as it completes.\n\nArgs:\n    fs: The sequence of Futures (possibly created by different Executors) to\n        iterate over.\n    timeout: The maximum number of seconds to wait. If None, then there\n        is no limit on the wait time.\n\nReturns:\n    An iterator that yields the given Futures as they complete (finished or\n    cancelled). If any given Futures are duplicated, they will be returned\n    once.\n\nRaises:\n    TimeoutError: If the entire result iterator could not be generated\n        before the given timeout.\n'
+'%d (of %d) futures unfinished'
+'DoneAndNotDoneFutures'
+'done not_done'
+"Wait for the futures in the given sequence to complete.\n\nArgs:\n    fs: The sequence of Futures (possibly created by different Executors) to\n        wait upon.\n    timeout: The maximum number of seconds to wait. If None, then there\n        is no limit on the wait time.\n    return_when: Indicates when this function should return. The options\n        are:\n\n        FIRST_COMPLETED - Return when any future finishes or is\n                          cancelled.\n        FIRST_EXCEPTION - Return when any future finishes by raising an\n                          exception. If no future raises an exception\n                          then it is equivalent to ALL_COMPLETED.\n        ALL_COMPLETED -   Return when all futures finish or are cancelled.\n\nReturns:\n    A named 2-tuple of sets. The first set, named 'done', contains the\n    futures that completed (is finished or cancelled) before the wait\n    completed. The second set, named 'not_done', contains uncompleted\n    futures. Duplicate futures given to *fs* are removed and will be\n    returned only once.\n"
+'Future'
+'Represents the result of an asynchronous computation.'
+'Initializes the future. Should not be called by clients.'
+'exception calling callback for %r'
+'<%s at %#x state=%s raised %s>'
+'<%s at %#x state=%s returned %s>'
+'<%s at %#x state=%s>'
+'Cancel the future if possible.\n\nReturns True if the future was cancelled, False otherwise. A future\ncannot be cancelled if it is running or has already completed.\n'
+'Return True if the future was cancelled.'
+'Return True if the future is currently executing.'
+'Return True if the future was cancelled or finished executing.'
+'Attaches a callable that will be called when the future finishes.\n\nArgs:\n    fn: A callable that will be called with this future as its only\n        argument when the future completes or is cancelled. The callable\n        will always be called by a thread in the same process in which\n        it was added. If the future has already completed or been\n        cancelled then the callable will be called immediately. These\n        callables are called in the order that they were added.\n'
+'exception calling callback for %r'
+"Return the result of the call that the future represents.\n\nArgs:\n    timeout: The number of seconds to wait for the result if the future\n        isn't done. If None, then there is no limit on the wait time.\n\nReturns:\n    The result of the call that the future represents.\n\nRaises:\n    CancelledError: If the future was cancelled.\n    TimeoutError: If the future didn't finish executing before the given\n        timeout.\n    Exception: If the call raised then that exception will be raised.\n"
+"Return the exception raised by the call that the future represents.\n\nArgs:\n    timeout: The number of seconds to wait for the exception if the\n        future isn't done. If None, then there is no limit on the wait\n        time.\n\nReturns:\n    The exception raised by the call that the future represents or None\n    if the call completed without raising.\n\nRaises:\n    CancelledError: If the future was cancelled.\n    TimeoutError: If the future didn't finish executing before the given\n        timeout.\n"
+'Mark the future as running or process any cancel notifications.\n\nShould only be used by Executor implementations and unit tests.\n\nIf the future has been cancelled (cancel() was called and returned\nTrue) then any threads waiting on the future completing (though calls\nto as_completed() or wait()) are notified and False is returned.\n\nIf the future was not cancelled then it is put in the running state\n(future calls to running() will return True) and True is returned.\n\nThis method should be called by Executor implementations before\nexecuting the work associated with this future. If this method returns\nFalse then the work should not be executed.\n\nReturns:\n    False if the Future was cancelled, True otherwise.\n\nRaises:\n    RuntimeError: if this method was already called or if set_result()\n        or set_exception() was called.\n'
+'Future %s in unexpected state: %s'
+'Future in unexpected state'
+'Sets the return value of work associated with the future.\n\nShould only be used by Executor implementations and unit tests.\n'
+'{}: {!r}'
+'Sets the result of the future as being the given exception.\n\nShould only be used by Executor implementations and unit tests.\n'
+'{}: {!r}'
+'Future'
+'Executor'
+'This is an abstract base class for concrete asynchronous executors.'
+'Submits a callable to be executed with the given arguments.\n\nSchedules the callable to be executed as fn(*args, **kwargs) and returns\na Future instance representing the execution of the callable.\n\nReturns:\n    A Future representing the given call.\n'
+'timeout'
+'chunksize'
+'buffersize'
+'Returns an iterator equivalent to map(fn, iter).\n\nArgs:\n    fn: A callable that will take as many arguments as there are\n        passed iterables.\n    timeout: The maximum number of seconds to wait. If None, then there\n        is no limit on the wait time.\n    chunksize: The size of the chunks the iterable will be broken into\n        before being passed to a child process. This argument is only\n        used by ProcessPoolExecutor; it is ignored by\n        ThreadPoolExecutor.\n    buffersize: The number of submitted tasks whose results have not\n        yet been yielded. If the buffer is full, iteration over the\n        iterables pauses until a result is yielded from the buffer.\n        If None, all input elements are eagerly collected, and a task is\n        submitted for each.\n\nReturns:\n    An iterator equivalent to: map(func, *iterables) but the calls may\n    be evaluated out-of-order.\n\nRaises:\n    TimeoutError: If the entire result iterator could not be generated\n        before the given timeout.\n    Exception: If fn(*args) raises for any values.\n'
+'buffersize must be an integer or None'
+'buffersize must be None or > 0'
+'cancel_futures'
+'Clean-up the resources associated with the Executor.\n\nIt is safe to call this method several times. Otherwise, no other\nmethods can be called after this one.\n\nArgs:\n    wait: If True then shutdown will not return until all running\n        futures have finished executing and the resources used by the\n        executor have been reclaimed.\n    cancel_futures: If True then shutdown will cancel all pending\n        futures. Futures that are completed or running will not be\n        cancelled.\n'
+'Executor'
+'BrokenExecutor'
+'\nRaised when a executor has become non-functional after a severe failure.\n'
+'BrokenExecutor'

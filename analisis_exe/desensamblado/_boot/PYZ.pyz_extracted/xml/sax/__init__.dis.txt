@@ -1,0 +1,311 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ("Simple API for XML (SAX) implementation for Python.\n\nThis module provides an implementation of the SAX 2 interface;\ninformation about the Java version of the interface can be found at\nhttp://www.megginson.com/SAX/.  The Python version of the interface is\ndocumented at <...>.\n\nThis package contains the following modules:\n\nhandler -- Base classes and constants which define the SAX 2 API for\n           the 'client-side' of SAX for Python.\n\nsaxutils -- Implementation of the convenience classes commonly used to\n            work with SAX.\n\nxmlreader -- Base classes and constants which define the SAX 2 API for\n             the parsers used with SAX for Python.\n\nexpatreader -- Driver that allows use of the Expat parser with SAX.\n")
+              STORE_NAME               0 (__doc__)
+
+ 22           LOAD_SMALL_INT           1
+              LOAD_CONST               1 (('InputSource',))
+              IMPORT_NAME              1 (xmlreader)
+              IMPORT_FROM              2 (InputSource)
+              STORE_NAME               2 (InputSource)
+              POP_TOP
+
+ 23           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('ContentHandler', 'ErrorHandler'))
+              IMPORT_NAME              3 (handler)
+              IMPORT_FROM              4 (ContentHandler)
+              STORE_NAME               4 (ContentHandler)
+              IMPORT_FROM              5 (ErrorHandler)
+              STORE_NAME               5 (ErrorHandler)
+              POP_TOP
+
+ 24           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('SAXException', 'SAXNotRecognizedException', 'SAXParseException', 'SAXNotSupportedException', 'SAXReaderNotAvailable'))
+              IMPORT_NAME              6 (_exceptions)
+              IMPORT_FROM              7 (SAXException)
+              STORE_NAME               7 (SAXException)
+              IMPORT_FROM              8 (SAXNotRecognizedException)
+              STORE_NAME               8 (SAXNotRecognizedException)
+              IMPORT_FROM              9 (SAXParseException)
+              STORE_NAME               9 (SAXParseException)
+              IMPORT_FROM             10 (SAXNotSupportedException)
+              STORE_NAME              10 (SAXNotSupportedException)
+              IMPORT_FROM             11 (SAXReaderNotAvailable)
+              STORE_NAME              11 (SAXReaderNotAvailable)
+              POP_TOP
+
+ 29           LOAD_NAME                5 (ErrorHandler)
+              PUSH_NULL
+              CALL                     0
+              BUILD_TUPLE              1
+              LOAD_CONST               4 (<code object parse at 0x00000204BA0BB9F0, file "xml\sax\__init__.py", line 29>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              12 (parse)
+
+ 35           LOAD_NAME                5 (ErrorHandler)
+              PUSH_NULL
+              CALL                     0
+              BUILD_TUPLE              1
+              LOAD_CONST               5 (<code object parseString at 0x00000204BA36BF80, file "xml\sax\__init__.py", line 35>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              13 (parseString)
+
+ 53           LOAD_CONST               6 ('xml.sax.expatreader')
+              BUILD_LIST               1
+              STORE_NAME              14 (default_parser_list)
+
+ 56           LOAD_SMALL_INT           0
+              STORE_NAME              15 (_false)
+
+ 57           LOAD_NAME               15 (_false)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        5 (to L1)
+              NOT_TAKEN
+
+ 58           LOAD_SMALL_INT           0
+              LOAD_CONST               7 (None)
+              IMPORT_NAME             16 (xml.sax.expatreader)
+              STORE_NAME              17 (xml)
+
+ 60   L1:     LOAD_SMALL_INT           0
+              LOAD_CONST               7 (None)
+              IMPORT_NAME             18 (os)
+              STORE_NAME              18 (os)
+              LOAD_SMALL_INT           0
+              LOAD_CONST               7 (None)
+              IMPORT_NAME             19 (sys)
+              STORE_NAME              19 (sys)
+
+ 61           LOAD_NAME               19 (sys)
+              LOAD_ATTR               40 (flags)
+              LOAD_ATTR               42 (ignore_environment)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        52 (to L2)
+              NOT_TAKEN
+              LOAD_CONST               8 ('PY_SAX_PARSER')
+              LOAD_NAME               18 (os)
+              LOAD_ATTR               44 (environ)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       35 (to L2)
+              NOT_TAKEN
+
+ 62           LOAD_NAME               18 (os)
+              LOAD_ATTR               44 (environ)
+              LOAD_CONST               8 ('PY_SAX_PARSER')
+              BINARY_OP               26 ([])
+              LOAD_ATTR               47 (split + NULL|self)
+              LOAD_CONST               9 (',')
+              CALL                     1
+              STORE_NAME              14 (default_parser_list)
+
+ 63   L2:     DELETE_NAME             18 (os)
+              DELETE_NAME             19 (sys)
+
+ 66           LOAD_CONST              12 (((),))
+              LOAD_CONST              10 (<code object make_parser at 0x00000204B9FFB2D0, file "xml\sax\__init__.py", line 66>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              24 (make_parser)
+
+ 92           LOAD_CONST              11 (<code object _create_parser at 0x00000204BA0FF440, file "xml\sax\__init__.py", line 92>)
+              MAKE_FUNCTION
+              STORE_NAME              25 (_create_parser)
+
+ 97           BUILD_LIST               0
+              LOAD_CONST              13 (('ContentHandler', 'ErrorHandler', 'InputSource', 'SAXException', 'SAXNotRecognizedException', 'SAXNotSupportedException', 'SAXParseException', 'SAXReaderNotAvailable', 'default_parser_list', 'make_parser', 'parse', 'parseString'))
+              LIST_EXTEND              1
+              STORE_NAME              26 (__all__)
+              LOAD_CONST               7 (None)
+              RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA0BB9F0, file "xml\sax\__init__.py", line 29>:
+ 29           RESUME                   0
+
+ 30           LOAD_GLOBAL              1 (make_parser + NULL)
+              CALL                     0
+              STORE_FAST               3 (parser)
+
+ 31           LOAD_FAST_BORROW         3 (parser)
+              LOAD_ATTR                3 (setContentHandler + NULL|self)
+              LOAD_FAST_BORROW         1 (handler)
+              CALL                     1
+              POP_TOP
+
+ 32           LOAD_FAST_BORROW         3 (parser)
+              LOAD_ATTR                5 (setErrorHandler + NULL|self)
+              LOAD_FAST_BORROW         2 (errorHandler)
+              CALL                     1
+              POP_TOP
+
+ 33           LOAD_FAST_BORROW         3 (parser)
+              LOAD_ATTR                7 (parse + NULL|self)
+              LOAD_FAST_BORROW         0 (source)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object parseString at 0x00000204BA36BF80, file "xml\sax\__init__.py", line 35>:
+ 35           RESUME                   0
+
+ 36           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (io)
+              STORE_FAST               3 (io)
+
+ 37           LOAD_FAST_BORROW         2 (errorHandler)
+              POP_JUMP_IF_NOT_NONE    11 (to L1)
+              NOT_TAKEN
+
+ 38           LOAD_GLOBAL              3 (ErrorHandler + NULL)
+              CALL                     0
+              STORE_FAST               2 (errorHandler)
+
+ 39   L1:     LOAD_GLOBAL              5 (make_parser + NULL)
+              CALL                     0
+              STORE_FAST               4 (parser)
+
+ 40           LOAD_FAST_BORROW         4 (parser)
+              LOAD_ATTR                7 (setContentHandler + NULL|self)
+              LOAD_FAST_BORROW         1 (handler)
+              CALL                     1
+              POP_TOP
+
+ 41           LOAD_FAST_BORROW         4 (parser)
+              LOAD_ATTR                9 (setErrorHandler + NULL|self)
+              LOAD_FAST_BORROW         2 (errorHandler)
+              CALL                     1
+              POP_TOP
+
+ 43           LOAD_GLOBAL             11 (InputSource + NULL)
+              CALL                     0
+              STORE_FAST               5 (inpsrc)
+
+ 44           LOAD_GLOBAL             13 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (string)
+              LOAD_GLOBAL             14 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       34 (to L2)
+              NOT_TAKEN
+
+ 45           LOAD_FAST_BORROW         5 (inpsrc)
+              LOAD_ATTR               17 (setCharacterStream + NULL|self)
+              LOAD_FAST_BORROW         3 (io)
+              LOAD_ATTR               19 (StringIO + NULL|self)
+              LOAD_FAST_BORROW         0 (string)
+              CALL                     1
+              CALL                     1
+              POP_TOP
+              JUMP_FORWARD            32 (to L3)
+
+ 47   L2:     LOAD_FAST_BORROW         5 (inpsrc)
+              LOAD_ATTR               21 (setByteStream + NULL|self)
+              LOAD_FAST_BORROW         3 (io)
+              LOAD_ATTR               23 (BytesIO + NULL|self)
+              LOAD_FAST_BORROW         0 (string)
+              CALL                     1
+              CALL                     1
+              POP_TOP
+
+ 48   L3:     LOAD_FAST_BORROW         4 (parser)
+              LOAD_ATTR               25 (parse + NULL|self)
+              LOAD_FAST_BORROW         5 (inpsrc)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object make_parser at 0x00000204B9FFB2D0, file "xml\sax\__init__.py", line 66>:
+  66            RESUME                   0
+
+  74            LOAD_GLOBAL              1 (list + NULL)
+                LOAD_FAST_BORROW         0 (parser_list)
+                CALL                     1
+                LOAD_GLOBAL              2 (default_parser_list)
+                BINARY_OP                0 (+)
+                GET_ITER
+        L1:     FOR_ITER                15 (to L4)
+                STORE_FAST               1 (parser_name)
+
+  75            NOP
+
+  76    L2:     LOAD_GLOBAL              5 (_create_parser + NULL)
+                LOAD_FAST_BORROW         1 (parser_name)
+                CALL                     1
+        L3:     SWAP                     2
+                POP_TOP
+                RETURN_VALUE
+
+  74    L4:     END_FOR
+                POP_ITER
+
+  88            LOAD_GLOBAL             13 (SAXReaderNotAvailable + NULL)
+                LOAD_CONST               2 ('No parsers found')
+                LOAD_CONST               1 (None)
+                CALL                     2
+                RAISE_VARARGS            1
+
+  --    L5:     PUSH_EXC_INFO
+
+  77            LOAD_GLOBAL              6 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       26 (to L7)
+                NOT_TAKEN
+                POP_TOP
+
+  78            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              4 (sys)
+                STORE_FAST               2 (sys)
+
+  79            LOAD_FAST_LOAD_FAST     18 (parser_name, sys)
+                LOAD_ATTR               10 (modules)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE        2 (to L6)
+                NOT_TAKEN
+
+  82            RAISE_VARARGS            0
+
+  79    L6:     POP_EXCEPT
+                JUMP_BACKWARD           66 (to L1)
+
+  83    L7:     LOAD_GLOBAL             12 (SAXReaderNotAvailable)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L11)
+        L8:     NOT_TAKEN
+        L9:     POP_TOP
+
+  86   L10:     POP_EXCEPT
+                JUMP_BACKWARD           79 (to L1)
+
+  83   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L5 [1]
+  L5 to L6 -> L12 [2] lasti
+  L7 to L8 -> L12 [2] lasti
+  L9 to L10 -> L12 [2] lasti
+  L11 to L12 -> L12 [2] lasti
+
+Disassembly of <code object _create_parser at 0x00000204BA0FF440, file "xml\sax\__init__.py", line 92>:
+ 92           RESUME                   0
+
+ 93           LOAD_GLOBAL              1 (__import__ + NULL)
+              LOAD_FAST_BORROW         0 (parser_name)
+              BUILD_MAP                0
+              BUILD_MAP                0
+              LOAD_CONST               0 ('create_parser')
+              BUILD_LIST               1
+              CALL                     4
+              STORE_FAST               1 (drv_module)
+
+ 94           LOAD_FAST_BORROW         1 (drv_module)
+              LOAD_ATTR                3 (create_parser + NULL|self)
+              CALL                     0
+              RETURN_VALUE

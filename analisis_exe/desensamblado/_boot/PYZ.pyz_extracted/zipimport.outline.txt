@@ -1,0 +1,106 @@
+<module>()  line 1
+    ZipImportError()  line 31
+    zipimporter()  line 49
+        zipimporter.__init__(self, path)  line 67
+        zipimporter.find_spec(self, fullname, target)  line 103
+        zipimporter.get_code(self, fullname)  line 130
+        zipimporter.get_data(self, pathname)  line 140
+        zipimporter.get_filename(self, fullname)  line 163
+        zipimporter.get_source(self, fullname)  line 175
+        zipimporter.is_package(self, fullname)  line 201
+        zipimporter.load_module(self, fullname)  line 214
+        zipimporter.get_resource_reader(self, fullname)  line 259
+        zipimporter._get_files(self)  line 266
+        zipimporter.invalidate_caches(self)  line 279
+        zipimporter.__repr__(self)  line 284
+    _get_module_path(self, fullname)  line 302
+    _is_dir(self, path)  line 306
+    _get_module_info(self, fullname)  line 315
+    _read_directory(archive)  line 346
+    _get_decompress_func()  line 610
+    _get_data(archive, toc_entry)  line 631
+    _eq_mtime(t1, t2)  line 677
+    _unmarshal_code(self, pathname, fullpath, fullname, data)  line 685
+    _normalize_line_endings(source)  line 730
+    _compile_source(pathname, source)  line 737
+    _parse_dostime(d, t)  line 743
+    _get_mtime_and_size_of_source(self, path)  line 756
+    _get_pyc_source(self, path)  line 775
+    _get_module_code(self, fullname)  line 790
+
+--- strings ---
+"zipimport provides support for importing Python modules from Zip archives.\n\nThis module exports two objects:\n- zipimporter: a class; its constructor takes a path to a Zip archive.\n- ZipImportError: exception raised by zipimporter objects. It's a\n  subclass of ImportError, so it can be caught as ImportError, too.\n\nIt is usually not needed to use the zipimport module explicitly; it is\nused by the builtin import mechanism for sys.path items that are paths\nto Zip archives.\n"
+'ZipImportError'
+'zipimporter'
+'ZipImportError'
+'zipimporter'
+"zipimporter(archivepath) -> zipimporter object\n\nCreate a new zipimporter instance. 'archivepath' must be a path to\na zipfile, or to a specific path inside a zipfile. For example, it can be\n'/tmp/myimport.zip', or '/tmp/myimport.zip/mydirectory', if mydirectory is a\nvalid directory inside the archive.\n\n'ZipImportError is raised if 'archivepath' doesn't point to a valid Zip\narchive.\n\nThe 'archive' attribute of zipimporter objects contains the name of the\nzipfile targeted.\n"
+'expected str, not '
+'archive path is empty'
+'not a Zip file'
+'Create a ModuleSpec for the specified module.\n\nReturns None if the module cannot be found.\n'
+"get_code(fullname) -> code object.\n\nReturn the code object for the specified module. Raise ZipImportError\nif the module couldn't be imported.\n"
+"get_data(pathname) -> string with file data.\n\nReturn the data associated with 'pathname'. Raise OSError if\nthe file wasn't found.\n"
+"get_filename(fullname) -> filename string.\n\nReturn the filename for the specified module or raise ZipImportError\nif it couldn't be imported.\n"
+"get_source(fullname) -> source string.\n\nReturn the source code for the specified module. Raise ZipImportError\nif the module couldn't be found, return None if the archive does\ncontain the module, but has no source for it.\n"
+"can't find module "
+'__init__.py'
+'.py'
+"is_package(fullname) -> bool.\n\nReturn True if the module specified by fullname is a package.\nRaise ZipImportError if the module couldn't be found.\n"
+"can't find module "
+"load_module(fullname) -> module.\n\nLoad the module specified by 'fullname'. 'fullname' must be the\nfully qualified (dotted) module name. It returns the imported\nmodule, or raises ZipImportError if it could not be imported.\n\nDeprecated since Python 3.10. Use exec_module() instead.\n"
+'zipimport.zipimporter.load_module'
+'; use zipimport.zipimporter.exec_module() instead'
+'__builtins__'
+'Loaded module '
+' not found in sys.modules'
+'import {} # loaded from Zip {}'
+'Return the ResourceReader for a module in a zip file.'
+'Return the files within the archive path.'
+'Invalidates the cache of file data of the archive path.'
+'<zipimporter object "'
+'">'
+'__init__.pyc'
+'__init__.py'
+"can't open Zip file: "
+"can't read Zip file: "
+'corrupt Zip64 file: Expected '
+' byte zip64 central directory, but read '
+' bytes.'
+'corrupt Zip file: '
+'not a Zip file: '
+'bad central directory size: '
+'bad central directory offset: '
+'bad central directory size or offset: '
+'EOF read where not expected'
+'mismatched num_entries: '
+' should be '
+' in '
+'ascii'
+'latin1'
+"can't read header extra: "
+'zipimport: suspected zip64 but no zip64 extra for {!r}'
+'bad local header offset: '
+'zipimport: found {} names in {!r}'
+'zipimport: added {} implicit directories in {!r}'
+'\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\x7fÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■\xa0'
+'zipimport: zlib UNAVAILABLE'
+"can't decompress data; zlib not available"
+'zipimport: zlib available'
+'negative data size'
+"can't read Zip file: "
+'EOF read where not expected'
+'bad local file header: '
+"zipimport: can't read data"
+"can't decompress data; zlib not available"
+'name'
+'path'
+'never'
+'always'
+'bytecode is stale for '
+'compiled module '
+' is not a code object'
+'exec'
+'trying {}{}{}'
+'module load failed: '
+"can't find module "

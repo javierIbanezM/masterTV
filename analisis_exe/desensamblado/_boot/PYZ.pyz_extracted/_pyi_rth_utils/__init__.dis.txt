@@ -1,0 +1,80 @@
+  0           RESUME                   0
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (sys)
+              STORE_NAME               0 (sys)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (os)
+              STORE_NAME               1 (os)
+
+ 16           LOAD_NAME                0 (sys)
+              LOAD_ATTR                4 (platform)
+              LOAD_CONST               2 ('darwin')
+              COMPARE_OP              72 (==)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_NAME                0 (sys)
+              LOAD_ATTR                6 (_MEIPASS)
+              LOAD_ATTR                9 (endswith + NULL|self)
+              LOAD_CONST               3 ('Contents/Frameworks')
+              CALL                     1
+      L1:     STORE_NAME               5 (is_macos_app_bundle)
+
+ 19           LOAD_CONST               4 (<code object prepend_path_to_environment_variable at 0x00000204B9FC2970, file "_pyi_rth_utils\__init__.py", line 19>)
+              MAKE_FUNCTION
+              STORE_NAME               6 (prepend_path_to_environment_variable)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object prepend_path_to_environment_variable at 0x00000204B9FC2970, file "_pyi_rth_utils\__init__.py", line 19>:
+ 19           RESUME                   0
+
+ 25           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (environ)
+              LOAD_ATTR                5 (get + NULL|self)
+              LOAD_FAST_BORROW         1 (variable_name)
+              CALL                     1
+              STORE_FAST               2 (stored_paths)
+
+ 26           LOAD_FAST_BORROW         2 (stored_paths)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       69 (to L2)
+              NOT_TAKEN
+
+ 30           LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (path, stored_paths)
+              LOAD_ATTR                7 (split + NULL|self)
+              LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                8 (pathsep)
+              CALL                     1
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+ 31           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 33   L1:     LOAD_FAST_BORROW         0 (path)
+              LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                8 (pathsep)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         2 (stored_paths)
+              BINARY_OP                0 (+)
+              STORE_FAST               2 (stored_paths)
+              JUMP_FORWARD             2 (to L3)
+
+ 35   L2:     LOAD_FAST                0 (path)
+              STORE_FAST               2 (stored_paths)
+
+ 36   L3:     LOAD_FAST_BORROW         2 (stored_paths)
+              LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (environ)
+              LOAD_FAST_BORROW         1 (variable_name)
+              STORE_SUBSCR
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

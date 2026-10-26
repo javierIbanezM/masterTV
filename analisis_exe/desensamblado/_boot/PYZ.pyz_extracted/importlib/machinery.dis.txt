@@ -1,0 +1,182 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('The machinery of importlib: finders, loaders, hooks, etc.')
+              STORE_NAME               0 (__doc__)
+
+  3           LOAD_SMALL_INT           1
+              LOAD_CONST               1 (('ModuleSpec',))
+              IMPORT_NAME              1 (_bootstrap)
+              IMPORT_FROM              2 (ModuleSpec)
+              STORE_NAME               2 (ModuleSpec)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('BuiltinImporter',))
+              IMPORT_NAME              1 (_bootstrap)
+              IMPORT_FROM              3 (BuiltinImporter)
+              STORE_NAME               3 (BuiltinImporter)
+              POP_TOP
+
+  5           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('FrozenImporter',))
+              IMPORT_NAME              1 (_bootstrap)
+              IMPORT_FROM              4 (FrozenImporter)
+              STORE_NAME               4 (FrozenImporter)
+              POP_TOP
+
+  6           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('SOURCE_SUFFIXES', 'BYTECODE_SUFFIXES', 'EXTENSION_SUFFIXES', 'DEBUG_BYTECODE_SUFFIXES', 'OPTIMIZED_BYTECODE_SUFFIXES'))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM              6 (SOURCE_SUFFIXES)
+              STORE_NAME               6 (SOURCE_SUFFIXES)
+              IMPORT_FROM              7 (BYTECODE_SUFFIXES)
+              STORE_NAME               7 (BYTECODE_SUFFIXES)
+              IMPORT_FROM              8 (EXTENSION_SUFFIXES)
+              STORE_NAME               8 (EXTENSION_SUFFIXES)
+              IMPORT_FROM              9 (DEBUG_BYTECODE_SUFFIXES)
+              STORE_NAME              10 (_DEBUG_BYTECODE_SUFFIXES)
+              IMPORT_FROM             11 (OPTIMIZED_BYTECODE_SUFFIXES)
+              STORE_NAME              12 (_OPTIMIZED_BYTECODE_SUFFIXES)
+              POP_TOP
+
+ 11           LOAD_SMALL_INT           1
+              LOAD_CONST               5 (('WindowsRegistryFinder',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             13 (WindowsRegistryFinder)
+              STORE_NAME              13 (WindowsRegistryFinder)
+              POP_TOP
+
+ 12           LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('PathFinder',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             14 (PathFinder)
+              STORE_NAME              14 (PathFinder)
+              POP_TOP
+
+ 13           LOAD_SMALL_INT           1
+              LOAD_CONST               7 (('FileFinder',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             15 (FileFinder)
+              STORE_NAME              15 (FileFinder)
+              POP_TOP
+
+ 14           LOAD_SMALL_INT           1
+              LOAD_CONST               8 (('SourceFileLoader',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             16 (SourceFileLoader)
+              STORE_NAME              16 (SourceFileLoader)
+              POP_TOP
+
+ 15           LOAD_SMALL_INT           1
+              LOAD_CONST               9 (('SourcelessFileLoader',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             17 (SourcelessFileLoader)
+              STORE_NAME              17 (SourcelessFileLoader)
+              POP_TOP
+
+ 16           LOAD_SMALL_INT           1
+              LOAD_CONST              10 (('ExtensionFileLoader',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             18 (ExtensionFileLoader)
+              STORE_NAME              18 (ExtensionFileLoader)
+              POP_TOP
+
+ 17           LOAD_SMALL_INT           1
+              LOAD_CONST              11 (('AppleFrameworkLoader',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             19 (AppleFrameworkLoader)
+              STORE_NAME              19 (AppleFrameworkLoader)
+              POP_TOP
+
+ 18           LOAD_SMALL_INT           1
+              LOAD_CONST              12 (('NamespaceLoader',))
+              IMPORT_NAME              5 (_bootstrap_external)
+              IMPORT_FROM             20 (NamespaceLoader)
+              STORE_NAME              20 (NamespaceLoader)
+              POP_TOP
+
+ 21           LOAD_CONST              13 (<code object all_suffixes at 0x00000204BA0FC7A0, file "importlib\machinery.py", line 21>)
+              MAKE_FUNCTION
+              STORE_NAME              21 (all_suffixes)
+
+ 26           BUILD_LIST               0
+              LOAD_CONST              16 (('AppleFrameworkLoader', 'BYTECODE_SUFFIXES', 'BuiltinImporter', 'DEBUG_BYTECODE_SUFFIXES', 'EXTENSION_SUFFIXES', 'ExtensionFileLoader', 'FileFinder', 'FrozenImporter', 'ModuleSpec', 'NamespaceLoader', 'OPTIMIZED_BYTECODE_SUFFIXES', 'PathFinder', 'SOURCE_SUFFIXES', 'SourceFileLoader', 'SourcelessFileLoader', 'WindowsRegistryFinder', 'all_suffixes'))
+              LIST_EXTEND              1
+              STORE_NAME              22 (__all__)
+
+ 34           LOAD_CONST              14 (<code object __getattr__ at 0x00000204B9F6F5D0, file "importlib\machinery.py", line 34>)
+              MAKE_FUNCTION
+              STORE_NAME              23 (__getattr__)
+              LOAD_CONST              15 (None)
+              RETURN_VALUE
+
+Disassembly of <code object all_suffixes at 0x00000204BA0FC7A0, file "importlib\machinery.py", line 21>:
+ 21           RESUME                   0
+
+ 23           LOAD_GLOBAL              0 (SOURCE_SUFFIXES)
+              LOAD_GLOBAL              2 (BYTECODE_SUFFIXES)
+              BINARY_OP                0 (+)
+              LOAD_GLOBAL              4 (EXTENSION_SUFFIXES)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x00000204B9F6F5D0, file "importlib\machinery.py", line 34>:
+ 34           RESUME                   0
+
+ 35           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (warnings)
+              STORE_FAST               1 (warnings)
+
+ 37           LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               2 ('DEBUG_BYTECODE_SUFFIXES')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       31 (to L1)
+              NOT_TAKEN
+
+ 38           LOAD_FAST_BORROW         1 (warnings)
+              LOAD_ATTR                3 (warn + NULL|self)
+              LOAD_CONST               3 ('importlib.machinery.DEBUG_BYTECODE_SUFFIXES is deprecated; use importlib.machinery.BYTECODE_SUFFIXES instead.')
+
+ 41           LOAD_GLOBAL              4 (DeprecationWarning)
+              LOAD_SMALL_INT           2
+
+ 38           LOAD_CONST               4 (('stacklevel',))
+              CALL_KW                  3
+              POP_TOP
+
+ 42           LOAD_GLOBAL              6 (_DEBUG_BYTECODE_SUFFIXES)
+              RETURN_VALUE
+
+ 43   L1:     LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               5 ('OPTIMIZED_BYTECODE_SUFFIXES')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       31 (to L2)
+              NOT_TAKEN
+
+ 44           LOAD_FAST_BORROW         1 (warnings)
+              LOAD_ATTR                3 (warn + NULL|self)
+              LOAD_CONST               6 ('importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES is deprecated; use importlib.machinery.BYTECODE_SUFFIXES instead.')
+
+ 47           LOAD_GLOBAL              4 (DeprecationWarning)
+              LOAD_SMALL_INT           2
+
+ 44           LOAD_CONST               4 (('stacklevel',))
+              CALL_KW                  3
+              POP_TOP
+
+ 48           LOAD_GLOBAL              8 (_OPTIMIZED_BYTECODE_SUFFIXES)
+              RETURN_VALUE
+
+ 50   L2:     LOAD_GLOBAL             11 (AttributeError + NULL)
+              LOAD_CONST               7 ('module ')
+              LOAD_GLOBAL             12 (__name__)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               8 (' has no attribute ')
+              LOAD_FAST_BORROW         0 (name)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              CALL                     1
+              RAISE_VARARGS            1

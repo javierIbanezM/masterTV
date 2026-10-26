@@ -1,0 +1,2160 @@
+  --           MAKE_CELL                0 (__conditional_annotations__)
+
+   0           RESUME                   0
+
+   1           LOAD_CONST              37 (<code object __annotate__ at 0x00000204BA0FF440, file "_colorize.py", line 1>)
+               MAKE_FUNCTION
+               STORE_NAME              43 (__annotate__)
+               BUILD_SET                0
+               STORE_NAME               0 (__conditional_annotations__)
+               LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (io)
+               STORE_NAME               1 (io)
+
+   2           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              2 (os)
+               STORE_NAME               2 (os)
+
+   3           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              3 (sys)
+               STORE_NAME               3 (sys)
+
+   5           LOAD_SMALL_INT           0
+               LOAD_CONST               2 (('Callable', 'Iterator', 'Mapping'))
+               IMPORT_NAME              4 (collections.abc)
+               IMPORT_FROM              5 (Callable)
+               STORE_NAME               5 (Callable)
+               IMPORT_FROM              6 (Iterator)
+               STORE_NAME               6 (Iterator)
+               IMPORT_FROM              7 (Mapping)
+               STORE_NAME               7 (Mapping)
+               POP_TOP
+
+   6           LOAD_SMALL_INT           0
+               LOAD_CONST               3 (('dataclass', 'field', 'Field'))
+               IMPORT_NAME              8 (dataclasses)
+               IMPORT_FROM              9 (dataclass)
+               STORE_NAME               9 (dataclass)
+               IMPORT_FROM             10 (field)
+               STORE_NAME              10 (field)
+               IMPORT_FROM             11 (Field)
+               STORE_NAME              11 (Field)
+               POP_TOP
+
+   8           LOAD_CONST               4 (True)
+               STORE_NAME              12 (COLORIZE)
+
+  12           NOP
+
+  17           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST               6 (<code object ANSIColors at 0x00000204B9F6F430, file "_colorize.py", line 17>)
+               MAKE_FUNCTION
+               LOAD_CONST               7 ('ANSIColors')
+               CALL                     2
+               STORE_NAME              17 (ANSIColors)
+
+  69           LOAD_NAME               18 (set)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME              19 (ColorCodes)
+
+  70           LOAD_NAME               17 (ANSIColors)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME              20 (NoColors)
+
+  72           LOAD_NAME               17 (ANSIColors)
+               LOAD_ATTR               42 (__dict__)
+               LOAD_ATTR               45 (items + NULL|self)
+               CALL                     0
+               GET_ITER
+       L1:     FOR_ITER                58 (to L3)
+               UNPACK_SEQUENCE          2
+               STORE_NAME              23 (attr)
+               STORE_NAME              24 (code)
+
+  73           LOAD_NAME               23 (attr)
+               LOAD_ATTR               51 (startswith + NULL|self)
+               LOAD_CONST               8 ('__')
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L2)
+               NOT_TAKEN
+               JUMP_BACKWARD           31 (to L1)
+
+  74   L2:     LOAD_NAME               19 (ColorCodes)
+               LOAD_ATTR               53 (add + NULL|self)
+               LOAD_NAME               24 (code)
+               CALL                     1
+               POP_TOP
+
+  75           LOAD_NAME               27 (setattr)
+               PUSH_NULL
+               LOAD_NAME               20 (NoColors)
+               LOAD_NAME               23 (attr)
+               LOAD_CONST               9 ('')
+               CALL                     3
+               POP_TOP
+               JUMP_BACKWARD           60 (to L1)
+
+  72   L3:     END_FOR
+               POP_ITER
+
+ 116           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              10 (<code object ThemeSection at 0x00000204BA129F70, file "_colorize.py", line 116>)
+               MAKE_FUNCTION
+               LOAD_CONST              11 ('ThemeSection')
+               LOAD_NAME                7 (Mapping)
+               LOAD_NAME               28 (str)
+               LOAD_NAME               28 (str)
+               BUILD_TUPLE              2
+               BINARY_OP               26 ([])
+               CALL                     3
+               STORE_NAME              29 (ThemeSection)
+
+ 158           LOAD_NAME                9 (dataclass)
+               PUSH_NULL
+               LOAD_CONST               4 (True)
+               LOAD_CONST              12 (('frozen',))
+               CALL_KW                  1
+
+ 159           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              13 (<code object Argparse at 0x00000204BA36B200, file "_colorize.py", line 158>)
+               MAKE_FUNCTION
+               LOAD_CONST              14 ('Argparse')
+               LOAD_NAME               29 (ThemeSection)
+               CALL                     3
+
+ 158           CALL                     0
+
+ 159           STORE_NAME              30 (Argparse)
+
+ 175           LOAD_NAME                9 (dataclass)
+               PUSH_NULL
+               LOAD_CONST               4 (True)
+               LOAD_CONST              12 (('frozen',))
+               CALL_KW                  1
+
+ 176           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              15 (<code object Syntax at 0x00000204BA46E880, file "_colorize.py", line 175>)
+               MAKE_FUNCTION
+               LOAD_CONST              16 ('Syntax')
+               LOAD_NAME               29 (ThemeSection)
+               CALL                     3
+
+ 175           CALL                     0
+
+ 176           STORE_NAME              31 (Syntax)
+
+ 190           LOAD_NAME                9 (dataclass)
+               PUSH_NULL
+               LOAD_CONST               4 (True)
+               LOAD_CONST              12 (('frozen',))
+               CALL_KW                  1
+
+ 191           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              17 (<code object Traceback at 0x00000204B9F9F130, file "_colorize.py", line 190>)
+               MAKE_FUNCTION
+               LOAD_CONST              18 ('Traceback')
+               LOAD_NAME               29 (ThemeSection)
+               CALL                     3
+
+ 190           CALL                     0
+
+ 191           STORE_NAME              32 (Traceback)
+
+ 202           LOAD_NAME                9 (dataclass)
+               PUSH_NULL
+               LOAD_CONST               4 (True)
+               LOAD_CONST              12 (('frozen',))
+               CALL_KW                  1
+
+ 203           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              19 (<code object Unittest at 0x00000204B9FB7630, file "_colorize.py", line 202>)
+               MAKE_FUNCTION
+               LOAD_CONST              20 ('Unittest')
+               LOAD_NAME               29 (ThemeSection)
+               CALL                     3
+
+ 202           CALL                     0
+
+ 203           STORE_NAME              33 (Unittest)
+
+ 211           LOAD_NAME                9 (dataclass)
+               PUSH_NULL
+               LOAD_CONST               4 (True)
+               LOAD_CONST              12 (('frozen',))
+               CALL_KW                  1
+
+ 212           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              21 (<code object Theme at 0x00000204BA12A8D0, file "_colorize.py", line 211>)
+               MAKE_FUNCTION
+               LOAD_CONST              22 ('Theme')
+               CALL                     2
+
+ 211           CALL                     0
+
+ 212           STORE_NAME              34 (Theme)
+
+ 259           LOAD_CONST              38 ((False,))
+               LOAD_CONST              23 ('file')
+
+ 260           LOAD_CONST               1 (None)
+
+ 259           BUILD_MAP                1
+               LOAD_CONST              24 (<code object __annotate__ at 0x00000204B9F73CB0, file "_colorize.py", line 259>)
+               MAKE_FUNCTION
+               LOAD_CONST              25 (<code object get_colors at 0x00000204BA101920, file "_colorize.py", line 259>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              35 (get_colors)
+
+ 268           LOAD_CONST              26 (<code object __annotate__ at 0x00000204BA109C30, file "_colorize.py", line 268>)
+               MAKE_FUNCTION
+               LOAD_CONST              27 (<code object decolor at 0x00000204BA0A7750, file "_colorize.py", line 268>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME              36 (decolor)
+
+ 275           LOAD_CONST              23 ('file')
+               LOAD_CONST               1 (None)
+               BUILD_MAP                1
+               LOAD_CONST              28 (<code object __annotate__ at 0x00000204BA0BBB40, file "_colorize.py", line 275>)
+               MAKE_FUNCTION
+               LOAD_CONST              29 (<code object can_colorize at 0x00000204BA35BFC0, file "_colorize.py", line 275>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              37 (can_colorize)
+
+ 319           LOAD_NAME               34 (Theme)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME              38 (default_theme)
+
+ 320           LOAD_NAME               38 (default_theme)
+               LOAD_ATTR               79 (no_colors + NULL|self)
+               CALL                     0
+               STORE_NAME              40 (theme_no_color)
+
+ 323           LOAD_CONST              30 ('tty_file')
+
+ 325           LOAD_CONST               1 (None)
+
+ 323           LOAD_CONST              31 ('force_color')
+
+ 326           LOAD_CONST               5 (False)
+
+ 323           LOAD_CONST              32 ('force_no_color')
+
+ 327           LOAD_CONST               5 (False)
+
+ 323           BUILD_MAP                3
+               LOAD_CONST              33 (<code object __annotate__ at 0x00000204BA668D20, file "_colorize.py", line 323>)
+               MAKE_FUNCTION
+               LOAD_CONST              34 (<code object get_theme at 0x00000204BA102170, file "_colorize.py", line 323>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              41 (get_theme)
+
+ 347           LOAD_CONST              35 (<code object __annotate__ at 0x00000204BA109D30, file "_colorize.py", line 347>)
+               MAKE_FUNCTION
+               LOAD_CONST              36 (<code object set_theme at 0x00000204BA102630, file "_colorize.py", line 347>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME              42 (set_theme)
+
+ 356           LOAD_NAME               42 (set_theme)
+               PUSH_NULL
+               LOAD_NAME               38 (default_theme)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object ANSIColors at 0x00000204B9F6F430, file "_colorize.py", line 17>:
+ 17           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ANSIColors')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          17
+              STORE_NAME               3 (__firstlineno__)
+
+ 18           LOAD_CONST               1 ('\x1b[0m')
+              STORE_NAME               4 (RESET)
+
+ 20           LOAD_CONST               2 ('\x1b[30m')
+              STORE_NAME               5 (BLACK)
+
+ 21           LOAD_CONST               3 ('\x1b[34m')
+              STORE_NAME               6 (BLUE)
+
+ 22           LOAD_CONST               4 ('\x1b[36m')
+              STORE_NAME               7 (CYAN)
+
+ 23           LOAD_CONST               5 ('\x1b[32m')
+              STORE_NAME               8 (GREEN)
+
+ 24           LOAD_CONST               6 ('\x1b[90m')
+              STORE_NAME               9 (GREY)
+
+ 25           LOAD_CONST               7 ('\x1b[35m')
+              STORE_NAME              10 (MAGENTA)
+
+ 26           LOAD_CONST               8 ('\x1b[31m')
+              STORE_NAME              11 (RED)
+
+ 27           LOAD_CONST               9 ('\x1b[37m')
+              STORE_NAME              12 (WHITE)
+
+ 28           LOAD_CONST              10 ('\x1b[33m')
+              STORE_NAME              13 (YELLOW)
+
+ 30           LOAD_CONST              11 ('\x1b[1m')
+              STORE_NAME              14 (BOLD)
+
+ 31           LOAD_CONST              12 ('\x1b[1;30m')
+              STORE_NAME              15 (BOLD_BLACK)
+
+ 32           LOAD_CONST              13 ('\x1b[1;34m')
+              STORE_NAME              16 (BOLD_BLUE)
+
+ 33           LOAD_CONST              14 ('\x1b[1;36m')
+              STORE_NAME              17 (BOLD_CYAN)
+
+ 34           LOAD_CONST              15 ('\x1b[1;32m')
+              STORE_NAME              18 (BOLD_GREEN)
+
+ 35           LOAD_CONST              16 ('\x1b[1;35m')
+              STORE_NAME              19 (BOLD_MAGENTA)
+
+ 36           LOAD_CONST              17 ('\x1b[1;31m')
+              STORE_NAME              20 (BOLD_RED)
+
+ 37           LOAD_CONST              18 ('\x1b[1;37m')
+              STORE_NAME              21 (BOLD_WHITE)
+
+ 38           LOAD_CONST              19 ('\x1b[1;33m')
+              STORE_NAME              22 (BOLD_YELLOW)
+
+ 41           LOAD_CONST               6 ('\x1b[90m')
+              STORE_NAME              23 (INTENSE_BLACK)
+
+ 42           LOAD_CONST              20 ('\x1b[94m')
+              STORE_NAME              24 (INTENSE_BLUE)
+
+ 43           LOAD_CONST              21 ('\x1b[96m')
+              STORE_NAME              25 (INTENSE_CYAN)
+
+ 44           LOAD_CONST              22 ('\x1b[92m')
+              STORE_NAME              26 (INTENSE_GREEN)
+
+ 45           LOAD_CONST              23 ('\x1b[95m')
+              STORE_NAME              27 (INTENSE_MAGENTA)
+
+ 46           LOAD_CONST              24 ('\x1b[91m')
+              STORE_NAME              28 (INTENSE_RED)
+
+ 47           LOAD_CONST              25 ('\x1b[97m')
+              STORE_NAME              29 (INTENSE_WHITE)
+
+ 48           LOAD_CONST              26 ('\x1b[93m')
+              STORE_NAME              30 (INTENSE_YELLOW)
+
+ 50           LOAD_CONST              27 ('\x1b[40m')
+              STORE_NAME              31 (BACKGROUND_BLACK)
+
+ 51           LOAD_CONST              28 ('\x1b[44m')
+              STORE_NAME              32 (BACKGROUND_BLUE)
+
+ 52           LOAD_CONST              29 ('\x1b[46m')
+              STORE_NAME              33 (BACKGROUND_CYAN)
+
+ 53           LOAD_CONST              30 ('\x1b[42m')
+              STORE_NAME              34 (BACKGROUND_GREEN)
+
+ 54           LOAD_CONST              31 ('\x1b[45m')
+              STORE_NAME              35 (BACKGROUND_MAGENTA)
+
+ 55           LOAD_CONST              32 ('\x1b[41m')
+              STORE_NAME              36 (BACKGROUND_RED)
+
+ 56           LOAD_CONST              33 ('\x1b[47m')
+              STORE_NAME              37 (BACKGROUND_WHITE)
+
+ 57           LOAD_CONST              34 ('\x1b[43m')
+              STORE_NAME              38 (BACKGROUND_YELLOW)
+
+ 59           LOAD_CONST              35 ('\x1b[100m')
+              STORE_NAME              39 (INTENSE_BACKGROUND_BLACK)
+
+ 60           LOAD_CONST              36 ('\x1b[104m')
+              STORE_NAME              40 (INTENSE_BACKGROUND_BLUE)
+
+ 61           LOAD_CONST              37 ('\x1b[106m')
+              STORE_NAME              41 (INTENSE_BACKGROUND_CYAN)
+
+ 62           LOAD_CONST              38 ('\x1b[102m')
+              STORE_NAME              42 (INTENSE_BACKGROUND_GREEN)
+
+ 63           LOAD_CONST              39 ('\x1b[105m')
+              STORE_NAME              43 (INTENSE_BACKGROUND_MAGENTA)
+
+ 64           LOAD_CONST              40 ('\x1b[101m')
+              STORE_NAME              44 (INTENSE_BACKGROUND_RED)
+
+ 65           LOAD_CONST              41 ('\x1b[107m')
+              STORE_NAME              45 (INTENSE_BACKGROUND_WHITE)
+
+ 66           LOAD_CONST              42 ('\x1b[103m')
+              STORE_NAME              46 (INTENSE_BACKGROUND_YELLOW)
+              LOAD_CONST              43 (())
+              STORE_NAME              47 (__static_attributes__)
+              LOAD_CONST              44 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ThemeSection at 0x00000204BA129F70, file "_colorize.py", line 116>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 116           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ThemeSection')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         116
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 117           LOAD_CONST               1 ('A mixin/base class for theme sections.\n\nIt enables dictionary access to a section, as well as implements convenience\nmethods.\n')
+               STORE_NAME               4 (__doc__)
+
+ 128           LOAD_FAST_BORROW         1 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __annotate__ at 0x00000204BA092F10, file "_colorize.py", line 128>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object __post_init__ at 0x00000204BA0BAF70, file "_colorize.py", line 128>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME               5 (__post_init__)
+
+ 134           LOAD_FAST_BORROW         1 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               4 (<code object __annotate__ at 0x00000204BA08B330, file "_colorize.py", line 134>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST               5 (<code object copy_with at 0x00000204B9F72550, file "_colorize.py", line 134>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME               6 (copy_with)
+
+ 141           LOAD_NAME                7 (classmethod)
+
+ 142           LOAD_FAST_BORROW         1 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               6 (<code object __annotate__ at 0x00000204BA0922E0, file "_colorize.py", line 142>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST               7 (<code object no_colors at 0x00000204BA0A72D0, file "_colorize.py", line 141>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+ 141           CALL                     0
+
+ 142           STORE_NAME               8 (no_colors)
+
+ 148           LOAD_FAST_BORROW         1 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               8 (<code object __annotate__ at 0x00000204BA08B130, file "_colorize.py", line 148>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST               9 (<code object __getitem__ at 0x00000204BA08B030, file "_colorize.py", line 148>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME               9 (__getitem__)
+
+ 151           LOAD_FAST_BORROW         1 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST              10 (<code object __annotate__ at 0x00000204BA092880, file "_colorize.py", line 151>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST              11 (<code object __len__ at 0x00000204BA10A230, file "_colorize.py", line 151>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME              10 (__len__)
+
+ 154           LOAD_FAST_BORROW         1 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST              12 (<code object __annotate__ at 0x00000204BA10A130, file "_colorize.py", line 154>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST              13 (<code object __iter__ at 0x00000204BA109B30, file "_colorize.py", line 154>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME              11 (__iter__)
+
+ 116           LOAD_FAST_BORROW         1 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST              14 (<code object __annotate__ at 0x00000204BA0BB8A0, file "_colorize.py", line 116>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              12 (__annotate_func__)
+               LOAD_CONST              15 (())
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              15 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092F10, file "_colorize.py", line 128>:
+  --           COPY_FREE_VARS           1
+
+ 128           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('return')
+               LOAD_CONST               2 (None)
+               BUILD_MAP                1
+               RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x00000204BA0BAF70, file "_colorize.py", line 128>:
+  --           COPY_FREE_VARS           1
+
+ 128           RESUME                   0
+
+ 129           BUILD_MAP                0
+               STORE_FAST               1 (name_to_value)
+
+ 130           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (__dataclass_fields__)
+               GET_ITER
+       L1:     FOR_ITER                16 (to L2)
+               STORE_FAST               2 (color_name)
+
+ 131           LOAD_GLOBAL              3 (getattr + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (self, color_name)
+               CALL                     2
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name_to_value, color_name)
+               STORE_SUBSCR
+               JUMP_BACKWARD           18 (to L1)
+
+ 130   L2:     END_FOR
+               POP_ITER
+
+ 132           LOAD_GLOBAL              4 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         13 (__setattr__ + NULL|self)
+               LOAD_CONST               0 ('_name_to_value')
+               LOAD_FAST_BORROW         1 (name_to_value)
+               LOAD_ATTR                8 (__getitem__)
+               CALL                     2
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08B330, file "_colorize.py", line 134>:
+  --           COPY_FREE_VARS           1
+
+ 134           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('kwargs')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               LOAD_CONST               2 ('return')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 1 (Self)
+               BUILD_MAP                2
+               RETURN_VALUE
+
+Disassembly of <code object copy_with at 0x00000204B9F72550, file "_colorize.py", line 134>:
+134           RESUME                   0
+
+135           BUILD_MAP                0
+              STORE_FAST               2 (color_state)
+
+136           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__dataclass_fields__)
+              GET_ITER
+      L1:     FOR_ITER                16 (to L2)
+              STORE_FAST               3 (color_name)
+
+137           LOAD_GLOBAL              3 (getattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (self, color_name)
+              CALL                     2
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (color_state, color_name)
+              STORE_SUBSCR
+              JUMP_BACKWARD           18 (to L1)
+
+136   L2:     END_FOR
+              POP_ITER
+
+138           LOAD_FAST_BORROW         2 (color_state)
+              LOAD_ATTR                5 (update + NULL|self)
+              LOAD_FAST_BORROW         1 (kwargs)
+              CALL                     1
+              POP_TOP
+
+139           LOAD_GLOBAL              7 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              PUSH_NULL
+              LOAD_CONST               1 (())
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         2 (color_state)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0922E0, file "_colorize.py", line 142>:
+  --           COPY_FREE_VARS           1
+
+ 142           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('return')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (Self)
+               BUILD_MAP                1
+               RETURN_VALUE
+
+Disassembly of <code object no_colors at 0x00000204BA0A72D0, file "_colorize.py", line 141>:
+141           RESUME                   0
+
+143           BUILD_MAP                0
+              STORE_FAST               1 (color_state)
+
+144           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (__dataclass_fields__)
+              GET_ITER
+      L1:     FOR_ITER                 7 (to L2)
+              STORE_FAST               2 (color_name)
+
+145           LOAD_CONST               0 ('')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (color_state, color_name)
+              STORE_SUBSCR
+              JUMP_BACKWARD            9 (to L1)
+
+144   L2:     END_FOR
+              POP_ITER
+
+146           LOAD_FAST_BORROW         0 (cls)
+              PUSH_NULL
+              LOAD_CONST               1 (())
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         1 (color_state)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08B130, file "_colorize.py", line 148>:
+  --           COPY_FREE_VARS           1
+
+ 148           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('key')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               LOAD_CONST               2 ('return')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               BUILD_MAP                2
+               RETURN_VALUE
+
+Disassembly of <code object __getitem__ at 0x00000204BA08B030, file "_colorize.py", line 148>:
+148           RESUME                   0
+
+149           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_name_to_value + NULL|self)
+              LOAD_FAST_BORROW         1 (key)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092880, file "_colorize.py", line 151>:
+  --           COPY_FREE_VARS           1
+
+ 151           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('return')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (int)
+               BUILD_MAP                1
+               RETURN_VALUE
+
+Disassembly of <code object __len__ at 0x00000204BA10A230, file "_colorize.py", line 151>:
+151           RESUME                   0
+
+152           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__dataclass_fields__)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10A130, file "_colorize.py", line 154>:
+  --           COPY_FREE_VARS           1
+
+ 154           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('return')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (Iterator)
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 1 (str)
+               BINARY_OP               26 ([])
+               BUILD_MAP                1
+               RETURN_VALUE
+
+Disassembly of <code object __iter__ at 0x00000204BA109B30, file "_colorize.py", line 154>:
+154           RESUME                   0
+
+155           LOAD_GLOBAL              1 (iter + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__dataclass_fields__)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0BB8A0, file "_colorize.py", line 116>:
+  --           COPY_FREE_VARS           1
+
+ 116           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     BUILD_MAP                0
+
+ 125           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (ClassVar)
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 1 (dict)
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 2 (str)
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 3 (Field)
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 2 (str)
+               BINARY_OP               26 ([])
+               BUILD_TUPLE              2
+               BINARY_OP               26 ([])
+               BINARY_OP               26 ([])
+               COPY                     2
+               LOAD_CONST               1 ('__dataclass_fields__')
+
+ 116           STORE_SUBSCR
+
+ 126           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 4 (Callable)
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 2 (str)
+               BUILD_LIST               1
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 2 (str)
+               BUILD_TUPLE              2
+               BINARY_OP               26 ([])
+               COPY                     2
+               LOAD_CONST               2 ('_name_to_value')
+
+ 116           STORE_SUBSCR
+               RETURN_VALUE
+
+Disassembly of <code object Argparse at 0x00000204BA36B200, file "_colorize.py", line 158>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 158           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Argparse')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         158
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 160           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               10 (BOLD_BLUE)
+               STORE_NAME               6 (usage)
+
+ 161           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (BOLD_MAGENTA)
+               STORE_NAME               8 (prog)
+
+ 162           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               18 (MAGENTA)
+               STORE_NAME              10 (prog_extra)
+
+ 163           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               10 (BOLD_BLUE)
+               STORE_NAME              11 (heading)
+
+ 164           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               24 (CYAN)
+               STORE_NAME              13 (summary_long_option)
+
+ 165           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               28 (GREEN)
+               STORE_NAME              15 (summary_short_option)
+
+ 166           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               32 (YELLOW)
+               STORE_NAME              17 (summary_label)
+
+ 167           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               28 (GREEN)
+               STORE_NAME              18 (summary_action)
+
+ 168           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               38 (BOLD_CYAN)
+               STORE_NAME              20 (long_option)
+
+ 169           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               42 (BOLD_GREEN)
+               STORE_NAME              22 (short_option)
+
+ 170           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               46 (BOLD_YELLOW)
+               STORE_NAME              24 (label)
+
+ 171           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               42 (BOLD_GREEN)
+               STORE_NAME              25 (action)
+
+ 172           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               52 (RESET)
+               STORE_NAME              27 (reset)
+
+ 158           LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object __annotate__ at 0x00000204BA129160, file "_colorize.py", line 158>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              28 (__annotate_func__)
+               LOAD_CONST               2 (())
+               STORE_NAME              29 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              30 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA129160, file "_colorize.py", line 158>:
+  --           COPY_FREE_VARS           1
+
+ 158           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     BUILD_MAP                0
+
+ 160           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               1 ('usage')
+
+ 158           STORE_SUBSCR
+
+ 161           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               2 ('prog')
+
+ 158           STORE_SUBSCR
+
+ 162           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               3 ('prog_extra')
+
+ 158           STORE_SUBSCR
+
+ 163           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               4 ('heading')
+
+ 158           STORE_SUBSCR
+
+ 164           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               5 ('summary_long_option')
+
+ 158           STORE_SUBSCR
+
+ 165           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               6 ('summary_short_option')
+
+ 158           STORE_SUBSCR
+
+ 166           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               7 ('summary_label')
+
+ 158           STORE_SUBSCR
+
+ 167           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               8 ('summary_action')
+
+ 158           STORE_SUBSCR
+
+ 168           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               9 ('long_option')
+
+ 158           STORE_SUBSCR
+
+ 169           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST              10 ('short_option')
+
+ 158           STORE_SUBSCR
+
+ 170           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST              11 ('label')
+
+ 158           STORE_SUBSCR
+
+ 171           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST              12 ('action')
+
+ 158           STORE_SUBSCR
+
+ 172           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST              13 ('reset')
+
+ 158           STORE_SUBSCR
+               RETURN_VALUE
+
+Disassembly of <code object Syntax at 0x00000204BA46E880, file "_colorize.py", line 175>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 175           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Syntax')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         175
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 177           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               10 (BOLD_MAGENTA)
+               STORE_NAME               6 (prompt)
+
+ 178           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (BOLD_BLUE)
+               STORE_NAME               8 (keyword)
+
+ 179           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (BOLD_BLUE)
+               STORE_NAME               9 (keyword_constant)
+
+ 180           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               20 (CYAN)
+               STORE_NAME              11 (builtin)
+
+ 181           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               24 (RED)
+               STORE_NAME              13 (comment)
+
+ 182           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               28 (GREEN)
+               STORE_NAME              15 (string)
+
+ 183           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               32 (YELLOW)
+               STORE_NAME              17 (number)
+
+ 184           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               36 (RESET)
+               STORE_NAME              19 (op)
+
+ 185           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               40 (BOLD)
+               STORE_NAME              21 (definition)
+
+ 186           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (BOLD_BLUE)
+               STORE_NAME              22 (soft_keyword)
+
+ 187           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               36 (RESET)
+               STORE_NAME              23 (reset)
+
+ 175           LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object __annotate__ at 0x00000204BA668030, file "_colorize.py", line 175>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              24 (__annotate_func__)
+               LOAD_CONST               2 (())
+               STORE_NAME              25 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              26 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA668030, file "_colorize.py", line 175>:
+  --           COPY_FREE_VARS           1
+
+ 175           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     BUILD_MAP                0
+
+ 177           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               1 ('prompt')
+
+ 175           STORE_SUBSCR
+
+ 178           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               2 ('keyword')
+
+ 175           STORE_SUBSCR
+
+ 179           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               3 ('keyword_constant')
+
+ 175           STORE_SUBSCR
+
+ 180           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               4 ('builtin')
+
+ 175           STORE_SUBSCR
+
+ 181           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               5 ('comment')
+
+ 175           STORE_SUBSCR
+
+ 182           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               6 ('string')
+
+ 175           STORE_SUBSCR
+
+ 183           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               7 ('number')
+
+ 175           STORE_SUBSCR
+
+ 184           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               8 ('op')
+
+ 175           STORE_SUBSCR
+
+ 185           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               9 ('definition')
+
+ 175           STORE_SUBSCR
+
+ 186           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST              10 ('soft_keyword')
+
+ 175           STORE_SUBSCR
+
+ 187           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST              11 ('reset')
+
+ 175           STORE_SUBSCR
+               RETURN_VALUE
+
+Disassembly of <code object Traceback at 0x00000204B9F9F130, file "_colorize.py", line 190>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 190           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Traceback')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         190
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 192           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               10 (BOLD_MAGENTA)
+               STORE_NAME               6 (type)
+
+ 193           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (MAGENTA)
+               STORE_NAME               8 (message)
+
+ 194           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (MAGENTA)
+               STORE_NAME               9 (filename)
+
+ 195           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (MAGENTA)
+               STORE_NAME              10 (line_no)
+
+ 196           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (MAGENTA)
+               STORE_NAME              11 (frame)
+
+ 197           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               24 (BOLD_RED)
+               STORE_NAME              13 (error_highlight)
+
+ 198           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               28 (RED)
+               STORE_NAME              15 (error_range)
+
+ 199           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               32 (RESET)
+               STORE_NAME              17 (reset)
+
+ 190           LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object __annotate__ at 0x00000204BA0BB4B0, file "_colorize.py", line 190>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              18 (__annotate_func__)
+               LOAD_CONST               2 (())
+               STORE_NAME              19 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              20 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0BB4B0, file "_colorize.py", line 190>:
+  --           COPY_FREE_VARS           1
+
+ 190           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     BUILD_MAP                0
+
+ 192           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               1 ('type')
+
+ 190           STORE_SUBSCR
+
+ 193           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               2 ('message')
+
+ 190           STORE_SUBSCR
+
+ 194           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               3 ('filename')
+
+ 190           STORE_SUBSCR
+
+ 195           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               4 ('line_no')
+
+ 190           STORE_SUBSCR
+
+ 196           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               5 ('frame')
+
+ 190           STORE_SUBSCR
+
+ 197           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               6 ('error_highlight')
+
+ 190           STORE_SUBSCR
+
+ 198           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               7 ('error_range')
+
+ 190           STORE_SUBSCR
+
+ 199           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               8 ('reset')
+
+ 190           STORE_SUBSCR
+               RETURN_VALUE
+
+Disassembly of <code object Unittest at 0x00000204B9FB7630, file "_colorize.py", line 202>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 202           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Unittest')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         202
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 204           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               10 (GREEN)
+               STORE_NAME               6 (passed)
+
+ 205           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               14 (YELLOW)
+               STORE_NAME               8 (warn)
+
+ 206           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               18 (RED)
+               STORE_NAME              10 (fail)
+
+ 207           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               22 (BOLD_RED)
+               STORE_NAME              12 (fail_info)
+
+ 208           LOAD_NAME                4 (ANSIColors)
+               LOAD_ATTR               26 (RESET)
+               STORE_NAME              14 (reset)
+
+ 202           LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object __annotate__ at 0x00000204BA102040, file "_colorize.py", line 202>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              15 (__annotate_func__)
+               LOAD_CONST               2 (())
+               STORE_NAME              16 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              17 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA102040, file "_colorize.py", line 202>:
+  --           COPY_FREE_VARS           1
+
+ 202           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     BUILD_MAP                0
+
+ 204           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               1 ('passed')
+
+ 202           STORE_SUBSCR
+
+ 205           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               2 ('warn')
+
+ 202           STORE_SUBSCR
+
+ 206           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               3 ('fail')
+
+ 202           STORE_SUBSCR
+
+ 207           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               4 ('fail_info')
+
+ 202           STORE_SUBSCR
+
+ 208           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (str)
+               COPY                     2
+               LOAD_CONST               5 ('reset')
+
+ 202           STORE_SUBSCR
+               RETURN_VALUE
+
+Disassembly of <code object Theme at 0x00000204BA12A8D0, file "_colorize.py", line 211>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 211           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Theme')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         211
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 213           LOAD_CONST               1 ('A suite of themes for all sections of Python.\n\nWhen adding a new one, remember to also modify `copy_with` and `no_colors`\nbelow.\n')
+               STORE_NAME               4 (__doc__)
+
+ 218           LOAD_NAME                5 (field)
+               PUSH_NULL
+               LOAD_NAME                6 (Argparse)
+               LOAD_CONST               2 (('default_factory',))
+               CALL_KW                  1
+               STORE_NAME               7 (argparse)
+
+ 219           LOAD_NAME                5 (field)
+               PUSH_NULL
+               LOAD_NAME                8 (Syntax)
+               LOAD_CONST               2 (('default_factory',))
+               CALL_KW                  1
+               STORE_NAME               9 (syntax)
+
+ 220           LOAD_NAME                5 (field)
+               PUSH_NULL
+               LOAD_NAME               10 (Traceback)
+               LOAD_CONST               2 (('default_factory',))
+               CALL_KW                  1
+               STORE_NAME              11 (traceback)
+
+ 221           LOAD_NAME                5 (field)
+               PUSH_NULL
+               LOAD_NAME               12 (Unittest)
+               LOAD_CONST               2 (('default_factory',))
+               CALL_KW                  1
+               STORE_NAME              13 (unittest)
+
+ 223           LOAD_CONST               3 ('argparse')
+
+ 226           LOAD_CONST               4 (None)
+
+ 223           LOAD_CONST               5 ('syntax')
+
+ 227           LOAD_CONST               4 (None)
+
+ 223           LOAD_CONST               6 ('traceback')
+
+ 228           LOAD_CONST               4 (None)
+
+ 223           LOAD_CONST               7 ('unittest')
+
+ 229           LOAD_CONST               4 (None)
+
+ 223           BUILD_MAP                4
+               LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST               8 (<code object __annotate__ at 0x00000204BA0AA970, file "_colorize.py", line 223>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST               9 (<code object copy_with at 0x00000204B9F6F5D0, file "_colorize.py", line 223>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              14 (copy_with)
+
+ 243           LOAD_NAME               15 (classmethod)
+
+ 244           LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST              10 (<code object __annotate__ at 0x00000204BA092790, file "_colorize.py", line 244>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST              11 (<code object no_colors at 0x00000204B9FB6D30, file "_colorize.py", line 243>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+ 243           CALL                     0
+
+ 244           STORE_NAME              16 (no_colors)
+
+ 211           LOAD_FAST_BORROW         0 (__classdict__)
+               BUILD_TUPLE              1
+               LOAD_CONST              12 (<code object __annotate__ at 0x00000204BA0A6C10, file "_colorize.py", line 211>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              17 (__annotate_func__)
+               LOAD_CONST              13 (())
+               STORE_NAME              18 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              19 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0AA970, file "_colorize.py", line 223>:
+  --           COPY_FREE_VARS           1
+
+ 223           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('argparse')
+
+ 226           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (Argparse)
+               LOAD_CONST               2 (None)
+               BINARY_OP                7 (|)
+
+ 223           LOAD_CONST               3 ('syntax')
+
+ 227           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 1 (Syntax)
+               LOAD_CONST               2 (None)
+               BINARY_OP                7 (|)
+
+ 223           LOAD_CONST               4 ('traceback')
+
+ 228           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 2 (Traceback)
+               LOAD_CONST               2 (None)
+               BINARY_OP                7 (|)
+
+ 223           LOAD_CONST               5 ('unittest')
+
+ 229           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 3 (Unittest)
+               LOAD_CONST               2 (None)
+               BINARY_OP                7 (|)
+
+ 223           LOAD_CONST               6 ('return')
+
+ 230           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 4 (Self)
+
+ 223           BUILD_MAP                5
+               RETURN_VALUE
+
+Disassembly of <code object copy_with at 0x00000204B9F6F5D0, file "_colorize.py", line 223>:
+223           RESUME                   0
+
+236           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              PUSH_NULL
+
+237           LOAD_FAST                1 (argparse)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        13 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (argparse)
+
+238   L1:     LOAD_FAST                2 (syntax)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        13 (to L2)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (syntax)
+
+239   L2:     LOAD_FAST                3 (traceback)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        13 (to L3)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (traceback)
+
+240   L3:     LOAD_FAST                4 (unittest)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        13 (to L4)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (unittest)
+
+236   L4:     LOAD_CONST               1 (('argparse', 'syntax', 'traceback', 'unittest'))
+              CALL_KW                  4
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092790, file "_colorize.py", line 244>:
+  --           COPY_FREE_VARS           1
+
+ 244           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('return')
+               LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (Self)
+               BUILD_MAP                1
+               RETURN_VALUE
+
+Disassembly of <code object no_colors at 0x00000204B9FB6D30, file "_colorize.py", line 243>:
+243           RESUME                   0
+
+251           LOAD_FAST_BORROW         0 (cls)
+              PUSH_NULL
+
+252           LOAD_GLOBAL              0 (Argparse)
+              LOAD_ATTR                3 (no_colors + NULL|self)
+              CALL                     0
+
+253           LOAD_GLOBAL              4 (Syntax)
+              LOAD_ATTR                3 (no_colors + NULL|self)
+              CALL                     0
+
+254           LOAD_GLOBAL              6 (Traceback)
+              LOAD_ATTR                3 (no_colors + NULL|self)
+              CALL                     0
+
+255           LOAD_GLOBAL              8 (Unittest)
+              LOAD_ATTR                3 (no_colors + NULL|self)
+              CALL                     0
+
+251           LOAD_CONST               1 (('argparse', 'syntax', 'traceback', 'unittest'))
+              CALL_KW                  4
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0A6C10, file "_colorize.py", line 211>:
+  --           COPY_FREE_VARS           1
+
+ 211           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     BUILD_MAP                0
+
+ 218           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 0 (Argparse)
+               COPY                     2
+               LOAD_CONST               1 ('argparse')
+
+ 211           STORE_SUBSCR
+
+ 219           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 1 (Syntax)
+               COPY                     2
+               LOAD_CONST               2 ('syntax')
+
+ 211           STORE_SUBSCR
+
+ 220           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 2 (Traceback)
+               COPY                     2
+               LOAD_CONST               3 ('traceback')
+
+ 211           STORE_SUBSCR
+
+ 221           LOAD_DEREF               1 (__classdict__)
+               LOAD_FROM_DICT_OR_GLOBALS 3 (Unittest)
+               COPY                     2
+               LOAD_CONST               4 ('unittest')
+
+ 211           STORE_SUBSCR
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204B9F73CB0, file "_colorize.py", line 259>:
+259           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('colorize')
+
+260           LOAD_GLOBAL              0 (bool)
+
+259           LOAD_CONST               2 ('file')
+
+260           LOAD_GLOBAL              2 (IO)
+              LOAD_GLOBAL              4 (str)
+              BINARY_OP               26 ([])
+              LOAD_GLOBAL              2 (IO)
+              LOAD_GLOBAL              6 (bytes)
+              BINARY_OP               26 ([])
+              BINARY_OP                7 (|)
+              LOAD_CONST               3 (None)
+              BINARY_OP                7 (|)
+
+259           LOAD_CONST               4 ('return')
+
+261           LOAD_GLOBAL              8 (ANSIColors)
+
+259           BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object get_colors at 0x00000204BA101920, file "_colorize.py", line 259>:
+259           RESUME                   0
+
+262           LOAD_FAST_BORROW         0 (colorize)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        19 (to L1)
+              NOT_TAKEN
+              LOAD_GLOBAL              1 (can_colorize + NULL)
+              LOAD_FAST_BORROW         1 (file)
+              LOAD_CONST               0 (('file',))
+              CALL_KW                  1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       11 (to L2)
+              NOT_TAKEN
+
+263   L1:     LOAD_GLOBAL              3 (ANSIColors + NULL)
+              CALL                     0
+              RETURN_VALUE
+
+265   L2:     LOAD_GLOBAL              4 (NoColors)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109C30, file "_colorize.py", line 268>:
+268           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('text')
+              LOAD_GLOBAL              0 (str)
+              LOAD_CONST               2 ('return')
+              LOAD_GLOBAL              0 (str)
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object decolor at 0x00000204BA0A7750, file "_colorize.py", line 268>:
+268           RESUME                   0
+
+270           LOAD_GLOBAL              0 (ColorCodes)
+              GET_ITER
+      L1:     FOR_ITER                21 (to L2)
+              STORE_FAST               1 (code)
+
+271           LOAD_FAST_BORROW         0 (text)
+              LOAD_ATTR                3 (replace + NULL|self)
+              LOAD_FAST_BORROW         1 (code)
+              LOAD_CONST               1 ('')
+              CALL                     2
+              STORE_FAST               0 (text)
+              JUMP_BACKWARD           23 (to L1)
+
+270   L2:     END_FOR
+              POP_ITER
+
+272           LOAD_FAST_BORROW         0 (text)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0BBB40, file "_colorize.py", line 275>:
+275           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('file')
+              LOAD_GLOBAL              0 (IO)
+              LOAD_GLOBAL              2 (str)
+              BINARY_OP               26 ([])
+              LOAD_GLOBAL              0 (IO)
+              LOAD_GLOBAL              4 (bytes)
+              BINARY_OP               26 ([])
+              BINARY_OP                7 (|)
+              LOAD_CONST               2 (None)
+              BINARY_OP                7 (|)
+              LOAD_CONST               3 ('return')
+              LOAD_GLOBAL              6 (bool)
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object can_colorize at 0x00000204BA35BFC0, file "_colorize.py", line 275>:
+ 275            RESUME                   0
+
+ 277            LOAD_CONST              15 ((None,))
+                LOAD_CONST               1 (<code object __annotate__ at 0x00000204BA1023D0, file "_colorize.py", line 277>)
+                MAKE_FUNCTION
+                LOAD_CONST               2 (<code object _safe_getenv at 0x00000204BA0ABC30, file "_colorize.py", line 277>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE  16 (annotate)
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_FAST               1 (_safe_getenv)
+
+ 284            LOAD_FAST_BORROW         0 (file)
+                POP_JUMP_IF_NOT_NONE    17 (to L1)
+                NOT_TAKEN
+
+ 285            LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR                2 (stdout)
+                STORE_FAST               0 (file)
+
+ 287    L1:     LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR                4 (flags)
+                LOAD_ATTR                6 (ignore_environment)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        31 (to L3)
+                NOT_TAKEN
+
+ 288            LOAD_FAST_BORROW         1 (_safe_getenv)
+                PUSH_NULL
+                LOAD_CONST               3 ('PYTHON_COLORS')
+                CALL                     1
+                LOAD_CONST               4 ('0')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L2)
+                NOT_TAKEN
+
+ 289            LOAD_CONST               5 (False)
+                RETURN_VALUE
+
+ 290    L2:     LOAD_FAST_BORROW         1 (_safe_getenv)
+                PUSH_NULL
+                LOAD_CONST               3 ('PYTHON_COLORS')
+                CALL                     1
+                LOAD_CONST               6 ('1')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L3)
+                NOT_TAKEN
+
+ 291            LOAD_CONST               7 (True)
+                RETURN_VALUE
+
+ 292    L3:     LOAD_FAST_BORROW         1 (_safe_getenv)
+                PUSH_NULL
+                LOAD_CONST               8 ('NO_COLOR')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L4)
+                NOT_TAKEN
+
+ 293            LOAD_CONST               5 (False)
+                RETURN_VALUE
+
+ 294    L4:     LOAD_GLOBAL              8 (COLORIZE)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L5)
+                NOT_TAKEN
+
+ 295            LOAD_CONST               5 (False)
+                RETURN_VALUE
+
+ 296    L5:     LOAD_FAST_BORROW         1 (_safe_getenv)
+                PUSH_NULL
+                LOAD_CONST               9 ('FORCE_COLOR')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L6)
+                NOT_TAKEN
+
+ 297            LOAD_CONST               7 (True)
+                RETURN_VALUE
+
+ 298    L6:     LOAD_FAST_BORROW         1 (_safe_getenv)
+                PUSH_NULL
+                LOAD_CONST              10 ('TERM')
+                CALL                     1
+                LOAD_CONST              11 ('dumb')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L7)
+                NOT_TAKEN
+
+ 299            LOAD_CONST               5 (False)
+                RETURN_VALUE
+
+ 301    L7:     LOAD_GLOBAL             11 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (file)
+                LOAD_CONST              12 ('fileno')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L8)
+                NOT_TAKEN
+
+ 302            LOAD_CONST               5 (False)
+                RETURN_VALUE
+
+ 304    L8:     LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR               12 (platform)
+                LOAD_CONST              13 ('win32')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       31 (to L12)
+                NOT_TAKEN
+
+ 305            NOP
+
+ 306    L9:     LOAD_SMALL_INT           0
+                LOAD_CONST               0 (None)
+                IMPORT_NAME              7 (nt)
+                STORE_FAST               2 (nt)
+
+ 308            LOAD_FAST_BORROW         2 (nt)
+                LOAD_ATTR               17 (_supports_virtual_terminal + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L11)
+       L10:     NOT_TAKEN
+
+ 309            LOAD_CONST               5 (False)
+                RETURN_VALUE
+
+ 308   L11:     NOP
+
+ 313   L12:     NOP
+
+ 314   L13:     LOAD_GLOBAL             22 (os)
+                LOAD_ATTR               24 (isatty)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (file)
+                LOAD_ATTR               27 (fileno + NULL|self)
+                CALL                     0
+                CALL                     1
+       L14:     RETURN_VALUE
+
+  --   L15:     PUSH_EXC_INFO
+
+ 310            LOAD_GLOBAL             18 (ImportError)
+                LOAD_GLOBAL             20 (AttributeError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+ 311   L16:     POP_EXCEPT
+                LOAD_CONST               5 (False)
+                RETURN_VALUE
+
+ 310   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L19:     PUSH_EXC_INFO
+
+ 315            LOAD_GLOBAL             28 (io)
+                LOAD_ATTR               30 (UnsupportedOperation)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       40 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 316            LOAD_GLOBAL             11 (hasattr + NULL)
+                LOAD_FAST                0 (file)
+                LOAD_CONST              14 ('isatty')
+                CALL                     2
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L22)
+       L20:     NOT_TAKEN
+       L21:     POP_TOP
+                LOAD_FAST                0 (file)
+                LOAD_ATTR               25 (isatty + NULL|self)
+                CALL                     0
+       L22:     SWAP                     2
+       L23:     POP_EXCEPT
+                RETURN_VALUE
+
+ 315   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L9 to L10 -> L15 [0]
+  L13 to L14 -> L19 [0]
+  L15 to L16 -> L18 [1] lasti
+  L17 to L18 -> L18 [1] lasti
+  L19 to L20 -> L25 [1] lasti
+  L21 to L23 -> L25 [1] lasti
+  L24 to L25 -> L25 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA1023D0, file "_colorize.py", line 277>:
+277           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('k')
+              LOAD_GLOBAL              0 (str)
+              LOAD_CONST               2 ('fallback')
+              LOAD_GLOBAL              0 (str)
+              LOAD_CONST               3 (None)
+              BINARY_OP                7 (|)
+              LOAD_CONST               4 ('return')
+              LOAD_GLOBAL              0 (str)
+              LOAD_CONST               3 (None)
+              BINARY_OP                7 (|)
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object _safe_getenv at 0x00000204BA0ABC30, file "_colorize.py", line 277>:
+ 277           RESUME                   0
+
+ 279           NOP
+
+ 280   L1:     LOAD_GLOBAL              0 (os)
+               LOAD_ATTR                2 (environ)
+               LOAD_ATTR                5 (get + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (k, fallback)
+               CALL                     2
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 281           LOAD_GLOBAL              6 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 282           LOAD_FAST                1 (fallback)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 281   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA668D20, file "_colorize.py", line 323>:
+323           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('tty_file')
+
+325           LOAD_GLOBAL              0 (IO)
+              LOAD_GLOBAL              2 (str)
+              BINARY_OP               26 ([])
+              LOAD_GLOBAL              0 (IO)
+              LOAD_GLOBAL              4 (bytes)
+              BINARY_OP               26 ([])
+              BINARY_OP                7 (|)
+              LOAD_CONST               2 (None)
+              BINARY_OP                7 (|)
+
+323           LOAD_CONST               3 ('force_color')
+
+326           LOAD_GLOBAL              6 (bool)
+
+323           LOAD_CONST               4 ('force_no_color')
+
+327           LOAD_GLOBAL              6 (bool)
+
+323           LOAD_CONST               5 ('return')
+
+328           LOAD_GLOBAL              8 (Theme)
+
+323           BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object get_theme at 0x00000204BA102170, file "_colorize.py", line 323>:
+323           RESUME                   0
+
+341           LOAD_FAST_BORROW         1 (force_color)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        27 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (force_no_color)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        25 (to L2)
+              NOT_TAKEN
+
+342           LOAD_GLOBAL              1 (can_colorize + NULL)
+              LOAD_FAST_BORROW         0 (tty_file)
+              LOAD_CONST               1 (('file',))
+              CALL_KW                  1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        7 (to L2)
+              NOT_TAKEN
+
+343   L1:     LOAD_GLOBAL              2 (_theme)
+              RETURN_VALUE
+
+344   L2:     LOAD_GLOBAL              4 (theme_no_color)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109D30, file "_colorize.py", line 347>:
+347           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('t')
+              LOAD_GLOBAL              0 (Theme)
+              LOAD_CONST               2 ('return')
+              LOAD_CONST               3 (None)
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object set_theme at 0x00000204BA102630, file "_colorize.py", line 347>:
+347           RESUME                   0
+
+350           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (t)
+              LOAD_GLOBAL              2 (Theme)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        15 (to L1)
+              NOT_TAKEN
+
+351           LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               0 ('Expected Theme object, found ')
+              LOAD_FAST_BORROW         0 (t)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+353   L1:     LOAD_FAST_BORROW         0 (t)
+              STORE_GLOBAL             3 (_theme)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0FF440, file "_colorize.py", line 1>:
+  1           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     BUILD_MAP                0
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_GLOBAL              0 (__conditional_annotations__)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       10 (to L2)
+              NOT_TAKEN
+              LOAD_GLOBAL              2 (Theme)
+              COPY                     2
+              LOAD_CONST               1 ('_theme')
+
+  1           STORE_SUBSCR
+      L2:     RETURN_VALUE

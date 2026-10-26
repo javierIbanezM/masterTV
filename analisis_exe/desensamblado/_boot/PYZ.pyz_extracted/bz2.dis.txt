@@ -1,0 +1,1112 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Interface to the libbzip2 compression library.\n\nThis module provides a file interface, classes for incremental\n(de)compression, and functions for one-shot (de)compression.\n')
+              STORE_NAME               0 (__doc__)
+
+  7           BUILD_LIST               0
+              LOAD_CONST              11 (('BZ2File', 'BZ2Compressor', 'BZ2Decompressor', 'open', 'compress', 'decompress'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (__all__)
+
+ 10           LOAD_CONST               2 ('Nadeem Vawda <nadeem.vawda@gmail.com>')
+              STORE_NAME               2 (__author__)
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('open',))
+              IMPORT_NAME              3 (builtins)
+              IMPORT_FROM              4 (open)
+              STORE_NAME               5 (_builtin_open)
+              POP_TOP
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('_streams',))
+              IMPORT_NAME              6 (compression._common)
+              IMPORT_FROM              7 (_streams)
+              STORE_NAME               7 (_streams)
+              POP_TOP
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (None)
+              IMPORT_NAME              8 (io)
+              STORE_NAME               8 (io)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (None)
+              IMPORT_NAME              9 (os)
+              STORE_NAME               9 (os)
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('BZ2Compressor', 'BZ2Decompressor'))
+              IMPORT_NAME             10 (_bz2)
+              IMPORT_FROM             11 (BZ2Compressor)
+              STORE_NAME              11 (BZ2Compressor)
+              IMPORT_FROM             12 (BZ2Decompressor)
+              STORE_NAME              12 (BZ2Decompressor)
+              POP_TOP
+
+ 21           LOAD_SMALL_INT           1
+              STORE_NAME              13 (_MODE_READ)
+
+ 23           LOAD_SMALL_INT           3
+              STORE_NAME              14 (_MODE_WRITE)
+
+ 26           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object BZ2File at 0x00000204B9F9EA30, file "bz2.py", line 26>)
+              MAKE_FUNCTION
+              LOAD_CONST               1 ('BZ2File')
+              LOAD_NAME                7 (_streams)
+              LOAD_ATTR               30 (BaseStream)
+              CALL                     3
+              STORE_NAME              16 (BZ2File)
+
+279           LOAD_CONST              12 (('rb', 9, None, None, None))
+              LOAD_CONST               8 (<code object open at 0x00000204BA444F50, file "bz2.py", line 279>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               4 (open)
+
+321           LOAD_CONST              13 ((9,))
+              LOAD_CONST               9 (<code object compress at 0x00000204BA0A9BB0, file "bz2.py", line 321>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              17 (compress)
+
+332           LOAD_CONST              10 (<code object decompress at 0x00000204B9FA7290, file "bz2.py", line 332>)
+              MAKE_FUNCTION
+              STORE_NAME              18 (decompress)
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object BZ2File at 0x00000204B9F9EA30, file "bz2.py", line 26>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  26           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BZ2File')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          26
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  28           LOAD_CONST               1 ('A file object providing transparent bzip2 (de)compression.\n\nA BZ2File can act as a wrapper for an existing file object, or refer\ndirectly to a named file on disk.\n\nNote that BZ2File provides a *binary* file interface - data read is\nreturned as bytes, and data to be written should be given as bytes.\n')
+               STORE_NAME               4 (__doc__)
+
+  37           LOAD_CONST              24 (('r',))
+               LOAD_CONST               2 ('compresslevel')
+               LOAD_SMALL_INT           9
+               BUILD_MAP                1
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA3A3EB0, file "bz2.py", line 37>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+  97           LOAD_CONST               4 (<code object close at 0x00000204BA388300, file "bz2.py", line 97>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (close)
+
+ 120           LOAD_NAME                7 (property)
+
+ 121           LOAD_CONST               5 (<code object closed at 0x00000204BA092C40, file "bz2.py", line 120>)
+               MAKE_FUNCTION
+
+ 120           CALL                     0
+
+ 121           STORE_NAME               8 (closed)
+
+ 125           LOAD_NAME                7 (property)
+
+ 126           LOAD_CONST               6 (<code object name at 0x00000204BA0A5350, file "bz2.py", line 125>)
+               MAKE_FUNCTION
+
+ 125           CALL                     0
+
+ 126           STORE_NAME               9 (name)
+
+ 130           LOAD_NAME                7 (property)
+
+ 131           LOAD_CONST               7 (<code object mode at 0x00000204BA0FF440, file "bz2.py", line 130>)
+               MAKE_FUNCTION
+
+ 130           CALL                     0
+
+ 131           STORE_NAME              10 (mode)
+
+ 134           LOAD_CONST               8 (<code object fileno at 0x00000204B9FEF0E0, file "bz2.py", line 134>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (fileno)
+
+ 139           LOAD_CONST               9 (<code object seekable at 0x00000204BA0A9E30, file "bz2.py", line 139>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (seekable)
+
+ 143           LOAD_CONST              10 (<code object readable at 0x00000204BA0A6C10, file "bz2.py", line 143>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (readable)
+
+ 148           LOAD_CONST              11 (<code object writable at 0x00000204BA0A6D30, file "bz2.py", line 148>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (writable)
+
+ 153           LOAD_CONST              25 ((0,))
+               LOAD_CONST              12 (<code object peek at 0x00000204B9FEF800, file "bz2.py", line 153>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              15 (peek)
+
+ 165           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              13 (<code object read at 0x00000204BA101CB0, file "bz2.py", line 165>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              16 (read)
+
+ 174           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              14 (<code object read1 at 0x00000204B9F72D90, file "bz2.py", line 174>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              17 (read1)
+
+ 186           LOAD_CONST              15 (<code object readinto at 0x00000204BA1023D0, file "bz2.py", line 186>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (readinto)
+
+ 194           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              16 (<code object readline at 0x00000204B9FFAC10, file "bz2.py", line 194>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              19 (readline)
+
+ 208           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              17 (<code object readlines at 0x00000204B9FFADC0, file "bz2.py", line 208>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              20 (readlines)
+
+ 222           LOAD_CONST              18 (<code object write at 0x00000204BA445E30, file "bz2.py", line 222>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (write)
+
+ 243           LOAD_CONST              19 (<code object writelines at 0x00000204BA0FC250, file "bz2.py", line 243>)
+               MAKE_FUNCTION
+               STORE_NAME              22 (writelines)
+
+ 253           LOAD_NAME               23 (io)
+               LOAD_ATTR               48 (SEEK_SET)
+               BUILD_TUPLE              1
+               LOAD_CONST              20 (<code object seek at 0x00000204BA101DE0, file "bz2.py", line 253>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              25 (seek)
+
+ 271           LOAD_CONST              21 (<code object tell at 0x00000204BA5CCA40, file "bz2.py", line 271>)
+               MAKE_FUNCTION
+               STORE_NAME              26 (tell)
+               LOAD_CONST              22 (('_buffer', '_closefp', '_compressor', '_fp', '_mode', '_pos'))
+               STORE_NAME              27 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              28 (__classdictcell__)
+               LOAD_CONST              23 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA3A3EB0, file "bz2.py", line 37>:
+ 37            RESUME                   0
+
+ 55            LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fp)
+
+ 56            LOAD_CONST               2 (False)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_closefp)
+
+ 57            LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (_mode)
+
+ 59            LOAD_SMALL_INT           1
+               LOAD_FAST                3 (compresslevel)
+               SWAP                     2
+               COPY                     2
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE        8 (to L1)
+               NOT_TAKEN
+               LOAD_SMALL_INT           9
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_TRUE        14 (to L3)
+               NOT_TAKEN
+               JUMP_FORWARD             1 (to L2)
+       L1:     POP_TOP
+
+ 60    L2:     LOAD_GLOBAL              7 (ValueError + NULL)
+               LOAD_CONST               3 ('compresslevel must be between 1 and 9')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 62    L3:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST              14 (('', 'r', 'rb'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       10 (to L4)
+               NOT_TAKEN
+
+ 63            LOAD_CONST               4 ('rb')
+               STORE_FAST               2 (mode)
+
+ 64            LOAD_GLOBAL              8 (_MODE_READ)
+               STORE_FAST               4 (mode_code)
+               JUMP_FORWARD           111 (to L8)
+
+ 65    L4:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST              15 (('w', 'wb'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       26 (to L5)
+               NOT_TAKEN
+
+ 66            LOAD_CONST               5 ('wb')
+               STORE_FAST               2 (mode)
+
+ 67            LOAD_GLOBAL             10 (_MODE_WRITE)
+               STORE_FAST               4 (mode_code)
+
+ 68            LOAD_GLOBAL             13 (BZ2Compressor + NULL)
+               LOAD_FAST_BORROW         3 (compresslevel)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (_compressor)
+               JUMP_FORWARD            79 (to L8)
+
+ 69    L5:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST              16 (('x', 'xb'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       26 (to L6)
+               NOT_TAKEN
+
+ 70            LOAD_CONST               6 ('xb')
+               STORE_FAST               2 (mode)
+
+ 71            LOAD_GLOBAL             10 (_MODE_WRITE)
+               STORE_FAST               4 (mode_code)
+
+ 72            LOAD_GLOBAL             13 (BZ2Compressor + NULL)
+               LOAD_FAST_BORROW         3 (compresslevel)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (_compressor)
+               JUMP_FORWARD            47 (to L8)
+
+ 73    L6:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST              17 (('a', 'ab'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       26 (to L7)
+               NOT_TAKEN
+
+ 74            LOAD_CONST               7 ('ab')
+               STORE_FAST               2 (mode)
+
+ 75            LOAD_GLOBAL             10 (_MODE_WRITE)
+               STORE_FAST               4 (mode_code)
+
+ 76            LOAD_GLOBAL             13 (BZ2Compressor + NULL)
+               LOAD_FAST_BORROW         3 (compresslevel)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               7 (_compressor)
+               JUMP_FORWARD            15 (to L8)
+
+ 78    L7:     LOAD_GLOBAL              7 (ValueError + NULL)
+               LOAD_CONST               8 ('Invalid mode: ')
+               LOAD_FAST_BORROW         2 (mode)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 80    L8:     LOAD_GLOBAL             17 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (filename)
+               LOAD_GLOBAL             18 (str)
+               LOAD_GLOBAL             20 (bytes)
+               LOAD_GLOBAL             22 (os)
+               LOAD_ATTR               24 (PathLike)
+               BUILD_TUPLE              3
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       31 (to L9)
+               NOT_TAKEN
+
+ 81            LOAD_GLOBAL             27 (_builtin_open + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (filename, mode)
+               CALL                     2
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fp)
+
+ 82            LOAD_CONST               9 (True)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_closefp)
+
+ 83            LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (mode_code, self)
+               STORE_ATTR               2 (_mode)
+               JUMP_FORWARD            60 (to L12)
+
+ 84    L9:     LOAD_GLOBAL             29 (hasattr + NULL)
+               LOAD_FAST_BORROW         1 (filename)
+               LOAD_CONST              10 ('read')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        19 (to L10)
+               NOT_TAKEN
+               LOAD_GLOBAL             29 (hasattr + NULL)
+               LOAD_FAST_BORROW         1 (filename)
+               LOAD_CONST              11 ('write')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       14 (to L11)
+               NOT_TAKEN
+
+ 85   L10:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (filename, self)
+               STORE_ATTR               0 (_fp)
+
+ 86            LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (mode_code, self)
+               STORE_ATTR               2 (_mode)
+               JUMP_FORWARD            11 (to L12)
+
+ 88   L11:     LOAD_GLOBAL             31 (TypeError + NULL)
+               LOAD_CONST              12 ('filename must be a str, bytes, file or PathLike object')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 90   L12:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_mode)
+               LOAD_GLOBAL              8 (_MODE_READ)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       73 (to L13)
+               NOT_TAKEN
+
+ 91            LOAD_GLOBAL             32 (_streams)
+               LOAD_ATTR               34 (DecompressReader)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_fp)
+
+ 92            LOAD_GLOBAL             36 (BZ2Decompressor)
+               LOAD_GLOBAL             38 (OSError)
+
+ 91            LOAD_CONST              13 (('trailing_error',))
+               CALL_KW                  3
+               STORE_FAST               5 (raw)
+
+ 93            LOAD_GLOBAL             40 (io)
+               LOAD_ATTR               42 (BufferedReader)
+               PUSH_NULL
+               LOAD_FAST_BORROW         5 (raw)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              22 (_buffer)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 95   L13:     LOAD_SMALL_INT           0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              23 (_pos)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204BA388300, file "bz2.py", line 97>:
+  97            RESUME                   0
+
+ 103            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (closed)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+
+ 104            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 105    L1:     NOP
+
+ 106    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_mode)
+                LOAD_GLOBAL              4 (_MODE_READ)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L3)
+                NOT_TAKEN
+
+ 107            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_buffer)
+                LOAD_ATTR                9 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+                JUMP_FORWARD            79 (to L4)
+
+ 108    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_mode)
+                LOAD_GLOBAL             10 (_MODE_WRITE)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       59 (to L4)
+                NOT_TAKEN
+
+ 109            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (_fp)
+                LOAD_ATTR               15 (write + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               16 (_compressor)
+                LOAD_ATTR               19 (flush + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+ 110            LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               8 (_compressor)
+
+ 112    L4:     NOP
+
+ 113    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (_closefp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L6)
+                NOT_TAKEN
+
+ 114            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (_fp)
+                LOAD_ATTR                9 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 116    L6:     LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 117            LOAD_CONST               2 (False)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              10 (_closefp)
+
+ 118            LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               3 (_buffer)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 116            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 117            LOAD_CONST               2 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              10 (_closefp)
+
+ 118            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               3 (_buffer)
+                RERAISE                  0
+
+  --    L8:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+        L9:     PUSH_EXC_INFO
+
+ 112   L10:     NOP
+
+ 113   L11:     LOAD_FAST                0 (self)
+                LOAD_ATTR               20 (_closefp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L12)
+                NOT_TAKEN
+
+ 114            LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (_fp)
+                LOAD_ATTR                9 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 116   L12:     LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 117            LOAD_CONST               2 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              10 (_closefp)
+
+ 118            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               3 (_buffer)
+                RERAISE                  0
+
+  --   L13:     PUSH_EXC_INFO
+
+ 116            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 117            LOAD_CONST               2 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              10 (_closefp)
+
+ 118            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               3 (_buffer)
+                RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L4 -> L9 [0]
+  L5 to L6 -> L7 [0]
+  L7 to L8 -> L8 [1] lasti
+  L9 to L10 -> L15 [1] lasti
+  L11 to L12 -> L13 [2]
+  L12 to L13 -> L15 [1] lasti
+  L13 to L14 -> L14 [3] lasti
+  L14 to L15 -> L15 [1] lasti
+
+Disassembly of <code object closed at 0x00000204BA092C40, file "bz2.py", line 120>:
+120           RESUME                   0
+
+123           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fp)
+              LOAD_CONST               1 (None)
+              IS_OP                    0 (is)
+              RETURN_VALUE
+
+Disassembly of <code object name at 0x00000204BA0A5350, file "bz2.py", line 125>:
+125           RESUME                   0
+
+127           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+128           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_fp)
+              LOAD_ATTR                4 (name)
+              RETURN_VALUE
+
+Disassembly of <code object mode at 0x00000204BA0FF440, file "bz2.py", line 130>:
+130           RESUME                   0
+
+132           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_mode)
+              LOAD_GLOBAL              2 (_MODE_WRITE)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 ('wb')
+              RETURN_VALUE
+      L1:     LOAD_CONST               1 ('rb')
+              RETURN_VALUE
+
+Disassembly of <code object fileno at 0x00000204B9FEF0E0, file "bz2.py", line 134>:
+134           RESUME                   0
+
+136           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+137           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_fp)
+              LOAD_ATTR                5 (fileno + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object seekable at 0x00000204BA0A9E30, file "bz2.py", line 139>:
+139           RESUME                   0
+
+141           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (readable + NULL|self)
+              CALL                     0
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (seekable + NULL|self)
+              CALL                     0
+      L1:     RETURN_VALUE
+
+Disassembly of <code object readable at 0x00000204BA0A6C10, file "bz2.py", line 143>:
+143           RESUME                   0
+
+145           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+146           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_READ)
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object writable at 0x00000204BA0A6D30, file "bz2.py", line 148>:
+148           RESUME                   0
+
+150           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+151           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_WRITE)
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object peek at 0x00000204B9FEF800, file "bz2.py", line 153>:
+153           RESUME                   0
+
+159           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+163           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (peek + NULL|self)
+              LOAD_FAST_BORROW         1 (n)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object read at 0x00000204BA101CB0, file "bz2.py", line 165>:
+165           RESUME                   0
+
+171           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+172           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (read + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object read1 at 0x00000204B9F72D90, file "bz2.py", line 174>:
+174           RESUME                   0
+
+181           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+182           LOAD_FAST_BORROW         1 (size)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+183           LOAD_GLOBAL              2 (io)
+              LOAD_ATTR                4 (DEFAULT_BUFFER_SIZE)
+              STORE_FAST               1 (size)
+
+184   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_buffer)
+              LOAD_ATTR                9 (read1 + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readinto at 0x00000204BA1023D0, file "bz2.py", line 186>:
+186           RESUME                   0
+
+191           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+192           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (readinto + NULL|self)
+              LOAD_FAST_BORROW         1 (b)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readline at 0x00000204B9FFAC10, file "bz2.py", line 194>:
+194           RESUME                   0
+
+201           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (size)
+              LOAD_GLOBAL              2 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        46 (to L2)
+              NOT_TAKEN
+
+202           LOAD_GLOBAL              5 (hasattr + NULL)
+              LOAD_FAST_BORROW         1 (size)
+              LOAD_CONST               1 ('__index__')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L1)
+              NOT_TAKEN
+
+203           LOAD_GLOBAL              7 (TypeError + NULL)
+              LOAD_CONST               2 ('Integer argument expected')
+              CALL                     1
+              RAISE_VARARGS            1
+
+204   L1:     LOAD_FAST_BORROW         1 (size)
+              LOAD_ATTR                9 (__index__ + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (size)
+
+205   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+206           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_buffer)
+              LOAD_ATTR               15 (readline + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readlines at 0x00000204B9FFADC0, file "bz2.py", line 208>:
+208           RESUME                   0
+
+215           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (size)
+              LOAD_GLOBAL              2 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        46 (to L2)
+              NOT_TAKEN
+
+216           LOAD_GLOBAL              5 (hasattr + NULL)
+              LOAD_FAST_BORROW         1 (size)
+              LOAD_CONST               1 ('__index__')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L1)
+              NOT_TAKEN
+
+217           LOAD_GLOBAL              7 (TypeError + NULL)
+              LOAD_CONST               2 ('Integer argument expected')
+              CALL                     1
+              RAISE_VARARGS            1
+
+218   L1:     LOAD_FAST_BORROW         1 (size)
+              LOAD_ATTR                9 (__index__ + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (size)
+
+219   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+220           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_buffer)
+              LOAD_ATTR               15 (readlines + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object write at 0x00000204BA445E30, file "bz2.py", line 222>:
+222           RESUME                   0
+
+230           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_write + NULL|self)
+              CALL                     0
+              POP_TOP
+
+231           LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              LOAD_GLOBAL              4 (bytes)
+              LOAD_GLOBAL              6 (bytearray)
+              BUILD_TUPLE              2
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+232           LOAD_GLOBAL              9 (len + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               2 (length)
+              JUMP_FORWARD            23 (to L2)
+
+235   L1:     LOAD_GLOBAL             11 (memoryview + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               1 (data)
+
+236           LOAD_FAST_BORROW         1 (data)
+              LOAD_ATTR               12 (nbytes)
+              STORE_FAST               2 (length)
+
+238   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (_compressor)
+              LOAD_ATTR               17 (compress + NULL|self)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               3 (compressed)
+
+239           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (_fp)
+              LOAD_ATTR               21 (write + NULL|self)
+              LOAD_FAST_BORROW         3 (compressed)
+              CALL                     1
+              POP_TOP
+
+240           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR               22 (_pos)
+              LOAD_FAST_BORROW         2 (length)
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR              11 (_pos)
+
+241           LOAD_FAST_BORROW         2 (length)
+              RETURN_VALUE
+
+Disassembly of <code object writelines at 0x00000204BA0FC250, file "bz2.py", line 243>:
+243           RESUME                   0
+
+251           LOAD_GLOBAL              0 (_streams)
+              LOAD_ATTR                2 (BaseStream)
+              LOAD_ATTR                5 (writelines + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, seq)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object seek at 0x00000204BA101DE0, file "bz2.py", line 253>:
+253           RESUME                   0
+
+268           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_seek + NULL|self)
+              CALL                     0
+              POP_TOP
+
+269           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (seek + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (offset, whence)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object tell at 0x00000204BA5CCA40, file "bz2.py", line 271>:
+271           RESUME                   0
+
+273           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+274           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_READ)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+275           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_buffer)
+              LOAD_ATTR                9 (tell + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+276   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_pos)
+              RETURN_VALUE
+
+Disassembly of <code object open at 0x00000204BA444F50, file "bz2.py", line 279>:
+279           RESUME                   0
+
+300           LOAD_CONST               1 ('t')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       24 (to L2)
+              NOT_TAKEN
+
+301           LOAD_CONST               2 ('b')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       16 (to L1)
+              NOT_TAKEN
+
+302           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               3 ('Invalid mode: ')
+              LOAD_FAST_BORROW         1 (mode)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+301   L1:     JUMP_FORWARD            45 (to L5)
+
+304   L2:     LOAD_FAST_BORROW         3 (encoding)
+              POP_JUMP_IF_NONE        12 (to L3)
+              NOT_TAKEN
+
+305           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               4 ("Argument 'encoding' not supported in binary mode")
+              CALL                     1
+              RAISE_VARARGS            1
+
+306   L3:     LOAD_FAST_BORROW         4 (errors)
+              POP_JUMP_IF_NONE        12 (to L4)
+              NOT_TAKEN
+
+307           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               5 ("Argument 'errors' not supported in binary mode")
+              CALL                     1
+              RAISE_VARARGS            1
+
+308   L4:     LOAD_FAST_BORROW         5 (newline)
+              POP_JUMP_IF_NONE        12 (to L5)
+              NOT_TAKEN
+
+309           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               6 ("Argument 'newline' not supported in binary mode")
+              CALL                     1
+              RAISE_VARARGS            1
+
+311   L5:     LOAD_FAST_BORROW         1 (mode)
+              LOAD_ATTR                3 (replace + NULL|self)
+              LOAD_CONST               1 ('t')
+              LOAD_CONST               7 ('')
+              CALL                     2
+              STORE_FAST               6 (bz_mode)
+
+312           LOAD_GLOBAL              5 (BZ2File + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (filename, bz_mode)
+              LOAD_FAST_BORROW         2 (compresslevel)
+              LOAD_CONST               8 (('compresslevel',))
+              CALL_KW                  3
+              STORE_FAST               7 (binary_file)
+
+314           LOAD_CONST               1 ('t')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       46 (to L6)
+              NOT_TAKEN
+
+315           LOAD_GLOBAL              6 (io)
+              LOAD_ATTR                8 (text_encoding)
+              PUSH_NULL
+              LOAD_FAST_BORROW         3 (encoding)
+              CALL                     1
+              STORE_FAST               3 (encoding)
+
+316           LOAD_GLOBAL              6 (io)
+              LOAD_ATTR               10 (TextIOWrapper)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 115 (binary_file, encoding)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (errors, newline)
+              CALL                     4
+              RETURN_VALUE
+
+318   L6:     LOAD_FAST_BORROW         7 (binary_file)
+              RETURN_VALUE
+
+Disassembly of <code object compress at 0x00000204BA0A9BB0, file "bz2.py", line 321>:
+321           RESUME                   0
+
+328           LOAD_GLOBAL              1 (BZ2Compressor + NULL)
+              LOAD_FAST_BORROW         1 (compresslevel)
+              CALL                     1
+              STORE_FAST               2 (comp)
+
+329           LOAD_FAST_BORROW         2 (comp)
+              LOAD_ATTR                3 (compress + NULL|self)
+              LOAD_FAST_BORROW         0 (data)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (comp)
+              LOAD_ATTR                5 (flush + NULL|self)
+              CALL                     0
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object decompress at 0x00000204B9FA7290, file "bz2.py", line 332>:
+ 332            RESUME                   0
+
+ 337            BUILD_LIST               0
+                STORE_FAST               1 (results)
+
+ 338    L1:     LOAD_FAST_BORROW         0 (data)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       89 (to L5)
+                NOT_TAKEN
+
+ 339            LOAD_GLOBAL              1 (BZ2Decompressor + NULL)
+                CALL                     0
+                STORE_FAST               2 (decomp)
+
+ 340            NOP
+
+ 341    L2:     LOAD_FAST_BORROW         2 (decomp)
+                LOAD_ATTR                3 (decompress + NULL|self)
+                LOAD_FAST_BORROW         0 (data)
+                CALL                     1
+                STORE_FAST               3 (res)
+
+ 347    L3:     LOAD_FAST                1 (results)
+                LOAD_ATTR                7 (append + NULL|self)
+                LOAD_FAST                3 (res)
+                CALL                     1
+                POP_TOP
+
+ 348            LOAD_FAST                2 (decomp)
+                LOAD_ATTR                8 (eof)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L4)
+                NOT_TAKEN
+
+ 349            LOAD_GLOBAL             11 (ValueError + NULL)
+                LOAD_CONST               1 ('Compressed data ended before the end-of-stream marker was reached')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 351    L4:     LOAD_FAST                2 (decomp)
+                LOAD_ATTR               12 (unused_data)
+                STORE_FAST               0 (data)
+                JUMP_BACKWARD           96 (to L1)
+
+ 352    L5:     LOAD_CONST               2 (b'')
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         1 (results)
+                CALL                     1
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+ 342            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       14 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 343            LOAD_FAST                1 (results)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        4 (to L8)
+        L7:     NOT_TAKEN
+
+ 344            POP_EXCEPT
+                JUMP_BACKWARD           39 (to L5)
+
+ 346    L8:     RAISE_VARARGS            0
+
+ 342    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L6 [0]
+  L6 to L7 -> L10 [1] lasti
+  L8 to L10 -> L10 [1] lasti

@@ -1,0 +1,649 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ("Thread-local objects.\n\n(Note that this module provides a Python version of the threading.local\n class.  Depending on the version of Python you're using, there may be a\n faster one available.  You should always import the `local` class from\n `threading`.)\n")
+              STORE_NAME               0 (__doc__)
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('ref',))
+              IMPORT_NAME              1 (weakref)
+              IMPORT_FROM              2 (ref)
+              STORE_NAME               2 (ref)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('contextmanager',))
+              IMPORT_NAME              3 (contextlib)
+              IMPORT_FROM              4 (contextmanager)
+              STORE_NAME               4 (contextmanager)
+              POP_TOP
+
+ 12           LOAD_CONST               3 ('local')
+              BUILD_LIST               1
+              STORE_NAME               5 (__all__)
+
+ 24           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object _localimpl at 0x00000204BA0FECD0, file "_threading_local.py", line 24>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('_localimpl')
+              CALL                     2
+              STORE_NAME               6 (_localimpl)
+
+ 68           LOAD_NAME                4 (contextmanager)
+
+ 69           LOAD_CONST               6 (<code object _patch at 0x00000204BA3AC4A0, file "_threading_local.py", line 68>)
+              MAKE_FUNCTION
+
+ 68           CALL                     0
+
+ 69           STORE_NAME               7 (_patch)
+
+ 82           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object local at 0x00000204BA0FF550, file "_threading_local.py", line 82>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('local')
+              CALL                     2
+              STORE_NAME               8 (local)
+
+120           LOAD_SMALL_INT           0
+              LOAD_CONST               8 (('current_thread', 'RLock'))
+              IMPORT_NAME              9 (threading)
+              IMPORT_FROM             10 (current_thread)
+              STORE_NAME              10 (current_thread)
+              IMPORT_FROM             11 (RLock)
+              STORE_NAME              11 (RLock)
+              POP_TOP
+              LOAD_CONST               9 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _localimpl at 0x00000204BA0FECD0, file "_threading_local.py", line 24>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  24           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_localimpl')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          24
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  25           LOAD_CONST               1 ('A class managing thread-local dicts')
+               STORE_NAME               4 (__doc__)
+
+  26           LOAD_CONST               7 (('key', 'dicts', 'localargs', 'locallock', '__weakref__'))
+               STORE_NAME               5 (__slots__)
+
+  28           LOAD_CONST               2 (<code object __init__ at 0x00000204B9FEF0E0, file "_threading_local.py", line 28>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__init__)
+
+  36           LOAD_CONST               3 (<code object get_dict at 0x00000204BA101A50, file "_threading_local.py", line 36>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (get_dict)
+
+  42           LOAD_CONST               4 (<code object create_dict at 0x00000204B9FFBB40, file "_threading_local.py", line 42>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (create_dict)
+               LOAD_CONST               5 (('dicts', 'key'))
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FEF0E0, file "_threading_local.py", line 28>:
+ 28           RESUME                   0
+
+ 32           LOAD_CONST               0 ('_threading_local._localimpl.')
+              LOAD_GLOBAL              1 (str + NULL)
+              LOAD_GLOBAL              3 (id + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              CALL                     1
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (key)
+
+ 34           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (dicts)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_dict at 0x00000204BA101A50, file "_threading_local.py", line 36>:
+ 36           RESUME                   0
+
+ 39           LOAD_GLOBAL              1 (current_thread + NULL)
+              CALL                     0
+              STORE_FAST               1 (thread)
+
+ 40           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (dicts)
+              LOAD_GLOBAL              5 (id + NULL)
+              LOAD_FAST_BORROW         1 (thread)
+              CALL                     1
+              BINARY_OP               26 ([])
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object create_dict at 0x00000204B9FFBB40, file "_threading_local.py", line 42>:
+  --           MAKE_CELL                7 (wrlocal)
+               MAKE_CELL                8 (wrthread)
+
+  42           RESUME                   0
+
+  44           BUILD_MAP                0
+               STORE_FAST               1 (localdict)
+
+  45           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (key)
+               STORE_FAST               2 (key)
+
+  46           LOAD_GLOBAL              3 (current_thread + NULL)
+               CALL                     0
+               STORE_FAST               3 (thread)
+
+  47           LOAD_GLOBAL              5 (id + NULL)
+               LOAD_FAST_BORROW         3 (thread)
+               CALL                     1
+               STORE_FAST               4 (idt)
+
+  48           LOAD_FAST_BORROW         2 (key)
+               BUILD_TUPLE              1
+               LOAD_FAST_BORROW         8 (wrthread)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object local_deleted at 0x00000204BA0FF440, file "_threading_local.py", line 48>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_FAST               5 (local_deleted)
+
+  53           LOAD_FAST_BORROW         4 (idt)
+               BUILD_TUPLE              1
+               LOAD_FAST_BORROW         7 (wrlocal)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object thread_deleted at 0x00000204BA102C20, file "_threading_local.py", line 53>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_FAST               6 (thread_deleted)
+
+  61           LOAD_GLOBAL              7 (ref + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (self, local_deleted)
+               CALL                     2
+               STORE_DEREF              7 (wrlocal)
+
+  62           LOAD_GLOBAL              7 (ref + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 54 (thread, thread_deleted)
+               CALL                     2
+               STORE_DEREF              8 (wrthread)
+
+  63           LOAD_DEREF               7 (wrlocal)
+               LOAD_FAST_BORROW         3 (thread)
+               LOAD_ATTR                8 (__dict__)
+               LOAD_FAST_BORROW         2 (key)
+               STORE_SUBSCR
+
+  64           LOAD_DEREF               8 (wrthread)
+               LOAD_FAST_BORROW         1 (localdict)
+               BUILD_TUPLE              2
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (dicts)
+               LOAD_FAST_BORROW         4 (idt)
+               STORE_SUBSCR
+
+  65           LOAD_FAST_BORROW         1 (localdict)
+               RETURN_VALUE
+
+Disassembly of <code object local_deleted at 0x00000204BA0FF440, file "_threading_local.py", line 48>:
+  --           COPY_FREE_VARS           1
+
+  48           RESUME                   0
+
+  50           LOAD_DEREF               3 (wrthread)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               2 (thread)
+
+  51           LOAD_FAST_BORROW         2 (thread)
+               POP_JUMP_IF_NONE        16 (to L1)
+               NOT_TAKEN
+
+  52           LOAD_FAST_BORROW         2 (thread)
+               LOAD_ATTR                0 (__dict__)
+               LOAD_FAST_BORROW         1 (key)
+               DELETE_SUBSCR
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  51   L1:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object thread_deleted at 0x00000204BA102C20, file "_threading_local.py", line 53>:
+  --           COPY_FREE_VARS           1
+
+  53           RESUME                   0
+
+  58           LOAD_DEREF               4 (wrlocal)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               2 (local)
+
+  59           LOAD_FAST_BORROW         2 (local)
+               POP_JUMP_IF_NONE        30 (to L1)
+               NOT_TAKEN
+
+  60           LOAD_FAST_BORROW         2 (local)
+               LOAD_ATTR                0 (dicts)
+               LOAD_ATTR                3 (pop + NULL|self)
+               LOAD_FAST_BORROW         1 (idt)
+               CALL                     1
+               STORE_FAST               3 (dct)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  59   L1:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _patch at 0x00000204BA3AC4A0, file "_threading_local.py", line 68>:
+  68            RETURN_GENERATOR
+                POP_TOP
+        L1:     RESUME                   0
+
+  70            LOAD_GLOBAL              0 (object)
+                LOAD_ATTR                3 (__getattribute__ + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_CONST               0 ('_local__impl')
+                CALL                     2
+                STORE_FAST               1 (impl)
+
+  71    L2:     NOP
+
+  72    L3:     LOAD_FAST_BORROW         1 (impl)
+                LOAD_ATTR                5 (get_dict + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (dct)
+
+  77    L4:     LOAD_FAST_BORROW         1 (impl)
+                LOAD_ATTR               14 (locallock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L5:     POP_TOP
+
+  78            LOAD_GLOBAL              0 (object)
+                LOAD_ATTR               17 (__setattr__ + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_CONST               1 ('__dict__')
+                LOAD_FAST_BORROW         2 (dct)
+                CALL                     3
+                POP_TOP
+
+  79            LOAD_CONST               2 (None)
+                YIELD_VALUE              0
+                RESUME                   1
+                POP_TOP
+
+  77    L6:     LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+  73            LOAD_GLOBAL              6 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       52 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+  74            LOAD_FAST                1 (impl)
+                LOAD_ATTR                9 (create_dict + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (dct)
+
+  75            LOAD_FAST                1 (impl)
+                LOAD_ATTR               10 (localargs)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   52 (args, kw)
+
+  76            LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (__init__)
+                PUSH_NULL
+                LOAD_FAST                3 (args)
+                BUILD_MAP                0
+                LOAD_FAST                4 (kw)
+                DICT_MERGE               1
+                CALL_FUNCTION_EX
+                POP_TOP
+        L8:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 119 (to L4)
+
+  73    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  77   L11:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L12)
+                NOT_TAKEN
+                RERAISE                  2
+       L12:     POP_TOP
+       L13:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L15:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L15 [0] lasti
+  L3 to L4 -> L7 [0]
+  L4 to L5 -> L15 [0] lasti
+  L5 to L6 -> L11 [2] lasti
+  L6 to L7 -> L15 [0] lasti
+  L7 to L8 -> L10 [1] lasti
+  L8 to L9 -> L15 [0] lasti
+  L9 to L10 -> L10 [1] lasti
+  L10 to L11 -> L15 [0] lasti
+  L11 to L13 -> L14 [4] lasti
+  L13 to L15 -> L15 [0] lasti
+
+Disassembly of <code object local at 0x00000204BA0FF550, file "_threading_local.py", line 82>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  82           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('local')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          82
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  83           LOAD_CONST               7 (('_local__impl', '__dict__'))
+               STORE_NAME               4 (__slots__)
+
+  85           LOAD_CONST               1 (<code object __new__ at 0x00000204BA46D5F0, file "_threading_local.py", line 85>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__new__)
+
+  99           LOAD_CONST               2 (<code object __getattribute__ at 0x00000204B9F73890, file "_threading_local.py", line 99>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__getattribute__)
+
+ 103           LOAD_CONST               3 (<code object __setattr__ at 0x00000204B9F9F4B0, file "_threading_local.py", line 103>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__setattr__)
+
+ 111           LOAD_CONST               4 (<code object __delattr__ at 0x00000204B9F9E6B0, file "_threading_local.py", line 111>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__delattr__)
+               LOAD_CONST               5 (())
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x00000204BA46D5F0, file "_threading_local.py", line 85>:
+ 85           RESUME                   0
+
+ 86           LOAD_FAST_BORROW         1 (args)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         9 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (kw)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       42 (to L2)
+              NOT_TAKEN
+      L1:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (__init__)
+              LOAD_GLOBAL              2 (object)
+              LOAD_ATTR                0 (__init__)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+ 87           LOAD_GLOBAL              5 (TypeError + NULL)
+              LOAD_CONST               0 ('Initialization arguments are not supported')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 88   L2:     LOAD_GLOBAL              2 (object)
+              LOAD_ATTR                7 (__new__ + NULL|self)
+              LOAD_FAST_BORROW         0 (cls)
+              CALL                     1
+              STORE_FAST               3 (self)
+
+ 89           LOAD_GLOBAL              9 (_localimpl + NULL)
+              CALL                     0
+              STORE_FAST               4 (impl)
+
+ 90           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (args, kw)
+              BUILD_TUPLE              2
+              LOAD_FAST_BORROW         4 (impl)
+              STORE_ATTR               5 (localargs)
+
+ 91           LOAD_GLOBAL             13 (RLock + NULL)
+              CALL                     0
+              LOAD_FAST_BORROW         4 (impl)
+              STORE_ATTR               7 (locallock)
+
+ 92           LOAD_GLOBAL              2 (object)
+              LOAD_ATTR               17 (__setattr__ + NULL|self)
+              LOAD_FAST_BORROW         3 (self)
+              LOAD_CONST               1 ('_local__impl')
+              LOAD_FAST_BORROW         4 (impl)
+              CALL                     3
+              POP_TOP
+
+ 96           LOAD_FAST_BORROW         4 (impl)
+              LOAD_ATTR               19 (create_dict + NULL|self)
+              CALL                     0
+              POP_TOP
+
+ 97           LOAD_FAST_BORROW         3 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __getattribute__ at 0x00000204B9F73890, file "_threading_local.py", line 99>:
+  99           RESUME                   0
+
+ 100           LOAD_GLOBAL              1 (_patch + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 101           LOAD_GLOBAL              2 (object)
+               LOAD_ATTR                5 (__getattribute__ + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+               CALL                     2
+
+ 100   L2:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object __setattr__ at 0x00000204B9F9F4B0, file "_threading_local.py", line 103>:
+ 103           RESUME                   0
+
+ 104           LOAD_FAST_BORROW         1 (name)
+               LOAD_CONST               0 ('__dict__')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       39 (to L1)
+               NOT_TAKEN
+
+ 105           LOAD_GLOBAL              1 (AttributeError + NULL)
+
+ 106           LOAD_CONST               1 ("%r object attribute '__dict__' is read-only")
+
+ 107           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (__class__)
+               LOAD_ATTR                4 (__name__)
+
+ 106           BINARY_OP                6 (%)
+
+ 105           CALL                     1
+               RAISE_VARARGS            1
+
+ 108   L1:     LOAD_GLOBAL              7 (_patch + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L2:     POP_TOP
+
+ 109           LOAD_GLOBAL              8 (object)
+               LOAD_ATTR               11 (__setattr__ + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+               LOAD_FAST_BORROW         2 (value)
+               CALL                     3
+
+ 108   L3:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L4:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L5)
+               NOT_TAKEN
+               RERAISE                  2
+       L5:     POP_TOP
+       L6:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [2] lasti
+  L4 to L6 -> L7 [4] lasti
+
+Disassembly of <code object __delattr__ at 0x00000204B9F9E6B0, file "_threading_local.py", line 111>:
+ 111           RESUME                   0
+
+ 112           LOAD_FAST_BORROW         1 (name)
+               LOAD_CONST               0 ('__dict__')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       39 (to L1)
+               NOT_TAKEN
+
+ 113           LOAD_GLOBAL              1 (AttributeError + NULL)
+
+ 114           LOAD_CONST               1 ("%r object attribute '__dict__' is read-only")
+
+ 115           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (__class__)
+               LOAD_ATTR                4 (__name__)
+
+ 114           BINARY_OP                6 (%)
+
+ 113           CALL                     1
+               RAISE_VARARGS            1
+
+ 116   L1:     LOAD_GLOBAL              7 (_patch + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               CALL                     1
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L2:     POP_TOP
+
+ 117           LOAD_GLOBAL              8 (object)
+               LOAD_ATTR               11 (__delattr__ + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+               CALL                     2
+
+ 116   L3:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               LOAD_CONST               2 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L4:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L5)
+               NOT_TAKEN
+               RERAISE                  2
+       L5:     POP_TOP
+       L6:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [2] lasti
+  L4 to L6 -> L7 [4] lasti

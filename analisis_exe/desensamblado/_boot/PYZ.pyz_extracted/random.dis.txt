@@ -1,0 +1,3556 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('Random variable generators.\n\n    bytes\n    -----\n           uniform bytes (values between 0 and 255)\n\n    integers\n    --------\n           uniform within range\n\n    sequences\n    ---------\n           pick random element\n           pick random sample\n           pick weighted random sample\n           generate random permutation\n\n    distributions on the real line:\n    ------------------------------\n           uniform\n           triangular\n           normal (Gaussian)\n           lognormal\n           negative exponential\n           gamma\n           beta\n           pareto\n           Weibull\n\n    distributions on the circle (angles 0 to 2pi)\n    ---------------------------------------------\n           circular uniform\n           von Mises\n\n    discrete distributions\n    ----------------------\n           binomial\n\n\nGeneral notes on the underlying Mersenne Twister core generator:\n\n* The period is 2**19937-1.\n* It is one of the most extensively tested generators in existence.\n* The random() method is implemented in C, executes in a single Python step,\n  and is, therefore, threadsafe.\n\n')
+               STORE_NAME               0 (__doc__)
+
+  53           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('log', 'exp', 'pi', 'e', 'ceil'))
+               IMPORT_NAME              1 (math)
+               IMPORT_FROM              2 (log)
+               STORE_NAME               3 (_log)
+               IMPORT_FROM              4 (exp)
+               STORE_NAME               5 (_exp)
+               IMPORT_FROM              6 (pi)
+               STORE_NAME               7 (_pi)
+               IMPORT_FROM              8 (e)
+               STORE_NAME               9 (_e)
+               IMPORT_FROM             10 (ceil)
+               STORE_NAME              11 (_ceil)
+               POP_TOP
+
+  54           LOAD_SMALL_INT           0
+               LOAD_CONST               2 (('sqrt', 'acos', 'cos', 'sin'))
+               IMPORT_NAME              1 (math)
+               IMPORT_FROM             12 (sqrt)
+               STORE_NAME              13 (_sqrt)
+               IMPORT_FROM             14 (acos)
+               STORE_NAME              15 (_acos)
+               IMPORT_FROM             16 (cos)
+               STORE_NAME              17 (_cos)
+               IMPORT_FROM             18 (sin)
+               STORE_NAME              19 (_sin)
+               POP_TOP
+
+  55           LOAD_SMALL_INT           0
+               LOAD_CONST               3 (('tau', 'floor', 'isfinite'))
+               IMPORT_NAME              1 (math)
+               IMPORT_FROM             20 (tau)
+               STORE_NAME              21 (TWOPI)
+               IMPORT_FROM             22 (floor)
+               STORE_NAME              23 (_floor)
+               IMPORT_FROM             24 (isfinite)
+               STORE_NAME              25 (_isfinite)
+               POP_TOP
+
+  56           LOAD_SMALL_INT           0
+               LOAD_CONST               4 (('lgamma', 'fabs', 'log2'))
+               IMPORT_NAME              1 (math)
+               IMPORT_FROM             26 (lgamma)
+               STORE_NAME              27 (_lgamma)
+               IMPORT_FROM             28 (fabs)
+               STORE_NAME              29 (_fabs)
+               IMPORT_FROM             30 (log2)
+               STORE_NAME              31 (_log2)
+               POP_TOP
+
+  57           LOAD_SMALL_INT           0
+               LOAD_CONST               5 (('urandom',))
+               IMPORT_NAME             32 (os)
+               IMPORT_FROM             33 (urandom)
+               STORE_NAME              34 (_urandom)
+               POP_TOP
+
+  58           LOAD_SMALL_INT           0
+               LOAD_CONST               6 (('Sequence',))
+               IMPORT_NAME             35 (_collections_abc)
+               IMPORT_FROM             36 (Sequence)
+               STORE_NAME              37 (_Sequence)
+               POP_TOP
+
+  59           LOAD_SMALL_INT           0
+               LOAD_CONST               7 (('index',))
+               IMPORT_NAME             38 (operator)
+               IMPORT_FROM             39 (index)
+               STORE_NAME              40 (_index)
+               POP_TOP
+
+  60           LOAD_SMALL_INT           0
+               LOAD_CONST               8 (('accumulate', 'repeat'))
+               IMPORT_NAME             41 (itertools)
+               IMPORT_FROM             42 (accumulate)
+               STORE_NAME              43 (_accumulate)
+               IMPORT_FROM             44 (repeat)
+               STORE_NAME              45 (_repeat)
+               POP_TOP
+
+  61           LOAD_SMALL_INT           0
+               LOAD_CONST               9 (('bisect',))
+               IMPORT_NAME             46 (bisect)
+               IMPORT_FROM             46 (bisect)
+               STORE_NAME              47 (_bisect)
+               POP_TOP
+
+  62           LOAD_SMALL_INT           0
+               LOAD_CONST              10 (None)
+               IMPORT_NAME             32 (os)
+               STORE_NAME              48 (_os)
+
+  63           LOAD_SMALL_INT           0
+               LOAD_CONST              10 (None)
+               IMPORT_NAME             49 (_random)
+               STORE_NAME              49 (_random)
+
+  65           BUILD_LIST               0
+               LOAD_CONST              28 (('Random', 'SystemRandom', 'betavariate', 'binomialvariate', 'choice', 'choices', 'expovariate', 'gammavariate', 'gauss', 'getrandbits', 'getstate', 'lognormvariate', 'normalvariate', 'paretovariate', 'randbytes', 'randint', 'random', 'randrange', 'sample', 'seed', 'setstate', 'shuffle', 'triangular', 'uniform', 'vonmisesvariate', 'weibullvariate'))
+               LIST_EXTEND              1
+               STORE_NAME              50 (__all__)
+
+  94           LOAD_SMALL_INT           4
+               LOAD_NAME                5 (_exp)
+               PUSH_NULL
+               LOAD_CONST              29 (-0.5)
+               CALL                     1
+               BINARY_OP                5 (*)
+               LOAD_NAME               13 (_sqrt)
+               PUSH_NULL
+               LOAD_CONST              13 (2.0)
+               CALL                     1
+               BINARY_OP               11 (/)
+               STORE_NAME              51 (NV_MAGICCONST)
+
+  95           LOAD_NAME                3 (_log)
+               PUSH_NULL
+               LOAD_CONST              14 (4.0)
+               CALL                     1
+               STORE_NAME              52 (LOG4)
+
+  96           LOAD_CONST              15 (1.0)
+               LOAD_NAME                3 (_log)
+               PUSH_NULL
+               LOAD_CONST              16 (4.5)
+               CALL                     1
+               BINARY_OP                0 (+)
+               STORE_NAME              53 (SG_MAGICCONST)
+
+  97           LOAD_SMALL_INT          53
+               STORE_NAME              54 (BPF)
+
+  98           LOAD_SMALL_INT           2
+               LOAD_NAME               54 (BPF)
+               UNARY_NEGATIVE
+               BINARY_OP                8 (**)
+               STORE_NAME              55 (RECIP_BPF)
+
+  99           LOAD_SMALL_INT           1
+               STORE_NAME              56 (_ONE)
+
+ 100           LOAD_CONST              10 (None)
+               STORE_GLOBAL            57 (_sha512)
+
+ 103           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              17 (<code object Random at 0x00000204BA4459F0, file "random.py", line 103>)
+               MAKE_FUNCTION
+               LOAD_CONST              11 ('Random')
+               LOAD_NAME               49 (_random)
+               LOAD_ATTR              116 (Random)
+               CALL                     3
+               STORE_NAME              58 (Random)
+
+ 888           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              18 (<code object SystemRandom at 0x00000204BA0A7E10, file "random.py", line 888>)
+               MAKE_FUNCTION
+               LOAD_CONST              12 ('SystemRandom')
+               LOAD_NAME               58 (Random)
+               CALL                     3
+               STORE_NAME              59 (SystemRandom)
+
+ 932           LOAD_NAME               58 (Random)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME              60 (_inst)
+
+ 933           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              122 (seed)
+               STORE_NAME              61 (seed)
+
+ 934           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              124 (random)
+               STORE_NAME              62 (random)
+
+ 935           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              126 (uniform)
+               STORE_NAME              63 (uniform)
+
+ 936           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              128 (triangular)
+               STORE_NAME              64 (triangular)
+
+ 937           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              130 (randint)
+               STORE_NAME              65 (randint)
+
+ 938           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              132 (choice)
+               STORE_NAME              66 (choice)
+
+ 939           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              134 (randrange)
+               STORE_NAME              67 (randrange)
+
+ 940           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              136 (sample)
+               STORE_NAME              68 (sample)
+
+ 941           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              138 (shuffle)
+               STORE_NAME              69 (shuffle)
+
+ 942           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              140 (choices)
+               STORE_NAME              70 (choices)
+
+ 943           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              142 (normalvariate)
+               STORE_NAME              71 (normalvariate)
+
+ 944           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              144 (lognormvariate)
+               STORE_NAME              72 (lognormvariate)
+
+ 945           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              146 (expovariate)
+               STORE_NAME              73 (expovariate)
+
+ 946           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              148 (vonmisesvariate)
+               STORE_NAME              74 (vonmisesvariate)
+
+ 947           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              150 (gammavariate)
+               STORE_NAME              75 (gammavariate)
+
+ 948           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              152 (gauss)
+               STORE_NAME              76 (gauss)
+
+ 949           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              154 (betavariate)
+               STORE_NAME              77 (betavariate)
+
+ 950           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              156 (binomialvariate)
+               STORE_NAME              78 (binomialvariate)
+
+ 951           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              158 (paretovariate)
+               STORE_NAME              79 (paretovariate)
+
+ 952           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              160 (weibullvariate)
+               STORE_NAME              80 (weibullvariate)
+
+ 953           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              162 (getstate)
+               STORE_NAME              81 (getstate)
+
+ 954           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              164 (setstate)
+               STORE_NAME              82 (setstate)
+
+ 955           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              166 (getrandbits)
+               STORE_NAME              83 (getrandbits)
+
+ 956           LOAD_NAME               60 (_inst)
+               LOAD_ATTR              168 (randbytes)
+               STORE_NAME              84 (randbytes)
+
+ 962           LOAD_CONST              19 (<code object _test_generator at 0x00000204BA445170, file "random.py", line 962>)
+               MAKE_FUNCTION
+               STORE_NAME              85 (_test_generator)
+
+ 979           LOAD_CONST              30 ((10000,))
+               LOAD_CONST              20 (<code object _test at 0x00000204BA388300, file "random.py", line 979>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              86 (_test)
+
+1003           LOAD_NAME               87 (hasattr)
+               PUSH_NULL
+               LOAD_NAME               48 (_os)
+               LOAD_CONST              21 ('fork')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       30 (to L1)
+               NOT_TAKEN
+
+1004           LOAD_NAME               48 (_os)
+               LOAD_ATTR              176 (register_at_fork)
+               PUSH_NULL
+               LOAD_NAME               60 (_inst)
+               LOAD_ATTR              122 (seed)
+               LOAD_CONST              22 (('after_in_child',))
+               CALL_KW                  1
+               POP_TOP
+
+1011   L1:     LOAD_CONST              23 (<code object __annotate__ at 0x00000204BA0A7BD0, file "random.py", line 1011>)
+               MAKE_FUNCTION
+               LOAD_CONST              24 (<code object _parse_args at 0x00000204BA369050, file "random.py", line 1011>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_NAME              89 (_parse_args)
+
+1038           LOAD_CONST              31 ((None,))
+               LOAD_CONST              25 (<code object __annotate__ at 0x00000204BA0AA830, file "random.py", line 1038>)
+               MAKE_FUNCTION
+               LOAD_CONST              26 (<code object main at 0x00000204BA4B55A0, file "random.py", line 1038>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              90 (main)
+
+1077           LOAD_NAME               91 (__name__)
+               LOAD_CONST              27 ('__main__')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       16 (to L2)
+               NOT_TAKEN
+
+1078           LOAD_NAME               92 (print)
+               PUSH_NULL
+               LOAD_NAME               90 (main)
+               PUSH_NULL
+               CALL                     0
+               CALL                     1
+               POP_TOP
+               LOAD_CONST              10 (None)
+               RETURN_VALUE
+
+1077   L2:     LOAD_CONST              10 (None)
+               RETURN_VALUE
+
+Disassembly of <code object Random at 0x00000204BA4459F0, file "random.py", line 103>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 103           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Random')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         103
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 104           LOAD_CONST               1 ("Random number generator base class used by bound module functions.\n\nUsed to instantiate instances of Random to get generators that don't\nshare state.\n\nClass Random can also be subclassed if you want to use a different basic\ngenerator of your own devising: in that case, override the following\nmethods:  random(), seed(), getstate(), and setstate().\nOptionally, implement a getrandbits() method so that randrange()\ncan cover arbitrarily large ranges.\n\n")
+               STORE_NAME               4 (__doc__)
+
+ 117           LOAD_SMALL_INT           3
+               STORE_NAME               5 (VERSION)
+
+ 119           LOAD_CONST              36 ((None,))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0FFEE0, file "random.py", line 119>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (__init__)
+
+ 128           LOAD_CONST              37 ((None, 2))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               4 (<code object seed at 0x00000204BA3735D0, file "random.py", line 128>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (seed)
+
+ 176           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object getstate at 0x00000204BA0A6AF0, file "random.py", line 176>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               8 (getstate)
+
+ 180           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               6 (<code object setstate at 0x00000204BA36B440, file "random.py", line 180>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               9 (setstate)
+
+ 213           LOAD_CONST               7 (<code object __getstate__ at 0x00000204BA08A530, file "random.py", line 213>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__getstate__)
+
+ 216           LOAD_CONST               8 (<code object __setstate__ at 0x00000204BA08B130, file "random.py", line 216>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (__setstate__)
+
+ 219           LOAD_CONST               9 (<code object __reduce__ at 0x00000204BA0FECD0, file "random.py", line 219>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (__reduce__)
+
+ 225           LOAD_CONST              10 (<code object __init_subclass__ at 0x00000204B9F9F2F0, file "random.py", line 225>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (__init_subclass__)
+
+ 245           LOAD_CONST              11 (<code object _randbelow_with_getrandbits at 0x00000204BA0B8D50, file "random.py", line 245>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (_randbelow_with_getrandbits)
+
+ 254           LOAD_SMALL_INT           1
+               LOAD_NAME               15 (BPF)
+               BINARY_OP                3 (<<)
+               BUILD_TUPLE              1
+               LOAD_CONST              12 (<code object _randbelow_without_getrandbits at 0x00000204B9F4DF00, file "random.py", line 254>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              16 (_randbelow_without_getrandbits)
+
+ 274           LOAD_NAME               14 (_randbelow_with_getrandbits)
+               STORE_NAME              17 (_randbelow)
+
+ 287           LOAD_CONST              13 (<code object randbytes at 0x00000204BA100160, file "random.py", line 287>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (randbytes)
+
+ 294           LOAD_CONST               2 (None)
+               LOAD_NAME               19 (_ONE)
+               BUILD_TUPLE              2
+               LOAD_CONST              14 (<code object randrange at 0x00000204BA35BFC0, file "random.py", line 294>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              20 (randrange)
+
+ 335           LOAD_CONST              15 (<code object randint at 0x00000204B9FB74B0, file "random.py", line 335>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (randint)
+
+ 347           LOAD_CONST              16 (<code object choice at 0x00000204BA0B8EA0, file "random.py", line 347>)
+               MAKE_FUNCTION
+               STORE_NAME              22 (choice)
+
+ 356           LOAD_CONST              17 (<code object shuffle at 0x00000204B9FB7C30, file "random.py", line 356>)
+               MAKE_FUNCTION
+               STORE_NAME              23 (shuffle)
+
+ 365           LOAD_CONST              18 ('counts')
+               LOAD_CONST               2 (None)
+               BUILD_MAP                1
+               LOAD_CONST              19 (<code object sample at 0x00000204BA381490, file "random.py", line 365>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              24 (sample)
+
+ 460           LOAD_CONST              36 ((None,))
+               LOAD_CONST              20 ('cum_weights')
+               LOAD_CONST               2 (None)
+               LOAD_CONST              21 ('k')
+               LOAD_SMALL_INT           1
+               BUILD_MAP                2
+               LOAD_CONST              22 (<code object choices at 0x00000204BA37E640, file "random.py", line 460>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              25 (choices)
+
+ 500           LOAD_CONST              23 (<code object uniform at 0x00000204BA0A7090, file "random.py", line 500>)
+               MAKE_FUNCTION
+               STORE_NAME              26 (uniform)
+
+ 511           LOAD_CONST              38 ((0.0, 1.0, None))
+               LOAD_CONST              24 (<code object triangular at 0x00000204B9F4E810, file "random.py", line 511>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              27 (triangular)
+
+ 536           LOAD_CONST              39 ((0.0, 1.0))
+               LOAD_CONST              25 (<code object normalvariate at 0x00000204B9FFAC10, file "random.py", line 536>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              28 (normalvariate)
+
+ 557           LOAD_CONST              39 ((0.0, 1.0))
+               LOAD_CONST              26 (<code object gauss at 0x00000204B9F5B030, file "random.py", line 557>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              29 (gauss)
+
+ 595           LOAD_CONST              27 (<code object lognormvariate at 0x00000204BA0FD020, file "random.py", line 595>)
+               MAKE_FUNCTION
+               STORE_NAME              30 (lognormvariate)
+
+ 605           LOAD_CONST              40 ((1.0,))
+               LOAD_CONST              28 (<code object expovariate at 0x00000204BA1023D0, file "random.py", line 605>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              31 (expovariate)
+
+ 625           LOAD_CONST              29 (<code object vonmisesvariate at 0x00000204BA448D00, file "random.py", line 625>)
+               MAKE_FUNCTION
+               STORE_NAME              32 (vonmisesvariate)
+
+ 667           LOAD_CONST              30 (<code object gammavariate at 0x00000204BA449030, file "random.py", line 667>)
+               MAKE_FUNCTION
+               STORE_NAME              33 (gammavariate)
+
+ 736           LOAD_CONST              31 (<code object betavariate at 0x00000204BA0BB750, file "random.py", line 736>)
+               MAKE_FUNCTION
+               STORE_NAME              34 (betavariate)
+
+ 768           LOAD_CONST              32 (<code object paretovariate at 0x00000204BA0A73F0, file "random.py", line 768>)
+               MAKE_FUNCTION
+               STORE_NAME              35 (paretovariate)
+
+ 775           LOAD_CONST              33 (<code object weibullvariate at 0x00000204BA0BB360, file "random.py", line 775>)
+               MAKE_FUNCTION
+               STORE_NAME              36 (weibullvariate)
+
+ 789           LOAD_CONST              41 ((1, 0.5))
+               LOAD_CONST              34 (<code object binomialvariate at 0x00000204BA4B4ED0, file "random.py", line 789>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              37 (binomialvariate)
+               LOAD_CONST              35 (('gauss_next',))
+               STORE_NAME              38 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              39 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              40 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FFEE0, file "random.py", line 119>:
+119           RESUME                   0
+
+125           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (seed + NULL|self)
+              LOAD_FAST_BORROW         1 (x)
+              CALL                     1
+              POP_TOP
+
+126           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (gauss_next)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object seed at 0x00000204BA3735D0, file "random.py", line 128>:
+  --            COPY_FREE_VARS           1
+
+ 128            RESUME                   0
+
+ 146            LOAD_FAST_BORROW         2 (version)
+                LOAD_SMALL_INT           1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      181 (to L9)
+                NOT_TAKEN
+                LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_GLOBAL              2 (str)
+                LOAD_GLOBAL              4 (bytes)
+                BUILD_TUPLE              2
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE      153 (to L9)
+                NOT_TAKEN
+
+ 147            LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_GLOBAL              4 (bytes)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L1)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_ATTR                7 (decode + NULL|self)
+                LOAD_CONST               1 ('latin-1')
+                CALL                     1
+                JUMP_FORWARD             1 (to L2)
+        L1:     LOAD_FAST                1 (a)
+        L2:     STORE_FAST               1 (a)
+
+ 148            LOAD_FAST_BORROW         1 (a)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       26 (to L3)
+                NOT_TAKEN
+                LOAD_GLOBAL              9 (ord + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                CALL                     1
+                LOAD_SMALL_INT           7
+                BINARY_OP                3 (<<)
+                JUMP_FORWARD             1 (to L4)
+        L3:     LOAD_SMALL_INT           0
+        L4:     STORE_FAST               3 (x)
+
+ 149            LOAD_GLOBAL             11 (map + NULL)
+                LOAD_GLOBAL              8 (ord)
+                LOAD_FAST_BORROW         1 (a)
+                CALL                     2
+                GET_ITER
+        L5:     FOR_ITER                26 (to L6)
+                STORE_FAST               4 (c)
+
+ 150            LOAD_CONST               2 (1000003)
+                LOAD_FAST_BORROW         3 (x)
+                BINARY_OP                5 (*)
+                LOAD_FAST_BORROW         4 (c)
+                BINARY_OP               12 (^)
+                LOAD_CONST               3 (18446744073709551615)
+                BINARY_OP                1 (&)
+                STORE_FAST               3 (x)
+                JUMP_BACKWARD           28 (to L5)
+
+ 149    L6:     END_FOR
+                POP_ITER
+
+ 151            LOAD_FAST_BORROW         3 (x)
+                LOAD_GLOBAL             13 (len + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                CALL                     1
+                BINARY_OP               25 (^=)
+                STORE_FAST               3 (x)
+
+ 152            LOAD_FAST_BORROW         3 (x)
+                LOAD_CONST               7 (-1)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L7)
+                NOT_TAKEN
+                LOAD_CONST               8 (-2)
+                JUMP_FORWARD             1 (to L8)
+        L7:     LOAD_FAST                3 (x)
+        L8:     STORE_FAST               1 (a)
+                JUMP_FORWARD           209 (to L14)
+
+ 154    L9:     LOAD_FAST_BORROW         2 (version)
+                LOAD_SMALL_INT           2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      139 (to L13)
+                NOT_TAKEN
+                LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_GLOBAL              2 (str)
+                LOAD_GLOBAL              4 (bytes)
+                LOAD_GLOBAL             14 (bytearray)
+                BUILD_TUPLE              3
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE      106 (to L13)
+                NOT_TAKEN
+
+ 156            LOAD_GLOBAL             16 (_sha512)
+                POP_JUMP_IF_NOT_NONE     8 (to L11)
+                NOT_TAKEN
+
+ 157            NOP
+
+ 160   L10:     LOAD_SMALL_INT           0
+                LOAD_CONST               5 (('sha512',))
+                IMPORT_NAME              9 (_sha2)
+                IMPORT_FROM             10 (sha512)
+                STORE_GLOBAL             8 (_sha512)
+                POP_TOP
+
+ 165   L11:     LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_GLOBAL              2 (str)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L12)
+                NOT_TAKEN
+
+ 166            LOAD_FAST_BORROW         1 (a)
+                LOAD_ATTR               27 (encode + NULL|self)
+                CALL                     0
+                STORE_FAST               1 (a)
+
+ 167   L12:     LOAD_GLOBAL             28 (int)
+                LOAD_ATTR               31 (from_bytes + NULL|self)
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_GLOBAL             17 (_sha512 + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                CALL                     1
+                LOAD_ATTR               33 (digest + NULL|self)
+                CALL                     0
+                BINARY_OP                0 (+)
+                CALL                     1
+                STORE_FAST               1 (a)
+                JUMP_FORWARD            64 (to L14)
+
+ 169   L13:     LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (a)
+                LOAD_GLOBAL             35 (type + NULL)
+                LOAD_CONST               4 (None)
+                CALL                     1
+                LOAD_GLOBAL             28 (int)
+                LOAD_GLOBAL             36 (float)
+                LOAD_GLOBAL              2 (str)
+                LOAD_GLOBAL              4 (bytes)
+                LOAD_GLOBAL             14 (bytearray)
+                BUILD_TUPLE              6
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L14)
+                NOT_TAKEN
+
+ 170            LOAD_GLOBAL             39 (TypeError + NULL)
+                LOAD_CONST               6 ('The only supported seed types are:\nNone, int, float, str, bytes, and bytearray.')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 173   L14:     LOAD_GLOBAL             40 (super)
+                LOAD_DEREF               5 (__class__)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_SUPER_ATTR         85 (seed + NULL|self)
+                LOAD_FAST_BORROW         1 (a)
+                CALL                     1
+                POP_TOP
+
+ 174            LOAD_CONST               4 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              22 (gauss_next)
+                LOAD_CONST               4 (None)
+                RETURN_VALUE
+
+  --   L15:     PUSH_EXC_INFO
+
+ 161            LOAD_GLOBAL             22 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       10 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+ 163            LOAD_SMALL_INT           0
+                LOAD_CONST               5 (('sha512',))
+                IMPORT_NAME             12 (hashlib)
+                IMPORT_FROM             10 (sha512)
+                STORE_GLOBAL             8 (_sha512)
+                POP_TOP
+       L16:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 197 (to L11)
+
+ 161   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L10 to L11 -> L15 [0]
+  L15 to L16 -> L18 [1] lasti
+  L17 to L18 -> L18 [1] lasti
+
+Disassembly of <code object getstate at 0x00000204BA0A6AF0, file "random.py", line 176>:
+  --           COPY_FREE_VARS           1
+
+ 176           RESUME                   0
+
+ 178           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (VERSION)
+               LOAD_GLOBAL              2 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          9 (getstate + NULL|self)
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (gauss_next)
+               BUILD_TUPLE              3
+               RETURN_VALUE
+
+Disassembly of <code object setstate at 0x00000204BA36B440, file "random.py", line 180>:
+  --            COPY_FREE_VARS           1
+
+ 180            RESUME                   0
+
+ 182            LOAD_FAST_BORROW         1 (state)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               2 (version)
+
+ 183            LOAD_FAST_BORROW         2 (version)
+                LOAD_SMALL_INT           3
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L1)
+                NOT_TAKEN
+
+ 184            LOAD_FAST_BORROW         1 (state)
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   35 (version, internalstate)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (gauss_next)
+
+ 185            LOAD_GLOBAL              2 (super)
+                LOAD_DEREF               5 (__class__)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_SUPER_ATTR          9 (setstate + NULL|self)
+                LOAD_FAST_BORROW         3 (internalstate)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+ 186    L1:     LOAD_FAST_BORROW         2 (version)
+                LOAD_SMALL_INT           2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       73 (to L8)
+                NOT_TAKEN
+
+ 187            LOAD_FAST_BORROW         1 (state)
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   35 (version, internalstate)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (gauss_next)
+
+ 192            NOP
+
+ 193    L2:     LOAD_GLOBAL              6 (tuple)
+                COPY                     1
+                LOAD_COMMON_CONSTANT     2 (tuple)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       20 (to L5)
+                NOT_TAKEN
+                POP_TOP
+                BUILD_LIST               0
+                LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0FFDD0, file "random.py", line 193>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         3 (internalstate)
+                GET_ITER
+                CALL                     0
+        L3:     FOR_ITER                 3 (to L4)
+                LIST_APPEND              2
+                JUMP_BACKWARD            5 (to L3)
+        L4:     END_FOR
+                POP_ITER
+                CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+                JUMP_FORWARD            13 (to L6)
+        L5:     PUSH_NULL
+                LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0FFDD0, file "random.py", line 193>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         3 (internalstate)
+                GET_ITER
+                CALL                     0
+                CALL                     1
+        L6:     STORE_FAST               3 (internalstate)
+
+ 196    L7:     LOAD_GLOBAL              2 (super)
+                LOAD_DEREF               5 (__class__)
+                LOAD_FAST                0 (self)
+                LOAD_SUPER_ATTR          9 (setstate + NULL|self)
+                LOAD_FAST                3 (internalstate)
+                CALL                     1
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+ 198    L8:     LOAD_GLOBAL              9 (ValueError + NULL)
+                LOAD_CONST               3 ('state with version ')
+
+ 200            LOAD_FAST_BORROW         2 (version)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               4 (' passed to Random.setstate() of version ')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (VERSION)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+
+ 198            BUILD_STRING             4
+                CALL                     1
+                RAISE_VARARGS            1
+
+  --    L9:     PUSH_EXC_INFO
+
+ 194            LOAD_GLOBAL              8 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       13 (to L12)
+                NOT_TAKEN
+                STORE_FAST               4 (e)
+
+ 195   L10:     LOAD_GLOBAL             10 (TypeError)
+                LOAD_FAST                4 (e)
+                RAISE_VARARGS            2
+
+  --   L11:     LOAD_CONST               2 (None)
+                STORE_FAST               4 (e)
+                DELETE_FAST              4 (e)
+                RERAISE                  1
+
+ 194   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L7 -> L9 [0]
+  L9 to L10 -> L13 [1] lasti
+  L10 to L11 -> L11 [1] lasti
+  L11 to L13 -> L13 [1] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FFDD0, file "random.py", line 193>:
+ 193           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                13 (to L3)
+               STORE_FAST_LOAD_FAST    17 (x, x)
+               LOAD_CONST               2 (4294967296)
+               BINARY_OP                6 (%)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           15 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object __getstate__ at 0x00000204BA08A530, file "random.py", line 213>:
+213           RESUME                   0
+
+214           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (getstate + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __setstate__ at 0x00000204BA08B130, file "random.py", line 216>:
+216           RESUME                   0
+
+217           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (setstate + NULL|self)
+              LOAD_FAST_BORROW         1 (state)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __reduce__ at 0x00000204BA0FECD0, file "random.py", line 219>:
+219           RESUME                   0
+
+220           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_CONST               1 (())
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (getstate + NULL|self)
+              CALL                     0
+              BUILD_TUPLE              3
+              RETURN_VALUE
+
+Disassembly of <code object __init_subclass__ at 0x00000204B9F9F2F0, file "random.py", line 225>:
+225           RESUME                   0
+
+234           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (__mro__)
+              GET_ITER
+      L1:     FOR_ITER                97 (to L5)
+              STORE_FAST               2 (c)
+
+235           LOAD_CONST               1 ('_randbelow')
+              LOAD_FAST_BORROW         2 (c)
+              LOAD_ATTR                2 (__dict__)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        4 (to L2)
+              NOT_TAKEN
+
+237           POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+238   L2:     LOAD_CONST               2 ('getrandbits')
+              LOAD_FAST_BORROW         2 (c)
+              LOAD_ATTR                2 (__dict__)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       21 (to L3)
+              NOT_TAKEN
+
+239           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                4 (_randbelow_with_getrandbits)
+              LOAD_FAST_BORROW         0 (cls)
+              STORE_ATTR               3 (_randbelow)
+
+240           POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+241   L3:     LOAD_CONST               3 ('random')
+              LOAD_FAST_BORROW         2 (c)
+              LOAD_ATTR                2 (__dict__)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_TRUE         3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           79 (to L1)
+
+242   L4:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                8 (_randbelow_without_getrandbits)
+              LOAD_FAST_BORROW         0 (cls)
+              STORE_ATTR               3 (_randbelow)
+
+243           POP_TOP
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+234   L5:     END_FOR
+              POP_ITER
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _randbelow_with_getrandbits at 0x00000204BA0B8D50, file "random.py", line 245>:
+245           RESUME                   0
+
+248           LOAD_FAST_BORROW         1 (n)
+              LOAD_ATTR                1 (bit_length + NULL|self)
+              CALL                     0
+              STORE_FAST               2 (k)
+
+249           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (getrandbits + NULL|self)
+              LOAD_FAST_BORROW         2 (k)
+              CALL                     1
+              STORE_FAST               3 (r)
+
+250   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (r, n)
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_FALSE       20 (to L2)
+              NOT_TAKEN
+
+251           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (getrandbits + NULL|self)
+              LOAD_FAST_BORROW         2 (k)
+              CALL                     1
+              STORE_FAST               3 (r)
+              JUMP_BACKWARD           25 (to L1)
+
+252   L2:     LOAD_FAST_BORROW         3 (r)
+              RETURN_VALUE
+
+Disassembly of <code object _randbelow_without_getrandbits at 0x00000204B9F4DF00, file "random.py", line 254>:
+254           RESUME                   0
+
+260           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (random)
+              STORE_FAST               3 (random)
+
+261           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (n, maxsize)
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_FALSE       38 (to L1)
+              NOT_TAKEN
+
+262           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('warn',))
+              IMPORT_NAME              1 (warnings)
+              IMPORT_FROM              2 (warn)
+              STORE_FAST               4 (warn)
+              POP_TOP
+
+263           LOAD_FAST_BORROW         4 (warn)
+              PUSH_NULL
+              LOAD_CONST               2 ('Underlying random() generator does not supply \nenough bits to choose from a population range this large.\nTo remove the range limitation, add a getrandbits() method.')
+              CALL                     1
+              POP_TOP
+
+266           LOAD_GLOBAL              7 (_floor + NULL)
+              LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         1 (n)
+              BINARY_OP                5 (*)
+              CALL                     1
+              RETURN_VALUE
+
+267   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (maxsize, n)
+              BINARY_OP                6 (%)
+              STORE_FAST               5 (rem)
+
+268           LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (maxsize, rem)
+              BINARY_OP               10 (-)
+              LOAD_FAST_BORROW         2 (maxsize)
+              BINARY_OP               11 (/)
+              STORE_FAST               6 (limit)
+
+269           LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               7 (r)
+
+270   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 118 (r, limit)
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_FALSE       10 (to L3)
+              NOT_TAKEN
+
+271           LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               7 (r)
+              JUMP_BACKWARD           15 (to L2)
+
+272   L3:     LOAD_GLOBAL              7 (_floor + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 114 (r, maxsize)
+              BINARY_OP                5 (*)
+              CALL                     1
+              LOAD_FAST_BORROW         1 (n)
+              BINARY_OP                6 (%)
+              RETURN_VALUE
+
+Disassembly of <code object randbytes at 0x00000204BA100160, file "random.py", line 287>:
+287           RESUME                   0
+
+289           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (getrandbits + NULL|self)
+              LOAD_FAST_BORROW         1 (n)
+              LOAD_SMALL_INT           8
+              BINARY_OP                5 (*)
+              CALL                     1
+              LOAD_ATTR                3 (to_bytes + NULL|self)
+              LOAD_FAST_BORROW         1 (n)
+              LOAD_CONST               1 ('little')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object randrange at 0x00000204BA35BFC0, file "random.py", line 294>:
+294           RESUME                   0
+
+304           LOAD_GLOBAL              1 (_index + NULL)
+              LOAD_FAST_BORROW         1 (start)
+              CALL                     1
+              STORE_FAST               4 (istart)
+
+305           LOAD_FAST_BORROW         2 (stop)
+              POP_JUMP_IF_NOT_NONE    57 (to L3)
+              NOT_TAKEN
+
+308           LOAD_FAST_BORROW         3 (step)
+              LOAD_GLOBAL              2 (_ONE)
+              IS_OP                    1 (is not)
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+309           LOAD_GLOBAL              5 (TypeError + NULL)
+              LOAD_CONST               1 ('Missing a non-None stop argument')
+              CALL                     1
+              RAISE_VARARGS            1
+
+310   L1:     LOAD_FAST_BORROW         4 (istart)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       18 (to L2)
+              NOT_TAKEN
+
+311           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (_randbelow + NULL|self)
+              LOAD_FAST_BORROW         4 (istart)
+              CALL                     1
+              RETURN_VALUE
+
+312   L2:     LOAD_GLOBAL              9 (ValueError + NULL)
+              LOAD_CONST               2 ('empty range for randrange()')
+              CALL                     1
+              RAISE_VARARGS            1
+
+315   L3:     LOAD_GLOBAL              1 (_index + NULL)
+              LOAD_FAST_BORROW         2 (stop)
+              CALL                     1
+              STORE_FAST               5 (istop)
+
+316           LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (istop, istart)
+              BINARY_OP               10 (-)
+              STORE_FAST               6 (width)
+
+317           LOAD_GLOBAL              1 (_index + NULL)
+              LOAD_FAST_BORROW         3 (step)
+              CALL                     1
+              STORE_FAST               7 (istep)
+
+319           LOAD_FAST_BORROW         7 (istep)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       49 (to L5)
+              NOT_TAKEN
+
+320           LOAD_FAST_BORROW         6 (width)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       24 (to L4)
+              NOT_TAKEN
+
+321           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (istart, self)
+              LOAD_ATTR                7 (_randbelow + NULL|self)
+              LOAD_FAST_BORROW         6 (width)
+              CALL                     1
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+322   L4:     LOAD_GLOBAL              9 (ValueError + NULL)
+              LOAD_CONST               3 ('empty range in randrange(')
+              LOAD_FAST_BORROW         1 (start)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (', ')
+              LOAD_FAST_BORROW         2 (stop)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (')')
+              BUILD_STRING             5
+              CALL                     1
+              RAISE_VARARGS            1
+
+325   L5:     LOAD_FAST_BORROW         7 (istep)
+              LOAD_SMALL_INT           0
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       24 (to L6)
+              NOT_TAKEN
+
+326           LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (width, istep)
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+              LOAD_FAST_BORROW         7 (istep)
+              BINARY_OP                2 (//)
+              STORE_FAST               8 (n)
+              JUMP_FORWARD            41 (to L8)
+
+327   L6:     LOAD_FAST_BORROW         7 (istep)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       24 (to L7)
+              NOT_TAKEN
+
+328           LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (width, istep)
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         7 (istep)
+              BINARY_OP                2 (//)
+              STORE_FAST               8 (n)
+              JUMP_FORWARD            11 (to L8)
+
+330   L7:     LOAD_GLOBAL              9 (ValueError + NULL)
+              LOAD_CONST               6 ('zero step for randrange()')
+              CALL                     1
+              RAISE_VARARGS            1
+
+331   L8:     LOAD_FAST_BORROW         8 (n)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE       22 (to L9)
+              NOT_TAKEN
+
+332           LOAD_GLOBAL              9 (ValueError + NULL)
+              LOAD_CONST               3 ('empty range in randrange(')
+              LOAD_FAST_BORROW         1 (start)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (', ')
+              LOAD_FAST_BORROW         2 (stop)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (', ')
+              LOAD_FAST_BORROW         3 (step)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (')')
+              BUILD_STRING             7
+              CALL                     1
+              RAISE_VARARGS            1
+
+333   L9:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 71 (istart, istep)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (_randbelow + NULL|self)
+              LOAD_FAST_BORROW         8 (n)
+              CALL                     1
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object randint at 0x00000204B9FB74B0, file "random.py", line 335>:
+335           RESUME                   0
+
+338           LOAD_GLOBAL              1 (_index + NULL)
+              LOAD_FAST_BORROW         1 (a)
+              CALL                     1
+              STORE_FAST               1 (a)
+
+339           LOAD_GLOBAL              1 (_index + NULL)
+              LOAD_FAST_BORROW         2 (b)
+              CALL                     1
+              STORE_FAST               2 (b)
+
+340           LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (b, a)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+341           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               1 ('empty range in randint(')
+              LOAD_FAST_BORROW         1 (a)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (', ')
+              LOAD_FAST_BORROW         2 (b)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (')')
+              BUILD_STRING             5
+              CALL                     1
+              RAISE_VARARGS            1
+
+342   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (a, self)
+              LOAD_ATTR                5 (_randbelow + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (b, a)
+              BINARY_OP               10 (-)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              CALL                     1
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object choice at 0x00000204BA0B8EA0, file "random.py", line 347>:
+347           RESUME                   0
+
+352           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         1 (seq)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L1)
+              NOT_TAKEN
+
+353           LOAD_GLOBAL              3 (IndexError + NULL)
+              LOAD_CONST               1 ('Cannot choose from an empty sequence')
+              CALL                     1
+              RAISE_VARARGS            1
+
+354   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (seq, self)
+              LOAD_ATTR                5 (_randbelow + NULL|self)
+              LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         1 (seq)
+              CALL                     1
+              CALL                     1
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object shuffle at 0x00000204B9FB7C30, file "random.py", line 356>:
+356           RESUME                   0
+
+359           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_randbelow)
+              STORE_FAST               2 (randbelow)
+
+360           LOAD_GLOBAL              3 (reversed + NULL)
+              LOAD_GLOBAL              5 (range + NULL)
+              LOAD_SMALL_INT           1
+              LOAD_GLOBAL              7 (len + NULL)
+              LOAD_FAST_BORROW         1 (x)
+              CALL                     1
+              CALL                     2
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER                39 (to L2)
+              STORE_FAST               3 (i)
+
+362           LOAD_FAST_BORROW         2 (randbelow)
+              PUSH_NULL
+              LOAD_FAST_BORROW         3 (i)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              CALL                     1
+              STORE_FAST               4 (j)
+
+363           LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (x, j)
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (x, i)
+              BINARY_OP               26 ([])
+              SWAP                     2
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (x, i)
+              STORE_SUBSCR
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (x, j)
+              STORE_SUBSCR
+              JUMP_BACKWARD           41 (to L1)
+
+360   L2:     END_FOR
+              POP_ITER
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object sample at 0x00000204BA381490, file "random.py", line 365>:
+ 365            RESUME                   0
+
+ 418            LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (population)
+                LOAD_GLOBAL              2 (_Sequence)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L1)
+                NOT_TAKEN
+
+ 419            LOAD_GLOBAL              5 (TypeError + NULL)
+                LOAD_CONST               1 ('Population must be a sequence.  For dicts or sets, use sorted(d).')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 421    L1:     LOAD_GLOBAL              7 (len + NULL)
+                LOAD_FAST_BORROW         1 (population)
+                CALL                     1
+                STORE_FAST               4 (n)
+
+ 422            LOAD_FAST_BORROW         3 (counts)
+                POP_JUMP_IF_NONE       189 (to L11)
+                NOT_TAKEN
+
+ 423            LOAD_GLOBAL              9 (list + NULL)
+                LOAD_GLOBAL             11 (_accumulate + NULL)
+                LOAD_FAST_BORROW         3 (counts)
+                CALL                     1
+                CALL                     1
+                STORE_FAST               5 (cum_counts)
+
+ 424            LOAD_GLOBAL              7 (len + NULL)
+                LOAD_FAST_BORROW         5 (cum_counts)
+                CALL                     1
+                LOAD_FAST_BORROW         4 (n)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       12 (to L2)
+                NOT_TAKEN
+
+ 425            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST               3 ('The number of counts does not match the population')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 426    L2:     LOAD_FAST_BORROW         5 (cum_counts)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L3)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         5 (cum_counts)
+                LOAD_ATTR               15 (pop + NULL|self)
+                CALL                     0
+                JUMP_FORWARD             1 (to L4)
+        L3:     LOAD_SMALL_INT           0
+        L4:     STORE_FAST               6 (total)
+
+ 427            LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         6 (total)
+                LOAD_GLOBAL             16 (int)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L5)
+                NOT_TAKEN
+
+ 428            LOAD_GLOBAL              5 (TypeError + NULL)
+                LOAD_CONST               4 ('Counts must be integers')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 429    L5:     LOAD_FAST_BORROW         6 (total)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L6)
+                NOT_TAKEN
+
+ 430            LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST               5 ('Counts must be non-negative')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 431    L6:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               19 (sample + NULL|self)
+                LOAD_GLOBAL             21 (range + NULL)
+                LOAD_FAST_BORROW         6 (total)
+                CALL                     1
+                LOAD_FAST_BORROW         2 (k)
+                LOAD_CONST               6 (('k',))
+                CALL_KW                  2
+                STORE_FAST               7 (selections)
+
+ 432            LOAD_GLOBAL             22 (_bisect)
+                STORE_FAST               8 (bisect)
+
+ 433            LOAD_FAST_BORROW         7 (selections)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      9 (s)
+                SWAP                     2
+        L7:     BUILD_LIST               0
+                SWAP                     2
+        L8:     FOR_ITER                17 (to L9)
+                STORE_FAST_LOAD_FAST   145 (s, population)
+                LOAD_FAST_BORROW         8 (bisect)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 89 (cum_counts, s)
+                CALL                     2
+                BINARY_OP               26 ([])
+                LIST_APPEND              2
+                JUMP_BACKWARD           19 (to L8)
+        L9:     END_FOR
+                POP_ITER
+       L10:     SWAP                     2
+                STORE_FAST               9 (s)
+                RETURN_VALUE
+
+ 434   L11:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               24 (_randbelow)
+                STORE_FAST              10 (randbelow)
+
+ 435            LOAD_SMALL_INT           0
+                LOAD_FAST                2 (k)
+                SWAP                     2
+                COPY                     2
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        8 (to L12)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         4 (n)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_TRUE        14 (to L14)
+                NOT_TAKEN
+                JUMP_FORWARD             1 (to L13)
+       L12:     POP_TOP
+
+ 436   L13:     LOAD_GLOBAL             13 (ValueError + NULL)
+                LOAD_CONST               7 ('Sample larger than population or is negative')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 437   L14:     LOAD_CONST               2 (None)
+                BUILD_LIST               1
+                LOAD_FAST_BORROW         2 (k)
+                BINARY_OP                5 (*)
+                STORE_FAST              11 (result)
+
+ 438            LOAD_SMALL_INT          21
+                STORE_FAST              12 (setsize)
+
+ 439            LOAD_FAST_BORROW         2 (k)
+                LOAD_SMALL_INT           5
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       43 (to L15)
+                NOT_TAKEN
+
+ 440            LOAD_FAST_BORROW        12 (setsize)
+                LOAD_SMALL_INT           4
+                LOAD_GLOBAL             27 (_ceil + NULL)
+                LOAD_GLOBAL             29 (_log + NULL)
+                LOAD_FAST_BORROW         2 (k)
+                LOAD_SMALL_INT           3
+                BINARY_OP                5 (*)
+                LOAD_SMALL_INT           4
+                CALL                     2
+                CALL                     1
+                BINARY_OP                8 (**)
+                BINARY_OP               13 (+=)
+                STORE_FAST              12 (setsize)
+
+ 441   L15:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 76 (n, setsize)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       80 (to L18)
+                NOT_TAKEN
+
+ 444            LOAD_GLOBAL              9 (list + NULL)
+                LOAD_FAST_BORROW         1 (population)
+                CALL                     1
+                STORE_FAST              13 (pool)
+
+ 445            LOAD_GLOBAL             21 (range + NULL)
+                LOAD_FAST_BORROW         2 (k)
+                CALL                     1
+                GET_ITER
+       L16:     FOR_ITER                51 (to L17)
+                STORE_FAST              14 (i)
+
+ 446            LOAD_FAST_BORROW        10 (randbelow)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 78 (n, i)
+                BINARY_OP               10 (-)
+                CALL                     1
+                STORE_FAST              15 (j)
+
+ 447            LOAD_FAST_BORROW_LOAD_FAST_BORROW 223 (pool, j)
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 190 (result, i)
+                STORE_SUBSCR
+
+ 448            LOAD_FAST_BORROW_LOAD_FAST_BORROW 212 (pool, n)
+                LOAD_FAST_BORROW        14 (i)
+                BINARY_OP               10 (-)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 223 (pool, j)
+                STORE_SUBSCR
+                JUMP_BACKWARD           53 (to L16)
+
+ 445   L17:     END_FOR
+                POP_ITER
+
+ 458            LOAD_FAST_BORROW        11 (result)
+                RETURN_VALUE
+
+ 450   L18:     LOAD_GLOBAL             31 (set + NULL)
+                CALL                     0
+                STORE_FAST              16 (selected)
+
+ 451            LOAD_FAST_BORROW        16 (selected)
+                LOAD_ATTR               32 (add)
+                STORE_FAST              17 (selected_add)
+
+ 452            LOAD_GLOBAL             21 (range + NULL)
+                LOAD_FAST_BORROW         2 (k)
+                CALL                     1
+                GET_ITER
+       L19:     FOR_ITER                46 (to L22)
+                STORE_FAST              14 (i)
+
+ 453            LOAD_FAST_BORROW        10 (randbelow)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (n)
+                CALL                     1
+                STORE_FAST              15 (j)
+
+ 454   L20:     LOAD_FAST_BORROW        15 (j)
+                LOAD_FAST_BORROW        16 (selected)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       11 (to L21)
+                NOT_TAKEN
+
+ 455            LOAD_FAST_BORROW        10 (randbelow)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (n)
+                CALL                     1
+                STORE_FAST              15 (j)
+                JUMP_BACKWARD           17 (to L20)
+
+ 456   L21:     LOAD_FAST_BORROW        17 (selected_add)
+                PUSH_NULL
+                LOAD_FAST_BORROW        15 (j)
+                CALL                     1
+                POP_TOP
+
+ 457            LOAD_FAST_BORROW_LOAD_FAST_BORROW 31 (population, j)
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 190 (result, i)
+                STORE_SUBSCR
+                JUMP_BACKWARD           48 (to L19)
+
+ 452   L22:     END_FOR
+                POP_ITER
+
+ 458            LOAD_FAST_BORROW        11 (result)
+                RETURN_VALUE
+
+  --   L23:     SWAP                     2
+                POP_TOP
+
+ 433            SWAP                     2
+                STORE_FAST               9 (s)
+                RERAISE                  0
+ExceptionTable:
+  L7 to L10 -> L23 [2]
+
+Disassembly of <code object choices at 0x00000204BA37E640, file "random.py", line 460>:
+ 460            RESUME                   0
+
+ 467            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (random)
+                STORE_FAST               5 (random)
+
+ 468            LOAD_GLOBAL              3 (len + NULL)
+                LOAD_FAST_BORROW         1 (population)
+                CALL                     1
+                STORE_FAST               6 (n)
+
+ 469            LOAD_FAST_BORROW         3 (cum_weights)
+                POP_JUMP_IF_NOT_NONE    94 (to L8)
+                NOT_TAKEN
+
+ 470            LOAD_FAST_BORROW         2 (weights)
+                POP_JUMP_IF_NOT_NONE    68 (to L5)
+                NOT_TAKEN
+
+ 471            LOAD_GLOBAL              4 (_floor)
+                STORE_FAST               7 (floor)
+
+ 472            LOAD_FAST_BORROW         6 (n)
+                LOAD_CONST               2 (0.0)
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (n)
+
+ 473            LOAD_GLOBAL              7 (_repeat + NULL)
+                LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         4 (k)
+                CALL                     2
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      8 (i)
+                SWAP                     2
+        L1:     BUILD_LIST               0
+                SWAP                     2
+        L2:     FOR_ITER                29 (to L3)
+                STORE_FAST_LOAD_FAST   129 (i, population)
+                LOAD_FAST_BORROW         7 (floor)
+                PUSH_NULL
+                LOAD_FAST_BORROW         5 (random)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_BORROW         6 (n)
+                BINARY_OP                5 (*)
+                CALL                     1
+                BINARY_OP               26 ([])
+                LIST_APPEND              2
+                JUMP_BACKWARD           31 (to L2)
+        L3:     END_FOR
+                POP_ITER
+        L4:     SWAP                     2
+                STORE_FAST               8 (i)
+                RETURN_VALUE
+
+ 474    L5:     NOP
+
+ 475    L6:     LOAD_GLOBAL              9 (list + NULL)
+                LOAD_GLOBAL             11 (_accumulate + NULL)
+                LOAD_FAST_BORROW         2 (weights)
+                CALL                     1
+                CALL                     1
+                STORE_FAST               3 (cum_weights)
+        L7:     JUMP_FORWARD            15 (to L9)
+
+ 483    L8:     LOAD_FAST_BORROW         2 (weights)
+                POP_JUMP_IF_NONE        12 (to L9)
+                NOT_TAKEN
+
+ 484            LOAD_GLOBAL             13 (TypeError + NULL)
+                LOAD_CONST               4 ('Cannot specify both weights and cumulative weights')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 485    L9:     LOAD_GLOBAL              3 (len + NULL)
+                LOAD_FAST_BORROW         3 (cum_weights)
+                CALL                     1
+                LOAD_FAST_BORROW         6 (n)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       12 (to L10)
+                NOT_TAKEN
+
+ 486            LOAD_GLOBAL             19 (ValueError + NULL)
+                LOAD_CONST               5 ('The number of weights does not match the population')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 487   L10:     LOAD_FAST_BORROW         3 (cum_weights)
+                LOAD_CONST               8 (-1)
+                BINARY_OP               26 ([])
+                LOAD_CONST               2 (0.0)
+                BINARY_OP                0 (+)
+                STORE_FAST               9 (total)
+
+ 488            LOAD_FAST_BORROW         9 (total)
+                LOAD_CONST               2 (0.0)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       12 (to L11)
+                NOT_TAKEN
+
+ 489            LOAD_GLOBAL             19 (ValueError + NULL)
+                LOAD_CONST               6 ('Total of weights must be greater than zero')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 490   L11:     LOAD_GLOBAL             21 (_isfinite + NULL)
+                LOAD_FAST_BORROW         9 (total)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L12)
+                NOT_TAKEN
+
+ 491            LOAD_GLOBAL             19 (ValueError + NULL)
+                LOAD_CONST               7 ('Total of weights must be finite')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 492   L12:     LOAD_GLOBAL             22 (_bisect)
+                STORE_FAST              10 (bisect)
+
+ 493            LOAD_FAST_BORROW         6 (n)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                STORE_FAST              11 (hi)
+
+ 495            LOAD_GLOBAL              7 (_repeat + NULL)
+                LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         4 (k)
+                CALL                     2
+                GET_ITER
+
+ 494            LOAD_FAST_AND_CLEAR      8 (i)
+                SWAP                     2
+       L13:     BUILD_LIST               0
+                SWAP                     2
+
+ 495   L14:     FOR_ITER                31 (to L15)
+                STORE_FAST               8 (i)
+
+ 494            LOAD_FAST_BORROW_LOAD_FAST_BORROW 26 (population, bisect)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 53 (cum_weights, random)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_BORROW         9 (total)
+                BINARY_OP                5 (*)
+                LOAD_SMALL_INT           0
+                LOAD_FAST_BORROW        11 (hi)
+                CALL                     4
+                BINARY_OP               26 ([])
+                LIST_APPEND              2
+                JUMP_BACKWARD           33 (to L14)
+
+ 495   L15:     END_FOR
+                POP_ITER
+
+ 494   L16:     SWAP                     2
+                STORE_FAST               8 (i)
+                RETURN_VALUE
+
+  --   L17:     SWAP                     2
+                POP_TOP
+
+ 473            SWAP                     2
+                STORE_FAST               8 (i)
+                RERAISE                  0
+
+  --   L18:     PUSH_EXC_INFO
+
+ 476            LOAD_GLOBAL             12 (TypeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       43 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+ 477            LOAD_GLOBAL             15 (isinstance + NULL)
+                LOAD_FAST                2 (weights)
+                LOAD_GLOBAL             16 (int)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L19)
+                NOT_TAKEN
+
+ 478            RAISE_VARARGS            0
+
+ 479   L19:     LOAD_FAST                2 (weights)
+                STORE_FAST               4 (k)
+
+ 480            LOAD_GLOBAL             13 (TypeError + NULL)
+
+ 481            LOAD_CONST               3 ('The number of choices must be a keyword argument: k=')
+                LOAD_FAST                4 (k)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+
+ 480            CALL                     1
+
+ 482            LOAD_CONST               1 (None)
+
+ 480            RAISE_VARARGS            2
+
+ 476   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L22:     SWAP                     2
+                POP_TOP
+
+ 494            SWAP                     2
+                STORE_FAST               8 (i)
+                RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L17 [2]
+  L6 to L7 -> L18 [0]
+  L13 to L16 -> L22 [2]
+  L18 to L21 -> L21 [1] lasti
+
+Disassembly of <code object uniform at 0x00000204BA0A7090, file "random.py", line 500>:
+500           RESUME                   0
+
+509           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (a, b)
+              LOAD_FAST_BORROW         1 (a)
+              BINARY_OP               10 (-)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (random + NULL|self)
+              CALL                     0
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object triangular at 0x00000204B9F4E810, file "random.py", line 511>:
+ 511           RESUME                   0
+
+ 525           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (random + NULL|self)
+               CALL                     0
+               STORE_FAST               4 (u)
+
+ 526           NOP
+
+ 527   L1:     LOAD_FAST_BORROW         3 (mode)
+               POP_JUMP_IF_NOT_NONE     3 (to L2)
+               NOT_TAKEN
+               LOAD_CONST               1 (0.5)
+               JUMP_FORWARD            20 (to L3)
+       L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (mode, low)
+               BINARY_OP               10 (-)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (high, low)
+               BINARY_OP               10 (-)
+               BINARY_OP               11 (/)
+       L3:     STORE_FAST               5 (c)
+
+ 530   L4:     LOAD_FAST_LOAD_FAST     69 (u, c)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       21 (to L5)
+               NOT_TAKEN
+
+ 531           LOAD_CONST               2 (1.0)
+               LOAD_FAST                4 (u)
+               BINARY_OP               10 (-)
+               STORE_FAST               4 (u)
+
+ 532           LOAD_CONST               2 (1.0)
+               LOAD_FAST                5 (c)
+               BINARY_OP               10 (-)
+               STORE_FAST               5 (c)
+
+ 533           LOAD_FAST_LOAD_FAST     33 (high, low)
+               STORE_FAST_STORE_FAST   33 (high, low)
+
+ 534   L5:     LOAD_FAST_LOAD_FAST     18 (low, high)
+               LOAD_FAST                1 (low)
+               BINARY_OP               10 (-)
+               LOAD_GLOBAL              5 (_sqrt + NULL)
+               LOAD_FAST_LOAD_FAST     69 (u, c)
+               BINARY_OP                5 (*)
+               CALL                     1
+               BINARY_OP                5 (*)
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 528           LOAD_GLOBAL              2 (ZeroDivisionError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+ 529           LOAD_FAST                1 (low)
+               SWAP                     2
+       L7:     POP_EXCEPT
+               RETURN_VALUE
+
+ 528   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object normalvariate at 0x00000204B9FFAC10, file "random.py", line 536>:
+536           RESUME                   0
+
+547           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (random)
+              STORE_FAST               3 (random)
+
+548   L1:     NOP
+
+549           LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               4 (u1)
+
+550           LOAD_CONST               1 (1.0)
+              LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              BINARY_OP               10 (-)
+              STORE_FAST               5 (u2)
+
+551           LOAD_GLOBAL              2 (NV_MAGICCONST)
+              LOAD_FAST_BORROW         4 (u1)
+              LOAD_CONST               2 (0.5)
+              BINARY_OP               10 (-)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         5 (u2)
+              BINARY_OP               11 (/)
+              STORE_FAST               6 (z)
+
+552           LOAD_FAST_BORROW_LOAD_FAST_BORROW 102 (z, z)
+              BINARY_OP                5 (*)
+              LOAD_CONST               3 (4.0)
+              BINARY_OP               11 (/)
+              STORE_FAST               7 (zz)
+
+553           LOAD_FAST_BORROW         7 (zz)
+              LOAD_GLOBAL              5 (_log + NULL)
+              LOAD_FAST_BORROW         5 (u2)
+              CALL                     1
+              UNARY_NEGATIVE
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           83 (to L1)
+
+554   L2:     NOP
+
+555           LOAD_FAST_LOAD_FAST     22 (mu, z)
+              LOAD_FAST                2 (sigma)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object gauss at 0x00000204B9F5B030, file "random.py", line 557>:
+557           RESUME                   0
+
+584           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (random)
+              STORE_FAST               3 (random)
+
+585           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (gauss_next)
+              STORE_FAST               4 (z)
+
+586           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (gauss_next)
+
+587           LOAD_FAST_BORROW         4 (z)
+              POP_JUMP_IF_NOT_NONE    99 (to L1)
+              NOT_TAKEN
+
+588           LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              LOAD_GLOBAL              4 (TWOPI)
+              BINARY_OP                5 (*)
+              STORE_FAST               5 (x2pi)
+
+589           LOAD_GLOBAL              7 (_sqrt + NULL)
+              LOAD_CONST               3 (-2.0)
+              LOAD_GLOBAL              9 (_log + NULL)
+              LOAD_CONST               2 (1.0)
+              LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              BINARY_OP               10 (-)
+              CALL                     1
+              BINARY_OP                5 (*)
+              CALL                     1
+              STORE_FAST               6 (g2rad)
+
+590           LOAD_GLOBAL             11 (_cos + NULL)
+              LOAD_FAST_BORROW         5 (x2pi)
+              CALL                     1
+              LOAD_FAST_BORROW         6 (g2rad)
+              BINARY_OP                5 (*)
+              STORE_FAST               4 (z)
+
+591           LOAD_GLOBAL             13 (_sin + NULL)
+              LOAD_FAST_BORROW         5 (x2pi)
+              CALL                     1
+              LOAD_FAST_BORROW         6 (g2rad)
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (gauss_next)
+
+593   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (mu, z)
+              LOAD_FAST_BORROW         2 (sigma)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object lognormvariate at 0x00000204BA0FD020, file "random.py", line 595>:
+595           RESUME                   0
+
+603           LOAD_GLOBAL              1 (_exp + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (normalvariate + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (mu, sigma)
+              CALL                     2
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object expovariate at 0x00000204BA1023D0, file "random.py", line 605>:
+605           RESUME                   0
+
+623           LOAD_GLOBAL              1 (_log + NULL)
+              LOAD_CONST               1 (1.0)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (random + NULL|self)
+              CALL                     0
+              BINARY_OP               10 (-)
+              CALL                     1
+              UNARY_NEGATIVE
+              LOAD_FAST_BORROW         1 (lambd)
+              BINARY_OP               11 (/)
+              RETURN_VALUE
+
+Disassembly of <code object vonmisesvariate at 0x00000204BA448D00, file "random.py", line 625>:
+625           RESUME                   0
+
+641           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (random)
+              STORE_FAST               3 (random)
+
+642           LOAD_FAST_BORROW         2 (kappa)
+              LOAD_CONST               1 (1e-06)
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+643           LOAD_GLOBAL              2 (TWOPI)
+              LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              BINARY_OP                5 (*)
+              RETURN_VALUE
+
+645   L1:     LOAD_CONST               2 (0.5)
+              LOAD_FAST_BORROW         2 (kappa)
+              BINARY_OP               11 (/)
+              STORE_FAST               4 (s)
+
+646           LOAD_FAST_BORROW         4 (s)
+              LOAD_GLOBAL              5 (_sqrt + NULL)
+              LOAD_CONST               3 (1.0)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 68 (s, s)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              CALL                     1
+              BINARY_OP                0 (+)
+              STORE_FAST               5 (r)
+
+648   L2:     NOP
+
+649           LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               6 (u1)
+
+650           LOAD_GLOBAL              7 (_cos + NULL)
+              LOAD_GLOBAL              8 (_pi)
+              LOAD_FAST_BORROW         6 (u1)
+              BINARY_OP                5 (*)
+              CALL                     1
+              STORE_FAST               7 (z)
+
+652           LOAD_FAST_BORROW_LOAD_FAST_BORROW 117 (z, r)
+              LOAD_FAST_BORROW         7 (z)
+              BINARY_OP                0 (+)
+              BINARY_OP               11 (/)
+              STORE_FAST               8 (d)
+
+653           LOAD_FAST_BORROW         3 (random)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               9 (u2)
+
+654           LOAD_FAST_BORROW         9 (u2)
+              LOAD_CONST               3 (1.0)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 136 (d, d)
+              BINARY_OP                5 (*)
+              BINARY_OP               10 (-)
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_TRUE        33 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         9 (u2)
+              LOAD_CONST               3 (1.0)
+              LOAD_FAST_BORROW         8 (d)
+              BINARY_OP               10 (-)
+              LOAD_GLOBAL             11 (_exp + NULL)
+              LOAD_FAST_BORROW         8 (d)
+              CALL                     1
+              BINARY_OP                5 (*)
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD          104 (to L2)
+
+655   L3:     NOP
+
+657           LOAD_CONST               3 (1.0)
+              LOAD_FAST                5 (r)
+              BINARY_OP               11 (/)
+              STORE_FAST              10 (q)
+
+658           LOAD_FAST_LOAD_FAST    167 (q, z)
+              BINARY_OP                0 (+)
+              LOAD_CONST               3 (1.0)
+              LOAD_FAST_LOAD_FAST    167 (q, z)
+              BINARY_OP                5 (*)
+              BINARY_OP                0 (+)
+              BINARY_OP               11 (/)
+              STORE_FAST              11 (f)
+
+659           LOAD_FAST                3 (random)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST              12 (u3)
+
+660           LOAD_FAST               12 (u3)
+              LOAD_CONST               2 (0.5)
+              COMPARE_OP             148 (bool(>))
+              POP_JUMP_IF_FALSE       32 (to L4)
+              NOT_TAKEN
+
+661           LOAD_FAST                1 (mu)
+              LOAD_GLOBAL             13 (_acos + NULL)
+              LOAD_FAST               11 (f)
+              CALL                     1
+              BINARY_OP                0 (+)
+              LOAD_GLOBAL              2 (TWOPI)
+              BINARY_OP                6 (%)
+              STORE_FAST              13 (theta)
+
+665           LOAD_FAST               13 (theta)
+              RETURN_VALUE
+
+663   L4:     LOAD_FAST                1 (mu)
+              LOAD_GLOBAL             13 (_acos + NULL)
+              LOAD_FAST               11 (f)
+              CALL                     1
+              BINARY_OP               10 (-)
+              LOAD_GLOBAL              2 (TWOPI)
+              BINARY_OP                6 (%)
+              STORE_FAST              13 (theta)
+
+665           LOAD_FAST               13 (theta)
+              RETURN_VALUE
+
+Disassembly of <code object gammavariate at 0x00000204BA449030, file "random.py", line 667>:
+667            RESUME                   0
+
+687            LOAD_FAST_BORROW         1 (alpha)
+               LOAD_CONST               1 (0.0)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_TRUE         8 (to L1)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         2 (beta)
+               LOAD_CONST               1 (0.0)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       12 (to L2)
+               NOT_TAKEN
+
+688    L1:     LOAD_GLOBAL              1 (ValueError + NULL)
+               LOAD_CONST               2 ('gammavariate: alpha and beta must be > 0.0')
+               CALL                     1
+               RAISE_VARARGS            1
+
+690    L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (random)
+               STORE_FAST               3 (random)
+
+691            LOAD_FAST_BORROW         1 (alpha)
+               LOAD_CONST               3 (1.0)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE      233 (to L8)
+               NOT_TAKEN
+
+697            LOAD_GLOBAL              5 (_sqrt + NULL)
+               LOAD_CONST               4 (2.0)
+               LOAD_FAST_BORROW         1 (alpha)
+               BINARY_OP                5 (*)
+               LOAD_CONST               3 (1.0)
+               BINARY_OP               10 (-)
+               CALL                     1
+               STORE_FAST               4 (ainv)
+
+698            LOAD_FAST_BORROW         1 (alpha)
+               LOAD_GLOBAL              6 (LOG4)
+               BINARY_OP               10 (-)
+               STORE_FAST               5 (bbb)
+
+699            LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (alpha, ainv)
+               BINARY_OP                0 (+)
+               STORE_FAST               6 (ccc)
+
+701    L3:     NOP
+
+702            LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               7 (u1)
+
+703            LOAD_CONST               5 (1e-07)
+               LOAD_FAST                7 (u1)
+               SWAP                     2
+               COPY                     2
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE        8 (to L4)
+               NOT_TAKEN
+               LOAD_CONST               6 (0.9999999)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_TRUE         5 (to L6)
+               NOT_TAKEN
+               JUMP_FORWARD             1 (to L5)
+       L4:     POP_TOP
+
+704    L5:     JUMP_BACKWARD           27 (to L3)
+
+705    L6:     LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               BINARY_OP               10 (-)
+               STORE_FAST               8 (u2)
+
+706            LOAD_GLOBAL              9 (_log + NULL)
+               LOAD_FAST_BORROW         7 (u1)
+               LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         7 (u1)
+               BINARY_OP               10 (-)
+               BINARY_OP               11 (/)
+               CALL                     1
+               LOAD_FAST_BORROW         4 (ainv)
+               BINARY_OP               11 (/)
+               STORE_FAST               9 (v)
+
+707            LOAD_FAST_BORROW         1 (alpha)
+               LOAD_GLOBAL             11 (_exp + NULL)
+               LOAD_FAST_BORROW         9 (v)
+               CALL                     1
+               BINARY_OP                5 (*)
+               STORE_FAST              10 (x)
+
+708            LOAD_FAST_BORROW_LOAD_FAST_BORROW 119 (u1, u1)
+               BINARY_OP                5 (*)
+               LOAD_FAST_BORROW         8 (u2)
+               BINARY_OP                5 (*)
+               STORE_FAST              11 (z)
+
+709            LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (bbb, ccc)
+               LOAD_FAST_BORROW         9 (v)
+               BINARY_OP                5 (*)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW        10 (x)
+               BINARY_OP               10 (-)
+               STORE_FAST              12 (r)
+
+710            LOAD_FAST_BORROW        12 (r)
+               LOAD_GLOBAL             12 (SG_MAGICCONST)
+               BINARY_OP                0 (+)
+               LOAD_CONST               7 (4.5)
+               LOAD_FAST_BORROW        11 (z)
+               BINARY_OP                5 (*)
+               BINARY_OP               10 (-)
+               LOAD_CONST               1 (0.0)
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_TRUE        19 (to L7)
+               NOT_TAKEN
+               LOAD_FAST_BORROW        12 (r)
+               LOAD_GLOBAL              9 (_log + NULL)
+               LOAD_FAST_BORROW        11 (z)
+               CALL                     1
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_TRUE         3 (to L7)
+               NOT_TAKEN
+               JUMP_BACKWARD          178 (to L3)
+
+711    L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 162 (x, beta)
+               BINARY_OP                5 (*)
+               RETURN_VALUE
+
+713    L8:     LOAD_FAST_BORROW         1 (alpha)
+               LOAD_CONST               3 (1.0)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       32 (to L9)
+               NOT_TAKEN
+
+715            LOAD_GLOBAL              9 (_log + NULL)
+               LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               BINARY_OP               10 (-)
+               CALL                     1
+               UNARY_NEGATIVE
+               LOAD_FAST_BORROW         2 (beta)
+               BINARY_OP                5 (*)
+               RETURN_VALUE
+
+720    L9:     NOP
+
+721            LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST              13 (u)
+
+722            LOAD_GLOBAL             14 (_e)
+               LOAD_FAST_BORROW         1 (alpha)
+               BINARY_OP                0 (+)
+               LOAD_GLOBAL             14 (_e)
+               BINARY_OP               11 (/)
+               STORE_FAST              14 (b)
+
+723            LOAD_FAST_BORROW_LOAD_FAST_BORROW 237 (b, u)
+               BINARY_OP                5 (*)
+               STORE_FAST              15 (p)
+
+724            LOAD_FAST_BORROW        15 (p)
+               LOAD_CONST               3 (1.0)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       18 (to L10)
+               NOT_TAKEN
+
+725            LOAD_FAST_BORROW        15 (p)
+               LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         1 (alpha)
+               BINARY_OP               11 (/)
+               BINARY_OP                8 (**)
+               STORE_FAST              10 (x)
+               JUMP_FORWARD            25 (to L11)
+
+727   L10:     LOAD_GLOBAL              9 (_log + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 239 (b, p)
+               BINARY_OP               10 (-)
+               LOAD_FAST_BORROW         1 (alpha)
+               BINARY_OP               11 (/)
+               CALL                     1
+               UNARY_NEGATIVE
+               STORE_FAST              10 (x)
+
+728   L11:     LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               7 (u1)
+
+729            LOAD_FAST_BORROW        15 (p)
+               LOAD_CONST               3 (1.0)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       32 (to L13)
+               NOT_TAKEN
+
+730            LOAD_FAST_BORROW_LOAD_FAST_BORROW 122 (u1, x)
+               LOAD_FAST_BORROW         1 (alpha)
+               LOAD_CONST               3 (1.0)
+               BINARY_OP               10 (-)
+               BINARY_OP                8 (**)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE       10 (to L12)
+               NOT_TAKEN
+
+731            NOP
+
+734            LOAD_FAST_BORROW_LOAD_FAST_BORROW 162 (x, beta)
+               BINARY_OP                5 (*)
+               RETURN_VALUE
+
+730   L12:     JUMP_BACKWARD          134 (to L9)
+
+732   L13:     LOAD_FAST_BORROW         7 (u1)
+               LOAD_GLOBAL             11 (_exp + NULL)
+               LOAD_FAST_BORROW        10 (x)
+               UNARY_NEGATIVE
+               CALL                     1
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_TRUE         3 (to L14)
+               NOT_TAKEN
+               JUMP_BACKWARD          153 (to L9)
+
+733   L14:     NOP
+
+734            LOAD_FAST_BORROW_LOAD_FAST_BORROW 162 (x, beta)
+               BINARY_OP                5 (*)
+               RETURN_VALUE
+
+Disassembly of <code object betavariate at 0x00000204BA0BB750, file "random.py", line 736>:
+736           RESUME                   0
+
+763           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (gammavariate + NULL|self)
+              LOAD_FAST_BORROW         1 (alpha)
+              LOAD_CONST               1 (1.0)
+              CALL                     2
+              STORE_FAST               3 (y)
+
+764           LOAD_FAST_BORROW         3 (y)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       32 (to L1)
+              NOT_TAKEN
+
+765           LOAD_FAST_BORROW_LOAD_FAST_BORROW 51 (y, y)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (gammavariate + NULL|self)
+              LOAD_FAST_BORROW         2 (beta)
+              LOAD_CONST               1 (1.0)
+              CALL                     2
+              BINARY_OP                0 (+)
+              BINARY_OP               11 (/)
+              RETURN_VALUE
+
+766   L1:     LOAD_CONST               2 (0.0)
+              RETURN_VALUE
+
+Disassembly of <code object paretovariate at 0x00000204BA0A73F0, file "random.py", line 768>:
+768           RESUME                   0
+
+772           LOAD_CONST               1 (1.0)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (random + NULL|self)
+              CALL                     0
+              BINARY_OP               10 (-)
+              STORE_FAST               2 (u)
+
+773           LOAD_FAST_BORROW         2 (u)
+              LOAD_CONST               2 (-1.0)
+              LOAD_FAST_BORROW         1 (alpha)
+              BINARY_OP               11 (/)
+              BINARY_OP                8 (**)
+              RETURN_VALUE
+
+Disassembly of <code object weibullvariate at 0x00000204BA0BB360, file "random.py", line 775>:
+775           RESUME                   0
+
+783           LOAD_CONST               1 (1.0)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (random + NULL|self)
+              CALL                     0
+              BINARY_OP               10 (-)
+              STORE_FAST               3 (u)
+
+784           LOAD_FAST_BORROW         1 (alpha)
+              LOAD_GLOBAL              3 (_log + NULL)
+              LOAD_FAST_BORROW         3 (u)
+              CALL                     1
+              UNARY_NEGATIVE
+              LOAD_CONST               1 (1.0)
+              LOAD_FAST_BORROW         2 (beta)
+              BINARY_OP               11 (/)
+              BINARY_OP                8 (**)
+              BINARY_OP                5 (*)
+              RETURN_VALUE
+
+Disassembly of <code object binomialvariate at 0x00000204BA4B4ED0, file "random.py", line 789>:
+789            RESUME                   0
+
+812            LOAD_FAST_BORROW         1 (n)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       12 (to L1)
+               NOT_TAKEN
+
+813            LOAD_GLOBAL              1 (ValueError + NULL)
+               LOAD_CONST               1 ('n must be non-negative')
+               CALL                     1
+               RAISE_VARARGS            1
+
+814    L1:     LOAD_FAST_BORROW         2 (p)
+               LOAD_CONST               2 (0.0)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_TRUE         8 (to L2)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         2 (p)
+               LOAD_CONST               3 (1.0)
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE       30 (to L5)
+               NOT_TAKEN
+
+815    L2:     LOAD_FAST_BORROW         2 (p)
+               LOAD_CONST               2 (0.0)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+
+816            LOAD_SMALL_INT           0
+               RETURN_VALUE
+
+817    L3:     LOAD_FAST_BORROW         2 (p)
+               LOAD_CONST               3 (1.0)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+
+818            LOAD_FAST_BORROW         1 (n)
+               RETURN_VALUE
+
+819    L4:     LOAD_GLOBAL              1 (ValueError + NULL)
+               LOAD_CONST               4 ('p must be in the range 0.0 <= p <= 1.0')
+               CALL                     1
+               RAISE_VARARGS            1
+
+821    L5:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (random)
+               STORE_FAST               3 (random)
+
+824            LOAD_FAST_BORROW         1 (n)
+               LOAD_SMALL_INT           1
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       20 (to L6)
+               NOT_TAKEN
+
+825            LOAD_GLOBAL              5 (_index + NULL)
+               LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST_BORROW         2 (p)
+               COMPARE_OP               2 (<)
+               CALL                     1
+               RETURN_VALUE
+
+828    L6:     LOAD_FAST_BORROW         2 (p)
+               LOAD_CONST               5 (0.5)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE       32 (to L7)
+               NOT_TAKEN
+
+829            LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (n, self)
+               LOAD_ATTR                7 (binomialvariate + NULL|self)
+               LOAD_FAST_BORROW         1 (n)
+               LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         2 (p)
+               BINARY_OP               10 (-)
+               CALL                     2
+               BINARY_OP               10 (-)
+               RETURN_VALUE
+
+831    L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (n, p)
+               BINARY_OP                5 (*)
+               LOAD_CONST               6 (10.0)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       98 (to L10)
+               NOT_TAKEN
+
+834            LOAD_SMALL_INT           0
+               COPY                     1
+               STORE_FAST_STORE_FAST   69 (x, y)
+
+835            LOAD_GLOBAL              9 (_log2 + NULL)
+               LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         2 (p)
+               BINARY_OP               10 (-)
+               CALL                     1
+               STORE_FAST               6 (c)
+
+836            LOAD_FAST_BORROW         6 (c)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L8)
+               NOT_TAKEN
+
+837            LOAD_FAST_BORROW         4 (x)
+               RETURN_VALUE
+
+838    L8:     NOP
+
+839            LOAD_FAST_BORROW         5 (y)
+               LOAD_GLOBAL             11 (_floor + NULL)
+               LOAD_GLOBAL              9 (_log2 + NULL)
+               LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               CALL                     1
+               LOAD_FAST_BORROW         6 (c)
+               BINARY_OP               11 (/)
+               CALL                     1
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               BINARY_OP               13 (+=)
+               STORE_FAST               5 (y)
+
+840            LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (y, n)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE        3 (to L9)
+               NOT_TAKEN
+
+841            LOAD_FAST_BORROW         4 (x)
+               RETURN_VALUE
+
+842    L9:     LOAD_FAST_BORROW         4 (x)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               STORE_FAST               4 (x)
+               JUMP_BACKWARD           66 (to L8)
+
+846   L10:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (n, p)
+               BINARY_OP                5 (*)
+               LOAD_CONST               6 (10.0)
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE        8 (to L11)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         2 (p)
+               LOAD_CONST               5 (0.5)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_TRUE         3 (to L12)
+               NOT_TAKEN
+      L11:     LOAD_COMMON_CONSTANT     0 (AssertionError)
+               RAISE_VARARGS            1
+
+847   L12:     LOAD_CONST               8 (False)
+               STORE_FAST               7 (setup_complete)
+
+849            LOAD_GLOBAL             13 (_sqrt + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (n, p)
+               BINARY_OP                5 (*)
+               LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         2 (p)
+               BINARY_OP               10 (-)
+               BINARY_OP                5 (*)
+               CALL                     1
+               STORE_FAST               8 (spq)
+
+850            LOAD_CONST               9 (1.15)
+               LOAD_CONST              10 (2.53)
+               LOAD_FAST_BORROW         8 (spq)
+               BINARY_OP                5 (*)
+               BINARY_OP                0 (+)
+               STORE_FAST               9 (b)
+
+851            LOAD_CONST              19 (-0.0873)
+               LOAD_CONST              11 (0.0248)
+               LOAD_FAST_BORROW         9 (b)
+               BINARY_OP                5 (*)
+               BINARY_OP                0 (+)
+               LOAD_CONST              12 (0.01)
+               LOAD_FAST_BORROW         2 (p)
+               BINARY_OP                5 (*)
+               BINARY_OP                0 (+)
+               STORE_FAST              10 (a)
+
+852            LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (n, p)
+               BINARY_OP                5 (*)
+               LOAD_CONST               5 (0.5)
+               BINARY_OP                0 (+)
+               STORE_FAST               6 (c)
+
+853            LOAD_CONST              13 (0.92)
+               LOAD_CONST              14 (4.2)
+               LOAD_FAST_BORROW         9 (b)
+               BINARY_OP               11 (/)
+               BINARY_OP               10 (-)
+               STORE_FAST              11 (vr)
+
+855   L13:     NOP
+
+857            LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST              12 (u)
+
+858            LOAD_FAST_BORROW        12 (u)
+               LOAD_CONST               5 (0.5)
+               BINARY_OP               23 (-=)
+               STORE_FAST              12 (u)
+
+859            LOAD_CONST               5 (0.5)
+               LOAD_GLOBAL             15 (_fabs + NULL)
+               LOAD_FAST_BORROW        12 (u)
+               CALL                     1
+               BINARY_OP               10 (-)
+               STORE_FAST              13 (us)
+
+860            LOAD_GLOBAL             11 (_floor + NULL)
+               LOAD_CONST              15 (2.0)
+               LOAD_FAST_BORROW        10 (a)
+               BINARY_OP                5 (*)
+               LOAD_FAST_BORROW        13 (us)
+               BINARY_OP               11 (/)
+               LOAD_FAST_BORROW         9 (b)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW        12 (u)
+               BINARY_OP                5 (*)
+               LOAD_FAST_BORROW         6 (c)
+               BINARY_OP                0 (+)
+               CALL                     1
+               STORE_FAST              14 (k)
+
+861            LOAD_FAST_BORROW        14 (k)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_TRUE         7 (to L14)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 225 (k, n)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE        3 (to L15)
+               NOT_TAKEN
+
+862   L14:     JUMP_BACKWARD           96 (to L13)
+
+866   L15:     LOAD_FAST_BORROW         3 (random)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST              15 (v)
+
+867            LOAD_FAST_BORROW        13 (us)
+               LOAD_CONST              16 (0.07)
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE        9 (to L16)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 251 (v, vr)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_FALSE        3 (to L16)
+               NOT_TAKEN
+
+868            LOAD_FAST_BORROW        14 (k)
+               RETURN_VALUE
+
+873   L16:     LOAD_FAST_BORROW         7 (setup_complete)
+               TO_BOOL
+               POP_JUMP_IF_TRUE       124 (to L17)
+               NOT_TAKEN
+
+874            LOAD_CONST              17 (2.83)
+               LOAD_CONST              18 (5.1)
+               LOAD_FAST_BORROW         9 (b)
+               BINARY_OP               11 (/)
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         8 (spq)
+               BINARY_OP                5 (*)
+               STORE_FAST              16 (alpha)
+
+875            LOAD_GLOBAL             17 (_log + NULL)
+               LOAD_FAST_BORROW         2 (p)
+               LOAD_CONST               3 (1.0)
+               LOAD_FAST_BORROW         2 (p)
+               BINARY_OP               10 (-)
+               BINARY_OP               11 (/)
+               CALL                     1
+               STORE_FAST              17 (lpq)
+
+876            LOAD_GLOBAL             11 (_floor + NULL)
+               LOAD_FAST_BORROW         1 (n)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         2 (p)
+               BINARY_OP                5 (*)
+               CALL                     1
+               STORE_FAST              18 (m)
+
+877            LOAD_GLOBAL             19 (_lgamma + NULL)
+               LOAD_FAST_BORROW        18 (m)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               CALL                     1
+               LOAD_GLOBAL             19 (_lgamma + NULL)
+               LOAD_FAST_BORROW         1 (n)
+               LOAD_FAST_BORROW        18 (m)
+               BINARY_OP               10 (-)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               CALL                     1
+               BINARY_OP                0 (+)
+               STORE_FAST              19 (h)
+
+878            LOAD_CONST               7 (True)
+               STORE_FAST               7 (setup_complete)
+
+879   L17:     LOAD_FAST_BORROW        15 (v)
+               LOAD_FAST_CHECK         16 (alpha)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 173 (a, us)
+               LOAD_FAST_BORROW        13 (us)
+               BINARY_OP                5 (*)
+               BINARY_OP               11 (/)
+               LOAD_FAST_BORROW         9 (b)
+               BINARY_OP                0 (+)
+               BINARY_OP               11 (/)
+               BINARY_OP               18 (*=)
+               STORE_FAST              15 (v)
+
+880            LOAD_GLOBAL             17 (_log + NULL)
+               LOAD_FAST_BORROW        15 (v)
+               CALL                     1
+               LOAD_FAST_CHECK         19 (h)
+               LOAD_GLOBAL             19 (_lgamma + NULL)
+               LOAD_FAST_BORROW        14 (k)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               CALL                     1
+               BINARY_OP               10 (-)
+               LOAD_GLOBAL             19 (_lgamma + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 30 (n, k)
+               BINARY_OP               10 (-)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               CALL                     1
+               BINARY_OP               10 (-)
+               LOAD_FAST_BORROW        14 (k)
+               LOAD_FAST_CHECK         18 (m)
+               BINARY_OP               10 (-)
+               LOAD_FAST_CHECK         17 (lpq)
+               BINARY_OP                5 (*)
+               BINARY_OP                0 (+)
+               COMPARE_OP              58 (bool(<=))
+               POP_JUMP_IF_TRUE         4 (to L18)
+               NOT_TAKEN
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          377 (to L13)
+
+881   L18:     LOAD_FAST_BORROW        14 (k)
+               RETURN_VALUE
+
+Disassembly of <code object SystemRandom at 0x00000204BA0A7E10, file "random.py", line 888>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 888           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SystemRandom')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (888)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 889           LOAD_CONST               2 ('Alternate random number generator using sources provided\nby the operating system (such as /dev/urandom on Unix or\nCryptGenRandom on Windows).\n\n Not available on all systems (see os.urandom() for details).\n\n')
+               STORE_NAME               4 (__doc__)
+
+ 897           LOAD_CONST               3 (<code object random at 0x00000204BA0AAD30, file "random.py", line 897>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (random)
+
+ 901           LOAD_CONST               4 (<code object getrandbits at 0x00000204B9FB5E30, file "random.py", line 901>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (getrandbits)
+
+ 909           LOAD_CONST               5 (<code object randbytes at 0x00000204BA093000, file "random.py", line 909>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (randbytes)
+
+ 915           LOAD_CONST               6 (<code object seed at 0x00000204BA6081F0, file "random.py", line 915>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (seed)
+
+ 919           LOAD_CONST               7 (<code object _notimplemented at 0x00000204BA092A60, file "random.py", line 919>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_notimplemented)
+
+ 922           LOAD_NAME                9 (_notimplemented)
+               COPY                     1
+               STORE_NAME              10 (getstate)
+               STORE_NAME              11 (setstate)
+               LOAD_CONST               8 (())
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_CONST               9 (None)
+               RETURN_VALUE
+
+Disassembly of <code object random at 0x00000204BA0AAD30, file "random.py", line 897>:
+897           RESUME                   0
+
+899           LOAD_GLOBAL              0 (int)
+              LOAD_ATTR                3 (from_bytes + NULL|self)
+              LOAD_GLOBAL              5 (_urandom + NULL)
+              LOAD_SMALL_INT           7
+              CALL                     1
+              CALL                     1
+              LOAD_SMALL_INT           3
+              BINARY_OP                9 (>>)
+              LOAD_GLOBAL              6 (RECIP_BPF)
+              BINARY_OP                5 (*)
+              RETURN_VALUE
+
+Disassembly of <code object getrandbits at 0x00000204B9FB5E30, file "random.py", line 901>:
+901           RESUME                   0
+
+903           LOAD_FAST_BORROW         1 (k)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+904           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('number of bits must be non-negative')
+              CALL                     1
+              RAISE_VARARGS            1
+
+905   L1:     LOAD_FAST_BORROW         1 (k)
+              LOAD_SMALL_INT           7
+              BINARY_OP                0 (+)
+              LOAD_SMALL_INT           8
+              BINARY_OP                2 (//)
+              STORE_FAST               2 (numbytes)
+
+906           LOAD_GLOBAL              2 (int)
+              LOAD_ATTR                5 (from_bytes + NULL|self)
+              LOAD_GLOBAL              7 (_urandom + NULL)
+              LOAD_FAST_BORROW         2 (numbytes)
+              CALL                     1
+              CALL                     1
+              STORE_FAST               3 (x)
+
+907           LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (x, numbytes)
+              LOAD_SMALL_INT           8
+              BINARY_OP                5 (*)
+              LOAD_FAST_BORROW         1 (k)
+              BINARY_OP               10 (-)
+              BINARY_OP                9 (>>)
+              RETURN_VALUE
+
+Disassembly of <code object randbytes at 0x00000204BA093000, file "random.py", line 909>:
+909           RESUME                   0
+
+913           LOAD_GLOBAL              1 (_urandom + NULL)
+              LOAD_FAST_BORROW         1 (n)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object seed at 0x00000204BA6081F0, file "random.py", line 915>:
+915           RESUME                   0
+
+917           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _notimplemented at 0x00000204BA092A60, file "random.py", line 919>:
+919           RESUME                   0
+
+921           LOAD_GLOBAL              1 (NotImplementedError + NULL)
+              LOAD_CONST               1 ('System entropy source does not have state.')
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object _test_generator at 0x00000204BA445170, file "random.py", line 962>:
+ 962           RESUME                   0
+
+ 963           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('stdev', 'fmean'))
+               IMPORT_NAME              0 (statistics)
+               IMPORT_FROM              1 (stdev)
+               STORE_FAST               3 (stdev)
+               IMPORT_FROM              2 (fmean)
+               STORE_FAST               4 (mean)
+               POP_TOP
+
+ 964           LOAD_SMALL_INT           0
+               LOAD_CONST               2 (('perf_counter',))
+               IMPORT_NAME              3 (time)
+               IMPORT_FROM              4 (perf_counter)
+               STORE_FAST               5 (perf_counter)
+               POP_TOP
+
+ 966           LOAD_FAST_BORROW         5 (perf_counter)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               6 (t0)
+
+ 967           LOAD_GLOBAL             11 (_repeat + NULL)
+               LOAD_CONST               3 (None)
+               LOAD_FAST_BORROW         0 (n)
+               CALL                     2
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      7 (i)
+               SWAP                     2
+       L1:     BUILD_LIST               0
+               SWAP                     2
+       L2:     FOR_ITER                 8 (to L3)
+               STORE_FAST_LOAD_FAST   113 (i, func)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (args)
+               PUSH_NULL
+               CALL_FUNCTION_EX
+               LIST_APPEND              2
+               JUMP_BACKWARD           10 (to L2)
+       L3:     END_FOR
+               POP_ITER
+       L4:     STORE_FAST               8 (data)
+               STORE_FAST               7 (i)
+
+ 968           LOAD_FAST_BORROW         5 (perf_counter)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               9 (t1)
+
+ 970           LOAD_FAST_BORROW         4 (mean)
+               PUSH_NULL
+               LOAD_FAST_BORROW         8 (data)
+               CALL                     1
+               STORE_FAST              10 (xbar)
+
+ 971           LOAD_FAST_BORROW         3 (stdev)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 138 (data, xbar)
+               CALL                     2
+               STORE_FAST              11 (sigma)
+
+ 972           LOAD_GLOBAL             13 (min + NULL)
+               LOAD_FAST_BORROW         8 (data)
+               CALL                     1
+               STORE_FAST              12 (low)
+
+ 973           LOAD_GLOBAL             15 (max + NULL)
+               LOAD_FAST_BORROW         8 (data)
+               CALL                     1
+               STORE_FAST              13 (high)
+
+ 975           LOAD_GLOBAL             17 (print + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 150 (t1, t0)
+               BINARY_OP               10 (-)
+               LOAD_CONST               4 ('.3f')
+               FORMAT_WITH_SPEC
+               LOAD_CONST               5 (' sec, ')
+               LOAD_FAST_BORROW         0 (n)
+               FORMAT_SIMPLE
+               LOAD_CONST               6 (' times ')
+               LOAD_FAST_BORROW         1 (func)
+               LOAD_ATTR               18 (__name__)
+               FORMAT_SIMPLE
+               LOAD_FAST_BORROW         2 (args)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             6
+               CALL                     1
+               POP_TOP
+
+ 976           LOAD_GLOBAL             17 (print + NULL)
+               LOAD_CONST               7 ('avg %g, stddev %g, min %g, max %g\n')
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 171 (xbar, sigma)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 205 (low, high)
+               BUILD_TUPLE              4
+               BINARY_OP                6 (%)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  --   L5:     SWAP                     2
+               POP_TOP
+
+ 967           SWAP                     2
+               STORE_FAST               7 (i)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L5 [2]
+
+Disassembly of <code object _test at 0x00000204BA388300, file "random.py", line 979>:
+979           RESUME                   0
+
+980           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL              2 (random)
+              LOAD_CONST               2 (())
+              CALL                     3
+              POP_TOP
+
+981           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL              4 (normalvariate)
+              LOAD_CONST               3 ((0.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+982           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL              6 (lognormvariate)
+              LOAD_CONST               3 ((0.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+983           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL              8 (vonmisesvariate)
+              LOAD_CONST               3 ((0.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+984           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             10 (binomialvariate)
+              LOAD_CONST               4 ((15, 0.6))
+              CALL                     3
+              POP_TOP
+
+985           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             10 (binomialvariate)
+              LOAD_CONST               5 ((100, 0.75))
+              CALL                     3
+              POP_TOP
+
+986           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST               6 ((0.01, 1.0))
+              CALL                     3
+              POP_TOP
+
+987           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST               7 ((0.1, 1.0))
+              CALL                     3
+              POP_TOP
+
+988           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST               8 ((0.1, 2.0))
+              CALL                     3
+              POP_TOP
+
+989           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST               9 ((0.5, 1.0))
+              CALL                     3
+              POP_TOP
+
+990           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST              10 ((0.9, 1.0))
+              CALL                     3
+              POP_TOP
+
+991           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST              11 ((1.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+992           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST              12 ((2.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+993           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST              13 ((20.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+994           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             12 (gammavariate)
+              LOAD_CONST              14 ((200.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+995           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             14 (gauss)
+              LOAD_CONST               3 ((0.0, 1.0))
+              CALL                     3
+              POP_TOP
+
+996           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             16 (betavariate)
+              LOAD_CONST              15 ((3.0, 3.0))
+              CALL                     3
+              POP_TOP
+
+997           LOAD_GLOBAL              1 (_test_generator + NULL)
+              LOAD_FAST_BORROW         0 (N)
+              LOAD_GLOBAL             18 (triangular)
+              LOAD_CONST              16 ((0.0, 1.0, 0.3333333333333333))
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0A7BD0, file "random.py", line 1011>:
+1011           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('arg_list')
+               LOAD_GLOBAL              0 (list)
+               LOAD_GLOBAL              2 (str)
+               BINARY_OP               26 ([])
+               LOAD_CONST               2 (None)
+               BINARY_OP                7 (|)
+               BUILD_MAP                1
+               RETURN_VALUE
+
+Disassembly of <code object _parse_args at 0x00000204BA369050, file "random.py", line 1011>:
+1011           RESUME                   0
+
+1012           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (argparse)
+               STORE_FAST               1 (argparse)
+
+1013           LOAD_FAST_BORROW         1 (argparse)
+               LOAD_ATTR                3 (ArgumentParser + NULL|self)
+
+1014           LOAD_FAST_BORROW         1 (argparse)
+               LOAD_ATTR                4 (RawTextHelpFormatter)
+               LOAD_CONST               2 (True)
+
+1013           LOAD_CONST               3 (('formatter_class', 'color'))
+               CALL_KW                  2
+               STORE_FAST               2 (parser)
+
+1015           LOAD_FAST_BORROW         2 (parser)
+               LOAD_ATTR                7 (add_mutually_exclusive_group + NULL|self)
+               CALL                     0
+               STORE_FAST               3 (group)
+
+1016           LOAD_FAST_BORROW         3 (group)
+               LOAD_ATTR                9 (add_argument + NULL|self)
+
+1017           LOAD_CONST               4 ('-c')
+               LOAD_CONST               5 ('--choice')
+               LOAD_CONST               6 ('+')
+
+1018           LOAD_CONST               7 ('print a random choice')
+
+1016           LOAD_CONST               8 (('nargs', 'help'))
+               CALL_KW                  4
+               POP_TOP
+
+1019           LOAD_FAST_BORROW         3 (group)
+               LOAD_ATTR                9 (add_argument + NULL|self)
+
+1020           LOAD_CONST               9 ('-i')
+               LOAD_CONST              10 ('--integer')
+               LOAD_GLOBAL             10 (int)
+               LOAD_CONST              11 ('N')
+
+1021           LOAD_CONST              12 ('print a random integer between 1 and N inclusive')
+
+1019           LOAD_CONST              13 (('type', 'metavar', 'help'))
+               CALL_KW                  5
+               POP_TOP
+
+1022           LOAD_FAST_BORROW         3 (group)
+               LOAD_ATTR                9 (add_argument + NULL|self)
+
+1023           LOAD_CONST              14 ('-f')
+               LOAD_CONST              15 ('--float')
+               LOAD_GLOBAL             12 (float)
+               LOAD_CONST              11 ('N')
+
+1024           LOAD_CONST              16 ('print a random floating-point number between 0 and N inclusive')
+
+1022           LOAD_CONST              13 (('type', 'metavar', 'help'))
+               CALL_KW                  5
+               POP_TOP
+
+1025           LOAD_FAST_BORROW         3 (group)
+               LOAD_ATTR                9 (add_argument + NULL|self)
+
+1026           LOAD_CONST              17 ('--test')
+               LOAD_GLOBAL             10 (int)
+               LOAD_CONST              18 (10000)
+               LOAD_CONST              19 ('?')
+
+1027           LOAD_FAST_BORROW         1 (argparse)
+               LOAD_ATTR               14 (SUPPRESS)
+
+1025           LOAD_CONST              20 (('type', 'const', 'nargs', 'help'))
+               CALL_KW                  5
+               POP_TOP
+
+1028           LOAD_FAST_BORROW         2 (parser)
+               LOAD_ATTR                9 (add_argument + NULL|self)
+               LOAD_CONST              21 ('input')
+               LOAD_CONST              22 ('*')
+
+1029           LOAD_CONST              23 ('if no options given, output depends on the input\n    string or multiple: same as --choice\n    integer: same as --integer\n    float: same as --float')
+
+1028           LOAD_CONST               8 (('nargs', 'help'))
+               CALL_KW                  3
+               POP_TOP
+
+1034           LOAD_FAST_BORROW         2 (parser)
+               LOAD_ATTR               17 (parse_args + NULL|self)
+               LOAD_FAST_BORROW         0 (arg_list)
+               CALL                     1
+               STORE_FAST               4 (args)
+
+1035           LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (args, parser)
+               LOAD_ATTR               19 (format_help + NULL|self)
+               CALL                     0
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0AA830, file "random.py", line 1038>:
+1038           RESUME                   0
+               LOAD_FAST_BORROW         0 (format)
+               LOAD_SMALL_INT           2
+               COMPARE_OP             132 (>)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+               RAISE_VARARGS            1
+       L1:     LOAD_CONST               1 ('arg_list')
+               LOAD_GLOBAL              0 (list)
+               LOAD_GLOBAL              2 (str)
+               BINARY_OP               26 ([])
+               LOAD_CONST               2 (None)
+               BINARY_OP                7 (|)
+               LOAD_CONST               3 ('return')
+               LOAD_GLOBAL              4 (int)
+               LOAD_GLOBAL              2 (str)
+               BINARY_OP                7 (|)
+               BUILD_MAP                2
+               RETURN_VALUE
+
+Disassembly of <code object main at 0x00000204BA4B55A0, file "random.py", line 1038>:
+1038            RESUME                   0
+
+1039            LOAD_GLOBAL              1 (_parse_args + NULL)
+                LOAD_FAST_BORROW         0 (arg_list)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   18 (args, help_text)
+
+1042            LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR                2 (choice)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       22 (to L1)
+                NOT_TAKEN
+
+1043            LOAD_GLOBAL              3 (choice + NULL)
+                LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR                2 (choice)
+                CALL                     1
+                RETURN_VALUE
+
+1045    L1:     LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR                4 (integer)
+                POP_JUMP_IF_NONE        23 (to L2)
+                NOT_TAKEN
+
+1046            LOAD_GLOBAL              7 (randint + NULL)
+                LOAD_SMALL_INT           1
+                LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR                4 (integer)
+                CALL                     2
+                RETURN_VALUE
+
+1048    L2:     LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR                8 (float)
+                POP_JUMP_IF_NONE        23 (to L3)
+                NOT_TAKEN
+
+1049            LOAD_GLOBAL             11 (uniform + NULL)
+                LOAD_SMALL_INT           0
+                LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR                8 (float)
+                CALL                     2
+                RETURN_VALUE
+
+1051    L3:     LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR               12 (test)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       24 (to L4)
+                NOT_TAKEN
+
+1052            LOAD_GLOBAL             15 (_test + NULL)
+                LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR               12 (test)
+                CALL                     1
+                POP_TOP
+
+1053            LOAD_CONST               1 ('')
+                RETURN_VALUE
+
+1056    L4:     LOAD_GLOBAL             17 (len + NULL)
+                LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR               18 (input)
+                CALL                     1
+                LOAD_SMALL_INT           1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       44 (to L7)
+                NOT_TAKEN
+
+1057            LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR               18 (input)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               3 (val)
+
+1058            NOP
+
+1060    L5:     LOAD_GLOBAL             21 (int + NULL)
+                LOAD_FAST_BORROW         3 (val)
+                CALL                     1
+                STORE_FAST               3 (val)
+
+1061            LOAD_GLOBAL              7 (randint + NULL)
+                LOAD_SMALL_INT           1
+                LOAD_FAST_BORROW         3 (val)
+                CALL                     2
+        L6:     RETURN_VALUE
+
+1071    L7:     LOAD_GLOBAL             17 (len + NULL)
+                LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR               18 (input)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE       22 (to L8)
+                NOT_TAKEN
+
+1072            LOAD_GLOBAL              3 (choice + NULL)
+                LOAD_FAST_BORROW         1 (args)
+                LOAD_ATTR               18 (input)
+                CALL                     1
+                RETURN_VALUE
+
+1074    L8:     LOAD_FAST_BORROW         2 (help_text)
+                RETURN_VALUE
+
+  --    L9:     PUSH_EXC_INFO
+
+1062            LOAD_GLOBAL             22 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       72 (to L19)
+                NOT_TAKEN
+                POP_TOP
+
+1063   L10:     NOP
+
+1065   L11:     LOAD_GLOBAL              9 (float + NULL)
+                LOAD_FAST                3 (val)
+                CALL                     1
+                STORE_FAST               3 (val)
+
+1066            LOAD_GLOBAL             11 (uniform + NULL)
+                LOAD_SMALL_INT           0
+                LOAD_FAST                3 (val)
+                CALL                     2
+       L12:     SWAP                     2
+       L13:     POP_EXCEPT
+                RETURN_VALUE
+
+  --   L14:     PUSH_EXC_INFO
+
+1067            LOAD_GLOBAL             22 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       31 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+1069            LOAD_GLOBAL              3 (choice + NULL)
+                LOAD_FAST                3 (val)
+                LOAD_ATTR               25 (split + NULL|self)
+                CALL                     0
+                CALL                     1
+                SWAP                     2
+       L15:     POP_EXCEPT
+                SWAP                     2
+       L16:     POP_EXCEPT
+                RETURN_VALUE
+
+1067   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+1062   L19:     RERAISE                  0
+
+  --   L20:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L9 [0]
+  L9 to L10 -> L20 [1] lasti
+  L11 to L12 -> L14 [1]
+  L12 to L13 -> L20 [1] lasti
+  L14 to L15 -> L18 [2] lasti
+  L15 to L16 -> L20 [1] lasti
+  L17 to L18 -> L18 [2] lasti
+  L18 to L20 -> L20 [1] lasti

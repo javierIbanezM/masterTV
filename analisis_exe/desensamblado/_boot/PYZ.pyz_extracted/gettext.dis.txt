@@ -1,0 +1,2773 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('Internationalization and localization support.\n\nThis module provides internationalization (I18N) and localization (L10N)\nsupport for your Python programs by providing an interface to the GNU gettext\nmessage catalog library.\n\nI18N refers to the operation by which a program is made aware of multiple\nlanguages.  L10N refers to the adaptation of your program, once\ninternationalized, to the local language and cultural habits.\n\n')
+               STORE_NAME               0 (__doc__)
+
+  46           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (operator)
+               STORE_NAME               1 (operator)
+
+  47           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              2 (os)
+               STORE_NAME               2 (os)
+
+  48           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              3 (sys)
+               STORE_NAME               3 (sys)
+
+  51           BUILD_LIST               0
+               LOAD_CONST              36 (('NullTranslations', 'GNUTranslations', 'Catalog', 'bindtextdomain', 'find', 'translation', 'install', 'textdomain', 'dgettext', 'dngettext', 'gettext', 'ngettext', 'pgettext', 'dpgettext', 'npgettext', 'dnpgettext'))
+               LIST_EXTEND              1
+               STORE_NAME               4 (__all__)
+
+  58           LOAD_NAME                2 (os)
+               LOAD_ATTR               10 (path)
+               LOAD_ATTR               13 (join + NULL|self)
+               LOAD_NAME                3 (sys)
+               LOAD_ATTR               14 (base_prefix)
+               LOAD_CONST               4 ('share')
+               LOAD_CONST               5 ('locale')
+               CALL                     3
+               STORE_NAME               8 (_default_localedir)
+
+  69           LOAD_CONST               1 (None)
+               STORE_GLOBAL             9 (_token_pattern)
+
+  71           LOAD_CONST               6 (<code object _tokenize at 0x00000204BA4455B0, file "gettext.py", line 71>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (_tokenize)
+
+  99           LOAD_CONST               7 (<code object _error at 0x00000204BA0A6550, file "gettext.py", line 99>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (_error)
+
+ 106           LOAD_CONST              37 ((('||',), ('&&',), ('==', '!='), ('<', '>', '<=', '>='), ('+', '-'), ('*', '/', '%')))
+               STORE_NAME              12 (_binary_ops)
+
+ 114           LOAD_NAME               13 (enumerate)
+               PUSH_NULL
+               LOAD_NAME               12 (_binary_ops)
+               LOAD_SMALL_INT           1
+               CALL                     2
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      0 (i)
+               LOAD_FAST_AND_CLEAR      1 (ops)
+               LOAD_FAST_AND_CLEAR      2 (op)
+               SWAP                     4
+       L1:     BUILD_MAP                0
+               SWAP                     2
+       L2:     FOR_ITER                16 (to L5)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST    1 (i, ops)
+               LOAD_FAST_BORROW         1 (ops)
+               GET_ITER
+       L3:     FOR_ITER                 5 (to L4)
+               STORE_FAST_LOAD_FAST    34 (op, op)
+               LOAD_FAST_BORROW         0 (i)
+               MAP_ADD                  3
+               JUMP_BACKWARD            7 (to L3)
+       L4:     END_FOR
+               POP_ITER
+               JUMP_BACKWARD           18 (to L2)
+       L5:     END_FOR
+               POP_ITER
+       L6:     SWAP                     4
+               STORE_FAST               2 (op)
+               STORE_FAST               1 (ops)
+               STORE_FAST               0 (i)
+               STORE_NAME              12 (_binary_ops)
+
+ 115           LOAD_CONST               8 ('||')
+               LOAD_CONST              11 ('or')
+               LOAD_CONST               9 ('&&')
+               LOAD_CONST              12 ('and')
+               LOAD_CONST              10 ('/')
+               LOAD_CONST              13 ('//')
+               BUILD_MAP                3
+               STORE_NAME              14 (_c2py_ops)
+
+ 118           LOAD_CONST              38 ((-1,))
+               LOAD_CONST              14 (<code object _parse at 0x00000204BA3735D0, file "gettext.py", line 118>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              15 (_parse)
+
+ 168           LOAD_CONST              15 (<code object _as_int at 0x00000204B9FF3280, file "gettext.py", line 168>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (_as_int)
+
+ 176           LOAD_CONST              16 (<code object _as_int2 at 0x00000204BA3AE6D0, file "gettext.py", line 176>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (_as_int2)
+
+ 195           LOAD_CONST              17 (<code object c2py at 0x00000204BA366830, file "gettext.py", line 195>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (c2py)
+
+ 231           LOAD_CONST              18 (<code object _expand_lang at 0x00000204BA3ACB20, file "gettext.py", line 231>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (_expand_lang)
+
+ 273           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              19 (<code object NullTranslations at 0x00000204BA0A9BB0, file "gettext.py", line 273>)
+               MAKE_FUNCTION
+               LOAD_CONST               2 ('NullTranslations')
+               CALL                     2
+               STORE_NAME              20 (NullTranslations)
+
+ 333           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              20 (<code object GNUTranslations at 0x00000204BA102040, file "gettext.py", line 333>)
+               MAKE_FUNCTION
+               LOAD_CONST               3 ('GNUTranslations')
+               LOAD_NAME               20 (NullTranslations)
+               CALL                     3
+               STORE_NAME              21 (GNUTranslations)
+
+ 488           LOAD_CONST              39 ((None, None, False))
+               LOAD_CONST              21 (<code object find at 0x00000204BA338F90, file "gettext.py", line 488>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              22 (find)
+
+ 525           BUILD_MAP                0
+               STORE_NAME              23 (_translations)
+
+ 528           LOAD_CONST              40 ((None, None, None, False))
+               LOAD_CONST              22 (<code object translation at 0x00000204BA33C020, file "gettext.py", line 528>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              24 (translation)
+
+ 562           LOAD_CONST              41 ((None,))
+               LOAD_CONST              23 ('names')
+               LOAD_CONST               1 (None)
+               BUILD_MAP                1
+               LOAD_CONST              24 (<code object install at 0x00000204BA0A7510, file "gettext.py", line 562>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              25 (install)
+
+ 568           BUILD_MAP                0
+               STORE_GLOBAL            26 (_localedirs)
+
+ 570           LOAD_CONST              25 ('messages')
+               STORE_GLOBAL            27 (_current_domain)
+
+ 573           LOAD_CONST              41 ((None,))
+               LOAD_CONST              26 (<code object textdomain at 0x00000204BA0912F0, file "gettext.py", line 573>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              28 (textdomain)
+
+ 580           LOAD_CONST              41 ((None,))
+               LOAD_CONST              27 (<code object bindtextdomain at 0x00000204BA0A7BD0, file "gettext.py", line 580>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              29 (bindtextdomain)
+
+ 587           LOAD_CONST              28 (<code object dgettext at 0x00000204B9F718F0, file "gettext.py", line 587>)
+               MAKE_FUNCTION
+               STORE_NAME              30 (dgettext)
+
+ 595           LOAD_CONST              29 (<code object dngettext at 0x00000204BA129480, file "gettext.py", line 595>)
+               MAKE_FUNCTION
+               STORE_NAME              31 (dngettext)
+
+ 607           LOAD_CONST              30 (<code object dpgettext at 0x00000204B9F72EF0, file "gettext.py", line 607>)
+               MAKE_FUNCTION
+               STORE_NAME              32 (dpgettext)
+
+ 615           LOAD_CONST              31 (<code object dnpgettext at 0x00000204BA128030, file "gettext.py", line 615>)
+               MAKE_FUNCTION
+               STORE_NAME              33 (dnpgettext)
+
+ 627           LOAD_CONST              32 (<code object gettext at 0x00000204BA08A530, file "gettext.py", line 627>)
+               MAKE_FUNCTION
+               STORE_NAME              34 (gettext)
+
+ 631           LOAD_CONST              33 (<code object ngettext at 0x00000204BA088330, file "gettext.py", line 631>)
+               MAKE_FUNCTION
+               STORE_NAME              35 (ngettext)
+
+ 635           LOAD_CONST              34 (<code object pgettext at 0x00000204BA08B130, file "gettext.py", line 635>)
+               MAKE_FUNCTION
+               STORE_NAME              36 (pgettext)
+
+ 639           LOAD_CONST              35 (<code object npgettext at 0x00000204BA08B330, file "gettext.py", line 639>)
+               MAKE_FUNCTION
+               STORE_NAME              37 (npgettext)
+
+ 657           LOAD_NAME               24 (translation)
+               STORE_NAME              38 (Catalog)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L7:     SWAP                     2
+               POP_TOP
+
+ 114           SWAP                     4
+               STORE_FAST               2 (op)
+               STORE_FAST               1 (ops)
+               STORE_FAST               0 (i)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L6 -> L7 [4]
+
+Disassembly of <code object _tokenize at 0x00000204BA4455B0, file "gettext.py", line 71>:
+  71           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+
+  73           LOAD_GLOBAL              0 (_token_pattern)
+               POP_JUMP_IF_NOT_NONE    50 (to L2)
+               NOT_TAKEN
+
+  74           LOAD_SMALL_INT           0
+               LOAD_CONST               0 (None)
+               IMPORT_NAME              1 (re)
+               STORE_FAST               1 (re)
+
+  75           LOAD_FAST_BORROW         1 (re)
+               LOAD_ATTR                5 (compile + NULL|self)
+               LOAD_CONST               1 ('\n                (?P<WHITESPACES>[ \\t]+)                    | # spaces and horizontal tabs\n                (?P<NUMBER>[0-9]+\\b)                       | # decimal integer\n                (?P<NAME>n\\b)                              | # only n is allowed\n                (?P<PARENTHESIS>[()])                      |\n                (?P<OPERATOR>[-*/%+?:]|[><!]=?|==|&&|\\|\\|) | # !, *, /, %, +, -, <, >,\n                                                             # <=, >=, ==, !=, &&, ||,\n                                                             # ? :\n                                                             # unary and bitwise ops\n                                                             # not allowed\n                (?P<INVALID>\\w+|.)                           # invalid token\n            ')
+
+  86           LOAD_FAST_BORROW         1 (re)
+               LOAD_ATTR                6 (VERBOSE)
+               LOAD_FAST_BORROW         1 (re)
+               LOAD_ATTR                8 (DOTALL)
+               BINARY_OP                7 (|)
+
+  75           CALL                     2
+               STORE_GLOBAL             0 (_token_pattern)
+
+  88   L2:     LOAD_GLOBAL              0 (_token_pattern)
+               LOAD_ATTR               11 (finditer + NULL|self)
+               LOAD_FAST_BORROW         0 (plural)
+               CALL                     1
+               GET_ITER
+       L3:     FOR_ITER                70 (to L6)
+               STORE_FAST               2 (mo)
+
+  89           LOAD_FAST_BORROW         2 (mo)
+               LOAD_ATTR               12 (lastgroup)
+               STORE_FAST               3 (kind)
+
+  90           LOAD_FAST_BORROW         3 (kind)
+               LOAD_CONST               2 ('WHITESPACES')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+
+  91           JUMP_BACKWARD           24 (to L3)
+
+  92   L4:     LOAD_FAST_BORROW         2 (mo)
+               LOAD_ATTR               15 (group + NULL|self)
+               LOAD_FAST_BORROW         3 (kind)
+               CALL                     1
+               STORE_FAST               4 (value)
+
+  93           LOAD_FAST_BORROW         3 (kind)
+               LOAD_CONST               3 ('INVALID')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       19 (to L5)
+               NOT_TAKEN
+
+  94           LOAD_GLOBAL             17 (ValueError + NULL)
+               LOAD_CONST               4 ('invalid token in plural form: %s')
+               LOAD_FAST_BORROW         4 (value)
+               BINARY_OP                6 (%)
+               CALL                     1
+               RAISE_VARARGS            1
+
+  95   L5:     LOAD_FAST_BORROW         4 (value)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           72 (to L3)
+
+  88   L6:     END_FOR
+               POP_ITER
+
+  96           LOAD_CONST               5 ('')
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L7:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L7 -> L7 [0] lasti
+
+Disassembly of <code object _error at 0x00000204BA0A6550, file "gettext.py", line 99>:
+ 99           RESUME                   0
+
+100           LOAD_FAST_BORROW         0 (value)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+
+101           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               0 ('unexpected token in plural form: %s')
+              LOAD_FAST_BORROW         0 (value)
+              BINARY_OP                6 (%)
+              CALL                     1
+              RETURN_VALUE
+
+103   L1:     LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('unexpected end of plural form')
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _parse at 0x00000204BA3735D0, file "gettext.py", line 118>:
+ 118            RESUME                   0
+
+ 119            LOAD_CONST               0 ('')
+                STORE_FAST               2 (result)
+
+ 120            LOAD_GLOBAL              1 (next + NULL)
+                LOAD_FAST_BORROW         0 (tokens)
+                CALL                     1
+                STORE_FAST               3 (nexttok)
+
+ 121    L1:     LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_CONST               1 ('!')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       23 (to L2)
+                NOT_TAKEN
+
+ 122            LOAD_FAST_BORROW         2 (result)
+                LOAD_CONST               2 ('not ')
+                BINARY_OP               13 (+=)
+                STORE_FAST               2 (result)
+
+ 123            LOAD_GLOBAL              1 (next + NULL)
+                LOAD_FAST_BORROW         0 (tokens)
+                CALL                     1
+                STORE_FAST               3 (nexttok)
+                JUMP_BACKWARD           29 (to L1)
+
+ 125    L2:     LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_CONST               3 ('(')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       43 (to L4)
+                NOT_TAKEN
+
+ 126            LOAD_GLOBAL              3 (_parse + NULL)
+                LOAD_FAST_BORROW         0 (tokens)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   67 (sub, nexttok)
+
+ 127            LOAD_FAST_BORROW         2 (result)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               3 ('(')
+                LOAD_FAST_BORROW         4 (sub)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               4 (')')
+                BUILD_STRING             4
+                STORE_FAST               2 (result)
+
+ 128            LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_CONST               4 (')')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       12 (to L3)
+                NOT_TAKEN
+
+ 129            LOAD_GLOBAL              5 (ValueError + NULL)
+                LOAD_CONST               5 ('unbalanced parenthesis in plural form')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 128    L3:     JUMP_FORWARD            39 (to L8)
+
+ 130    L4:     LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_CONST               6 ('n')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       10 (to L5)
+                NOT_TAKEN
+
+ 131            LOAD_FAST_BORROW         2 (result)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_FAST_BORROW         3 (nexttok)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                STORE_FAST               2 (result)
+                JUMP_FORWARD            23 (to L8)
+
+ 133    L5:     NOP
+
+ 134    L6:     LOAD_GLOBAL              7 (int + NULL)
+                LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_SMALL_INT          10
+                CALL                     2
+                STORE_FAST               5 (value)
+
+ 137    L7:     LOAD_CONST               8 ('%s%d')
+                LOAD_FAST_LOAD_FAST     37 (result, value)
+                BUILD_TUPLE              2
+                BINARY_OP                6 (%)
+                STORE_FAST               2 (result)
+
+ 138    L8:     LOAD_GLOBAL              1 (next + NULL)
+                LOAD_FAST_BORROW         0 (tokens)
+                CALL                     1
+                STORE_FAST               3 (nexttok)
+
+ 140            LOAD_SMALL_INT         100
+                STORE_FAST               6 (j)
+
+ 141    L9:     LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_GLOBAL             10 (_binary_ops)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE      102 (to L12)
+                NOT_TAKEN
+
+ 142            LOAD_GLOBAL             10 (_binary_ops)
+                LOAD_FAST_BORROW         3 (nexttok)
+                BINARY_OP               26 ([])
+                STORE_FAST               7 (i)
+
+ 143            LOAD_FAST_BORROW_LOAD_FAST_BORROW 113 (i, priority)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        2 (to L10)
+                NOT_TAKEN
+
+ 144            JUMP_FORWARD            81 (to L12)
+
+ 146   L10:     LOAD_FAST_BORROW         7 (i)
+                LOAD_CONST              15 ((3, 4))
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       17 (to L11)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         6 (j)
+                LOAD_CONST              15 ((3, 4))
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       10 (to L11)
+                NOT_TAKEN
+
+ 147            LOAD_CONST               9 ('(%s)')
+                LOAD_FAST_BORROW         2 (result)
+                BINARY_OP                6 (%)
+                STORE_FAST               2 (result)
+
+ 149   L11:     LOAD_GLOBAL             12 (_c2py_ops)
+                LOAD_ATTR               15 (get + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 51 (nexttok, nexttok)
+                CALL                     2
+                STORE_FAST               8 (op)
+
+ 150            LOAD_GLOBAL              3 (_parse + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 7 (tokens, i)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  147 (right, nexttok)
+
+ 151            LOAD_FAST_BORROW         2 (result)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (' ')
+                LOAD_FAST_BORROW         8 (op)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (' ')
+                LOAD_FAST_BORROW         9 (right)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                BUILD_STRING             5
+                STORE_FAST               2 (result)
+
+ 152            LOAD_FAST                7 (i)
+                STORE_FAST               6 (j)
+                JUMP_BACKWARD          112 (to L9)
+
+ 153   L12:     LOAD_FAST_LOAD_FAST     97 (j, priority)
+                SWAP                     2
+                COPY                     2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        8 (to L13)
+                NOT_TAKEN
+                LOAD_SMALL_INT           4
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       13 (to L15)
+                NOT_TAKEN
+                JUMP_FORWARD             2 (to L14)
+       L13:     POP_TOP
+                JUMP_FORWARD             9 (to L15)
+
+ 154   L14:     LOAD_CONST               9 ('(%s)')
+                LOAD_FAST_BORROW         2 (result)
+                BINARY_OP                6 (%)
+                STORE_FAST               2 (result)
+
+ 156   L15:     LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_CONST              11 ('?')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       82 (to L17)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         1 (priority)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       75 (to L17)
+                NOT_TAKEN
+
+ 157            LOAD_GLOBAL              3 (_parse + NULL)
+                LOAD_FAST_BORROW         0 (tokens)
+                LOAD_SMALL_INT           0
+                CALL                     2
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  163 (if_true, nexttok)
+
+ 158            LOAD_FAST_BORROW         3 (nexttok)
+                LOAD_CONST              12 (':')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       12 (to L16)
+                NOT_TAKEN
+
+ 159            LOAD_GLOBAL              9 (_error + NULL)
+                LOAD_FAST_BORROW         3 (nexttok)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 160   L16:     LOAD_GLOBAL              3 (_parse + NULL)
+                LOAD_FAST_BORROW         0 (tokens)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  179 (if_false, nexttok)
+
+ 161            LOAD_FAST_BORROW        10 (if_true)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST              13 (' if ')
+                LOAD_FAST_BORROW         2 (result)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST              14 (' else ')
+                LOAD_FAST_BORROW        11 (if_false)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                BUILD_STRING             5
+                STORE_FAST               2 (result)
+
+ 162            LOAD_FAST_BORROW         1 (priority)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       10 (to L17)
+                NOT_TAKEN
+
+ 163            LOAD_CONST               9 ('(%s)')
+                LOAD_FAST_BORROW         2 (result)
+                BINARY_OP                6 (%)
+                STORE_FAST               2 (result)
+
+ 165   L17:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (result, nexttok)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  --   L18:     PUSH_EXC_INFO
+
+ 135            LOAD_GLOBAL              4 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       14 (to L19)
+                NOT_TAKEN
+                POP_TOP
+
+ 136            LOAD_GLOBAL              9 (_error + NULL)
+                LOAD_FAST                3 (nexttok)
+                CALL                     1
+                LOAD_CONST               7 (None)
+                RAISE_VARARGS            2
+
+ 135   L19:     RERAISE                  0
+
+  --   L20:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L6 to L7 -> L18 [0]
+  L18 to L20 -> L20 [1] lasti
+
+Disassembly of <code object _as_int at 0x00000204B9FF3280, file "gettext.py", line 168>:
+ 168           RESUME                   0
+
+ 169           NOP
+
+ 170   L1:     LOAD_GLOBAL              1 (round + NULL)
+               LOAD_FAST_BORROW         0 (n)
+               CALL                     1
+               POP_TOP
+
+ 174   L2:     LOAD_GLOBAL              9 (_as_int2 + NULL)
+               LOAD_FAST                0 (n)
+               CALL                     1
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 171           LOAD_GLOBAL              2 (TypeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       38 (to L4)
+               NOT_TAKEN
+               POP_TOP
+
+ 172           LOAD_GLOBAL              3 (TypeError + NULL)
+               LOAD_CONST               0 ('Plural value must be an integer, got ')
+
+ 173           LOAD_FAST                0 (n)
+               LOAD_ATTR                4 (__class__)
+               LOAD_ATTR                6 (__name__)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+
+ 172           BUILD_STRING             2
+               CALL                     1
+
+ 173           LOAD_CONST               1 (None)
+
+ 172           RAISE_VARARGS            2
+
+ 171   L4:     RERAISE                  0
+
+  --   L5:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L5 -> L5 [1] lasti
+
+Disassembly of <code object _as_int2 at 0x00000204BA3AE6D0, file "gettext.py", line 176>:
+ 176           RESUME                   0
+
+ 177           NOP
+
+ 178   L1:     LOAD_GLOBAL              0 (operator)
+               LOAD_ATTR                2 (index)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (n)
+               CALL                     1
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 179           LOAD_GLOBAL              4 (TypeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 180   L4:     POP_EXCEPT
+               JUMP_FORWARD             4 (to L7)
+
+ 179   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+
+ 182   L7:     LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              3 (warnings)
+               STORE_FAST               1 (warnings)
+
+ 183           LOAD_GLOBAL              8 (sys)
+               LOAD_ATTR               10 (_getframe)
+               PUSH_NULL
+               LOAD_SMALL_INT           1
+               CALL                     1
+               STORE_FAST               2 (frame)
+
+ 184           LOAD_SMALL_INT           2
+               STORE_FAST               3 (stacklevel)
+
+ 185   L8:     LOAD_FAST                2 (frame)
+               LOAD_ATTR               12 (f_back)
+               POP_JUMP_IF_NONE        60 (to L9)
+               NOT_TAKEN
+               LOAD_FAST                2 (frame)
+               LOAD_ATTR               14 (f_globals)
+               LOAD_ATTR               17 (get + NULL|self)
+               LOAD_CONST               2 ('__name__')
+               CALL                     1
+               LOAD_GLOBAL             18 (__name__)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       24 (to L9)
+               NOT_TAKEN
+
+ 186           LOAD_FAST                3 (stacklevel)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               STORE_FAST               3 (stacklevel)
+
+ 187           LOAD_FAST                2 (frame)
+               LOAD_ATTR               12 (f_back)
+               STORE_FAST               2 (frame)
+               JUMP_BACKWARD           73 (to L8)
+
+ 188   L9:     LOAD_FAST                1 (warnings)
+               LOAD_ATTR               21 (warn + NULL|self)
+               LOAD_CONST               3 ('Plural value must be an integer, got ')
+
+ 189           LOAD_FAST                0 (n)
+               LOAD_ATTR               22 (__class__)
+               LOAD_ATTR               18 (__name__)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+
+ 188           BUILD_STRING             2
+
+ 190           LOAD_GLOBAL             24 (DeprecationWarning)
+
+ 191           LOAD_FAST                3 (stacklevel)
+
+ 188           CALL                     3
+               POP_TOP
+
+ 192           LOAD_FAST                0 (n)
+               RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object c2py at 0x00000204BA366830, file "gettext.py", line 195>:
+ 195            RESUME                   0
+
+ 200            LOAD_GLOBAL              1 (len + NULL)
+                LOAD_FAST_BORROW         0 (plural)
+                CALL                     1
+                LOAD_CONST               1 (1000)
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       12 (to L1)
+                NOT_TAKEN
+
+ 201            LOAD_GLOBAL              3 (ValueError + NULL)
+                LOAD_CONST               2 ('plural form expression is too long')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 202    L1:     NOP
+
+ 203    L2:     LOAD_GLOBAL              5 (_parse + NULL)
+                LOAD_GLOBAL              7 (_tokenize + NULL)
+                LOAD_FAST_BORROW         0 (plural)
+                CALL                     1
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   18 (result, nexttok)
+
+ 204            LOAD_FAST_BORROW         2 (nexttok)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L3)
+                NOT_TAKEN
+
+ 205            LOAD_GLOBAL              9 (_error + NULL)
+                LOAD_FAST_BORROW         2 (nexttok)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 207    L3:     LOAD_SMALL_INT           0
+                STORE_FAST               3 (depth)
+
+ 208            LOAD_FAST_BORROW         1 (result)
+                GET_ITER
+        L4:     FOR_ITER                57 (to L9)
+                STORE_FAST               4 (c)
+
+ 209            LOAD_FAST_BORROW         4 (c)
+                LOAD_CONST               3 ('(')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       30 (to L6)
+                NOT_TAKEN
+
+ 210            LOAD_FAST_BORROW         3 (depth)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               3 (depth)
+
+ 211            LOAD_FAST_BORROW         3 (depth)
+                LOAD_SMALL_INT          20
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       12 (to L5)
+                NOT_TAKEN
+
+ 214            LOAD_GLOBAL              3 (ValueError + NULL)
+                LOAD_CONST               4 ('plural form expression is too complex')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 211    L5:     JUMP_BACKWARD           39 (to L4)
+
+ 215    L6:     LOAD_FAST_BORROW         4 (c)
+                LOAD_CONST               5 (')')
+                COMPARE_OP              88 (bool(==))
+        L7:     POP_JUMP_IF_TRUE         3 (to L8)
+                NOT_TAKEN
+                JUMP_BACKWARD           48 (to L4)
+
+ 216    L8:     LOAD_FAST_BORROW         3 (depth)
+                LOAD_SMALL_INT           1
+                BINARY_OP               23 (-=)
+                STORE_FAST               3 (depth)
+                JUMP_BACKWARD           59 (to L4)
+
+ 208    L9:     END_FOR
+                POP_ITER
+
+ 218            LOAD_CONST               6 ('_as_int')
+                LOAD_GLOBAL             10 (_as_int)
+                LOAD_CONST               7 ('__name__')
+                LOAD_GLOBAL             12 (__name__)
+                BUILD_MAP                2
+                STORE_FAST               5 (ns)
+
+ 219            LOAD_GLOBAL             15 (exec + NULL)
+                LOAD_CONST               8 ('if True:\n            def func(n):\n                if not isinstance(n, int):\n                    n = _as_int(n)\n                return int(%s)\n            ')
+
+ 224            LOAD_FAST_BORROW         1 (result)
+
+ 219            BINARY_OP                6 (%)
+
+ 224            LOAD_FAST_BORROW         5 (ns)
+
+ 219            CALL                     2
+                POP_TOP
+
+ 225            LOAD_FAST_BORROW         5 (ns)
+                LOAD_CONST               9 ('func')
+                BINARY_OP               26 ([])
+       L10:     RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 226            LOAD_GLOBAL             16 (RecursionError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       13 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 228            LOAD_GLOBAL              3 (ValueError + NULL)
+                LOAD_CONST               4 ('plural form expression is too complex')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 226   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L7 -> L11 [0]
+  L8 to L10 -> L11 [0]
+  L11 to L13 -> L13 [1] lasti
+
+Disassembly of <code object _expand_lang at 0x00000204BA3ACB20, file "gettext.py", line 231>:
+231            RESUME                   0
+
+232            LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (locale)
+               STORE_FAST               1 (locale)
+
+233            LOAD_FAST_BORROW         1 (locale)
+               LOAD_ATTR                3 (normalize + NULL|self)
+               LOAD_FAST_BORROW         0 (loc)
+               CALL                     1
+               STORE_FAST               0 (loc)
+
+234            LOAD_SMALL_INT           1
+               STORE_FAST               2 (COMPONENT_CODESET)
+
+235            LOAD_SMALL_INT           2
+               STORE_FAST               3 (COMPONENT_TERRITORY)
+
+236            LOAD_SMALL_INT           4
+               STORE_FAST               4 (COMPONENT_MODIFIER)
+
+238            LOAD_SMALL_INT           0
+               STORE_FAST               5 (mask)
+
+239            LOAD_FAST_BORROW         0 (loc)
+               LOAD_ATTR                5 (find + NULL|self)
+               LOAD_CONST               2 ('@')
+               CALL                     1
+               STORE_FAST               6 (pos)
+
+240            LOAD_FAST_BORROW         6 (pos)
+               LOAD_SMALL_INT           0
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE       19 (to L1)
+               NOT_TAKEN
+
+241            LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (loc, pos)
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               STORE_FAST               7 (modifier)
+
+242            LOAD_FAST_BORROW         0 (loc)
+               LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         6 (pos)
+               BINARY_SLICE
+               STORE_FAST               0 (loc)
+
+243            LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (mask, COMPONENT_MODIFIER)
+               BINARY_OP               20 (|=)
+               STORE_FAST               5 (mask)
+               JUMP_FORWARD             2 (to L2)
+
+245    L1:     LOAD_CONST               3 ('')
+               STORE_FAST               7 (modifier)
+
+246    L2:     LOAD_FAST_BORROW         0 (loc)
+               LOAD_ATTR                5 (find + NULL|self)
+               LOAD_CONST               4 ('.')
+               CALL                     1
+               STORE_FAST               6 (pos)
+
+247            LOAD_FAST_BORROW         6 (pos)
+               LOAD_SMALL_INT           0
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE       19 (to L3)
+               NOT_TAKEN
+
+248            LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (loc, pos)
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               STORE_FAST               8 (codeset)
+
+249            LOAD_FAST_BORROW         0 (loc)
+               LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         6 (pos)
+               BINARY_SLICE
+               STORE_FAST               0 (loc)
+
+250            LOAD_FAST_BORROW_LOAD_FAST_BORROW 82 (mask, COMPONENT_CODESET)
+               BINARY_OP               20 (|=)
+               STORE_FAST               5 (mask)
+               JUMP_FORWARD             2 (to L4)
+
+252    L3:     LOAD_CONST               3 ('')
+               STORE_FAST               8 (codeset)
+
+253    L4:     LOAD_FAST_BORROW         0 (loc)
+               LOAD_ATTR                5 (find + NULL|self)
+               LOAD_CONST               5 ('_')
+               CALL                     1
+               STORE_FAST               6 (pos)
+
+254            LOAD_FAST_BORROW         6 (pos)
+               LOAD_SMALL_INT           0
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE       19 (to L5)
+               NOT_TAKEN
+
+255            LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (loc, pos)
+               LOAD_CONST               1 (None)
+               BINARY_SLICE
+               STORE_FAST               9 (territory)
+
+256            LOAD_FAST_BORROW         0 (loc)
+               LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         6 (pos)
+               BINARY_SLICE
+               STORE_FAST               0 (loc)
+
+257            LOAD_FAST_BORROW_LOAD_FAST_BORROW 83 (mask, COMPONENT_TERRITORY)
+               BINARY_OP               20 (|=)
+               STORE_FAST               5 (mask)
+               JUMP_FORWARD             2 (to L6)
+
+259    L5:     LOAD_CONST               3 ('')
+               STORE_FAST               9 (territory)
+
+260    L6:     LOAD_FAST                0 (loc)
+               STORE_FAST              10 (language)
+
+261            BUILD_LIST               0
+               STORE_FAST              11 (ret)
+
+262            LOAD_GLOBAL              7 (range + NULL)
+               LOAD_FAST_BORROW         5 (mask)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               CALL                     1
+               GET_ITER
+       L7:     FOR_ITER               105 (to L12)
+               STORE_FAST              12 (i)
+
+263            LOAD_FAST_BORROW_LOAD_FAST_BORROW 197 (i, mask)
+               UNARY_INVERT
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L8)
+               NOT_TAKEN
+               JUMP_BACKWARD           20 (to L7)
+
+264    L8:     LOAD_FAST               10 (language)
+               STORE_FAST              13 (val)
+
+265            LOAD_FAST_BORROW_LOAD_FAST_BORROW 195 (i, COMPONENT_TERRITORY)
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        9 (to L9)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 217 (val, territory)
+               BINARY_OP               13 (+=)
+               STORE_FAST              13 (val)
+
+266    L9:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 194 (i, COMPONENT_CODESET)
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        9 (to L10)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 216 (val, codeset)
+               BINARY_OP               13 (+=)
+               STORE_FAST              13 (val)
+
+267   L10:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 196 (i, COMPONENT_MODIFIER)
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        9 (to L11)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 215 (val, modifier)
+               BINARY_OP               13 (+=)
+               STORE_FAST              13 (val)
+
+268   L11:     LOAD_FAST_BORROW        11 (ret)
+               LOAD_ATTR                9 (append + NULL|self)
+               LOAD_FAST_BORROW        13 (val)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD          107 (to L7)
+
+262   L12:     END_FOR
+               POP_ITER
+
+269            LOAD_FAST_BORROW        11 (ret)
+               LOAD_ATTR               11 (reverse + NULL|self)
+               CALL                     0
+               POP_TOP
+
+270            LOAD_FAST_BORROW        11 (ret)
+               RETURN_VALUE
+
+Disassembly of <code object NullTranslations at 0x00000204BA0A9BB0, file "gettext.py", line 273>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 273           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('NullTranslations')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (273)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 274           LOAD_CONST              14 ((None,))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204B9FEF800, file "gettext.py", line 274>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 281           LOAD_CONST               4 (<code object _parse at 0x00000204BA0C2170, file "gettext.py", line 281>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_parse)
+
+ 284           LOAD_CONST               5 (<code object add_fallback at 0x00000204BA0AA1F0, file "gettext.py", line 284>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (add_fallback)
+
+ 290           LOAD_CONST               6 (<code object gettext at 0x00000204B9FEF0E0, file "gettext.py", line 290>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (gettext)
+
+ 295           LOAD_CONST               7 (<code object ngettext at 0x00000204B9F73310, file "gettext.py", line 295>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (ngettext)
+
+ 304           LOAD_CONST               8 (<code object pgettext at 0x00000204BA101F10, file "gettext.py", line 304>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (pgettext)
+
+ 309           LOAD_CONST               9 (<code object npgettext at 0x00000204B9F73470, file "gettext.py", line 309>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (npgettext)
+
+ 318           LOAD_CONST              10 (<code object info at 0x00000204BA0926A0, file "gettext.py", line 318>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (info)
+
+ 321           LOAD_CONST              11 (<code object charset at 0x00000204BA093C30, file "gettext.py", line 321>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (charset)
+
+ 324           LOAD_CONST              14 ((None,))
+               LOAD_CONST              12 (<code object install at 0x00000204BA0B7230, file "gettext.py", line 324>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              13 (install)
+               LOAD_CONST              13 (('_charset', '_fallback', '_info'))
+               STORE_NAME              14 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              15 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FEF800, file "gettext.py", line 274>:
+274           RESUME                   0
+
+275           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_info)
+
+276           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_charset)
+
+277           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_fallback)
+
+278           LOAD_FAST_BORROW         1 (fp)
+              POP_JUMP_IF_NONE        20 (to L1)
+              NOT_TAKEN
+
+279           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (_parse + NULL|self)
+              LOAD_FAST_BORROW         1 (fp)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+278   L1:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _parse at 0x00000204BA0C2170, file "gettext.py", line 281>:
+281           RESUME                   0
+
+282           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object add_fallback at 0x00000204BA0AA1F0, file "gettext.py", line 284>:
+284           RESUME                   0
+
+285           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       30 (to L1)
+              NOT_TAKEN
+
+286           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              LOAD_ATTR                3 (add_fallback + NULL|self)
+              LOAD_FAST_BORROW         1 (fallback)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+288   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fallback, self)
+              STORE_ATTR               0 (_fallback)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object gettext at 0x00000204B9FEF0E0, file "gettext.py", line 290>:
+290           RESUME                   0
+
+291           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L1)
+              NOT_TAKEN
+
+292           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              LOAD_ATTR                3 (gettext + NULL|self)
+              LOAD_FAST_BORROW         1 (message)
+              CALL                     1
+              RETURN_VALUE
+
+293   L1:     LOAD_FAST_BORROW         1 (message)
+              RETURN_VALUE
+
+Disassembly of <code object ngettext at 0x00000204B9F73310, file "gettext.py", line 295>:
+295           RESUME                   0
+
+296           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       29 (to L1)
+              NOT_TAKEN
+
+297           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              LOAD_ATTR                3 (ngettext + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (msgid1, msgid2)
+              LOAD_FAST_BORROW         3 (n)
+              CALL                     3
+              RETURN_VALUE
+
+298   L1:     LOAD_GLOBAL              5 (_as_int2 + NULL)
+              LOAD_FAST_BORROW         3 (n)
+              CALL                     1
+              STORE_FAST               3 (n)
+
+299           LOAD_FAST_BORROW         3 (n)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+300           LOAD_FAST_BORROW         1 (msgid1)
+              RETURN_VALUE
+
+302   L2:     LOAD_FAST_BORROW         2 (msgid2)
+              RETURN_VALUE
+
+Disassembly of <code object pgettext at 0x00000204BA101F10, file "gettext.py", line 304>:
+304           RESUME                   0
+
+305           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L1)
+              NOT_TAKEN
+
+306           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              LOAD_ATTR                3 (pgettext + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (context, message)
+              CALL                     2
+              RETURN_VALUE
+
+307   L1:     LOAD_FAST_BORROW         2 (message)
+              RETURN_VALUE
+
+Disassembly of <code object npgettext at 0x00000204B9F73470, file "gettext.py", line 309>:
+309           RESUME                   0
+
+310           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       29 (to L1)
+              NOT_TAKEN
+
+311           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fallback)
+              LOAD_ATTR                3 (npgettext + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (context, msgid1)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (msgid2, n)
+              CALL                     4
+              RETURN_VALUE
+
+312   L1:     LOAD_GLOBAL              5 (_as_int2 + NULL)
+              LOAD_FAST_BORROW         4 (n)
+              CALL                     1
+              STORE_FAST               4 (n)
+
+313           LOAD_FAST_BORROW         4 (n)
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+314           LOAD_FAST_BORROW         2 (msgid1)
+              RETURN_VALUE
+
+316   L2:     LOAD_FAST_BORROW         3 (msgid2)
+              RETURN_VALUE
+
+Disassembly of <code object info at 0x00000204BA0926A0, file "gettext.py", line 318>:
+318           RESUME                   0
+
+319           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_info)
+              RETURN_VALUE
+
+Disassembly of <code object charset at 0x00000204BA093C30, file "gettext.py", line 321>:
+321           RESUME                   0
+
+322           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_charset)
+              RETURN_VALUE
+
+Disassembly of <code object install at 0x00000204BA0B7230, file "gettext.py", line 324>:
+324           RESUME                   0
+
+325           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (builtins)
+              STORE_FAST               2 (builtins)
+
+326           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (gettext)
+              LOAD_FAST_BORROW         2 (builtins)
+              LOAD_ATTR                4 (__dict__)
+              LOAD_CONST               2 ('_')
+              STORE_SUBSCR
+
+327           LOAD_FAST_BORROW         1 (names)
+              POP_JUMP_IF_NONE        56 (to L3)
+              NOT_TAKEN
+
+328           BUILD_SET                0
+              LOAD_CONST               3 (frozenset({'npgettext', 'ngettext', 'gettext', 'pgettext'}))
+              SET_UPDATE               1
+              STORE_FAST               3 (allowed)
+
+329           LOAD_FAST_BORROW         3 (allowed)
+              LOAD_GLOBAL              7 (set + NULL)
+              LOAD_FAST_BORROW         1 (names)
+              CALL                     1
+              BINARY_OP                1 (&)
+              GET_ITER
+      L1:     FOR_ITER                27 (to L2)
+              STORE_FAST               4 (name)
+
+330           LOAD_GLOBAL              9 (getattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 4 (self, name)
+              CALL                     2
+              LOAD_FAST_BORROW         2 (builtins)
+              LOAD_ATTR                4 (__dict__)
+              LOAD_FAST_BORROW         4 (name)
+              STORE_SUBSCR
+              JUMP_BACKWARD           29 (to L1)
+
+329   L2:     END_FOR
+              POP_ITER
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+327   L3:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object GNUTranslations at 0x00000204BA102040, file "gettext.py", line 333>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 333           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('GNUTranslations')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (333)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 335           LOAD_CONST               2 (2500072158)
+               STORE_NAME               4 (LE_MAGIC)
+
+ 336           LOAD_CONST               3 (3725722773)
+               STORE_NAME               5 (BE_MAGIC)
+
+ 340           LOAD_CONST               4 ('%s\x04%s')
+               STORE_NAME               6 (CONTEXT)
+
+ 343           LOAD_CONST              13 ((0, 1))
+               STORE_NAME               7 (VERSIONS)
+
+ 345           LOAD_CONST               5 (<code object _get_versions at 0x00000204BA08AD30, file "gettext.py", line 345>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (_get_versions)
+
+ 349           LOAD_CONST               6 (<code object _parse at 0x00000204BA4B4ED0, file "gettext.py", line 349>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_parse)
+
+ 438           LOAD_CONST               7 (<code object gettext at 0x00000204B9FA6310, file "gettext.py", line 438>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (gettext)
+
+ 449           LOAD_CONST               8 (<code object ngettext at 0x00000204B9F9E4F0, file "gettext.py", line 449>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (ngettext)
+
+ 461           LOAD_CONST               9 (<code object pgettext at 0x00000204BA445170, file "gettext.py", line 461>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (pgettext)
+
+ 473           LOAD_CONST              10 (<code object npgettext at 0x00000204B9FA7480, file "gettext.py", line 473>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (npgettext)
+               LOAD_CONST              11 (('_catalog', '_charset', 'plural'))
+               STORE_NAME              14 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              15 (__classdictcell__)
+               LOAD_CONST              12 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _get_versions at 0x00000204BA08AD30, file "gettext.py", line 345>:
+345           RESUME                   0
+
+347           LOAD_FAST_BORROW         1 (version)
+              LOAD_SMALL_INT          16
+              BINARY_OP                9 (>>)
+              LOAD_FAST_BORROW         1 (version)
+              LOAD_CONST               1 (65535)
+              BINARY_OP                1 (&)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _parse at 0x00000204BA4B4ED0, file "gettext.py", line 349>:
+349            RESUME                   0
+
+353            LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('unpack',))
+               IMPORT_NAME              0 (struct)
+               IMPORT_FROM              1 (unpack)
+               STORE_FAST               2 (unpack)
+               POP_TOP
+
+354            LOAD_GLOBAL              5 (getattr + NULL)
+               LOAD_FAST_BORROW         1 (fp)
+               LOAD_CONST               2 ('name')
+               LOAD_CONST               3 ('')
+               CALL                     3
+               STORE_FAST               3 (filename)
+
+357            BUILD_MAP                0
+               COPY                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_catalog)
+               STORE_FAST               4 (catalog)
+
+358            LOAD_CONST               4 (<code object <lambda> at 0x00000204BA0921F0, file "gettext.py", line 358>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (plural)
+
+359            LOAD_FAST_BORROW         1 (fp)
+               LOAD_ATTR               11 (read + NULL|self)
+               CALL                     0
+               STORE_FAST               5 (buf)
+
+360            LOAD_GLOBAL             13 (len + NULL)
+               LOAD_FAST_BORROW         5 (buf)
+               CALL                     1
+               STORE_FAST               6 (buflen)
+
+362            LOAD_FAST_BORROW         2 (unpack)
+               PUSH_NULL
+               LOAD_CONST               5 ('<I')
+               LOAD_FAST_BORROW         5 (buf)
+               LOAD_CONST               6 (slice(None, 4, None))
+               BINARY_OP               26 ([])
+               CALL                     2
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               STORE_FAST               7 (magic)
+
+363            LOAD_FAST_BORROW_LOAD_FAST_BORROW 112 (magic, self)
+               LOAD_ATTR               14 (LE_MAGIC)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       23 (to L1)
+               NOT_TAKEN
+
+364            LOAD_FAST_BORROW         2 (unpack)
+               PUSH_NULL
+               LOAD_CONST               7 ('<4I')
+               LOAD_FAST_BORROW         5 (buf)
+               LOAD_CONST               8 (slice(4, 20, None))
+               BINARY_OP               26 ([])
+               CALL                     2
+               UNPACK_SEQUENCE          4
+               STORE_FAST_STORE_FAST  137 (version, msgcount)
+               STORE_FAST_STORE_FAST  171 (masteridx, transidx)
+
+365            LOAD_CONST               9 ('<II')
+               STORE_FAST              12 (ii)
+               JUMP_FORWARD            51 (to L3)
+
+366    L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 112 (magic, self)
+               LOAD_ATTR               16 (BE_MAGIC)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       23 (to L2)
+               NOT_TAKEN
+
+367            LOAD_FAST_BORROW         2 (unpack)
+               PUSH_NULL
+               LOAD_CONST              10 ('>4I')
+               LOAD_FAST_BORROW         5 (buf)
+               LOAD_CONST               8 (slice(4, 20, None))
+               BINARY_OP               26 ([])
+               CALL                     2
+               UNPACK_SEQUENCE          4
+               STORE_FAST_STORE_FAST  137 (version, msgcount)
+               STORE_FAST_STORE_FAST  171 (masteridx, transidx)
+
+368            LOAD_CONST              11 ('>II')
+               STORE_FAST              12 (ii)
+               JUMP_FORWARD            13 (to L3)
+
+370    L2:     LOAD_GLOBAL             19 (OSError + NULL)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              12 ('Bad magic number')
+               LOAD_FAST_BORROW         3 (filename)
+               CALL                     3
+               RAISE_VARARGS            1
+
+372    L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               21 (_get_versions + NULL|self)
+               LOAD_FAST_BORROW         8 (version)
+               CALL                     1
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST  222 (major_version, minor_version)
+
+374            LOAD_FAST_BORROW_LOAD_FAST_BORROW 208 (major_version, self)
+               LOAD_ATTR               22 (VERSIONS)
+               CONTAINS_OP              1 (not in)
+               POP_JUMP_IF_FALSE       30 (to L4)
+               NOT_TAKEN
+
+375            LOAD_GLOBAL             19 (OSError + NULL)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              13 ('Bad version number ')
+               LOAD_GLOBAL             25 (str + NULL)
+               LOAD_FAST_BORROW        13 (major_version)
+               CALL                     1
+               BINARY_OP                0 (+)
+               LOAD_FAST_BORROW         3 (filename)
+               CALL                     3
+               RAISE_VARARGS            1
+
+379    L4:     LOAD_GLOBAL             27 (range + NULL)
+               LOAD_SMALL_INT           0
+               LOAD_FAST_BORROW         9 (msgcount)
+               CALL                     2
+               GET_ITER
+       L5:     EXTENDED_ARG             2
+               FOR_ITER               639 (to L22)
+               STORE_FAST              15 (i)
+
+380            LOAD_FAST_BORROW         2 (unpack)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 197 (ii, buf)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 170 (masteridx, masteridx)
+               LOAD_SMALL_INT           8
+               BINARY_OP                0 (+)
+               BINARY_SLICE
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_FAST              16 (mlen)
+               STORE_FAST              17 (moff)
+
+381            LOAD_FAST_BORROW        17 (moff)
+               LOAD_FAST_BORROW        16 (mlen)
+               BINARY_OP                0 (+)
+               STORE_FAST              18 (mend)
+
+382            LOAD_FAST_BORROW         2 (unpack)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 197 (ii, buf)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 187 (transidx, transidx)
+               LOAD_SMALL_INT           8
+               BINARY_OP                0 (+)
+               BINARY_SLICE
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_FAST              19 (tlen)
+               STORE_FAST              20 (toff)
+
+383            LOAD_FAST_BORROW        20 (toff)
+               LOAD_FAST_BORROW        19 (tlen)
+               BINARY_OP                0 (+)
+               STORE_FAST              21 (tend)
+
+384            LOAD_FAST_BORROW        18 (mend)
+               LOAD_FAST_BORROW         6 (buflen)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       19 (to L6)
+               NOT_TAKEN
+               LOAD_FAST_BORROW        21 (tend)
+               LOAD_FAST_BORROW         6 (buflen)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       12 (to L6)
+               NOT_TAKEN
+
+385            LOAD_FAST_BORROW         5 (buf)
+               LOAD_FAST_BORROW        17 (moff)
+               LOAD_FAST_BORROW        18 (mend)
+               BINARY_SLICE
+               STORE_FAST              22 (msg)
+
+386            LOAD_FAST_BORROW         5 (buf)
+               LOAD_FAST_BORROW        20 (toff)
+               LOAD_FAST_BORROW        21 (tend)
+               BINARY_SLICE
+               STORE_FAST              23 (tmsg)
+               JUMP_FORWARD            13 (to L7)
+
+388    L6:     LOAD_GLOBAL             19 (OSError + NULL)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              14 ('File is corrupt')
+               LOAD_FAST_BORROW         3 (filename)
+               CALL                     3
+               RAISE_VARARGS            1
+
+390    L7:     LOAD_FAST_BORROW        16 (mlen)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              88 (bool(==))
+               EXTENDED_ARG             1
+               POP_JUMP_IF_FALSE      372 (to L16)
+               NOT_TAKEN
+
+392            LOAD_CONST              15 (None)
+               STORE_FAST              24 (lastk)
+
+393            LOAD_FAST_BORROW        23 (tmsg)
+               LOAD_ATTR               29 (split + NULL|self)
+               LOAD_CONST              16 (b'\n')
+               CALL                     1
+               GET_ITER
+       L8:     EXTENDED_ARG             1
+               FOR_ITER               347 (to L15)
+               STORE_FAST              25 (b_item)
+
+394            LOAD_FAST_BORROW        25 (b_item)
+               LOAD_ATTR               31 (decode + NULL|self)
+               CALL                     0
+               LOAD_ATTR               33 (strip + NULL|self)
+               CALL                     0
+               STORE_FAST              26 (item)
+
+395            LOAD_FAST_BORROW        26 (item)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L9)
+               NOT_TAKEN
+
+396            JUMP_BACKWARD           44 (to L8)
+
+398    L9:     LOAD_FAST_BORROW        26 (item)
+               LOAD_ATTR               35 (startswith + NULL|self)
+               LOAD_CONST              17 ('#-#-#-#-#')
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       26 (to L10)
+               NOT_TAKEN
+               LOAD_FAST_BORROW        26 (item)
+               LOAD_ATTR               37 (endswith + NULL|self)
+               LOAD_CONST              17 ('#-#-#-#-#')
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L10)
+               NOT_TAKEN
+
+399            JUMP_BACKWARD           92 (to L8)
+
+400   L10:     LOAD_CONST              15 (None)
+               COPY                     1
+               STORE_FAST              27 (k)
+               STORE_FAST              28 (v)
+
+401            LOAD_CONST              18 (':')
+               LOAD_FAST_BORROW        26 (item)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       86 (to L11)
+               NOT_TAKEN
+
+402            LOAD_FAST_BORROW        26 (item)
+               LOAD_ATTR               29 (split + NULL|self)
+               LOAD_CONST              18 (':')
+               LOAD_SMALL_INT           1
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_FAST              27 (k)
+               STORE_FAST              28 (v)
+
+403            LOAD_FAST_BORROW        27 (k)
+               LOAD_ATTR               33 (strip + NULL|self)
+               CALL                     0
+               LOAD_ATTR               39 (lower + NULL|self)
+               CALL                     0
+               STORE_FAST              27 (k)
+
+404            LOAD_FAST_BORROW        28 (v)
+               LOAD_ATTR               33 (strip + NULL|self)
+               CALL                     0
+               STORE_FAST              28 (v)
+
+405            LOAD_FAST_BORROW        28 (v)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               40 (_info)
+               LOAD_FAST_BORROW        27 (k)
+               STORE_SUBSCR
+
+406            LOAD_FAST               27 (k)
+               STORE_FAST              24 (lastk)
+               JUMP_FORWARD            46 (to L12)
+
+407   L11:     LOAD_FAST_BORROW        24 (lastk)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       39 (to L12)
+               NOT_TAKEN
+
+408            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               40 (_info)
+               LOAD_FAST_BORROW        24 (lastk)
+               COPY                     2
+               COPY                     2
+               BINARY_OP               26 ([])
+               LOAD_CONST              19 ('\n')
+               LOAD_FAST_BORROW        26 (item)
+               BINARY_OP                0 (+)
+               BINARY_OP               13 (+=)
+               SWAP                     3
+               SWAP                     2
+               STORE_SUBSCR
+
+409   L12:     LOAD_FAST_BORROW        27 (k)
+               LOAD_CONST              20 ('content-type')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       33 (to L13)
+               NOT_TAKEN
+
+410            LOAD_FAST_BORROW        28 (v)
+               LOAD_ATTR               29 (split + NULL|self)
+               LOAD_CONST              21 ('charset=')
+               CALL                     1
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              21 (_charset)
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          273 (to L8)
+
+411   L13:     LOAD_FAST_BORROW        27 (k)
+               LOAD_CONST              22 ('plural-forms')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_TRUE         4 (to L14)
+               NOT_TAKEN
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          283 (to L8)
+
+412   L14:     LOAD_FAST_BORROW        28 (v)
+               LOAD_ATTR               29 (split + NULL|self)
+               LOAD_CONST              23 (';')
+               CALL                     1
+               STORE_FAST              28 (v)
+
+413            LOAD_FAST_BORROW        28 (v)
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               LOAD_ATTR               29 (split + NULL|self)
+               LOAD_CONST              24 ('plural=')
+               CALL                     1
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               STORE_FAST              29 (plural)
+
+414            LOAD_GLOBAL             45 (c2py + NULL)
+               LOAD_FAST_BORROW        29 (plural)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (plural)
+               EXTENDED_ARG             1
+               JUMP_BACKWARD          350 (to L8)
+
+393   L15:     END_FOR
+               POP_ITER
+
+424   L16:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               42 (_charset)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L17)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_CONST              25 ('ascii')
+      L17:     STORE_FAST              30 (charset)
+
+425            LOAD_CONST              26 (b'\x00')
+               LOAD_FAST_BORROW        22 (msg)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       89 (to L20)
+               NOT_TAKEN
+
+427            LOAD_FAST_BORROW        22 (msg)
+               LOAD_ATTR               29 (split + NULL|self)
+               LOAD_CONST              26 (b'\x00')
+               CALL                     1
+               UNPACK_SEQUENCE          2
+               STORE_FAST              31 (msgid1)
+               STORE_FAST              32 (msgid2)
+
+428            LOAD_FAST_BORROW        23 (tmsg)
+               LOAD_ATTR               29 (split + NULL|self)
+               LOAD_CONST              26 (b'\x00')
+               CALL                     1
+               STORE_FAST              23 (tmsg)
+
+429            LOAD_GLOBAL             25 (str + NULL)
+               LOAD_FAST_BORROW        31 (msgid1)
+               LOAD_FAST_BORROW        30 (charset)
+               CALL                     2
+               STORE_FAST              31 (msgid1)
+
+430            LOAD_GLOBAL             47 (enumerate + NULL)
+               LOAD_FAST_BORROW        23 (tmsg)
+               CALL                     1
+               GET_ITER
+      L18:     FOR_ITER                23 (to L19)
+               UNPACK_SEQUENCE          2
+               STORE_FAST              15 (i)
+               STORE_FAST              33 (x)
+
+431            LOAD_GLOBAL             25 (str + NULL)
+               LOAD_FAST_BORROW        33 (x)
+               LOAD_FAST_BORROW        30 (charset)
+               CALL                     2
+               LOAD_FAST_BORROW         4 (catalog)
+               LOAD_FAST_BORROW        31 (msgid1)
+               LOAD_FAST_BORROW        15 (i)
+               BUILD_TUPLE              2
+               STORE_SUBSCR
+               JUMP_BACKWARD           25 (to L18)
+
+430   L19:     END_FOR
+               POP_ITER
+               JUMP_FORWARD            25 (to L21)
+
+433   L20:     LOAD_GLOBAL             25 (str + NULL)
+               LOAD_FAST_BORROW        23 (tmsg)
+               LOAD_FAST_BORROW        30 (charset)
+               CALL                     2
+               LOAD_FAST_BORROW         4 (catalog)
+               LOAD_GLOBAL             25 (str + NULL)
+               LOAD_FAST_BORROW        22 (msg)
+               LOAD_FAST_BORROW        30 (charset)
+               CALL                     2
+               STORE_SUBSCR
+
+435   L21:     LOAD_FAST_BORROW        10 (masteridx)
+               LOAD_SMALL_INT           8
+               BINARY_OP               13 (+=)
+               STORE_FAST              10 (masteridx)
+
+436            LOAD_FAST_BORROW        11 (transidx)
+               LOAD_SMALL_INT           8
+               BINARY_OP               13 (+=)
+               STORE_FAST              11 (transidx)
+               EXTENDED_ARG             2
+               JUMP_BACKWARD          642 (to L5)
+
+379   L22:     END_FOR
+               POP_ITER
+               LOAD_CONST              15 (None)
+               RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA0921F0, file "gettext.py", line 358>:
+358           RESUME                   0
+              LOAD_GLOBAL              1 (int + NULL)
+              LOAD_FAST_BORROW         0 (n)
+              LOAD_SMALL_INT           1
+              COMPARE_OP             103 (!=)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object gettext at 0x00000204B9FA6310, file "gettext.py", line 438>:
+438           RESUME                   0
+
+439           LOAD_GLOBAL              1 (object + NULL)
+              CALL                     0
+              STORE_FAST               2 (missing)
+
+440           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_catalog)
+              LOAD_ATTR                5 (get + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (message, missing)
+              CALL                     2
+              STORE_FAST               3 (tmsg)
+
+441           LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (tmsg, missing)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       45 (to L1)
+              NOT_TAKEN
+
+442           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_catalog)
+              LOAD_ATTR                5 (get + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (message, self)
+              LOAD_ATTR                7 (plural + NULL|self)
+              LOAD_SMALL_INT           1
+              CALL                     1
+              BUILD_TUPLE              2
+              LOAD_FAST_BORROW         2 (missing)
+              CALL                     2
+              STORE_FAST               3 (tmsg)
+
+443   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (tmsg, missing)
+              IS_OP                    1 (is not)
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+444           LOAD_FAST_BORROW         3 (tmsg)
+              RETURN_VALUE
+
+445   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_fallback)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L3)
+              NOT_TAKEN
+
+446           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_fallback)
+              LOAD_ATTR               11 (gettext + NULL|self)
+              LOAD_FAST_BORROW         1 (message)
+              CALL                     1
+              RETURN_VALUE
+
+447   L3:     LOAD_FAST_BORROW         1 (message)
+              RETURN_VALUE
+
+Disassembly of <code object ngettext at 0x00000204B9F9E4F0, file "gettext.py", line 449>:
+ 449            RESUME                   0
+
+ 450            NOP
+
+ 451    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_catalog)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (msgid1, self)
+                LOAD_ATTR                3 (plural + NULL|self)
+                LOAD_FAST_BORROW         3 (n)
+                CALL                     1
+                BUILD_TUPLE              2
+                BINARY_OP               26 ([])
+                STORE_FAST               4 (tmsg)
+
+ 459    L2:     LOAD_FAST_BORROW         4 (tmsg)
+                RETURN_VALUE
+
+  --    L3:     PUSH_EXC_INFO
+
+ 452            LOAD_GLOBAL              4 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       67 (to L11)
+                NOT_TAKEN
+                POP_TOP
+
+ 453            LOAD_FAST                0 (self)
+                LOAD_ATTR                6 (_fallback)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       31 (to L7)
+        L4:     NOT_TAKEN
+
+ 454    L5:     LOAD_FAST                0 (self)
+                LOAD_ATTR                6 (_fallback)
+                LOAD_ATTR                9 (ngettext + NULL|self)
+                LOAD_FAST_LOAD_FAST     18 (msgid1, msgid2)
+                LOAD_FAST                3 (n)
+                CALL                     3
+                SWAP                     2
+        L6:     POP_EXCEPT
+                RETURN_VALUE
+
+ 455    L7:     LOAD_FAST                3 (n)
+                LOAD_SMALL_INT           1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L9)
+                NOT_TAKEN
+
+ 456            LOAD_FAST                1 (msgid1)
+                STORE_FAST               4 (tmsg)
+        L8:     POP_EXCEPT
+
+ 459            LOAD_FAST                4 (tmsg)
+                RETURN_VALUE
+
+ 458    L9:     LOAD_FAST                2 (msgid2)
+                STORE_FAST               4 (tmsg)
+       L10:     POP_EXCEPT
+
+ 459            LOAD_FAST                4 (tmsg)
+                RETURN_VALUE
+
+ 452   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L12 [1] lasti
+  L5 to L6 -> L12 [1] lasti
+  L7 to L8 -> L12 [1] lasti
+  L9 to L10 -> L12 [1] lasti
+  L11 to L12 -> L12 [1] lasti
+
+Disassembly of <code object pgettext at 0x00000204BA445170, file "gettext.py", line 461>:
+461           RESUME                   0
+
+462           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (CONTEXT)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (context, message)
+              BUILD_TUPLE              2
+              BINARY_OP                6 (%)
+              STORE_FAST               3 (ctxt_msg_id)
+
+463           LOAD_GLOBAL              3 (object + NULL)
+              CALL                     0
+              STORE_FAST               4 (missing)
+
+464           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_catalog)
+              LOAD_ATTR                7 (get + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (ctxt_msg_id, missing)
+              CALL                     2
+              STORE_FAST               5 (tmsg)
+
+465           LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (tmsg, missing)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       45 (to L1)
+              NOT_TAKEN
+
+466           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_catalog)
+              LOAD_ATTR                7 (get + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (ctxt_msg_id, self)
+              LOAD_ATTR                9 (plural + NULL|self)
+              LOAD_SMALL_INT           1
+              CALL                     1
+              BUILD_TUPLE              2
+              LOAD_FAST_BORROW         4 (missing)
+              CALL                     2
+              STORE_FAST               5 (tmsg)
+
+467   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (tmsg, missing)
+              IS_OP                    1 (is not)
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+468           LOAD_FAST_BORROW         5 (tmsg)
+              RETURN_VALUE
+
+469   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_fallback)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       28 (to L3)
+              NOT_TAKEN
+
+470           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_fallback)
+              LOAD_ATTR               13 (pgettext + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (context, message)
+              CALL                     2
+              RETURN_VALUE
+
+471   L3:     LOAD_FAST_BORROW         2 (message)
+              RETURN_VALUE
+
+Disassembly of <code object npgettext at 0x00000204B9FA7480, file "gettext.py", line 473>:
+ 473            RESUME                   0
+
+ 474            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (CONTEXT)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (context, msgid1)
+                BUILD_TUPLE              2
+                BINARY_OP                6 (%)
+                STORE_FAST               5 (ctxt_msg_id)
+
+ 475            NOP
+
+ 476    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_catalog)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (ctxt_msg_id, self)
+                LOAD_ATTR                5 (plural + NULL|self)
+                LOAD_FAST_BORROW         4 (n)
+                CALL                     1
+                BUILD_TUPLE              2
+                BINARY_OP               26 ([])
+                STORE_FAST               6 (tmsg)
+
+ 484    L2:     LOAD_FAST_BORROW         6 (tmsg)
+                RETURN_VALUE
+
+  --    L3:     PUSH_EXC_INFO
+
+ 477            LOAD_GLOBAL              6 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       67 (to L11)
+                NOT_TAKEN
+                POP_TOP
+
+ 478            LOAD_FAST                0 (self)
+                LOAD_ATTR                8 (_fallback)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       31 (to L7)
+        L4:     NOT_TAKEN
+
+ 479    L5:     LOAD_FAST                0 (self)
+                LOAD_ATTR                8 (_fallback)
+                LOAD_ATTR               11 (npgettext + NULL|self)
+                LOAD_FAST_LOAD_FAST     18 (context, msgid1)
+                LOAD_FAST_LOAD_FAST     52 (msgid2, n)
+                CALL                     4
+                SWAP                     2
+        L6:     POP_EXCEPT
+                RETURN_VALUE
+
+ 480    L7:     LOAD_FAST                4 (n)
+                LOAD_SMALL_INT           1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L9)
+                NOT_TAKEN
+
+ 481            LOAD_FAST                2 (msgid1)
+                STORE_FAST               6 (tmsg)
+        L8:     POP_EXCEPT
+
+ 484            LOAD_FAST                6 (tmsg)
+                RETURN_VALUE
+
+ 483    L9:     LOAD_FAST                3 (msgid2)
+                STORE_FAST               6 (tmsg)
+       L10:     POP_EXCEPT
+
+ 484            LOAD_FAST                6 (tmsg)
+                RETURN_VALUE
+
+ 477   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L12 [1] lasti
+  L5 to L6 -> L12 [1] lasti
+  L7 to L8 -> L12 [1] lasti
+  L9 to L10 -> L12 [1] lasti
+  L11 to L12 -> L12 [1] lasti
+
+Disassembly of <code object find at 0x00000204BA338F90, file "gettext.py", line 488>:
+488            RESUME                   0
+
+490            LOAD_FAST_BORROW         1 (localedir)
+               POP_JUMP_IF_NOT_NONE     7 (to L1)
+               NOT_TAKEN
+
+491            LOAD_GLOBAL              0 (_default_localedir)
+               STORE_FAST               1 (localedir)
+
+492    L1:     LOAD_FAST_BORROW         2 (languages)
+               POP_JUMP_IF_NOT_NONE    94 (to L6)
+               NOT_TAKEN
+
+493            BUILD_LIST               0
+               STORE_FAST               2 (languages)
+
+494            LOAD_CONST               5 (('LANGUAGE', 'LC_ALL', 'LC_MESSAGES', 'LANG'))
+               GET_ITER
+       L2:     FOR_ITER                61 (to L4)
+               STORE_FAST               4 (envar)
+
+495            LOAD_GLOBAL              2 (os)
+               LOAD_ATTR                4 (environ)
+               LOAD_ATTR                7 (get + NULL|self)
+               LOAD_FAST_BORROW         4 (envar)
+               CALL                     1
+               STORE_FAST               5 (val)
+
+496            LOAD_FAST_BORROW         5 (val)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L3)
+               NOT_TAKEN
+               JUMP_BACKWARD           44 (to L2)
+
+497    L3:     LOAD_FAST_BORROW         5 (val)
+               LOAD_ATTR                9 (split + NULL|self)
+               LOAD_CONST               2 (':')
+               CALL                     1
+               STORE_FAST               2 (languages)
+
+498            POP_TOP
+               JUMP_FORWARD             2 (to L5)
+
+494    L4:     END_FOR
+               POP_ITER
+
+499    L5:     LOAD_CONST               3 ('C')
+               LOAD_FAST_BORROW         2 (languages)
+               CONTAINS_OP              1 (not in)
+               POP_JUMP_IF_FALSE       18 (to L6)
+               NOT_TAKEN
+
+500            LOAD_FAST_BORROW         2 (languages)
+               LOAD_ATTR               11 (append + NULL|self)
+               LOAD_CONST               3 ('C')
+               CALL                     1
+               POP_TOP
+
+502    L6:     BUILD_LIST               0
+               STORE_FAST               6 (nelangs)
+
+503            LOAD_FAST_BORROW         2 (languages)
+               GET_ITER
+       L7:     FOR_ITER                46 (to L11)
+               STORE_FAST               7 (lang)
+
+504            LOAD_GLOBAL             13 (_expand_lang + NULL)
+               LOAD_FAST_BORROW         7 (lang)
+               CALL                     1
+               GET_ITER
+       L8:     FOR_ITER                28 (to L10)
+               STORE_FAST               8 (nelang)
+
+505            LOAD_FAST_BORROW_LOAD_FAST_BORROW 134 (nelang, nelangs)
+               CONTAINS_OP              1 (not in)
+               POP_JUMP_IF_TRUE         3 (to L9)
+               NOT_TAKEN
+               JUMP_BACKWARD           11 (to L8)
+
+506    L9:     LOAD_FAST_BORROW         6 (nelangs)
+               LOAD_ATTR               11 (append + NULL|self)
+               LOAD_FAST_BORROW         8 (nelang)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD           30 (to L8)
+
+504   L10:     END_FOR
+               POP_ITER
+               JUMP_BACKWARD           48 (to L7)
+
+503   L11:     END_FOR
+               POP_ITER
+
+508            LOAD_FAST_BORROW         3 (all)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        4 (to L12)
+               NOT_TAKEN
+
+509            BUILD_LIST               0
+               STORE_FAST               9 (result)
+               JUMP_FORWARD             2 (to L13)
+
+511   L12:     LOAD_CONST               0 (None)
+               STORE_FAST               9 (result)
+
+512   L13:     LOAD_FAST_BORROW         6 (nelangs)
+               GET_ITER
+      L14:     FOR_ITER               121 (to L18)
+               STORE_FAST               7 (lang)
+
+513            LOAD_FAST_BORROW         7 (lang)
+               LOAD_CONST               3 ('C')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        4 (to L15)
+               NOT_TAKEN
+
+514            POP_TOP
+
+521            LOAD_FAST_BORROW         9 (result)
+               RETURN_VALUE
+
+515   L15:     LOAD_GLOBAL              2 (os)
+               LOAD_ATTR               14 (path)
+               LOAD_ATTR               17 (join + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 23 (localedir, lang)
+               LOAD_CONST               1 ('LC_MESSAGES')
+               LOAD_CONST               4 ('%s.mo')
+               LOAD_FAST_BORROW         0 (domain)
+               BINARY_OP                6 (%)
+               CALL                     4
+               STORE_FAST              10 (mofile)
+
+516            LOAD_GLOBAL              2 (os)
+               LOAD_ATTR               14 (path)
+               LOAD_ATTR               19 (exists + NULL|self)
+               LOAD_FAST_BORROW        10 (mofile)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L16)
+               NOT_TAKEN
+               JUMP_BACKWARD           92 (to L14)
+
+517   L16:     LOAD_FAST_BORROW         3 (all)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       20 (to L17)
+               NOT_TAKEN
+
+518            LOAD_FAST_BORROW         9 (result)
+               LOAD_ATTR               11 (append + NULL|self)
+               LOAD_FAST_BORROW        10 (mofile)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD          119 (to L14)
+
+520   L17:     LOAD_FAST_BORROW        10 (mofile)
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+512   L18:     END_FOR
+               POP_ITER
+
+521            LOAD_FAST_BORROW         9 (result)
+               RETURN_VALUE
+
+Disassembly of <code object translation at 0x00000204BA33C020, file "gettext.py", line 528>:
+ 528            RESUME                   0
+
+ 530            LOAD_FAST_BORROW         3 (class_)
+                POP_JUMP_IF_NOT_NONE     7 (to L1)
+                NOT_TAKEN
+
+ 531            LOAD_GLOBAL              0 (GNUTranslations)
+                STORE_FAST               3 (class_)
+
+ 532    L1:     LOAD_GLOBAL              3 (find + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (domain, localedir)
+                LOAD_FAST_BORROW         2 (languages)
+                LOAD_CONST               1 (True)
+                LOAD_CONST               2 (('all',))
+                CALL_KW                  4
+                STORE_FAST               5 (mofiles)
+
+ 533            LOAD_FAST_BORROW         5 (mofiles)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        38 (to L3)
+                NOT_TAKEN
+
+ 534            LOAD_FAST_BORROW         4 (fallback)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       11 (to L2)
+                NOT_TAKEN
+
+ 535            LOAD_GLOBAL              5 (NullTranslations + NULL)
+                CALL                     0
+                RETURN_VALUE
+
+ 536    L2:     LOAD_SMALL_INT           0
+                LOAD_CONST               3 (('ENOENT',))
+                IMPORT_NAME              3 (errno)
+                IMPORT_FROM              4 (ENOENT)
+                STORE_FAST               6 (ENOENT)
+                POP_TOP
+
+ 537            LOAD_GLOBAL             11 (FileNotFoundError + NULL)
+                LOAD_FAST_BORROW         6 (ENOENT)
+
+ 538            LOAD_CONST               4 ('No translation file found for domain')
+                LOAD_FAST_BORROW         0 (domain)
+
+ 537            CALL                     3
+                RAISE_VARARGS            1
+
+ 541    L3:     LOAD_CONST               0 (None)
+                STORE_FAST               7 (result)
+
+ 542            LOAD_FAST_BORROW         5 (mofiles)
+                GET_ITER
+        L4:     FOR_ITER               163 (to L9)
+                STORE_FAST               8 (mofile)
+
+ 543            LOAD_FAST_BORROW         3 (class_)
+                LOAD_GLOBAL             12 (os)
+                LOAD_ATTR               14 (path)
+                LOAD_ATTR               17 (abspath + NULL|self)
+                LOAD_FAST_BORROW         8 (mofile)
+                CALL                     1
+                BUILD_TUPLE              2
+                STORE_FAST               9 (key)
+
+ 544            LOAD_GLOBAL             18 (_translations)
+                LOAD_ATTR               21 (get + NULL|self)
+                LOAD_FAST_BORROW         9 (key)
+                CALL                     1
+                STORE_FAST              10 (t)
+
+ 545            LOAD_FAST_BORROW        10 (t)
+                POP_JUMP_IF_NOT_NONE    57 (to L7)
+                NOT_TAKEN
+
+ 546            LOAD_GLOBAL             23 (open + NULL)
+                LOAD_FAST_BORROW         8 (mofile)
+                LOAD_CONST               5 ('rb')
+                CALL                     2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L5:     STORE_FAST              11 (fp)
+
+ 547            LOAD_GLOBAL             18 (_translations)
+                LOAD_ATTR               25 (setdefault + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 147 (key, class_)
+                PUSH_NULL
+                LOAD_FAST_BORROW        11 (fp)
+                CALL                     1
+                CALL                     2
+                STORE_FAST              10 (t)
+
+ 546    L6:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+
+ 553    L7:     LOAD_SMALL_INT           0
+                LOAD_CONST               0 (None)
+                IMPORT_NAME             13 (copy)
+                STORE_FAST              12 (copy)
+
+ 554            LOAD_FAST_BORROW        12 (copy)
+                LOAD_ATTR               27 (copy + NULL|self)
+                LOAD_FAST_BORROW        10 (t)
+                CALL                     1
+                STORE_FAST              10 (t)
+
+ 555            LOAD_FAST_BORROW         7 (result)
+                POP_JUMP_IF_NOT_NONE     5 (to L8)
+                NOT_TAKEN
+
+ 556            LOAD_FAST               10 (t)
+                STORE_FAST               7 (result)
+                JUMP_BACKWARD          146 (to L4)
+
+ 558    L8:     LOAD_FAST_BORROW         7 (result)
+                LOAD_ATTR               29 (add_fallback + NULL|self)
+                LOAD_FAST_BORROW        10 (t)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          165 (to L4)
+
+ 542    L9:     END_FOR
+                POP_ITER
+
+ 559            LOAD_FAST_BORROW         7 (result)
+                RETURN_VALUE
+
+ 546   L10:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L11)
+                NOT_TAKEN
+                RERAISE                  2
+       L11:     POP_TOP
+       L12:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 68 (to L7)
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L10 [3] lasti
+  L10 to L12 -> L13 [5] lasti
+
+Disassembly of <code object install at 0x00000204BA0A7510, file "gettext.py", line 562>:
+562           RESUME                   0
+
+563           LOAD_GLOBAL              1 (translation + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (domain, localedir)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               1 (('fallback',))
+              CALL_KW                  3
+              STORE_FAST               3 (t)
+
+564           LOAD_FAST_BORROW         3 (t)
+              LOAD_ATTR                3 (install + NULL|self)
+              LOAD_FAST_BORROW         2 (names)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object textdomain at 0x00000204BA0912F0, file "gettext.py", line 573>:
+573           RESUME                   0
+
+575           LOAD_FAST_BORROW         0 (domain)
+              POP_JUMP_IF_NONE         3 (to L1)
+              NOT_TAKEN
+
+576           LOAD_FAST_BORROW         0 (domain)
+              STORE_GLOBAL             0 (_current_domain)
+
+577   L1:     LOAD_GLOBAL              0 (_current_domain)
+              RETURN_VALUE
+
+Disassembly of <code object bindtextdomain at 0x00000204BA0A7BD0, file "gettext.py", line 580>:
+580           RESUME                   0
+
+582           LOAD_FAST_BORROW         1 (localedir)
+              POP_JUMP_IF_NONE        10 (to L1)
+              NOT_TAKEN
+
+583           LOAD_FAST_BORROW         1 (localedir)
+              LOAD_GLOBAL              0 (_localedirs)
+              LOAD_FAST_BORROW         0 (domain)
+              STORE_SUBSCR
+
+584   L1:     LOAD_GLOBAL              0 (_localedirs)
+              LOAD_ATTR                3 (get + NULL|self)
+              LOAD_FAST_BORROW         0 (domain)
+              LOAD_GLOBAL              4 (_default_localedir)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object dgettext at 0x00000204B9F718F0, file "gettext.py", line 587>:
+ 587           RESUME                   0
+
+ 588           NOP
+
+ 589   L1:     LOAD_GLOBAL              1 (translation + NULL)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_GLOBAL              2 (_localedirs)
+               LOAD_ATTR                5 (get + NULL|self)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_CONST               0 (None)
+               CALL                     2
+               CALL                     2
+               STORE_FAST               2 (t)
+
+ 592   L2:     LOAD_FAST                2 (t)
+               LOAD_ATTR                9 (gettext + NULL|self)
+               LOAD_FAST                1 (message)
+               CALL                     1
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 590           LOAD_GLOBAL              6 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 591           LOAD_FAST                1 (message)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 590   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object dngettext at 0x00000204BA129480, file "gettext.py", line 595>:
+ 595           RESUME                   0
+
+ 596           NOP
+
+ 597   L1:     LOAD_GLOBAL              1 (translation + NULL)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_GLOBAL              2 (_localedirs)
+               LOAD_ATTR                5 (get + NULL|self)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_CONST               0 (None)
+               CALL                     2
+               CALL                     2
+               STORE_FAST               4 (t)
+
+ 604   L2:     LOAD_FAST                4 (t)
+               LOAD_ATTR               11 (ngettext + NULL|self)
+               LOAD_FAST_LOAD_FAST     18 (msgid1, msgid2)
+               LOAD_FAST                3 (n)
+               CALL                     3
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 598           LOAD_GLOBAL              6 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       28 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 599           LOAD_GLOBAL              9 (_as_int2 + NULL)
+               LOAD_FAST                3 (n)
+               CALL                     1
+               STORE_FAST               3 (n)
+
+ 600           LOAD_FAST                3 (n)
+               LOAD_SMALL_INT           1
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+
+ 601           LOAD_FAST                1 (msgid1)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 603   L5:     LOAD_FAST                2 (msgid2)
+               SWAP                     2
+       L6:     POP_EXCEPT
+               RETURN_VALUE
+
+ 598   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L8 [1] lasti
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object dpgettext at 0x00000204B9F72EF0, file "gettext.py", line 607>:
+ 607           RESUME                   0
+
+ 608           NOP
+
+ 609   L1:     LOAD_GLOBAL              1 (translation + NULL)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_GLOBAL              2 (_localedirs)
+               LOAD_ATTR                5 (get + NULL|self)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_CONST               0 (None)
+               CALL                     2
+               CALL                     2
+               STORE_FAST               3 (t)
+
+ 612   L2:     LOAD_FAST                3 (t)
+               LOAD_ATTR                9 (pgettext + NULL|self)
+               LOAD_FAST_LOAD_FAST     18 (context, message)
+               CALL                     2
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 610           LOAD_GLOBAL              6 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 611           LOAD_FAST                2 (message)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 610   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object dnpgettext at 0x00000204BA128030, file "gettext.py", line 615>:
+ 615           RESUME                   0
+
+ 616           NOP
+
+ 617   L1:     LOAD_GLOBAL              1 (translation + NULL)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_GLOBAL              2 (_localedirs)
+               LOAD_ATTR                5 (get + NULL|self)
+               LOAD_FAST_BORROW         0 (domain)
+               LOAD_CONST               0 (None)
+               CALL                     2
+               CALL                     2
+               STORE_FAST               5 (t)
+
+ 624   L2:     LOAD_FAST                5 (t)
+               LOAD_ATTR               11 (npgettext + NULL|self)
+               LOAD_FAST_LOAD_FAST     18 (context, msgid1)
+               LOAD_FAST_LOAD_FAST     52 (msgid2, n)
+               CALL                     4
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 618           LOAD_GLOBAL              6 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       28 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 619           LOAD_GLOBAL              9 (_as_int2 + NULL)
+               LOAD_FAST                4 (n)
+               CALL                     1
+               STORE_FAST               4 (n)
+
+ 620           LOAD_FAST                4 (n)
+               LOAD_SMALL_INT           1
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+
+ 621           LOAD_FAST                2 (msgid1)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 623   L5:     LOAD_FAST                3 (msgid2)
+               SWAP                     2
+       L6:     POP_EXCEPT
+               RETURN_VALUE
+
+ 618   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L8 [1] lasti
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object gettext at 0x00000204BA08A530, file "gettext.py", line 627>:
+627           RESUME                   0
+
+628           LOAD_GLOBAL              1 (dgettext + NULL)
+              LOAD_GLOBAL              2 (_current_domain)
+              LOAD_FAST_BORROW         0 (message)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object ngettext at 0x00000204BA088330, file "gettext.py", line 631>:
+631           RESUME                   0
+
+632           LOAD_GLOBAL              1 (dngettext + NULL)
+              LOAD_GLOBAL              2 (_current_domain)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (msgid1, msgid2)
+              LOAD_FAST_BORROW         2 (n)
+              CALL                     4
+              RETURN_VALUE
+
+Disassembly of <code object pgettext at 0x00000204BA08B130, file "gettext.py", line 635>:
+635           RESUME                   0
+
+636           LOAD_GLOBAL              1 (dpgettext + NULL)
+              LOAD_GLOBAL              2 (_current_domain)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (context, message)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object npgettext at 0x00000204BA08B330, file "gettext.py", line 639>:
+639           RESUME                   0
+
+640           LOAD_GLOBAL              1 (dnpgettext + NULL)
+              LOAD_GLOBAL              2 (_current_domain)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (context, msgid1)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (msgid2, n)
+              CALL                     5
+              RETURN_VALUE

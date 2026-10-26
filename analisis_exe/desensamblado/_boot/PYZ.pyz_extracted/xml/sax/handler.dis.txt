@@ -1,0 +1,465 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('\nThis module contains the core classes of version 2.0 of SAX for Python.\nThis file provides only default classes with absolutely minimum\nfunctionality, from which drivers and applications can be subclassed.\n\nMany of these classes are empty and are included only as documentation\nof the interfaces.\n\n$Id$\n')
+              STORE_NAME               0 (__doc__)
+
+ 12           LOAD_CONST               1 ('2.0beta')
+              STORE_NAME               1 (version)
+
+ 22           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               2 (<code object ErrorHandler at 0x00000204BA728580, file "xml\sax\handler.py", line 22>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('ErrorHandler')
+              CALL                     2
+              STORE_NAME               2 (ErrorHandler)
+
+ 47           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object ContentHandler at 0x00000204BA0BBDE0, file "xml\sax\handler.py", line 47>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('ContentHandler')
+              CALL                     2
+              STORE_NAME               3 (ContentHandler)
+
+208           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object DTDHandler at 0x00000204BA08AF30, file "xml\sax\handler.py", line 208>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 ('DTDHandler')
+              CALL                     2
+              STORE_NAME               4 (DTDHandler)
+
+223           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               8 (<code object EntityResolver at 0x00000204BA08B030, file "xml\sax\handler.py", line 223>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 ('EntityResolver')
+              CALL                     2
+              STORE_NAME               5 (EntityResolver)
+
+243           LOAD_CONST              10 ('http://xml.org/sax/features/namespaces')
+              STORE_NAME               6 (feature_namespaces)
+
+249           LOAD_CONST              11 ('http://xml.org/sax/features/namespace-prefixes')
+              STORE_NAME               7 (feature_namespace_prefixes)
+
+256           LOAD_CONST              12 ('http://xml.org/sax/features/string-interning')
+              STORE_NAME               8 (feature_string_interning)
+
+262           LOAD_CONST              13 ('http://xml.org/sax/features/validation')
+              STORE_NAME               9 (feature_validation)
+
+268           LOAD_CONST              14 ('http://xml.org/sax/features/external-general-entities')
+              STORE_NAME              10 (feature_external_ges)
+
+273           LOAD_CONST              15 ('http://xml.org/sax/features/external-parameter-entities')
+              STORE_NAME              11 (feature_external_pes)
+
+280           LOAD_NAME                6 (feature_namespaces)
+
+281           LOAD_NAME                7 (feature_namespace_prefixes)
+
+282           LOAD_NAME                8 (feature_string_interning)
+
+283           LOAD_NAME                9 (feature_validation)
+
+284           LOAD_NAME               10 (feature_external_ges)
+
+285           LOAD_NAME               11 (feature_external_pes)
+
+280           BUILD_LIST               6
+              STORE_NAME              12 (all_features)
+
+294           LOAD_CONST              16 ('http://xml.org/sax/properties/lexical-handler')
+              STORE_NAME              13 (property_lexical_handler)
+
+299           LOAD_CONST              17 ('http://xml.org/sax/properties/declaration-handler')
+              STORE_NAME              14 (property_declaration_handler)
+
+305           LOAD_CONST              18 ('http://xml.org/sax/properties/dom-node')
+              STORE_NAME              15 (property_dom_node)
+
+312           LOAD_CONST              19 ('http://xml.org/sax/properties/xml-string')
+              STORE_NAME              16 (property_xml_string)
+
+318           LOAD_CONST              20 ('http://www.python.org/sax/properties/encoding')
+              STORE_NAME              17 (property_encoding)
+
+329           LOAD_CONST              21 ('http://www.python.org/sax/properties/interning-dict')
+              STORE_NAME              18 (property_interning_dict)
+
+337           LOAD_NAME               13 (property_lexical_handler)
+
+338           LOAD_NAME               15 (property_dom_node)
+
+339           LOAD_NAME               14 (property_declaration_handler)
+
+340           LOAD_NAME               16 (property_xml_string)
+
+341           LOAD_NAME               17 (property_encoding)
+
+342           LOAD_NAME               18 (property_interning_dict)
+
+337           BUILD_LIST               6
+              STORE_NAME              19 (all_properties)
+
+345           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              22 (<code object LexicalHandler at 0x00000204BA0A7CF0, file "xml\sax\handler.py", line 345>)
+              MAKE_FUNCTION
+              LOAD_CONST              23 ('LexicalHandler')
+              CALL                     2
+              STORE_NAME              20 (LexicalHandler)
+              LOAD_CONST              24 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ErrorHandler at 0x00000204BA728580, file "xml\sax\handler.py", line 22>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  22           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ErrorHandler')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          22
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  23           LOAD_CONST               1 ('Basic interface for SAX error handlers.\n\nIf you create an object that implements this interface, then\nregister the object with your XMLReader, the parser will call the\nmethods in your object to report all warnings and errors. There\nare three levels of errors available: warnings, (possibly)\nrecoverable errors, and unrecoverable errors. All methods take a\nSAXParseException as the only parameter.')
+               STORE_NAME               4 (__doc__)
+
+  32           LOAD_CONST               2 (<code object error at 0x00000204BA0C2170, file "xml\sax\handler.py", line 32>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (error)
+
+  36           LOAD_CONST               3 (<code object fatalError at 0x00000204BA7303B0, file "xml\sax\handler.py", line 36>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (fatalError)
+
+  40           LOAD_CONST               4 (<code object warning at 0x00000204BA0931E0, file "xml\sax\handler.py", line 40>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (warning)
+               LOAD_CONST               5 (())
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object error at 0x00000204BA0C2170, file "xml\sax\handler.py", line 32>:
+ 32           RESUME                   0
+
+ 34           LOAD_FAST_BORROW         1 (exception)
+              RAISE_VARARGS            1
+
+Disassembly of <code object fatalError at 0x00000204BA7303B0, file "xml\sax\handler.py", line 36>:
+ 36           RESUME                   0
+
+ 38           LOAD_FAST_BORROW         1 (exception)
+              RAISE_VARARGS            1
+
+Disassembly of <code object warning at 0x00000204BA0931E0, file "xml\sax\handler.py", line 40>:
+ 40           RESUME                   0
+
+ 42           LOAD_GLOBAL              1 (print + NULL)
+              LOAD_FAST_BORROW         1 (exception)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ContentHandler at 0x00000204BA0BBDE0, file "xml\sax\handler.py", line 47>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  47           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ContentHandler')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          47
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  48           LOAD_CONST               1 ('Interface for receiving logical document content events.\n\nThis is the main callback interface in SAX, and the one most\nimportant to applications. The order of events in this interface\nmirrors the order of the information in the document.')
+               STORE_NAME               4 (__doc__)
+
+  54           LOAD_CONST               2 (<code object __init__ at 0x00000204BA0913E0, file "xml\sax\handler.py", line 54>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  57           LOAD_CONST               3 (<code object setDocumentLocator at 0x00000204BA092880, file "xml\sax\handler.py", line 57>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (setDocumentLocator)
+
+  80           LOAD_CONST               4 (<code object startDocument at 0x00000204BA730490, file "xml\sax\handler.py", line 80>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (startDocument)
+
+  87           LOAD_CONST               5 (<code object endDocument at 0x00000204BA730570, file "xml\sax\handler.py", line 87>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (endDocument)
+
+  96           LOAD_CONST               6 (<code object startPrefixMapping at 0x00000204BA730650, file "xml\sax\handler.py", line 96>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (startPrefixMapping)
+
+ 119           LOAD_CONST               7 (<code object endPrefixMapping at 0x00000204BA730730, file "xml\sax\handler.py", line 119>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (endPrefixMapping)
+
+ 126           LOAD_CONST               8 (<code object startElement at 0x00000204BA730810, file "xml\sax\handler.py", line 126>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (startElement)
+
+ 134           LOAD_CONST               9 (<code object endElement at 0x00000204BA7308F0, file "xml\sax\handler.py", line 134>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (endElement)
+
+ 140           LOAD_CONST              10 (<code object startElementNS at 0x00000204BA7309D0, file "xml\sax\handler.py", line 140>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (startElementNS)
+
+ 152           LOAD_CONST              11 (<code object endElementNS at 0x00000204BA730AB0, file "xml\sax\handler.py", line 152>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (endElementNS)
+
+ 158           LOAD_CONST              12 (<code object characters at 0x00000204BA730B90, file "xml\sax\handler.py", line 158>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (characters)
+
+ 168           LOAD_CONST              13 (<code object ignorableWhitespace at 0x00000204BA730C70, file "xml\sax\handler.py", line 168>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (ignorableWhitespace)
+
+ 182           LOAD_CONST              14 (<code object processingInstruction at 0x00000204BA730D50, file "xml\sax\handler.py", line 182>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (processingInstruction)
+
+ 193           LOAD_CONST              15 (<code object skippedEntity at 0x00000204BA730E30, file "xml\sax\handler.py", line 193>)
+               MAKE_FUNCTION
+               STORE_NAME              18 (skippedEntity)
+               LOAD_CONST              16 (('_locator',))
+               STORE_NAME              19 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              20 (__classdictcell__)
+               LOAD_CONST              17 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0913E0, file "xml\sax\handler.py", line 54>:
+ 54           RESUME                   0
+
+ 55           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_locator)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object setDocumentLocator at 0x00000204BA092880, file "xml\sax\handler.py", line 57>:
+ 57           RESUME                   0
+
+ 78           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (locator, self)
+              STORE_ATTR               0 (_locator)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startDocument at 0x00000204BA730490, file "xml\sax\handler.py", line 80>:
+ 80           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endDocument at 0x00000204BA730570, file "xml\sax\handler.py", line 87>:
+ 87           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startPrefixMapping at 0x00000204BA730650, file "xml\sax\handler.py", line 96>:
+ 96           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endPrefixMapping at 0x00000204BA730730, file "xml\sax\handler.py", line 119>:
+119           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startElement at 0x00000204BA730810, file "xml\sax\handler.py", line 126>:
+126           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endElement at 0x00000204BA7308F0, file "xml\sax\handler.py", line 134>:
+134           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startElementNS at 0x00000204BA7309D0, file "xml\sax\handler.py", line 140>:
+140           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endElementNS at 0x00000204BA730AB0, file "xml\sax\handler.py", line 152>:
+152           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object characters at 0x00000204BA730B90, file "xml\sax\handler.py", line 158>:
+158           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ignorableWhitespace at 0x00000204BA730C70, file "xml\sax\handler.py", line 168>:
+168           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object processingInstruction at 0x00000204BA730D50, file "xml\sax\handler.py", line 182>:
+182           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object skippedEntity at 0x00000204BA730E30, file "xml\sax\handler.py", line 193>:
+193           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object DTDHandler at 0x00000204BA08AF30, file "xml\sax\handler.py", line 208>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 208           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DTDHandler')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         208
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 209           LOAD_CONST               1 ('Handle DTD events.\n\nThis interface specifies only those DTD events required for basic\nparsing (unparsed entities and attributes).')
+               STORE_NAME               4 (__doc__)
+
+ 214           LOAD_CONST               2 (<code object notationDecl at 0x00000204BA730FF0, file "xml\sax\handler.py", line 214>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (notationDecl)
+
+ 217           LOAD_CONST               3 (<code object unparsedEntityDecl at 0x00000204BA7310D0, file "xml\sax\handler.py", line 217>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (unparsedEntityDecl)
+               LOAD_CONST               4 (())
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object notationDecl at 0x00000204BA730FF0, file "xml\sax\handler.py", line 214>:
+214           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object unparsedEntityDecl at 0x00000204BA7310D0, file "xml\sax\handler.py", line 217>:
+217           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object EntityResolver at 0x00000204BA08B030, file "xml\sax\handler.py", line 223>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 223           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('EntityResolver')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         223
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 224           LOAD_CONST               1 ('Basic interface for resolving entities. If you create an object\nimplementing this interface, then register the object with your\nParser, the parser will call the method in your object to\nresolve all external entities. Note that DefaultHandler implements\nthis interface with the default behaviour.')
+               STORE_NAME               4 (__doc__)
+
+ 230           LOAD_CONST               2 (<code object resolveEntity at 0x00000204BA7311B0, file "xml\sax\handler.py", line 230>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (resolveEntity)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object resolveEntity at 0x00000204BA7311B0, file "xml\sax\handler.py", line 230>:
+230           RESUME                   0
+
+234           LOAD_FAST_BORROW         2 (systemId)
+              RETURN_VALUE
+
+Disassembly of <code object LexicalHandler at 0x00000204BA0A7CF0, file "xml\sax\handler.py", line 345>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 345           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('LexicalHandler')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (345)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 346           LOAD_CONST               2 ("Optional SAX2 handler for lexical events.\n\nThis handler is used to obtain lexical information about an XML\ndocument, that is, information about how the document was encoded\n(as opposed to what it contains, which is reported to the\nContentHandler), such as comments and CDATA marked section\nboundaries.\n\nTo set the LexicalHandler of an XMLReader, use the setProperty\nmethod with the property identifier\n'http://xml.org/sax/properties/lexical-handler'.")
+               STORE_NAME               4 (__doc__)
+
+ 358           LOAD_CONST               3 (<code object comment at 0x00000204BA731290, file "xml\sax\handler.py", line 358>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (comment)
+
+ 364           LOAD_CONST               4 (<code object startDTD at 0x00000204BA731370, file "xml\sax\handler.py", line 364>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (startDTD)
+
+ 377           LOAD_CONST               5 (<code object endDTD at 0x00000204BA731450, file "xml\sax\handler.py", line 377>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (endDTD)
+
+ 380           LOAD_CONST               6 (<code object startCDATA at 0x00000204BA731530, file "xml\sax\handler.py", line 380>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (startCDATA)
+
+ 386           LOAD_CONST               7 (<code object endCDATA at 0x00000204BA731610, file "xml\sax\handler.py", line 386>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (endCDATA)
+               LOAD_CONST               8 (())
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               9 (None)
+               RETURN_VALUE
+
+Disassembly of <code object comment at 0x00000204BA731290, file "xml\sax\handler.py", line 358>:
+358           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startDTD at 0x00000204BA731370, file "xml\sax\handler.py", line 364>:
+364           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endDTD at 0x00000204BA731450, file "xml\sax\handler.py", line 377>:
+377           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object startCDATA at 0x00000204BA731530, file "xml\sax\handler.py", line 380>:
+380           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object endCDATA at 0x00000204BA731610, file "xml\sax\handler.py", line 386>:
+386           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

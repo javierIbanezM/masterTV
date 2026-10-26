@@ -1,0 +1,706 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('WeakSet',))
+              IMPORT_NAME              0 (_weakrefset)
+              IMPORT_FROM              1 (WeakSet)
+              STORE_NAME               1 (WeakSet)
+              POP_TOP
+
+  4           LOAD_CONST               2 (<code object get_cache_token at 0x00000204BA08B130, file "_py_abc.py", line 4>)
+              MAKE_FUNCTION
+              STORE_NAME               2 (get_cache_token)
+
+ 14           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               3 (<code object ABCMeta at 0x00000204BA0AA1F0, file "_py_abc.py", line 14>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('ABCMeta')
+              LOAD_NAME                3 (type)
+              CALL                     3
+              STORE_NAME               4 (ABCMeta)
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_cache_token at 0x00000204BA08B130, file "_py_abc.py", line 4>:
+  4           RESUME                   0
+
+ 11           LOAD_GLOBAL              0 (ABCMeta)
+              LOAD_ATTR                2 (_abc_invalidation_counter)
+              RETURN_VALUE
+
+Disassembly of <code object ABCMeta at 0x00000204BA0AA1F0, file "_py_abc.py", line 14>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  14           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ABCMeta')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          14
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  15           LOAD_CONST               1 ("Metaclass for defining Abstract Base Classes (ABCs).\n\nUse this metaclass to create an ABC.  An ABC can be subclassed\ndirectly, and then acts as a mix-in class.  You can also register\nunrelated concrete classes (even built-in classes) and unrelated\nABCs as 'virtual subclasses' -- these and their descendants will\nbe considered subclasses of the registering ABC by the built-in\nissubclass() function, but the registering ABC won't show up in\ntheir MRO (Method Resolution Order) nor will method\nimplementations defined by the registering ABC be callable (not\neven via super()).\n")
+               STORE_NAME               4 (__doc__)
+
+  33           LOAD_SMALL_INT           0
+               STORE_NAME               5 (_abc_invalidation_counter)
+
+  35           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __new__ at 0x00000204BA388300, file "_py_abc.py", line 35>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               6 (__new__)
+
+  54           LOAD_CONST               3 (<code object register at 0x00000204B9FA7670, file "_py_abc.py", line 54>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (register)
+
+  72           LOAD_CONST              10 ((None,))
+               LOAD_CONST               4 (<code object _dump_registry at 0x00000204BA512FA0, file "_py_abc.py", line 72>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               8 (_dump_registry)
+
+  83           LOAD_CONST               5 (<code object _abc_registry_clear at 0x00000204BA0FFDD0, file "_py_abc.py", line 83>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_abc_registry_clear)
+
+  87           LOAD_CONST               6 (<code object _abc_caches_clear at 0x00000204BA0AA330, file "_py_abc.py", line 87>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (_abc_caches_clear)
+
+  92           LOAD_CONST               7 (<code object __instancecheck__ at 0x00000204BA510720, file "_py_abc.py", line 92>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (__instancecheck__)
+
+ 108           LOAD_CONST               8 (<code object __subclasscheck__ at 0x00000204BA35BFC0, file "_py_abc.py", line 108>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (__subclasscheck__)
+               LOAD_CONST               9 (())
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              15 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x00000204BA388300, file "_py_abc.py", line 35>:
+  --            COPY_FREE_VARS           1
+
+  35            RESUME                   0
+
+  36            LOAD_GLOBAL              0 (super)
+                LOAD_DEREF               9 (__class__)
+                LOAD_FAST_BORROW         0 (mcls)
+                LOAD_SUPER_ATTR          4 (__new__)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (mcls, name)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (bases, namespace)
+                BUILD_TUPLE              4
+                BUILD_MAP                0
+                LOAD_FAST_BORROW         4 (kwargs)
+                DICT_MERGE               1
+                CALL_FUNCTION_EX
+                STORE_FAST               5 (cls)
+
+  39            LOAD_FAST_BORROW         3 (namespace)
+                LOAD_ATTR                5 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+
+  38            LOAD_FAST_AND_CLEAR      1 (name)
+                LOAD_FAST_AND_CLEAR      6 (value)
+                SWAP                     3
+        L1:     BUILD_SET                0
+                SWAP                     2
+
+  39    L2:     FOR_ITER                28 (to L5)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   22 (name, value)
+
+  40            LOAD_GLOBAL              7 (getattr + NULL)
+                LOAD_FAST_BORROW         6 (value)
+                LOAD_CONST               0 ('__isabstractmethod__')
+                LOAD_CONST               1 (False)
+                CALL                     3
+                TO_BOOL
+
+  38    L3:     POP_JUMP_IF_TRUE         3 (to L4)
+                NOT_TAKEN
+                JUMP_BACKWARD           26 (to L2)
+        L4:     LOAD_FAST_BORROW         1 (name)
+                SET_ADD                  2
+                JUMP_BACKWARD           30 (to L2)
+
+  39    L5:     END_FOR
+                POP_ITER
+
+  38    L6:     STORE_FAST               7 (abstracts)
+                STORE_FAST               1 (name)
+                STORE_FAST               6 (value)
+
+  41            LOAD_FAST_BORROW         2 (bases)
+                GET_ITER
+        L7:     FOR_ITER                81 (to L11)
+                STORE_FAST               8 (base)
+
+  42            LOAD_GLOBAL              7 (getattr + NULL)
+                LOAD_FAST_BORROW         8 (base)
+                LOAD_CONST               2 ('__abstractmethods__')
+                LOAD_GLOBAL              9 (set + NULL)
+                CALL                     0
+                CALL                     3
+                GET_ITER
+        L8:     FOR_ITER                53 (to L10)
+                STORE_FAST               1 (name)
+
+  43            LOAD_GLOBAL              7 (getattr + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (cls, name)
+                LOAD_CONST               3 (None)
+                CALL                     3
+                STORE_FAST               6 (value)
+
+  44            LOAD_GLOBAL              7 (getattr + NULL)
+                LOAD_FAST_BORROW         6 (value)
+                LOAD_CONST               0 ('__isabstractmethod__')
+                LOAD_CONST               1 (False)
+                CALL                     3
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L9)
+                NOT_TAKEN
+                JUMP_BACKWARD           36 (to L8)
+
+  45    L9:     LOAD_FAST_BORROW         7 (abstracts)
+                LOAD_ATTR               11 (add + NULL|self)
+                LOAD_FAST_BORROW         1 (name)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           55 (to L8)
+
+  42   L10:     END_FOR
+                POP_ITER
+                JUMP_BACKWARD           83 (to L7)
+
+  41   L11:     END_FOR
+                POP_ITER
+
+  46            LOAD_GLOBAL             13 (frozenset + NULL)
+                LOAD_FAST_BORROW         7 (abstracts)
+                CALL                     1
+                LOAD_FAST_BORROW         5 (cls)
+                STORE_ATTR               7 (__abstractmethods__)
+
+  48            LOAD_GLOBAL             17 (WeakSet + NULL)
+                CALL                     0
+                LOAD_FAST_BORROW         5 (cls)
+                STORE_ATTR               9 (_abc_registry)
+
+  49            LOAD_GLOBAL             17 (WeakSet + NULL)
+                CALL                     0
+                LOAD_FAST_BORROW         5 (cls)
+                STORE_ATTR              10 (_abc_cache)
+
+  50            LOAD_GLOBAL             17 (WeakSet + NULL)
+                CALL                     0
+                LOAD_FAST_BORROW         5 (cls)
+                STORE_ATTR              11 (_abc_negative_cache)
+
+  51            LOAD_GLOBAL             24 (ABCMeta)
+                LOAD_ATTR               26 (_abc_invalidation_counter)
+                LOAD_FAST_BORROW         5 (cls)
+                STORE_ATTR              14 (_abc_negative_cache_version)
+
+  52            LOAD_FAST_BORROW         5 (cls)
+                RETURN_VALUE
+
+  --   L12:     SWAP                     2
+                POP_TOP
+
+  38            SWAP                     3
+                STORE_FAST               6 (value)
+                STORE_FAST               1 (name)
+                RERAISE                  0
+ExceptionTable:
+  L1 to L3 -> L12 [3]
+  L4 to L6 -> L12 [3]
+
+Disassembly of <code object register at 0x00000204B9FA7670, file "_py_abc.py", line 54>:
+ 54           RESUME                   0
+
+ 59           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (subclass)
+              LOAD_GLOBAL              2 (type)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L1)
+              NOT_TAKEN
+
+ 60           LOAD_GLOBAL              5 (TypeError + NULL)
+              LOAD_CONST               1 ('Can only register classes')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 61   L1:     LOAD_GLOBAL              7 (issubclass + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (subclass, cls)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+ 62           LOAD_FAST_BORROW         1 (subclass)
+              RETURN_VALUE
+
+ 65   L2:     LOAD_GLOBAL              7 (issubclass + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (cls, subclass)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L3)
+              NOT_TAKEN
+
+ 67           LOAD_GLOBAL              9 (RuntimeError + NULL)
+              LOAD_CONST               2 ('Refusing to create an inheritance cycle')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 68   L3:     LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR               10 (_abc_registry)
+              LOAD_ATTR               13 (add + NULL|self)
+              LOAD_FAST_BORROW         1 (subclass)
+              CALL                     1
+              POP_TOP
+
+ 69           LOAD_GLOBAL             14 (ABCMeta)
+              COPY                     1
+              LOAD_ATTR               16 (_abc_invalidation_counter)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               8 (_abc_invalidation_counter)
+
+ 70           LOAD_FAST_BORROW         1 (subclass)
+              RETURN_VALUE
+
+Disassembly of <code object _dump_registry at 0x00000204BA512FA0, file "_py_abc.py", line 72>:
+ 72           RESUME                   0
+
+ 74           LOAD_GLOBAL              1 (print + NULL)
+              LOAD_CONST               1 ('Class: ')
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                2 (__module__)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('.')
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                4 (__qualname__)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              LOAD_FAST_BORROW         1 (file)
+              LOAD_CONST               3 (('file',))
+              CALL_KW                  2
+              POP_TOP
+
+ 75           LOAD_GLOBAL              1 (print + NULL)
+              LOAD_CONST               4 ('Inv. counter: ')
+              LOAD_GLOBAL              7 (get_cache_token + NULL)
+              CALL                     0
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              LOAD_FAST_BORROW         1 (file)
+              LOAD_CONST               3 (('file',))
+              CALL_KW                  2
+              POP_TOP
+
+ 76           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                8 (__dict__)
+              GET_ITER
+      L1:     FOR_ITER                91 (to L4)
+              STORE_FAST               2 (name)
+
+ 77           LOAD_FAST_BORROW         2 (name)
+              LOAD_ATTR               11 (startswith + NULL|self)
+              LOAD_CONST               5 ('_abc_')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           28 (to L1)
+
+ 78   L2:     LOAD_GLOBAL             13 (getattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (cls, name)
+              CALL                     2
+              STORE_FAST               3 (value)
+
+ 79           LOAD_GLOBAL             15 (isinstance + NULL)
+              LOAD_FAST_BORROW         3 (value)
+              LOAD_GLOBAL             16 (WeakSet)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L3)
+              NOT_TAKEN
+
+ 80           LOAD_GLOBAL             19 (set + NULL)
+              LOAD_FAST_BORROW         3 (value)
+              CALL                     1
+              STORE_FAST               3 (value)
+
+ 81   L3:     LOAD_GLOBAL              1 (print + NULL)
+              LOAD_FAST_BORROW         2 (name)
+              FORMAT_SIMPLE
+              LOAD_CONST               6 (': ')
+              LOAD_FAST_BORROW         3 (value)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              LOAD_FAST_BORROW         1 (file)
+              LOAD_CONST               3 (('file',))
+              CALL_KW                  2
+              POP_TOP
+              JUMP_BACKWARD           93 (to L1)
+
+ 76   L4:     END_FOR
+              POP_ITER
+              LOAD_CONST               7 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _abc_registry_clear at 0x00000204BA0FFDD0, file "_py_abc.py", line 83>:
+ 83           RESUME                   0
+
+ 85           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (_abc_registry)
+              LOAD_ATTR                3 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _abc_caches_clear at 0x00000204BA0AA330, file "_py_abc.py", line 87>:
+ 87           RESUME                   0
+
+ 89           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (_abc_cache)
+              LOAD_ATTR                3 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+
+ 90           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                4 (_abc_negative_cache)
+              LOAD_ATTR                3 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __instancecheck__ at 0x00000204BA510720, file "_py_abc.py", line 92>:
+  --           MAKE_CELL                0 (cls)
+
+  92           RESUME                   0
+
+  95           LOAD_FAST_BORROW         1 (instance)
+               LOAD_ATTR                0 (__class__)
+               STORE_FAST               2 (subclass)
+
+  96           LOAD_FAST_BORROW         2 (subclass)
+               LOAD_DEREF               0 (cls)
+               LOAD_ATTR                2 (_abc_cache)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+  97           LOAD_CONST               1 (True)
+               RETURN_VALUE
+
+  98   L1:     LOAD_GLOBAL              5 (type + NULL)
+               LOAD_FAST_BORROW         1 (instance)
+               CALL                     1
+               STORE_FAST               3 (subtype)
+
+  99           LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (subtype, subclass)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       68 (to L3)
+               NOT_TAKEN
+
+ 100           LOAD_DEREF               0 (cls)
+               LOAD_ATTR                6 (_abc_negative_cache_version)
+
+ 101           LOAD_GLOBAL              8 (ABCMeta)
+               LOAD_ATTR               10 (_abc_invalidation_counter)
+
+ 100           COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       20 (to L2)
+               NOT_TAKEN
+
+ 102           LOAD_FAST_BORROW         2 (subclass)
+               LOAD_DEREF               0 (cls)
+               LOAD_ATTR               12 (_abc_negative_cache)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE        3 (to L2)
+               NOT_TAKEN
+
+ 103           LOAD_CONST               2 (False)
+               RETURN_VALUE
+
+ 105   L2:     LOAD_DEREF               0 (cls)
+               LOAD_ATTR               15 (__subclasscheck__ + NULL|self)
+               LOAD_FAST_BORROW         2 (subclass)
+               CALL                     1
+               RETURN_VALUE
+
+ 106   L3:     LOAD_GLOBAL             16 (any)
+               COPY                     1
+               LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       32 (to L7)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         0 (cls)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA0A68B0, file "_py_abc.py", line 106>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (subclass, subtype)
+               BUILD_TUPLE              2
+               GET_ITER
+               CALL                     0
+       L4:     FOR_ITER                12 (to L6)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L5)
+               NOT_TAKEN
+               JUMP_BACKWARD           11 (to L4)
+       L5:     POP_ITER
+               LOAD_CONST               1 (True)
+               RETURN_VALUE
+       L6:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (False)
+               RETURN_VALUE
+       L7:     PUSH_NULL
+               LOAD_FAST_BORROW         0 (cls)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA0A68B0, file "_py_abc.py", line 106>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (subclass, subtype)
+               BUILD_TUPLE              2
+               GET_ITER
+               CALL                     0
+               CALL                     1
+               RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A68B0, file "_py_abc.py", line 106>:
+  --           COPY_FREE_VARS           1
+
+ 106           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                22 (to L3)
+               STORE_FAST               1 (c)
+               LOAD_DEREF               2 (cls)
+               LOAD_ATTR                1 (__subclasscheck__ + NULL|self)
+               LOAD_FAST_BORROW         1 (c)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           24 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object __subclasscheck__ at 0x00000204BA35BFC0, file "_py_abc.py", line 108>:
+108            RESUME                   0
+
+110            LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (subclass)
+               LOAD_GLOBAL              2 (type)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L1)
+               NOT_TAKEN
+
+111            LOAD_GLOBAL              5 (TypeError + NULL)
+               LOAD_CONST               1 ('issubclass() arg 1 must be a class')
+               CALL                     1
+               RAISE_VARARGS            1
+
+113    L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (subclass, cls)
+               LOAD_ATTR                6 (_abc_cache)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE        3 (to L2)
+               NOT_TAKEN
+
+114            LOAD_CONST               2 (True)
+               RETURN_VALUE
+
+116    L2:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                8 (_abc_negative_cache_version)
+               LOAD_GLOBAL             10 (ABCMeta)
+               LOAD_ATTR               12 (_abc_invalidation_counter)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       38 (to L3)
+               NOT_TAKEN
+
+118            LOAD_GLOBAL             15 (WeakSet + NULL)
+               CALL                     0
+               LOAD_FAST_BORROW         0 (cls)
+               STORE_ATTR               8 (_abc_negative_cache)
+
+119            LOAD_GLOBAL             10 (ABCMeta)
+               LOAD_ATTR               12 (_abc_invalidation_counter)
+               LOAD_FAST_BORROW         0 (cls)
+               STORE_ATTR               4 (_abc_negative_cache_version)
+               JUMP_FORWARD            18 (to L4)
+
+120    L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (subclass, cls)
+               LOAD_ATTR               16 (_abc_negative_cache)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+
+121            LOAD_CONST               3 (False)
+               RETURN_VALUE
+
+123    L4:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR               19 (__subclasshook__ + NULL|self)
+               LOAD_FAST_BORROW         1 (subclass)
+               CALL                     1
+               STORE_FAST               2 (ok)
+
+124            LOAD_FAST_BORROW         2 (ok)
+               LOAD_GLOBAL             20 (NotImplemented)
+               IS_OP                    1 (is not)
+               POP_JUMP_IF_FALSE       91 (to L7)
+               NOT_TAKEN
+
+125            LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         2 (ok)
+               LOAD_GLOBAL             22 (bool)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L5)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+               RAISE_VARARGS            1
+
+126    L5:     LOAD_FAST_BORROW         2 (ok)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       30 (to L6)
+               NOT_TAKEN
+
+127            LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                6 (_abc_cache)
+               LOAD_ATTR               25 (add + NULL|self)
+               LOAD_FAST_BORROW         1 (subclass)
+               CALL                     1
+               POP_TOP
+
+130            LOAD_FAST_BORROW         2 (ok)
+               RETURN_VALUE
+
+129    L6:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR               16 (_abc_negative_cache)
+               LOAD_ATTR               25 (add + NULL|self)
+               LOAD_FAST_BORROW         1 (subclass)
+               CALL                     1
+               POP_TOP
+
+130            LOAD_FAST_BORROW         2 (ok)
+               RETURN_VALUE
+
+132    L7:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_GLOBAL             27 (getattr + NULL)
+               LOAD_FAST_BORROW         1 (subclass)
+               LOAD_CONST               4 ('__mro__')
+               LOAD_CONST               5 (())
+               CALL                     3
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       30 (to L8)
+               NOT_TAKEN
+
+133            LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                6 (_abc_cache)
+               LOAD_ATTR               25 (add + NULL|self)
+               LOAD_FAST_BORROW         1 (subclass)
+               CALL                     1
+               POP_TOP
+
+134            LOAD_CONST               2 (True)
+               RETURN_VALUE
+
+136    L8:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR               28 (_abc_registry)
+               GET_ITER
+       L9:     FOR_ITER                50 (to L11)
+               STORE_FAST               3 (rcls)
+
+137            LOAD_GLOBAL             31 (issubclass + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (subclass, rcls)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L10)
+               NOT_TAKEN
+               JUMP_BACKWARD           22 (to L9)
+
+138   L10:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                6 (_abc_cache)
+               LOAD_ATTR               25 (add + NULL|self)
+               LOAD_FAST_BORROW         1 (subclass)
+               CALL                     1
+               POP_TOP
+
+139            POP_TOP
+               LOAD_CONST               2 (True)
+               RETURN_VALUE
+
+136   L11:     END_FOR
+               POP_ITER
+
+141            LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR               33 (__subclasses__ + NULL|self)
+               CALL                     0
+               GET_ITER
+      L12:     FOR_ITER                50 (to L14)
+               STORE_FAST               4 (scls)
+
+142            LOAD_GLOBAL             31 (issubclass + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (subclass, scls)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L13)
+               NOT_TAKEN
+               JUMP_BACKWARD           22 (to L12)
+
+143   L13:     LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                6 (_abc_cache)
+               LOAD_ATTR               25 (add + NULL|self)
+               LOAD_FAST_BORROW         1 (subclass)
+               CALL                     1
+               POP_TOP
+
+144            POP_TOP
+               LOAD_CONST               2 (True)
+               RETURN_VALUE
+
+141   L14:     END_FOR
+               POP_ITER
+
+146            LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR               16 (_abc_negative_cache)
+               LOAD_ATTR               25 (add + NULL|self)
+               LOAD_FAST_BORROW         1 (subclass)
+               CALL                     1
+               POP_TOP
+
+147            LOAD_CONST               3 (False)
+               RETURN_VALUE

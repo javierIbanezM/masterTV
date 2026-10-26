@@ -1,0 +1,389 @@
+<module>()  line 1
+    BadZipFile()  line 44
+    LargeZipFile()  line 48
+    _Extra()  line 199
+        _Extra.__new__(cls, val, id)  line 202
+        _Extra.__init__(self, val, id)  line 205
+        _Extra.read_one(cls, raw)  line 208
+        _Extra.split(cls, data)  line 217
+        _Extra.strip(cls, data, xids)  line 225
+            _Extra.strip.<locals>.<genexpr>(.0)  line 228
+    _check_zipfile(fp)  line 235
+    is_zipfile(filename)  line 254
+    _handle_prepended_data(endrec, debug)  line 272
+    _EndRecData64(fpin, offset, endrec)  line 288
+    _EndRecData(fpin)  line 331
+    _sanitize_filename(filename)  line 391
+    ZipInfo()  line 410
+        ZipInfo.__init__(self, filename, date_time)  line 437
+        ZipInfo._compresslevel(self)  line 475
+        ZipInfo._compresslevel(self, value)  line 479
+        ZipInfo.__repr__(self)  line 483
+        ZipInfo.FileHeader(self, zip64)  line 505
+        ZipInfo._encodeFilenameFlags(self)  line 555
+        ZipInfo._decodeExtra(self, filename_crc)  line 561
+        ZipInfo.from_file(cls, filename, arcname, strict_timestamps)  line 606
+        ZipInfo._for_archive(self, archive)  line 644
+        ZipInfo.is_dir(self)  line 666
+    _gen_crc(crc)  line 684
+    _ZipDecrypter(pwd)  line 700
+        _ZipDecrypter.<locals>.crc32(ch, crc)  line 710
+        _ZipDecrypter.<locals>.update_keys(c)  line 714
+        _ZipDecrypter.<locals>.decrypter(data)  line 724
+    LZMACompressor()  line 738
+        LZMACompressor.__init__(self)  line 740
+        LZMACompressor._init(self)  line 743
+        LZMACompressor.compress(self, data)  line 750
+        LZMACompressor.flush(self)  line 755
+    LZMADecompressor()  line 761
+        LZMADecompressor.__init__(self)  line 763
+        LZMADecompressor.decompress(self, data)  line 768
+    _check_compression(compression)  line 810
+    _get_compressor(compress_type, compresslevel)  line 833
+    _get_decompressor(compress_type)  line 851
+    _SharedFile()  line 871
+        _SharedFile.__init__(self, file, pos, close, lock, writing)  line 872
+        _SharedFile.tell(self)  line 880
+        _SharedFile.seek(self, offset, whence)  line 883
+        _SharedFile.read(self, n)  line 896
+        _SharedFile.close(self)  line 907
+    _Tellable()  line 914
+        _Tellable.__init__(self, fp)  line 915
+        _Tellable.write(self, data)  line 919
+        _Tellable.tell(self)  line 924
+        _Tellable.flush(self)  line 927
+        _Tellable.close(self)  line 930
+    ZipExtFile()  line 934
+        ZipExtFile.__init__(self, fileobj, mode, zipinfo, pwd, close_fileobj)  line 948
+        ZipExtFile._init_decrypter(self)  line 1000
+        ZipExtFile.__repr__(self)  line 1011
+        ZipExtFile.readline(self, limit)  line 1025
+        ZipExtFile.peek(self, n)  line 1041
+        ZipExtFile.readable(self)  line 1054
+        ZipExtFile.read(self, n)  line 1059
+        ZipExtFile._update_crc(self, newdata)  line 1094
+        ZipExtFile.read1(self, n)  line 1104
+        ZipExtFile._read1(self, n)  line 1141
+        ZipExtFile._read2(self, n)  line 1177
+        ZipExtFile.close(self)  line 1193
+        ZipExtFile.seekable(self)  line 1200
+        ZipExtFile.seek(self, offset, whence)  line 1205
+        ZipExtFile.tell(self)  line 1270
+    _ZipWriteFile()  line 1279
+        _ZipWriteFile.__init__(self, zf, zinfo, zip64)  line 1280
+        _ZipWriteFile._fileobj(self)  line 1290
+        _ZipWriteFile.name(self)  line 1294
+        _ZipWriteFile.mode(self)  line 1298
+        _ZipWriteFile.writable(self)  line 1302
+        _ZipWriteFile.write(self, data)  line 1305
+        _ZipWriteFile.close(self)  line 1324
+    ZipFile()  line 1371
+        ZipFile.__init__(self, file, mode, compression, allowZip64, compresslevel, strict_timestamps, metadata_encoding)  line 1401
+        ZipFile.__enter__(self)  line 1497
+        ZipFile.__exit__(self, type, value, traceback)  line 1500
+        ZipFile.__repr__(self)  line 1503
+        ZipFile._RealGetContents(self)  line 1517
+            ZipFile._RealGetContents.<locals>.<lambda>(zinfo)  line 1591
+        ZipFile.namelist(self)  line 1595
+        ZipFile.infolist(self)  line 1599
+        ZipFile.printdir(self, file)  line 1604
+        ZipFile.testzip(self)  line 1613
+        ZipFile.getinfo(self, name)  line 1629
+        ZipFile.setpassword(self, pwd)  line 1638
+        ZipFile.comment(self)  line 1647
+        ZipFile.comment(self, comment)  line 1652
+        ZipFile.read(self, name, pwd)  line 1665
+        ZipFile.open(self, name, mode, pwd, force_zip64)  line 1671
+            ZipFile.open.<locals>.<lambda>()  line 1718
+        ZipFile._open_to_write(self, zinfo, force_zip64)  line 1782
+        ZipFile.extract(self, member, path, pwd)  line 1824
+        ZipFile.extractall(self, path, members, pwd)  line 1838
+        ZipFile._sanitize_windows_name(cls, arcname, pathsep)  line 1856
+            ZipFile._sanitize_windows_name.<locals>.<genexpr>(.0)  line 1866
+            ZipFile._sanitize_windows_name.<locals>.<genexpr>(.0)  line 1868
+        ZipFile._extract_member(self, member, targetpath, pwd)  line 1871
+            ZipFile._extract_member.<locals>.<genexpr>(.0)  line 1888
+        ZipFile._writecheck(self, zinfo)  line 1920
+        ZipFile.write(self, filename, arcname, compress_type, compresslevel)  line 1943
+        ZipFile.writestr(self, zinfo_or_arcname, data, compress_type, compresslevel)  line 1976
+        ZipFile.mkdir(self, zinfo_or_directory_name, mode)  line 2009
+        ZipFile.__del__(self)  line 2044
+        ZipFile.close(self)  line 2048
+        ZipFile._write_end_record(self)  line 2070
+        ZipFile._fpclose(self, fp)  line 2166
+    PyZipFile()  line 2173
+        PyZipFile.__init__(self, file, mode, compression, allowZip64, optimize)  line 2176
+        PyZipFile.writepy(self, pathname, basename, filterfunc)  line 2182
+        PyZipFile._get_codename(self, pathname, basename)  line 2264
+            PyZipFile._get_codename.<locals>._compile(file, optimize)  line 2271
+    main(args)  line 2347
+        main.<locals>.addToZip(zf, path, zippath)  line 2396
+
+--- strings ---
+'\nRead and write ZIP files.\n\nXXX references to utf-8 need further investigation.\n'
+'BadZipFile'
+'ZipInfo'
+'ZipFile'
+'PyZipFile'
+'LargeZipFile'
+'BadZipFile'
+'LargeZipFile'
+'\nRaised when writing a zipfile, the zipfile requires ZIP64 extensions\nand those extensions are disabled.\n'
+'<4s4B4HL2L5H2L'
+'<4s2B4HL2L2H'
+'<4sLQL'
+'<4sQ2H2L4Q'
+'_Extra'
+'<HH'
+'Remove Extra fields with specified IDs.'
+'_Extra'
+'Quickly see if a file is a ZIP file by checking the magic number.\n\nThe filename argument may be a file or file-like object too.\n'
+'read'
+'rb'
+'given, inferred, offset'
+'\nRead the ZIP64 end-of-archive records and use that to update endrec\n'
+'zipfiles that span multiple disks are not supported'
+'Return data from the "End of Central Directory" record, or None.\n\nThe data is a list of the nine items in the ZIP "End of central dir"\nrecord followed by a tenth item, the file seek offset of this record.'
+'Terminate the file name at the first null byte and\nensure paths always use forward slashes as the directory separator.'
+'ZipInfo'
+'Class with attributes describing each file in the ZIP archive.'
+'ZIP does not support timestamps before 1980'
+'win32'
+' filename='
+' compress_type=%s'
+' filemode=%r'
+' external_attr=%#x'
+' file_size=%r'
+' compress_size=%r'
+'Return the per-file header as a bytes object.\n\nWhen the optional zip64 arg is None rather than a bool, we will\ndecide based upon the file_size and compress_size, if known,\nFalse otherwise.\n'
+'<HHQQ'
+'ascii'
+'utf-8'
+'<HH'
+'Corrupt extra field %04x (size=%d)'
+'File size'
+'<Q'
+'Compress size'
+'Header offset'
+'Corrupt zip64 extra field. '
+' not found.'
+'<BL'
+'utf-8'
+'Empty unicode path extra field (0x7075)'
+'Corrupt unicode path extra field (0x7075)'
+'Corrupt unicode path extra field (0x7075): invalid utf-8 bytes'
+'strict_timestamps'
+'Construct an appropriate ZipInfo for a file on the filesystem.\n\nfilename should be the path to a file or directory on the filesystem.\n\narcname is the name which it will have within the archive (by default,\nthis will be the same as filename, but without a drive letter and with\nleading path separators removed).\n'
+'Resolve suitable defaults from the archive.\n\nResolve the date_time, compression attributes, and external attributes\nto suitable defaults as used by :method:`ZipFile.writestr`.\n\nReturn self.\n'
+'SOURCE_DATE_EPOCH'
+'Return True if this archive member is a directory.'
+'Compute the CRC32 primitive on one byte.'
+'Decrypt a bytes object.'
+'LZMACompressor'
+'id'
+'<BBH'
+'LZMACompressor'
+'LZMADecompressor'
+'<H'
+'LZMADecompressor'
+'store'
+'shrink'
+'reduce'
+'implode'
+'tokenize'
+'deflate'
+'deflate64'
+'bzip2'
+'lzma'
+'terse'
+'lz77'
+'zstd'
+'wavpack'
+'ppmd'
+'Compression requires the (missing) zlib module'
+'Compression requires the (missing) bz2 module'
+'Compression requires the (missing) lzma module'
+'Compression requires the (missing) compression.zstd module'
+'That compression method is not supported'
+'compression type %d (%s)'
+'compression type %d'
+'_SharedFile'
+"Can't reposition in the ZIP file while there is an open writing handle on it. Close the writing handle before trying to read."
+"Can't read from the ZIP file while there is an open writing handle on it. Close the writing handle before trying to read."
+'_SharedFile'
+'_Tellable'
+'_Tellable'
+'ZipExtFile'
+'File-like object for reading an archive member.\nIs returned by ZipFile.open().\n'
+'CRC'
+'Bad password for file %r'
+' name='
+' compress_type=%s'
+' [closed]'
+'Read and return a line from the stream.\n\nIf limit is specified, at most limit bytes will be read.\n'
+'Returns buffered bytes without advancing the position.'
+'I/O operation on closed file.'
+'Read and return up to n bytes.\nIf the argument is omitted, None, or negative, data is read and returned until EOF is reached.\n'
+'read from closed file.'
+'Bad CRC-32 for file %r'
+'Read up to n bytes with at most one read() system call.'
+'I/O operation on closed file.'
+'seek on closed file.'
+'underlying stream is not seekable'
+'whence must be os.SEEK_SET (0), os.SEEK_CUR (1), or os.SEEK_END (2)'
+'tell on closed file.'
+'underlying stream is not seekable'
+'ZipExtFile'
+'_ZipWriteFile'
+'wb'
+'I/O operation on closed file.'
+'File size too large, try using force_zip64'
+'Compressed size too large, try using force_zip64'
+'<LLQQ'
+'<LLLL'
+'_ZipWriteFile'
+'ZipFile'
+'Class with methods to open, read, write, close, list zip files.\n\nz = ZipFile(file, mode="r", compression=ZIP_STORED, allowZip64=True,\n            compresslevel=None)\n\nfile: Either the path to the file, or a file-like object.\n      If it is a path, the file will be opened and closed by ZipFile.\nmode: The mode can be either read \'r\', write \'w\', exclusive create \'x\',\n      or append \'a\'.\ncompression: ZIP_STORED (no compression), ZIP_DEFLATED (requires zlib),\n             ZIP_BZIP2 (requires bz2), ZIP_LZMA (requires lzma), or\n             ZIP_ZSTANDARD (requires compression.zstd).\nallowZip64: if True ZipFile will create files with ZIP64 extensions when\n            needed, otherwise it will raise an exception when this would\n            be necessary.\ncompresslevel: None (default for the given compression type) or an integer\n               specifying the level to pass to the compressor.\n               When using ZIP_STORED or ZIP_LZMA this keyword has no effect.\n               When using ZIP_DEFLATED integers 0 through 9 are accepted.\n               When using ZIP_BZIP2 integers 1 through 9 are accepted.\n               When using ZIP_ZSTANDARD integers -7 though 22 are common,\n               see the CompressionParameter enum in compression.zstd for\n               details.\n\n'
+'strict_timestamps'
+'metadata_encoding'
+"Open the ZIP file with mode read 'r', write 'w', exclusive create 'x',\nor append 'a'."
+"ZipFile requires mode 'r', 'w', 'x', or 'a'"
+'metadata_encoding is only supported for reading files'
+'rb'
+'w+b'
+'x+b'
+'r+b'
+'wb'
+'xb'
+'name'
+"Mode must be 'r', 'w', 'x', or 'a'"
+' file=%r'
+' filename=%r'
+' mode=%r'
+' [closed]'
+'Read in the table of contents for the ZIP file.'
+'File is not a zip file'
+'Bad offset for central directory'
+'Truncated central directory'
+'Bad magic number for central directory'
+'utf-8'
+'cp437'
+'zip file version %.1f'
+'total'
+'Return a list of file names in the archive.'
+'Return a list of class ZipInfo instances for files in the\narchive.'
+'Print a table of contents for the zip file.'
+'File Name'
+'46'
+'Modified    '
+'>19'
+'Size'
+'>12'
+'%d-%02d-%02d %02d:%02d:%02d'
+'%-46s %s %12d'
+'Read all the files and check the CRC.\n\nReturn None if all files could be read successfully, or the name\nof the offending file otherwise.'
+"Return the instance of ZipInfo given 'name'."
+'There is no item named %r in the archive'
+'Set default password for encrypted files.'
+'pwd: expected bytes, got %s'
+'The comment text associated with the ZIP file.'
+'comment: expected bytes, got %s'
+'Archive comment is too long; truncating to %d bytes'
+"Return file bytes for name. 'pwd' is the password to decrypt\nencrypted files."
+'force_zip64'
+"Return file-like object for 'name'.\n\nname is a string for the file name within the ZIP file, or a ZipInfo\nobject.\n\nmode should be 'r' to read a file already in the ZIP file, or 'w' to\nwrite to a file newly added to the archive.\n\npwd is the password to decrypt files (only used for reading).\n\nWhen writing, if the file size is not known in advance but may exceed\n2 GiB, pass force_zip64 to use the ZIP64 format, which can handle large\nfiles.  If the size is known in advance, it is best to pass a ZipInfo\ninstance for name, with zinfo.file_size set.\n"
+'open() requires mode "r" or "w"'
+'pwd is only supported for reading files'
+'Attempt to use ZIP archive that was already closed'
+"Can't read from the ZIP file while there is an open writing handle on it. Close the writing handle before trying to read."
+'Truncated file header'
+'Bad magic number for file header'
+'compressed patched data (flag bit 5)'
+'strong encryption (flag bit 6)'
+'utf-8'
+'cp437'
+'File name in directory '
+' and header '
+' differ.'
+'Overlapped entries: '
+' (possible zip bomb)'
+'pwd: expected bytes, got %s'
+'File %r is encrypted, password required for extraction'
+'force_zip64 is True, but allowZip64 was False when opening the ZIP file.'
+"Can't write to the ZIP file while there is another write handle open on it. Close the first handle before opening another."
+'Filesize would require ZIP64 extensions'
+"Extract a member from the archive to the current working directory,\nusing its full name. Its file information is extracted as accurately\nas possible. 'member' may be a filename or a ZipInfo object. You can\nspecify a different directory using 'path'. You can specify the\npassword to decrypt the file using 'pwd'.\n"
+"Extract all members from the archive to the current working\ndirectory. 'path' specifies a different directory to extract to.\n'members' is optional and must be a subset of the list returned\nby namelist(). You can specify the password to decrypt all files\nusing 'pwd'.\n"
+'Replace bad characters and remove trailing dots from parts.'
+':<>|"?*'
+' .'
+"Extract the ZipInfo object 'member' to a physical\nfile on the path targetpath.\n"
+'Empty filename.'
+'wb'
+'Check for errors before writing a file to the archive.'
+'Duplicate name: %r'
+"write() requires mode 'w', 'x', or 'a'"
+'Attempt to write ZIP archive that was already closed'
+'Files count'
+'Filesize'
+'Zipfile size'
+' would require ZIP64 extensions'
+'Put the bytes from filename into the archive under the name\narcname.'
+'Attempt to write to ZIP archive that was already closed'
+"Can't write to ZIP archive while an open writing handle exists"
+'rb'
+"Write a file into the archive.  The contents is 'data', which\nmay be either a 'str' or a 'bytes' instance; if it is a 'str',\nit is encoded as UTF-8 first.\n'zinfo_or_arcname' is either a ZipInfo instance or\nthe name of the file in the archive."
+'utf-8'
+'Attempt to write to ZIP archive that was already closed'
+"Can't write to ZIP archive while an open writing handle exists."
+'Creates a directory inside the zip archive.'
+'The given ZipInfo does not describe a directory'
+'Expected type str or ZipInfo'
+'Call the "close()" method in case the user forgot.'
+"Close the file, and for mode 'w', 'x' and 'a' write the ending\nrecords."
+"Can't close the ZIP file while there is an open writing handle on it. Close the writing handle before closing the zip."
+'<HH'
+'Files count'
+'Central directory offset'
+'Central directory size'
+' would require ZIP64 extensions'
+'PyZipFile'
+'Class to create ZIP archives with Python library files and packages.'
+'Add all files from "pathname" to the ZIP archive.\n\nIf pathname is a package directory, search the directory and\nall package subdirectories recursively for all *.py and enter\nthe modules into the archive.  If pathname is a plain\ndirectory, listdir *.py and enter all modules.  Else, pathname\nmust be a Python *.py file and the module will be put into the\narchive.  Added modules are always module.pyc.\nThis method will compile the module.py into module.pyc if\nnecessary.\nIf filterfunc(pathname) is given, it is called with every argument.\nWhen it is False, the file or directory is skipped.\n'
+'path'
+'file'
+' skipped by filterfunc'
+'__init__.py'
+'Adding package in'
+'as'
+'Adding'
+'.py'
+'file %r skipped by filterfunc'
+'Adding files from directory'
+'Files added with writepy() must end with ".py"'
+'Adding file'
+'Return (filename, archivename) for the path.\n\nGiven a module name path, return the correct file path and\narchive name, compiling if necessary.  For example, given\n/python/lib/string, return (/python/lib/string.pyc, string).\n'
+'Compiling'
+'.py'
+'.pyc'
+"invalid value for 'optimize': {!r}"
+'A simple command-line interface for zipfile module.'
+'-l'
+'--list'
+'<zipfile>'
+'Show listing of a zipfile'
+'-e'
+'--extract'
+'Extract zipfile into target dir'
+'-c'
+'--create'
+'Create zipfile from sources'
+'-t'
+'--test'
+'Test if a zipfile is valid'
+'--metadata-encoding'
+'<encoding>'
+'Specify encoding of member names for -l, -e and -t'
+'The following enclosed file is corrupted: {!r}'
+'Done testing'
+'Non-conforming encodings not supported with -c.'

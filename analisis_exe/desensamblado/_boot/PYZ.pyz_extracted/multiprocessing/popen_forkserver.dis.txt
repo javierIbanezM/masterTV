@@ -1,0 +1,456 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (io)
+              STORE_NAME               0 (io)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (os)
+              STORE_NAME               1 (os)
+
+  4           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('reduction', 'set_spawning_popen'))
+              IMPORT_NAME              2 (context)
+              IMPORT_FROM              3 (reduction)
+              STORE_NAME               3 (reduction)
+              IMPORT_FROM              4 (set_spawning_popen)
+              STORE_NAME               4 (set_spawning_popen)
+              POP_TOP
+
+  5           LOAD_NAME                3 (reduction)
+              LOAD_ATTR               10 (HAVE_SEND_HANDLE)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         9 (to L1)
+              NOT_TAKEN
+
+  6           LOAD_NAME                6 (ImportError)
+              PUSH_NULL
+              LOAD_CONST               3 ('No support for sending fds between processes')
+              CALL                     1
+              RAISE_VARARGS            1
+
+  7   L1:     LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('forkserver',))
+              IMPORT_NAME              7
+              IMPORT_FROM              8 (forkserver)
+              STORE_NAME               8 (forkserver)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           1
+              LOAD_CONST               5 (('popen_fork',))
+              IMPORT_NAME              7
+              IMPORT_FROM              9 (popen_fork)
+              STORE_NAME               9 (popen_fork)
+              POP_TOP
+
+  9           LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('spawn',))
+              IMPORT_NAME              7
+              IMPORT_FROM             10 (spawn)
+              STORE_NAME              10 (spawn)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           1
+              LOAD_CONST               7 (('util',))
+              IMPORT_NAME              7
+              IMPORT_FROM             11 (util)
+              STORE_NAME              11 (util)
+              POP_TOP
+
+ 13           LOAD_CONST               8 ('Popen')
+              BUILD_LIST               1
+              STORE_NAME              12 (__all__)
+
+ 19           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object _DupFd at 0x00000204BA08B030, file "multiprocessing\popen_forkserver.py", line 19>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('_DupFd')
+              LOAD_NAME               13 (object)
+              CALL                     3
+              STORE_NAME              14 (_DupFd)
+
+ 29           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object Popen at 0x00000204BA0AB230, file "multiprocessing\popen_forkserver.py", line 29>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('Popen')
+              LOAD_NAME                9 (popen_fork)
+              LOAD_ATTR               30 (Popen)
+              CALL                     3
+              STORE_NAME              15 (Popen)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _DupFd at 0x00000204BA08B030, file "multiprocessing\popen_forkserver.py", line 19>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  19           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_DupFd')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          19
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  20           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0914D0, file "multiprocessing\popen_forkserver.py", line 20>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  22           LOAD_CONST               2 (<code object detach at 0x00000204BA0A68B0, file "multiprocessing\popen_forkserver.py", line 22>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (detach)
+               LOAD_CONST               3 (('ind',))
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0914D0, file "multiprocessing\popen_forkserver.py", line 20>:
+ 20           RESUME                   0
+
+ 21           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (ind, self)
+              STORE_ATTR               0 (ind)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object detach at 0x00000204BA0A68B0, file "multiprocessing\popen_forkserver.py", line 22>:
+ 22           RESUME                   0
+
+ 23           LOAD_GLOBAL              0 (forkserver)
+              LOAD_ATTR                2 (get_inherited_fds)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (ind)
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object Popen at 0x00000204BA0AB230, file "multiprocessing\popen_forkserver.py", line 29>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  29           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Popen')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          29
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  30           LOAD_CONST               1 ('forkserver')
+               STORE_NAME               4 (method)
+
+  31           LOAD_NAME                5 (_DupFd)
+               STORE_NAME               6 (DupFd)
+
+  33           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA083110, file "multiprocessing\popen_forkserver.py", line 33>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               7 (__init__)
+
+  37           LOAD_CONST               3 (<code object duplicate_for_child at 0x00000204BA0AB5F0, file "multiprocessing\popen_forkserver.py", line 37>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (duplicate_for_child)
+
+  41           LOAD_CONST               4 (<code object _launch at 0x00000204BA449230, file "multiprocessing\popen_forkserver.py", line 41>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_launch)
+
+  61           LOAD_NAME               10 (os)
+               LOAD_ATTR               22 (WNOHANG)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object poll at 0x00000204BA36C400, file "multiprocessing\popen_forkserver.py", line 61>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (poll)
+               LOAD_CONST               6 (('_fds', 'finalizer', 'pid', 'returncode', 'sentinel'))
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              15 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA083110, file "multiprocessing\popen_forkserver.py", line 33>:
+  --           COPY_FREE_VARS           1
+
+  33           RESUME                   0
+
+  34           BUILD_LIST               0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fds)
+
+  35           LOAD_GLOBAL              2 (super)
+               LOAD_DEREF               2 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          9 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (process_obj)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object duplicate_for_child at 0x00000204BA0AB5F0, file "multiprocessing\popen_forkserver.py", line 37>:
+ 37           RESUME                   0
+
+ 38           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fds)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (fd)
+              CALL                     1
+              POP_TOP
+
+ 39           LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fds)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              BINARY_OP               10 (-)
+              RETURN_VALUE
+
+Disassembly of <code object _launch at 0x00000204BA449230, file "multiprocessing\popen_forkserver.py", line 41>:
+  41            RESUME                   0
+
+  42            LOAD_GLOBAL              0 (spawn)
+                LOAD_ATTR                2 (get_preparation_data)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (process_obj)
+                LOAD_ATTR                4 (_name)
+                CALL                     1
+                STORE_FAST               2 (prep_data)
+
+  43            LOAD_GLOBAL              6 (io)
+                LOAD_ATTR                8 (BytesIO)
+                PUSH_NULL
+                CALL                     0
+                STORE_FAST               3 (buf)
+
+  44            LOAD_GLOBAL             11 (set_spawning_popen + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                CALL                     1
+                POP_TOP
+
+  45            NOP
+
+  46    L1:     LOAD_GLOBAL             12 (reduction)
+                LOAD_ATTR               14 (dump)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (prep_data, buf)
+                CALL                     2
+                POP_TOP
+
+  47            LOAD_GLOBAL             12 (reduction)
+                LOAD_ATTR               14 (dump)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (process_obj, buf)
+                CALL                     2
+                POP_TOP
+
+  49    L2:     LOAD_GLOBAL             11 (set_spawning_popen + NULL)
+                LOAD_CONST               0 (None)
+                CALL                     1
+                POP_TOP
+
+  51            LOAD_GLOBAL             16 (forkserver)
+                LOAD_ATTR               18 (connect_to_new_process)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (_fds)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              11 (sentinel)
+                STORE_FAST               4 (w)
+
+  54            LOAD_GLOBAL             24 (os)
+                LOAD_ATTR               26 (dup)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (w)
+                CALL                     1
+                STORE_FAST               5 (_parent_w)
+
+  55            LOAD_GLOBAL             28 (util)
+                LOAD_ATTR               30 (Finalize)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_GLOBAL             28 (util)
+                LOAD_ATTR               32 (close_fds)
+
+  56            LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (_parent_w, self)
+                LOAD_ATTR               22 (sentinel)
+                BUILD_TUPLE              2
+
+  55            CALL                     3
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              17 (finalizer)
+
+  57            LOAD_GLOBAL             37 (open + NULL)
+                LOAD_FAST_BORROW         4 (w)
+                LOAD_CONST               1 ('wb')
+                LOAD_CONST               2 (True)
+                LOAD_CONST               3 (('closefd',))
+                CALL_KW                  3
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L3:     STORE_FAST               6 (f)
+
+  58            LOAD_FAST_BORROW         6 (f)
+                LOAD_ATTR               39 (write + NULL|self)
+                LOAD_FAST_BORROW         3 (buf)
+                LOAD_ATTR               41 (getbuffer + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+  57    L4:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+
+  59    L5:     LOAD_GLOBAL             16 (forkserver)
+                LOAD_ATTR               42 (read_signed)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               22 (sentinel)
+                CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              22 (pid)
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+  49            LOAD_GLOBAL             11 (set_spawning_popen + NULL)
+                LOAD_CONST               0 (None)
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --    L7:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  57    L8:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L9)
+                NOT_TAKEN
+                RERAISE                  2
+        L9:     POP_TOP
+       L10:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 71 (to L5)
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L3 to L4 -> L8 [2] lasti
+  L6 to L7 -> L7 [1] lasti
+  L8 to L10 -> L11 [4] lasti
+
+Disassembly of <code object poll at 0x00000204BA36C400, file "multiprocessing\popen_forkserver.py", line 61>:
+  61            RESUME                   0
+
+  62            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (returncode)
+                POP_JUMP_IF_NOT_NONE   110 (to L6)
+                NOT_TAKEN
+
+  63            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (('wait',))
+                IMPORT_NAME              1 (multiprocessing.connection)
+                IMPORT_FROM              2 (wait)
+                STORE_FAST               2 (wait)
+                POP_TOP
+
+  64            LOAD_FAST_BORROW         1 (flag)
+                LOAD_GLOBAL              6 (os)
+                LOAD_ATTR                8 (WNOHANG)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+                LOAD_SMALL_INT           0
+                JUMP_FORWARD             1 (to L2)
+        L1:     LOAD_CONST               0 (None)
+        L2:     STORE_FAST               3 (timeout)
+
+  65            LOAD_FAST_BORROW         2 (wait)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (sentinel)
+                BUILD_LIST               1
+                LOAD_FAST_BORROW         3 (timeout)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L3)
+                NOT_TAKEN
+
+  66            LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  67    L3:     NOP
+
+  68    L4:     LOAD_GLOBAL             12 (forkserver)
+                LOAD_ATTR               14 (read_signed)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (sentinel)
+                CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (returncode)
+
+  74    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (returncode)
+                RETURN_VALUE
+        L6:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (returncode)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+  69            LOAD_GLOBAL             16 (OSError)
+                LOAD_GLOBAL             18 (EOFError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       22 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+  72            LOAD_SMALL_INT         255
+                LOAD_FAST                0 (self)
+                STORE_ATTR               0 (returncode)
+        L8:     POP_EXCEPT
+
+  74            LOAD_FAST                0 (self)
+                LOAD_ATTR                0 (returncode)
+                RETURN_VALUE
+
+  69    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L7 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti

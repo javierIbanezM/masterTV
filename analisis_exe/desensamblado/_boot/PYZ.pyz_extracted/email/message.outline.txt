@@ -1,0 +1,220 @@
+<module>()  line 1
+    _splitparam(param)  line 29
+    _formatparam(param, value, quote)  line 39
+    _parseparam(s)  line 73
+    _unquotevalue(value)  line 93
+    _decode_uu(encoded)  line 104
+    Message()  line 135
+        Message.__init__(self, policy)  line 150
+        Message.__str__(self)  line 162
+        Message.as_string(self, unixfrom, maxheaderlen, policy)  line 167
+        Message.__bytes__(self)  line 191
+        Message.as_bytes(self, unixfrom, policy)  line 196
+        Message.is_multipart(self)  line 211
+        Message.set_unixfrom(self, unixfrom)  line 218
+        Message.get_unixfrom(self)  line 221
+        Message.attach(self, payload)  line 227
+        Message.get_payload(self, i, decode)  line 243
+        Message.set_payload(self, payload, charset)  line 337
+        Message.set_charset(self, charset)  line 357
+        Message.get_charset(self)  line 404
+        Message.__len__(self)  line 412
+        Message.__getitem__(self, name)  line 416
+        Message.__setitem__(self, name, val)  line 427
+        Message.__delitem__(self, name)  line 445
+        Message.__contains__(self, name)  line 457
+        Message.__iter__(self)  line 464
+        Message.keys(self)  line 468
+        Message.values(self)  line 478
+        Message.items(self)  line 489
+        Message.get(self, name, failobj)  line 500
+        Message.set_raw(self, name, value)  line 517
+        Message.raw_items(self)  line 524
+        Message.get_all(self, name, failobj)  line 535
+        Message.add_header(self, _name, _value)  line 553
+        Message.replace_header(self, _name, _value)  line 583
+        Message.get_content_type(self)  line 602
+        Message.get_content_maintype(self)  line 626
+        Message.get_content_subtype(self)  line 635
+        Message.get_default_type(self)  line 644
+        Message.set_default_type(self, ctype)  line 653
+        Message._get_params_preserve(self, failobj, header)  line 662
+        Message.get_params(self, failobj, header, unquote)  line 683
+        Message.get_param(self, param, failobj, header, unquote)  line 705
+        Message.set_param(self, param, value, header, requote, charset, language, replace)  line 739
+        Message.del_param(self, param, header, requote)  line 790
+        Message.set_type(self, type, header, requote)  line 812
+        Message.get_filename(self, failobj)  line 844
+        Message.get_boundary(self, failobj)  line 860
+        Message.set_boundary(self, boundary)  line 873
+        Message.get_content_charset(self, failobj)  line 919
+        Message.get_charsets(self, failobj)  line 949
+        Message.get_content_disposition(self)  line 967
+    MIMEPart()  line 983
+        MIMEPart.__init__(self, policy)  line 985
+        MIMEPart.as_string(self, unixfrom, maxheaderlen, policy)  line 992
+        MIMEPart.__str__(self)  line 1008
+        MIMEPart.is_attachment(self)  line 1011
+        MIMEPart._find_body(self, part, preferencelist)  line 1015
+        MIMEPart.get_body(self, preferencelist)  line 1044
+        MIMEPart.iter_attachments(self)  line 1068
+        MIMEPart.iter_parts(self)  line 1123
+        MIMEPart.get_content(self, content_manager)  line 1131
+        MIMEPart.set_content(self, content_manager)  line 1136
+        MIMEPart._make_multipart(self, subtype, disallowed_subtypes, boundary)  line 1141
+        MIMEPart.make_related(self, boundary)  line 1168
+        MIMEPart.make_alternative(self, boundary)  line 1171
+        MIMEPart.make_mixed(self, boundary)  line 1174
+        MIMEPart._add_multipart(self, _subtype, _disp)  line 1177
+        MIMEPart.add_related(self)  line 1187
+        MIMEPart.add_alternative(self)  line 1190
+        MIMEPart.add_attachment(self)  line 1193
+        MIMEPart.clear(self)  line 1196
+        MIMEPart.clear_content(self)  line 1200
+    EmailMessage()  line 1206
+        EmailMessage.set_content(self)  line 1208
+
+--- strings ---
+'Basic message object for the email package object model.'
+'Message'
+'EmailMessage'
+'; '
+'[ \\(\\)<>@,;:\\\\"/\\[\\]\\?=]'
+'Convenience function to format and return a key=value pair.\n\nThis will quote the value if needed or if quote is true.  If value is a\nthree tuple (charset, language, value), it will be encoded according\nto RFC2231 rules.  If it contains non-ascii characters it will likewise\nbe encoded according to RFC2231 rules, using the utf-8 charset and\na null language.\n'
+'ascii'
+'utf-8'
+'="'
+'\\"'
+'Decode uuencoded data.'
+'`begin` line not found'
+'Truncated input'
+'Message'
+"Basic message object.\n\nA message object is defined as something that has a bunch of RFC 2822\nheaders and a payload.  It may optionally have an envelope header\n(a.k.a. Unix-From or From_ header).  If the message is a container (i.e. a\nmultipart or a message/rfc822), then the payload is a list of Message\nobjects, otherwise it is a string.\n\nMessage objects implement part of the 'mapping' interface, which assumes\nthere is exactly one occurrence of the header per message.  Some headers\ndo in fact appear multiple times (e.g. Received) and for those headers,\nyou must use the explicit API to set or get all the headers.  Not all of\nthe mapping methods are implemented.\n"
+'text/plain'
+'Return the entire formatted message as a string.\n        '
+'Return the entire formatted message as a string.\n\nOptional \'unixfrom\', when true, means include the Unix From_ envelope\nheader.  For backward compatibility reasons, if maxheaderlen is\nnot specified it defaults to 0, so you must override it explicitly\nif you want a different maxheaderlen.  \'policy\' is passed to the\nGenerator instance used to serialize the message; if it is not\nspecified the policy associated with the message instance is used.\n\nIf the message object contains binary data that is not encoded\naccording to RFC standards, the non-compliant data will be replaced by\nunicode "unknown character" code points.\n'
+'Return the entire formatted message as a bytes object.\n        '
+"Return the entire formatted message as a bytes object.\n\nOptional 'unixfrom', when true, means include the Unix From_ envelope\nheader.  'policy' is passed to the BytesGenerator instance used to\nserialize the message; if not specified the policy associated with\nthe message instance is used.\n"
+'Return True if the message consists of multiple parts.'
+'Add the given payload to the current payload.\n\nThe current payload will always be a list of objects after this method\nis called.  If you want to set the payload to a scalar object, use\nset_payload() instead.\n'
+'Attach is not valid on a message with a non-multipart payload'
+"Return a reference to the payload.\n\nThe payload will either be a list object or a string.  If you mutate\nthe list object, you modify the message's payload in place.  Optional\ni returns that index into the payload.\n\nOptional decode is a flag indicating whether the payload should be\ndecoded or not, according to the Content-Transfer-Encoding header\n(default is False).\n\nWhen True and the message is not a multipart, the payload will be\ndecoded if this header's value is `quoted-printable' or `base64'.  If\nsome other encoding is used, or the header is missing, or if the\npayload has bogus data (i.e. bogus base64 or uuencoded data), the\npayload is returned as-is.\n\nIf the message is a multipart and the decode flag is True, then None\nis returned.\n"
+'Expected list, got %s'
+'content-transfer-encoding'
+'cte'
+'ascii'
+'surrogateescape'
+'replace'
+'raw-unicode-escape'
+'quoted-printable'
+'base64'
+"Set the payload to the given value.\n\nOptional charset sets the message's default character set.  See\nset_charset() for details.\n"
+'encode'
+'surrogateescape'
+'decode'
+'ascii'
+'Set the charset of the payload to a given character set.\n\ncharset can be a Charset instance, a string naming a character set, or\nNone.  If it is a string it will be converted to a Charset instance.\nIf charset is None, the charset parameter will be removed from the\nContent-Type field.  Anything else will generate a TypeError.\n\nThe message will be assumed to be of type text/* encoded with\ncharset.input_charset.  It will be converted to charset.output_charset\nand encoded properly, if needed, when generating the plain text\nrepresentation of the message.  MIME headers (MIME-Version,\nContent-Type, Content-Transfer-Encoding) will be added as needed.\n'
+'charset'
+'MIME-Version'
+'1.0'
+'Content-Type'
+'text/plain'
+'Content-Transfer-Encoding'
+'ascii'
+'surrogateescape'
+"Return the Charset instance associated with the message's payload.\n        "
+'Return the total number of headers, including duplicates.'
+'Get a header value.\n\nReturn None if the header is missing instead of raising an exception.\n\nNote that if the header appeared multiple times, exactly which\noccurrence gets returned is undefined.  Use get_all() to get all\nthe values matching a header field name.\n'
+'Set the value of a header.\n\nNote: this does not overwrite an existing header with the same field\nname.  Use __delitem__() first to delete any existing headers.\n'
+'There may be at most {} {} headers in a message'
+'Delete all occurrences of a header, if present.\n\nDoes not raise an exception if the header is missing.\n'
+"Return a list of all the message's header field names.\n\nThese will be sorted in the order they appeared in the original\nmessage, or were added to the message, and may contain duplicates.\nAny fields deleted and re-inserted are always appended to the header\nlist.\n"
+"Return a list of all the message's header values.\n\nThese will be sorted in the order they appeared in the original\nmessage, or were added to the message, and may contain duplicates.\nAny fields deleted and re-inserted are always appended to the header\nlist.\n"
+"Get all the message's header fields and values.\n\nThese will be sorted in the order they appeared in the original\nmessage, or were added to the message, and may contain duplicates.\nAny fields deleted and re-inserted are always appended to the header\nlist.\n"
+'Get a header value.\n\nLike __getitem__() but return failobj instead of None when the field\nis missing.\n'
+'Store name and value in the model without modification.\n\nThis is an "internal" API, intended only for use by a parser.\n'
+'Return the (name, value) header pairs without modification.\n\nThis is an "internal" API, intended only for use by a generator.\n'
+'Return a list of all the values for the named field.\n\nThese will be sorted in the order they appeared in the original\nmessage, and may contain duplicates.  Any fields deleted and\nre-inserted are always appended to the header list.\n\nIf no such fields exist, failobj is returned (defaults to None).\n'
+'Extended header setting.\n\nname is the header field to add.  keyword arguments can be used to set\nadditional parameters for the header field, with underscores converted\nto dashes.  Normally the parameter will be added as key="value" unless\nvalue is None, in which case only the key will be added.  If a\nparameter value contains non-ASCII characters it can be specified as a\nthree-tuple of (charset, language, value), in which case it will be\nencoded according to RFC2231 rules.  Otherwise it will be encoded using\nthe utf-8 charset and a language of \'\'.\n\nExamples:\n\nmsg.add_header(\'content-disposition\', \'attachment\', filename=\'bud.gif\')\nmsg.add_header(\'content-disposition\', \'attachment\',\n               filename=(\'utf-8\', \'\', \'Fußballer.ppt\'))\nmsg.add_header(\'content-disposition\', \'attachment\',\n               filename=\'Fußballer.ppt\'))\n'
+'Replace a header.\n\nReplace the first matching header found in the message, retaining\nheader order and case.  If no matching header was found, a KeyError is\nraised.\n'
+"Return the message's content type.\n\nThe returned string is coerced to lower case of the form\n'maintype/subtype'.  If there was no Content-Type header in the\nmessage, the default type as given by get_default_type() will be\nreturned.  Since according to RFC 2045, messages always have a default\ntype this will always return a value.\n\nRFC 2045 defines a message's default type to be text/plain unless it\nappears inside a multipart/digest container, in which case it would be\nmessage/rfc822.\n"
+'content-type'
+'text/plain'
+"Return the message's main content type.\n\nThis is the 'maintype' part of the string returned by\nget_content_type().\n"
+"Returns the message's sub-content type.\n\nThis is the 'subtype' part of the string returned by\nget_content_type().\n"
+"Return the 'default' content type.\n\nMost messages have a default content type of text/plain, except for\nmessages that are subparts of multipart/digest containers.  Such\nsubparts have a default content type of message/rfc822.\n"
+'Set the \'default\' content type.\n\nctype should be either "text/plain" or "message/rfc822", although this\nis not enforced.  The default content type is not stored in the\nContent-Type header.\n'
+"Return the message's Content-Type parameters, as a list.\n\nThe elements of the returned list are 2-tuples of key/value pairs, as\nsplit on the '=' sign.  The left hand side of the '=' is the key,\nwhile the right hand side is the value.  If there is no '=' sign in\nthe parameter the value is the empty string.  The value is as\ndescribed in the get_param() method.\n\nOptional failobj is the object to return if there is no Content-Type\nheader.  Optional header is the header to search instead of\nContent-Type.  If unquote is True, the value is unquoted.\n"
+"Return the parameter value if found in the Content-Type header.\n\nOptional failobj is the object to return if there is no Content-Type\nheader, or the Content-Type header has no such parameter.  Optional\nheader is the header to search instead of Content-Type.\n\nParameter keys are always compared case insensitively.  The return\nvalue can either be a string, or a 3-tuple if the parameter was RFC\n2231 encoded.  When it's a 3-tuple, the elements of the value are of\nthe form (CHARSET, LANGUAGE, VALUE).  Note that both CHARSET and\nLANGUAGE can be None, in which case you should consider VALUE to be\nencoded in the us-ascii charset.  You can usually ignore LANGUAGE.\nThe parameter value (either the returned string, or the VALUE item in\nthe 3-tuple) is always unquoted, unless unquote is set to False.\n\nIf your application doesn't care whether the parameter was RFC 2231\nencoded, it can turn the return value into a string as follows:\n\n    rawparam = msg.get_param('foo')\n    param = email.utils.collapse_rfc2231_value(rawparam)\n\n"
+'Set a parameter in the Content-Type header.\n\nIf the parameter already exists in the header, its value will be\nreplaced with the new value.\n\nIf header is Content-Type and has not yet been defined for this\nmessage, it will be set to "text/plain" and the new parameter and\nvalue will be appended as per RFC 2045.\n\nAn alternate header can be specified in the header argument, and all\nparameters will be quoted as necessary unless requote is False.\n\nIf charset is specified, the parameter will be encoded according to RFC\n2231.  Optional language specifies the RFC 2231 language, defaulting\nto the empty string.  Both charset and language should be strings.\n'
+'content-type'
+'text/plain'
+'Remove the given parameter completely from the Content-Type header.\n\nThe header will be re-written in place without the parameter or its\nvalue. All values will be quoted as necessary unless requote is\nFalse.  Optional header specifies an alternative to the Content-Type\nheader.\n'
+'Set the main type and subtype for the Content-Type header.\n\ntype must be a string in the form "maintype/subtype", otherwise a\nValueError is raised.\n\nThis method replaces the Content-Type header, keeping all the\nparameters in place.  If requote is False, this leaves the existing\nheader\'s quoting as is.  Otherwise, the parameters will be quoted (the\ndefault).\n\nAn alternative header can be specified in the header argument.  When\nthe Content-Type header is set, we\'ll always also add a MIME-Version\nheader.\n'
+'content-type'
+'mime-version'
+'1.0'
+'MIME-Version'
+"Return the filename associated with the payload if present.\n\nThe filename is extracted from the Content-Disposition header's\n'filename' parameter, and it is unquoted.  If that header is missing\nthe 'filename' parameter, this method falls back to looking for the\n'name' parameter.\n"
+'filename'
+'content-disposition'
+'name'
+'content-type'
+"Return the boundary associated with the payload if present.\n\nThe boundary is extracted from the Content-Type header's 'boundary'\nparameter, and it is unquoted.\n"
+'boundary'
+"Set the boundary parameter in Content-Type to 'boundary'.\n\nThis is subtly different than deleting the Content-Type header and\nadding a new one with a new boundary parameter via add_header().  The\nmain difference is that using the set_boundary() method preserves the\norder of the Content-Type header in the original message.\n\nHeaderParseError is raised if the message has no Content-Type header.\n"
+'content-type'
+'No Content-Type header found'
+'boundary'
+'"%s"'
+'Return the charset parameter of the Content-Type header.\n\nThe returned string is always coerced to lower case.  If there is no\nContent-Type header, or if that header has no charset parameter,\nfailobj is returned.\n'
+'charset'
+'us-ascii'
+'raw-unicode-escape'
+'Return a list containing the charset(s) used in this message.\n\nThe returned list of items describes the Content-Type headers\'\ncharset parameter for this message and all the subparts in its\npayload.\n\nEach item will either be a string (the value of the charset parameter\nin the Content-Type header of that part) or the value of the\n\'failobj\' parameter (defaults to None), if the part does not have a\nmain MIME type of "text", or the charset is not defined.\n\nThe list will contain one string for each part of the message, plus\none for the container message (i.e. self), so that a non-multipart\nmessage will still return a list of length 1.\n'
+"Return the message's content-disposition if it exists, or None.\n\nThe return values can be either 'inline', 'attachment' or None\naccording to the rfc2183.\n"
+'content-disposition'
+'MIMEPart'
+"Return the entire formatted message as a string.\n\nOptional 'unixfrom', when true, means include the Unix From_ envelope\nheader.  maxheaderlen is retained for backward compatibility with the\nbase Message class, but defaults to None, meaning that the policy value\nfor max_line_length controls the header maximum length.  'policy' is\npassed to the Generator instance used to serialize the message; if it\nis not specified the policy associated with the message instance is\nused.\n"
+'content-disposition'
+'attachment'
+'text'
+'multipart'
+'related'
+'start'
+'content-id'
+"Return best candidate mime part for display as 'body' of message.\n\nDo a depth first search, starting with self, looking for the first part\nmatching each of the items in preferencelist, and return the part\ncorresponding to the first item that has a match, or None if no items\nhave a match.  If 'related' is not included in preferencelist, consider\nthe root part of any multipart/related encountered as a candidate\nmatch.  Ignore parts with 'Content-Disposition: attachment'.\n"
+"Return an iterator over the non-main parts of a multipart.\n\nSkip the first of each occurrence of text/plain, text/html,\nmultipart/related, or multipart/alternative in the multipart (unless\nthey have a 'Content-Disposition: attachment' header) and include all\nremaining subparts in the returned iterator.  When applied to a\nmultipart/related, return all parts except the root part.  Return an\nempty iterator when applied to a multipart/alternative or a\nnon-multipart.\n"
+'multipart'
+'alternative'
+'related'
+'start'
+'content-id'
+'Return an iterator over all immediate subparts of a multipart.\n\nReturn an empty iterator for a non-multipart.\n'
+'content_manager'
+'multipart'
+'Cannot convert {} to {}'
+'content-'
+'multipart/'
+'Content-Type'
+'boundary'
+'related'
+'alternative'
+'mixed'
+'_disp'
+'multipart'
+'make_'
+'content-disposition'
+'Content-Disposition'
+'related'
+'_disp'
+'inline'
+'alternative'
+'mixed'
+'_disp'
+'attachment'
+'content-'
+'MIMEPart'
+'EmailMessage'
+'MIME-Version'
+'1.0'

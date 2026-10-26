@@ -1,0 +1,166 @@
+  0           RESUME                   0
+
+  9           LOAD_CONST               0 ('\nSet search path for pywin32 DLLs. Due to the large number of pywin32 modules, we use a single loader-level script\ninstead of per-module runtime hook scripts.\n')
+              STORE_NAME               0 (__doc__)
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (os)
+              STORE_NAME               1 (os)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (sys)
+              STORE_NAME               2 (sys)
+
+ 18           LOAD_CONST               2 (<code object install at 0x00000204BA3BE460, file "pyimod04_pywin32.py", line 18>)
+              MAKE_FUNCTION
+              STORE_NAME               3 (install)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object install at 0x00000204BA3BE460, file "pyimod04_pywin32.py", line 18>:
+  18            RESUME                   0
+
+  22            LOAD_CONST               4 (('win32', 'pythonwin'))
+                STORE_FAST               0 (pywin32_ext_paths)
+
+  23            LOAD_FAST_BORROW         0 (pywin32_ext_paths)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      1 (pywin32_ext_path)
+                SWAP                     2
+        L1:     BUILD_LIST               0
+                SWAP                     2
+        L2:     FOR_ITER                49 (to L3)
+                STORE_FAST               1 (pywin32_ext_path)
+                LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR                5 (join + NULL|self)
+                LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR                8 (_MEIPASS)
+                LOAD_FAST_BORROW         1 (pywin32_ext_path)
+                CALL                     2
+                LIST_APPEND              2
+                JUMP_BACKWARD           51 (to L2)
+        L3:     END_FOR
+                POP_ITER
+        L4:     STORE_FAST               0 (pywin32_ext_paths)
+                STORE_FAST               1 (pywin32_ext_path)
+
+  24            LOAD_FAST_BORROW         0 (pywin32_ext_paths)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      2 (path)
+                SWAP                     2
+        L5:     BUILD_LIST               0
+                SWAP                     2
+        L6:     FOR_ITER                44 (to L9)
+                STORE_FAST               2 (path)
+                LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR               11 (isdir + NULL|self)
+                LOAD_FAST_BORROW         2 (path)
+                CALL                     1
+                TO_BOOL
+        L7:     POP_JUMP_IF_TRUE         3 (to L8)
+                NOT_TAKEN
+                JUMP_BACKWARD           42 (to L6)
+        L8:     LOAD_FAST_BORROW         2 (path)
+                LIST_APPEND              2
+                JUMP_BACKWARD           46 (to L6)
+        L9:     END_FOR
+                POP_ITER
+       L10:     STORE_FAST               0 (pywin32_ext_paths)
+                STORE_FAST               2 (path)
+
+  25            LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR               13 (extend + NULL|self)
+                LOAD_FAST_BORROW         0 (pywin32_ext_paths)
+                CALL                     1
+                POP_TOP
+
+  28            LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR                5 (join + NULL|self)
+                LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR                8 (_MEIPASS)
+                LOAD_CONST               1 ('pywin32_system32')
+                CALL                     2
+                STORE_FAST               3 (pywin32_system32_path)
+
+  30            LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR               11 (isdir + NULL|self)
+                LOAD_FAST_BORROW         3 (pywin32_system32_path)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L11)
+                NOT_TAKEN
+
+  34            LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  42   L11:     LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR               15 (append + NULL|self)
+                LOAD_FAST_BORROW         3 (pywin32_system32_path)
+                CALL                     1
+                POP_TOP
+
+  47            LOAD_GLOBAL              0 (os)
+                LOAD_ATTR               16 (add_dll_directory)
+                PUSH_NULL
+                LOAD_FAST_BORROW         3 (pywin32_system32_path)
+                CALL                     1
+                POP_TOP
+
+  51            LOAD_GLOBAL              0 (os)
+                LOAD_ATTR               18 (environ)
+                LOAD_ATTR               21 (get + NULL|self)
+                LOAD_CONST               3 ('PATH')
+                LOAD_CONST               2 (None)
+                CALL                     2
+                STORE_FAST               2 (path)
+
+  52            LOAD_FAST_BORROW         2 (path)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         4 (to L12)
+                NOT_TAKEN
+
+  53            LOAD_FAST                3 (pywin32_system32_path)
+                STORE_FAST               2 (path)
+                JUMP_FORWARD            30 (to L13)
+
+  55   L12:     LOAD_FAST_BORROW         3 (pywin32_system32_path)
+                LOAD_GLOBAL              0 (os)
+                LOAD_ATTR               22 (pathsep)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         2 (path)
+                BINARY_OP                0 (+)
+                STORE_FAST               2 (path)
+
+  56   L13:     LOAD_FAST_BORROW         2 (path)
+                LOAD_GLOBAL              0 (os)
+                LOAD_ATTR               18 (environ)
+                LOAD_CONST               3 ('PATH')
+                STORE_SUBSCR
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --   L14:     SWAP                     2
+                POP_TOP
+
+  23            SWAP                     2
+                STORE_FAST               1 (pywin32_ext_path)
+                RERAISE                  0
+
+  --   L15:     SWAP                     2
+                POP_TOP
+
+  24            SWAP                     2
+                STORE_FAST               2 (path)
+                RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L14 [2]
+  L5 to L7 -> L15 [2]
+  L8 to L10 -> L15 [2]

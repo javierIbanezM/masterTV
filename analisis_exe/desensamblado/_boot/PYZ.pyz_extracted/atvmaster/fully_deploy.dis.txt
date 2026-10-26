@@ -1,0 +1,1891 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Despliegue de Fully Kiosk (edición EMM) con una configuración propia.\n\nFlujo oficial de Fully («Legacy Deployment»): exportar los ajustes de una TV de referencia,\ncopiarlos como `fully-once-settings.json` a la raíz del almacenamiento y arrancar la app una vez:\nFully los importa y borra el archivo. La edición EMM es la que puede leer ese archivo en\nAndroid 11+ (la de Google Play no: lo comprobamos en una TV real).\n')
+              STORE_NAME               0 (__doc__)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              1 (__future__)
+              IMPORT_FROM              2 (annotations)
+              STORE_NAME               2 (annotations)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (hashlib)
+              STORE_NAME               3 (hashlib)
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              4 (json)
+              STORE_NAME               4 (json)
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              5 (re)
+              STORE_NAME               5 (re)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              6 (tempfile)
+              STORE_NAME               6 (tempfile)
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              7 (time)
+              STORE_NAME               7 (time)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              8 (urllib.request)
+              STORE_NAME               9 (urllib)
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Path',))
+              IMPORT_NAME             10 (pathlib)
+              IMPORT_FROM             11 (Path)
+              STORE_NAME              11 (Path)
+              POP_TOP
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('Callable',))
+              IMPORT_NAME             12 (typing)
+              IMPORT_FROM             13 (Callable)
+              STORE_NAME              13 (Callable)
+              POP_TOP
+
+ 19           LOAD_SMALL_INT           1
+              LOAD_CONST               5 (('paths',))
+              IMPORT_NAME             14
+              IMPORT_FROM             15 (paths)
+              STORE_NAME              15 (paths)
+              POP_TOP
+
+ 20           LOAD_SMALL_INT           1
+              LOAD_CONST               6 (('Adb', 'AdbError', 'shell_quote'))
+              IMPORT_NAME             16 (adb)
+              IMPORT_FROM             17 (Adb)
+              STORE_NAME              17 (Adb)
+              IMPORT_FROM             18 (AdbError)
+              STORE_NAME              18 (AdbError)
+              IMPORT_FROM             19 (shell_quote)
+              STORE_NAME              19 (shell_quote)
+              POP_TOP
+
+ 21           LOAD_SMALL_INT           1
+              LOAD_CONST               7 (('EMM_PKG', 'FULLY_PKG', 'FullyConfigurator'))
+              IMPORT_NAME             20 (fully_config)
+              IMPORT_FROM             21 (EMM_PKG)
+              STORE_NAME              21 (EMM_PKG)
+              IMPORT_FROM             22 (FULLY_PKG)
+              STORE_NAME              22 (FULLY_PKG)
+              IMPORT_FROM             23 (FullyConfigurator)
+              STORE_NAME              23 (FullyConfigurator)
+              POP_TOP
+
+ 22           LOAD_SMALL_INT           1
+              LOAD_CONST               8 (('normalize_url',))
+              IMPORT_NAME             24 (kiosk)
+              IMPORT_FROM             25 (normalize_url)
+              STORE_NAME              25 (normalize_url)
+              POP_TOP
+
+ 23           LOAD_SMALL_INT           1
+              LOAD_CONST               9 (('Device',))
+              IMPORT_NAME             26 (store)
+              IMPORT_FROM             27 (Device)
+              STORE_NAME              27 (Device)
+              POP_TOP
+
+ 25           LOAD_CONST              10 ('https://www.fully-kiosk.com/docs/es/getting-started/downloads')
+              STORE_NAME              28 (SOURCE_PAGE)
+
+ 26           LOAD_CONST              11 ('https://www.fully-kiosk.com/files/2026/08/Fully-Kiosk-Browser-v1.61.2-emm.apk')
+              STORE_NAME              29 (FALLBACK_EMM_URL)
+
+ 27           LOAD_NAME                5 (re)
+              LOAD_ATTR               60 (compile)
+              PUSH_NULL
+              LOAD_CONST              12 ('href="(https://www\\.fully-kiosk\\.com/files/[^"]*Fully-Kiosk-Browser-v[\\d.]+-emm\\.apk)"')
+              CALL                     1
+              STORE_NAME              31 (_EMM_LINK)
+
+ 28           LOAD_CONST              13 ('/sdcard/fully-once-settings.json')
+              STORE_NAME              32 (ONCE_FILE)
+
+ 29           LOAD_CONST              14 ('/sdcard/Download/fully-settings.json')
+              STORE_NAME              33 (EXPORT_REMOTE)
+
+ 30           LOAD_CONST              15 ('User-Agent')
+              LOAD_CONST              16 ('AndroidTvMaster')
+              BUILD_MAP                1
+              STORE_NAME              34 (_UA)
+
+ 34           LOAD_CONST              17 (<code object __annotate__ at 0x00000204BA0934B0, file "atvmaster\fully_deploy.py", line 34>)
+              MAKE_FUNCTION
+              LOAD_CONST              18 (<code object find_emm_url at 0x00000204BA593490, file "atvmaster\fully_deploy.py", line 34>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              35 (find_emm_url)
+
+ 47           LOAD_CONST              19 (<code object __annotate__ at 0x00000204BA092880, file "atvmaster\fully_deploy.py", line 47>)
+              MAKE_FUNCTION
+              LOAD_CONST              20 (<code object apk_dir at 0x00000204BA0BB8A0, file "atvmaster\fully_deploy.py", line 47>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              36 (apk_dir)
+
+ 53           LOAD_CONST              21 (<code object __annotate__ at 0x00000204BA092C40, file "atvmaster\fully_deploy.py", line 53>)
+              MAKE_FUNCTION
+              LOAD_CONST              22 (<code object apk_info at 0x00000204B9FC3690, file "atvmaster\fully_deploy.py", line 53>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              37 (apk_info)
+
+ 62           LOAD_CONST              23 (<code object <lambda> at 0x00000204BA0C2CD0, file "atvmaster\fully_deploy.py", line 62>)
+              MAKE_FUNCTION
+              BUILD_TUPLE              1
+              LOAD_CONST              24 (<code object __annotate__ at 0x00000204BA08AD30, file "atvmaster\fully_deploy.py", line 62>)
+              MAKE_FUNCTION
+              LOAD_CONST              25 (<code object download_apk at 0x00000204BA3735D0, file "atvmaster\fully_deploy.py", line 62>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              38 (download_apk)
+
+ 86           LOAD_CONST              26 (<code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\fully_deploy.py", line 86>)
+              MAKE_FUNCTION
+              LOAD_CONST              27 (<code object template_path at 0x00000204BA0FF440, file "atvmaster\fully_deploy.py", line 86>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              39 (template_path)
+
+ 90           LOAD_CONST              28 (<code object __annotate__ at 0x00000204BA092970, file "atvmaster\fully_deploy.py", line 90>)
+              MAKE_FUNCTION
+              LOAD_CONST              29 (<code object load_template at 0x00000204B9F718F0, file "atvmaster\fully_deploy.py", line 90>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              40 (load_template)
+
+ 97           LOAD_CONST              30 (<code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\fully_deploy.py", line 97>)
+              MAKE_FUNCTION
+              LOAD_CONST              31 (<code object save_template at 0x00000204BA0B7230, file "atvmaster\fully_deploy.py", line 97>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              41 (save_template)
+
+103           LOAD_CONST              32 (<code object __annotate__ at 0x00000204BA0914D0, file "atvmaster\fully_deploy.py", line 103>)
+              MAKE_FUNCTION
+              LOAD_CONST              33 (<code object import_template_file at 0x00000204BA0BB0C0, file "atvmaster\fully_deploy.py", line 103>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              42 (import_template_file)
+
+109           LOAD_CONST              34 (<code object __annotate__ at 0x00000204BA08A530, file "atvmaster\fully_deploy.py", line 109>)
+              MAKE_FUNCTION
+              LOAD_CONST              35 (<code object render at 0x00000204BA101A50, file "atvmaster\fully_deploy.py", line 109>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              43 (render)
+
+119           LOAD_CONST              36 (<code object __annotate__ at 0x00000204BA08B330, file "atvmaster\fully_deploy.py", line 119>)
+              MAKE_FUNCTION
+              LOAD_CONST              37 (<code object export_template_from_tv at 0x00000204BA388300, file "atvmaster\fully_deploy.py", line 119>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              44 (export_template_from_tv)
+
+148           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              38 (<code object FullyDeployer at 0x00000204BA102D50, file "atvmaster\fully_deploy.py", line 148>)
+              MAKE_FUNCTION
+              LOAD_CONST              39 ('FullyDeployer')
+              CALL                     2
+              STORE_NAME              45 (FullyDeployer)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0934B0, file "atvmaster\fully_deploy.py", line 34>:
+ 34           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object find_emm_url at 0x00000204BA593490, file "atvmaster\fully_deploy.py", line 34>:
+  34           RESUME                   0
+
+  36           NOP
+
+  37   L1:     LOAD_GLOBAL              0 (urllib)
+               LOAD_ATTR                2 (request)
+               LOAD_ATTR                5 (Request + NULL|self)
+               LOAD_GLOBAL              6 (SOURCE_PAGE)
+               LOAD_GLOBAL              8 (_UA)
+               LOAD_CONST               1 (('headers',))
+               CALL_KW                  2
+               STORE_FAST               0 (req)
+
+  38           LOAD_GLOBAL              0 (urllib)
+               LOAD_ATTR                2 (request)
+               LOAD_ATTR               11 (urlopen + NULL|self)
+               LOAD_FAST_BORROW         0 (req)
+               LOAD_SMALL_INT          20
+               LOAD_CONST               2 (('timeout',))
+               CALL_KW                  2
+               LOAD_ATTR               13 (read + NULL|self)
+               CALL                     0
+               LOAD_ATTR               15 (decode + NULL|self)
+               LOAD_CONST               3 ('utf-8')
+               LOAD_CONST               4 ('replace')
+               CALL                     2
+               STORE_FAST               1 (html)
+
+  41   L2:     LOAD_GLOBAL             20 (_EMM_LINK)
+               LOAD_ATTR               23 (findall + NULL|self)
+               LOAD_FAST                1 (html)
+               CALL                     1
+               STORE_FAST               3 (links)
+
+  42           LOAD_FAST                3 (links)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L3)
+               NOT_TAKEN
+
+  43           LOAD_GLOBAL             19 (AdbError + NULL)
+               LOAD_CONST               7 ('La página de descargas no ofrece ahora la edición EMM (¿ha cambiado el formato?)')
+               CALL                     1
+               RAISE_VARARGS            1
+
+  44   L3:     LOAD_FAST                3 (links)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  39           LOAD_GLOBAL             16 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       21 (to L7)
+               NOT_TAKEN
+               STORE_FAST               2 (e)
+
+  40   L5:     LOAD_GLOBAL             19 (AdbError + NULL)
+               LOAD_CONST               5 ('No se pudo leer la página de descargas de Fully: ')
+               LOAD_FAST                2 (e)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               LOAD_FAST                2 (e)
+               RAISE_VARARGS            2
+
+  --   L6:     LOAD_CONST               6 (None)
+               STORE_FAST               2 (e)
+               DELETE_FAST              2 (e)
+               RERAISE                  1
+
+  39   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L8 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+  L6 to L8 -> L8 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA092880, file "atvmaster\fully_deploy.py", line 47>:
+ 47           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Path')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object apk_dir at 0x00000204BA0BB8A0, file "atvmaster\fully_deploy.py", line 47>:
+ 47           RESUME                   0
+
+ 48           LOAD_GLOBAL              0 (paths)
+              LOAD_ATTR                2 (app_root)
+              PUSH_NULL
+              CALL                     0
+              LOAD_CONST               0 ('tools')
+              BINARY_OP               11 (/)
+              LOAD_CONST               1 ('fully')
+              BINARY_OP               11 (/)
+              STORE_FAST               0 (d)
+
+ 49           LOAD_FAST_BORROW         0 (d)
+              LOAD_ATTR                5 (mkdir + NULL|self)
+              LOAD_CONST               2 (True)
+              LOAD_CONST               2 (True)
+              LOAD_CONST               3 (('parents', 'exist_ok'))
+              CALL_KW                  2
+              POP_TOP
+
+ 50           LOAD_FAST_BORROW         0 (d)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092C40, file "atvmaster\fully_deploy.py", line 53>:
+ 53           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('tuple[Path, int, str] | None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object apk_info at 0x00000204B9FC3690, file "atvmaster\fully_deploy.py", line 53>:
+ 53           RESUME                   0
+
+ 55           LOAD_GLOBAL              1 (sorted + NULL)
+              LOAD_GLOBAL              3 (apk_dir + NULL)
+              CALL                     0
+              LOAD_ATTR                5 (glob + NULL|self)
+              LOAD_CONST               1 ('Fully-Kiosk-Browser-v*-emm.apk')
+              CALL                     1
+              CALL                     1
+              STORE_FAST               0 (found)
+
+ 56           LOAD_FAST_BORROW         0 (found)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+ 57           LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+ 58   L1:     LOAD_FAST_BORROW         0 (found)
+              LOAD_CONST               3 (-1)
+              BINARY_OP               26 ([])
+              STORE_FAST               1 (p)
+
+ 59           LOAD_FAST_BORROW_LOAD_FAST_BORROW 17 (p, p)
+              LOAD_ATTR                7 (stat + NULL|self)
+              CALL                     0
+              LOAD_ATTR                8 (st_size)
+              LOAD_GLOBAL             10 (hashlib)
+              LOAD_ATTR               12 (sha256)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (p)
+              LOAD_ATTR               15 (read_bytes + NULL|self)
+              CALL                     0
+              CALL                     1
+              LOAD_ATTR               17 (hexdigest + NULL|self)
+              CALL                     0
+              BUILD_TUPLE              3
+              RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA0C2CD0, file "atvmaster\fully_deploy.py", line 62>:
+ 62           RESUME                   0
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08AD30, file "atvmaster\fully_deploy.py", line 62>:
+ 62           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('url')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('progress')
+              LOAD_CONST               4 ('Callable[[str], None]')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('tuple[Path, int, str]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object download_apk at 0x00000204BA3735D0, file "atvmaster\fully_deploy.py", line 62>:
+  62            RESUME                   0
+
+  64            LOAD_GLOBAL              1 (apk_dir + NULL)
+                CALL                     0
+                LOAD_FAST_BORROW         0 (url)
+                LOAD_ATTR                3 (rsplit + NULL|self)
+                LOAD_CONST               1 ('/')
+                LOAD_SMALL_INT           1
+                CALL                     2
+                LOAD_SMALL_INT           1
+                BINARY_OP               26 ([])
+                BINARY_OP               11 (/)
+                STORE_FAST               2 (dest)
+
+  65            LOAD_FAST_BORROW         2 (dest)
+                LOAD_ATTR                5 (with_suffix + NULL|self)
+                LOAD_CONST               2 ('.part')
+                CALL                     1
+                STORE_FAST               3 (tmp)
+
+  66            LOAD_GLOBAL              6 (urllib)
+                LOAD_ATTR                8 (request)
+                LOAD_ATTR               11 (Request + NULL|self)
+                LOAD_FAST_BORROW         0 (url)
+                LOAD_GLOBAL             12 (_UA)
+                LOAD_CONST               3 (('headers',))
+                CALL_KW                  2
+                STORE_FAST               4 (req)
+
+  67            LOAD_GLOBAL             14 (hashlib)
+                LOAD_ATTR               16 (sha256)
+                PUSH_NULL
+                CALL                     0
+                STORE_FAST               5 (h)
+
+  68            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (0.0)
+                STORE_FAST_STORE_FAST  118 (last, done)
+
+  69            LOAD_GLOBAL              6 (urllib)
+                LOAD_ATTR                8 (request)
+                LOAD_ATTR               19 (urlopen + NULL|self)
+                LOAD_FAST_BORROW         4 (req)
+                LOAD_SMALL_INT          30
+                LOAD_CONST               5 (('timeout',))
+                CALL_KW                  2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     STORE_FAST               8 (r)
+                LOAD_GLOBAL             21 (open + NULL)
+                LOAD_FAST_BORROW         3 (tmp)
+                LOAD_CONST               6 ('wb')
+                CALL                     2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L2:     STORE_FAST               9 (out)
+
+  70            LOAD_GLOBAL             23 (int + NULL)
+                LOAD_FAST_BORROW         8 (r)
+                LOAD_ATTR               24 (headers)
+                LOAD_ATTR               27 (get + NULL|self)
+                LOAD_CONST               7 ('Content-Length')
+                CALL                     1
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L3)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_SMALL_INT           0
+        L3:     CALL                     1
+                STORE_FAST              10 (total)
+
+  71    L4:     LOAD_FAST_BORROW         8 (r)
+                LOAD_ATTR               29 (read + NULL|self)
+                LOAD_CONST              20 (65536)
+                CALL                     1
+                COPY                     1
+                STORE_FAST              11 (chunk)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      159 (to L11)
+                NOT_TAKEN
+
+  72            LOAD_FAST_BORROW         9 (out)
+                LOAD_ATTR               31 (write + NULL|self)
+                LOAD_FAST_BORROW        11 (chunk)
+                CALL                     1
+                POP_TOP
+
+  73            LOAD_FAST_BORROW         5 (h)
+                LOAD_ATTR               33 (update + NULL|self)
+                LOAD_FAST_BORROW        11 (chunk)
+                CALL                     1
+                POP_TOP
+
+  74            LOAD_FAST_BORROW         6 (done)
+                LOAD_GLOBAL             35 (len + NULL)
+                LOAD_FAST_BORROW        11 (chunk)
+                CALL                     1
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (done)
+
+  75            LOAD_GLOBAL             36 (time)
+                LOAD_ATTR               36 (time)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_BORROW         7 (last)
+                BINARY_OP               10 (-)
+                LOAD_CONST               8 (1.5)
+                COMPARE_OP             148 (bool(>))
+        L5:     POP_JUMP_IF_TRUE         3 (to L6)
+                NOT_TAKEN
+                JUMP_BACKWARD          112 (to L4)
+
+  76    L6:     LOAD_GLOBAL             36 (time)
+                LOAD_ATTR               36 (time)
+                PUSH_NULL
+                CALL                     0
+                STORE_FAST               7 (last)
+
+  77            LOAD_FAST                1 (progress)
+                PUSH_NULL
+                LOAD_CONST               9 ('Descargando… ')
+                LOAD_FAST_BORROW         6 (done)
+                LOAD_CONST              10 (1048576)
+                BINARY_OP               11 (/)
+                LOAD_CONST              11 ('.1f')
+                FORMAT_WITH_SPEC
+                BUILD_STRING             2
+                LOAD_FAST_BORROW        10 (total)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       15 (to L9)
+        L7:     NOT_TAKEN
+        L8:     LOAD_CONST              12 (' / ')
+                LOAD_FAST_BORROW        10 (total)
+                LOAD_CONST              10 (1048576)
+                BINARY_OP               11 (/)
+                LOAD_CONST              11 ('.1f')
+                FORMAT_WITH_SPEC
+                LOAD_CONST              13 (' MB')
+                BUILD_STRING             3
+                JUMP_FORWARD             1 (to L10)
+        L9:     LOAD_CONST              13 (' MB')
+       L10:     BINARY_OP                0 (+)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          183 (to L4)
+
+  71   L11:     NOP
+
+  69   L12:     LOAD_CONST              14 (None)
+                LOAD_CONST              14 (None)
+                LOAD_CONST              14 (None)
+                CALL                     3
+                POP_TOP
+       L13:     LOAD_CONST              14 (None)
+                LOAD_CONST              14 (None)
+                LOAD_CONST              14 (None)
+                CALL                     3
+                POP_TOP
+
+  78   L14:     LOAD_FAST_BORROW         6 (done)
+                LOAD_CONST              15 (1000000)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       34 (to L15)
+                NOT_TAKEN
+
+  79            LOAD_FAST_BORROW         3 (tmp)
+                LOAD_ATTR               39 (unlink + NULL|self)
+                LOAD_CONST              16 (True)
+                LOAD_CONST              17 (('missing_ok',))
+                CALL_KW                  1
+                POP_TOP
+
+  80            LOAD_GLOBAL             41 (AdbError + NULL)
+                LOAD_CONST              18 ('La descarga parece incompleta (')
+                LOAD_FAST_BORROW         6 (done)
+                FORMAT_SIMPLE
+                LOAD_CONST              19 (' bytes)')
+                BUILD_STRING             3
+                CALL                     1
+                RAISE_VARARGS            1
+
+  81   L15:     LOAD_FAST_BORROW         3 (tmp)
+                LOAD_ATTR               43 (replace + NULL|self)
+                LOAD_FAST_BORROW         2 (dest)
+                CALL                     1
+                POP_TOP
+
+  82            LOAD_FAST_BORROW_LOAD_FAST_BORROW 38 (dest, done)
+                LOAD_FAST_BORROW         5 (h)
+                LOAD_ATTR               45 (hexdigest + NULL|self)
+                CALL                     0
+                BUILD_TUPLE              3
+                RETURN_VALUE
+
+  69   L16:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L17)
+                NOT_TAKEN
+                RERAISE                  2
+       L17:     POP_TOP
+       L18:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 99 (to L13)
+
+  --   L19:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  69   L20:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L21)
+                NOT_TAKEN
+                RERAISE                  2
+       L21:     POP_TOP
+       L22:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 110 (to L14)
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L20 [2] lasti
+  L2 to L5 -> L16 [4] lasti
+  L6 to L7 -> L16 [4] lasti
+  L8 to L11 -> L16 [4] lasti
+  L12 to L13 -> L20 [2] lasti
+  L16 to L18 -> L19 [6] lasti
+  L18 to L20 -> L20 [2] lasti
+  L20 to L22 -> L23 [4] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\fully_deploy.py", line 86>:
+ 86           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Path')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object template_path at 0x00000204BA0FF440, file "atvmaster\fully_deploy.py", line 86>:
+ 86           RESUME                   0
+
+ 87           LOAD_GLOBAL              0 (paths)
+              LOAD_ATTR                2 (data_dir)
+              PUSH_NULL
+              CALL                     0
+              LOAD_CONST               0 ('fully-template.json')
+              BINARY_OP               11 (/)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092970, file "atvmaster\fully_deploy.py", line 90>:
+ 90           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('dict | None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object load_template at 0x00000204B9F718F0, file "atvmaster\fully_deploy.py", line 90>:
+  90           RESUME                   0
+
+  91           NOP
+
+  92   L1:     LOAD_GLOBAL              0 (json)
+               LOAD_ATTR                2 (loads)
+               PUSH_NULL
+               LOAD_GLOBAL              5 (template_path + NULL)
+               CALL                     0
+               LOAD_ATTR                7 (read_text + NULL|self)
+               LOAD_CONST               0 ('utf-8-sig')
+               CALL                     1
+               CALL                     1
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  93           LOAD_GLOBAL              8 (OSError)
+               LOAD_GLOBAL             10 (ValueError)
+               BUILD_TUPLE              2
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  94   L4:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  93   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\fully_deploy.py", line 97>:
+ 97           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('data')
+              LOAD_CONST               2 ('dict')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object save_template at 0x00000204BA0B7230, file "atvmaster\fully_deploy.py", line 97>:
+ 97           RESUME                   0
+
+ 98           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (data)
+              LOAD_GLOBAL              2 (dict)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        8 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 ('startURL')
+              LOAD_FAST_BORROW         0 (data)
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+ 99   L1:     LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               1 ('No parece un fully-settings.json válido (falta «startURL»)')
+              CALL                     1
+              RAISE_VARARGS            1
+
+100   L2:     LOAD_GLOBAL              7 (template_path + NULL)
+              CALL                     0
+              LOAD_ATTR                9 (write_text + NULL|self)
+              LOAD_GLOBAL             10 (json)
+              LOAD_ATTR               12 (dumps)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (data)
+              LOAD_SMALL_INT           2
+              LOAD_CONST               2 (False)
+              LOAD_CONST               3 (('indent', 'ensure_ascii'))
+              CALL_KW                  3
+              LOAD_CONST               4 ('utf-8')
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0914D0, file "atvmaster\fully_deploy.py", line 103>:
+103           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('path')
+              LOAD_CONST               2 ('str | Path')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('dict')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object import_template_file at 0x00000204BA0BB0C0, file "atvmaster\fully_deploy.py", line 103>:
+103           RESUME                   0
+
+104           LOAD_GLOBAL              0 (json)
+              LOAD_ATTR                2 (loads)
+              PUSH_NULL
+              LOAD_GLOBAL              5 (Path + NULL)
+              LOAD_FAST_BORROW         0 (path)
+              CALL                     1
+              LOAD_ATTR                7 (read_text + NULL|self)
+              LOAD_CONST               0 ('utf-8-sig')
+              CALL                     1
+              CALL                     1
+              STORE_FAST               1 (data)
+
+105           LOAD_GLOBAL              9 (save_template + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              POP_TOP
+
+106           LOAD_FAST_BORROW         1 (data)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08A530, file "atvmaster\fully_deploy.py", line 109>:
+109           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('template')
+              LOAD_CONST               2 ('dict')
+              LOAD_CONST               3 ('d')
+              LOAD_CONST               4 ('Device')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               2 ('dict')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object render at 0x00000204BA101A50, file "atvmaster\fully_deploy.py", line 109>:
+109           RESUME                   0
+
+111           LOAD_GLOBAL              1 (dict + NULL)
+              LOAD_FAST_BORROW         0 (template)
+              CALL                     1
+              STORE_FAST               2 (out)
+
+112           LOAD_GLOBAL              3 (normalize_url + NULL)
+              LOAD_FAST_BORROW         1 (d)
+              LOAD_ATTR                4 (kiosk_url)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (out)
+              LOAD_CONST               1 ('startURL')
+              STORE_SUBSCR
+
+113           LOAD_CONST               2 (True)
+              LOAD_FAST_BORROW         2 (out)
+              LOAD_CONST               3 ('launchOnBoot')
+              STORE_SUBSCR
+
+114           LOAD_CONST               2 (True)
+              LOAD_FAST_BORROW         2 (out)
+              LOAD_CONST               4 ('keepScreenOn')
+              STORE_SUBSCR
+
+115           LOAD_FAST_BORROW         2 (out)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08B330, file "atvmaster\fully_deploy.py", line 119>:
+119           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('adb')
+              LOAD_CONST               2 ('Adb')
+              LOAD_CONST               3 ('cfg')
+              LOAD_CONST               4 ('FullyConfigurator')
+              LOAD_CONST               5 ('serial')
+              LOAD_CONST               6 ('str')
+              LOAD_CONST               7 ('return')
+              LOAD_CONST               8 ('dict')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object export_template_from_tv at 0x00000204BA388300, file "atvmaster\fully_deploy.py", line 119>:
+ 119            RESUME                   0
+
+ 122            LOAD_FAST_BORROW         1 (cfg)
+                LOAD_ATTR                1 (open_settings + NULL|self)
+                LOAD_FAST_BORROW         2 (serial)
+                CALL                     1
+                POP_TOP
+
+ 123            NOP
+
+ 124    L1:     LOAD_FAST_BORROW         1 (cfg)
+                LOAD_ATTR                3 (open_category + NULL|self)
+                LOAD_FAST_BORROW         2 (serial)
+                LOAD_CONST               1 ('Other Settings')
+                LOAD_CONST               2 ('Export Settings')
+                LOAD_CONST               3 (('expect',))
+                CALL_KW                  3
+                POP_TOP
+
+ 125            LOAD_FAST_BORROW         1 (cfg)
+                LOAD_ATTR                5 (_find + NULL|self)
+                LOAD_FAST_BORROW         2 (serial)
+                LOAD_CONST               2 ('Export Settings')
+                CALL                     2
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   52 (_, row)
+
+ 126            LOAD_FAST_BORROW         1 (cfg)
+                LOAD_ATTR                7 (tap + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (serial, row)
+                CALL                     2
+                POP_TOP
+
+ 127            LOAD_GLOBAL              8 (time)
+                LOAD_ATTR               10 (sleep)
+                PUSH_NULL
+                LOAD_SMALL_INT           3
+                CALL                     1
+                POP_TOP
+
+ 128            LOAD_GLOBAL             13 (next + NULL)
+                LOAD_CONST               4 (<code object <genexpr> at 0x00000204BA0AB230, file "atvmaster\fully_deploy.py", line 128>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         1 (cfg)
+                LOAD_ATTR               15 (dump + NULL|self)
+                LOAD_FAST_BORROW         2 (serial)
+                CALL                     1
+                GET_ITER
+                CALL                     0
+                LOAD_CONST               5 (None)
+                CALL                     2
+                STORE_FAST               5 (save)
+
+ 129            LOAD_FAST_BORROW         5 (save)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L2)
+                NOT_TAKEN
+
+ 130            LOAD_GLOBAL             17 (AdbError + NULL)
+                LOAD_CONST               6 ('No apareció el selector «Guardar» de Android')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 131    L2:     LOAD_FAST_BORROW         1 (cfg)
+                LOAD_ATTR                7 (tap + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 37 (serial, save)
+                CALL                     2
+                POP_TOP
+
+ 132            LOAD_GLOBAL              8 (time)
+                LOAD_ATTR               10 (sleep)
+                PUSH_NULL
+                LOAD_SMALL_INT           3
+                CALL                     1
+                POP_TOP
+
+ 133            LOAD_GLOBAL             19 (Path + NULL)
+                LOAD_GLOBAL             20 (tempfile)
+                LOAD_ATTR               22 (mkdtemp)
+                PUSH_NULL
+                CALL                     0
+                CALL                     1
+                LOAD_CONST               7 ('fully-settings.json')
+                BINARY_OP               11 (/)
+                STORE_FAST               6 (tmp)
+
+ 134            LOAD_FAST_BORROW         0 (adb)
+                LOAD_ATTR               25 (pull + NULL|self)
+                LOAD_FAST_BORROW         2 (serial)
+                LOAD_GLOBAL             26 (EXPORT_REMOTE)
+                LOAD_GLOBAL             29 (str + NULL)
+                LOAD_FAST_BORROW         6 (tmp)
+                CALL                     1
+                CALL                     3
+                STORE_FAST               7 (r)
+
+ 135            LOAD_FAST_BORROW         7 (r)
+                LOAD_ATTR               30 (ok)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        32 (to L3)
+                NOT_TAKEN
+
+ 136            LOAD_GLOBAL             17 (AdbError + NULL)
+                LOAD_CONST               8 ('No se pudo descargar ')
+                LOAD_GLOBAL             26 (EXPORT_REMOTE)
+                FORMAT_SIMPLE
+                LOAD_CONST               9 (': ')
+                LOAD_FAST_BORROW         7 (r)
+                LOAD_ATTR               32 (text)
+                FORMAT_SIMPLE
+                BUILD_STRING             4
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 137    L3:     LOAD_GLOBAL             34 (json)
+                LOAD_ATTR               36 (loads)
+                PUSH_NULL
+                LOAD_FAST_BORROW         6 (tmp)
+                LOAD_ATTR               39 (read_text + NULL|self)
+                LOAD_CONST              10 ('utf-8-sig')
+                CALL                     1
+                CALL                     1
+                STORE_FAST               8 (data)
+
+ 139    L4:     NOP
+
+ 140    L5:     LOAD_FAST_BORROW         1 (cfg)
+                LOAD_ATTR               41 (exit_settings + NULL|self)
+                LOAD_FAST_BORROW         2 (serial)
+                CALL                     1
+                POP_TOP
+
+ 143    L6:     LOAD_GLOBAL             43 (save_template + NULL)
+                LOAD_FAST                8 (data)
+                CALL                     1
+                POP_TOP
+
+ 144            LOAD_FAST                8 (data)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 141            LOAD_GLOBAL             16 (AdbError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 142    L8:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 26 (to L6)
+
+ 141    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+ 139   L12:     NOP
+
+ 140   L13:     LOAD_FAST                1 (cfg)
+                LOAD_ATTR               41 (exit_settings + NULL|self)
+                LOAD_FAST                2 (serial)
+                CALL                     1
+                POP_TOP
+       L14:     RERAISE                  0
+
+  --   L15:     PUSH_EXC_INFO
+
+ 141            LOAD_GLOBAL             16 (AdbError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+ 142   L16:     POP_EXCEPT
+                RERAISE                  0
+
+ 141   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L19:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L11 [0]
+  L5 to L6 -> L7 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+  L11 to L12 -> L19 [1] lasti
+  L13 to L14 -> L15 [2]
+  L14 to L15 -> L19 [1] lasti
+  L15 to L16 -> L18 [3] lasti
+  L16 to L17 -> L19 [1] lasti
+  L17 to L18 -> L18 [3] lasti
+  L18 to L19 -> L19 [1] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA0AB230, file "atvmaster\fully_deploy.py", line 128>:
+ 128           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                39 (to L5)
+               STORE_FAST_LOAD_FAST    17 (n, n)
+               LOAD_ATTR                0 (text)
+               LOAD_ATTR                3 (upper + NULL|self)
+               CALL                     0
+               LOAD_CONST               2 (('GUARDAR', 'SAVE'))
+               CONTAINS_OP              0 (in)
+       L3:     POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           35 (to L2)
+       L4:     LOAD_FAST_BORROW         1 (n)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           41 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [0] lasti
+  L4 to L6 -> L6 [0] lasti
+
+Disassembly of <code object FullyDeployer at 0x00000204BA102D50, file "atvmaster\fully_deploy.py", line 148>:
+148           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('FullyDeployer')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         148
+              STORE_NAME               3 (__firstlineno__)
+
+149           LOAD_CONST               1 ('La edición EMM es OTRA app (`com.fullykiosk.emm`): se instala junto a la de Play sin\ntocarla. Para leer el archivo de importación necesita «acceso a todos los archivos».')
+              STORE_NAME               4 (__doc__)
+
+152           LOAD_NAME                5 (print)
+              BUILD_TUPLE              1
+              LOAD_CONST               2 (<code object __annotate__ at 0x00000204BA08B130, file "atvmaster\fully_deploy.py", line 152>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 (<code object __init__ at 0x00000204BA08AC30, file "atvmaster\fully_deploy.py", line 152>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               6 (__init__)
+
+155           LOAD_CONST               4 (<code object __annotate__ at 0x00000204BA08AF30, file "atvmaster\fully_deploy.py", line 155>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 (<code object version_of at 0x00000204B9FB6D30, file "atvmaster\fully_deploy.py", line 155>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               7 (version_of)
+
+159           LOAD_CONST               6 (<code object __annotate__ at 0x00000204BA088330, file "atvmaster\fully_deploy.py", line 159>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 (<code object _install at 0x00000204BA46E880, file "atvmaster\fully_deploy.py", line 159>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               8 (_install)
+
+165           LOAD_CONST               8 (<code object __annotate__ at 0x00000204BA0935A0, file "atvmaster\fully_deploy.py", line 165>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 (<code object _grant at 0x00000204B9F4ED80, file "atvmaster\fully_deploy.py", line 165>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               9 (_grant)
+
+171           LOAD_CONST              14 ((False,))
+              LOAD_CONST              10 (<code object __annotate__ at 0x00000204BA10A430, file "atvmaster\fully_deploy.py", line 171>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 (<code object deploy at 0x00000204BA594AD0, file "atvmaster\fully_deploy.py", line 171>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              10 (deploy)
+              LOAD_CONST              12 (('adb', 'cfg', 'log'))
+              STORE_NAME              11 (__static_attributes__)
+              LOAD_CONST              13 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08B130, file "atvmaster\fully_deploy.py", line 152>:
+152           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('adb')
+              LOAD_CONST               2 ('Adb')
+              LOAD_CONST               3 ('cfg')
+              LOAD_CONST               4 ('FullyConfigurator')
+              LOAD_CONST               5 ('log')
+              LOAD_CONST               6 ('Callable[[str], None]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA08AC30, file "atvmaster\fully_deploy.py", line 152>:
+152           RESUME                   0
+
+153           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (adb, cfg)
+              LOAD_FAST_BORROW         3 (log)
+              SWAP                     3
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (adb)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (cfg)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (log)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08AF30, file "atvmaster\fully_deploy.py", line 155>:
+155           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('pkg')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object version_of at 0x00000204B9FB6D30, file "atvmaster\fully_deploy.py", line 155>:
+155           RESUME                   0
+
+156           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (adb)
+              LOAD_ATTR                3 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('dumpsys package ')
+              LOAD_FAST_BORROW         2 (pkg)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' | grep -m1 versionName')
+              BUILD_STRING             3
+              CALL                     2
+              STORE_FAST               3 (r)
+
+157           LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                4 (out)
+              LOAD_ATTR                7 (strip + NULL|self)
+              CALL                     0
+              LOAD_ATTR                9 (replace + NULL|self)
+              LOAD_CONST               2 ('versionName=')
+              LOAD_CONST               3 ('')
+              CALL                     2
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               4 ('no instalada')
+      L1:     RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA088330, file "atvmaster\fully_deploy.py", line 159>:
+159           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('apk')
+              LOAD_CONST               4 ('Path')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object _install at 0x00000204BA46E880, file "atvmaster\fully_deploy.py", line 159>:
+159           RESUME                   0
+
+160           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (adb)
+              LOAD_ATTR                3 (run + NULL|self)
+              LOAD_CONST               0 ('install')
+              LOAD_CONST               1 ('-r')
+              LOAD_CONST               2 ('-d')
+              LOAD_GLOBAL              5 (str + NULL)
+              LOAD_FAST_BORROW         2 (apk)
+              CALL                     1
+              BUILD_LIST               4
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               3 (600)
+              LOAD_CONST               4 (('timeout',))
+              CALL_KW                  3
+              STORE_FAST               3 (r)
+
+161           LOAD_CONST               5 ('Success')
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                6 (text)
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       72 (to L2)
+              NOT_TAKEN
+
+162           LOAD_GLOBAL              9 (AdbError + NULL)
+              LOAD_CONST               6 ('La instalación falló: ')
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                6 (text)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       40 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                6 (text)
+              LOAD_ATTR               11 (splitlines + NULL|self)
+              CALL                     0
+              LOAD_CONST               8 (-1)
+              BINARY_OP               26 ([])
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               7 ('sin detalle')
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+163   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (version_of + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_GLOBAL             14 (EMM_PKG)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0935A0, file "atvmaster\fully_deploy.py", line 165>:
+165           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('s')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('None')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object _grant at 0x00000204B9F4ED80, file "atvmaster\fully_deploy.py", line 165>:
+165           RESUME                   0
+
+166           LOAD_CONST               7 (('READ_EXTERNAL_STORAGE', 'WRITE_EXTERNAL_STORAGE'))
+              GET_ITER
+      L1:     FOR_ITER                41 (to L2)
+              STORE_FAST               2 (perm)
+
+167           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (adb)
+              LOAD_ATTR                3 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (s)
+              LOAD_CONST               1 ('pm grant ')
+              LOAD_GLOBAL              4 (EMM_PKG)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (' android.permission.')
+              LOAD_FAST_BORROW         2 (perm)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              CALL                     2
+              POP_TOP
+              JUMP_BACKWARD           43 (to L1)
+
+166   L2:     END_FOR
+              POP_ITER
+
+168           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (adb)
+              LOAD_ATTR                3 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (s)
+              LOAD_CONST               3 ('appops set ')
+              LOAD_GLOBAL              4 (EMM_PKG)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (' MANAGE_EXTERNAL_STORAGE allow')
+              BUILD_STRING             3
+              CALL                     2
+              POP_TOP
+
+169           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (adb)
+              LOAD_ATTR                3 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (s)
+              LOAD_CONST               3 ('appops set ')
+              LOAD_GLOBAL              4 (EMM_PKG)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (' SYSTEM_ALERT_WINDOW allow')
+              BUILD_STRING             3
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               6 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10A430, file "atvmaster\fully_deploy.py", line 171>:
+171           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('d')
+              LOAD_CONST               2 ('Device')
+              LOAD_CONST               3 ('apk')
+              LOAD_CONST               4 ('Path')
+              LOAD_CONST               5 ('template')
+              LOAD_CONST               6 ('dict')
+              LOAD_CONST               7 ('disable_play')
+              LOAD_CONST               8 ('bool')
+              LOAD_CONST               9 ('return')
+              LOAD_CONST              10 ('list[str]')
+              BUILD_MAP                5
+              RETURN_VALUE
+
+Disassembly of <code object deploy at 0x00000204BA594AD0, file "atvmaster\fully_deploy.py", line 171>:
+ 171            RESUME                   0
+
+ 172            LOAD_FAST_BORROW         1 (d)
+                LOAD_ATTR                0 (serial)
+                STORE_FAST               5 (s)
+
+ 173            BUILD_LIST               0
+                STORE_FAST               6 (rep)
+
+ 174            LOAD_GLOBAL              3 (render + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (template, d)
+                CALL                     2
+                STORE_FAST               7 (settings)
+
+ 175            LOAD_FAST_BORROW         6 (rep)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST               0 ('Fully Play: ')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                7 (version_of + NULL|self)
+                LOAD_FAST_BORROW         5 (s)
+                LOAD_GLOBAL              8 (FULLY_PKG)
+                CALL                     2
+                FORMAT_SIMPLE
+                LOAD_CONST               1 (' · Fully EMM antes: ')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                7 (version_of + NULL|self)
+                LOAD_FAST_BORROW         5 (s)
+                LOAD_GLOBAL             10 (EMM_PKG)
+                CALL                     2
+                FORMAT_SIMPLE
+                BUILD_STRING             4
+                CALL                     1
+                POP_TOP
+
+ 178            LOAD_GLOBAL             13 (Path + NULL)
+                LOAD_GLOBAL             14 (tempfile)
+                LOAD_ATTR               16 (mkdtemp)
+                PUSH_NULL
+                CALL                     0
+                CALL                     1
+                LOAD_CONST               2 ('fully-once-settings.json')
+                BINARY_OP               11 (/)
+                STORE_FAST               8 (tmp)
+
+ 179            LOAD_FAST_BORROW         8 (tmp)
+                LOAD_ATTR               19 (write_text + NULL|self)
+                LOAD_GLOBAL             20 (json)
+                LOAD_ATTR               22 (dumps)
+                PUSH_NULL
+                LOAD_FAST_BORROW         7 (settings)
+                LOAD_SMALL_INT           2
+                LOAD_CONST               3 (False)
+                LOAD_CONST               4 (('indent', 'ensure_ascii'))
+                CALL_KW                  3
+                LOAD_CONST               5 ('utf-8')
+                CALL                     2
+                POP_TOP
+
+ 180            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               24 (adb)
+                LOAD_ATTR               27 (push + NULL|self)
+                LOAD_FAST_BORROW         5 (s)
+                LOAD_GLOBAL             29 (str + NULL)
+                LOAD_FAST_BORROW         8 (tmp)
+                CALL                     1
+                LOAD_GLOBAL             30 (ONCE_FILE)
+                CALL                     3
+                STORE_FAST               9 (p)
+
+ 181            LOAD_FAST_BORROW         9 (p)
+                LOAD_ATTR               32 (ok)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        25 (to L1)
+                NOT_TAKEN
+
+ 182            LOAD_GLOBAL             35 (AdbError + NULL)
+                LOAD_CONST               6 ('No se pudo copiar la configuración a la TV: ')
+                LOAD_FAST_BORROW         9 (p)
+                LOAD_ATTR               36 (text)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 183    L1:     LOAD_FAST_BORROW         6 (rep)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST               7 ('Configuración copiada a ')
+                LOAD_GLOBAL             30 (ONCE_FILE)
+                FORMAT_SIMPLE
+                LOAD_CONST               8 (' (Start URL ')
+                LOAD_FAST_BORROW         7 (settings)
+                LOAD_CONST               9 ('startURL')
+                BINARY_OP               26 ([])
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (')')
+                BUILD_STRING             5
+                CALL                     1
+                POP_TOP
+
+ 186            NOP
+
+ 187    L2:     LOAD_FAST_BORROW         6 (rep)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST              11 ('APK EMM instalada: versión ')
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               39 (_install + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 82 (s, apk)
+                CALL                     2
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+
+ 188            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               41 (_grant + NULL|self)
+                LOAD_FAST_BORROW         5 (s)
+                CALL                     1
+                POP_TOP
+
+ 189            LOAD_FAST_BORROW         6 (rep)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST              12 ('Permisos concedidos: almacenamiento, «todos los archivos» y «mostrar sobre otras apps»')
+                CALL                     1
+                POP_TOP
+
+ 195    L3:     LOAD_FAST                0 (self)
+                LOAD_ATTR               24 (adb)
+                LOAD_ATTR               43 (shell + NULL|self)
+                LOAD_FAST                5 (s)
+                LOAD_CONST              14 ('am force-stop ')
+                LOAD_GLOBAL             10 (EMM_PKG)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     2
+                POP_TOP
+
+ 196            LOAD_FAST                0 (self)
+                LOAD_ATTR               24 (adb)
+                LOAD_ATTR               47 (launch + NULL|self)
+                LOAD_FAST                5 (s)
+                LOAD_GLOBAL             10 (EMM_PKG)
+                CALL                     2
+                POP_TOP
+
+ 197            LOAD_CONST               3 (False)
+                STORE_FAST              10 (consumed)
+
+ 198            LOAD_GLOBAL             49 (range + NULL)
+                LOAD_SMALL_INT          12
+                CALL                     1
+                GET_ITER
+        L4:     FOR_ITER                80 (to L6)
+                STORE_FAST              11 (_)
+
+ 199            LOAD_GLOBAL             50 (time)
+                LOAD_ATTR               52 (sleep)
+                PUSH_NULL
+                LOAD_SMALL_INT           5
+                CALL                     1
+                POP_TOP
+
+ 200            LOAD_CONST              15 ('No such file')
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               24 (adb)
+                LOAD_ATTR               43 (shell + NULL|self)
+                LOAD_FAST                5 (s)
+                LOAD_CONST              16 ('ls ')
+                LOAD_GLOBAL             30 (ONCE_FILE)
+                FORMAT_SIMPLE
+                LOAD_CONST              17 (' 2>&1')
+                BUILD_STRING             3
+                CALL                     2
+                LOAD_ATTR               36 (text)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_TRUE         3 (to L5)
+                NOT_TAKEN
+                JUMP_BACKWARD           78 (to L4)
+
+ 201    L5:     LOAD_CONST              18 (True)
+                STORE_FAST              10 (consumed)
+
+ 202            POP_TOP
+                JUMP_FORWARD             2 (to L7)
+
+ 198    L6:     END_FOR
+                POP_ITER
+
+ 203    L7:     LOAD_FAST                6 (rep)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST              19 ('Importación automática: ')
+                LOAD_FAST               10 (consumed)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L8)
+                NOT_TAKEN
+                LOAD_CONST              20 ('hecha (Fully consumió el archivo)')
+                JUMP_FORWARD             1 (to L9)
+
+ 204    L8:     LOAD_CONST              21 ('NO confirmada (el archivo sigue en la TV)')
+
+ 203    L9:     BINARY_OP                0 (+)
+                CALL                     1
+                POP_TOP
+
+ 207            LOAD_FAST                0 (self)
+                LOAD_ATTR               54 (cfg)
+                LOAD_ATTR               57 (with_pkg + NULL|self)
+                LOAD_GLOBAL             10 (EMM_PKG)
+                CALL                     1
+                STORE_FAST              12 (cfg)
+
+ 208            LOAD_FAST               12 (cfg)
+                LOAD_ATTR               59 (configure + NULL|self)
+                LOAD_FAST_LOAD_FAST     87 (s, settings)
+                LOAD_CONST               9 ('startURL')
+                BINARY_OP               26 ([])
+                LOAD_CONST              18 (True)
+                LOAD_CONST              22 (('check_only',))
+                CALL_KW                  3
+                STORE_FAST              13 (state)
+
+ 209            LOAD_FAST_LOAD_FAST    109 (rep, state)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR     14 (x)
+                SWAP                     2
+       L10:     BUILD_LIST               0
+                SWAP                     2
+       L11:     FOR_ITER                12 (to L12)
+                STORE_FAST              14 (x)
+                LOAD_CONST              23 ('Verificación: ')
+                LOAD_FAST               14 (x)
+                BINARY_OP                0 (+)
+                LIST_APPEND              2
+                JUMP_BACKWARD           14 (to L11)
+       L12:     END_FOR
+                POP_ITER
+       L13:     SWAP                     2
+                STORE_FAST              14 (x)
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (rep)
+
+ 210            LOAD_GLOBAL             60 (any)
+                COPY                     1
+                LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       28 (to L17)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST              24 (<code object <genexpr> at 0x00000204BA0A6C10, file "atvmaster\fully_deploy.py", line 210>)
+                MAKE_FUNCTION
+                LOAD_FAST               13 (state)
+                GET_ITER
+                CALL                     0
+       L14:     FOR_ITER                12 (to L16)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L15)
+                NOT_TAKEN
+                JUMP_BACKWARD           11 (to L14)
+       L15:     POP_ITER
+                LOAD_CONST              18 (True)
+                JUMP_FORWARD            17 (to L18)
+       L16:     END_FOR
+                POP_ITER
+                LOAD_CONST               3 (False)
+                JUMP_FORWARD            13 (to L18)
+       L17:     PUSH_NULL
+                LOAD_CONST              24 (<code object <genexpr> at 0x00000204BA0A6C10, file "atvmaster\fully_deploy.py", line 210>)
+                MAKE_FUNCTION
+                LOAD_FAST               13 (state)
+                GET_ITER
+                CALL                     0
+                CALL                     1
+       L18:     TO_BOOL
+                POP_JUMP_IF_FALSE       71 (to L23)
+                NOT_TAKEN
+
+ 211            LOAD_FAST                6 (rep)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST              25 ('Se completa por interfaz lo que faltaba:')
+                CALL                     1
+                POP_TOP
+
+ 212            LOAD_FAST_LOAD_FAST    108 (rep, cfg)
+                LOAD_ATTR               59 (configure + NULL|self)
+                LOAD_FAST_LOAD_FAST     87 (s, settings)
+                LOAD_CONST               9 ('startURL')
+                BINARY_OP               26 ([])
+                CALL                     2
+                GET_ITER
+                LOAD_FAST_AND_CLEAR     14 (x)
+                SWAP                     2
+       L19:     BUILD_LIST               0
+                SWAP                     2
+       L20:     FOR_ITER                12 (to L21)
+                STORE_FAST              14 (x)
+                LOAD_CONST              26 ('  ')
+                LOAD_FAST               14 (x)
+                BINARY_OP                0 (+)
+                LIST_APPEND              2
+                JUMP_BACKWARD           14 (to L20)
+       L21:     END_FOR
+                POP_ITER
+       L22:     SWAP                     2
+                STORE_FAST              14 (x)
+                BINARY_OP               13 (+=)
+                STORE_FAST               6 (rep)
+
+ 213   L23:     LOAD_FAST               10 (consumed)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        45 (to L24)
+                NOT_TAKEN
+
+ 214            LOAD_FAST                0 (self)
+                LOAD_ATTR               24 (adb)
+                LOAD_ATTR               43 (shell + NULL|self)
+                LOAD_FAST                5 (s)
+                LOAD_CONST              13 ('rm -f ')
+                LOAD_GLOBAL             45 (shell_quote + NULL)
+                LOAD_GLOBAL             30 (ONCE_FILE)
+                CALL                     1
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     2
+                POP_TOP
+
+ 217   L24:     LOAD_FAST                4 (disable_play)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      111 (to L26)
+                NOT_TAKEN
+                LOAD_FAST                0 (self)
+                LOAD_ATTR                7 (version_of + NULL|self)
+                LOAD_FAST                5 (s)
+                LOAD_GLOBAL              8 (FULLY_PKG)
+                CALL                     2
+                LOAD_CONST              27 ('no instalada')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       84 (to L26)
+                NOT_TAKEN
+
+ 218            LOAD_FAST                0 (self)
+                LOAD_ATTR               24 (adb)
+                LOAD_ATTR               43 (shell + NULL|self)
+                LOAD_FAST                5 (s)
+                LOAD_CONST              28 ('pm disable-user --user 0 ')
+                LOAD_GLOBAL              8 (FULLY_PKG)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     2
+                STORE_FAST              15 (r)
+
+ 219            LOAD_FAST                6 (rep)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST              29 ('Fully de Play desactivado: ')
+                LOAD_FAST               15 (r)
+                LOAD_ATTR               36 (text)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L25)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_CONST              30 ('OK')
+       L25:     FORMAT_SIMPLE
+                LOAD_CONST              31 ('  (se reactiva con: pm enable ')
+                LOAD_GLOBAL              8 (FULLY_PKG)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (')')
+                BUILD_STRING             5
+                CALL                     1
+                POP_TOP
+
+ 220   L26:     LOAD_FAST                6 (rep)
+                RETURN_VALUE
+
+  --   L27:     PUSH_EXC_INFO
+
+ 190            LOAD_GLOBAL             34 (AdbError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       47 (to L28)
+                NOT_TAKEN
+                POP_TOP
+
+ 191            LOAD_FAST                0 (self)
+                LOAD_ATTR               24 (adb)
+                LOAD_ATTR               43 (shell + NULL|self)
+                LOAD_FAST                5 (s)
+                LOAD_CONST              13 ('rm -f ')
+                LOAD_GLOBAL             45 (shell_quote + NULL)
+                LOAD_GLOBAL             30 (ONCE_FILE)
+                CALL                     1
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     2
+                POP_TOP
+
+ 192            RAISE_VARARGS            0
+
+ 190   L28:     RERAISE                  0
+
+  --   L29:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L30:     SWAP                     2
+                POP_TOP
+
+ 209            SWAP                     2
+                STORE_FAST              14 (x)
+                RERAISE                  0
+
+  --   L31:     SWAP                     2
+                POP_TOP
+
+ 212            SWAP                     2
+                STORE_FAST              14 (x)
+                RERAISE                  0
+ExceptionTable:
+  L2 to L3 -> L27 [0]
+  L10 to L13 -> L30 [3]
+  L19 to L22 -> L31 [3]
+  L27 to L29 -> L29 [1] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A6C10, file "atvmaster\fully_deploy.py", line 210>:
+ 210           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                23 (to L6)
+               STORE_FAST               1 (x)
+               LOAD_CONST               0 ('DESACTIVADO')
+               LOAD_FAST_BORROW         1 (x)
+               CONTAINS_OP              0 (in)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         6 (to L5)
+       L3:     NOT_TAKEN
+       L4:     POP_TOP
+               LOAD_CONST               1 ('distinta')
+               LOAD_FAST_BORROW         1 (x)
+               CONTAINS_OP              0 (in)
+       L5:     YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           25 (to L2)
+       L6:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L7:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L7 [0] lasti
+  L4 to L7 -> L7 [0] lasti

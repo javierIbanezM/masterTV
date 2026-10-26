@@ -1,0 +1,591 @@
+  0           RESUME                   0
+
+ 10           BUILD_LIST               0
+              LOAD_CONST              18 (('Process', 'current_process', 'active_children', 'freeze_support', 'Lock', 'RLock', 'Semaphore', 'BoundedSemaphore', 'Condition', 'Event', 'Barrier', 'Queue', 'Manager', 'Pipe', 'Pool', 'JoinableQueue'))
+              LIST_EXTEND              1
+              STORE_NAME               0 (__all__)
+
+ 20           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (threading)
+              STORE_NAME               1 (threading)
+
+ 21           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (sys)
+              STORE_NAME               2 (sys)
+
+ 22           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (weakref)
+              STORE_NAME               3 (weakref)
+
+ 23           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (array)
+              STORE_NAME               4 (array)
+
+ 25           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('Pipe',))
+              IMPORT_NAME              5 (connection)
+              IMPORT_FROM              6 (Pipe)
+              STORE_NAME               6 (Pipe)
+              POP_TOP
+
+ 26           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Lock', 'RLock', 'Semaphore', 'BoundedSemaphore'))
+              IMPORT_NAME              1 (threading)
+              IMPORT_FROM              7 (Lock)
+              STORE_NAME               7 (Lock)
+              IMPORT_FROM              8 (RLock)
+              STORE_NAME               8 (RLock)
+              IMPORT_FROM              9 (Semaphore)
+              STORE_NAME               9 (Semaphore)
+              IMPORT_FROM             10 (BoundedSemaphore)
+              STORE_NAME              10 (BoundedSemaphore)
+              POP_TOP
+
+ 27           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('Event', 'Condition', 'Barrier'))
+              IMPORT_NAME              1 (threading)
+              IMPORT_FROM             11 (Event)
+              STORE_NAME              11 (Event)
+              IMPORT_FROM             12 (Condition)
+              STORE_NAME              12 (Condition)
+              IMPORT_FROM             13 (Barrier)
+              STORE_NAME              13 (Barrier)
+              POP_TOP
+
+ 28           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('Queue',))
+              IMPORT_NAME             14 (queue)
+              IMPORT_FROM             15 (Queue)
+              STORE_NAME              15 (Queue)
+              POP_TOP
+
+ 34           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object DummyProcess at 0x00000204BA0A45D0, file "multiprocessing\dummy\__init__.py", line 34>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 ('DummyProcess')
+              LOAD_NAME                1 (threading)
+              LOAD_ATTR               32 (Thread)
+              CALL                     3
+              STORE_NAME              17 (DummyProcess)
+
+ 64           LOAD_NAME               17 (DummyProcess)
+              STORE_NAME              18 (Process)
+
+ 65           LOAD_NAME                1 (threading)
+              LOAD_ATTR               38 (current_thread)
+              STORE_NAME              20 (current_process)
+
+ 66           LOAD_NAME                3 (weakref)
+              LOAD_ATTR               42 (WeakKeyDictionary)
+              PUSH_NULL
+              CALL                     0
+              LOAD_NAME               20 (current_process)
+              PUSH_NULL
+              CALL                     0
+              STORE_ATTR              22 (_children)
+
+ 68           LOAD_CONST               8 (<code object active_children at 0x00000204BA129480, file "multiprocessing\dummy\__init__.py", line 68>)
+              MAKE_FUNCTION
+              STORE_NAME              23 (active_children)
+
+ 75           LOAD_CONST               9 (<code object freeze_support at 0x00000204BA6E0490, file "multiprocessing\dummy\__init__.py", line 75>)
+              MAKE_FUNCTION
+              STORE_NAME              24 (freeze_support)
+
+ 82           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object Namespace at 0x00000204BA08B130, file "multiprocessing\dummy\__init__.py", line 82>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 ('Namespace')
+              LOAD_NAME               25 (object)
+              CALL                     3
+              STORE_NAME              26 (Namespace)
+
+ 94           LOAD_NAME               27 (dict)
+              STORE_NAME              27 (dict)
+
+ 95           LOAD_NAME               28 (list)
+              STORE_NAME              28 (list)
+
+ 97           LOAD_CONST              19 ((True,))
+              LOAD_CONST              12 (<code object Array at 0x00000204BA08A530, file "multiprocessing\dummy\__init__.py", line 97>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              29 (Array)
+
+100           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              13 (<code object Value at 0x00000204BA0A8DF0, file "multiprocessing\dummy\__init__.py", line 100>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 ('Value')
+              LOAD_NAME               25 (object)
+              CALL                     3
+              STORE_NAME              30 (Value)
+
+116           LOAD_CONST              15 (<code object Manager at 0x00000204BA0FF550, file "multiprocessing\dummy\__init__.py", line 116>)
+              MAKE_FUNCTION
+              STORE_NAME              31 (Manager)
+
+119           LOAD_CONST              16 (<code object shutdown at 0x00000204BA6E0570, file "multiprocessing\dummy\__init__.py", line 119>)
+              MAKE_FUNCTION
+              STORE_NAME              32 (shutdown)
+
+122           LOAD_CONST              20 ((None, None, ()))
+              LOAD_CONST              17 (<code object Pool at 0x00000204BA0923D0, file "multiprocessing\dummy\__init__.py", line 122>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              33 (Pool)
+
+126           LOAD_NAME               15 (Queue)
+              STORE_NAME              34 (JoinableQueue)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object DummyProcess at 0x00000204BA0A45D0, file "multiprocessing\dummy\__init__.py", line 34>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  34           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DummyProcess')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          34
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  36           LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               6 (())
+               BUILD_MAP                0
+               BUILD_TUPLE              5
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0B7230, file "multiprocessing\dummy\__init__.py", line 36>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+  43           LOAD_CONST               3 (<code object start at 0x00000204BA446050, file "multiprocessing\dummy\__init__.py", line 43>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (start)
+
+  53           LOAD_NAME                6 (property)
+
+  54           LOAD_CONST               4 (<code object exitcode at 0x00000204B9FEF800, file "multiprocessing\dummy\__init__.py", line 53>)
+               MAKE_FUNCTION
+
+  53           CALL                     0
+
+  54           STORE_NAME               7 (exitcode)
+               LOAD_CONST               5 (('_children', '_parent', '_pid', '_start_called'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0B7230, file "multiprocessing\dummy\__init__.py", line 36>:
+ 36           RESUME                   0
+
+ 37           LOAD_GLOBAL              0 (threading)
+              LOAD_ATTR                2 (Thread)
+              LOAD_ATTR                5 (__init__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, group)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (target, name)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (args, kwargs)
+              CALL                     6
+              POP_TOP
+
+ 38           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_pid)
+
+ 39           LOAD_GLOBAL              8 (weakref)
+              LOAD_ATTR               10 (WeakKeyDictionary)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (_children)
+
+ 40           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_start_called)
+
+ 41           LOAD_GLOBAL             17 (current_process + NULL)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               9 (_parent)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object start at 0x00000204BA446050, file "multiprocessing\dummy\__init__.py", line 43>:
+ 43           RESUME                   0
+
+ 44           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_GLOBAL              3 (current_process + NULL)
+              CALL                     0
+              IS_OP                    1 (is not)
+              POP_JUMP_IF_FALSE       46 (to L1)
+              NOT_TAKEN
+
+ 45           LOAD_GLOBAL              5 (RuntimeError + NULL)
+
+ 46           LOAD_CONST               0 ('Parent is {0!r} but current_process is {1!r}')
+              LOAD_ATTR                7 (format + NULL|self)
+
+ 47           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_GLOBAL              3 (current_process + NULL)
+              CALL                     0
+
+ 46           CALL                     2
+
+ 45           CALL                     1
+              RAISE_VARARGS            1
+
+ 48   L1:     LOAD_CONST               1 (True)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_start_called)
+
+ 49           LOAD_GLOBAL             11 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_CONST               2 ('_children')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       26 (to L2)
+              NOT_TAKEN
+
+ 50           LOAD_CONST               3 (None)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parent)
+              LOAD_ATTR               12 (_children)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_SUBSCR
+
+ 51   L2:     LOAD_GLOBAL             14 (threading)
+              LOAD_ATTR               16 (Thread)
+              LOAD_ATTR               19 (start + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object exitcode at 0x00000204B9FEF800, file "multiprocessing\dummy\__init__.py", line 53>:
+ 53           RESUME                   0
+
+ 55           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_start_called)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       25 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (is_alive + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+ 56           LOAD_SMALL_INT           0
+              RETURN_VALUE
+
+ 58   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object active_children at 0x00000204BA129480, file "multiprocessing\dummy\__init__.py", line 68>:
+ 68           RESUME                   0
+
+ 69           LOAD_GLOBAL              1 (current_process + NULL)
+              CALL                     0
+              LOAD_ATTR                2 (_children)
+              STORE_FAST               0 (children)
+
+ 70           LOAD_GLOBAL              5 (list + NULL)
+              LOAD_FAST_BORROW         0 (children)
+              CALL                     1
+              GET_ITER
+      L1:     FOR_ITER                45 (to L3)
+              STORE_FAST               1 (p)
+
+ 71           LOAD_FAST_BORROW         1 (p)
+              LOAD_ATTR                7 (is_alive + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           27 (to L1)
+
+ 72   L2:     LOAD_FAST_BORROW         0 (children)
+              LOAD_ATTR                9 (pop + NULL|self)
+              LOAD_FAST_BORROW         1 (p)
+              LOAD_CONST               0 (None)
+              CALL                     2
+              POP_TOP
+              JUMP_BACKWARD           47 (to L1)
+
+ 70   L3:     END_FOR
+              POP_ITER
+
+ 73           LOAD_GLOBAL              5 (list + NULL)
+              LOAD_FAST_BORROW         0 (children)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object freeze_support at 0x00000204BA6E0490, file "multiprocessing\dummy\__init__.py", line 75>:
+ 75           RESUME                   0
+
+ 76           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Namespace at 0x00000204BA08B130, file "multiprocessing\dummy\__init__.py", line 82>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  82           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Namespace')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          82
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  83           LOAD_CONST               1 (<code object __init__ at 0x00000204BA083110, file "multiprocessing\dummy\__init__.py", line 83>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  85           LOAD_CONST               2 (<code object __repr__ at 0x00000204BA4468D0, file "multiprocessing\dummy\__init__.py", line 85>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__repr__)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA083110, file "multiprocessing\dummy\__init__.py", line 83>:
+ 83           RESUME                   0
+
+ 84           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__dict__)
+              LOAD_ATTR                3 (update + NULL|self)
+              LOAD_FAST_BORROW         1 (kwds)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA4468D0, file "multiprocessing\dummy\__init__.py", line 85>:
+ 85           RESUME                   0
+
+ 86           LOAD_GLOBAL              1 (list + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__dict__)
+              LOAD_ATTR                5 (items + NULL|self)
+              CALL                     0
+              CALL                     1
+              STORE_FAST               1 (items)
+
+ 87           BUILD_LIST               0
+              STORE_FAST               2 (temp)
+
+ 88           LOAD_FAST_BORROW         1 (items)
+              GET_ITER
+      L1:     FOR_ITER                54 (to L3)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   52 (name, value)
+
+ 89           LOAD_FAST_BORROW         3 (name)
+              LOAD_ATTR                7 (startswith + NULL|self)
+              LOAD_CONST               0 ('_')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           30 (to L1)
+
+ 90   L2:     LOAD_FAST_BORROW         2 (temp)
+              LOAD_ATTR                9 (append + NULL|self)
+              LOAD_FAST_BORROW         3 (name)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('=')
+              LOAD_FAST_BORROW         4 (value)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           56 (to L1)
+
+ 88   L3:     END_FOR
+              POP_ITER
+
+ 91           LOAD_FAST_BORROW         2 (temp)
+              LOAD_ATTR               11 (sort + NULL|self)
+              CALL                     0
+              POP_TOP
+
+ 92           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (__class__)
+              LOAD_ATTR               14 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('(')
+              LOAD_CONST               3 (', ')
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_FAST_BORROW         2 (temp)
+              CALL                     1
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (')')
+              BUILD_STRING             4
+              RETURN_VALUE
+
+Disassembly of <code object Array at 0x00000204BA08A530, file "multiprocessing\dummy\__init__.py", line 97>:
+ 97           RESUME                   0
+
+ 98           LOAD_GLOBAL              0 (array)
+              LOAD_ATTR                0 (array)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (typecode, sequence)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object Value at 0x00000204BA0A8DF0, file "multiprocessing\dummy\__init__.py", line 100>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 100           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Value')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         100
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 101           LOAD_CONST               7 ((True,))
+               LOAD_CONST               1 (<code object __init__ at 0x00000204BA0926A0, file "multiprocessing\dummy\__init__.py", line 101>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 105           LOAD_NAME                5 (property)
+
+ 106           LOAD_CONST               2 (<code object value at 0x00000204BA092D30, file "multiprocessing\dummy\__init__.py", line 105>)
+               MAKE_FUNCTION
+
+ 105           CALL                     0
+
+ 106           STORE_NAME               6 (value)
+
+ 109           LOAD_NAME                6 (value)
+               LOAD_ATTR               14 (setter)
+
+ 110           LOAD_CONST               3 (<code object value at 0x00000204BA0914D0, file "multiprocessing\dummy\__init__.py", line 109>)
+               MAKE_FUNCTION
+
+ 109           CALL                     0
+
+ 110           STORE_NAME               6 (value)
+
+ 113           LOAD_CONST               4 (<code object __repr__ at 0x00000204BA0A9070, file "multiprocessing\dummy\__init__.py", line 113>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__repr__)
+               LOAD_CONST               5 (('_typecode', '_value'))
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0926A0, file "multiprocessing\dummy\__init__.py", line 101>:
+101           RESUME                   0
+
+102           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (typecode, self)
+              STORE_ATTR               0 (_typecode)
+
+103           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (value, self)
+              STORE_ATTR               1 (_value)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object value at 0x00000204BA092D30, file "multiprocessing\dummy\__init__.py", line 105>:
+105           RESUME                   0
+
+107           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_value)
+              RETURN_VALUE
+
+Disassembly of <code object value at 0x00000204BA0914D0, file "multiprocessing\dummy\__init__.py", line 109>:
+109           RESUME                   0
+
+111           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (value, self)
+              STORE_ATTR               0 (_value)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0A9070, file "multiprocessing\dummy\__init__.py", line 113>:
+113           RESUME                   0
+              LOAD_CONST               0 ('<')
+
+114           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR                2 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('(')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_typecode)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (', ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_value)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (')>')
+              BUILD_STRING             7
+              RETURN_VALUE
+
+Disassembly of <code object Manager at 0x00000204BA0FF550, file "multiprocessing\dummy\__init__.py", line 116>:
+116           RESUME                   0
+
+117           LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (modules)
+              LOAD_GLOBAL              4 (__name__)
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object shutdown at 0x00000204BA6E0570, file "multiprocessing\dummy\__init__.py", line 119>:
+119           RESUME                   0
+
+120           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Pool at 0x00000204BA0923D0, file "multiprocessing\dummy\__init__.py", line 122>:
+122           RESUME                   0
+
+123           LOAD_SMALL_INT           2
+              LOAD_CONST               1 (('ThreadPool',))
+              IMPORT_NAME              0 (pool)
+              IMPORT_FROM              1 (ThreadPool)
+              STORE_FAST               3 (ThreadPool)
+              POP_TOP
+
+124           LOAD_FAST_BORROW         3 (ThreadPool)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (processes, initializer)
+              LOAD_FAST_BORROW         2 (initargs)
+              CALL                     3
+              RETURN_VALUE

@@ -1,0 +1,247 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Record of phased-in incompatible language changes.\n\nEach line is of the form:\n\n    FeatureName = "_Feature(" OptionalRelease "," MandatoryRelease ","\n                              CompilerFlag ")"\n\nwhere, normally, OptionalRelease < MandatoryRelease, and both are 5-tuples\nof the same form as sys.version_info:\n\n    (PY_MAJOR_VERSION, # the 2 in 2.1.0a3; an int\n     PY_MINOR_VERSION, # the 1; an int\n     PY_MICRO_VERSION, # the 0; an int\n     PY_RELEASE_LEVEL, # "alpha", "beta", "candidate" or "final"; string\n     PY_RELEASE_SERIAL # the 3; an int\n    )\n\nOptionalRelease records the first release in which\n\n    from __future__ import FeatureName\n\nwas accepted.\n\nIn the case of MandatoryReleases that have not yet occurred,\nMandatoryRelease predicts the release in which the feature will become part\nof the language.\n\nElse MandatoryRelease records when the feature became part of the language;\nin releases at or after that, modules no longer need\n\n    from __future__ import FeatureName\n\nto use the feature in question, but may continue to use such imports.\n\nMandatoryRelease may also be None, meaning that a planned feature got\ndropped or that the release version is undetermined.\n\nInstances of class _Feature have two corresponding methods,\n.getOptionalRelease() and .getMandatoryRelease().\n\nCompilerFlag is the (bitfield) flag that should be passed in the fourth\nargument to the builtin function compile() to enable the feature in\ndynamically compiled code.  This flag is stored in the .compiler_flag\nattribute on _Future instances.  These values must match the appropriate\n#defines of CO_xxx flags in Include/cpython/compile.h.\n\nNo feature line is ever to be deleted from this file.\n')
+              STORE_NAME               0 (__doc__)
+
+ 50           BUILD_LIST               0
+              LOAD_CONST              13 (('nested_scopes', 'generators', 'division', 'absolute_import', 'with_statement', 'print_function', 'unicode_literals', 'barry_as_FLUFL', 'generator_stop', 'annotations'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (all_feature_names)
+
+ 63           LOAD_CONST               1 ('all_feature_names')
+              BUILD_LIST               1
+              LOAD_NAME                1 (all_feature_names)
+              BINARY_OP                0 (+)
+              STORE_NAME               2 (__all__)
+
+ 69           LOAD_SMALL_INT          16
+              STORE_NAME               3 (CO_NESTED)
+
+ 70           LOAD_SMALL_INT           0
+              STORE_NAME               4 (CO_GENERATOR_ALLOWED)
+
+ 71           LOAD_CONST               2 (131072)
+              STORE_NAME               5 (CO_FUTURE_DIVISION)
+
+ 72           LOAD_CONST               3 (262144)
+              STORE_NAME               6 (CO_FUTURE_ABSOLUTE_IMPORT)
+
+ 73           LOAD_CONST               4 (524288)
+              STORE_NAME               7 (CO_FUTURE_WITH_STATEMENT)
+
+ 74           LOAD_CONST               5 (1048576)
+              STORE_NAME               8 (CO_FUTURE_PRINT_FUNCTION)
+
+ 75           LOAD_CONST               6 (2097152)
+              STORE_NAME               9 (CO_FUTURE_UNICODE_LITERALS)
+
+ 76           LOAD_CONST               7 (4194304)
+              STORE_NAME              10 (CO_FUTURE_BARRY_AS_BDFL)
+
+ 77           LOAD_CONST               8 (8388608)
+              STORE_NAME              11 (CO_FUTURE_GENERATOR_STOP)
+
+ 78           LOAD_CONST               9 (16777216)
+              STORE_NAME              12 (CO_FUTURE_ANNOTATIONS)
+
+ 81           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object _Feature at 0x00000204BA0FC7A0, file "__future__.py", line 81>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 ('_Feature')
+              CALL                     2
+              STORE_NAME              13 (_Feature)
+
+109           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              14 ((2, 1, 0, 'beta', 1))
+
+110           LOAD_CONST              15 ((2, 2, 0, 'alpha', 0))
+
+111           LOAD_NAME                3 (CO_NESTED)
+
+109           CALL                     3
+              STORE_NAME              14 (nested_scopes)
+
+113           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              16 ((2, 2, 0, 'alpha', 1))
+
+114           LOAD_CONST              17 ((2, 3, 0, 'final', 0))
+
+115           LOAD_NAME                4 (CO_GENERATOR_ALLOWED)
+
+113           CALL                     3
+              STORE_NAME              15 (generators)
+
+117           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              18 ((2, 2, 0, 'alpha', 2))
+
+118           LOAD_CONST              19 ((3, 0, 0, 'alpha', 0))
+
+119           LOAD_NAME                5 (CO_FUTURE_DIVISION)
+
+117           CALL                     3
+              STORE_NAME              16 (division)
+
+121           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              20 ((2, 5, 0, 'alpha', 1))
+
+122           LOAD_CONST              19 ((3, 0, 0, 'alpha', 0))
+
+123           LOAD_NAME                6 (CO_FUTURE_ABSOLUTE_IMPORT)
+
+121           CALL                     3
+              STORE_NAME              17 (absolute_import)
+
+125           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              20 ((2, 5, 0, 'alpha', 1))
+
+126           LOAD_CONST              21 ((2, 6, 0, 'alpha', 0))
+
+127           LOAD_NAME                7 (CO_FUTURE_WITH_STATEMENT)
+
+125           CALL                     3
+              STORE_NAME              18 (with_statement)
+
+129           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              22 ((2, 6, 0, 'alpha', 2))
+
+130           LOAD_CONST              19 ((3, 0, 0, 'alpha', 0))
+
+131           LOAD_NAME                8 (CO_FUTURE_PRINT_FUNCTION)
+
+129           CALL                     3
+              STORE_NAME              19 (print_function)
+
+133           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              22 ((2, 6, 0, 'alpha', 2))
+
+134           LOAD_CONST              19 ((3, 0, 0, 'alpha', 0))
+
+135           LOAD_NAME                9 (CO_FUTURE_UNICODE_LITERALS)
+
+133           CALL                     3
+              STORE_NAME              20 (unicode_literals)
+
+137           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              23 ((3, 1, 0, 'alpha', 2))
+
+138           LOAD_CONST              24 ((4, 0, 0, 'alpha', 0))
+
+139           LOAD_NAME               10 (CO_FUTURE_BARRY_AS_BDFL)
+
+137           CALL                     3
+              STORE_NAME              21 (barry_as_FLUFL)
+
+141           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              25 ((3, 5, 0, 'beta', 1))
+
+142           LOAD_CONST              26 ((3, 7, 0, 'alpha', 0))
+
+143           LOAD_NAME               11 (CO_FUTURE_GENERATOR_STOP)
+
+141           CALL                     3
+              STORE_NAME              22 (generator_stop)
+
+145           LOAD_NAME               13 (_Feature)
+              PUSH_NULL
+              LOAD_CONST              27 ((3, 7, 0, 'beta', 1))
+
+146           LOAD_CONST              12 (None)
+
+147           LOAD_NAME               12 (CO_FUTURE_ANNOTATIONS)
+
+145           CALL                     3
+              STORE_NAME              23 (annotations)
+              LOAD_CONST              12 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _Feature at 0x00000204BA0FC7A0, file "__future__.py", line 81>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  81           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_Feature')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          81
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  83           LOAD_CONST               1 (<code object __init__ at 0x00000204BA08AD30, file "__future__.py", line 83>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  88           LOAD_CONST               2 (<code object getOptionalRelease at 0x00000204BA092790, file "__future__.py", line 88>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (getOptionalRelease)
+
+  95           LOAD_CONST               3 (<code object getMandatoryRelease at 0x00000204BA093000, file "__future__.py", line 95>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (getMandatoryRelease)
+
+ 103           LOAD_CONST               4 (<code object __repr__ at 0x00000204BA0AB230, file "__future__.py", line 103>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__repr__)
+               LOAD_CONST               5 (('compiler_flag', 'mandatory', 'optional'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA08AD30, file "__future__.py", line 83>:
+ 83           RESUME                   0
+
+ 84           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (optionalRelease, self)
+              STORE_ATTR               0 (optional)
+
+ 85           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (mandatoryRelease, self)
+              STORE_ATTR               1 (mandatory)
+
+ 86           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (compiler_flag, self)
+              STORE_ATTR               2 (compiler_flag)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object getOptionalRelease at 0x00000204BA092790, file "__future__.py", line 88>:
+ 88           RESUME                   0
+
+ 93           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (optional)
+              RETURN_VALUE
+
+Disassembly of <code object getMandatoryRelease at 0x00000204BA093000, file "__future__.py", line 95>:
+ 95           RESUME                   0
+
+101           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (mandatory)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0AB230, file "__future__.py", line 103>:
+103           RESUME                   0
+
+104           LOAD_CONST               0 ('_Feature')
+              LOAD_GLOBAL              1 (repr + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (optional)
+
+105           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (mandatory)
+
+106           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (compiler_flag)
+
+104           BUILD_TUPLE              3
+              CALL                     1
+              BINARY_OP                0 (+)
+              RETURN_VALUE

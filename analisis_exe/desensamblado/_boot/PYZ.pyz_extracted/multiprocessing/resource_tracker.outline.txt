@@ -1,0 +1,63 @@
+<module>()  line 1
+    cleanup_noop(name)  line 32
+    <lambda>(name)  line 37
+    ReentrantCallError()  line 54
+    ResourceTracker()  line 58
+        ResourceTracker.__init__(self)  line 60
+        ResourceTracker._reentrant_call_error(self)  line 66
+        ResourceTracker.__del__(self)  line 74
+        ResourceTracker._stop(self, use_blocking_lock)  line 80
+        ResourceTracker._stop_locked(self, close, waitpid, waitstatus_to_exitcode)  line 92
+        ResourceTracker.getfd(self)  line 122
+        ResourceTracker.ensure_running(self)  line 126
+        ResourceTracker._check_alive(self)  line 195
+        ResourceTracker.register(self, name, rtype)  line 206
+        ResourceTracker.unregister(self, name, rtype)  line 210
+        ResourceTracker._send(self, cmd, name, rtype)  line 214
+    main(fd)  line 243
+
+--- strings ---
+'pthread_sigmask'
+'noop should never be registered or cleaned up'
+'noop'
+'dummy'
+'posix'
+'sem_unlink'
+'semaphore'
+'shared_memory'
+'ReentrantCallError'
+'ReentrantCallError'
+'ResourceTracker'
+'Reentrant call into the multiprocessing resource tracker'
+'Make sure that resource tracker process is running.\n\nThis can be run from any process.  Usually a child process will use\nthe resource created by its parent.'
+'resource_tracker: process died unexpectedly, relaunching.  Some resources might leak.'
+'from multiprocessing.resource_tracker import main;main(%d)'
+'-c'
+'Check that the pipe has not been closed by sending a probe.'
+'Register name of resource with resource tracker.'
+'REGISTER'
+'Unregister name of resource with resource tracker.'
+'UNREGISTER'
+'ResourceTracker called reentrantly for resource cleanup, which is unsupported. The '
+' object '
+' might leak.'
+'{0}:{1}:{2}\n'
+'ascii'
+'msg too long'
+'nbytes {0:n} but len(msg) {1:n}'
+'ResourceTracker'
+'Run resource tracker.'
+'rb'
+'ascii'
+'Cannot register '
+' for automatic cleanup: unknown resource type '
+'REGISTER'
+'UNREGISTER'
+'PROBE'
+'unrecognized command %r'
+'dummy'
+'resource_tracker: There appear to be '
+' leaked '
+' objects to clean up at shutdown: '
+'resource_tracker: '
+': '

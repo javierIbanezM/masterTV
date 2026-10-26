@@ -1,0 +1,1157 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (io)
+              STORE_NAME               0 (io)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('PathLike',))
+              IMPORT_NAME              1 (os)
+              IMPORT_FROM              2 (PathLike)
+              STORE_NAME               2 (PathLike)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('ZstdCompressor', 'ZstdDecompressor', 'ZSTD_DStreamOutSize'))
+              IMPORT_NAME              3 (_zstd)
+              IMPORT_FROM              4 (ZstdCompressor)
+              STORE_NAME               4 (ZstdCompressor)
+              IMPORT_FROM              5 (ZstdDecompressor)
+              STORE_NAME               5 (ZstdDecompressor)
+              IMPORT_FROM              6 (ZSTD_DStreamOutSize)
+              STORE_NAME               6 (ZSTD_DStreamOutSize)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('_streams',))
+              IMPORT_NAME              7 (compression._common)
+              IMPORT_FROM              8 (_streams)
+              STORE_NAME               8 (_streams)
+              POP_TOP
+
+  6           LOAD_CONST              15 (('ZstdFile', 'open'))
+              STORE_NAME               9 (__all__)
+
+  8           LOAD_SMALL_INT           0
+              STORE_NAME              10 (_MODE_CLOSED)
+
+  9           LOAD_SMALL_INT           1
+              STORE_NAME              11 (_MODE_READ)
+
+ 10           LOAD_SMALL_INT           2
+              STORE_NAME              12 (_MODE_WRITE)
+
+ 13           LOAD_CONST               6 (<code object _nbytes at 0x00000204B9F6F770, file "compression\zstd\_zstdfile.py", line 13>)
+              MAKE_FUNCTION
+              STORE_NAME              13 (_nbytes)
+
+ 20           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object ZstdFile at 0x00000204B9F5B830, file "compression\zstd\_zstdfile.py", line 20>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('ZstdFile')
+              LOAD_NAME                8 (_streams)
+              LOAD_ATTR               28 (BaseStream)
+              CALL                     3
+              STORE_NAME              15 (ZstdFile)
+
+295           LOAD_CONST              16 (('rb',))
+              LOAD_CONST               8 ('level')
+              LOAD_CONST               1 (None)
+              LOAD_CONST               9 ('options')
+              LOAD_CONST               1 (None)
+              LOAD_CONST              10 ('zstd_dict')
+              LOAD_CONST               1 (None)
+              LOAD_CONST              11 ('encoding')
+
+296           LOAD_CONST               1 (None)
+
+295           LOAD_CONST              12 ('errors')
+
+296           LOAD_CONST               1 (None)
+
+295           LOAD_CONST              13 ('newline')
+
+296           LOAD_CONST               1 (None)
+
+295           BUILD_MAP                6
+              LOAD_CONST              14 (<code object open at 0x00000204B9F5BA30, file "compression\zstd\_zstdfile.py", line 295>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              16 (open)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _nbytes at 0x00000204B9F6F770, file "compression\zstd\_zstdfile.py", line 13>:
+  13           RESUME                   0
+
+  14           LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         0 (dat)
+               LOAD_GLOBAL              2 (bytes)
+               LOAD_GLOBAL              4 (bytearray)
+               BUILD_TUPLE              2
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       12 (to L1)
+               NOT_TAKEN
+
+  15           LOAD_GLOBAL              7 (len + NULL)
+               LOAD_FAST_BORROW         0 (dat)
+               CALL                     1
+               RETURN_VALUE
+
+  16   L1:     LOAD_GLOBAL              9 (memoryview + NULL)
+               LOAD_FAST_BORROW         0 (dat)
+               CALL                     1
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L2:     STORE_FAST               1 (mv)
+
+  17           LOAD_FAST_BORROW         1 (mv)
+               LOAD_ATTR               10 (nbytes)
+
+  16   L3:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               LOAD_CONST               0 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L4:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L5)
+               NOT_TAKEN
+               RERAISE                  2
+       L5:     POP_TOP
+       L6:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [2] lasti
+  L4 to L6 -> L7 [4] lasti
+
+Disassembly of <code object ZstdFile at 0x00000204B9F5B830, file "compression\zstd\_zstdfile.py", line 20>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  20           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ZstdFile')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          20
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  21           LOAD_CONST               1 ('A file-like object providing transparent Zstandard (de)compression.\n\nA ZstdFile can act as a wrapper for an existing file object, or refer\ndirectly to a named file on disk.\n\nZstdFile provides a *binary* file interface. Data is read and returned as\nbytes, and may only be written to objects that support the Buffer Protocol.\n')
+               STORE_NAME               4 (__doc__)
+
+  30           LOAD_NAME                5 (ZstdCompressor)
+               LOAD_ATTR               12 (FLUSH_BLOCK)
+               STORE_NAME               6 (FLUSH_BLOCK)
+
+  31           LOAD_NAME                5 (ZstdCompressor)
+               LOAD_ATTR               14 (FLUSH_FRAME)
+               STORE_NAME               7 (FLUSH_FRAME)
+
+  33           LOAD_CONST              27 (('r',))
+               LOAD_CONST               2 ('level')
+
+  34           LOAD_CONST               3 (None)
+
+  33           LOAD_CONST               4 ('options')
+
+  34           LOAD_CONST               3 (None)
+
+  33           LOAD_CONST               5 ('zstd_dict')
+
+  34           LOAD_CONST               3 (None)
+
+  33           BUILD_MAP                3
+               LOAD_CONST               6 (<code object __init__ at 0x00000204BA388300, file "compression\zstd\_zstdfile.py", line 33>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               8 (__init__)
+
+  96           LOAD_CONST               7 (<code object close at 0x00000204B9D898D0, file "compression\zstd\_zstdfile.py", line 96>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (close)
+
+ 121           LOAD_CONST               8 (<code object write at 0x00000204B9FFA8B0, file "compression\zstd\_zstdfile.py", line 121>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (write)
+
+ 138           LOAD_NAME                6 (FLUSH_BLOCK)
+               BUILD_TUPLE              1
+               LOAD_CONST               9 (<code object flush at 0x00000204BA369050, file "compression\zstd\_zstdfile.py", line 138>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              11 (flush)
+
+ 164           LOAD_CONST              28 ((-1,))
+               LOAD_CONST              10 (<code object read at 0x00000204BA0A9BB0, file "compression\zstd\_zstdfile.py", line 164>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (read)
+
+ 175           LOAD_CONST              28 ((-1,))
+               LOAD_CONST              11 (<code object read1 at 0x00000204BA0BB8A0, file "compression\zstd\_zstdfile.py", line 175>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              13 (read1)
+
+ 190           LOAD_CONST              12 (<code object readinto at 0x00000204B9FEF0E0, file "compression\zstd\_zstdfile.py", line 190>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (readinto)
+
+ 198           LOAD_CONST              13 (<code object readinto1 at 0x00000204BA103A60, file "compression\zstd\_zstdfile.py", line 198>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (readinto1)
+
+ 207           LOAD_CONST              28 ((-1,))
+               LOAD_CONST              14 (<code object readline at 0x00000204BA102E80, file "compression\zstd\_zstdfile.py", line 207>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              16 (readline)
+
+ 217           LOAD_NAME               17 (io)
+               LOAD_ATTR               36 (SEEK_SET)
+               BUILD_TUPLE              1
+               LOAD_CONST              15 (<code object seek at 0x00000204BA101A50, file "compression\zstd\_zstdfile.py", line 217>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              19 (seek)
+
+ 237           LOAD_CONST              28 ((-1,))
+               LOAD_CONST              16 (<code object peek at 0x00000204BA102D50, file "compression\zstd\_zstdfile.py", line 237>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              20 (peek)
+
+ 248           LOAD_CONST              17 (<code object __next__ at 0x00000204BA1004F0, file "compression\zstd\_zstdfile.py", line 248>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (__next__)
+
+ 253           LOAD_CONST              18 (<code object tell at 0x00000204B9F6EF50, file "compression\zstd\_zstdfile.py", line 253>)
+               MAKE_FUNCTION
+               STORE_NAME              22 (tell)
+
+ 261           LOAD_CONST              19 (<code object fileno at 0x00000204BA102C20, file "compression\zstd\_zstdfile.py", line 261>)
+               MAKE_FUNCTION
+               STORE_NAME              23 (fileno)
+
+ 266           LOAD_NAME               24 (property)
+
+ 267           LOAD_CONST              20 (<code object name at 0x00000204BA0A7990, file "compression\zstd\_zstdfile.py", line 266>)
+               MAKE_FUNCTION
+
+ 266           CALL                     0
+
+ 267           STORE_NAME              25 (name)
+
+ 271           LOAD_NAME               24 (property)
+
+ 272           LOAD_CONST              21 (<code object mode at 0x00000204BA083110, file "compression\zstd\_zstdfile.py", line 271>)
+               MAKE_FUNCTION
+
+ 271           CALL                     0
+
+ 272           STORE_NAME              26 (mode)
+
+ 275           LOAD_NAME               24 (property)
+
+ 276           LOAD_CONST              22 (<code object closed at 0x00000204BA08B330, file "compression\zstd\_zstdfile.py", line 275>)
+               MAKE_FUNCTION
+
+ 275           CALL                     0
+
+ 276           STORE_NAME              27 (closed)
+
+ 280           LOAD_CONST              23 (<code object seekable at 0x00000204BA0AA330, file "compression\zstd\_zstdfile.py", line 280>)
+               MAKE_FUNCTION
+               STORE_NAME              28 (seekable)
+
+ 284           LOAD_CONST              24 (<code object readable at 0x00000204BA0A5350, file "compression\zstd\_zstdfile.py", line 284>)
+               MAKE_FUNCTION
+               STORE_NAME              29 (readable)
+
+ 289           LOAD_CONST              25 (<code object writable at 0x00000204BA0A7090, file "compression\zstd\_zstdfile.py", line 289>)
+               MAKE_FUNCTION
+               STORE_NAME              30 (writable)
+               LOAD_CONST              26 (('_buffer', '_close_fp', '_compressor', '_fp', '_mode', '_pos'))
+               STORE_NAME              31 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              32 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA388300, file "compression\zstd\_zstdfile.py", line 33>:
+ 33            RESUME                   0
+
+ 53            LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fp)
+
+ 54            LOAD_CONST               2 (False)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_close_fp)
+
+ 55            LOAD_GLOBAL              4 (_MODE_CLOSED)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_mode)
+
+ 56            LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_buffer)
+
+ 58            LOAD_GLOBAL             11 (isinstance + NULL)
+               LOAD_FAST_BORROW         2 (mode)
+               LOAD_GLOBAL             12 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L1)
+               NOT_TAKEN
+
+ 59            LOAD_GLOBAL             15 (ValueError + NULL)
+               LOAD_CONST               3 ('mode must be a str')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 60    L1:     LOAD_FAST_BORROW         4 (options)
+               POP_JUMP_IF_NONE        34 (to L2)
+               NOT_TAKEN
+               LOAD_GLOBAL             11 (isinstance + NULL)
+               LOAD_FAST_BORROW         4 (options)
+               LOAD_GLOBAL             16 (dict)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L2)
+               NOT_TAKEN
+
+ 61            LOAD_GLOBAL             19 (TypeError + NULL)
+               LOAD_CONST               4 ('options must be a dict or None')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 62    L2:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_ATTR               21 (removesuffix + NULL|self)
+               LOAD_CONST               5 ('b')
+               CALL                     1
+               STORE_FAST               2 (mode)
+
+ 63            LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST               6 ('r')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       28 (to L4)
+               NOT_TAKEN
+
+ 64            LOAD_FAST_BORROW         3 (level)
+               POP_JUMP_IF_NONE        12 (to L3)
+               NOT_TAKEN
+
+ 65            LOAD_GLOBAL             19 (TypeError + NULL)
+               LOAD_CONST               7 ('level is illegal in read mode')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 66    L3:     LOAD_GLOBAL             22 (_MODE_READ)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_mode)
+               JUMP_FORWARD            96 (to L7)
+
+ 67    L4:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST              16 (frozenset({'a', 'x', 'w'}))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       75 (to L6)
+               NOT_TAKEN
+
+ 68            LOAD_FAST_BORROW         3 (level)
+               POP_JUMP_IF_NONE        34 (to L5)
+               NOT_TAKEN
+               LOAD_GLOBAL             11 (isinstance + NULL)
+               LOAD_FAST_BORROW         3 (level)
+               LOAD_GLOBAL             24 (int)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L5)
+               NOT_TAKEN
+
+ 69            LOAD_GLOBAL             19 (TypeError + NULL)
+               LOAD_CONST               8 ('level must be int or None')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 70    L5:     LOAD_GLOBAL             26 (_MODE_WRITE)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_mode)
+
+ 71            LOAD_GLOBAL             29 (ZstdCompressor + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (level, options)
+
+ 72            LOAD_FAST_BORROW         5 (zstd_dict)
+
+ 71            LOAD_CONST               9 (('level', 'options', 'zstd_dict'))
+               CALL_KW                  3
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              15 (_compressor)
+
+ 73            LOAD_SMALL_INT           0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              16 (_pos)
+               JUMP_FORWARD            15 (to L7)
+
+ 75    L6:     LOAD_GLOBAL             15 (ValueError + NULL)
+               LOAD_CONST              10 ('Invalid mode: ')
+               LOAD_FAST_BORROW         2 (mode)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 77    L7:     LOAD_GLOBAL             11 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (file)
+               LOAD_GLOBAL             12 (str)
+               LOAD_GLOBAL             34 (bytes)
+               LOAD_GLOBAL             36 (PathLike)
+               BUILD_TUPLE              3
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       39 (to L8)
+               NOT_TAKEN
+
+ 78            LOAD_GLOBAL             38 (io)
+               LOAD_ATTR               40 (open)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (file, mode)
+               FORMAT_SIMPLE
+               LOAD_CONST               5 ('b')
+               BUILD_STRING             2
+               CALL                     2
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fp)
+
+ 79            LOAD_CONST              11 (True)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_close_fp)
+               JUMP_FORWARD            68 (to L12)
+
+ 80    L8:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST               6 ('r')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       19 (to L9)
+               NOT_TAKEN
+               LOAD_GLOBAL             43 (hasattr + NULL)
+               LOAD_FAST_BORROW         1 (file)
+               LOAD_CONST              12 ('read')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        26 (to L10)
+               NOT_TAKEN
+
+ 81    L9:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST               6 ('r')
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       26 (to L11)
+               NOT_TAKEN
+               LOAD_GLOBAL             43 (hasattr + NULL)
+               LOAD_FAST_BORROW         1 (file)
+               LOAD_CONST              13 ('write')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        8 (to L11)
+               NOT_TAKEN
+
+ 82   L10:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (file, self)
+               STORE_ATTR               0 (_fp)
+               JUMP_FORWARD            11 (to L12)
+
+ 84   L11:     LOAD_GLOBAL             19 (TypeError + NULL)
+               LOAD_CONST              14 ('file must be a file-like object or a str, bytes, or PathLike object')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 87   L12:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_mode)
+               LOAD_GLOBAL             22 (_MODE_READ)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       70 (to L13)
+               NOT_TAKEN
+
+ 88            LOAD_GLOBAL             44 (_streams)
+               LOAD_ATTR               46 (DecompressReader)
+               PUSH_NULL
+
+ 89            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_fp)
+
+ 90            LOAD_GLOBAL             48 (ZstdDecompressor)
+
+ 91            LOAD_FAST_BORROW         5 (zstd_dict)
+
+ 92            LOAD_FAST_BORROW         4 (options)
+
+ 88            LOAD_CONST              15 (('zstd_dict', 'options'))
+               CALL_KW                  4
+               STORE_FAST               6 (raw)
+
+ 94            LOAD_GLOBAL             38 (io)
+               LOAD_ATTR               50 (BufferedReader)
+               PUSH_NULL
+               LOAD_FAST_BORROW         6 (raw)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_buffer)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 87   L13:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204B9D898D0, file "compression\zstd\_zstdfile.py", line 96>:
+  96            RESUME                   0
+
+ 102            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_fp)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+
+ 103            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 104    L1:     NOP
+
+ 105    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_mode)
+                LOAD_GLOBAL              4 (_MODE_READ)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       54 (to L4)
+                NOT_TAKEN
+
+ 106            LOAD_GLOBAL              7 (getattr + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_CONST               2 ('_buffer')
+                LOAD_CONST               1 (None)
+                CALL                     3
+                TO_BOOL
+                POP_JUMP_IF_FALSE       34 (to L3)
+                NOT_TAKEN
+
+ 107            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_buffer)
+                LOAD_ATTR               11 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 108            LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               4 (_buffer)
+
+  --    L3:     JUMP_FORWARD            55 (to L5)
+
+ 109    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_mode)
+                LOAD_GLOBAL             12 (_MODE_WRITE)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       35 (to L5)
+                NOT_TAKEN
+
+ 110            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               15 (flush + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               16 (FLUSH_FRAME)
+                CALL                     1
+                POP_TOP
+
+ 111            LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               9 (_compressor)
+
+ 113    L5:     LOAD_GLOBAL             20 (_MODE_CLOSED)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               1 (_mode)
+
+ 114            NOP
+
+ 115    L6:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               22 (_close_fp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L7)
+                NOT_TAKEN
+
+ 116            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_fp)
+                LOAD_ATTR               11 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 118    L7:     LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (_fp)
+
+ 119            LOAD_CONST               3 (False)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              11 (_close_fp)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 118            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               0 (_fp)
+
+ 119            LOAD_CONST               3 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              11 (_close_fp)
+                RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     PUSH_EXC_INFO
+
+ 113            LOAD_GLOBAL             20 (_MODE_CLOSED)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               1 (_mode)
+
+ 114   L11:     NOP
+
+ 115   L12:     LOAD_FAST                0 (self)
+                LOAD_ATTR               22 (_close_fp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L13)
+                NOT_TAKEN
+
+ 116            LOAD_FAST                0 (self)
+                LOAD_ATTR                0 (_fp)
+                LOAD_ATTR               11 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 118   L13:     LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               0 (_fp)
+
+ 119            LOAD_CONST               3 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              11 (_close_fp)
+                RERAISE                  0
+
+  --   L14:     PUSH_EXC_INFO
+
+ 118            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               0 (_fp)
+
+ 119            LOAD_CONST               3 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              11 (_close_fp)
+                RERAISE                  0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L16:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L5 -> L10 [0]
+  L6 to L7 -> L8 [0]
+  L8 to L9 -> L9 [1] lasti
+  L10 to L11 -> L16 [1] lasti
+  L12 to L13 -> L14 [2]
+  L13 to L14 -> L16 [1] lasti
+  L14 to L15 -> L15 [3] lasti
+  L15 to L16 -> L16 [1] lasti
+
+Disassembly of <code object write at 0x00000204B9FFA8B0, file "compression\zstd\_zstdfile.py", line 121>:
+121           RESUME                   0
+
+129           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_write + NULL|self)
+              CALL                     0
+              POP_TOP
+
+131           LOAD_GLOBAL              3 (_nbytes + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               2 (length)
+
+133           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_compressor)
+              LOAD_ATTR                7 (compress + NULL|self)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               3 (compressed)
+
+134           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_fp)
+              LOAD_ATTR               11 (write + NULL|self)
+              LOAD_FAST_BORROW         3 (compressed)
+              CALL                     1
+              POP_TOP
+
+135           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR               12 (_pos)
+              LOAD_FAST_BORROW         2 (length)
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               6 (_pos)
+
+136           LOAD_FAST_BORROW         2 (length)
+              RETURN_VALUE
+
+Disassembly of <code object flush at 0x00000204BA369050, file "compression\zstd\_zstdfile.py", line 138>:
+138           RESUME                   0
+
+149           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_mode)
+              LOAD_GLOBAL              2 (_MODE_READ)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+150           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+151   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+152           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (mode, self)
+              LOAD_ATTR                6 (FLUSH_BLOCK)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (FLUSH_FRAME)
+              BUILD_SET                2
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+153           LOAD_GLOBAL             11 (ValueError + NULL)
+              LOAD_CONST               2 ('Invalid mode argument, expected either ZstdFile.FLUSH_FRAME or ZstdFile.FLUSH_BLOCK')
+              CALL                     1
+              RAISE_VARARGS            1
+
+156   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_compressor)
+              LOAD_ATTR               14 (last_mode)
+              LOAD_FAST_BORROW         1 (mode)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+157           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+159   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_compressor)
+              LOAD_ATTR               17 (flush + NULL|self)
+              LOAD_FAST_BORROW         1 (mode)
+              CALL                     1
+              STORE_FAST               2 (data)
+
+160           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (_fp)
+              LOAD_ATTR               21 (write + NULL|self)
+              LOAD_FAST_BORROW         2 (data)
+              CALL                     1
+              POP_TOP
+
+161           LOAD_GLOBAL             23 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (_fp)
+              LOAD_CONST               3 ('flush')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       29 (to L4)
+              NOT_TAKEN
+
+162           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (_fp)
+              LOAD_ATTR               17 (flush + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+161   L4:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object read at 0x00000204BA0A9BB0, file "compression\zstd\_zstdfile.py", line 164>:
+164           RESUME                   0
+
+170           LOAD_FAST_BORROW         1 (size)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+171           LOAD_CONST               1 (-1)
+              STORE_FAST               1 (size)
+
+172   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+173           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (read + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object read1 at 0x00000204BA0BB8A0, file "compression\zstd\_zstdfile.py", line 175>:
+175           RESUME                   0
+
+182           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+183           LOAD_FAST_BORROW         1 (size)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE        7 (to L1)
+              NOT_TAKEN
+
+187           LOAD_GLOBAL              2 (ZSTD_DStreamOutSize)
+              STORE_FAST               1 (size)
+
+188   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_buffer)
+              LOAD_ATTR                7 (read1 + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readinto at 0x00000204B9FEF0E0, file "compression\zstd\_zstdfile.py", line 190>:
+190           RESUME                   0
+
+195           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+196           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (readinto + NULL|self)
+              LOAD_FAST_BORROW         1 (b)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readinto1 at 0x00000204BA103A60, file "compression\zstd\_zstdfile.py", line 198>:
+198           RESUME                   0
+
+204           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+205           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (readinto1 + NULL|self)
+              LOAD_FAST_BORROW         1 (b)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readline at 0x00000204BA102E80, file "compression\zstd\_zstdfile.py", line 207>:
+207           RESUME                   0
+
+214           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+215           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (readline + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object seek at 0x00000204BA101A50, file "compression\zstd\_zstdfile.py", line 217>:
+217           RESUME                   0
+
+232           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+235           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (seek + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (offset, whence)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object peek at 0x00000204BA102D50, file "compression\zstd\_zstdfile.py", line 237>:
+237           RESUME                   0
+
+245           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+246           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (peek + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __next__ at 0x00000204BA1004F0, file "compression\zstd\_zstdfile.py", line 248>:
+248           RESUME                   0
+
+249           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_buffer)
+              LOAD_ATTR                3 (readline + NULL|self)
+              CALL                     0
+              COPY                     1
+              STORE_FAST               1 (ret)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+250           LOAD_FAST_BORROW         1 (ret)
+              RETURN_VALUE
+
+251   L1:     LOAD_GLOBAL              4 (StopIteration)
+              RAISE_VARARGS            1
+
+Disassembly of <code object tell at 0x00000204B9F6EF50, file "compression\zstd\_zstdfile.py", line 253>:
+253           RESUME                   0
+
+255           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+256           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_READ)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+257           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_buffer)
+              LOAD_ATTR                9 (tell + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+258   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL             10 (_MODE_WRITE)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       13 (to L2)
+              NOT_TAKEN
+
+259           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               12 (_pos)
+              RETURN_VALUE
+
+258   L2:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object fileno at 0x00000204BA102C20, file "compression\zstd\_zstdfile.py", line 261>:
+261           RESUME                   0
+
+263           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+264           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_fp)
+              LOAD_ATTR                5 (fileno + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object name at 0x00000204BA0A7990, file "compression\zstd\_zstdfile.py", line 266>:
+266           RESUME                   0
+
+268           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+269           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_fp)
+              LOAD_ATTR                4 (name)
+              RETURN_VALUE
+
+Disassembly of <code object mode at 0x00000204BA083110, file "compression\zstd\_zstdfile.py", line 271>:
+271           RESUME                   0
+
+273           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_mode)
+              LOAD_GLOBAL              2 (_MODE_WRITE)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 ('wb')
+              RETURN_VALUE
+      L1:     LOAD_CONST               1 ('rb')
+              RETURN_VALUE
+
+Disassembly of <code object closed at 0x00000204BA08B330, file "compression\zstd\_zstdfile.py", line 275>:
+275           RESUME                   0
+
+278           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_mode)
+              LOAD_GLOBAL              2 (_MODE_CLOSED)
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object seekable at 0x00000204BA0AA330, file "compression\zstd\_zstdfile.py", line 280>:
+280           RESUME                   0
+
+282           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (readable + NULL|self)
+              CALL                     0
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (seekable + NULL|self)
+              CALL                     0
+      L1:     RETURN_VALUE
+
+Disassembly of <code object readable at 0x00000204BA0A5350, file "compression\zstd\_zstdfile.py", line 284>:
+284           RESUME                   0
+
+286           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+287           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_READ)
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object writable at 0x00000204BA0A7090, file "compression\zstd\_zstdfile.py", line 289>:
+289           RESUME                   0
+
+291           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+292           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_WRITE)
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object open at 0x00000204B9F5BA30, file "compression\zstd\_zstdfile.py", line 295>:
+295           RESUME                   0
+
+325           LOAD_CONST               1 ('t')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              STORE_FAST               8 (text_mode)
+
+326           LOAD_FAST_BORROW         1 (mode)
+              LOAD_ATTR                1 (replace + NULL|self)
+              LOAD_CONST               1 ('t')
+              LOAD_CONST               2 ('')
+              CALL                     2
+              STORE_FAST               1 (mode)
+
+328           LOAD_FAST_BORROW         8 (text_mode)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       24 (to L2)
+              NOT_TAKEN
+
+329           LOAD_CONST               3 ('b')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       16 (to L1)
+              NOT_TAKEN
+
+330           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               4 ('Invalid mode: ')
+              LOAD_FAST_BORROW         1 (mode)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+329   L1:     JUMP_FORWARD            45 (to L5)
+
+332   L2:     LOAD_FAST_BORROW         5 (encoding)
+              POP_JUMP_IF_NONE        12 (to L3)
+              NOT_TAKEN
+
+333           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               5 ('Argument "encoding" not supported in binary mode')
+              CALL                     1
+              RAISE_VARARGS            1
+
+334   L3:     LOAD_FAST_BORROW         6 (errors)
+              POP_JUMP_IF_NONE        12 (to L4)
+              NOT_TAKEN
+
+335           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               6 ('Argument "errors" not supported in binary mode')
+              CALL                     1
+              RAISE_VARARGS            1
+
+336   L4:     LOAD_FAST_BORROW         7 (newline)
+              POP_JUMP_IF_NONE        12 (to L5)
+              NOT_TAKEN
+
+337           LOAD_GLOBAL              3 (ValueError + NULL)
+              LOAD_CONST               7 ('Argument "newline" not supported in binary mode')
+              CALL                     1
+              RAISE_VARARGS            1
+
+339   L5:     LOAD_GLOBAL              5 (ZstdFile + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (file, mode)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (level, options)
+
+340           LOAD_FAST_BORROW         4 (zstd_dict)
+
+339           LOAD_CONST               8 (('level', 'options', 'zstd_dict'))
+              CALL_KW                  5
+              STORE_FAST               9 (binary_file)
+
+342           LOAD_FAST_BORROW         8 (text_mode)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       24 (to L6)
+              NOT_TAKEN
+
+343           LOAD_GLOBAL              6 (io)
+              LOAD_ATTR                8 (TextIOWrapper)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 149 (binary_file, encoding)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (errors, newline)
+              CALL                     4
+              RETURN_VALUE
+
+345   L6:     LOAD_FAST_BORROW         9 (binary_file)
+              RETURN_VALUE

@@ -1,0 +1,468 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('Common code between queues and channels.')
+               STORE_NAME               0 (__doc__)
+
+   4           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST               1 (<code object ItemInterpreterDestroyed at 0x00000204BA092A60, file "concurrent\interpreters\_crossinterp.py", line 4>)
+               MAKE_FUNCTION
+               LOAD_CONST               2 ('ItemInterpreterDestroyed')
+               LOAD_NAME                1 (Exception)
+               CALL                     3
+               STORE_NAME               2 (ItemInterpreterDestroyed)
+
+   8           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST               3 (<code object classonly at 0x00000204BA083110, file "concurrent\interpreters\_crossinterp.py", line 8>)
+               MAKE_FUNCTION
+               LOAD_CONST               4 ('classonly')
+               CALL                     2
+               STORE_NAME               3 (classonly)
+
+  32           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST               5 (<code object UnboundItem at 0x00000204BA0A68B0, file "concurrent\interpreters\_crossinterp.py", line 32>)
+               MAKE_FUNCTION
+               LOAD_CONST               6 ('UnboundItem')
+               CALL                     2
+               STORE_NAME               4 (UnboundItem)
+
+  72           LOAD_NAME                5 (object)
+               LOAD_ATTR               13 (__new__ + NULL|self)
+               LOAD_NAME                4 (UnboundItem)
+               CALL                     1
+               STORE_NAME               7 (UNBOUND)
+
+  73           LOAD_NAME                5 (object)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME               8 (UNBOUND_ERROR)
+
+  74           LOAD_NAME                5 (object)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME               9 (UNBOUND_REMOVE)
+
+  77           LOAD_NAME                9 (UNBOUND_REMOVE)
+               LOAD_SMALL_INT           1
+
+  78           LOAD_NAME                8 (UNBOUND_ERROR)
+               LOAD_SMALL_INT           2
+
+  79           LOAD_NAME                7 (UNBOUND)
+               LOAD_SMALL_INT           3
+
+  76           BUILD_MAP                3
+               STORE_NAME              10 (_UNBOUND_CONSTANT_TO_FLAG)
+
+  82           LOAD_NAME               10 (_UNBOUND_CONSTANT_TO_FLAG)
+               LOAD_ATTR               23 (items + NULL|self)
+               CALL                     0
+               GET_ITER
+
+  81           LOAD_FAST_AND_CLEAR      0 (k)
+               LOAD_FAST_AND_CLEAR      1 (v)
+               SWAP                     3
+       L1:     BUILD_MAP                0
+               SWAP                     2
+
+  82   L2:     FOR_ITER                 7 (to L3)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST    1 (k, v)
+
+  81           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (v, k)
+               MAP_ADD                  2
+               JUMP_BACKWARD            9 (to L2)
+
+  82   L3:     END_FOR
+               POP_ITER
+
+  81   L4:     SWAP                     3
+               STORE_FAST               1 (v)
+               STORE_FAST               0 (k)
+               STORE_NAME              12 (_UNBOUND_FLAG_TO_CONSTANT)
+
+  85           LOAD_CONST               7 (<code object serialize_unbound at 0x00000204BA0AA1F0, file "concurrent\interpreters\_crossinterp.py", line 85>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (serialize_unbound)
+
+  94           LOAD_CONST               8 (<code object resolve_unbound at 0x00000204B9F9F9F0, file "concurrent\interpreters\_crossinterp.py", line 94>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (resolve_unbound)
+               LOAD_CONST               9 (None)
+               RETURN_VALUE
+
+  --   L5:     SWAP                     2
+               POP_TOP
+
+  81           SWAP                     3
+               STORE_FAST               1 (v)
+               STORE_FAST               0 (k)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L5 [3]
+
+Disassembly of <code object ItemInterpreterDestroyed at 0x00000204BA092A60, file "concurrent\interpreters\_crossinterp.py", line 4>:
+  4           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ItemInterpreterDestroyed')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT           4
+              STORE_NAME               3 (__firstlineno__)
+
+  5           LOAD_CONST               1 ('Raised when trying to get an item whose interpreter was destroyed.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object classonly at 0x00000204BA083110, file "concurrent\interpreters\_crossinterp.py", line 8>:
+  --           MAKE_CELL                0 (__classdict__)
+
+   8           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('classonly')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT           8
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+   9           LOAD_CONST               1 ('A non-data descriptor that makes a value only visible on the class.\n\nThis is like the "classmethod" builtin, but does not show up on\ninstances of the class.  It may be used as a decorator.\n')
+               STORE_NAME               4 (__doc__)
+
+  15           LOAD_CONST               2 (<code object __init__ at 0x00000204B9FEF0E0, file "concurrent\interpreters\_crossinterp.py", line 15>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  20           LOAD_CONST               3 (<code object __set_name__ at 0x00000204BA0A7630, file "concurrent\interpreters\_crossinterp.py", line 20>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__set_name__)
+
+  25           LOAD_CONST               4 (<code object __get__ at 0x00000204B9FEF800, file "concurrent\interpreters\_crossinterp.py", line 25>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__get__)
+               LOAD_CONST               5 (('getter', 'name', 'value'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FEF0E0, file "concurrent\interpreters\_crossinterp.py", line 15>:
+ 15           RESUME                   0
+
+ 16           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (value, self)
+              STORE_ATTR               0 (value)
+
+ 17           LOAD_GLOBAL              3 (classmethod + NULL)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              LOAD_ATTR                4 (__get__)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (getter)
+
+ 18           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (name)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __set_name__ at 0x00000204BA0A7630, file "concurrent\interpreters\_crossinterp.py", line 20>:
+ 20           RESUME                   0
+
+ 21           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (name)
+              POP_JUMP_IF_NONE        12 (to L1)
+              NOT_TAKEN
+
+ 22           LOAD_GLOBAL              3 (TypeError + NULL)
+              LOAD_CONST               1 ('already used')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 23   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (name, self)
+              STORE_ATTR               0 (name)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __get__ at 0x00000204B9FEF800, file "concurrent\interpreters\_crossinterp.py", line 25>:
+ 25           RESUME                   0
+
+ 26           LOAD_FAST_BORROW         1 (obj)
+              POP_JUMP_IF_NONE        22 (to L1)
+              NOT_TAKEN
+
+ 27           LOAD_GLOBAL              1 (AttributeError + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (name)
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 29   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (getter + NULL|self)
+              LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         2 (cls)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object UnboundItem at 0x00000204BA0A68B0, file "concurrent\interpreters\_crossinterp.py", line 32>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  32           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('UnboundItem')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          32
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  33           LOAD_CONST               1 ('Represents a cross-interpreter item no longer bound to an interpreter.\n\nAn item is unbound when the interpreter that added it to the\ncross-interpreter container is destroyed.\n')
+               STORE_NAME               4 (__doc__)
+
+  39           LOAD_CONST               6 (())
+               STORE_NAME               5 (__slots__)
+
+  41           LOAD_NAME                6 (classonly)
+
+  42           LOAD_CONST               8 (('UNBOUND',))
+               LOAD_CONST               3 (<code object singleton at 0x00000204B9F9EA30, file "concurrent\interpreters\_crossinterp.py", line 41>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+  41           CALL                     0
+
+  42           STORE_NAME               7 (singleton)
+
+  61           LOAD_NAME                0 (__name__)
+               STORE_NAME               8 (_MODULE)
+
+  62           LOAD_CONST               2 ('UNBOUND')
+               STORE_NAME               9 (_NAME)
+
+  64           LOAD_CONST               4 (<code object __new__ at 0x00000204BA0A72D0, file "concurrent\interpreters\_crossinterp.py", line 64>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__new__)
+
+  67           LOAD_CONST               5 (<code object __repr__ at 0x00000204BA0FC7A0, file "concurrent\interpreters\_crossinterp.py", line 67>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (__repr__)
+               LOAD_CONST               6 (())
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object singleton at 0x00000204B9F9EA30, file "concurrent\interpreters\_crossinterp.py", line 41>:
+ 41           RESUME                   0
+
+ 43           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                0 (__doc__)
+              STORE_FAST               4 (doc)
+
+ 44           LOAD_FAST_BORROW         4 (doc)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       35 (to L1)
+              NOT_TAKEN
+
+ 45           LOAD_FAST_BORROW         4 (doc)
+              LOAD_ATTR                3 (replace + NULL|self)
+
+ 46           LOAD_CONST               0 ('cross-interpreter container')
+              LOAD_FAST_BORROW         1 (kind)
+
+ 45           CALL                     2
+
+ 47           LOAD_ATTR                3 (replace + NULL|self)
+
+ 48           LOAD_CONST               1 ('cross-interpreter')
+              LOAD_FAST_BORROW         1 (kind)
+
+ 47           CALL                     2
+
+ 45           STORE_FAST               4 (doc)
+
+ 50   L1:     LOAD_GLOBAL              5 (type + NULL)
+
+ 51           LOAD_CONST               2 ('Unbound')
+              LOAD_FAST_BORROW         1 (kind)
+              LOAD_ATTR                7 (capitalize + NULL|self)
+              CALL                     0
+              FORMAT_SIMPLE
+              LOAD_CONST               3 ('Item')
+              BUILD_STRING             3
+
+ 52           LOAD_FAST_BORROW         0 (cls)
+              BUILD_TUPLE              1
+
+ 54           LOAD_CONST               4 ('_MODULE')
+              LOAD_FAST_BORROW         2 (module)
+
+ 55           LOAD_CONST               5 ('_NAME')
+              LOAD_FAST_BORROW         3 (name)
+
+ 56           LOAD_CONST               6 ('__doc__')
+              LOAD_FAST_BORROW         4 (doc)
+
+ 53           BUILD_MAP                3
+
+ 50           CALL                     3
+              STORE_FAST               5 (subclass)
+
+ 59           LOAD_GLOBAL              8 (object)
+              LOAD_ATTR               11 (__new__ + NULL|self)
+              LOAD_FAST_BORROW         5 (subclass)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x00000204BA0A72D0, file "concurrent\interpreters\_crossinterp.py", line 64>:
+ 64           RESUME                   0
+
+ 65           LOAD_GLOBAL              1 (Exception + NULL)
+              LOAD_CONST               0 ('use ')
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                2 (_MODULE)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('.')
+              LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                4 (_NAME)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object __repr__ at 0x00000204BA0FC7A0, file "concurrent\interpreters\_crossinterp.py", line 67>:
+ 67           RESUME                   0
+
+ 68           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_MODULE)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 ('.')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_NAME)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              RETURN_VALUE
+
+Disassembly of <code object serialize_unbound at 0x00000204BA0AA1F0, file "concurrent\interpreters\_crossinterp.py", line 85>:
+  85           RESUME                   0
+
+  86           LOAD_FAST                0 (unbound)
+               STORE_FAST               1 (op)
+
+  87           NOP
+
+  88   L1:     LOAD_GLOBAL              0 (_UNBOUND_CONSTANT_TO_FLAG)
+               LOAD_FAST_BORROW         1 (op)
+               BINARY_OP               26 ([])
+               STORE_FAST               2 (flag)
+
+  91   L2:     LOAD_FAST_BORROW         2 (flag)
+               BUILD_TUPLE              1
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  89           LOAD_GLOBAL              2 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       17 (to L4)
+               NOT_TAKEN
+               POP_TOP
+
+  90           LOAD_GLOBAL              5 (NotImplementedError + NULL)
+               LOAD_CONST               0 ('unsupported unbound replacement op ')
+               LOAD_FAST                1 (op)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+  89   L4:     RERAISE                  0
+
+  --   L5:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L5 -> L5 [1] lasti
+
+Disassembly of <code object resolve_unbound at 0x00000204B9F9F9F0, file "concurrent\interpreters\_crossinterp.py", line 94>:
+  94           RESUME                   0
+
+  95           NOP
+
+  96   L1:     LOAD_GLOBAL              0 (_UNBOUND_FLAG_TO_CONSTANT)
+               LOAD_FAST_BORROW         0 (flag)
+               BINARY_OP               26 ([])
+               STORE_FAST               2 (op)
+
+  99   L2:     LOAD_FAST                2 (op)
+               LOAD_GLOBAL              6 (UNBOUND_REMOVE)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE        7 (to L3)
+               NOT_TAKEN
+
+ 101           LOAD_GLOBAL              4 (NotImplementedError)
+               RAISE_VARARGS            1
+
+ 102   L3:     LOAD_FAST                2 (op)
+               LOAD_GLOBAL              8 (UNBOUND_ERROR)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE        9 (to L4)
+               NOT_TAKEN
+
+ 103           LOAD_FAST                1 (exctype_destroyed)
+               PUSH_NULL
+               LOAD_CONST               1 ("item's original interpreter destroyed")
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 104   L4:     LOAD_FAST                2 (op)
+               LOAD_GLOBAL             10 (UNBOUND)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE        7 (to L5)
+               NOT_TAKEN
+
+ 105           LOAD_GLOBAL             10 (UNBOUND)
+               RETURN_VALUE
+
+ 107   L5:     LOAD_GLOBAL              5 (NotImplementedError + NULL)
+               LOAD_GLOBAL             13 (repr + NULL)
+               LOAD_FAST                2 (op)
+               CALL                     1
+               CALL                     1
+               RAISE_VARARGS            1
+
+  --   L6:     PUSH_EXC_INFO
+
+  97           LOAD_GLOBAL              2 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       17 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+  98           LOAD_GLOBAL              5 (NotImplementedError + NULL)
+               LOAD_CONST               0 ('unsupported unbound replacement op ')
+               LOAD_FAST                0 (flag)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+  97   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L6 to L8 -> L8 [1] lasti

@@ -1,0 +1,29 @@
+<module>()  line 1
+    URLError()  line 19
+        URLError.__init__(self, reason, filename)  line 25
+        URLError.__str__(self)  line 31
+    HTTPError()  line 35
+        HTTPError.__init__(self, url, code, msg, hdrs, fp)  line 39
+        HTTPError.__str__(self)  line 49
+        HTTPError.__repr__(self)  line 52
+        HTTPError.reason(self)  line 57
+        HTTPError.headers(self)  line 61
+        HTTPError.headers(self, headers)  line 65
+    ContentTooShortError()  line 70
+        ContentTooShortError.__init__(self, message, content)  line 72
+
+--- strings ---
+"Exception classes raised by urllib.\n\nThe base exception class is URLError, which inherits from OSError.  It\ndoesn't define any behavior of its own, but is the base class for all\nexceptions defined in this package.\n\nHTTPError is an exception class that is also a valid HTTP response\ninstance.  It behaves this way because HTTP protocol errors are valid\nresponses, with a status code, headers, and a body.  In some contexts,\nan application may want to handle an exception like a regular\nresponse.\n"
+'URLError'
+'HTTPError'
+'ContentTooShortError'
+'URLError'
+'<urlopen error %s>'
+'HTTPError'
+'Raised when HTTP error occurs, but also acts like non-error return'
+'HTTP Error '
+': '
+'<HTTPError '
+': '
+'ContentTooShortError'
+'Exception raised when downloaded size does not match content-length.'

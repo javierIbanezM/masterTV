@@ -1,0 +1,71 @@
+  0           RESUME                   0
+
+  2           LOAD_CONST               2 ((None, None))
+              LOAD_CONST               1 (<code object only at 0x00000204BA0B7230, file "importlib\resources\_itertools.py", line 2>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               0 (only)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object only at 0x00000204BA0B7230, file "importlib\resources\_itertools.py", line 2>:
+   2           RESUME                   0
+
+  24           LOAD_GLOBAL              1 (iter + NULL)
+               LOAD_FAST_BORROW         0 (iterable)
+               CALL                     1
+               STORE_FAST               3 (it)
+
+  25           LOAD_GLOBAL              3 (next + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (it, default)
+               CALL                     2
+               STORE_FAST               4 (first_value)
+
+  27           NOP
+
+  28   L1:     LOAD_GLOBAL              3 (next + NULL)
+               LOAD_FAST_BORROW         3 (it)
+               CALL                     1
+               STORE_FAST               5 (second_value)
+
+  33   L2:     LOAD_CONST               1 ('Expected exactly one item in iterable, but got {!r}, {!r}, and perhaps more.')
+
+  34           LOAD_ATTR                5 (format + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (first_value, second_value)
+               CALL                     2
+
+  32           STORE_FAST               6 (msg)
+
+  36           LOAD_FAST                2 (too_long)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE        12 (to L3)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_GLOBAL              7 (ValueError + NULL)
+               LOAD_FAST_BORROW         6 (msg)
+               CALL                     1
+       L3:     RAISE_VARARGS            1
+
+  --   L4:     PUSH_EXC_INFO
+
+  29           LOAD_GLOBAL              8 (StopIteration)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  30   L5:     POP_EXCEPT
+
+  38           LOAD_FAST                4 (first_value)
+               RETURN_VALUE
+
+  29   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti

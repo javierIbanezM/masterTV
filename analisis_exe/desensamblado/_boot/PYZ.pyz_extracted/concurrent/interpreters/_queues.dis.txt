@@ -1,0 +1,1162 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Cross-interpreter Queues High Level Module.')
+              STORE_NAME               0 (__doc__)
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (pickle)
+              STORE_NAME               1 (pickle)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (queue)
+              STORE_NAME               2 (queue)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (time)
+              STORE_NAME               3 (time)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (weakref)
+              STORE_NAME               4 (weakref)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              5 (_interpqueues)
+              STORE_NAME               6 (_queues)
+
+  8           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('_crossinterp',))
+              IMPORT_NAME              7
+              IMPORT_FROM              8 (_crossinterp)
+              STORE_NAME               8 (_crossinterp)
+              POP_TOP
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('QueueError', 'QueueNotFoundError'))
+              IMPORT_NAME              5 (_interpqueues)
+              IMPORT_FROM              9 (QueueError)
+              STORE_NAME               9 (QueueError)
+              IMPORT_FROM             10 (QueueNotFoundError)
+              STORE_NAME              10 (QueueNotFoundError)
+              POP_TOP
+
+ 14           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('UNBOUND_ERROR', 'UNBOUND_REMOVE'))
+              IMPORT_NAME              8 (_crossinterp)
+              IMPORT_FROM             11 (UNBOUND_ERROR)
+              STORE_NAME              11 (UNBOUND_ERROR)
+              IMPORT_FROM             12 (UNBOUND_REMOVE)
+              STORE_NAME              12 (UNBOUND_REMOVE)
+              POP_TOP
+
+ 18           BUILD_LIST               0
+              LOAD_CONST              19 (('UNBOUND', 'UNBOUND_ERROR', 'UNBOUND_REMOVE', 'create', 'list_all', 'Queue', 'QueueError', 'QueueNotFoundError', 'QueueEmpty', 'QueueFull', 'ItemInterpreterDestroyed'))
+              LIST_EXTEND              1
+              STORE_NAME              13 (__all__)
+
+ 27           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object QueueEmpty at 0x00000204BA092970, file "concurrent\interpreters\_queues.py", line 27>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('QueueEmpty')
+              LOAD_NAME                9 (QueueError)
+              LOAD_NAME                2 (queue)
+              LOAD_ATTR               28 (Empty)
+              CALL                     4
+              STORE_NAME              15 (QueueEmpty)
+
+ 34           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object QueueFull at 0x00000204BA0913E0, file "concurrent\interpreters\_queues.py", line 34>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 ('QueueFull')
+              LOAD_NAME                9 (QueueError)
+              LOAD_NAME                2 (queue)
+              LOAD_ATTR               32 (Full)
+              CALL                     4
+              STORE_NAME              17 (QueueFull)
+
+ 41           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object ItemInterpreterDestroyed at 0x00000204BA092F10, file "concurrent\interpreters\_queues.py", line 41>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('ItemInterpreterDestroyed')
+              LOAD_NAME                9 (QueueError)
+
+ 42           LOAD_NAME                8 (_crossinterp)
+              LOAD_ATTR               36 (ItemInterpreterDestroyed)
+
+ 41           CALL                     4
+              STORE_NAME              18 (ItemInterpreterDestroyed)
+
+ 46           LOAD_SMALL_INT           0
+              STORE_NAME              19 (_SHARED_ONLY)
+
+ 47           LOAD_SMALL_INT           1
+              STORE_NAME              20 (_PICKLED)
+
+ 50           LOAD_NAME                8 (_crossinterp)
+              LOAD_ATTR               42 (UnboundItem)
+              LOAD_ATTR               45 (singleton + NULL|self)
+              LOAD_CONST              12 ('queue')
+              LOAD_NAME               23 (__name__)
+              CALL                     2
+              STORE_NAME              24 (UNBOUND)
+
+ 53           LOAD_CONST              13 (<code object _serialize_unbound at 0x00000204BA0AAE70, file "concurrent\interpreters\_queues.py", line 53>)
+              MAKE_FUNCTION
+              STORE_NAME              25 (_serialize_unbound)
+
+ 59           LOAD_CONST              14 (<code object _resolve_unbound at 0x00000204BA0AA330, file "concurrent\interpreters\_queues.py", line 59>)
+              MAKE_FUNCTION
+              STORE_NAME              26 (_resolve_unbound)
+
+ 66           LOAD_CONST              20 ((0,))
+              LOAD_CONST              15 ('unbounditems')
+              LOAD_NAME               24 (UNBOUND)
+              BUILD_MAP                1
+              LOAD_CONST              16 (<code object create at 0x00000204B9F723F0, file "concurrent\interpreters\_queues.py", line 66>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              27 (create)
+
+ 83           LOAD_CONST              17 (<code object list_all at 0x00000204B9F4DD30, file "concurrent\interpreters\_queues.py", line 83>)
+              MAKE_FUNCTION
+              STORE_NAME              28 (list_all)
+
+ 96           LOAD_NAME                4 (weakref)
+              LOAD_ATTR               58 (WeakValueDictionary)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              30 (_known_queues)
+
+ 98           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              18 (<code object Queue at 0x00000204B9FFA8B0, file "concurrent\interpreters\_queues.py", line 98>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('Queue')
+              CALL                     2
+              STORE_NAME              31 (Queue)
+
+289           LOAD_NAME                6 (_queues)
+              LOAD_ATTR               64 (_register_heap_types)
+              PUSH_NULL
+              LOAD_NAME               31 (Queue)
+              LOAD_NAME               15 (QueueEmpty)
+              LOAD_NAME               17 (QueueFull)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object QueueEmpty at 0x00000204BA092970, file "concurrent\interpreters\_queues.py", line 27>:
+ 27           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('QueueEmpty')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          27
+              STORE_NAME               3 (__firstlineno__)
+
+ 28           LOAD_CONST               1 ('Raised from get_nowait() when the queue is empty.\n\nIt is also raised from get() if it times out.\n')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object QueueFull at 0x00000204BA0913E0, file "concurrent\interpreters\_queues.py", line 34>:
+ 34           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('QueueFull')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          34
+              STORE_NAME               3 (__firstlineno__)
+
+ 35           LOAD_CONST               1 ('Raised from put_nowait() when the queue is full.\n\nIt is also raised from put() if it times out.\n')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ItemInterpreterDestroyed at 0x00000204BA092F10, file "concurrent\interpreters\_queues.py", line 41>:
+ 41           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ItemInterpreterDestroyed')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          41
+              STORE_NAME               3 (__firstlineno__)
+
+ 43           LOAD_CONST               1 ('Raised from get() and get_nowait().')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _serialize_unbound at 0x00000204BA0AAE70, file "concurrent\interpreters\_queues.py", line 53>:
+ 53           RESUME                   0
+
+ 54           LOAD_FAST_BORROW         0 (unbound)
+              LOAD_GLOBAL              0 (UNBOUND)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+ 55           LOAD_GLOBAL              2 (_crossinterp)
+              LOAD_ATTR                0 (UNBOUND)
+              STORE_FAST               0 (unbound)
+
+ 56   L1:     LOAD_GLOBAL              2 (_crossinterp)
+              LOAD_ATTR                4 (serialize_unbound)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (unbound)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _resolve_unbound at 0x00000204BA0AA330, file "concurrent\interpreters\_queues.py", line 59>:
+ 59           RESUME                   0
+
+ 60           LOAD_GLOBAL              0 (_crossinterp)
+              LOAD_ATTR                2 (resolve_unbound)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (flag)
+              LOAD_GLOBAL              4 (ItemInterpreterDestroyed)
+              CALL                     2
+              STORE_FAST               1 (resolved)
+
+ 61           LOAD_FAST_BORROW         1 (resolved)
+              LOAD_GLOBAL              0 (_crossinterp)
+              LOAD_ATTR                6 (UNBOUND)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE        7 (to L1)
+              NOT_TAKEN
+
+ 62           LOAD_GLOBAL              6 (UNBOUND)
+              STORE_FAST               1 (resolved)
+
+ 63   L1:     LOAD_FAST_BORROW         1 (resolved)
+              RETURN_VALUE
+
+Disassembly of <code object create at 0x00000204B9F723F0, file "concurrent\interpreters\_queues.py", line 66>:
+ 66           RESUME                   0
+
+ 75           LOAD_GLOBAL              1 (_serialize_unbound + NULL)
+              LOAD_FAST_BORROW         1 (unbounditems)
+              CALL                     1
+              STORE_FAST               2 (unbound)
+
+ 76           LOAD_FAST_BORROW         2 (unbound)
+              UNPACK_SEQUENCE          1
+              STORE_FAST               3 (unboundop)
+
+ 77           LOAD_GLOBAL              2 (_queues)
+              LOAD_ATTR                4 (create)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (maxsize, unboundop)
+              LOAD_CONST               1 (-1)
+              CALL                     3
+              STORE_FAST               4 (qid)
+
+ 78           LOAD_GLOBAL              7 (Queue + NULL)
+              LOAD_FAST_BORROW         4 (qid)
+              CALL                     1
+              STORE_FAST               5 (self)
+
+ 79           LOAD_FAST_BORROW         5 (self)
+              LOAD_ATTR                9 (_set_unbound + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (unboundop, unbounditems)
+              CALL                     2
+              POP_TOP
+
+ 80           LOAD_FAST_BORROW         5 (self)
+              RETURN_VALUE
+
+Disassembly of <code object list_all at 0x00000204B9F4DD30, file "concurrent\interpreters\_queues.py", line 83>:
+ 83           RESUME                   0
+
+ 85           BUILD_LIST               0
+              STORE_FAST               0 (queues)
+
+ 86           LOAD_GLOBAL              0 (_queues)
+              LOAD_ATTR                2 (list_all)
+              PUSH_NULL
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                96 (to L4)
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   18 (qid, unboundop)
+              STORE_FAST               3 (_)
+
+ 87           LOAD_GLOBAL              5 (Queue + NULL)
+              LOAD_FAST_BORROW         1 (qid)
+              CALL                     1
+              STORE_FAST               4 (self)
+
+ 88           LOAD_GLOBAL              7 (hasattr + NULL)
+              LOAD_FAST_BORROW         4 (self)
+              LOAD_CONST               1 ('_unbound')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        19 (to L2)
+              NOT_TAKEN
+
+ 89           LOAD_FAST_BORROW         4 (self)
+              LOAD_ATTR                9 (_set_unbound + NULL|self)
+              LOAD_FAST_BORROW         2 (unboundop)
+              CALL                     1
+              POP_TOP
+              JUMP_FORWARD            26 (to L3)
+
+ 91   L2:     LOAD_FAST_BORROW         4 (self)
+              LOAD_ATTR               10 (_unbound)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         2 (unboundop)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+ 92   L3:     LOAD_FAST_BORROW         0 (queues)
+              LOAD_ATTR               13 (append + NULL|self)
+              LOAD_FAST_BORROW         4 (self)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           98 (to L1)
+
+ 86   L4:     END_FOR
+              POP_ITER
+
+ 93           LOAD_FAST_BORROW         0 (queues)
+              RETURN_VALUE
+
+Disassembly of <code object Queue at 0x00000204B9FFA8B0, file "concurrent\interpreters\_queues.py", line 98>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  98           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Queue')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          98
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  99           LOAD_CONST               1 ('A cross-interpreter queue.')
+               STORE_NAME               4 (__doc__)
+
+ 101           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __new__ at 0x00000204B9FA7860, file "concurrent\interpreters\_queues.py", line 101>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__new__)
+
+ 116           LOAD_CONST               3 (<code object __del__ at 0x00000204BA0B7230, file "concurrent\interpreters\_queues.py", line 116>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__del__)
+
+ 126           LOAD_CONST               4 (<code object __repr__ at 0x00000204BA0A6550, file "concurrent\interpreters\_queues.py", line 126>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__repr__)
+
+ 129           LOAD_CONST               5 (<code object __hash__ at 0x00000204BA08B330, file "concurrent\interpreters\_queues.py", line 129>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__hash__)
+
+ 133           LOAD_CONST               6 (<code object __reduce__ at 0x00000204BA0FECD0, file "concurrent\interpreters\_queues.py", line 133>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__reduce__)
+
+ 136           LOAD_CONST              22 ((None,))
+               LOAD_CONST               8 (<code object _set_unbound at 0x00000204BA101DE0, file "concurrent\interpreters\_queues.py", line 136>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              10 (_set_unbound)
+
+ 144           LOAD_NAME               11 (property)
+
+ 145           LOAD_CONST               9 (<code object id at 0x00000204BA093000, file "concurrent\interpreters\_queues.py", line 144>)
+               MAKE_FUNCTION
+
+ 144           CALL                     0
+
+ 145           STORE_NAME              12 (id)
+
+ 148           LOAD_NAME               11 (property)
+
+ 149           LOAD_CONST              10 (<code object unbounditems at 0x00000204BA129930, file "concurrent\interpreters\_queues.py", line 148>)
+               MAKE_FUNCTION
+
+ 148           CALL                     0
+
+ 149           STORE_NAME              13 (unbounditems)
+
+ 157           LOAD_NAME               11 (property)
+
+ 158           LOAD_CONST              11 (<code object maxsize at 0x00000204B9FF3E00, file "concurrent\interpreters\_queues.py", line 157>)
+               MAKE_FUNCTION
+
+ 157           CALL                     0
+
+ 158           STORE_NAME              14 (maxsize)
+
+ 165           LOAD_CONST              12 (<code object empty at 0x00000204BA08AC30, file "concurrent\interpreters\_queues.py", line 165>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (empty)
+
+ 168           LOAD_CONST              13 (<code object full at 0x00000204BA0A6D30, file "concurrent\interpreters\_queues.py", line 168>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (full)
+
+ 171           LOAD_CONST              14 (<code object qsize at 0x00000204BA0A7990, file "concurrent\interpreters\_queues.py", line 171>)
+               MAKE_FUNCTION
+               STORE_NAME              17 (qsize)
+
+ 174           LOAD_CONST              23 ((True, None))
+               LOAD_CONST              15 ('unbounditems')
+
+ 175           LOAD_CONST               7 (None)
+
+ 174           LOAD_CONST              16 ('_delay')
+
+ 176           LOAD_CONST              24 (0.01)
+
+ 174           BUILD_MAP                2
+               LOAD_CONST              17 (<code object put at 0x00000204BA38BBC0, file "concurrent\interpreters\_queues.py", line 174>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              18 (put)
+
+ 234           LOAD_CONST              15 ('unbounditems')
+               LOAD_CONST               7 (None)
+               BUILD_MAP                1
+               LOAD_CONST              18 (<code object put_nowait at 0x00000204BA0AA970, file "concurrent\interpreters\_queues.py", line 234>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              19 (put_nowait)
+
+ 241           LOAD_CONST              23 ((True, None))
+               LOAD_CONST              16 ('_delay')
+
+ 242           LOAD_CONST              24 (0.01)
+
+ 241           BUILD_MAP                1
+               LOAD_CONST              19 (<code object get at 0x00000204BA3781B0, file "concurrent\interpreters\_queues.py", line 241>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              20 (get)
+
+ 273           LOAD_CONST              20 (<code object get_nowait at 0x00000204BA129480, file "concurrent\interpreters\_queues.py", line 273>)
+               MAKE_FUNCTION
+               STORE_NAME              21 (get_nowait)
+               LOAD_CONST              21 (('_id', '_maxsize', '_unbound'))
+               STORE_NAME              22 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              23 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              24 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x00000204B9FA7860, file "concurrent\interpreters\_queues.py", line 101>:
+  --           COPY_FREE_VARS           1
+
+ 101           RESUME                   0
+
+ 103           LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (id)
+               LOAD_GLOBAL              2 (int)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       13 (to L1)
+               NOT_TAKEN
+
+ 104           LOAD_GLOBAL              3 (int + NULL)
+               LOAD_FAST_BORROW         1 (id)
+               CALL                     1
+               STORE_FAST               1 (id)
+               JUMP_FORWARD            15 (to L2)
+
+ 106   L1:     LOAD_GLOBAL              5 (TypeError + NULL)
+               LOAD_CONST               0 ('id must be an int, got ')
+               LOAD_FAST_BORROW         1 (id)
+               CONVERT_VALUE            2 (repr)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 107   L2:     NOP
+
+ 108   L3:     LOAD_GLOBAL              6 (_known_queues)
+               LOAD_FAST_BORROW         1 (id)
+               BINARY_OP               26 ([])
+               STORE_FAST               2 (self)
+
+ 114   L4:     LOAD_FAST_BORROW         2 (self)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 109           LOAD_GLOBAL              8 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       57 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 110           LOAD_GLOBAL             10 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST                0 (cls)
+               LOAD_SUPER_ATTR         25 (__new__ + NULL|self)
+               LOAD_FAST                0 (cls)
+               CALL                     1
+               STORE_FAST               2 (self)
+
+ 111           LOAD_FAST_LOAD_FAST     18 (id, self)
+               STORE_ATTR               7 (_id)
+
+ 112           LOAD_FAST                2 (self)
+               LOAD_GLOBAL              6 (_known_queues)
+               LOAD_FAST                1 (id)
+               STORE_SUBSCR
+
+ 113           LOAD_GLOBAL             16 (_queues)
+               LOAD_ATTR               18 (bind)
+               PUSH_NULL
+               LOAD_FAST                1 (id)
+               CALL                     1
+               POP_TOP
+       L6:     POP_EXCEPT
+
+ 114           LOAD_FAST                2 (self)
+               RETURN_VALUE
+
+ 109   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object __del__ at 0x00000204BA0B7230, file "concurrent\interpreters\_queues.py", line 116>:
+ 116            RESUME                   0
+
+ 117            NOP
+
+ 118    L1:     LOAD_GLOBAL              0 (_queues)
+                LOAD_ATTR                2 (release)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_id)
+                CALL                     1
+                POP_TOP
+
+ 121    L2:     NOP
+
+ 122    L3:     LOAD_GLOBAL              8 (_known_queues)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_id)
+                DELETE_SUBSCR
+        L4:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --    L5:     PUSH_EXC_INFO
+
+ 119            LOAD_GLOBAL              6 (QueueNotFoundError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L7)
+                NOT_TAKEN
+                POP_TOP
+
+ 120    L6:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 33 (to L2)
+
+ 119    L7:     RERAISE                  0
+
+  --    L8:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+        L9:     PUSH_EXC_INFO
+
+ 123            LOAD_GLOBAL             10 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L11)
+                NOT_TAKEN
+                POP_TOP
+
+ 124   L10:     POP_EXCEPT
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+ 123   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L3 to L4 -> L9 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+  L9 to L10 -> L12 [1] lasti
+  L11 to L12 -> L12 [1] lasti
+
+Disassembly of <code object __repr__ at 0x00000204BA0A6550, file "concurrent\interpreters\_queues.py", line 126>:
+126           RESUME                   0
+
+127           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR                2 (__name__)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 ('(')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (id)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (')')
+              BUILD_STRING             4
+              RETURN_VALUE
+
+Disassembly of <code object __hash__ at 0x00000204BA08B330, file "concurrent\interpreters\_queues.py", line 129>:
+129           RESUME                   0
+
+130           LOAD_GLOBAL              1 (hash + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_id)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __reduce__ at 0x00000204BA0FECD0, file "concurrent\interpreters\_queues.py", line 133>:
+133           RESUME                   0
+
+134           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_id)
+              BUILD_TUPLE              1
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _set_unbound at 0x00000204BA101DE0, file "concurrent\interpreters\_queues.py", line 136>:
+136           RESUME                   0
+
+137           LOAD_GLOBAL              1 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_CONST               0 ('_unbound')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              RAISE_VARARGS            1
+
+138   L1:     LOAD_FAST_BORROW         2 (items)
+              POP_JUMP_IF_NOT_NONE    12 (to L2)
+              NOT_TAKEN
+
+139           LOAD_GLOBAL              3 (_resolve_unbound + NULL)
+              LOAD_FAST_BORROW         1 (op)
+              CALL                     1
+              STORE_FAST               2 (items)
+
+140   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (op, items)
+              BUILD_TUPLE              2
+              STORE_FAST               3 (unbound)
+
+141           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (unbound, self)
+              STORE_ATTR               2 (_unbound)
+
+142           LOAD_FAST_BORROW         3 (unbound)
+              RETURN_VALUE
+
+Disassembly of <code object id at 0x00000204BA093000, file "concurrent\interpreters\_queues.py", line 144>:
+144           RESUME                   0
+
+146           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_id)
+              RETURN_VALUE
+
+Disassembly of <code object unbounditems at 0x00000204BA129930, file "concurrent\interpreters\_queues.py", line 148>:
+ 148           RESUME                   0
+
+ 150           NOP
+
+ 151   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_unbound)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   18 (_, items)
+
+ 155   L2:     LOAD_FAST_BORROW         2 (items)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 152           LOAD_GLOBAL              2 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       58 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 153           LOAD_GLOBAL              4 (_queues)
+               LOAD_ATTR                6 (get_queue_defaults)
+               PUSH_NULL
+               LOAD_FAST                0 (self)
+               LOAD_ATTR                8 (_id)
+               CALL                     1
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   49 (op, _)
+
+ 154           LOAD_FAST                0 (self)
+               LOAD_ATTR               11 (_set_unbound + NULL|self)
+               LOAD_FAST                3 (op)
+               CALL                     1
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   18 (_, items)
+       L4:     POP_EXCEPT
+
+ 155           LOAD_FAST                2 (items)
+               RETURN_VALUE
+
+ 152   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object maxsize at 0x00000204B9FF3E00, file "concurrent\interpreters\_queues.py", line 157>:
+ 157           RESUME                   0
+
+ 159           NOP
+
+ 160   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_maxsize)
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 161           LOAD_GLOBAL              2 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       53 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 162           LOAD_GLOBAL              4 (_queues)
+               LOAD_ATTR                6 (get_maxsize)
+               PUSH_NULL
+               LOAD_FAST                0 (self)
+               LOAD_ATTR                8 (_id)
+               CALL                     1
+               LOAD_FAST                0 (self)
+               STORE_ATTR               0 (_maxsize)
+
+ 163           LOAD_FAST                0 (self)
+               LOAD_ATTR                0 (_maxsize)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 161   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object empty at 0x00000204BA08AC30, file "concurrent\interpreters\_queues.py", line 165>:
+165           RESUME                   0
+
+166           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (qsize + NULL|self)
+              CALL                     0
+              LOAD_SMALL_INT           0
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object full at 0x00000204BA0A6D30, file "concurrent\interpreters\_queues.py", line 168>:
+168           RESUME                   0
+
+169           LOAD_GLOBAL              0 (_queues)
+              LOAD_ATTR                2 (is_full)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_id)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object qsize at 0x00000204BA0A7990, file "concurrent\interpreters\_queues.py", line 171>:
+171           RESUME                   0
+
+172           LOAD_GLOBAL              0 (_queues)
+              LOAD_ATTR                2 (get_count)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_id)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object put at 0x00000204BA38BBC0, file "concurrent\interpreters\_queues.py", line 174>:
+ 174            RESUME                   0
+
+ 213            LOAD_FAST_BORROW         2 (block)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        19 (to L1)
+                NOT_TAKEN
+
+ 214            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                1 (put_nowait + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (obj, unbounditems)
+                LOAD_CONST               1 (('unbounditems',))
+                CALL_KW                  2
+                RETURN_VALUE
+
+ 215    L1:     LOAD_FAST_BORROW         4 (unbounditems)
+                POP_JUMP_IF_NOT_NONE     4 (to L2)
+                NOT_TAKEN
+
+ 216            LOAD_CONST               4 (-1)
+                STORE_FAST               6 (unboundop)
+                JUMP_FORWARD            13 (to L3)
+
+ 218    L2:     LOAD_GLOBAL              3 (_serialize_unbound + NULL)
+                LOAD_FAST_BORROW         4 (unbounditems)
+                CALL                     1
+                UNPACK_SEQUENCE          1
+                STORE_FAST               6 (unboundop)
+
+ 219    L3:     LOAD_FAST_BORROW         3 (timeout)
+                POP_JUMP_IF_NONE        58 (to L5)
+                NOT_TAKEN
+
+ 220            LOAD_GLOBAL              5 (int + NULL)
+                LOAD_FAST_BORROW         3 (timeout)
+                CALL                     1
+                STORE_FAST               3 (timeout)
+
+ 221            LOAD_FAST_BORROW         3 (timeout)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L4)
+                NOT_TAKEN
+
+ 222            LOAD_GLOBAL              7 (ValueError + NULL)
+                LOAD_CONST               3 ('timeout value must be non-negative')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 223    L4:     LOAD_GLOBAL              8 (time)
+                LOAD_ATTR                8 (time)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_BORROW         3 (timeout)
+                BINARY_OP                0 (+)
+                STORE_FAST               7 (end)
+
+ 224    L5:     NOP
+
+ 225            NOP
+
+ 226    L6:     LOAD_GLOBAL             10 (_queues)
+                LOAD_ATTR               12 (put)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_id)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 22 (obj, unboundop)
+                CALL                     3
+                POP_TOP
+
+ 232    L7:     LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 227            LOAD_GLOBAL             16 (QueueFull)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       65 (to L13)
+                NOT_TAKEN
+                STORE_FAST               8 (exc)
+
+ 228    L9:     LOAD_FAST                3 (timeout)
+                POP_JUMP_IF_NONE        28 (to L10)
+                NOT_TAKEN
+                LOAD_GLOBAL              8 (time)
+                LOAD_ATTR                8 (time)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_CHECK          7 (end)
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE        2 (to L10)
+                NOT_TAKEN
+
+ 229            RAISE_VARARGS            0
+
+ 230   L10:     LOAD_GLOBAL              8 (time)
+                LOAD_ATTR               18 (sleep)
+                PUSH_NULL
+                LOAD_FAST                5 (_delay)
+                CALL                     1
+                POP_TOP
+       L11:     POP_EXCEPT
+                LOAD_CONST               2 (None)
+                STORE_FAST               8 (exc)
+                DELETE_FAST              8 (exc)
+                JUMP_BACKWARD          107 (to L5)
+
+  --   L12:     LOAD_CONST               2 (None)
+                STORE_FAST               8 (exc)
+                DELETE_FAST              8 (exc)
+                RERAISE                  1
+
+ 227   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L6 to L7 -> L8 [0]
+  L8 to L9 -> L14 [1] lasti
+  L9 to L11 -> L12 [1] lasti
+  L12 to L14 -> L14 [1] lasti
+
+Disassembly of <code object put_nowait at 0x00000204BA0AA970, file "concurrent\interpreters\_queues.py", line 234>:
+234           RESUME                   0
+
+235           LOAD_FAST_BORROW         2 (unbounditems)
+              POP_JUMP_IF_NOT_NONE     4 (to L1)
+              NOT_TAKEN
+
+236           LOAD_CONST               1 (-1)
+              STORE_FAST               3 (unboundop)
+              JUMP_FORWARD            13 (to L2)
+
+238   L1:     LOAD_GLOBAL              1 (_serialize_unbound + NULL)
+              LOAD_FAST_BORROW         2 (unbounditems)
+              CALL                     1
+              UNPACK_SEQUENCE          1
+              STORE_FAST               3 (unboundop)
+
+239   L2:     LOAD_GLOBAL              2 (_queues)
+              LOAD_ATTR                4 (put)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_id)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (obj, unboundop)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get at 0x00000204BA3781B0, file "concurrent\interpreters\_queues.py", line 241>:
+ 241            RESUME                   0
+
+ 252            LOAD_FAST_BORROW         1 (block)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        17 (to L1)
+                NOT_TAKEN
+
+ 253            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                1 (get_nowait + NULL|self)
+                CALL                     0
+                RETURN_VALUE
+
+ 254    L1:     LOAD_FAST_BORROW         2 (timeout)
+                POP_JUMP_IF_NONE        58 (to L3)
+                NOT_TAKEN
+
+ 255            LOAD_GLOBAL              3 (int + NULL)
+                LOAD_FAST_BORROW         2 (timeout)
+                CALL                     1
+                STORE_FAST               2 (timeout)
+
+ 256            LOAD_FAST_BORROW         2 (timeout)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       12 (to L2)
+                NOT_TAKEN
+
+ 257            LOAD_GLOBAL              5 (ValueError + NULL)
+                LOAD_CONST               2 ('timeout value must be non-negative')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 258    L2:     LOAD_GLOBAL              6 (time)
+                LOAD_ATTR                6 (time)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_BORROW         2 (timeout)
+                BINARY_OP                0 (+)
+                STORE_FAST               4 (end)
+
+ 259    L3:     NOP
+
+ 260            NOP
+
+ 261    L4:     LOAD_GLOBAL              8 (_queues)
+                LOAD_ATTR               10 (get)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (_id)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   86 (obj, unboundop)
+
+ 267    L5:     NOP
+
+ 268            LOAD_FAST                6 (unboundop)
+                POP_JUMP_IF_NONE        32 (to L7)
+                NOT_TAKEN
+
+ 269            LOAD_FAST                5 (obj)
+                POP_JUMP_IF_NONE        17 (to L6)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+                LOAD_GLOBAL             19 (repr + NULL)
+                LOAD_FAST                5 (obj)
+                CALL                     1
+                CALL                     0
+                RAISE_VARARGS            1
+
+ 270    L6:     LOAD_GLOBAL             21 (_resolve_unbound + NULL)
+                LOAD_FAST                6 (unboundop)
+                CALL                     1
+                RETURN_VALUE
+
+ 271    L7:     LOAD_FAST                5 (obj)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 262            LOAD_GLOBAL             14 (QueueEmpty)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       65 (to L13)
+                NOT_TAKEN
+                STORE_FAST               7 (exc)
+
+ 263    L9:     LOAD_FAST                2 (timeout)
+                POP_JUMP_IF_NONE        28 (to L10)
+                NOT_TAKEN
+                LOAD_GLOBAL              6 (time)
+                LOAD_ATTR                6 (time)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_CHECK          4 (end)
+                COMPARE_OP             188 (bool(>=))
+                POP_JUMP_IF_FALSE        2 (to L10)
+                NOT_TAKEN
+
+ 264            RAISE_VARARGS            0
+
+ 265   L10:     LOAD_GLOBAL              6 (time)
+                LOAD_ATTR               16 (sleep)
+                PUSH_NULL
+                LOAD_FAST                3 (_delay)
+                CALL                     1
+                POP_TOP
+       L11:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                STORE_FAST               7 (exc)
+                DELETE_FAST              7 (exc)
+                JUMP_BACKWARD          144 (to L3)
+
+  --   L12:     LOAD_CONST               1 (None)
+                STORE_FAST               7 (exc)
+                DELETE_FAST              7 (exc)
+                RERAISE                  1
+
+ 262   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L8 [0]
+  L8 to L9 -> L14 [1] lasti
+  L9 to L11 -> L12 [1] lasti
+  L12 to L14 -> L14 [1] lasti
+
+Disassembly of <code object get_nowait at 0x00000204BA129480, file "concurrent\interpreters\_queues.py", line 273>:
+ 273           RESUME                   0
+
+ 279           NOP
+
+ 280   L1:     LOAD_GLOBAL              0 (_queues)
+               LOAD_ATTR                2 (get)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_id)
+               CALL                     1
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   18 (obj, unboundop)
+
+ 283   L2:     LOAD_FAST                2 (unboundop)
+               POP_JUMP_IF_NONE        32 (to L4)
+               NOT_TAKEN
+
+ 284           LOAD_FAST                1 (obj)
+               POP_JUMP_IF_NONE        17 (to L3)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+               LOAD_GLOBAL              9 (repr + NULL)
+               LOAD_FAST                1 (obj)
+               CALL                     1
+               CALL                     0
+               RAISE_VARARGS            1
+
+ 285   L3:     LOAD_GLOBAL             11 (_resolve_unbound + NULL)
+               LOAD_FAST                2 (unboundop)
+               CALL                     1
+               RETURN_VALUE
+
+ 286   L4:     LOAD_FAST                1 (obj)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 281           LOAD_GLOBAL              6 (QueueEmpty)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        7 (to L8)
+               NOT_TAKEN
+               STORE_FAST               3 (exc)
+
+ 282   L6:     RAISE_VARARGS            0
+
+  --   L7:     LOAD_CONST               1 (None)
+               STORE_FAST               3 (exc)
+               DELETE_FAST              3 (exc)
+               RERAISE                  1
+
+ 281   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L5 to L6 -> L9 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+  L7 to L9 -> L9 [1] lasti

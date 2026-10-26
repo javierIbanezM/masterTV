@@ -1,0 +1,1402 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (binascii)
+              STORE_NAME               0 (binascii)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (email.charset)
+              STORE_NAME               2 (email)
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (email.message)
+              STORE_NAME               2 (email)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (email.errors)
+              STORE_NAME               2 (email)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('quoprimime',))
+              IMPORT_NAME              2 (email)
+              IMPORT_FROM              5 (quoprimime)
+              STORE_NAME               5 (quoprimime)
+              POP_TOP
+
+  7           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               3 (<code object ContentManager at 0x00000204BA0A7630, file "email\contentmanager.py", line 7>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('ContentManager')
+              CALL                     2
+              STORE_NAME               6 (ContentManager)
+
+ 61           LOAD_NAME                6 (ContentManager)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME               7 (raw_data_manager)
+
+ 64           LOAD_CONST              21 (('replace',))
+              LOAD_CONST               5 (<code object get_text_content at 0x00000204BA0ABC30, file "email\contentmanager.py", line 64>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               8 (get_text_content)
+
+ 68           LOAD_NAME                7 (raw_data_manager)
+              LOAD_ATTR               19 (add_get_handler + NULL|self)
+              LOAD_CONST               6 ('text')
+              LOAD_NAME                8 (get_text_content)
+              CALL                     2
+              POP_TOP
+
+ 71           LOAD_CONST               7 (<code object get_non_text_content at 0x00000204BA08AD30, file "email\contentmanager.py", line 71>)
+              MAKE_FUNCTION
+              STORE_NAME              10 (get_non_text_content)
+
+ 73           LOAD_CONST               8 ('audio image video application')
+              LOAD_ATTR               23 (split + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                21 (to L2)
+              STORE_NAME              12 (maintype)
+
+ 74           LOAD_NAME                7 (raw_data_manager)
+              LOAD_ATTR               19 (add_get_handler + NULL|self)
+              LOAD_NAME               12 (maintype)
+              LOAD_NAME               10 (get_non_text_content)
+              CALL                     2
+              POP_TOP
+              JUMP_BACKWARD           23 (to L1)
+
+ 73   L2:     END_FOR
+              POP_ITER
+
+ 75           DELETE_NAME             12 (maintype)
+
+ 78           LOAD_CONST               9 (<code object get_message_content at 0x00000204BA08B330, file "email\contentmanager.py", line 78>)
+              MAKE_FUNCTION
+              STORE_NAME              13 (get_message_content)
+
+ 80           LOAD_CONST              10 ('rfc822 external-body')
+              LOAD_ATTR               23 (split + NULL|self)
+              CALL                     0
+              GET_ITER
+      L3:     FOR_ITER                28 (to L4)
+              STORE_NAME              14 (subtype)
+
+ 81           LOAD_NAME                7 (raw_data_manager)
+              LOAD_ATTR               19 (add_get_handler + NULL|self)
+              LOAD_CONST              11 ('message/')
+              LOAD_NAME               14 (subtype)
+              BINARY_OP                0 (+)
+              LOAD_NAME               13 (get_message_content)
+              CALL                     2
+              POP_TOP
+              JUMP_BACKWARD           30 (to L3)
+
+ 80   L4:     END_FOR
+              POP_ITER
+
+ 82           DELETE_NAME             14 (subtype)
+
+ 85           LOAD_CONST              12 (<code object get_and_fixup_unknown_message_content at 0x00000204BA0FC7A0, file "email\contentmanager.py", line 85>)
+              MAKE_FUNCTION
+              STORE_NAME              15 (get_and_fixup_unknown_message_content)
+
+ 93           LOAD_NAME                7 (raw_data_manager)
+              LOAD_ATTR               19 (add_get_handler + NULL|self)
+              LOAD_CONST              13 ('message')
+
+ 94           LOAD_NAME               15 (get_and_fixup_unknown_message_content)
+
+ 93           CALL                     2
+              POP_TOP
+
+ 97           LOAD_CONST              14 (<code object _prepare_set at 0x00000204BA35BFC0, file "email\contentmanager.py", line 97>)
+              MAKE_FUNCTION
+              STORE_NAME              16 (_prepare_set)
+
+114           LOAD_CONST              15 (<code object _finalize_set at 0x00000204B9F6EF50, file "email\contentmanager.py", line 114>)
+              MAKE_FUNCTION
+              STORE_NAME              17 (_finalize_set)
+
+135           LOAD_CONST              16 (<code object _encode_base64 at 0x00000204B9F4E810, file "email\contentmanager.py", line 135>)
+              MAKE_FUNCTION
+              STORE_NAME              18 (_encode_base64)
+
+144           LOAD_CONST              17 (<code object _encode_text at 0x00000204BA381490, file "email\contentmanager.py", line 144>)
+              MAKE_FUNCTION
+              STORE_NAME              19 (_encode_text)
+
+183           LOAD_CONST              22 (('plain', 'utf-8', None, None, None, None, None, None))
+              LOAD_CONST              18 (<code object set_text_content at 0x00000204B9FC3E10, file "email\contentmanager.py", line 183>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              20 (set_text_content)
+
+194           LOAD_NAME                7 (raw_data_manager)
+              LOAD_ATTR               43 (add_set_handler + NULL|self)
+              LOAD_NAME               22 (str)
+              LOAD_NAME               20 (set_text_content)
+              CALL                     2
+              POP_TOP
+
+197           LOAD_CONST              23 (('rfc822', None, None, None, None, None, None))
+              LOAD_CONST              19 (<code object set_message_content at 0x00000204BA3E0E50, file "email\contentmanager.py", line 197>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              23 (set_message_content)
+
+227           LOAD_NAME                7 (raw_data_manager)
+              LOAD_ATTR               43 (add_set_handler + NULL|self)
+              LOAD_NAME                2 (email)
+              LOAD_ATTR               48 (message)
+              LOAD_ATTR               50 (Message)
+              LOAD_NAME               23 (set_message_content)
+              CALL                     2
+              POP_TOP
+
+230           LOAD_CONST              24 (('base64', None, None, None, None, None))
+              LOAD_CONST              20 (<code object set_bytes_content at 0x00000204BA593BB0, file "email\contentmanager.py", line 230>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              26 (set_bytes_content)
+
+249           LOAD_NAME               27 (bytes)
+              LOAD_NAME               28 (bytearray)
+              LOAD_NAME               29 (memoryview)
+              BUILD_TUPLE              3
+              GET_ITER
+      L5:     FOR_ITER                21 (to L6)
+              STORE_NAME              30 (typ)
+
+250           LOAD_NAME                7 (raw_data_manager)
+              LOAD_ATTR               43 (add_set_handler + NULL|self)
+              LOAD_NAME               30 (typ)
+              LOAD_NAME               26 (set_bytes_content)
+              CALL                     2
+              POP_TOP
+              JUMP_BACKWARD           23 (to L5)
+
+249   L6:     END_FOR
+              POP_ITER
+
+251           DELETE_NAME             30 (typ)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ContentManager at 0x00000204BA0A7630, file "email\contentmanager.py", line 7>:
+  --           MAKE_CELL                0 (__classdict__)
+
+   7           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ContentManager')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT           7
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+   9           LOAD_CONST               1 (<code object __init__ at 0x00000204BA08AC30, file "email\contentmanager.py", line 9>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  13           LOAD_CONST               2 (<code object add_get_handler at 0x00000204BA08B130, file "email\contentmanager.py", line 13>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (add_get_handler)
+
+  16           LOAD_CONST               3 (<code object get_content at 0x00000204BA36C1C0, file "email\contentmanager.py", line 16>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (get_content)
+
+  27           LOAD_CONST               4 (<code object add_set_handler at 0x00000204BA08A530, file "email\contentmanager.py", line 27>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (add_set_handler)
+
+  30           LOAD_CONST               5 (<code object set_content at 0x00000204B9FF3280, file "email\contentmanager.py", line 30>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (set_content)
+
+  39           LOAD_CONST               6 (<code object _find_set_handler at 0x00000204BA388300, file "email\contentmanager.py", line 39>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_find_set_handler)
+               LOAD_CONST               7 (('get_handlers', 'set_handlers'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               8 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA08AC30, file "email\contentmanager.py", line 9>:
+  9           RESUME                   0
+
+ 10           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (get_handlers)
+
+ 11           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (set_handlers)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object add_get_handler at 0x00000204BA08B130, file "email\contentmanager.py", line 13>:
+ 13           RESUME                   0
+
+ 14           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (handler, self)
+              LOAD_ATTR                0 (get_handlers)
+              LOAD_FAST_BORROW         1 (key)
+              STORE_SUBSCR
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_content at 0x00000204BA36C1C0, file "email\contentmanager.py", line 16>:
+ 16           RESUME                   0
+
+ 17           LOAD_FAST_BORROW         1 (msg)
+              LOAD_ATTR                1 (get_content_type + NULL|self)
+              CALL                     0
+              STORE_FAST               4 (content_type)
+
+ 18           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (content_type, self)
+              LOAD_ATTR                2 (get_handlers)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       30 (to L1)
+              NOT_TAKEN
+
+ 19           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (get_handlers)
+              LOAD_FAST_BORROW         4 (content_type)
+              BINARY_OP               26 ([])
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (msg)
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         2 (args)
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         3 (kw)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+ 20   L1:     LOAD_FAST_BORROW         1 (msg)
+              LOAD_ATTR                5 (get_content_maintype + NULL|self)
+              CALL                     0
+              STORE_FAST               5 (maintype)
+
+ 21           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (maintype, self)
+              LOAD_ATTR                2 (get_handlers)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       30 (to L2)
+              NOT_TAKEN
+
+ 22           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (get_handlers)
+              LOAD_FAST_BORROW         5 (maintype)
+              BINARY_OP               26 ([])
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (msg)
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         2 (args)
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         3 (kw)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+ 23   L2:     LOAD_CONST               0 ('')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (get_handlers)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       30 (to L3)
+              NOT_TAKEN
+
+ 24           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (get_handlers)
+              LOAD_CONST               0 ('')
+              BINARY_OP               26 ([])
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (msg)
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         2 (args)
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         3 (kw)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+ 25   L3:     LOAD_GLOBAL              7 (KeyError + NULL)
+              LOAD_FAST_BORROW         4 (content_type)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object add_set_handler at 0x00000204BA08A530, file "email\contentmanager.py", line 27>:
+ 27           RESUME                   0
+
+ 28           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (handler, self)
+              LOAD_ATTR                0 (set_handlers)
+              LOAD_FAST_BORROW         1 (typekey)
+              STORE_SUBSCR
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object set_content at 0x00000204B9FF3280, file "email\contentmanager.py", line 30>:
+ 30           RESUME                   0
+
+ 31           LOAD_FAST_BORROW         1 (msg)
+              LOAD_ATTR                1 (get_content_maintype + NULL|self)
+              CALL                     0
+              LOAD_CONST               0 ('multipart')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 34           LOAD_GLOBAL              3 (TypeError + NULL)
+              LOAD_CONST               1 ('set_content not valid on multipart')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 35   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (_find_set_handler + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (msg, obj)
+              CALL                     2
+              STORE_FAST               5 (handler)
+
+ 36           LOAD_FAST_BORROW         1 (msg)
+              LOAD_ATTR                7 (clear_content + NULL|self)
+              CALL                     0
+              POP_TOP
+
+ 37           LOAD_FAST_BORROW         5 (handler)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (msg, obj)
+              BUILD_LIST               2
+              LOAD_FAST_BORROW         3 (args)
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         4 (kw)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _find_set_handler at 0x00000204BA388300, file "email\contentmanager.py", line 39>:
+ 39            RESUME                   0
+
+ 40            LOAD_CONST               0 (None)
+               STORE_FAST               3 (full_path_for_error)
+
+ 41            LOAD_GLOBAL              1 (type + NULL)
+               LOAD_FAST_BORROW         2 (obj)
+               CALL                     1
+               LOAD_ATTR                2 (__mro__)
+               GET_ITER
+       L1:     FOR_ITER               222 (to L9)
+               STORE_FAST               4 (typ)
+
+ 42            LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (typ, self)
+               LOAD_ATTR                4 (set_handlers)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       22 (to L2)
+               NOT_TAKEN
+
+ 43            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (set_handlers)
+               LOAD_FAST_BORROW         4 (typ)
+               BINARY_OP               26 ([])
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 44    L2:     LOAD_FAST_BORROW         4 (typ)
+               LOAD_ATTR                6 (__qualname__)
+               STORE_FAST               5 (qname)
+
+ 45            LOAD_GLOBAL              9 (getattr + NULL)
+               LOAD_FAST_BORROW         4 (typ)
+               LOAD_CONST               1 ('__module__')
+               LOAD_CONST               2 ('')
+               CALL                     3
+               STORE_FAST               6 (modname)
+
+ 46            LOAD_FAST_BORROW         6 (modname)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       19 (to L3)
+               NOT_TAKEN
+               LOAD_CONST               3 ('.')
+               LOAD_ATTR               11 (join + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 101 (modname, qname)
+               BUILD_TUPLE              2
+               CALL                     1
+               JUMP_FORWARD             1 (to L4)
+       L3:     LOAD_FAST                5 (qname)
+       L4:     STORE_FAST               7 (full_path)
+
+ 47            LOAD_FAST_BORROW         3 (full_path_for_error)
+               POP_JUMP_IF_NOT_NONE     3 (to L5)
+               NOT_TAKEN
+
+ 48            LOAD_FAST                7 (full_path)
+               STORE_FAST               3 (full_path_for_error)
+
+ 49    L5:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 112 (full_path, self)
+               LOAD_ATTR                4 (set_handlers)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       22 (to L6)
+               NOT_TAKEN
+
+ 50            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (set_handlers)
+               LOAD_FAST_BORROW         7 (full_path)
+               BINARY_OP               26 ([])
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 51    L6:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (qname, self)
+               LOAD_ATTR                4 (set_handlers)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       22 (to L7)
+               NOT_TAKEN
+
+ 52            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (set_handlers)
+               LOAD_FAST_BORROW         5 (qname)
+               BINARY_OP               26 ([])
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 53    L7:     LOAD_FAST_BORROW         4 (typ)
+               LOAD_ATTR               12 (__name__)
+               STORE_FAST               8 (name)
+
+ 54            LOAD_FAST_BORROW_LOAD_FAST_BORROW 128 (name, self)
+               LOAD_ATTR                4 (set_handlers)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_TRUE         3 (to L8)
+               NOT_TAKEN
+               JUMP_BACKWARD          203 (to L1)
+
+ 55    L8:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (set_handlers)
+               LOAD_FAST_BORROW         8 (name)
+               BINARY_OP               26 ([])
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 41    L9:     END_FOR
+               POP_ITER
+
+ 56            LOAD_CONST               0 (None)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (set_handlers)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       20 (to L10)
+               NOT_TAKEN
+
+ 57            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (set_handlers)
+               LOAD_CONST               0 (None)
+               BINARY_OP               26 ([])
+               RETURN_VALUE
+
+ 58   L10:     LOAD_GLOBAL             15 (KeyError + NULL)
+               LOAD_FAST_BORROW         3 (full_path_for_error)
+               CALL                     1
+               RAISE_VARARGS            1
+
+Disassembly of <code object get_text_content at 0x00000204BA0ABC30, file "email\contentmanager.py", line 64>:
+ 64           RESUME                   0
+
+ 65           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                1 (get_payload + NULL|self)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               1 (('decode',))
+              CALL_KW                  1
+              STORE_FAST               2 (content)
+
+ 66           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                3 (get_param + NULL|self)
+              LOAD_CONST               2 ('charset')
+              LOAD_CONST               3 ('ASCII')
+              CALL                     2
+              STORE_FAST               3 (charset)
+
+ 67           LOAD_FAST_BORROW         2 (content)
+              LOAD_ATTR                5 (decode + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (charset, errors)
+              LOAD_CONST               4 (('errors',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object get_non_text_content at 0x00000204BA08AD30, file "email\contentmanager.py", line 71>:
+ 71           RESUME                   0
+
+ 72           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                1 (get_payload + NULL|self)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               1 (('decode',))
+              CALL_KW                  1
+              RETURN_VALUE
+
+Disassembly of <code object get_message_content at 0x00000204BA08B330, file "email\contentmanager.py", line 78>:
+ 78           RESUME                   0
+
+ 79           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                1 (get_payload + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object get_and_fixup_unknown_message_content at 0x00000204BA0FC7A0, file "email\contentmanager.py", line 85>:
+ 85           RESUME                   0
+
+ 92           LOAD_GLOBAL              1 (bytes + NULL)
+              LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                3 (get_payload + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _prepare_set at 0x00000204BA35BFC0, file "email\contentmanager.py", line 97>:
+  97            RESUME                   0
+
+  98            LOAD_CONST               0 ('/')
+                LOAD_ATTR                1 (join + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (maintype, subtype)
+                BUILD_TUPLE              2
+                CALL                     1
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_CONST               1 ('Content-Type')
+                STORE_SUBSCR
+
+  99            LOAD_FAST_BORROW         3 (headers)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      148 (to L11)
+                NOT_TAKEN
+
+ 100            LOAD_GLOBAL              3 (hasattr + NULL)
+                LOAD_FAST_BORROW         3 (headers)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                LOAD_CONST               2 ('name')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        60 (to L5)
+                NOT_TAKEN
+
+ 101            LOAD_FAST_BORROW         0 (msg)
+                LOAD_ATTR                4 (policy)
+                STORE_FAST               4 (mp)
+
+ 103            LOAD_FAST_BORROW         3 (headers)
+                GET_ITER
+
+ 102            LOAD_FAST_AND_CLEAR      5 (header)
+                SWAP                     2
+        L1:     BUILD_LIST               0
+                SWAP                     2
+
+ 103    L2:     FOR_ITER                35 (to L3)
+                STORE_FAST               5 (header)
+
+ 102            LOAD_FAST_BORROW         4 (mp)
+                LOAD_ATTR                6 (header_factory)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (mp)
+                LOAD_ATTR                9 (header_source_parse + NULL|self)
+                LOAD_FAST_BORROW         5 (header)
+                BUILD_LIST               1
+                CALL                     1
+                PUSH_NULL
+                CALL_FUNCTION_EX
+                LIST_APPEND              2
+                JUMP_BACKWARD           37 (to L2)
+
+ 103    L3:     END_FOR
+                POP_ITER
+
+ 102    L4:     STORE_FAST               3 (headers)
+                STORE_FAST               5 (header)
+
+ 104    L5:     NOP
+
+ 105    L6:     LOAD_FAST_BORROW         3 (headers)
+                GET_ITER
+        L7:     FOR_ITER                54 (to L9)
+                STORE_FAST               5 (header)
+
+ 106            LOAD_FAST_BORROW         5 (header)
+                LOAD_ATTR               10 (defects)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L8)
+                NOT_TAKEN
+
+ 107            LOAD_FAST_BORROW         5 (header)
+                LOAD_ATTR               10 (defects)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                RAISE_VARARGS            1
+
+ 108    L8:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (header, msg)
+                LOAD_FAST_BORROW         5 (header)
+                LOAD_ATTR               12 (name)
+                STORE_SUBSCR
+                JUMP_BACKWARD           56 (to L7)
+
+ 105    L9:     END_FOR
+                POP_ITER
+       L10:     LOAD_CONST               5 (None)
+                RETURN_VALUE
+
+  99   L11:     LOAD_CONST               5 (None)
+                RETURN_VALUE
+
+  --   L12:     SWAP                     2
+                POP_TOP
+
+ 102            SWAP                     2
+                STORE_FAST               5 (header)
+                RERAISE                  0
+
+  --   L13:     PUSH_EXC_INFO
+
+ 109            LOAD_GLOBAL             14 (email)
+                LOAD_ATTR               16 (errors)
+                LOAD_ATTR               18 (HeaderDefect)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       59 (to L16)
+                NOT_TAKEN
+                STORE_FAST               6 (exc)
+
+ 110   L14:     LOAD_GLOBAL             21 (ValueError + NULL)
+                LOAD_CONST               3 ('Invalid header: {}')
+                LOAD_ATTR               23 (format + NULL|self)
+
+ 111            LOAD_FAST_CHECK          5 (header)
+                LOAD_ATTR               25 (fold + NULL|self)
+                LOAD_FAST                0 (msg)
+                LOAD_ATTR                4 (policy)
+                LOAD_CONST               4 (('policy',))
+                CALL_KW                  1
+
+ 110            CALL                     1
+                CALL                     1
+
+ 111            LOAD_FAST                6 (exc)
+
+ 110            RAISE_VARARGS            2
+
+  --   L15:     LOAD_CONST               5 (None)
+                STORE_FAST               6 (exc)
+                DELETE_FAST              6 (exc)
+                RERAISE                  1
+
+ 109   L16:     RERAISE                  0
+
+  --   L17:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L12 [2]
+  L6 to L10 -> L13 [0]
+  L13 to L14 -> L17 [1] lasti
+  L14 to L15 -> L15 [1] lasti
+  L15 to L17 -> L17 [1] lasti
+
+Disassembly of <code object _finalize_set at 0x00000204B9F6EF50, file "email\contentmanager.py", line 114>:
+114           RESUME                   0
+
+115           LOAD_FAST_BORROW         1 (disposition)
+              POP_JUMP_IF_NOT_NONE     7 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (filename)
+              POP_JUMP_IF_NONE         3 (to L1)
+              NOT_TAKEN
+
+116           LOAD_CONST               1 ('attachment')
+              STORE_FAST               1 (disposition)
+
+117   L1:     LOAD_FAST_BORROW         1 (disposition)
+              POP_JUMP_IF_NONE         5 (to L2)
+              NOT_TAKEN
+
+118           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (disposition, msg)
+              LOAD_CONST               2 ('Content-Disposition')
+              STORE_SUBSCR
+
+119   L2:     LOAD_FAST_BORROW         2 (filename)
+              POP_JUMP_IF_NONE        22 (to L3)
+              NOT_TAKEN
+
+120           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                1 (set_param + NULL|self)
+              LOAD_CONST               3 ('filename')
+
+121           LOAD_FAST_BORROW         2 (filename)
+
+122           LOAD_CONST               2 ('Content-Disposition')
+
+123           LOAD_CONST               4 (True)
+
+120           LOAD_CONST               5 (('header', 'replace'))
+              CALL_KW                  4
+              POP_TOP
+
+124   L3:     LOAD_FAST_BORROW         3 (cid)
+              POP_JUMP_IF_NONE         5 (to L4)
+              NOT_TAKEN
+
+125           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (cid, msg)
+              LOAD_CONST               6 ('Content-ID')
+              STORE_SUBSCR
+
+126   L4:     LOAD_FAST_BORROW         4 (params)
+              POP_JUMP_IF_NONE        45 (to L7)
+              NOT_TAKEN
+
+127           LOAD_FAST_BORROW         4 (params)
+              LOAD_ATTR                3 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L5:     FOR_ITER                22 (to L6)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   86 (key, value)
+
+128           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                1 (set_param + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (key, value)
+              CALL                     2
+              POP_TOP
+              JUMP_BACKWARD           24 (to L5)
+
+127   L6:     END_FOR
+              POP_ITER
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+126   L7:     LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _encode_base64 at 0x00000204B9F4E810, file "email\contentmanager.py", line 135>:
+135           RESUME                   0
+
+136           BUILD_LIST               0
+              STORE_FAST               2 (encoded_lines)
+
+137           LOAD_FAST_BORROW         1 (max_line_length)
+              LOAD_SMALL_INT           4
+              BINARY_OP                2 (//)
+              LOAD_SMALL_INT           3
+              BINARY_OP                5 (*)
+              STORE_FAST               3 (unencoded_bytes_per_line)
+
+138           LOAD_GLOBAL              1 (range + NULL)
+              LOAD_SMALL_INT           0
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (data)
+              CALL                     1
+              LOAD_FAST_BORROW         3 (unencoded_bytes_per_line)
+              CALL                     3
+              GET_ITER
+      L1:     FOR_ITER                65 (to L2)
+              STORE_FAST               4 (i)
+
+139           LOAD_FAST_BORROW_LOAD_FAST_BORROW 4 (data, i)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (i, unencoded_bytes_per_line)
+              BINARY_OP                0 (+)
+              BINARY_SLICE
+              STORE_FAST               5 (thisline)
+
+140           LOAD_FAST_BORROW         2 (encoded_lines)
+              LOAD_ATTR                5 (append + NULL|self)
+              LOAD_GLOBAL              6 (binascii)
+              LOAD_ATTR                8 (b2a_base64)
+              PUSH_NULL
+              LOAD_FAST_BORROW         5 (thisline)
+              CALL                     1
+              LOAD_ATTR               11 (decode + NULL|self)
+              LOAD_CONST               1 ('ascii')
+              CALL                     1
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           67 (to L1)
+
+138   L2:     END_FOR
+              POP_ITER
+
+141           LOAD_CONST               2 ('')
+              LOAD_ATTR               13 (join + NULL|self)
+              LOAD_FAST_BORROW         2 (encoded_lines)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _encode_text at 0x00000204BA381490, file "email\contentmanager.py", line 144>:
+  --            MAKE_CELL               11 (linesep)
+
+ 144            RESUME                   0
+
+ 145            LOAD_FAST_BORROW         0 (string)
+                LOAD_ATTR                1 (encode + NULL|self)
+                LOAD_FAST_BORROW         1 (charset)
+                CALL                     1
+                LOAD_ATTR                3 (splitlines + NULL|self)
+                CALL                     0
+                STORE_FAST               4 (lines)
+
+ 146            LOAD_FAST_BORROW         3 (policy)
+                LOAD_ATTR                4 (linesep)
+                LOAD_ATTR                1 (encode + NULL|self)
+                LOAD_CONST               0 ('ascii')
+                CALL                     1
+                STORE_DEREF             11 (linesep)
+
+ 147            LOAD_FAST_BORROW        11 (linesep)
+                BUILD_TUPLE              1
+                LOAD_CONST               1 (<code object embedded_body at 0x00000204BA0FECD0, file "email\contentmanager.py", line 147>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                STORE_FAST               5 (embedded_body)
+
+ 148            LOAD_CONST               2 (<code object normal_body at 0x00000204BA0FFEE0, file "email\contentmanager.py", line 148>)
+                MAKE_FUNCTION
+                STORE_FAST               6 (normal_body)
+
+ 149            LOAD_FAST_BORROW         2 (cte)
+                POP_JUMP_IF_NOT_NONE   196 (to L5)
+                NOT_TAKEN
+
+ 151            LOAD_GLOBAL              7 (max + NULL)
+                LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA0FFCC0, file "email\contentmanager.py", line 151>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         4 (lines)
+                GET_ITER
+                CALL                     0
+                LOAD_SMALL_INT           0
+                LOAD_CONST               4 (('default',))
+                CALL_KW                  2
+                LOAD_FAST_BORROW         3 (policy)
+                LOAD_ATTR                8 (max_line_length)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       27 (to L3)
+                NOT_TAKEN
+
+ 152            NOP
+
+ 153    L1:     LOAD_CONST               5 ('7bit')
+                LOAD_FAST_BORROW         6 (normal_body)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (lines)
+                CALL                     1
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_CONST               0 ('ascii')
+                CALL                     1
+                BUILD_TUPLE              2
+        L2:     RETURN_VALUE
+
+ 158    L3:     LOAD_FAST_BORROW         5 (embedded_body)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (lines)
+                LOAD_CONST               8 (slice(None, 10, None))
+                BINARY_OP               26 ([])
+                CALL                     1
+                STORE_FAST               7 (sniff)
+
+ 159            LOAD_GLOBAL             16 (quoprimime)
+                LOAD_ATTR               18 (body_encode)
+                PUSH_NULL
+                LOAD_FAST_BORROW         7 (sniff)
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_CONST               9 ('latin-1')
+                CALL                     1
+
+ 160            LOAD_FAST_BORROW         3 (policy)
+                LOAD_ATTR                8 (max_line_length)
+
+ 159            CALL                     2
+                STORE_FAST               8 (sniff_qp)
+
+ 161            LOAD_GLOBAL             20 (binascii)
+                LOAD_ATTR               22 (b2a_base64)
+                PUSH_NULL
+                LOAD_FAST_BORROW         7 (sniff)
+                CALL                     1
+                STORE_FAST               9 (sniff_base64)
+
+ 163            LOAD_GLOBAL             25 (len + NULL)
+                LOAD_FAST_BORROW         8 (sniff_qp)
+                CALL                     1
+                LOAD_GLOBAL             25 (len + NULL)
+                LOAD_FAST_BORROW         9 (sniff_base64)
+                CALL                     1
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE        4 (to L4)
+                NOT_TAKEN
+
+ 164            LOAD_CONST              10 ('base64')
+                STORE_FAST               2 (cte)
+                JUMP_FORWARD            21 (to L5)
+
+ 166    L4:     LOAD_CONST              11 ('quoted-printable')
+                STORE_FAST               2 (cte)
+
+ 167            LOAD_GLOBAL             25 (len + NULL)
+                LOAD_FAST_BORROW         4 (lines)
+                CALL                     1
+                LOAD_SMALL_INT          10
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        4 (to L5)
+                NOT_TAKEN
+
+ 168            LOAD_FAST_BORROW_LOAD_FAST_BORROW 40 (cte, sniff_qp)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 169    L5:     LOAD_FAST_BORROW         2 (cte)
+                LOAD_CONST               5 ('7bit')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       27 (to L6)
+                NOT_TAKEN
+
+ 170            LOAD_FAST_BORROW         6 (normal_body)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (lines)
+                CALL                     1
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_CONST               0 ('ascii')
+                CALL                     1
+                STORE_FAST              10 (data)
+
+ 180            LOAD_FAST_BORROW_LOAD_FAST_BORROW 42 (cte, data)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 171    L6:     LOAD_FAST_BORROW         2 (cte)
+                LOAD_CONST               6 ('8bit')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       28 (to L7)
+                NOT_TAKEN
+
+ 172            LOAD_FAST_BORROW         6 (normal_body)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (lines)
+                CALL                     1
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_CONST               0 ('ascii')
+                LOAD_CONST               7 ('surrogateescape')
+                CALL                     2
+                STORE_FAST              10 (data)
+
+ 180            LOAD_FAST_BORROW_LOAD_FAST_BORROW 42 (cte, data)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 173    L7:     LOAD_FAST_BORROW         2 (cte)
+                LOAD_CONST              11 ('quoted-printable')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       58 (to L8)
+                NOT_TAKEN
+
+ 174            LOAD_GLOBAL             16 (quoprimime)
+                LOAD_ATTR               18 (body_encode)
+                PUSH_NULL
+                LOAD_FAST_BORROW         6 (normal_body)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (lines)
+                CALL                     1
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_CONST               9 ('latin-1')
+                CALL                     1
+
+ 175            LOAD_FAST_BORROW         3 (policy)
+                LOAD_ATTR                8 (max_line_length)
+
+ 174            CALL                     2
+                STORE_FAST              10 (data)
+
+ 180            LOAD_FAST_BORROW_LOAD_FAST_BORROW 42 (cte, data)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 176    L8:     LOAD_FAST_BORROW         2 (cte)
+                LOAD_CONST              10 ('base64')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       32 (to L9)
+                NOT_TAKEN
+
+ 177            LOAD_GLOBAL             27 (_encode_base64 + NULL)
+                LOAD_FAST_BORROW         5 (embedded_body)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (lines)
+                CALL                     1
+                LOAD_FAST_BORROW         3 (policy)
+                LOAD_ATTR                8 (max_line_length)
+                CALL                     2
+                STORE_FAST              10 (data)
+
+ 180            LOAD_FAST_BORROW_LOAD_FAST_BORROW 42 (cte, data)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 179    L9:     LOAD_GLOBAL             29 (ValueError + NULL)
+                LOAD_CONST              12 ('Unknown content transfer encoding {}')
+                LOAD_ATTR               31 (format + NULL|self)
+                LOAD_FAST_BORROW         2 (cte)
+                CALL                     1
+                CALL                     1
+                RAISE_VARARGS            1
+
+  --   L10:     PUSH_EXC_INFO
+
+ 154            LOAD_GLOBAL             12 (UnicodeDecodeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 155   L11:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L14)
+
+ 154   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 156   L14:     LOAD_FAST                3 (policy)
+                LOAD_ATTR               14 (cte_type)
+                LOAD_CONST               6 ('8bit')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         4 (to L15)
+                NOT_TAKEN
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          366 (to L3)
+
+ 157   L15:     LOAD_CONST               6 ('8bit')
+                LOAD_FAST                6 (normal_body)
+                PUSH_NULL
+                LOAD_FAST                4 (lines)
+                CALL                     1
+                LOAD_ATTR               11 (decode + NULL|self)
+                LOAD_CONST               0 ('ascii')
+                LOAD_CONST               7 ('surrogateescape')
+                CALL                     2
+                BUILD_TUPLE              2
+                RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L10 [0]
+  L10 to L11 -> L13 [1] lasti
+  L12 to L13 -> L13 [1] lasti
+
+Disassembly of <code object embedded_body at 0x00000204BA0FECD0, file "email\contentmanager.py", line 147>:
+  --           COPY_FREE_VARS           1
+
+ 147           RESUME                   0
+               LOAD_DEREF               1 (linesep)
+               LOAD_ATTR                1 (join + NULL|self)
+               LOAD_FAST_BORROW         0 (lines)
+               CALL                     1
+               LOAD_DEREF               1 (linesep)
+               BINARY_OP                0 (+)
+               RETURN_VALUE
+
+Disassembly of <code object normal_body at 0x00000204BA0FFEE0, file "email\contentmanager.py", line 148>:
+148           RESUME                   0
+              LOAD_CONST               0 (b'\n')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_FAST_BORROW         0 (lines)
+              CALL                     1
+              LOAD_CONST               0 (b'\n')
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FFCC0, file "email\contentmanager.py", line 151>:
+ 151           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                16 (to L3)
+               STORE_FAST               1 (x)
+               LOAD_GLOBAL              1 (len + NULL)
+               LOAD_FAST_BORROW         1 (x)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object set_text_content at 0x00000204B9FC3E10, file "email\contentmanager.py", line 183>:
+183           RESUME                   0
+
+186           LOAD_GLOBAL              1 (_prepare_set + NULL)
+              LOAD_FAST_BORROW         0 (msg)
+              LOAD_CONST               0 ('text')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 41 (subtype, headers)
+              CALL                     4
+              POP_TOP
+
+187           LOAD_GLOBAL              3 (_encode_text + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (string, charset)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (cte, msg)
+              LOAD_ATTR                4 (policy)
+              CALL                     4
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   74 (cte, payload)
+
+188           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                7 (set_payload + NULL|self)
+              LOAD_FAST_BORROW        10 (payload)
+              CALL                     1
+              POP_TOP
+
+189           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                9 (set_param + NULL|self)
+              LOAD_CONST               1 ('charset')
+
+190           LOAD_GLOBAL             10 (email)
+              LOAD_ATTR               12 (charset)
+              LOAD_ATTR               14 (ALIASES)
+              LOAD_ATTR               17 (get + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 51 (charset, charset)
+              CALL                     2
+
+191           LOAD_CONST               2 (True)
+
+189           LOAD_CONST               3 (('replace',))
+              CALL_KW                  3
+              POP_TOP
+
+192           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (cte, msg)
+              LOAD_CONST               4 ('Content-Transfer-Encoding')
+              STORE_SUBSCR
+
+193           LOAD_GLOBAL             19 (_finalize_set + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (msg, disposition)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (filename, cid)
+              LOAD_FAST_BORROW         8 (params)
+              CALL                     5
+              POP_TOP
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object set_message_content at 0x00000204BA3E0E50, file "email\contentmanager.py", line 197>:
+197           RESUME                   0
+
+200           LOAD_FAST_BORROW         2 (subtype)
+              LOAD_CONST               0 ('partial')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+201           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               1 ('message/partial is not supported for Message objects')
+              CALL                     1
+              RAISE_VARARGS            1
+
+202   L1:     LOAD_FAST_BORROW         2 (subtype)
+              LOAD_CONST               2 ('rfc822')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       43 (to L5)
+              NOT_TAKEN
+
+203           LOAD_FAST_BORROW         3 (cte)
+              LOAD_CONST              11 ((None, '7bit', '8bit', 'binary'))
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       27 (to L2)
+              NOT_TAKEN
+
+205           LOAD_GLOBAL              1 (ValueError + NULL)
+
+206           LOAD_CONST               6 ('message/rfc822 parts do not support cte={}')
+              LOAD_ATTR                3 (format + NULL|self)
+              LOAD_FAST_BORROW         3 (cte)
+              CALL                     1
+
+205           CALL                     1
+              RAISE_VARARGS            1
+
+212   L2:     LOAD_FAST_BORROW         3 (cte)
+              POP_JUMP_IF_NOT_NONE     3 (to L3)
+              NOT_TAKEN
+              LOAD_CONST               5 ('8bit')
+              JUMP_FORWARD             1 (to L4)
+      L3:     LOAD_FAST                3 (cte)
+      L4:     STORE_FAST               3 (cte)
+              JUMP_FORWARD            49 (to L8)
+
+213   L5:     LOAD_FAST_BORROW         2 (subtype)
+              LOAD_CONST               7 ('external-body')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       37 (to L7)
+              NOT_TAKEN
+
+214           LOAD_FAST_BORROW         3 (cte)
+              LOAD_CONST              12 ((None, '7bit'))
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_FALSE       27 (to L6)
+              NOT_TAKEN
+
+216           LOAD_GLOBAL              1 (ValueError + NULL)
+
+217           LOAD_CONST               8 ('message/external-body parts do not support cte={}')
+              LOAD_ATTR                3 (format + NULL|self)
+              LOAD_FAST_BORROW         3 (cte)
+              CALL                     1
+
+216           CALL                     1
+              RAISE_VARARGS            1
+
+218   L6:     LOAD_CONST               4 ('7bit')
+              STORE_FAST               3 (cte)
+              JUMP_FORWARD             6 (to L8)
+
+219   L7:     LOAD_FAST_BORROW         3 (cte)
+              POP_JUMP_IF_NOT_NONE     3 (to L8)
+              NOT_TAKEN
+
+222           LOAD_CONST               4 ('7bit')
+              STORE_FAST               3 (cte)
+
+223   L8:     LOAD_GLOBAL              5 (_prepare_set + NULL)
+              LOAD_FAST_BORROW         0 (msg)
+              LOAD_CONST               9 ('message')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 40 (subtype, headers)
+              CALL                     4
+              POP_TOP
+
+224           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                7 (set_payload + NULL|self)
+              LOAD_FAST_BORROW         1 (message)
+              BUILD_LIST               1
+              CALL                     1
+              POP_TOP
+
+225           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (cte, msg)
+              LOAD_CONST              10 ('Content-Transfer-Encoding')
+              STORE_SUBSCR
+
+226           LOAD_GLOBAL              9 (_finalize_set + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 4 (msg, disposition)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (filename, cid)
+              LOAD_FAST_BORROW         7 (params)
+              CALL                     5
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object set_bytes_content at 0x00000204BA593BB0, file "email\contentmanager.py", line 230>:
+230           RESUME                   0
+
+233           LOAD_GLOBAL              1 (_prepare_set + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (msg, maintype)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 57 (subtype, headers)
+              CALL                     4
+              POP_TOP
+
+234           LOAD_FAST_BORROW         4 (cte)
+              LOAD_CONST               0 ('base64')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       34 (to L1)
+              NOT_TAKEN
+
+235           LOAD_GLOBAL              3 (_encode_base64 + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (data, msg)
+              LOAD_ATTR                4 (policy)
+              LOAD_ATTR                6 (max_line_length)
+              LOAD_CONST               1 (('max_line_length',))
+              CALL_KW                  2
+              STORE_FAST               1 (data)
+              JUMP_FORWARD           101 (to L4)
+
+236   L1:     LOAD_FAST_BORROW         4 (cte)
+              LOAD_CONST               2 ('quoted-printable')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       45 (to L2)
+              NOT_TAKEN
+
+240           LOAD_GLOBAL              8 (binascii)
+              LOAD_ATTR               10 (b2a_qp)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (data)
+              LOAD_CONST               3 (False)
+              LOAD_CONST               3 (False)
+              LOAD_CONST               4 (True)
+              LOAD_CONST               5 (('istext', 'header', 'quotetabs'))
+              CALL_KW                  4
+              STORE_FAST               1 (data)
+
+241           LOAD_FAST_BORROW         1 (data)
+              LOAD_ATTR               13 (decode + NULL|self)
+              LOAD_CONST               6 ('ascii')
+              CALL                     1
+              STORE_FAST               1 (data)
+              JUMP_FORWARD            50 (to L4)
+
+242   L2:     LOAD_FAST_BORROW         4 (cte)
+              LOAD_CONST               7 ('7bit')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       19 (to L3)
+              NOT_TAKEN
+
+243           LOAD_FAST_BORROW         1 (data)
+              LOAD_ATTR               13 (decode + NULL|self)
+              LOAD_CONST               6 ('ascii')
+              CALL                     1
+              STORE_FAST               1 (data)
+              JUMP_FORWARD            25 (to L4)
+
+244   L3:     LOAD_FAST_BORROW         4 (cte)
+              LOAD_CONST              11 (('8bit', 'binary'))
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       19 (to L4)
+              NOT_TAKEN
+
+245           LOAD_FAST_BORROW         1 (data)
+              LOAD_ATTR               13 (decode + NULL|self)
+              LOAD_CONST               6 ('ascii')
+              LOAD_CONST               8 ('surrogateescape')
+              CALL                     2
+              STORE_FAST               1 (data)
+
+246   L4:     LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR               15 (set_payload + NULL|self)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              POP_TOP
+
+247           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (cte, msg)
+              LOAD_CONST               9 ('Content-Transfer-Encoding')
+              STORE_SUBSCR
+
+248           LOAD_GLOBAL             17 (_finalize_set + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 5 (msg, disposition)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (filename, cid)
+              LOAD_FAST_BORROW         8 (params)
+              CALL                     5
+              POP_TOP
+              LOAD_CONST              10 (None)
+              RETURN_VALUE

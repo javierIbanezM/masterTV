@@ -1,0 +1,399 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST ('QCheckBox', 'QComboBox', 'QFormLayout', 'QGroupBox', 'QHBoxLayout', 'QLabel', 'QLineEdit', 'QPlainTextEdit', 'QPushButton', 'QSpinBox', 'QVBoxLayout'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QCheckBox; STORE_NAME QCheckBox; IMPORT_FROM QComboBox; STORE_NAME QComboBox; IMPORT_FROM QFormLayout; STORE_NAME QFormLayout; IMPORT_FROM QGroupBox; STORE_NAME QGroupBox; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QLineEdit; STORE_NAME QLineEdit; IMPORT_FROM QPlainTextEdit; STORE_NAME QPlainTextEdit; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QSpinBox; STORE_NAME QSpinBox; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout
+6: LOAD_SMALL_INT 3; LOAD_CONST ('kiosk',); IMPORT_NAME; IMPORT_FROM kiosk; STORE_NAME kiosk
+7: LOAD_SMALL_INT 3; LOAD_CONST ('FULLY_PACKAGES',); IMPORT_NAME adb; IMPORT_FROM FULLY_PACKAGES; STORE_NAME FULLY_PACKAGES
+8: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+9: LOAD_SMALL_INT 2; LOAD_CONST ('confirm', 'info', 'warn'); IMPORT_NAME common; IMPORT_FROM confirm; STORE_NAME confirm; IMPORT_FROM info; STORE_NAME info; IMPORT_FROM warn; STORE_NAME warn
+11: LOAD_CONST 1.6; STORE_NAME DPI_PER_PCT
+13: LOAD_CONST 'Fully Kiosk Browser (Google Play)'; LOAD_NAME kiosk; LOAD_ATTR FULLY_PKG; BUILD_TUPLE
+14: LOAD_CONST ('Fully Kiosk Browser (edición EMM)', 'com.fullykiosk.emm')
+15: LOAD_CONST ('Firefox', 'org.mozilla.firefox')
+16: LOAD_CONST ('Chrome', 'com.android.chrome')
+13: BUILD_LIST; STORE_NAME PACKAGES
+19: LOAD_BUILD_CLASS; LOAD_CONST <code KioskTab>; MAKE_FUNCTION; LOAD_CONST 'KioskTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME KioskTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF KioskTab() @19
+  19: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'KioskTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 19; STORE_NAME __firstlineno__
+  20: LOAD_CONST 'Kiosco (URL)'; STORE_NAME title
+  22: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code KioskTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  143: LOAD_CONST <code KioskTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  167: LOAD_CONST <code KioskTab.on_activated>; MAKE_FUNCTION; STORE_NAME on_activated
+  172: LOAD_CONST <code KioskTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code KioskTab._dpi>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _dpi
+  175: LOAD_CONST <code KioskTab._update_zoom_label>; MAKE_FUNCTION; STORE_NAME _update_zoom_label
+  185: LOAD_CONST <code KioskTab.refresh_display>; MAKE_FUNCTION; STORE_NAME refresh_display
+  191: LOAD_CONST <code KioskTab.apply_zoom>; MAKE_FUNCTION; STORE_NAME apply_zoom
+  206: LOAD_CONST <code KioskTab.reset_zoom>; MAKE_FUNCTION; STORE_NAME reset_zoom
+  218: LOAD_CONST <code KioskTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code KioskTab._package>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _package
+  223: LOAD_CONST (False,); LOAD_CONST <code KioskTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code KioskTab.save>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME save
+  246: LOAD_CONST <code KioskTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code KioskTab.fully_run>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME fully_run
+  279: LOAD_CONST <code KioskTab.apply_now>; MAKE_FUNCTION; STORE_NAME apply_now
+  292: LOAD_CONST <code KioskTab.diagnose>; MAKE_FUNCTION; STORE_NAME diagnose
+  312: LOAD_CONST <code KioskTab.use_fqdn>; MAKE_FUNCTION; STORE_NAME use_fqdn
+  320: LOAD_CONST <code KioskTab.disable_private_dns>; MAKE_FUNCTION; STORE_NAME disable_private_dns; LOAD_CONST ('_disp', '_dns_fail', 'dns_btn', 'fqdn_btn', 'on_power', 'pkg', 'pw', 'report', 'url', 'watchdog', 'zoom', 'zoom_info', 'zoom_on'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF KioskTab.__init__(self,ctx) @22
+    23: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_DEREF self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    24: LOAD_CONST False; LOAD_DEREF self; STORE_ATTR _dns_fail
+    25: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_DEREF self; CALL; STORE_FAST lay
+    27: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'URL a pantalla completa en esta TV'; CALL; STORE_FAST box
+    28: LOAD_GLOBAL QFormLayout + NULL; LOAD_FAST_BORROW box; CALL; STORE_FAST f
+    29: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR url
+    30: LOAD_DEREF self; LOAD_ATTR url; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'http://servidorwebs.zar.local/Planificador/visordealmacen.php'; CALL
+    31: LOAD_GLOBAL QComboBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR pkg
+    32: LOAD_DEREF self; LOAD_ATTR pkg; LOAD_ATTR setEditable + NULL|self; LOAD_CONST True; CALL
+    33: LOAD_GLOBAL PACKAGES; GET_ITER; <L296>; FOR_ITER ->378; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST label, p
+    34: LOAD_DEREF self; LOAD_ATTR pkg; LOAD_ATTR addItem + NULL|self; LOAD_FAST_BORROW label; FORMAT_SIMPLE; LOAD_CONST ' ('; LOAD_FAST_BORROW p; FORMAT_SIMPLE; LOAD_CONST ')'; BUILD_STRING; LOAD_FAST_BORROW p; CALL; JUMP_BACKWARD ->296
+    33: <L378>; END_FOR; POP_ITER
+    35: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Lanzar el kiosco cuando la TV se encienda o arranque (mientras esta aplicación esté abierta)'; CALL; LOAD_DEREF self; STORE_ATTR on_power
+    37: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Vigilante: si la TV está despierta y el kiosco no está en pantalla, volver a lanzarlo'; CALL; LOAD_DEREF self; STORE_ATTR watchdog
+    39: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR pw
+    40: LOAD_DEREF self; LOAD_ATTR pw; LOAD_ATTR setEchoMode + NULL|self; LOAD_GLOBAL QLineEdit; LOAD_ATTR EchoMode; LOAD_ATTR Password; CALL
+    41: LOAD_DEREF self; LOAD_ATTR pw; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Solo si activas «Administración remota» en Fully (opcional)'; CALL
+    42: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'URL'; LOAD_DEREF self; LOAD_ATTR url; CALL
+    43: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'App kiosco'; LOAD_DEREF self; LOAD_ATTR pkg; CALL
+    44: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_DEREF self; LOAD_ATTR on_power; CALL
+    45: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_DEREF self; LOAD_ATTR watchdog; CALL
+    46: LOAD_FAST_BORROW f; LOAD_ATTR addRow + NULL|self; LOAD_CONST 'Contraseña Fully'; LOAD_DEREF self; LOAD_ATTR pw; CALL
+    47: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW box; CALL
+    49: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST row
+    50: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '💾 Guardar'; CALL; STORE_FAST save
+    51: LOAD_FAST_BORROW save; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR save; CALL
+    52: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '▶ Guardar y aplicar ahora'; CALL; STORE_FAST apply_
+    53: LOAD_FAST_BORROW apply_; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR apply_now; CALL
+    54: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '⌂ Salir del kiosco (Inicio)'; CALL; STORE_FAST home
+    55: LOAD_FAST_BORROW home; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    56: LOAD_FAST_BORROW_LOAD_FAST_BORROW save, apply_; LOAD_FAST_BORROW home; BUILD_TUPLE; GET_ITER; <L1246>; FOR_ITER ->1290; STORE_FAST b
+    57: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL; JUMP_BACKWARD ->1246
+    56: <L1290>; END_FOR; POP_ITER
+    58: LOAD_FAST_BORROW row; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    59: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW row; CALL
+    61: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Arranque automático dentro de la TV (sin depender de este programa)'; CALL; STORE_FAST boot
+    62: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW boot; CALL; STORE_FAST bl
+    63: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST brow
+    64: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '🔎 Comprobar Fully'; CALL; STORE_FAST bcheck
+    65: LOAD_FAST_BORROW bcheck; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    66: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '⚙ Configurar Fully en la TV…'; CALL; STORE_FAST bconf
+    67: LOAD_FAST_BORROW bconf; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    68: LOAD_FAST_BORROW brow; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW bcheck; CALL
+    69: LOAD_FAST_BORROW brow; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW bconf; CALL
+    70: LOAD_FAST_BORROW brow; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    71: LOAD_FAST_BORROW bl; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW brow; CALL
+    72: LOAD_GLOBAL QLabel + NULL; LOAD_CONST 'Guarda dentro de Fully la «Start URL» y activa «Launch on Boot» y «Keep Screen On». Así Fully se abre solo al arrancar la TV y carga la URL, aunque el PC y esta aplicación estén apagados. Tarda ≈1 minuto y verás cambiar la pantalla.'; CALL; STORE_FAST bnote
+    75: LOAD_FAST_BORROW bnote; LOAD_ATTR setWordWrap + NULL|self; LOAD_CONST True; CALL
+    76: LOAD_FAST_BORROW bl; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW bnote; CALL
+    77: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW boot; CALL
+    79: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Zoom de la página (escala de la pantalla de la TV)'; CALL; STORE_FAST zoom
+    80: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW zoom; CALL; STORE_FAST zl
+    81: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST zr
+    82: LOAD_GLOBAL QCheckBox + NULL; LOAD_CONST 'Fijar zoom al lanzar el kiosco'; CALL; LOAD_DEREF self; STORE_ATTR zoom_on
+    83: LOAD_GLOBAL QSpinBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR zoom
+    84: LOAD_DEREF self; LOAD_ATTR zoom; LOAD_ATTR setRange + NULL|self; LOAD_SMALL_INT 45; LOAD_CONST 400; CALL
+    85: LOAD_DEREF self; LOAD_ATTR zoom; LOAD_ATTR setSingleStep + NULL|self; LOAD_SMALL_INT 5; CALL
+    86: LOAD_DEREF self; LOAD_ATTR zoom; LOAD_ATTR setValue + NULL|self; LOAD_SMALL_INT 100; CALL
+    87: LOAD_DEREF self; LOAD_ATTR zoom; LOAD_ATTR setSuffix + NULL|self; LOAD_CONST ' %'; CALL
+    88: LOAD_DEREF self; LOAD_ATTR zoom; LOAD_ATTR valueChanged; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR _update_zoom_label; CALL
+    89: LOAD_FAST_BORROW zr; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR zoom_on; CALL
+    90: LOAD_FAST_BORROW zr; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR zoom; CALL
+    91: LOAD_CONST (75, 100, 125, 150); GET_ITER; <L2404>; FOR_ITER ->2580; STORE_FAST pct
+    92: LOAD_GLOBAL QPushButton + NULL; LOAD_FAST_BORROW pct; FORMAT_SIMPLE; LOAD_CONST ' %'; BUILD_STRING; CALL; STORE_FAST b
+    93: LOAD_FAST_BORROW b; LOAD_ATTR setFixedWidth + NULL|self; LOAD_SMALL_INT 60; CALL
+    94: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_CONST False; LOAD_FAST_BORROW pct; BUILD_TUPLE; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; SET_FUNCTION_ATTRIBUTE defaults; CALL
+    95: LOAD_FAST_BORROW zr; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL; JUMP_BACKWARD ->2404
+    91: <L2580>; END_FOR; POP_ITER
+    96: LOAD_FAST_BORROW zr; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    97: LOAD_FAST_BORROW zl; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW zr; CALL
+    98: LOAD_GLOBAL QLabel + NULL; LOAD_CONST ''; CALL; LOAD_DEREF self; STORE_ATTR zoom_info
+    99: LOAD_DEREF self; LOAD_ATTR zoom_info; LOAD_ATTR setWordWrap + NULL|self; LOAD_CONST True; CALL
+    100: LOAD_FAST_BORROW zl; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR zoom_info; CALL
+    101: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST zr2
+    102: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '🔎 Aplicar zoom ahora…'; CALL; STORE_FAST zapply
+    103: LOAD_FAST_BORROW zapply; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR apply_zoom; CALL
+    104: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '↺ Restaurar densidad original…'; CALL; STORE_FAST zreset
+    105: LOAD_FAST_BORROW zreset; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR reset_zoom; CALL
+    106: LOAD_FAST_BORROW zr2; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW zapply; CALL
+    107: LOAD_FAST_BORROW zr2; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW zreset; CALL
+    108: LOAD_FAST_BORROW zr2; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    109: LOAD_FAST_BORROW zl; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW zr2; CALL
+    110: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW zoom; CALL
+    111: LOAD_CONST None; LOAD_DEREF self; STORE_ATTR _disp
+    113: LOAD_GLOBAL QGroupBox + NULL; LOAD_CONST 'Comprobar que la TV puede abrir la URL (DNS / red)'; CALL; STORE_FAST diag
+    114: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_FAST_BORROW diag; CALL; STORE_FAST dl
+    115: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST r2
+    116: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST '🔍 Comprobar desde la TV'; CALL; STORE_FAST test
+    117: LOAD_FAST_BORROW test; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR diagnose; CALL
+    118: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Usar nombre completo (FQDN)'; CALL; LOAD_DEREF self; STORE_ATTR fqdn_btn
+    119: LOAD_DEREF self; LOAD_ATTR fqdn_btn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR use_fqdn; CALL
+    120: LOAD_DEREF self; LOAD_ATTR fqdn_btn; LOAD_ATTR setVisible + NULL|self; LOAD_CONST False; CALL
+    121: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Desactivar DNS privado de la TV…'; CALL; LOAD_DEREF self; STORE_ATTR dns_btn
+    122: LOAD_DEREF self; LOAD_ATTR dns_btn; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR disable_private_dns; CALL
+    123: LOAD_DEREF self; LOAD_ATTR dns_btn; LOAD_ATTR setVisible + NULL|self; LOAD_CONST False; CALL
+    124: LOAD_FAST_BORROW test; LOAD_DEREF self; LOAD_ATTR fqdn_btn; LOAD_DEREF self; LOAD_ATTR dns_btn; BUILD_TUPLE; GET_ITER; <L3758>; FOR_ITER ->3802; STORE_FAST b
+    125: LOAD_FAST_BORROW r2; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL; JUMP_BACKWARD ->3758
+    124: <L3802>; END_FOR; POP_ITER
+    126: LOAD_FAST_BORROW r2; LOAD_ATTR addStretch + NULL|self; LOAD_SMALL_INT 1; CALL
+    127: LOAD_FAST_BORROW dl; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW r2; CALL
+    128: LOAD_GLOBAL QPlainTextEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR report
+    129: LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setReadOnly + NULL|self; LOAD_CONST True; CALL
+    130: LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setStyleSheet + NULL|self; LOAD_CONST 'font-family: Consolas, monospace;'; CALL
+    131: LOAD_FAST_BORROW dl; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR report; CALL
+    132: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW diag; LOAD_SMALL_INT 1; CALL
+    134: LOAD_GLOBAL QLabel + NULL
+    135: LOAD_CONST '<b>Cómo se mantiene el kiosco:</b> «Aplicar» abre la URL a pantalla completa en Fully (o la app elegida). Con las casillas activas, esta aplicación lo relanza cuando la TV se enciende/arranca o se sale del kiosco, siempre que esté abierta.<br><b>Para que arranque sin el PC:</b> usa «Configurar Fully en la TV» (arriba).'
+    134: CALL; STORE_FAST note
+    139: LOAD_FAST_BORROW note; LOAD_ATTR setWordWrap + NULL|self; LOAD_CONST True; CALL
+    140: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW note; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.__init__.<locals>.<lambda>() @55
+      55: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.__init__.<locals>.<lambda>.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; RETURN_VALUE
+
+        DEF KioskTab.__init__.<locals>.<lambda>.<locals>.<lambda>(s) @55
+        55: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR keyevent + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'KEYCODE_HOME'; CALL; RETURN_VALUE
+
+      DEF KioskTab.__init__.<locals>.<lambda>() @65
+      65: LOAD_DEREF self; LOAD_ATTR fully_run + NULL|self; LOAD_CONST True; LOAD_CONST ('check_only',); CALL_KW; RETURN_VALUE
+
+      DEF KioskTab.__init__.<locals>.<lambda>() @67
+      67: LOAD_DEREF self; LOAD_ATTR fully_run + NULL|self; LOAD_CONST False; LOAD_CONST ('check_only',); CALL_KW; RETURN_VALUE
+
+      DEF KioskTab.__init__.<locals>.<lambda>(_,p) @94
+      94: LOAD_DEREF self; LOAD_ATTR zoom; LOAD_ATTR setValue + NULL|self; LOAD_FAST_BORROW p; CALL; RETURN_VALUE
+
+    DEF KioskTab.on_device_changed(self) @143
+    144: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_FAST d
+    145: LOAD_FAST_BORROW self; LOAD_ATTR report; LOAD_ATTR clear + NULL|self; CALL
+    146: LOAD_FAST_BORROW self; LOAD_ATTR fqdn_btn; LOAD_ATTR setVisible + NULL|self; LOAD_CONST False; CALL
+    147: LOAD_FAST_BORROW self; LOAD_ATTR dns_btn; LOAD_ATTR setVisible + NULL|self; LOAD_CONST False; CALL
+    148: LOAD_FAST_BORROW self; LOAD_ATTR setEnabled + NULL|self; LOAD_FAST_BORROW d; LOAD_CONST None; IS_OP is not; CALL
+    149: LOAD_FAST_BORROW d; TO_BOOL; POP_JUMP_IF_TRUE ->264
+    150: LOAD_CONST None; RETURN_VALUE
+    151: <L264>; LOAD_FAST_BORROW self; LOAD_ATTR url; LOAD_ATTR setText + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_url; CALL
+    152: LOAD_FAST_BORROW self; LOAD_ATTR pkg; LOAD_ATTR findData + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_package; CALL; STORE_FAST idx
+    153: LOAD_FAST_BORROW idx; LOAD_SMALL_INT 0; COMPARE_OP bool(>=); POP_JUMP_IF_FALSE ->482
+    154: LOAD_FAST_BORROW self; LOAD_ATTR pkg; LOAD_ATTR setCurrentIndex + NULL|self; LOAD_FAST_BORROW idx; CALL; JUMP_FORWARD ->556
+    156: <L482>; LOAD_FAST_BORROW self; LOAD_ATTR pkg; LOAD_ATTR setEditText + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_package; CALL
+    157: <L556>; LOAD_FAST_BORROW self; LOAD_ATTR on_power; LOAD_ATTR setChecked + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_on_power_on; CALL
+    158: LOAD_FAST_BORROW self; LOAD_ATTR watchdog; LOAD_ATTR setChecked + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_watchdog; CALL
+    159: LOAD_FAST_BORROW self; LOAD_ATTR pw; LOAD_ATTR setText + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR fully_password; CALL
+    160: LOAD_FAST_BORROW self; LOAD_ATTR zoom_on; LOAD_ATTR setChecked + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_density; LOAD_SMALL_INT 0; COMPARE_OP >; CALL
+    161: LOAD_FAST_BORROW self; LOAD_ATTR zoom; LOAD_ATTR setValue + NULL|self; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_density; TO_BOOL; POP_JUMP_IF_FALSE ->1000; LOAD_GLOBAL round + NULL; LOAD_FAST_BORROW d; LOAD_ATTR kiosk_density; LOAD_GLOBAL DPI_PER_PCT; BINARY_OP /; CALL; JUMP_FORWARD ->1002; <L1000>; LOAD_SMALL_INT 100; <L1002>; CALL
+    162: LOAD_CONST None; LOAD_FAST_BORROW self; STORE_ATTR _disp
+    163: LOAD_FAST_BORROW self; LOAD_ATTR _update_zoom_label + NULL|self; CALL
+    164: LOAD_FAST_BORROW self; LOAD_ATTR is_online + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->1138
+    165: LOAD_FAST_BORROW self; LOAD_ATTR refresh_display + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    164: <L1138>; LOAD_CONST None; RETURN_VALUE
+
+    DEF KioskTab.on_activated(self) @167
+    168: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; TO_BOOL; POP_JUMP_IF_FALSE ->174; LOAD_FAST_BORROW self; LOAD_ATTR is_online + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->170; LOAD_FAST_BORROW self; LOAD_ATTR _disp; POP_JUMP_IF_NOT_NONE ->166
+    169: LOAD_FAST_BORROW self; LOAD_ATTR refresh_display + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    168: <L166>; LOAD_CONST None; RETURN_VALUE; <L170>; LOAD_CONST None; RETURN_VALUE; <L174>; LOAD_CONST None; RETURN_VALUE
+
+    DEF KioskTab._dpi(self) @172
+    173: LOAD_GLOBAL round + NULL; LOAD_FAST_BORROW self; LOAD_ATTR zoom; LOAD_ATTR value + NULL|self; CALL; LOAD_GLOBAL DPI_PER_PCT; BINARY_OP *; CALL; RETURN_VALUE
+
+    DEF KioskTab._update_zoom_label(self) @175
+    176: LOAD_FAST_BORROW self; LOAD_ATTR _disp; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->44; BUILD_MAP; <L44>; LOAD_ATTR get + NULL|self; LOAD_CONST 'width'; LOAD_CONST 1920; CALL; STORE_FAST w
+    177: LOAD_CONST 'Con '; LOAD_FAST_BORROW self; LOAD_ATTR zoom; LOAD_ATTR value + NULL|self; CALL; FORMAT_SIMPLE; LOAD_CONST ' % ('; LOAD_FAST_BORROW self; LOAD_ATTR _dpi + NULL|self; CALL; FORMAT_SIMPLE; LOAD_CONST ' dpi) la página verá un ancho de ≈ '; LOAD_GLOBAL round + NULL; LOAD_FAST_BORROW w; LOAD_SMALL_INT 160; BINARY_OP *; LOAD_FAST_BORROW self; LOAD_ATTR _dpi + NULL|self; CALL; BINARY_OP /; CALL; FORMAT_SIMPLE; LOAD_CONST ' px.'; BUILD_STRING; STORE_FAST txt
+    178: LOAD_FAST_BORROW self; LOAD_ATTR _disp; TO_BOOL; POP_JUMP_IF_FALSE ->570
+    179: LOAD_FAST_BORROW self; LOAD_ATTR _disp; LOAD_CONST 'current_dpi'; BINARY_OP []; STORE_FAST cur
+    180: LOAD_CONST 'Pantalla '; LOAD_FAST_BORROW self; LOAD_ATTR _disp; LOAD_CONST 'width'; BINARY_OP []; FORMAT_SIMPLE; LOAD_CONST '×'; LOAD_FAST_BORROW self; LOAD_ATTR _disp; LOAD_CONST 'height'; BINARY_OP []; FORMAT_SIMPLE; LOAD_CONST ' · ahora '; LOAD_FAST_BORROW cur; FORMAT_SIMPLE; LOAD_CONST ' dpi ('
+    181: LOAD_GLOBAL round + NULL; LOAD_FAST_BORROW cur; LOAD_GLOBAL DPI_PER_PCT; BINARY_OP /; CALL; FORMAT_SIMPLE; LOAD_CONST ' %, la página ve ≈ '; LOAD_GLOBAL round + NULL; LOAD_FAST_BORROW w; LOAD_SMALL_INT 160; BINARY_OP *; LOAD_FAST_BORROW cur; BINARY_OP /; CALL; FORMAT_SIMPLE; LOAD_CONST ' px; original '
+    182: LOAD_FAST_BORROW self; LOAD_ATTR _disp; LOAD_CONST 'physical_dpi'; BINARY_OP []; FORMAT_SIMPLE; LOAD_CONST ' dpi).\n'
+    180: BUILD_STRING
+    182: LOAD_FAST_BORROW txt
+    180: BINARY_OP +; STORE_FAST txt
+    183: <L570>; LOAD_FAST_BORROW self; LOAD_ATTR zoom_info; LOAD_ATTR setText + NULL|self; LOAD_FAST_BORROW txt; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF KioskTab.refresh_display(self) @185
+    186: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.refresh_display.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    189: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.refresh_display.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.refresh_display.<locals>.done(info) @186
+      187: LOAD_FAST_BORROW info; LOAD_DEREF self; STORE_ATTR _disp
+      188: LOAD_DEREF self; LOAD_ATTR _update_zoom_label + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.refresh_display.<locals>.<lambda>(s) @189
+      189: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR display_info + NULL|self; LOAD_FAST_BORROW s; CALL; RETURN_VALUE
+
+    DEF KioskTab.apply_zoom(self) @191
+    192: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    193: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->102; LOAD_DEREF self; LOAD_ATTR save + NULL|self; LOAD_CONST True; LOAD_CONST ('quiet',); CALL_KW; TO_BOOL; POP_JUMP_IF_TRUE ->106
+    194: <L102>; LOAD_CONST None; RETURN_VALUE
+    195: <L106>; LOAD_DEREF self; LOAD_ATTR _dpi + NULL|self; CALL; STORE_DEREF dpi
+    196: LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Cambiar el zoom (densidad de pantalla)'
+    197: LOAD_CONST 'Se fijará la densidad de la TV a '; LOAD_DEREF dpi; FORMAT_SIMPLE; LOAD_CONST ' dpi ('; LOAD_DEREF self; LOAD_ATTR zoom; LOAD_ATTR value + NULL|self; CALL; FORMAT_SIMPLE; LOAD_CONST ' %). Afecta a toda la interfaz de la TV, no solo al kiosco, y se mantiene al reiniciar. Si marcas «Fijar zoom», se volverá a aplicar cada vez que se lance el kiosco.'; BUILD_STRING
+    200: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell wm density '; LOAD_DEREF dpi; FORMAT_SIMPLE; BUILD_STRING
+    196: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->316
+    201: LOAD_FAST_BORROW dpi; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.apply_zoom.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    204: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW dpi; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.apply_zoom.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+    196: <L316>; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.apply_zoom.<locals>.done(r) @201
+      202: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Densidad '; LOAD_DEREF dpi; FORMAT_SIMPLE; LOAD_CONST ' dpi aplicada: '; LOAD_FAST_BORROW r; LOAD_ATTR text; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->96; LOAD_CONST 'OK'; <L96>; FORMAT_SIMPLE; BUILD_STRING; CALL
+      203: LOAD_DEREF self; LOAD_ATTR refresh_display + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.apply_zoom.<locals>.<lambda>(s) @204
+      204: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR set_density + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF dpi; CALL; RETURN_VALUE
+
+    DEF KioskTab.reset_zoom(self) @206
+    207: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    208: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->254; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Restaurar densidad original'
+    209: LOAD_CONST 'La TV volverá a su densidad de fábrica.'; LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell wm density reset'; BUILD_STRING
+    208: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->250
+    210: LOAD_DEREF self; LOAD_ATTR zoom_on; LOAD_ATTR setChecked + NULL|self; LOAD_CONST False; CALL
+    211: LOAD_DEREF self; LOAD_ATTR save + NULL|self; LOAD_CONST True; LOAD_CONST ('quiet',); CALL_KW
+    213: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.reset_zoom.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    216: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.reset_zoom.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+    208: <L250>; LOAD_CONST None; RETURN_VALUE; <L254>; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.reset_zoom.<locals>.done(r) @213
+      214: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Densidad restaurada'; CALL
+      215: LOAD_DEREF self; LOAD_ATTR refresh_display + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.reset_zoom.<locals>.<lambda>(s) @216
+      216: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR reset_density + NULL|self; LOAD_FAST_BORROW s; CALL; RETURN_VALUE
+
+    DEF KioskTab._package(self) @218
+    219: LOAD_FAST_BORROW self; LOAD_ATTR pkg; LOAD_ATTR currentData + NULL|self; CALL; STORE_FAST data
+    220: LOAD_FAST_BORROW self; LOAD_ATTR pkg; LOAD_ATTR currentText + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; STORE_FAST text
+    221: LOAD_FAST_BORROW data; TO_BOOL; POP_JUMP_IF_FALSE ->264; LOAD_FAST_BORROW_LOAD_FAST_BORROW text, self; LOAD_ATTR pkg; LOAD_ATTR itemText + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR pkg; LOAD_ATTR currentIndex + NULL|self; CALL; CALL; COMPARE_OP bool(==); POP_JUMP_IF_FALSE ->264; LOAD_FAST_BORROW data; RETURN_VALUE; <L264>; LOAD_FAST text; RETURN_VALUE
+
+    DEF KioskTab.save(self,quiet) @223
+    224: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_FAST d
+    225: LOAD_FAST_BORROW d; TO_BOOL; POP_JUMP_IF_TRUE ->92
+    226: LOAD_GLOBAL warn + NULL; LOAD_FAST_BORROW self; LOAD_CONST 'Sin dispositivo'; LOAD_CONST 'Selecciona una TV primero.'; CALL
+    227: LOAD_CONST False; RETURN_VALUE
+    228: <L92>; LOAD_FAST_BORROW self; LOAD_ATTR url; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR strip + NULL|self; CALL; STORE_FAST raw
+    229: LOAD_FAST_BORROW raw; TO_BOOL; POP_JUMP_IF_FALSE ->234
+    231: LOAD_GLOBAL kiosk; LOAD_ATTR normalize_url; LOAD_FAST_BORROW raw; CALL; STORE_FAST raw
+    235: <L234>; LOAD_FAST_LOAD_FAST raw, self; LOAD_ATTR _package + NULL|self; CALL; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->312; LOAD_GLOBAL kiosk; LOAD_ATTR FULLY_PKG; <L312>; SWAP; LOAD_FAST_BORROW d; STORE_ATTR kiosk_url; LOAD_FAST_BORROW d; STORE_ATTR kiosk_package
+    236: LOAD_FAST_BORROW self; LOAD_ATTR on_power; LOAD_ATTR isChecked + NULL|self; CALL; LOAD_FAST_BORROW self; LOAD_ATTR watchdog; LOAD_ATTR isChecked + NULL|self; CALL; SWAP; LOAD_FAST_BORROW d; STORE_ATTR kiosk_on_power_on; LOAD_FAST_BORROW d; STORE_ATTR kiosk_watchdog
+    237: LOAD_FAST_BORROW self; LOAD_ATTR pw; LOAD_ATTR text + NULL|self; CALL; LOAD_FAST_BORROW d; STORE_ATTR fully_password
+    238: LOAD_FAST_BORROW self; LOAD_ATTR zoom_on; LOAD_ATTR isChecked + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->622; LOAD_FAST_BORROW self; LOAD_ATTR _dpi + NULL|self; CALL; JUMP_FORWARD ->624; <L622>; LOAD_SMALL_INT 0; <L624>; LOAD_FAST_BORROW d; STORE_ATTR kiosk_density
+    239: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR store; LOAD_ATTR update + NULL|self; LOAD_FAST_BORROW d; CALL
+    240: LOAD_FAST_BORROW self; LOAD_ATTR url; LOAD_ATTR setText + NULL|self; LOAD_FAST_BORROW raw; CALL
+    241: LOAD_FAST_BORROW quiet; TO_BOOL; POP_JUMP_IF_TRUE ->886
+    242: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Kiosco guardado para '; LOAD_FAST_BORROW d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST ': '; LOAD_FAST raw; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->872; LOAD_CONST '(sin URL)'; <L872>; FORMAT_SIMPLE; BUILD_STRING; CALL
+    243: <L886>; LOAD_CONST True; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    232: LOAD_GLOBAL ValueError; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->976; STORE_FAST e
+    233: LOAD_GLOBAL warn + NULL; LOAD_FAST self; LOAD_CONST 'URL no válida'; LOAD_GLOBAL str + NULL; LOAD_FAST e; CALL; CALL
+    234: POP_EXCEPT; LOAD_CONST None; STORE_FAST e; DELETE_FAST e; LOAD_CONST False; RETURN_VALUE
+    None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+    232: <L976>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+    DEF KioskTab.fully_run(self,check_only) @246
+    247: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_DEREF d
+    248: LOAD_DEREF d; TO_BOOL; POP_JUMP_IF_TRUE ->94
+    249: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin dispositivo'; LOAD_CONST 'Selecciona una TV primero.'; CALL; RETURN_VALUE
+    250: <L94>; LOAD_DEREF d; LOAD_ATTR kiosk_package; LOAD_GLOBAL FULLY_PACKAGES; CONTAINS_OP not in; POP_JUMP_IF_FALSE ->162
+    251: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Solo Fully'; LOAD_CONST 'Esta función solo configura Fully Kiosk Browser.'; CALL; RETURN_VALUE
+    252: <L162>; LOAD_DEREF self; LOAD_ATTR save + NULL|self; LOAD_CONST True; LOAD_CONST ('quiet',); CALL_KW; TO_BOOL; POP_JUMP_IF_TRUE ->214
+    253: LOAD_CONST None; RETURN_VALUE
+    254: <L214>; LOAD_DEREF check_only; TO_BOOL; POP_JUMP_IF_TRUE ->320; LOAD_GLOBAL confirm + NULL
+    255: LOAD_DEREF self; LOAD_CONST 'Configurar Fully en la TV'
+    256: LOAD_CONST 'Se abrirán los ajustes de Fully en la TV y se cambiará:\n  • Start URL → '
+    257: LOAD_DEREF d; LOAD_ATTR kiosk_url; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->288; LOAD_CONST '(sin cambios: se deja la actual)'; <L288>; FORMAT_SIMPLE; LOAD_CONST '\n  • Launch on Boot → activado\n  • Keep Screen On → activado\n\nDurante ≈1 minuto la pantalla de la TV mostrará los ajustes y al final se recargará la página. No toques el mando mientras tanto.'
+    256: BUILD_STRING
+    254: CALL; TO_BOOL; POP_JUMP_IF_TRUE ->320
+    261: LOAD_CONST None; RETURN_VALUE
+    262: <L320>; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR try_begin + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->452
+    263: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Ocupado'; LOAD_CONST 'Ya hay una operación de kiosco en curso en esta TV.'; CALL; RETURN_VALUE
+    264: <L452>; LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Trabajando en la TV… (≈1 min)'; CALL
+    266: LOAD_FAST_BORROW check_only; LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.fully_run.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    272: LOAD_FAST_BORROW check_only; LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.fully_run.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    277: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW work, done; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.fully_run.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.fully_run.<locals>.work() @266
+      268: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR fully; LOAD_ATTR with_pkg + NULL|self; LOAD_DEREF d; LOAD_ATTR kiosk_package; CALL; LOAD_ATTR configure + NULL|self; LOAD_DEREF d; LOAD_ATTR serial; LOAD_DEREF d; LOAD_ATTR kiosk_url; LOAD_DEREF check_only; LOAD_CONST ('check_only',); CALL_KW
+      270: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR end + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; RETURN_VALUE
+      None: PUSH_EXC_INFO
+      270: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR end + NULL|self; LOAD_DEREF d; LOAD_ATTR id; CALL; RERAISE
+      None: COPY; POP_EXCEPT; RERAISE
+
+      DEF KioskTab.fully_run.<locals>.done(rep) @272
+      273: LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setPlainText + NULL|self; LOAD_DEREF check_only; TO_BOOL; POP_JUMP_IF_FALSE ->66; LOAD_CONST 'Estado de Fully:\n'; JUMP_FORWARD ->68; <L66>; LOAD_CONST 'Fully configurado:\n'
+      274: <L68>; LOAD_CONST '\n'; LOAD_ATTR join + NULL|self; LOAD_CONST <code KioskTab.fully_run.<locals>.done.<locals>.<genexpr>>; MAKE_FUNCTION; LOAD_FAST_BORROW rep; GET_ITER; CALL; CALL
+      273: BINARY_OP +; CALL
+      275: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_DEREF d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST ': Fully '; LOAD_DEREF check_only; TO_BOOL; POP_JUMP_IF_FALSE ->224; LOAD_CONST 'comprobado'; JUMP_FORWARD ->226; <L224>; LOAD_CONST 'configurado'; <L226>; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+
+        DEF KioskTab.fully_run.<locals>.done.<locals>.<genexpr>(.0) @274
+        274: RETURN_GENERATOR; LOAD_FAST .0; <L8>; FOR_ITER ->40; STORE_FAST r; LOAD_CONST '  '; LOAD_FAST_BORROW r; BINARY_OP +; YIELD_VALUE; JUMP_BACKWARD ->8; <L40>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+        None: CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR; RERAISE
+
+      DEF KioskTab.fully_run.<locals>.<lambda>(e) @277
+      277: LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Error: '; LOAD_FAST_BORROW e; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF KioskTab.apply_now(self) @279
+    280: LOAD_DEREF self; LOAD_ATTR save + NULL|self; LOAD_CONST True; LOAD_CONST ('quiet',); CALL_KW; TO_BOOL; POP_JUMP_IF_TRUE ->58
+    281: LOAD_CONST None; RETURN_VALUE
+    282: <L58>; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_DEREF d
+    283: LOAD_DEREF d; LOAD_ATTR kiosk_url; TO_BOOL; POP_JUMP_IF_TRUE ->164
+    284: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin URL'; LOAD_CONST 'Escribe la URL del kiosco.'; CALL; RETURN_VALUE
+    285: <L164>; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Aplicando kiosco en '; LOAD_DEREF d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST '…'; BUILD_STRING; CALL
+    287: LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.apply_now.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    290: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW work; LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.apply_now.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.apply_now.<locals>.work() @287
+      288: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR apply + NULL|self; LOAD_DEREF d; CALL; RETURN_VALUE
+
+      DEF KioskTab.apply_now.<locals>.<lambda>(msgs) @290
+      290: LOAD_FAST_BORROW msgs; GET_ITER; LOAD_FAST_AND_CLEAR m; SWAP; BUILD_LIST; SWAP; <L16>; FOR_ITER ->110; STORE_FAST m; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_DEREF d; LOAD_ATTR name; FORMAT_SIMPLE; LOAD_CONST ': '; LOAD_FAST_BORROW m; FORMAT_SIMPLE; BUILD_STRING; CALL; LIST_APPEND; JUMP_BACKWARD ->16; <L110>; END_FOR; POP_ITER; SWAP; STORE_FAST m; RETURN_VALUE
+      None: SWAP
+      290: SWAP; STORE_FAST m; RERAISE
+
+    DEF KioskTab.diagnose(self) @292
+    293: LOAD_DEREF self; LOAD_ATTR save + NULL|self; LOAD_CONST True; LOAD_CONST ('quiet',); CALL_KW; TO_BOOL; POP_JUMP_IF_TRUE ->58
+    294: LOAD_CONST None; RETURN_VALUE
+    295: <L58>; LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_DEREF d
+    296: LOAD_DEREF d; LOAD_ATTR kiosk_url; TO_BOOL; POP_JUMP_IF_TRUE ->164
+    297: LOAD_GLOBAL warn + NULL; LOAD_DEREF self; LOAD_CONST 'Sin URL'; LOAD_CONST 'Escribe la URL del kiosco.'; CALL; RETURN_VALUE
+    298: <L164>; LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Comprobando desde la TV…'; CALL
+    300: LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.diagnose.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    309: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW d; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.diagnose.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done
+    310: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.diagnose.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    309: CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.diagnose.<locals>.done(res) @300
+      301: LOAD_FAST_BORROW res; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST text, dns_fail
+      302: LOAD_FAST_BORROW dns_fail; LOAD_DEREF self; STORE_ATTR _dns_fail
+      303: LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setPlainText + NULL|self; LOAD_FAST_BORROW text; CALL
+      304: LOAD_DEREF self; LOAD_ATTR dns_btn; LOAD_ATTR setVisible + NULL|self; LOAD_FAST_BORROW dns_fail; CALL
+      305: LOAD_GLOBAL kiosk; LOAD_ATTR split_url; LOAD_DEREF d; LOAD_ATTR kiosk_url; CALL; LOAD_SMALL_INT 1; BINARY_OP []; STORE_FAST host
+      306: LOAD_GLOBAL kiosk; LOAD_ATTR pc_resolve; LOAD_FAST_BORROW host; CALL; STORE_FAST pc
+      307: LOAD_DEREF self; LOAD_ATTR fqdn_btn; LOAD_ATTR setVisible + NULL|self; LOAD_GLOBAL bool + NULL; LOAD_FAST dns_fail; COPY; TO_BOOL; POP_JUMP_IF_FALSE ->426; LOAD_FAST pc; COPY; TO_BOOL; POP_JUMP_IF_FALSE ->426; LOAD_FAST_BORROW pc; LOAD_SMALL_INT 0; BINARY_OP []; LOAD_ATTR lower + NULL|self; CALL; LOAD_FAST_BORROW host; LOAD_ATTR lower + NULL|self; CALL; COMPARE_OP !=; <L426>; CALL; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.diagnose.<locals>.<lambda>() @309
+      309: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR kiosk; LOAD_ATTR diagnose + NULL|self; LOAD_DEREF d; CALL; RETURN_VALUE
+
+      DEF KioskTab.diagnose.<locals>.<lambda>(e) @310
+      310: LOAD_DEREF self; LOAD_ATTR report; LOAD_ATTR setPlainText + NULL|self; LOAD_CONST 'Error: '; LOAD_FAST_BORROW e; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF KioskTab.use_fqdn(self) @312
+    313: LOAD_GLOBAL kiosk; LOAD_ATTR split_url; LOAD_FAST_BORROW self; LOAD_ATTR url; LOAD_ATTR text + NULL|self; CALL; CALL; LOAD_SMALL_INT 1; BINARY_OP []; STORE_FAST host
+    314: LOAD_GLOBAL kiosk; LOAD_ATTR pc_resolve; LOAD_FAST_BORROW host; CALL; STORE_FAST pc
+    315: LOAD_FAST_BORROW pc; TO_BOOL; POP_JUMP_IF_FALSE ->384
+    316: LOAD_FAST_BORROW self; LOAD_ATTR url; LOAD_ATTR setText + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR url; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR replace + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW host, pc; LOAD_SMALL_INT 0; BINARY_OP []; LOAD_SMALL_INT 1; CALL; CALL
+    317: LOAD_FAST_BORROW self; LOAD_ATTR save + NULL|self; CALL
+    318: LOAD_FAST_BORROW self; LOAD_ATTR diagnose + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    315: <L384>; LOAD_CONST None; RETURN_VALUE
+
+    DEF KioskTab.disable_private_dns(self) @320
+    321: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    322: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->164; LOAD_GLOBAL confirm + NULL
+    323: LOAD_DEREF self; LOAD_CONST 'Desactivar DNS privado'
+    324: LOAD_CONST 'La TV dejará de enviar las consultas DNS a un servidor público cifrado y usará el DNS de tu red (el que reparte el router/DHCP). Es un cambio de ajustes de la TV.'
+    326: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell settings put global private_dns_mode off'; BUILD_STRING
+    322: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->160
+    327: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.disable_private_dns.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    330: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code KioskTab.disable_private_dns.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+    322: <L160>; LOAD_CONST None; RETURN_VALUE; <L164>; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.disable_private_dns.<locals>.done(r) @327
+      328: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'private_dns_mode=off: '; LOAD_FAST_BORROW r; LOAD_ATTR ok; TO_BOOL; POP_JUMP_IF_FALSE ->88; LOAD_CONST 'OK'; JUMP_FORWARD ->110; <L88>; LOAD_FAST_BORROW r; LOAD_ATTR text; <L110>; FORMAT_SIMPLE; BUILD_STRING; CALL
+      329: LOAD_DEREF self; LOAD_ATTR diagnose + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF KioskTab.disable_private_dns.<locals>.<lambda>(s) @330
+      330: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR settings_put + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST 'global'; LOAD_CONST 'private_dns_mode'; LOAD_CONST 'off'; CALL; RETURN_VALUE

@@ -1,0 +1,448 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Response classes used by urllib.\n\nThe base class, addbase, defines a minimal file-like interface,\nincluding read() and readline().  The typical response object is an\naddinfourl instance, which defines an info() method that returns\nheaders and a geturl() method that returns the url.\n')
+              STORE_NAME               0 (__doc__)
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (tempfile)
+              STORE_NAME               1 (tempfile)
+
+ 11           BUILD_LIST               0
+              LOAD_CONST              10 (('addbase', 'addclosehook', 'addinfo', 'addinfourl'))
+              LIST_EXTEND              1
+              STORE_NAME               2 (__all__)
+
+ 14           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object addbase at 0x00000204BA0A6E50, file "urllib\response.py", line 14>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('addbase')
+              LOAD_NAME                1 (tempfile)
+              LOAD_ATTR                6 (_TemporaryFileWrapper)
+              CALL                     3
+              STORE_NAME               4 (addbase)
+
+ 37           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object addclosehook at 0x00000204BA0A7870, file "urllib\response.py", line 37>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('addclosehook')
+              LOAD_NAME                4 (addbase)
+              CALL                     3
+              STORE_NAME               5 (addclosehook)
+
+ 57           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               8 (<code object addinfo at 0x00000204BA0FFCC0, file "urllib\response.py", line 57>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('addinfo')
+              LOAD_NAME                4 (addbase)
+              CALL                     3
+              STORE_NAME               6 (addinfo)
+
+ 68           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object addinfourl at 0x00000204BA102630, file "urllib\response.py", line 68>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('addinfourl')
+              LOAD_NAME                6 (addinfo)
+              CALL                     3
+              STORE_NAME               7 (addinfourl)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object addbase at 0x00000204BA0A6E50, file "urllib\response.py", line 14>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  14           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('addbase')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          14
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  15           LOAD_CONST               1 ('Base class for addinfo and addclosehook. Is a good idea for garbage collection.')
+               STORE_NAME               4 (__doc__)
+
+  19           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA083110, file "urllib\response.py", line 19>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+
+  24           LOAD_CONST               3 (<code object __repr__ at 0x00000204BA0ABC30, file "urllib\response.py", line 24>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__repr__)
+
+  28           LOAD_CONST               4 (<code object __enter__ at 0x00000204BA103CC0, file "urllib\response.py", line 28>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__enter__)
+
+  33           LOAD_CONST               5 (<code object __exit__ at 0x00000204BA08AD30, file "urllib\response.py", line 33>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__exit__)
+               LOAD_CONST               6 (('fp',))
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              11 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA083110, file "urllib\response.py", line 19>:
+  --           COPY_FREE_VARS           1
+
+  19           RESUME                   0
+
+  20           LOAD_GLOBAL              0 (super)
+               LOAD_GLOBAL              2 (addbase)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         11 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (fp)
+               LOAD_CONST               0 ('<urllib response>')
+               LOAD_CONST               1 (False)
+               LOAD_CONST               2 (('delete',))
+               CALL_KW                  3
+               POP_TOP
+
+  22           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fp, self)
+               STORE_ATTR               3 (fp)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0ABC30, file "urllib\response.py", line 24>:
+ 24           RESUME                   0
+              LOAD_CONST               0 ('<')
+
+ 25           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR                2 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' at ')
+
+ 26           LOAD_GLOBAL              5 (id + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (' whose fp = ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (file)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 ('>')
+
+ 25           BUILD_STRING             7
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204BA103CC0, file "urllib\response.py", line 28>:
+ 28           RESUME                   0
+
+ 29           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (fp)
+              LOAD_ATTR                2 (closed)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 30           LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               0 ('I/O operation on closed file')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 31   L1:     LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA08AD30, file "urllib\response.py", line 33>:
+ 33           RESUME                   0
+
+ 34           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object addclosehook at 0x00000204BA0A7870, file "urllib\response.py", line 37>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  37           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('addclosehook')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          37
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  38           LOAD_CONST               1 ('Class to add a close hook to an open file.')
+               STORE_NAME               4 (__doc__)
+
+  40           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0A7990, file "urllib\response.py", line 40>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+
+  45           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object close at 0x00000204B9F6F5D0, file "urllib\response.py", line 45>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               6 (close)
+               LOAD_CONST               4 (('closehook', 'hookargs'))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               9 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7990, file "urllib\response.py", line 40>:
+  --           COPY_FREE_VARS           1
+
+  40           RESUME                   0
+
+  41           LOAD_GLOBAL              0 (super)
+               LOAD_GLOBAL              2 (addclosehook)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         11 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (fp)
+               CALL                     1
+               POP_TOP
+
+  42           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (closehook, self)
+               STORE_ATTR               3 (closehook)
+
+  43           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (hookargs, self)
+               STORE_ATTR               4 (hookargs)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204B9F6F5D0, file "urllib\response.py", line 45>:
+  --           COPY_FREE_VARS           1
+
+  45           RESUME                   0
+
+  46           NOP
+
+  47   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (closehook)
+               STORE_FAST               1 (closehook)
+
+  48           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (hookargs)
+               STORE_FAST               2 (hookargs)
+
+  49           LOAD_FAST_BORROW         1 (closehook)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       21 (to L4)
+       L2:     NOT_TAKEN
+
+  50   L3:     LOAD_CONST               0 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (closehook)
+
+  51           LOAD_CONST               0 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (hookargs)
+
+  52           LOAD_FAST_BORROW         1 (closehook)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (hookargs)
+               PUSH_NULL
+               CALL_FUNCTION_EX
+               POP_TOP
+
+  54   L4:     LOAD_GLOBAL              4 (super)
+               LOAD_GLOBAL              6 (addclosehook)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         19 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+  54           LOAD_GLOBAL              4 (super)
+               LOAD_GLOBAL              6 (addclosehook)
+               LOAD_FAST                0 (self)
+               LOAD_SUPER_ATTR         19 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object addinfo at 0x00000204BA0FFCC0, file "urllib\response.py", line 57>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  57           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('addinfo')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          57
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  58           LOAD_CONST               1 ('class to add an info() method to an open file.')
+               STORE_NAME               4 (__doc__)
+
+  60           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0FFDD0, file "urllib\response.py", line 60>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+
+  64           LOAD_CONST               3 (<code object info at 0x00000204BA093960, file "urllib\response.py", line 64>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (info)
+               LOAD_CONST               4 (('headers',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               9 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FFDD0, file "urllib\response.py", line 60>:
+  --           COPY_FREE_VARS           1
+
+  60           RESUME                   0
+
+  61           LOAD_GLOBAL              0 (super)
+               LOAD_GLOBAL              2 (addinfo)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         11 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (fp)
+               CALL                     1
+               POP_TOP
+
+  62           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (headers, self)
+               STORE_ATTR               3 (headers)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object info at 0x00000204BA093960, file "urllib\response.py", line 64>:
+ 64           RESUME                   0
+
+ 65           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (headers)
+              RETURN_VALUE
+
+Disassembly of <code object addinfourl at 0x00000204BA102630, file "urllib\response.py", line 68>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  68           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('addinfourl')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          68
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  69           LOAD_CONST               1 ('class to add info() and geturl() methods to an open file.')
+               STORE_NAME               4 (__doc__)
+
+  71           LOAD_CONST               7 ((None,))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0A45D0, file "urllib\response.py", line 71>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+  76           LOAD_NAME                6 (property)
+
+  77           LOAD_CONST               3 (<code object status at 0x00000204BA0914D0, file "urllib\response.py", line 76>)
+               MAKE_FUNCTION
+
+  76           CALL                     0
+
+  77           STORE_NAME               7 (status)
+
+  80           LOAD_CONST               4 (<code object getcode at 0x00000204BA093C30, file "urllib\response.py", line 80>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (getcode)
+
+  83           LOAD_CONST               5 (<code object geturl at 0x00000204BA0931E0, file "urllib\response.py", line 83>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (geturl)
+               LOAD_CONST               6 (('code', 'url'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              12 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A45D0, file "urllib\response.py", line 71>:
+  --           COPY_FREE_VARS           1
+
+  71           RESUME                   0
+
+  72           LOAD_GLOBAL              0 (super)
+               LOAD_GLOBAL              2 (addinfourl)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         11 (__init__ + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (fp, headers)
+               CALL                     2
+               POP_TOP
+
+  73           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (url, self)
+               STORE_ATTR               3 (url)
+
+  74           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (code, self)
+               STORE_ATTR               4 (code)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object status at 0x00000204BA0914D0, file "urllib\response.py", line 76>:
+ 76           RESUME                   0
+
+ 78           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (code)
+              RETURN_VALUE
+
+Disassembly of <code object getcode at 0x00000204BA093C30, file "urllib\response.py", line 80>:
+ 80           RESUME                   0
+
+ 81           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (code)
+              RETURN_VALUE
+
+Disassembly of <code object geturl at 0x00000204BA0931E0, file "urllib\response.py", line 83>:
+ 83           RESUME                   0
+
+ 84           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (url)
+              RETURN_VALUE

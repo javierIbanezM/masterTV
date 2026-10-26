@@ -1,0 +1,234 @@
+<module>()  line 1
+    clear_cache()  line 94
+    _noop(obj)  line 108
+    _encode_result(obj, encoding, errors)  line 111
+    _decode_args(args, encoding, errors)  line 115
+        _decode_args.<locals>.<genexpr>(.0)  line 117
+    _coerce_args()  line 119
+    _ResultMixinStr()  line 136
+        _ResultMixinStr.encode(self, encoding, errors)  line 140
+            _ResultMixinStr.encode.<locals>.<genexpr>(.0)  line 141
+    _ResultMixinBytes()  line 144
+        _ResultMixinBytes.decode(self, encoding, errors)  line 148
+            _ResultMixinBytes.decode.<locals>.<genexpr>(.0)  line 149
+    _NetlocResultMixinBase()  line 152
+        _NetlocResultMixinBase.username(self)  line 156
+        _NetlocResultMixinBase.password(self)  line 160
+        _NetlocResultMixinBase.hostname(self)  line 164
+        _NetlocResultMixinBase.port(self)  line 175
+    _NetlocResultMixinStr()  line 190
+        _NetlocResultMixinStr._userinfo(self)  line 193
+        _NetlocResultMixinStr._hostinfo(self)  line 205
+    _NetlocResultMixinBytes()  line 220
+        _NetlocResultMixinBytes._userinfo(self)  line 223
+        _NetlocResultMixinBytes._hostinfo(self)  line 235
+    DefragResult()  line 323
+        DefragResult.geturl(self)  line 325
+    SplitResult()  line 331
+        SplitResult.geturl(self)  line 333
+    ParseResult()  line 336
+        ParseResult.geturl(self)  line 338
+    DefragResultBytes()  line 342
+        DefragResultBytes.geturl(self)  line 344
+    SplitResultBytes()  line 350
+        SplitResultBytes.geturl(self)  line 352
+    ParseResultBytes()  line 355
+        ParseResultBytes.geturl(self)  line 357
+    _fix_result_transcoding()  line 361
+    urlparse(url, scheme, allow_fragments)  line 374
+    _urlparse(url, scheme, allow_fragments)  line 399
+    _splitparams(url, allow_none)  line 407
+    _splitnetloc(url, start)  line 416
+    _checknetloc(netloc)  line 424
+    _check_bracketed_netloc(netloc)  line 442
+    _check_bracketed_host(hostname)  line 461
+    urlsplit(url, scheme, allow_fragments)  line 472
+    _urlsplit(url, scheme, allow_fragments)  line 499
+    urlunparse(components)  line 533
+    urlunsplit(components)  line 550
+    _urlunsplit(scheme, netloc, url, query, fragment)  line 566
+    urljoin(base, url, allow_fragments)  line 580
+    urldefrag(url)  line 652
+    unquote_to_bytes(string)  line 671
+    __annotate__(format)  line 675
+    _unquote_impl(string)  line 675
+    _generate_unquoted_parts(string, encoding, errors)  line 706
+    unquote(string, encoding, errors)  line 716
+    parse_qs(qs, keep_blank_values, strict_parsing, encoding, errors, max_num_fields, separator)  line 739
+    parse_qsl(qs, keep_blank_values, strict_parsing, encoding, errors, max_num_fields, separator, _stacklevel)  line 782
+        parse_qsl.<locals>._unquote(s)  line 817
+        parse_qsl.<locals>._unquote(s)  line 837
+    unquote_plus(string, encoding, errors)  line 863
+    _Quoter()  line 879
+        _Quoter.__init__(self, safe)  line 887
+        _Quoter.__repr__(self)  line 891
+        _Quoter.__missing__(self, b)  line 894
+    quote(string, safe, encoding, errors)  line 900
+    quote_plus(string, safe, encoding, errors)  line 954
+    _byte_quoter_factory(safe)  line 972
+    quote_from_bytes(bs, safe)  line 976
+    urlencode(query, doseq, safe, encoding, errors, quote_via)  line 1003
+    to_bytes(url)  line 1083
+    _to_bytes(url)  line 1089
+    unwrap(url)  line 1103
+    splittype(url)  line 1116
+    _splittype(url)  line 1124
+    splithost(url)  line 1137
+    _splithost(url)  line 1145
+    splituser(host)  line 1160
+    _splituser(host)  line 1167
+    splitpasswd(user)  line 1173
+    _splitpasswd(user)  line 1180
+    splitport(host)  line 1186
+    _splitport(host)  line 1195
+    splitnport(host, defport)  line 1209
+    _splitnport(host, defport)  line 1216
+    splitquery(url)  line 1233
+    _splitquery(url)  line 1240
+    splittag(url)  line 1248
+    _splittag(url)  line 1255
+    splitattr(url)  line 1263
+    _splitattr(url)  line 1270
+    splitvalue(attr)  line 1277
+    _splitvalue(attr)  line 1284
+
+--- strings ---
+'Parse (absolute and relative) URLs.\n\nurlparse module is based upon the following RFC specifications.\n\nRFC 3986 (STD66): "Uniform Resource Identifiers" by T. Berners-Lee, R. Fielding\nand L.  Masinter, January 2005.\n\nRFC 2732 : "Format for Literal IPv6 Addresses in URL\'s by R.Hinden, B.Carpenter\nand L.Masinter, December 1999.\n\nRFC 2396:  "Uniform Resource Identifiers (URI)": Generic Syntax by T.\nBerners-Lee, R. Fielding, and L. Masinter, August 1998.\n\nRFC 2368: "The mailto URL scheme", by P.Hoffman , L Masinter, J. Zawinski, July 1998.\n\nRFC 1808: "Relative Uniform Resource Locators", by R. Fielding, UC Irvine, June\n1995.\n\nRFC 1738: "Uniform Resource Locators (URL)" by T. Berners-Lee, L. Masinter, M.\nMcCahill, December 1994\n\nRFC 3986 is considered the current standard and any future changes to\nurlparse module should conform with it.  The urlparse module is\ncurrently not entirely compliant with this RFC due to defacto\nscenarios for parsing, and for backward compatibility purposes, some\nparsing quirks from older RFCs are retained. The testcases in\ntest_urlparse.py provides a good indicator of parsing behavior.\n\nThe WHATWG URL Parser spec should also be considered.  We are not compliant with\nit either due to existing user code API behavior expectations (Hyrum\'s Law).\nIt serves as a useful guide when making changes.\n'
+'DefragResult'
+'ParseResult'
+'SplitResult'
+'DefragResultBytes'
+'ParseResultBytes'
+'SplitResultBytes'
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-.'
+'\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f '
+'Clear internal performance caches. Undocumented; some tests want it.'
+'ascii'
+'strict'
+'Cannot mix str and non-str arguments'
+'_ResultMixinStr'
+'Standard approach to encoding parsed results from str to bytes'
+'_ResultMixinStr'
+'_ResultMixinBytes'
+'Standard approach to decoding parsed results from bytes to str'
+'_ResultMixinBytes'
+'_NetlocResultMixinBase'
+'Shared methods for the parsed result objects containing a netloc element'
+'Port could not be cast to integer value as '
+'Port out of range 0-65535'
+'_NetlocResultMixinBase'
+'_NetlocResultMixinStr'
+'_NetlocResultMixinStr'
+'_NetlocResultMixinBytes'
+'_NetlocResultMixinBytes'
+'_DefragResultBase'
+'url fragment'
+'_SplitResultBase'
+'scheme netloc path query fragment'
+'_ParseResultBase'
+'scheme netloc path params query fragment'
+'\nDefragResult(url, fragment)\n\nA 2-tuple that contains the url without fragment identifier and the fragment\nidentifier as a separate argument.\n'
+'The URL with no fragment identifier.'
+'\nFragment identifier separated from URL, that allows indirect identification of a\nsecondary resource by reference to a primary resource and additional identifying\ninformation.\n'
+'\nSplitResult(scheme, netloc, path, query, fragment)\n\nA 5-tuple that contains the different components of a URL. Similar to\nParseResult, but does not split params.\n'
+'Specifies URL scheme for the request.'
+'\nNetwork location where the request is made to.\n'
+'\nThe hierarchical path, such as the path to a file to download.\n'
+"\nThe query component, that contains non-hierarchical data, that along with data\nin path component, identifies a resource in the scope of URI's scheme and\nnetwork location.\n"
+'\nFragment identifier, that allows indirect identification of a secondary resource\nby reference to a primary resource and additional identifying information.\n'
+'\nParseResult(scheme, netloc, path, params, query, fragment)\n\nA 6-tuple that contains components of a parsed URL.\n'
+'\nParameters for last path element used to dereference the URI in order to provide\naccess to perform some operation on the resource.\n'
+'DefragResult'
+'SplitResult'
+'ParseResult'
+'DefragResultBytes'
+'SplitResultBytes'
+'ParseResultBytes'
+'Parse a URL into 6 components:\n<scheme>://<netloc>/<path>;<params>?<query>#<fragment>\n\nThe result is a named 6-tuple with fields corresponding to the\nabove. It is either a ParseResult or ParseResultBytes object,\ndepending on the type of the url parameter.\n\nThe username, password, hostname, and port sub-components of netloc\ncan also be accessed as attributes of the returned object.\n\nThe scheme argument provides the default value of the scheme\ncomponent when no scheme is found in url.\n\nIf allow_fragments is False, no attempt is made to separate the\nfragment component from the previous component, which can be either\npath or query.\n\nNote that % escapes are not expanded.\n'
+'/?#'
+'NFKC'
+'/?#@:'
+"netloc '"
+"' contains invalid "
+'characters under NFKC normalization'
+'Invalid IPv6 URL'
+'\\Av[a-fA-F0-9]+\\..+\\z'
+'IPvFuture address is invalid'
+'An IPv4 address cannot be in brackets'
+'Parse a URL into 5 components:\n<scheme>://<netloc>/<path>?<query>#<fragment>\n\nThe result is a named 5-tuple with fields corresponding to the\nabove. It is either a SplitResult or SplitResultBytes object,\ndepending on the type of the url parameter.\n\nThe username, password, hostname, and port sub-components of netloc\ncan also be accessed as attributes of the returned object.\n\nThe scheme argument provides the default value of the scheme\ncomponent when no scheme is found in url.\n\nIf allow_fragments is False, no attempt is made to separate the\nfragment component from the previous component, which can be either\npath or query.\n\nNote that % escapes are not expanded.\n'
+'//'
+'Invalid IPv6 URL'
+'Put a parsed URL back together again.  This may result in a\nslightly different, but equivalent URL, if the URL that was parsed\noriginally had redundant delimiters, e.g. a ? with an empty query\n(the draft states that these are equivalent).'
+'Combine the elements of a tuple as returned by urlsplit() into a\ncomplete URL as a string. The data argument can be any five-item iterable.\nThis may result in a slightly different, but equivalent URL, if the URL that\nwas parsed originally had unnecessary delimiters (for example, a ? with an\nempty query; the RFC states that these are equivalent).'
+'//'
+'Join a base URL and a possibly relative URL to form an absolute\ninterpretation of the latter.'
+'..'
+'Removes any existing fragment from URL.\n\nReturns a tuple of the defragmented URL and the fragment.  If\nthe URL contained no fragments, the second element is the\nempty string.\n'
+'0123456789ABCDEFabcdef'
+"unquote_to_bytes('abc%20def') -> b'abc def'."
+'string'
+'return'
+'utf-8'
+'([\x00-\x7f]+)'
+"Replace %xx escapes by their single-character equivalent. The optional\nencoding and errors parameters specify how to decode percent-encoded\nsequences into Unicode characters, as accepted by the bytes.decode()\nmethod.\nBy default, percent-encoded sequences are decoded with UTF-8, and invalid\nsequences are replaced by a placeholder character.\n\nunquote('abc%20def') -> 'abc def'.\n"
+'utf-8'
+'replace'
+'Parse a query given as a string argument.\n\nArguments:\n\nqs: percent-encoded query string to be parsed\n\nkeep_blank_values: flag indicating whether blank values in\n    percent-encoded queries should be treated as blank strings.\n    A true value indicates that blanks should be retained as\n    blank strings.  The default false value indicates that\n    blank values are to be ignored and treated as if they were\n    not included.\n\nstrict_parsing: flag indicating what to do with parsing errors.\n    If false (the default), errors are silently ignored.\n    If true, errors raise a ValueError exception.\n\nencoding and errors: specify how to decode percent-encoded sequences\n    into Unicode characters, as accepted by the bytes.decode() method.\n\nmax_num_fields: int. If set, then throws a ValueError if there\n    are more than n fields read by parse_qsl().\n\nseparator: str. The symbol to use for separating the query arguments.\n    Defaults to &.\n\nReturns a dictionary.\n'
+'_stacklevel'
+'Parse a query given as a string argument.\n\nArguments:\n\nqs: percent-encoded query string to be parsed\n\nkeep_blank_values: flag indicating whether blank values in\n    percent-encoded queries should be treated as blank strings.\n    A true value indicates that blanks should be retained as blank\n    strings.  The default false value indicates that blank values\n    are to be ignored and treated as if they were  not included.\n\nstrict_parsing: flag indicating what to do with parsing errors. If\n    false (the default), errors are silently ignored. If true,\n    errors raise a ValueError exception.\n\nencoding and errors: specify how to decode percent-encoded sequences\n    into Unicode characters, as accepted by the bytes.decode() method.\n\nmax_num_fields: int. If set, then throws a ValueError\n    if there are more than n fields read by parse_qsl().\n\nseparator: str. The symbol to use for separating the query arguments.\n    Defaults to &.\n\nReturns a list, as G-d intended.\n'
+'Separator must be of type string or bytes.'
+'ascii'
+'Accepting '
+' objects with false value in urllib.parse.parse_qsl() is deprecated as of 3.14'
+'Max number of fields exceeded'
+'bad query field: '
+"Like unquote(), but also replace plus signs by spaces, as required for\nunquoting HTML form values.\n\nunquote_plus('%7e/abc+def') -> '~/abc def'\n"
+'_Quoter'
+'A mapping from bytes numbers (in range(0,256)) to strings.\n\nString values are percent-encoded byte values, unless the key < 128, and\nin either of the specified safe set, or the always safe set.\n'
+'safe: bytes object.'
+'<Quoter '
+'%{:02X}'
+'_Quoter'
+'quote(\'abc def\') -> \'abc%20def\'\n\nEach part of a URL, e.g. the path info, the query, etc., has a\ndifferent set of reserved characters that must be quoted. The\nquote function offers a cautious (not minimal) way to quote a\nstring for most of these parts.\n\nRFC 3986 Uniform Resource Identifier (URI): Generic Syntax lists\nthe following (un)reserved characters.\n\nunreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"\nreserved      = gen-delims / sub-delims\ngen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"\nsub-delims    = "!" / "$" / "&" / "\'" / "(" / ")"\n              / "*" / "+" / "," / ";" / "="\n\nEach of the reserved characters is reserved in some component of a URL,\nbut not necessarily in all of them.\n\nThe quote function %-escapes all characters that are neither in the\nunreserved chars ("always safe") nor the additional chars set via the\nsafe arg.\n\nThe default for the safe arg is \'/\'. The character is reserved, but in\ntypical usage the quote function is being called on a path where the\nexisting slash characters are to be preserved.\n\nPython 3.7 updates from using RFC 2396 to RFC 3986 to quote URL strings.\nNow, "~" is included in the set of unreserved characters.\n\nstring and safe may be either str or bytes objects. encoding and errors\nmust not be specified if string is a bytes object.\n\nThe optional encoding and errors parameters specify how to deal with\nnon-ASCII characters, as accepted by the str.encode method.\nBy default, encoding=\'utf-8\' (characters are encoded with UTF-8), and\nerrors=\'strict\' (unsupported characters raise a UnicodeEncodeError).\n'
+'utf-8'
+'strict'
+"quote() doesn't support 'encoding' for bytes"
+"quote() doesn't support 'errors' for bytes"
+"Like quote(), but also replace ' ' with '+', as required for quoting\nHTML form values. Plus signs in the original string are escaped unless\nthey are included in safe. It also does not have safe default to '/'.\n"
+"Like quote(), but accepts a bytes object rather than a str, and does\nnot perform string-to-bytes encoding.  It always returns an ASCII string.\nquote_from_bytes(b'abc def?') -> 'abc%20def%3f'\n"
+'quote_from_bytes() expected bytes'
+'ascii'
+'ignore'
+'Encode a dict or sequence of two-element tuples into a URL query string.\n\nIf any values in the query arg are sequences and doseq is true, each\nsequence element is converted to a separate parameter.\n\nIf the query arg is a sequence of two-element tuples, the order of the\nparameters in the output will match the order of parameters in the\ninput.\n\nThe components of a query arg may each be either a string or a bytes type.\n\nThe safe, encoding, and errors parameters are passed down to the function\nspecified by quote_via (encoding and errors only if a component is a str).\n'
+'items'
+'not a valid non-string sequence or mapping object'
+'urllib.parse.to_bytes() is deprecated as of 3.8'
+'to_bytes(u"URL") --> \'URL\'.'
+'ASCII'
+'URL '
+' contains non-ASCII characters'
+"Transform a string like '<URL:scheme://host/path>' into 'scheme://host/path'.\n\nThe string is returned unchanged if it's not a wrapped URL.\n"
+'URL:'
+'urllib.parse.splittype() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splittype('type:opaquestring') --> 'type', 'opaquestring'."
+'([^/:]+):(.*)'
+'urllib.parse.splithost() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splithost('//host[:port]/path') --> 'host[:port]', '/path'."
+'//([^/#?]*)(.*)'
+'urllib.parse.splituser() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splituser('user[:passwd]@host[:port]') --> 'user[:passwd]', 'host[:port]'."
+'urllib.parse.splitpasswd() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splitpasswd('user:passwd') -> 'user', 'passwd'."
+'urllib.parse.splitport() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splitport('host:port') --> 'host', 'port'."
+'(.*):([0-9]*)'
+'urllib.parse.splitnport() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"Split host and port, returning numeric port.\nReturn given default port if no ':' found; defaults to -1.\nReturn numerical port if a valid number is found after ':'.\nReturn None if ':' but not a valid number."
+'urllib.parse.splitquery() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splitquery('/path?query') --> '/path', 'query'."
+'urllib.parse.splittag() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splittag('/path#tag') --> '/path', 'tag'."
+'urllib.parse.splitattr() is deprecated as of 3.8, use urllib.parse.urlparse() instead'
+"splitattr('/path;attr1=value1;attr2=value2;...') ->\n'/path', ['attr1=value1', 'attr2=value2', ...]."
+'urllib.parse.splitvalue() is deprecated as of 3.8, use urllib.parse.parse_qsl() instead'
+"splitvalue('attr=value') --> 'attr', 'value'."

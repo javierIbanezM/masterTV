@@ -1,0 +1,279 @@
+<module>()  line 1
+    _try_compile(source, name)  line 72
+    dis(x, file, depth, show_caches, adaptive, show_offsets, show_positions)  line 85
+    distb(tb, file, show_caches, adaptive, show_offsets, show_positions)  line 139
+    pretty_flags(flags)  line 170
+    _Unknown()  line 184
+        _Unknown.__repr__(self)  line 185
+    _get_code_object(x)  line 191
+    _deoptop(op)  line 214
+    _get_code_array(co, adaptive)  line 218
+    code_info(x)  line 241
+    _format_code_info(co)  line 245
+    show_code(co, file)  line 277
+    _ExceptionTableEntry()  line 333
+    _get_cache_size(opname)  line 339
+    _get_jump_target(op, arg, offset)  line 342
+    Instruction()  line 360
+        Instruction.make(opname, arg, argval, argrepr, offset, start_offset, starts_line, line_number, label, positions, cache_info)  line 381
+        Instruction.oparg(self)  line 389
+        Instruction.baseopcode(self)  line 394
+        Instruction.baseopname(self)  line 402
+        Instruction.cache_offset(self)  line 410
+        Instruction.end_offset(self)  line 415
+        Instruction.jump_target(self)  line 420
+        Instruction.is_jump_target(self)  line 428
+        Instruction.__str__(self)  line 433
+    Formatter()  line 440
+        Formatter.__init__(self, file, lineno_width, offset_width, label_width, line_offset, show_caches, show_positions)  line 442
+        Formatter.print_instruction(self, instr, mark_as_current)  line 463
+        Formatter.print_instruction_line(self, instr, mark_as_current)  line 481
+            Formatter.print_instruction_line.<locals>.<genexpr>(.0)  line 499
+            Formatter.print_instruction_line.<locals>.<genexpr>(.0)  line 502
+        Formatter.print_exception_table(self, exception_entries)  line 544
+    ArgResolver()  line 556
+        ArgResolver.__init__(self, co_consts, names, varname_from_oparg, labels_map)  line 557
+        ArgResolver.offset_from_jump_arg(self, op, arg, offset)  line 563
+        ArgResolver.get_label_for_offset(self, offset)  line 575
+        ArgResolver.get_argval_argrepr(self, op, arg, offset)  line 578
+            ArgResolver.get_argval_argrepr.<locals>.<genexpr>(.0)  line 630
+    get_instructions(x, first_line, show_caches, adaptive)  line 652
+    _get_const_value(op, arg, co_consts)  line 682
+    _get_const_info(op, arg, co_consts)  line 698
+    _get_name_info(name_index, get_name)  line 710
+    _parse_varint(iterator)  line 724
+    _parse_exception_table(code)  line 733
+    _is_backward_jump(op)  line 749
+    _get_instructions_bytes(code, linestarts, line_offset, co_positions, original_code, arg_resolver)  line 754
+    disassemble(co, lasti, file, show_caches, adaptive, show_offsets, show_positions)  line 810
+    _disassemble_recursive(co, file, depth, show_caches, adaptive, show_offsets, show_positions)  line 835
+    _make_labels_map(original_code, exception_entries)  line 850
+    _get_lineno_width(linestarts)  line 867
+    _get_positions_width(code)  line 879
+        _get_positions_width.<locals>.<genexpr>(.0)  line 888
+        _get_positions_width.<locals>.<genexpr>(.0)  line 889
+    _disassemble_bytes(code, lasti, linestarts, line_offset, exception_entries, co_positions, original_code, arg_resolver, formatter)  line 896
+    print_instructions(instrs, exception_entries, formatter, lasti)  line 913
+    _disassemble_str(source)  line 922
+    _unpack_opargs(code)  line 934
+    findlabels(code)  line 965
+    findlinestarts(code)  line 981
+    _find_imports(co)  line 995
+    _find_store_names(co)  line 1018
+    Bytecode()  line 1034
+        Bytecode.__init__(self, x, first_line, current_offset, show_caches, adaptive, show_offsets, show_positions)  line 1042
+        Bytecode.__iter__(self)  line 1059
+        Bytecode.__repr__(self)  line 1074
+        Bytecode.from_traceback(cls, tb, show_caches, adaptive)  line 1078
+        Bytecode.info(self)  line 1087
+        Bytecode.dis(self)  line 1091
+    main(args)  line 1131
+
+--- strings ---
+'Disassembler of Python byte code into mnemonics.'
+'Instruction'
+'Bytecode'
+'CONVERT_VALUE'
+'SET_FUNCTION_ATTRIBUTE'
+'ENTER_EXECUTOR'
+'LOAD_GLOBAL'
+'LOAD_SMALL_INT'
+'BINARY_OP'
+'JUMP_BACKWARD'
+'FOR_ITER'
+'SEND'
+'LOAD_ATTR'
+'LOAD_SUPER_ATTR'
+'CALL_INTRINSIC_1'
+'CALL_INTRINSIC_2'
+'LOAD_COMMON_CONSTANT'
+'LOAD_SPECIAL'
+'LOAD_FAST_LOAD_FAST'
+'LOAD_FAST_BORROW_LOAD_FAST_BORROW'
+'STORE_FAST_LOAD_FAST'
+'STORE_FAST_STORE_FAST'
+'IS_OP'
+'CONTAINS_OP'
+'END_ASYNC_FOR'
+'CACHE'
+'Attempts to compile the given source, first as an expression and\nthen as a statement if the first approach fails.\n\nUtility function to accept strings in functions that otherwise\nexpect code objects\n'
+'eval'
+'exec'
+'file'
+'depth'
+'show_caches'
+'adaptive'
+'show_offsets'
+'show_positions'
+'Disassemble classes, methods, functions, and other compiled objects.\n\nWith no argument, disassemble the last traceback.\n\nCompiled objects currently include generator objects, async generator\nobjects, and coroutine objects, all of which store their code object\nin a special attribute.\n'
+'__func__'
+'__code__'
+'gi_code'
+'ag_code'
+'cr_code'
+'__dict__'
+'Disassembly of %s:'
+'Sorry:'
+'co_code'
+"don't know how to disassemble %s objects"
+'Disassemble a traceback (default: last traceback).'
+'last_exc'
+'no last traceback to disassemble'
+'OPTIMIZED'
+'NEWLOCALS'
+'VARARGS'
+'VARKEYWORDS'
+'NESTED'
+'GENERATOR'
+'NOFREE'
+'COROUTINE'
+'ITERABLE_COROUTINE'
+'ASYNC_GENERATOR'
+'HAS_DOCSTRING'
+'METHOD'
+'Return pretty representation of code flags.'
+', '
+'_Unknown'
+'<unknown>'
+'_Unknown'
+'Helper to handle methods, compiled or raw code objects, and strings.'
+'__func__'
+'__code__'
+'gi_code'
+'ag_code'
+'cr_code'
+'<disassembly>'
+'co_code'
+"don't know how to disassemble %s objects"
+'Formatted details of methods, functions, or code.'
+'Name:              %s'
+'Filename:          %s'
+'Argument count:    %s'
+'Positional-only arguments: %s'
+'Kw-only arguments: %s'
+'Number of locals:  %s'
+'Stack size:        %s'
+'Flags:             %s'
+'Constants:'
+'%4d: %r'
+'Names:'
+'%4d: %s'
+'Variable names:'
+'Free variables:'
+'Cell variables:'
+'Print details of methods, functions, or code to *file*.\n\nIf *file* is not provided, the output is printed on stdout.\n'
+'Positions'
+'_Instruction'
+'Human readable name for operation'
+'Numeric code for operation'
+'Numeric argument to operation (if any), otherwise None'
+'Resolved arg value (if known), otherwise same as arg'
+'Human readable description of operation argument'
+'Start index of operation within bytecode sequence'
+'Start index of operation within bytecode sequence, including extended args if present; otherwise equal to Instruction.offset'
+'True if this opcode starts a source line, otherwise False'
+'source line number associated with this opcode (if any), otherwise None'
+'A label (int > 0) if this instruction is a jump target, otherwise None'
+'dis.Positions object holding the span of source code covered by this instruction'
+'list of (name, size, data), one for each cache entry of the instruction'
+'_ExceptionTableEntryBase'
+'start end target depth lasti'
+'_ExceptionTableEntry'
+'_ExceptionTableEntry'
+'Gets the bytecode offset of the jump target if this is a jump instruction.\n\nOtherwise return None.\n'
+'Instruction'
+"Details for a bytecode operation.\n\nDefined fields:\n  opname - human readable name for operation\n  opcode - numeric code for operation\n  arg - numeric argument to operation (if any), otherwise None\n  argval - resolved arg value (if known), otherwise same as arg\n  argrepr - human readable description of operation argument\n  offset - start index of operation within bytecode sequence\n  start_offset - start index of operation within bytecode sequence including extended args if present;\n                 otherwise equal to Instruction.offset\n  starts_line - True if this opcode starts a source line, otherwise False\n  line_number - source line number associated with this opcode (if any), otherwise None\n  label - A label if this instruction is a jump target, otherwise None\n  positions - Optional dis.Positions object holding the span of source code\n              covered by this instruction\n  cache_info - information about the format and content of the instruction's cache\n                 entries (if any)\n"
+'Alias for Instruction.arg.'
+'Numeric code for the base operation if operation is specialized.\n\nOtherwise equal to Instruction.opcode.\n'
+'Human readable name for the base operation if operation is specialized.\n\nOtherwise equal to Instruction.opname.\n'
+'Start index of the cache entries following the operation.'
+'End index of the cache entries following the operation.'
+'Bytecode index of the jump target if this is a jump operation.\n\nOtherwise return None.\n'
+'True if other code jumps to here, otherwise False'
+'Formatter'
+'show_positions'
+'Create a Formatter\n\n*file* where to write the output\n*lineno_width* sets the width of the source location field (0 omits it).\nShould be large enough for a line number or full positions (depending\non the value of *show_positions*).\n*offset_width* sets the width of the instruction offset field\n*label_width* sets the width of the label field\n*show_caches* is a boolean indicating whether to display cache lines\n*show_positions* is a boolean indicating whether full positions should\nbe reported instead of only the line numbers.\n'
+': '
+'CACHE'
+'Format instruction details for inclusion in disassembly output.'
+'%%%dd'
+'%%%ds'
+'  '
+'-->'
+'   '
+'ExceptionTable:'
+' lasti'
+'  L'
+' to L'
+' -> L'
+' ['
+'Formatter'
+'ArgResolver'
+' + NULL'
+' + NULL|self'
+'from'
+'to'
+' L'
+', '
+'bool('
+'is not'
+'is'
+'not in'
+'in'
+'ArgResolver'
+'first_line'
+'Iterator for the opcodes in methods, functions or code\n\nGenerates a series of Instruction named tuples giving the details of\neach operations in the supplied code.\n\nIf *first_line* is not None, it indicates the line number that should\nbe reported for the first source line in the disassembled code.\nOtherwise, the source line information (if any) is taken directly from\nthe disassembled code object.\n'
+'Helper to get the value of the const in a hasconst op.\n\nReturns the dereferenced constant if this is possible.\nOtherwise (if it is a LOAD_CONST and co_consts is not\nprovided) returns the dis.UNKNOWN sentinel.\n'
+'Helper to get optional details about const references\n\nReturns the dereferenced constant and its repr if the value\ncan be calculated.\nOtherwise returns the sentinel value dis.UNKNOWN for the value\nand an empty string for its repr.\n'
+'Helper to get optional details about named references\n\nReturns the dereferenced name as both value and repr if the name\nlist is defined.\nOtherwise returns the sentinel value dis.UNKNOWN for the value\nand an empty string for its repr.\n'
+'JUMP_BACKWARD'
+'Iterate over the instructions in a bytecode string.\n\nGenerates a sequence of Instruction namedtuples giving the details of each\nopcode.\n\n'
+'Disassemble a code object.'
+'co_code'
+'Disassembly of '
+'  --'
+'line_offset'
+'exception_entries'
+'co_positions'
+'original_code'
+'arg_resolver'
+'formatter'
+'Compile the source string, then disassemble the code object.'
+'<dis>'
+'Detect all offsets in a byte code which are jump targets.\n\nReturn the list of offsets.\n\n'
+'Find the offsets in a byte code which are start of lines in the source.\n\nGenerate pairs (offset, lineno)\nlineno will be an integer or None the offset does not have a source line.\n'
+'Find import statements in the code\n\nGenerate triplets (name, level, fromlist) where\nname is the imported module and level, fromlist are\nthe corresponding args to __import__.\n'
+'IMPORT_NAME'
+'Find names of variables which are written in the code\n\nGenerate sequence of strings\n'
+'STORE_NAME'
+'STORE_GLOBAL'
+'Bytecode'
+'The bytecode operations of a piece of code\n\nInstantiate this with a function, method, other compiled object, string of\ncode, or a code object (as returned by compile()).\n\nIterating over this yields the bytecode operations as Instruction instances.\n'
+'first_line'
+'current_offset'
+'show_caches'
+'adaptive'
+'show_offsets'
+'show_positions'
+'{}({!r})'
+'Construct a Bytecode from the given traceback '
+'Return formatted information about the code object.'
+'Return a formatted view of the bytecode operations.'
+'-C'
+'--show-caches'
+'store_true'
+'show inline caches'
+'-O'
+'--show-offsets'
+'show instruction offsets'
+'-P'
+'--show-positions'
+'show instruction positions'
+'-S'
+'--specialized'
+'show specialized bytecode'
+'infile'
+'<stdin>'
+'rb'
+'exec'
+'__main__'

@@ -1,0 +1,48 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST ('Callable',); IMPORT_NAME typing; IMPORT_FROM Callable; STORE_NAME Callable
+5: LOAD_SMALL_INT 0; LOAD_CONST ('QWidget',); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QWidget; STORE_NAME QWidget
+7: LOAD_SMALL_INT 1; LOAD_CONST ('AppContext', 'warn'); IMPORT_NAME common; IMPORT_FROM AppContext; STORE_NAME AppContext; IMPORT_FROM warn; STORE_NAME warn
+10: LOAD_BUILD_CLASS; LOAD_CONST <code DeviceTab>; MAKE_FUNCTION; LOAD_CONST 'DeviceTab'; LOAD_NAME QWidget; CALL; STORE_NAME DeviceTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF DeviceTab() @10
+  10: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'DeviceTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 10; STORE_NAME __firstlineno__
+  11: LOAD_CONST 'Pestaña que actúa sobre el dispositivo seleccionado en la lista.'; STORE_NAME __doc__
+  13: LOAD_CONST 'Pestaña'; STORE_NAME title
+  15: LOAD_CONST <code DeviceTab.__annotate__>; MAKE_FUNCTION; LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code DeviceTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME __init__
+  21: LOAD_CONST <code DeviceTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceTab.on_device_changed>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME on_device_changed
+  24: LOAD_CONST <code DeviceTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceTab.on_activated>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME on_activated
+  28: LOAD_CONST (False,); LOAD_CONST <code DeviceTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceTab.serial>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME serial
+  34: LOAD_CONST <code DeviceTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceTab.is_online>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME is_online
+  38: LOAD_CONST (None, None); LOAD_CONST <code DeviceTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code DeviceTab.call>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME call; LOAD_CONST ('ctx',); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF DeviceTab.__init__(self,ctx) @15
+    16: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_FAST_BORROW self; LOAD_SUPER_ATTR __init__ + NULL|self; CALL
+    17: LOAD_FAST_BORROW_LOAD_FAST_BORROW ctx, self; STORE_ATTR ctx
+    18: LOAD_FAST_BORROW ctx; LOAD_ATTR device_changed; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; LOAD_ATTR on_device_changed; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceTab.on_device_changed(self) @21
+    22: LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceTab.on_activated(self) @24
+    24: LOAD_CONST None; RETURN_VALUE
+
+    DEF DeviceTab.serial(self,quiet) @28
+    29: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR serial; STORE_FAST s
+    30: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_TRUE ->104; LOAD_FAST_BORROW quiet; TO_BOOL; POP_JUMP_IF_TRUE ->104
+    31: LOAD_GLOBAL warn + NULL; LOAD_FAST_BORROW self; LOAD_CONST 'Sin dispositivo'; LOAD_CONST 'Selecciona primero una TV en la lista de la izquierda.'; CALL
+    32: <L104>; LOAD_FAST_BORROW s; RETURN_VALUE
+
+    DEF DeviceTab.is_online(self) @34
+    35: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; STORE_FAST d
+    36: LOAD_GLOBAL bool + NULL; LOAD_FAST d; COPY; TO_BOOL; POP_JUMP_IF_FALSE ->134; LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR state_of + NULL|self; LOAD_FAST_BORROW d; CALL; LOAD_CONST 'device'; COMPARE_OP ==; <L134>; CALL; RETURN_VALUE
+
+    DEF DeviceTab.call(self,fn,on_ok,on_err) @38
+    41: LOAD_FAST_BORROW self; LOAD_ATTR serial + NULL|self; CALL; STORE_DEREF s
+    42: LOAD_DEREF s; TO_BOOL; POP_JUMP_IF_TRUE ->58
+    43: LOAD_CONST None; RETURN_VALUE
+    44: <L58>; LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR run + NULL|self; LOAD_FAST_BORROW fn; LOAD_FAST_BORROW s; BUILD_TUPLE; LOAD_CONST <code DeviceTab.call.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW_LOAD_FAST_BORROW on_ok, on_err; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF DeviceTab.call.<locals>.<lambda>() @44
+      44: LOAD_DEREF fn; LOAD_DEREF s; CALL; RETURN_VALUE

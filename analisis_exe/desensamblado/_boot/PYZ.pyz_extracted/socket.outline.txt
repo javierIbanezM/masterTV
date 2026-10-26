@@ -1,0 +1,259 @@
+<module>()  line 1
+    <lambda>(C)  line 81
+    <lambda>(C)  line 86
+    <lambda>(C)  line 91
+    <lambda>(C)  line 96
+    _intenum_converter(value, enum_klass)  line 102
+    _GiveupOnSendfile()  line 215
+    socket()  line 218
+        socket.__init__(self, family, type, proto, fileno)  line 224
+        socket.__enter__(self)  line 240
+        socket.__exit__(self)  line 243
+        socket.__repr__(self)  line 247
+        socket.__getstate__(self)  line 277
+        socket.dup(self)  line 280
+        socket.accept(self)  line 291
+        socket.makefile(self, mode, buffering, encoding, errors, newline)  line 307
+        socket._sendfile_use_sendfile(self, file, offset, count)  line 353
+        socket._sendfile_use_sendfile(self, file, offset, count)  line 421
+        socket._sendfile_use_send(self, file, offset, count)  line 425
+        socket._check_sendfile_params(self, file, offset, count)  line 461
+        socket.sendfile(self, file, offset, count)  line 474
+        socket._decref_socketios(self)  line 497
+        socket._real_close(self, _ss)  line 503
+        socket.close(self)  line 507
+        socket.detach(self)  line 513
+        socket.family(self)  line 523
+        socket.type(self)  line 529
+        socket.get_inheritable(self)  line 536
+        socket.set_inheritable(self, inheritable)  line 538
+        socket.get_inheritable(self)  line 541
+        socket.set_inheritable(self, inheritable)  line 543
+    fromfd(fd, family, type, proto)  line 548
+    send_fds(sock, buffers, fds, flags, address)  line 558
+    recv_fds(sock, bufsize, maxfds, flags)  line 570
+    fromshare(info)  line 592
+    _fallback_socketpair(family, type, proto)  line 604
+    socketpair(family, type, proto)  line 659
+    SocketIO()  line 683
+        SocketIO.__init__(self, sock, mode)  line 700
+        SocketIO.readinto(self, b)  line 712
+        SocketIO.write(self, b)  line 734
+        SocketIO.readable(self)  line 750
+        SocketIO.writable(self)  line 757
+        SocketIO.seekable(self)  line 764
+        SocketIO.fileno(self)  line 771
+        SocketIO.name(self)  line 777
+        SocketIO.mode(self)  line 784
+        SocketIO.close(self)  line 788
+    getfqdn(name)  line 799
+    create_connection(address, timeout, source_address, all_errors)  line 828
+    has_dualstack_ipv6()  line 879
+    create_server(address, family, backlog, reuse_port, dualstack_ipv6)  line 895
+    getaddrinfo(host, port, family, type, proto, flags)  line 966
+
+--- strings ---
+"This module provides socket operations and some related functions.\nOn Unix, it supports IP (Internet Protocol) and Unix domain sockets.\nOn other systems, it only supports IP. Functions specific for a\nsocket are available as methods of the socket object.\n\nFunctions:\n\nsocket() -- create a new socket object\nsocketpair() -- create a pair of new socket objects [*]\nfromfd() -- create a socket object from an open file descriptor [*]\nsend_fds() -- Send file descriptor to the socket.\nrecv_fds() -- Receive file descriptors from the socket.\nfromshare() -- create a socket object from data received from socket.share() [*]\ngethostname() -- return the current hostname\ngethostbyname() -- map a hostname to its IP number\ngethostbyaddr() -- map an IP number or hostname to DNS info\ngetservbyname() -- map a service name and a protocol name to a port number\ngetprotobyname() -- map a protocol name (e.g. 'tcp') to a number\nntohs(), ntohl() -- convert 16, 32 bit int from network to host byte order\nhtons(), htonl() -- convert 16, 32 bit int from host to network byte order\ninet_aton() -- convert IP addr string (123.45.67.89) to 32-bit packed format\ninet_ntoa() -- convert 32-bit packed format IP to string (123.45.67.89)\nsocket.getdefaulttimeout() -- get the default timeout value\nsocket.setdefaulttimeout() -- set the default timeout value\ncreate_connection() -- connects to an address, with an optional timeout and\n                       optional source address.\ncreate_server() -- create a TCP socket and bind it to a specified address.\n\n [*] not available on all platforms!\n\nSpecial objects:\n\nSocketType -- type object for socket objects\nerror -- exception raised for I/O errors\nhas_ipv6 -- boolean value indicating if IPv6 is supported\n\nIntEnum constants:\n\nAF_INET, AF_UNIX -- socket domains (first argument to socket() call)\nSOCK_STREAM, SOCK_DGRAM, SOCK_RAW -- socket types (second argument)\n\nInteger constants:\n\nMany other constants may be defined; these may be used in calls to\nthe setsockopt() and getsockopt() methods.\n"
+'EBADF'
+'EAGAIN'
+'EWOULDBLOCK'
+'AddressFamily'
+'SocketKind'
+'AF_'
+'SOCK_'
+'MsgFlag'
+'MSG_'
+'AddressInfo'
+'AI_'
+'127.0.0.1'
+'::1'
+"Convert a numeric family value to an IntEnum member.\n\nIf it's not a known member, return the numeric value itself.\n"
+'win'
+'Specified event object handle is invalid.'
+'Insufficient memory available.'
+'One or more parameters are invalid.'
+'Overlapped operation aborted.'
+'Overlapped I/O event object not in signaled state.'
+'Overlapped operation will complete later.'
+'The operation was interrupted.'
+'A bad file handle was passed.'
+'Permission denied.'
+'A fault occurred on the network??'
+'An invalid operation was attempted.'
+'Too many open files.'
+'The socket operation would block.'
+'A blocking operation is already in progress.'
+'Operation already in progress.'
+'Socket operation on nonsocket.'
+'Destination address required.'
+'Message too long.'
+'Protocol wrong type for socket.'
+'Bad protocol option.'
+'Protocol not supported.'
+'Socket type not supported.'
+'Operation not supported.'
+'Protocol family not supported.'
+'Address family not supported by protocol family.'
+'The network address is in use.'
+'Cannot assign requested address.'
+'Network is down.'
+'Network is unreachable.'
+'Network dropped connection on reset.'
+'Software caused connection abort.'
+'The connection has been reset.'
+'No buffer space available.'
+'Socket is already connected.'
+'Socket is not connected.'
+'The network has been shut down.'
+'Too many references.'
+'The operation timed out.'
+'Connection refused.'
+'Cannot translate name.'
+'The name is too long.'
+'The host is down.'
+'The host is unreachable.'
+'Directory not empty.'
+'Too many processes.'
+'User quota exceeded.'
+'Disk quota exceeded.'
+'Stale file handle reference.'
+'Item is remote.'
+'Network subsystem is unavailable.'
+'Winsock.dll version out of range.'
+'Successful WSAStartup not yet performed.'
+'Graceful shutdown in progress.'
+'No more results from WSALookupServiceNext.'
+'Call has been canceled.'
+'Procedure call table is invalid.'
+'Service provider is invalid.'
+'Service provider failed to initialize.'
+'System call failure.'
+'Service not found.'
+'Class type not found.'
+'Call was canceled.'
+'Database query was refused.'
+'Host not found.'
+'Nonauthoritative host not found.'
+'This is a nonrecoverable error.'
+'Valid name, no data record requested type.'
+'QoS receivers.'
+'QoS senders.'
+'No QoS senders.'
+'QoS no receivers.'
+'QoS request confirmed.'
+'QoS admission error.'
+'QoS policy failure.'
+'QoS bad style.'
+'QoS bad object.'
+'QoS traffic control error.'
+'QoS generic error.'
+'QoS service type error.'
+'QoS flowspec error.'
+'Invalid QoS provider buffer.'
+'Invalid QoS filter style.'
+'Incorrect QoS filter count.'
+'Invalid QoS object length.'
+'Incorrect QoS flow count.'
+'Unrecognized QoS object.'
+'Invalid QoS policy object.'
+'Invalid QoS flow descriptor.'
+'Invalid QoS provider-specific flowspec.'
+'Invalid QoS provider-specific filterspec.'
+'Invalid QoS shape discard mode object.'
+'Invalid QoS shaping rate object.'
+'Reserved policy QoS element type.'
+'errorTab'
+'_GiveupOnSendfile'
+'_GiveupOnSendfile'
+'socket'
+'A subclass of _socket.socket adding the makefile() method.'
+'Wrap __repr__() to reveal the real class name and socket\naddress(es).\n'
+'_closed'
+'<%s.%s%s fd=%i, family=%s, type=%s, proto=%i'
+' [closed]'
+', laddr=%s'
+', raddr=%s'
+'cannot pickle '
+' object'
+'dup() -> socket object\n\nDuplicate the socket. Return a new socket object connected to the same\nsystem resource. The new socket is non-inheritable.\n'
+'accept() -> (socket object, address info)\n\nWait for an incoming connection.  Return a new socket\nrepresenting the connection, and the address of the client.\nFor IP sockets, the address info is a pair (hostaddr, port).\n'
+'encoding'
+'errors'
+'newline'
+"makefile(...) -> an I/O stream connected to the socket\n\nThe arguments are as for io.open() after the filename, except the only\nsupported mode values are 'r' (default), 'w', 'b', or a combination of\nthose.\n"
+'invalid mode '
+' (only r, w, b allowed)'
+'unbuffered streams must be binary'
+'sendfile'
+'non-blocking sockets are not supported'
+'PollSelector'
+'timed out'
+'seek'
+'os.sendfile() not available on this platform'
+'non-blocking sockets are not supported'
+'seek'
+'mode'
+'file should be opened in binary mode'
+'only SOCK_STREAM type sockets are supported'
+'count must be a positive integer (got {!r})'
+'sendfile(file[, offset[, count]]) -> sent\n\nSend a file until EOF is reached by using high-performance\nos.sendfile() and return the total number of bytes which\nwere sent.\n*file* must be a regular file object opened in binary mode.\nIf os.sendfile() is not available (e.g. Windows) or file is\nnot a regular file socket.send() will be used instead.\n*offset* tells from where to start reading the file.\nIf specified, *count* is the total number of bytes to transmit\nas opposed to sending the file until EOF is reached.\nFile position is updated on return or also in case of error in\nwhich case file.tell() can be used to figure out the number of\nbytes which were sent.\nThe socket must be of SOCK_STREAM type.\nNon-blocking sockets are not supported.\n'
+'detach() -> file descriptor\n\nClose the socket object without closing the underlying file descriptor.\nThe object cannot be used after this call, but the file descriptor\ncan be reused for other purposes.  The file descriptor is returned.\n'
+'Read-only access to the address family for this socket.\n        '
+'Read-only access to the socket type.\n        '
+'nt'
+'Get the inheritable flag of the socket'
+'Set the inheritable flag of the socket'
+'socket'
+'fromfd(fd, family, type[, proto]) -> socket object\n\nCreate a socket object from a duplicate of the given file\ndescriptor.  The remaining arguments are the same as for socket().\n'
+'sendmsg'
+'send_fds(sock, buffers, fds[, flags[, address]]) -> integer\n\nSend the list of file descriptors fds over an AF_UNIX socket.\n'
+'send_fds'
+'recvmsg'
+'recv_fds(sock, bufsize, maxfds[, flags]) -> (data, list of file\ndescriptors, msg_flags, address)\n\nReceive up to maxfds file descriptors returning the message\ndata and a list containing the descriptors.\n'
+'recv_fds'
+'share'
+'fromshare(info) -> socket object\n\nCreate a socket object from the bytes object returned by\nsocket.share(pid).\n'
+'fromshare'
+'Only AF_INET and AF_INET6 socket address families are supported'
+'Only SOCK_STREAM socket type is supported'
+'Only protocol zero is supported'
+'Unexpected peer connection'
+'socketpair'
+'socketpair([family[, type[, proto]]]) -> (socket object, socket object)\nCreate a pair of socket objects from the sockets returned by the platform\nsocketpair() function.\nThe arguments are the same as for socket() except the default family is AF_UNIX\nif defined on the platform; otherwise, the default is AF_INET.\n'
+'SocketIO'
+'Raw I/O implementation for stream sockets.\n\nThis class supports the makefile() method on sockets.  It provides\nthe raw I/O interface on top of a socket object.\n'
+'invalid mode: %r'
+'Read up to len(b) bytes into the writable buffer *b* and return\nthe number of bytes read.  If the socket is non-blocking and no bytes\nare available, None is returned.\n\nIf *b* is non-empty, a 0 return value indicates that the connection\nwas shutdown at the other end.\n'
+'cannot read from timed out object'
+'Write the given bytes or bytearray object *b* to the socket\nand return the number of bytes written.  This can be less than\nlen(b) if not all data could be written.  If the socket is\nnon-blocking and no bytes could be written None is returned.\n'
+'True if the SocketIO is open for reading.\n        '
+'I/O operation on closed socket.'
+'True if the SocketIO is open for writing.\n        '
+'I/O operation on closed socket.'
+'True if the SocketIO is open for seeking.\n        '
+'I/O operation on closed socket.'
+'Return the file descriptor of the underlying socket.\n        '
+"Close the SocketIO object.  This doesn't close the underlying\nsocket, except if all references to it have disappeared.\n"
+'SocketIO'
+"Get fully qualified domain name from name.\n\nAn empty argument is interpreted as meaning the local host.\n\nFirst the hostname returned by gethostbyaddr() is checked, then\npossibly existing aliases. In case no FQDN is available and `name`\nwas given, it is returned unchanged. If `name` was empty, '0.0.0.0' or '::',\nhostname from gethostname() is returned.\n"
+'all_errors'
+"Connect to *address* and return the socket object.\n\nConvenience function.  Connect to *address* (a 2-tuple ``(host,\nport)``) and return the socket object.  Passing the optional\n*timeout* parameter will set the timeout on the socket instance\nbefore attempting to connect.  If no *timeout* is supplied, the\nglobal default timeout setting returned by :func:`getdefaulttimeout`\nis used.  If *source_address* is set it must be a tuple of (host, port)\nfor the socket to bind as a source address before making the connection.\nA host of '' or port 0 tells the OS to use the default. When a connection\ncannot be created, raises the last error if *all_errors* is False,\nand an ExceptionGroup of all errors if *all_errors* is True.\n"
+'create_connection failed'
+'getaddrinfo returns an empty list'
+'Return True if the platform supports creating a SOCK_STREAM socket\nwhich can handle both AF_INET and AF_INET6 (IPv4 / IPv6) connections.\n'
+'IPPROTO_IPV6'
+'IPV6_V6ONLY'
+'family'
+'backlog'
+'reuse_port'
+'dualstack_ipv6'
+"Convenience function which creates a SOCK_STREAM type socket\nbound to *address* (a 2-tuple (host, port)) and return the socket\nobject.\n\n*family* should be either AF_INET or AF_INET6.\n*backlog* is the queue size passed to socket.listen().\n*reuse_port* dictates whether to use the SO_REUSEPORT socket option.\n*dualstack_ipv6*: if true and the platform supports it, it will\ncreate an AF_INET6 socket able to accept both IPv4 or IPv6\nconnections. When false it will explicitly disable this option on\nplatforms that enable it by default (e.g. Linux).\n\n>>> with create_server(('', 8000)) as server:\n...     while True:\n...         conn, addr = server.accept()\n...         # handle new connection\n"
+'SO_REUSEPORT'
+'SO_REUSEPORT not supported on this platform'
+'dualstack_ipv6 not supported on this platform'
+'dualstack_ipv6 requires AF_INET6 family'
+'SO_REUSEADDR'
+'IPV6_V6ONLY'
+'IPPROTO_IPV6'
+' (while attempting to bind on address '
+"Resolve host and port into list of address info entries.\n\nTranslate the host/port argument into a sequence of 5-tuples that contain\nall the necessary arguments for creating a socket connected to that service.\nhost is a domain name, a string representation of an IPv4/v6 address or\nNone. port is a string service name such as 'http', a numeric port number or\nNone. By passing None as the value of host and port, you can pass NULL to\nthe underlying C API.\n\nThe family, type and proto arguments can be optionally specified in order to\nnarrow the list of addresses returned. Passing zero as a value for each of\nthese arguments selects the full range of results.\n"

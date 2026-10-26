@@ -1,0 +1,1083 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Generic (shallow and deep) copying operations.\n\nInterface summary:\n\n        import copy\n\n        x = copy.copy(y)                # make a shallow copy of y\n        x = copy.deepcopy(y)            # make a deep copy of y\n        x = copy.replace(y, a=1, b=2)   # new object with fields replaced, as defined by `__replace__`\n\nFor module specific errors, copy.Error is raised.\n\nThe difference between shallow and deep copying is only relevant for\ncompound objects (objects that contain other objects, like lists or\nclass instances).\n\n- A shallow copy constructs a new compound object and then (to the\n  extent possible) inserts *the same objects* into it that the\n  original contains.\n\n- A deep copy constructs a new compound object and then, recursively,\n  inserts *copies* into it of the objects found in the original.\n\nTwo problems often exist with deep copy operations that don\'t exist\nwith shallow copy operations:\n\n a) recursive objects (compound objects that, directly or indirectly,\n    contain a reference to themselves) may cause a recursive loop\n\n b) because deep copy copies *everything* it may copy too much, e.g.\n    administrative data structures that should be shared even between\n    copies\n\nPython\'s deep copy operation avoids these problems by:\n\n a) keeping a table of objects already copied during the current\n    copying pass\n\n b) letting user-defined classes override the copying operation or the\n    set of components copied\n\nThis version does not copy types like module, class, function, method,\nnor stack trace, stack frame, nor file, socket, window, nor any\nsimilar types.\n\nClasses can use the same interfaces to control copying that they use\nto control pickling: they can define methods called __getinitargs__(),\n__getstate__() and __setstate__().  See the documentation for module\n"pickle" for information on these methods.\n')
+              STORE_NAME               0 (__doc__)
+
+ 52           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (types)
+              STORE_NAME               1 (types)
+
+ 53           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (weakref)
+              STORE_NAME               2 (weakref)
+
+ 54           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('dispatch_table',))
+              IMPORT_NAME              3 (copyreg)
+              IMPORT_FROM              4 (dispatch_table)
+              STORE_NAME               4 (dispatch_table)
+              POP_TOP
+
+ 56           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               3 (<code object Error at 0x00000204BA092970, file "copy.py", line 56>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('Error')
+              LOAD_NAME                5 (Exception)
+              CALL                     3
+              STORE_NAME               6 (Error)
+
+ 58           LOAD_NAME                6 (Error)
+              STORE_NAME               7 (error)
+
+ 60           BUILD_LIST               0
+              LOAD_CONST              15 (('Error', 'copy', 'deepcopy', 'replace'))
+              LIST_EXTEND              1
+              STORE_NAME               8 (__all__)
+
+ 62           LOAD_CONST               6 (<code object copy at 0x00000204BA382080, file "copy.py", line 62>)
+              MAKE_FUNCTION
+              STORE_NAME               9 (copy)
+
+103           LOAD_NAME                1 (types)
+              LOAD_ATTR               20 (NoneType)
+              LOAD_NAME               11 (int)
+              LOAD_NAME               12 (float)
+              LOAD_NAME               13 (bool)
+              LOAD_NAME               14 (complex)
+              LOAD_NAME               15 (str)
+              LOAD_NAME               16 (tuple)
+
+104           LOAD_NAME               17 (bytes)
+              LOAD_NAME               18 (frozenset)
+              LOAD_NAME               19 (type)
+              LOAD_NAME               20 (range)
+              LOAD_NAME               21 (slice)
+              LOAD_NAME               22 (property)
+
+105           LOAD_NAME                1 (types)
+              LOAD_ATTR               46 (BuiltinFunctionType)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               48 (EllipsisType)
+
+106           LOAD_NAME                1 (types)
+              LOAD_ATTR               50 (NotImplementedType)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               52 (FunctionType)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               54 (CodeType)
+
+107           LOAD_NAME                2 (weakref)
+              LOAD_ATTR               56 (ref)
+              LOAD_NAME               29 (super)
+
+103           BUILD_SET               20
+              STORE_NAME              30 (_copy_atomic_types)
+
+108           LOAD_NAME               31 (list)
+              LOAD_NAME               32 (dict)
+              LOAD_NAME               33 (set)
+              LOAD_NAME               34 (bytearray)
+              BUILD_SET                4
+              STORE_NAME              35 (_copy_builtin_containers)
+
+110           LOAD_CONST               1 (None)
+              BUILD_LIST               0
+              BUILD_TUPLE              2
+              LOAD_CONST               7 (<code object deepcopy at 0x00000204BA338F90, file "copy.py", line 110>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              36 (deepcopy)
+
+165           LOAD_NAME                1 (types)
+              LOAD_ATTR               20 (NoneType)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               48 (EllipsisType)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               50 (NotImplementedType)
+
+166           LOAD_NAME               11 (int)
+              LOAD_NAME               12 (float)
+              LOAD_NAME               13 (bool)
+              LOAD_NAME               14 (complex)
+              LOAD_NAME               17 (bytes)
+              LOAD_NAME               15 (str)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               54 (CodeType)
+              LOAD_NAME               19 (type)
+              LOAD_NAME               20 (range)
+
+167           LOAD_NAME                1 (types)
+              LOAD_ATTR               46 (BuiltinFunctionType)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               52 (FunctionType)
+              LOAD_NAME                2 (weakref)
+              LOAD_ATTR               56 (ref)
+              LOAD_NAME               22 (property)
+
+165           BUILD_SET               16
+              STORE_NAME              37 (_atomic_types)
+
+169           BUILD_MAP                0
+              COPY                     1
+              STORE_NAME              38 (_deepcopy_dispatch)
+              STORE_NAME              39 (d)
+
+172           LOAD_NAME               36 (deepcopy)
+              BUILD_TUPLE              1
+              LOAD_CONST               8 (<code object _deepcopy_list at 0x00000204BA0AA1F0, file "copy.py", line 172>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              40 (_deepcopy_list)
+
+179           LOAD_NAME               40 (_deepcopy_list)
+              LOAD_NAME               39 (d)
+              LOAD_NAME               31 (list)
+              STORE_SUBSCR
+
+181           LOAD_NAME               36 (deepcopy)
+              BUILD_TUPLE              1
+              LOAD_CONST               9 (<code object _deepcopy_tuple at 0x00000204B9FFAA60, file "copy.py", line 181>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              41 (_deepcopy_tuple)
+
+196           LOAD_NAME               41 (_deepcopy_tuple)
+              LOAD_NAME               39 (d)
+              LOAD_NAME               16 (tuple)
+              STORE_SUBSCR
+
+198           LOAD_NAME               36 (deepcopy)
+              BUILD_TUPLE              1
+              LOAD_CONST              10 (<code object _deepcopy_dict at 0x00000204BA0BB360, file "copy.py", line 198>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              42 (_deepcopy_dict)
+
+204           LOAD_NAME               42 (_deepcopy_dict)
+              LOAD_NAME               39 (d)
+              LOAD_NAME               32 (dict)
+              STORE_SUBSCR
+
+206           LOAD_CONST              11 (<code object _deepcopy_method at 0x00000204BA0A9F70, file "copy.py", line 206>)
+              MAKE_FUNCTION
+              STORE_NAME              43 (_deepcopy_method)
+
+208           LOAD_NAME               43 (_deepcopy_method)
+              LOAD_NAME               39 (d)
+              LOAD_NAME                1 (types)
+              LOAD_ATTR               88 (MethodType)
+              STORE_SUBSCR
+
+210           DELETE_NAME             39 (d)
+
+212           LOAD_CONST              12 (<code object _keep_alive at 0x00000204B9F731B0, file "copy.py", line 212>)
+              MAKE_FUNCTION
+              STORE_NAME              45 (_keep_alive)
+
+228           LOAD_CONST              16 ((None, None, None))
+              LOAD_CONST               5 ('deepcopy')
+
+230           LOAD_NAME               36 (deepcopy)
+
+228           BUILD_MAP                1
+              LOAD_CONST              13 (<code object _reconstruct at 0x00000204BA388300, file "copy.py", line 228>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              46 (_reconstruct)
+
+273           DELETE_NAME              1 (types)
+              DELETE_NAME              2 (weakref)
+
+276           LOAD_CONST              14 (<code object replace at 0x00000204BA0BB600, file "copy.py", line 276>)
+              MAKE_FUNCTION
+              STORE_NAME              47 (replace)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Error at 0x00000204BA092970, file "copy.py", line 56>:
+ 56           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Error')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          56
+              STORE_NAME               3 (__firstlineno__)
+
+ 57           LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object copy at 0x00000204BA382080, file "copy.py", line 62>:
+ 62           RESUME                   0
+
+ 68           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              CALL                     1
+              STORE_FAST               1 (cls)
+
+ 70           LOAD_FAST_BORROW         1 (cls)
+              LOAD_GLOBAL              2 (_copy_atomic_types)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+ 71           LOAD_FAST_BORROW         0 (x)
+              RETURN_VALUE
+
+ 72   L1:     LOAD_FAST_BORROW         1 (cls)
+              LOAD_GLOBAL              4 (_copy_builtin_containers)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       18 (to L2)
+              NOT_TAKEN
+
+ 73           LOAD_FAST_BORROW         1 (cls)
+              LOAD_ATTR                7 (copy + NULL|self)
+              LOAD_FAST_BORROW         0 (x)
+              CALL                     1
+              RETURN_VALUE
+
+ 76   L2:     LOAD_GLOBAL              9 (issubclass + NULL)
+              LOAD_FAST_BORROW         1 (cls)
+              LOAD_GLOBAL              0 (type)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+ 78           LOAD_FAST_BORROW         0 (x)
+              RETURN_VALUE
+
+ 80   L3:     LOAD_GLOBAL             11 (getattr + NULL)
+              LOAD_FAST_BORROW         1 (cls)
+              LOAD_CONST               1 ('__copy__')
+              LOAD_CONST               2 (None)
+              CALL                     3
+              STORE_FAST               2 (copier)
+
+ 81           LOAD_FAST_BORROW         2 (copier)
+              POP_JUMP_IF_NONE         9 (to L4)
+              NOT_TAKEN
+
+ 82           LOAD_FAST_BORROW         2 (copier)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (x)
+              CALL                     1
+              RETURN_VALUE
+
+ 84   L4:     LOAD_GLOBAL             12 (dispatch_table)
+              LOAD_ATTR               14 (get)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (cls)
+              CALL                     1
+              STORE_FAST               3 (reductor)
+
+ 85           LOAD_FAST_BORROW         3 (reductor)
+              POP_JUMP_IF_NONE        10 (to L5)
+              NOT_TAKEN
+
+ 86           LOAD_FAST_BORROW         3 (reductor)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (x)
+              CALL                     1
+              STORE_FAST               4 (rv)
+              JUMP_FORWARD            73 (to L8)
+
+ 88   L5:     LOAD_GLOBAL             11 (getattr + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              LOAD_CONST               3 ('__reduce_ex__')
+              LOAD_CONST               2 (None)
+              CALL                     3
+              STORE_FAST               3 (reductor)
+
+ 89           LOAD_FAST_BORROW         3 (reductor)
+              POP_JUMP_IF_NONE        10 (to L6)
+              NOT_TAKEN
+
+ 90           LOAD_FAST_BORROW         3 (reductor)
+              PUSH_NULL
+              LOAD_SMALL_INT           4
+              CALL                     1
+              STORE_FAST               4 (rv)
+              JUMP_FORWARD            47 (to L8)
+
+ 92   L6:     LOAD_GLOBAL             11 (getattr + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              LOAD_CONST               4 ('__reduce__')
+              LOAD_CONST               2 (None)
+              CALL                     3
+              STORE_FAST               3 (reductor)
+
+ 93           LOAD_FAST_BORROW         3 (reductor)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        9 (to L7)
+              NOT_TAKEN
+
+ 94           LOAD_FAST_BORROW         3 (reductor)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               4 (rv)
+              JUMP_FORWARD            18 (to L8)
+
+ 96   L7:     LOAD_GLOBAL             17 (Error + NULL)
+              LOAD_CONST               5 ('un(shallow)copyable object of type %s')
+              LOAD_FAST_BORROW         1 (cls)
+              BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 98   L8:     LOAD_GLOBAL             19 (isinstance + NULL)
+              LOAD_FAST_BORROW         4 (rv)
+              LOAD_GLOBAL             20 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L9)
+              NOT_TAKEN
+
+ 99           LOAD_FAST_BORROW         0 (x)
+              RETURN_VALUE
+
+100   L9:     LOAD_GLOBAL             23 (_reconstruct + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              LOAD_CONST               2 (None)
+              BUILD_LIST               2
+              LOAD_FAST_BORROW         4 (rv)
+              LIST_EXTEND              1
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object deepcopy at 0x00000204BA338F90, file "copy.py", line 110>:
+110            RESUME                   0
+
+116            LOAD_GLOBAL              1 (type + NULL)
+               LOAD_FAST_BORROW         0 (x)
+               CALL                     1
+               STORE_FAST               3 (cls)
+
+118            LOAD_FAST_BORROW         3 (cls)
+               LOAD_GLOBAL              2 (_atomic_types)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+119            LOAD_FAST_BORROW         0 (x)
+               RETURN_VALUE
+
+121    L1:     LOAD_GLOBAL              5 (id + NULL)
+               LOAD_FAST_BORROW         0 (x)
+               CALL                     1
+               STORE_FAST               4 (d)
+
+122            LOAD_FAST_BORROW         1 (memo)
+               POP_JUMP_IF_NOT_NONE     4 (to L2)
+               NOT_TAKEN
+
+123            BUILD_MAP                0
+               STORE_FAST               1 (memo)
+               JUMP_FORWARD            24 (to L3)
+
+125    L2:     LOAD_FAST_BORROW         1 (memo)
+               LOAD_ATTR                7 (get + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (d, _nil)
+               CALL                     2
+               STORE_FAST               5 (y)
+
+126            LOAD_FAST_BORROW_LOAD_FAST_BORROW 82 (y, _nil)
+               IS_OP                    1 (is not)
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+
+127            LOAD_FAST_BORROW         5 (y)
+               RETURN_VALUE
+
+129    L3:     LOAD_GLOBAL              8 (_deepcopy_dispatch)
+               LOAD_ATTR                7 (get + NULL|self)
+               LOAD_FAST_BORROW         3 (cls)
+               CALL                     1
+               STORE_FAST               6 (copier)
+
+130            LOAD_FAST_BORROW         6 (copier)
+               POP_JUMP_IF_NONE        10 (to L4)
+               NOT_TAKEN
+
+131            LOAD_FAST_BORROW         6 (copier)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (x, memo)
+               CALL                     2
+               STORE_FAST               5 (y)
+               JUMP_FORWARD           201 (to L12)
+
+133    L4:     LOAD_GLOBAL             11 (issubclass + NULL)
+               LOAD_FAST_BORROW         3 (cls)
+               LOAD_GLOBAL              0 (type)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        4 (to L5)
+               NOT_TAKEN
+
+134            LOAD_FAST                0 (x)
+               STORE_FAST               5 (y)
+               JUMP_FORWARD           176 (to L12)
+
+136    L5:     LOAD_GLOBAL             13 (getattr + NULL)
+               LOAD_FAST_BORROW         0 (x)
+               LOAD_CONST               2 ('__deepcopy__')
+               LOAD_CONST               1 (None)
+               CALL                     3
+               STORE_FAST               6 (copier)
+
+137            LOAD_FAST_BORROW         6 (copier)
+               POP_JUMP_IF_NONE        10 (to L6)
+               NOT_TAKEN
+
+138            LOAD_FAST_BORROW         6 (copier)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (memo)
+               CALL                     1
+               STORE_FAST               5 (y)
+               JUMP_FORWARD           150 (to L12)
+
+140    L6:     LOAD_GLOBAL             14 (dispatch_table)
+               LOAD_ATTR                6 (get)
+               PUSH_NULL
+               LOAD_FAST_BORROW         3 (cls)
+               CALL                     1
+               STORE_FAST               7 (reductor)
+
+141            LOAD_FAST_BORROW         7 (reductor)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       10 (to L7)
+               NOT_TAKEN
+
+142            LOAD_FAST_BORROW         7 (reductor)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (x)
+               CALL                     1
+               STORE_FAST               8 (rv)
+               JUMP_FORWARD            73 (to L10)
+
+144    L7:     LOAD_GLOBAL             13 (getattr + NULL)
+               LOAD_FAST_BORROW         0 (x)
+               LOAD_CONST               3 ('__reduce_ex__')
+               LOAD_CONST               1 (None)
+               CALL                     3
+               STORE_FAST               7 (reductor)
+
+145            LOAD_FAST_BORROW         7 (reductor)
+               POP_JUMP_IF_NONE        10 (to L8)
+               NOT_TAKEN
+
+146            LOAD_FAST_BORROW         7 (reductor)
+               PUSH_NULL
+               LOAD_SMALL_INT           4
+               CALL                     1
+               STORE_FAST               8 (rv)
+               JUMP_FORWARD            47 (to L10)
+
+148    L8:     LOAD_GLOBAL             13 (getattr + NULL)
+               LOAD_FAST_BORROW         0 (x)
+               LOAD_CONST               4 ('__reduce__')
+               LOAD_CONST               1 (None)
+               CALL                     3
+               STORE_FAST               7 (reductor)
+
+149            LOAD_FAST_BORROW         7 (reductor)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        9 (to L9)
+               NOT_TAKEN
+
+150            LOAD_FAST_BORROW         7 (reductor)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               8 (rv)
+               JUMP_FORWARD            18 (to L10)
+
+152    L9:     LOAD_GLOBAL             17 (Error + NULL)
+
+153            LOAD_CONST               5 ('un(deep)copyable object of type %s')
+               LOAD_FAST_BORROW         3 (cls)
+               BINARY_OP                6 (%)
+
+152            CALL                     1
+               RAISE_VARARGS            1
+
+154   L10:     LOAD_GLOBAL             19 (isinstance + NULL)
+               LOAD_FAST_BORROW         8 (rv)
+               LOAD_GLOBAL             20 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        4 (to L11)
+               NOT_TAKEN
+
+155            LOAD_FAST                0 (x)
+               STORE_FAST               5 (y)
+               JUMP_FORWARD            13 (to L12)
+
+157   L11:     LOAD_GLOBAL             23 (_reconstruct + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (x, memo)
+               BUILD_LIST               2
+               LOAD_FAST_BORROW         8 (rv)
+               LIST_EXTEND              1
+               CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+               PUSH_NULL
+               CALL_FUNCTION_EX
+               STORE_FAST               5 (y)
+
+160   L12:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (y, x)
+               IS_OP                    1 (is not)
+               POP_JUMP_IF_FALSE       16 (to L13)
+               NOT_TAKEN
+
+161            LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (y, memo)
+               LOAD_FAST_BORROW         4 (d)
+               STORE_SUBSCR
+
+162            LOAD_GLOBAL             25 (_keep_alive + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (x, memo)
+               CALL                     2
+               POP_TOP
+
+163   L13:     LOAD_FAST_BORROW         5 (y)
+               RETURN_VALUE
+
+Disassembly of <code object _deepcopy_list at 0x00000204BA0AA1F0, file "copy.py", line 172>:
+172           RESUME                   0
+
+173           BUILD_LIST               0
+              STORE_FAST               3 (y)
+
+174           LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (y, memo)
+              LOAD_GLOBAL              1 (id + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              CALL                     1
+              STORE_SUBSCR
+
+175           LOAD_FAST_BORROW         3 (y)
+              LOAD_ATTR                2 (append)
+              STORE_FAST               4 (append)
+
+176           LOAD_FAST_BORROW         0 (x)
+              GET_ITER
+      L1:     FOR_ITER                17 (to L2)
+              STORE_FAST               5 (a)
+
+177           LOAD_FAST_BORROW         4 (append)
+              PUSH_NULL
+              LOAD_FAST_BORROW         2 (deepcopy)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (a, memo)
+              CALL                     2
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           19 (to L1)
+
+176   L2:     END_FOR
+              POP_ITER
+
+178           LOAD_FAST_BORROW         3 (y)
+              RETURN_VALUE
+
+Disassembly of <code object _deepcopy_tuple at 0x00000204B9FFAA60, file "copy.py", line 181>:
+ 181            RESUME                   0
+
+ 182            LOAD_FAST_BORROW         0 (x)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      3 (a)
+                SWAP                     2
+        L1:     BUILD_LIST               0
+                SWAP                     2
+        L2:     FOR_ITER                10 (to L3)
+                STORE_FAST_LOAD_FAST    50 (a, deepcopy)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (a, memo)
+                CALL                     2
+                LIST_APPEND              2
+                JUMP_BACKWARD           12 (to L2)
+        L3:     END_FOR
+                POP_ITER
+        L4:     STORE_FAST               4 (y)
+                STORE_FAST               3 (a)
+
+ 185            NOP
+
+ 186    L5:     LOAD_FAST_BORROW         1 (memo)
+                LOAD_GLOBAL              1 (id + NULL)
+                LOAD_FAST_BORROW         0 (x)
+                CALL                     1
+                BINARY_OP               26 ([])
+        L6:     RETURN_VALUE
+
+  --    L7:     SWAP                     2
+                POP_TOP
+
+ 182            SWAP                     2
+                STORE_FAST               3 (a)
+                RERAISE                  0
+
+  --    L8:     PUSH_EXC_INFO
+
+ 187            LOAD_GLOBAL              2 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 188    L9:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L12)
+
+ 187   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 189   L12:     LOAD_GLOBAL              5 (zip + NULL)
+                LOAD_FAST_LOAD_FAST      4 (x, y)
+                CALL                     2
+                GET_ITER
+       L13:     FOR_ITER                24 (to L15)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   86 (k, j)
+
+ 190            LOAD_FAST_LOAD_FAST     86 (k, j)
+                IS_OP                    1 (is not)
+                POP_JUMP_IF_TRUE         3 (to L14)
+                NOT_TAKEN
+                JUMP_BACKWARD           12 (to L13)
+
+ 191   L14:     LOAD_GLOBAL              7 (tuple + NULL)
+                LOAD_FAST                4 (y)
+                CALL                     1
+                STORE_FAST               4 (y)
+
+ 192            POP_TOP
+
+ 195            LOAD_FAST                4 (y)
+                RETURN_VALUE
+
+ 189   L15:     END_FOR
+                POP_ITER
+
+ 194            LOAD_FAST                0 (x)
+                STORE_FAST               4 (y)
+
+ 195            LOAD_FAST                4 (y)
+                RETURN_VALUE
+ExceptionTable:
+  L1 to L4 -> L7 [2]
+  L5 to L6 -> L8 [0]
+  L8 to L9 -> L11 [1] lasti
+  L10 to L11 -> L11 [1] lasti
+
+Disassembly of <code object _deepcopy_dict at 0x00000204BA0BB360, file "copy.py", line 198>:
+198           RESUME                   0
+
+199           BUILD_MAP                0
+              STORE_FAST               3 (y)
+
+200           LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (y, memo)
+              LOAD_GLOBAL              1 (id + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              CALL                     1
+              STORE_SUBSCR
+
+201           LOAD_FAST_BORROW         0 (x)
+              LOAD_ATTR                3 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                21 (to L2)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   69 (key, value)
+
+202           LOAD_FAST_BORROW         2 (deepcopy)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (value, memo)
+              CALL                     2
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (y, deepcopy)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 65 (key, memo)
+              CALL                     2
+              STORE_SUBSCR
+              JUMP_BACKWARD           23 (to L1)
+
+201   L2:     END_FOR
+              POP_ITER
+
+203           LOAD_FAST_BORROW         3 (y)
+              RETURN_VALUE
+
+Disassembly of <code object _deepcopy_method at 0x00000204BA0A9F70, file "copy.py", line 206>:
+206           RESUME                   0
+
+207           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              CALL                     1
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (x)
+              LOAD_ATTR                2 (__func__)
+              LOAD_GLOBAL              5 (deepcopy + NULL)
+              LOAD_FAST_BORROW         0 (x)
+              LOAD_ATTR                6 (__self__)
+              LOAD_FAST_BORROW         1 (memo)
+              CALL                     2
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object _keep_alive at 0x00000204B9F731B0, file "copy.py", line 212>:
+ 212           RESUME                   0
+
+ 222           NOP
+
+ 223   L1:     LOAD_FAST_BORROW         1 (memo)
+               LOAD_GLOBAL              1 (id + NULL)
+               LOAD_FAST_BORROW         1 (memo)
+               CALL                     1
+               BINARY_OP               26 ([])
+               LOAD_ATTR                3 (append + NULL|self)
+               LOAD_FAST_BORROW         0 (x)
+               CALL                     1
+               POP_TOP
+       L2:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 224           LOAD_GLOBAL              4 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       20 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 226           LOAD_FAST                0 (x)
+               BUILD_LIST               1
+               LOAD_FAST                1 (memo)
+               LOAD_GLOBAL              1 (id + NULL)
+               LOAD_FAST                1 (memo)
+               CALL                     1
+               STORE_SUBSCR
+       L4:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 224   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object _reconstruct at 0x00000204BA388300, file "copy.py", line 228>:
+  --            MAKE_CELL                1 (memo)
+                MAKE_CELL                7 (deepcopy)
+
+ 228            RESUME                   0
+
+ 231            LOAD_DEREF               1 (memo)
+                LOAD_CONST               0 (None)
+                IS_OP                    1 (is not)
+                STORE_FAST               8 (deep)
+
+ 232            LOAD_FAST_BORROW         8 (deep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       22 (to L1)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         3 (args)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       14 (to L1)
+                NOT_TAKEN
+
+ 233            LOAD_FAST_BORROW         7 (deepcopy)
+                LOAD_FAST_BORROW         1 (memo)
+                BUILD_TUPLE              2
+                LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0FECD0, file "copy.py", line 233>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_FAST_BORROW         3 (args)
+                GET_ITER
+                CALL                     0
+                STORE_FAST               3 (args)
+
+ 234    L1:     LOAD_FAST_BORROW         2 (func)
+                PUSH_NULL
+                LOAD_FAST_BORROW         3 (args)
+                PUSH_NULL
+                CALL_FUNCTION_EX
+                STORE_FAST               9 (y)
+
+ 235            LOAD_FAST_BORROW         8 (deep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       15 (to L2)
+                NOT_TAKEN
+
+ 236            LOAD_FAST_BORROW         9 (y)
+                LOAD_DEREF               1 (memo)
+                LOAD_GLOBAL              1 (id + NULL)
+                LOAD_FAST_BORROW         0 (x)
+                CALL                     1
+                STORE_SUBSCR
+
+ 238    L2:     LOAD_FAST_BORROW         4 (state)
+                POP_JUMP_IF_NONE       171 (to L10)
+                NOT_TAKEN
+
+ 239            LOAD_FAST_BORROW         8 (deep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       10 (to L3)
+                NOT_TAKEN
+
+ 240            LOAD_DEREF               7 (deepcopy)
+                PUSH_NULL
+                LOAD_FAST_BORROW         4 (state)
+                LOAD_DEREF               1 (memo)
+                CALL                     2
+                STORE_FAST               4 (state)
+
+ 241    L3:     LOAD_GLOBAL              3 (hasattr + NULL)
+                LOAD_FAST_BORROW         9 (y)
+                LOAD_CONST               2 ('__setstate__')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       19 (to L4)
+                NOT_TAKEN
+
+ 242            LOAD_FAST_BORROW         9 (y)
+                LOAD_ATTR                5 (__setstate__ + NULL|self)
+                LOAD_FAST_BORROW         4 (state)
+                CALL                     1
+                POP_TOP
+                JUMP_FORWARD           117 (to L10)
+
+ 244    L4:     LOAD_GLOBAL              7 (isinstance + NULL)
+                LOAD_FAST_BORROW         4 (state)
+                LOAD_GLOBAL              8 (tuple)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       22 (to L5)
+                NOT_TAKEN
+                LOAD_GLOBAL             11 (len + NULL)
+                LOAD_FAST_BORROW         4 (state)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L5)
+                NOT_TAKEN
+
+ 245            LOAD_FAST_BORROW         4 (state)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   74 (state, slotstate)
+                JUMP_FORWARD             2 (to L6)
+
+ 247    L5:     LOAD_CONST               0 (None)
+                STORE_FAST              10 (slotstate)
+
+ 248    L6:     LOAD_FAST_BORROW         4 (state)
+                POP_JUMP_IF_NONE        28 (to L7)
+                NOT_TAKEN
+
+ 249            LOAD_FAST_BORROW         9 (y)
+                LOAD_ATTR               12 (__dict__)
+                LOAD_ATTR               15 (update + NULL|self)
+                LOAD_FAST_BORROW         4 (state)
+                CALL                     1
+                POP_TOP
+
+ 250    L7:     LOAD_FAST_BORROW        10 (slotstate)
+                POP_JUMP_IF_NONE        38 (to L10)
+                NOT_TAKEN
+
+ 251            LOAD_FAST_BORROW        10 (slotstate)
+                LOAD_ATTR               17 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+        L8:     FOR_ITER                17 (to L9)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  188 (key, value)
+
+ 252            LOAD_GLOBAL             19 (setattr + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 155 (y, key)
+                LOAD_FAST_BORROW        12 (value)
+                CALL                     3
+                POP_TOP
+                JUMP_BACKWARD           19 (to L8)
+
+ 251    L9:     END_FOR
+                POP_ITER
+
+ 254   L10:     LOAD_FAST_BORROW         5 (listiter)
+                POP_JUMP_IF_NONE        71 (to L16)
+                NOT_TAKEN
+
+ 255            LOAD_FAST_BORROW         8 (deep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       37 (to L13)
+                NOT_TAKEN
+
+ 256            LOAD_FAST_BORROW         5 (listiter)
+                GET_ITER
+       L11:     FOR_ITER                29 (to L12)
+                STORE_FAST              13 (item)
+
+ 257            LOAD_DEREF               7 (deepcopy)
+                PUSH_NULL
+                LOAD_FAST_BORROW        13 (item)
+                LOAD_DEREF               1 (memo)
+                CALL                     2
+                STORE_FAST              13 (item)
+
+ 258            LOAD_FAST_BORROW         9 (y)
+                LOAD_ATTR               21 (append + NULL|self)
+                LOAD_FAST_BORROW        13 (item)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           31 (to L11)
+
+ 256   L12:     END_FOR
+                POP_ITER
+                JUMP_FORWARD            26 (to L16)
+
+ 260   L13:     LOAD_FAST_BORROW         5 (listiter)
+                GET_ITER
+       L14:     FOR_ITER                20 (to L15)
+                STORE_FAST              13 (item)
+
+ 261            LOAD_FAST_BORROW         9 (y)
+                LOAD_ATTR               21 (append + NULL|self)
+                LOAD_FAST_BORROW        13 (item)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           22 (to L14)
+
+ 260   L15:     END_FOR
+                POP_ITER
+
+ 262   L16:     LOAD_FAST_BORROW         6 (dictiter)
+                POP_JUMP_IF_NONE        59 (to L22)
+                NOT_TAKEN
+
+ 263            LOAD_FAST_BORROW         8 (deep)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       36 (to L19)
+                NOT_TAKEN
+
+ 264            LOAD_FAST_BORROW         6 (dictiter)
+                GET_ITER
+       L17:     FOR_ITER                27 (to L18)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  188 (key, value)
+
+ 265            LOAD_DEREF               7 (deepcopy)
+                PUSH_NULL
+                LOAD_FAST_BORROW        11 (key)
+                LOAD_DEREF               1 (memo)
+                CALL                     2
+                STORE_FAST              11 (key)
+
+ 266            LOAD_DEREF               7 (deepcopy)
+                PUSH_NULL
+                LOAD_FAST_BORROW        12 (value)
+                LOAD_DEREF               1 (memo)
+                CALL                     2
+                STORE_FAST              12 (value)
+
+ 267            LOAD_FAST_BORROW_LOAD_FAST_BORROW 201 (value, y)
+                LOAD_FAST_BORROW        11 (key)
+                STORE_SUBSCR
+                JUMP_BACKWARD           29 (to L17)
+
+ 264   L18:     END_FOR
+                POP_ITER
+
+ 271            LOAD_FAST_BORROW         9 (y)
+                RETURN_VALUE
+
+ 269   L19:     LOAD_FAST_BORROW         6 (dictiter)
+                GET_ITER
+       L20:     FOR_ITER                 9 (to L21)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  188 (key, value)
+
+ 270            LOAD_FAST_BORROW_LOAD_FAST_BORROW 201 (value, y)
+                LOAD_FAST_BORROW        11 (key)
+                STORE_SUBSCR
+                JUMP_BACKWARD           11 (to L20)
+
+ 269   L21:     END_FOR
+                POP_ITER
+
+ 271   L22:     LOAD_FAST_BORROW         9 (y)
+                RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FECD0, file "copy.py", line 233>:
+  --           COPY_FREE_VARS           2
+
+ 233           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                14 (to L3)
+               STORE_FAST               1 (arg)
+               LOAD_DEREF               2 (deepcopy)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (arg)
+               LOAD_DEREF               3 (memo)
+               CALL                     2
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           16 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object replace at 0x00000204BA0BB600, file "copy.py", line 276>:
+276           RESUME                   0
+
+282           LOAD_FAST_BORROW         0 (obj)
+              LOAD_ATTR                0 (__class__)
+              STORE_FAST               2 (cls)
+
+283           LOAD_GLOBAL              3 (getattr + NULL)
+              LOAD_FAST_BORROW         2 (cls)
+              LOAD_CONST               1 ('__replace__')
+              LOAD_CONST               2 (None)
+              CALL                     3
+              STORE_FAST               3 (func)
+
+284           LOAD_FAST_BORROW         3 (func)
+              POP_JUMP_IF_NOT_NONE    26 (to L1)
+              NOT_TAKEN
+
+285           LOAD_GLOBAL              5 (TypeError + NULL)
+              LOAD_CONST               3 ('replace() does not support ')
+              LOAD_FAST_BORROW         2 (cls)
+              LOAD_ATTR                6 (__name__)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (' objects')
+              BUILD_STRING             3
+              CALL                     1
+              RAISE_VARARGS            1
+
+286   L1:     LOAD_FAST_BORROW         3 (func)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (obj)
+              BUILD_TUPLE              1
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         1 (changes)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE

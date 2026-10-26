@@ -1,0 +1,100 @@
+<module>()  line 1
+    _tokenize(plural)  line 71
+    _error(value)  line 99
+    _parse(tokens, priority)  line 118
+    _as_int(n)  line 168
+    _as_int2(n)  line 176
+    c2py(plural)  line 195
+    _expand_lang(loc)  line 231
+    NullTranslations()  line 273
+        NullTranslations.__init__(self, fp)  line 274
+        NullTranslations._parse(self, fp)  line 281
+        NullTranslations.add_fallback(self, fallback)  line 284
+        NullTranslations.gettext(self, message)  line 290
+        NullTranslations.ngettext(self, msgid1, msgid2, n)  line 295
+        NullTranslations.pgettext(self, context, message)  line 304
+        NullTranslations.npgettext(self, context, msgid1, msgid2, n)  line 309
+        NullTranslations.info(self)  line 318
+        NullTranslations.charset(self)  line 321
+        NullTranslations.install(self, names)  line 324
+    GNUTranslations()  line 333
+        GNUTranslations._get_versions(self, version)  line 345
+        GNUTranslations._parse(self, fp)  line 349
+            GNUTranslations._parse.<locals>.<lambda>(n)  line 358
+        GNUTranslations.gettext(self, message)  line 438
+        GNUTranslations.ngettext(self, msgid1, msgid2, n)  line 449
+        GNUTranslations.pgettext(self, context, message)  line 461
+        GNUTranslations.npgettext(self, context, msgid1, msgid2, n)  line 473
+    find(domain, localedir, languages, all)  line 488
+    translation(domain, localedir, languages, class_, fallback)  line 528
+    install(domain, localedir, names)  line 562
+    textdomain(domain)  line 573
+    bindtextdomain(domain, localedir)  line 580
+    dgettext(domain, message)  line 587
+    dngettext(domain, msgid1, msgid2, n)  line 595
+    dpgettext(domain, context, message)  line 607
+    dnpgettext(domain, context, msgid1, msgid2, n)  line 615
+    gettext(message)  line 627
+    ngettext(msgid1, msgid2, n)  line 631
+    pgettext(context, message)  line 635
+    npgettext(context, msgid1, msgid2, n)  line 639
+
+--- strings ---
+'Internationalization and localization support.\n\nThis module provides internationalization (I18N) and localization (L10N)\nsupport for your Python programs by providing an interface to the GNU gettext\nmessage catalog library.\n\nI18N refers to the operation by which a program is made aware of multiple\nlanguages.  L10N refers to the adaptation of your program, once\ninternationalized, to the local language and cultural habits.\n\n'
+'NullTranslations'
+'GNUTranslations'
+'share'
+'locale'
+'\n                (?P<WHITESPACES>[ \\t]+)                    | # spaces and horizontal tabs\n                (?P<NUMBER>[0-9]+\\b)                       | # decimal integer\n                (?P<NAME>n\\b)                              | # only n is allowed\n                (?P<PARENTHESIS>[()])                      |\n                (?P<OPERATOR>[-*/%+?:]|[><!]=?|==|&&|\\|\\|) | # !, *, /, %, +, -, <, >,\n                                                             # <=, >=, ==, !=, &&, ||,\n                                                             # ? :\n                                                             # unary and bitwise ops\n                                                             # not allowed\n                (?P<INVALID>\\w+|.)                           # invalid token\n            '
+'WHITESPACES'
+'INVALID'
+'invalid token in plural form: %s'
+'unexpected token in plural form: %s'
+'unexpected end of plural form'
+'||'
+'&&'
+'or'
+'and'
+'//'
+'not '
+'unbalanced parenthesis in plural form'
+'%s%d'
+'(%s)'
+' if '
+' else '
+'Plural value must be an integer, got '
+'__name__'
+'Plural value must be an integer, got '
+'Gets a C expression as used in PO files for plural forms and returns a\nPython function that implements an equivalent expression.\n'
+'plural form expression is too long'
+'plural form expression is too complex'
+'_as_int'
+'__name__'
+'if True:\n            def func(n):\n                if not isinstance(n, int):\n                    n = _as_int(n)\n                return int(%s)\n            '
+'func'
+'NullTranslations'
+'GNUTranslations'
+'%s\x04%s'
+'Returns a tuple of major version, minor version'
+'Override this method to support alternative .mo formats.'
+'name'
+'<I'
+'<4I'
+'<II'
+'>4I'
+'>II'
+'Bad magic number'
+'Bad version number '
+'File is corrupt'
+'#-#-#-#-#'
+'content-type'
+'charset='
+'plural-forms'
+'plural='
+'ascii'
+'LC_MESSAGES'
+'%s.mo'
+'No translation file found for domain'
+'rb'
+'names'
+'messages'

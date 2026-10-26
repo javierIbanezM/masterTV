@@ -1,0 +1,53 @@
+<module>()  line 1
+    ExecutionFailed()  line 35
+        ExecutionFailed.__init__(self, excinfo)  line 41
+        ExecutionFailed.__str__(self)  line 51
+    create()  line 63
+    list_all()  line 69
+    get_current()  line 75
+    get_main()  line 81
+    Interpreter()  line 90
+        Interpreter.__new__(cls, id, _whence, _ownsref)  line 112
+        Interpreter.__repr__(self)  line 139
+        Interpreter.__hash__(self)  line 142
+        Interpreter.__del__(self)  line 145
+        Interpreter.__reduce__(self)  line 149
+        Interpreter._decref(self)  line 152
+        Interpreter.id(self)  line 161
+        Interpreter.whence(self)  line 165
+        Interpreter.is_running(self)  line 169
+        Interpreter.close(self)  line 176
+        Interpreter.prepare_main(self, ns)  line 184
+        Interpreter.exec(self, code)  line 192
+        Interpreter._call(self, callable, args, kwargs)  line 214
+        Interpreter.call(self, callable)  line 220
+        Interpreter.call_in_thread(self, callable)  line 235
+
+--- strings ---
+'Subinterpreters High Level Module.'
+'Interpreter'
+'ExecutionFailed'
+'\n{superstr}\n\nUncaught in the interpreter:\n\n{formatted}\n'
+'ExecutionFailed'
+'An unhandled exception happened during execution.\n\nThis is raised from Interpreter.exec() and Interpreter.call().\n'
+': '
+'Return a new (idle) Python interpreter.'
+'Return all existing interpreters.'
+'Return the currently running interpreter.'
+'Return the main interpreter.'
+'Interpreter'
+'A single Python interpreter.\n\nAttributes:\n\n"id" - the unique process-global ID number for the interpreter\n"whence" - indicates where the interpreter was created\n\nIf the interpreter wasn\'t created by this module\nthen any method that modifies the interpreter will fail,\ni.e. .close(), .prepare_main(), .exec(), and .call()\n'
+'unknown'
+'runtime init'
+'legacy C-API'
+'C-API'
+'cross-interpreter C-API'
+'_interpreters module'
+'id must be an int, got '
+'_ownsref'
+'Return whether or not the identified interpreter is running.'
+'Finalize and destroy the interpreter.\n\nAttempting to destroy the current interpreter results\nin an InterpreterError.\n'
+"Bind the given values into the interpreter's __main__.\n\nThe values must be shareable.\n"
+'Run the given source code in the interpreter.\n\nThis is essentially the same as calling the builtin "exec"\nwith this interpreter, using the __dict__ of its __main__\nmodule as both globals and locals.\n\nThere is no return value.\n\nIf the code raises an unhandled exception then an ExecutionFailed\nexception is raised, which summarizes the unhandled exception.\nThe actual exception is discarded because objects cannot be\nshared between interpreters.\n\nThis blocks the current Python thread until done.  During\nthat time, the previous interpreter is allowed to run\nin other threads.\n'
+'Call the object in the interpreter with given args/kwargs.\n\nNearly all callables, args, kwargs, and return values are\nsupported.  All "shareable" objects are supported, as are\n"stateless" functions (meaning non-closures that do not use\nany globals).  This method will fall back to pickle.\n\nIf the callable raises an exception then the error display\n(including full traceback) is sent back between the interpreters\nand an ExecutionFailed exception is raised, much like what\nhappens with Interpreter.exec().\n'
+'Return a new thread that calls the object in the interpreter.\n\nThe return value and any raised exception are discarded.\n'

@@ -1,0 +1,215 @@
+<module>()  line 1
+    Error()  line 57
+    error_reply()  line 58
+    error_temp()  line 59
+    error_perm()  line 60
+    error_proto()  line 61
+    FTP()  line 74
+        FTP.__init__(self, host, user, passwd, acct, timeout, source_address, encoding)  line 109
+        FTP.__enter__(self)  line 125
+        FTP.__exit__(self)  line 129
+        FTP.connect(self, host, port, timeout, source_address)  line 139
+        FTP.getwelcome(self)  line 165
+        FTP.set_debuglevel(self, level)  line 172
+        FTP.set_pasv(self, val)  line 181
+        FTP.sanitize(self, s)  line 188
+        FTP.putline(self, line)  line 195
+        FTP.putcmd(self, line)  line 205
+        FTP.getline(self)  line 211
+        FTP.getmultiline(self)  line 229
+        FTP.getresp(self)  line 243
+        FTP.voidresp(self)  line 257
+        FTP.abort(self)  line 264
+        FTP.sendcmd(self, cmd)  line 278
+        FTP.voidcmd(self, cmd)  line 283
+        FTP.sendport(self, host, port)  line 288
+        FTP.sendeprt(self, host, port)  line 298
+        FTP.makeport(self)  line 311
+        FTP.makepasv(self)  line 324
+        FTP.ntransfercmd(self, cmd, rest)  line 336
+        FTP.transfercmd(self, cmd, rest)  line 391
+        FTP.login(self, user, passwd, acct)  line 395
+        FTP.retrbinary(self, cmd, callback, blocksize, rest)  line 421
+        FTP.retrlines(self, cmd, callback)  line 444
+        FTP.storbinary(self, cmd, fp, blocksize, callback, rest)  line 479
+        FTP.storlines(self, cmd, fp, callback)  line 505
+        FTP.acct(self, password)  line 536
+        FTP.nlst(self)  line 541
+        FTP.dir(self)  line 550
+        FTP.mlsd(self, path, facts)  line 565
+        FTP.rename(self, fromname, toname)  line 593
+        FTP.delete(self, filename)  line 600
+        FTP.cwd(self, dirname)  line 608
+        FTP.size(self, filename)  line 621
+        FTP.mkd(self, dirname)  line 629
+        FTP.rmd(self, dirname)  line 638
+        FTP.pwd(self)  line 642
+        FTP.quit(self)  line 651
+        FTP.close(self)  line 657
+    FTP_TLS()  line 677
+        FTP_TLS.__init__(self, host, user, passwd, acct, context, timeout, source_address, encoding)  line 711
+        FTP_TLS.login(self, user, passwd, acct, secure)  line 721
+        FTP_TLS.auth(self)  line 726
+        FTP_TLS.ccc(self)  line 738
+        FTP_TLS.prot_p(self)  line 746
+        FTP_TLS.prot_c(self)  line 762
+        FTP_TLS.ntransfercmd(self, cmd, rest)  line 770
+        FTP_TLS.abort(self)  line 777
+    parse150(resp)  line 792
+    parse227(resp)  line 812
+    parse229(resp, peer)  line 831
+    parse257(resp)  line 852
+    print_line(line)  line 874
+    ftpcp(source, sourcename, target, targetname, type)  line 879
+    test()  line 901
+
+--- strings ---
+"An FTP client class and some helper functions.\n\nBased on RFC 959: File Transfer Protocol (FTP), by J. Postel and J. Reynolds\n\nExample:\n\n>>> from ftplib import FTP\n>>> ftp = FTP('ftp.python.org') # connect to host, default port\n>>> ftp.login() # default, i.e.: user anonymous, passwd anonymous@\n'230 Guest login ok, access restrictions apply.'\n>>> ftp.retrlines('LIST') # list directory contents\ntotal 9\ndrwxr-xr-x   8 root     wheel        1024 Jan  3  1994 .\ndrwxr-xr-x   8 root     wheel        1024 Jan  3  1994 ..\ndrwxr-xr-x   2 root     wheel        1024 Jan  3  1994 bin\ndrwxr-xr-x   2 root     wheel        1024 Jan  3  1994 etc\nd-wxrwxr-x   2 ftp      wheel        1024 Sep  5 13:43 incoming\ndrwxr-xr-x   2 root     wheel        1024 Nov 17  1993 lib\ndrwxr-xr-x   6 1094     wheel        1024 Sep 13 19:07 pub\ndrwxr-xr-x   3 root     wheel        1024 Jan  3  1994 usr\n-rw-r--r--   1 root     root          312 Aug  1  1994 welcome.msg\n'226 Transfer complete.'\n>>> ftp.quit()\n'221 Goodbye.'\n>>>\n\nA nice test that reveals some of the network dialogue would be:\npython ftplib.py -d localhost -l -p -l\n"
+'FTP'
+'error_reply'
+'error_temp'
+'error_perm'
+'error_proto'
+'Error'
+'Error'
+'error_reply'
+'error_temp'
+'error_perm'
+'error_proto'
+'\r\n'
+'FTP'
+"An FTP client class.\n\nTo create a connection, call the class using these arguments:\n        host, user, passwd, acct, timeout, source_address, encoding\n\nThe first four arguments are all strings, and have default value ''.\nThe parameter ´timeout´ must be numeric and defaults to None if not\npassed, meaning that no timeout will be set on any ftp socket(s).\nIf a timeout is passed, then this is now the default timeout for all ftp\nsocket operations for this instance.\nThe last parameter is the encoding of filenames, which defaults to utf-8.\n\nThen use self.connect() with optional host and port argument.\n\nTo download a file, use ftp.retrlines('RETR ' + filename),\nor ftp.retrbinary() with slightly different arguments.\nTo upload a file, use ftp.storlines() or ftp.storbinary(),\nwhich have an open file as argument (see their definitions\nbelow for details).\nThe download/upload functions first issue appropriate TYPE\nand PORT or PASV commands.\n"
+'encoding'
+'utf-8'
+'Initialization method (called by class instantiation).\nInitialize host to localhost, port to standard ftp port.\nOptional arguments are host (for connect()),\nand user, passwd, acct (for login()).\n'
+'Connect to host.  Arguments are:\n- host: hostname to connect to (string, default previous host)\n- port: port to connect to (integer, default previous port)\n- timeout: the timeout to set against the ftp socket(s)\n- source_address: a 2-tuple (host, port) for the socket to bind\n  to as its source address before connecting.\n'
+'Non-blocking socket (timeout=0) is not supported'
+'ftplib.connect'
+'Get the welcome message from the server.\n(this is read and squirreled away by connect())'
+'*welcome*'
+'Set the debugging level.\nThe required argument level means:\n0: no debugging output (default)\n1: print commands and responses but not body text etc.\n2: also print raw lines read and sent before stripping CR/LF'
+'Use passive or active mode for data transfers.\nWith a false argument, use the normal PORT mode,\nWith a true argument, use the PASV command.'
+'\r\n'
+'an illegal newline character should not be contained'
+'ftplib.sendcmd'
+'*put*'
+'*cmd*'
+'got more than %d bytes'
+'*get*'
+'*resp*'
+"Expect a response beginning with '2'."
+"Abort a file transfer.  Uses out-of-band data.\nThis does not follow the procedure from the RFC to send Telnet\nIP and Synch; that doesn't seem to work with the servers I've\ntried.  Instead, just send the ABOR command as OOB data."
+'*put urgent*'
+'Send a command and return the response.'
+"Send a command and expect a response beginning with '2'."
+'Send a PORT command with the current host and the given\nport number.\n'
+'PORT '
+'Send an EPRT command with the current host and the given port number.'
+'unsupported address family'
+'EPRT '
+'Create a new socket and send a PORT command for it.'
+'Internal: Does the PASV or EPSV handshake -> (address, port)'
+'PASV'
+'EPSV'
+"Initiate a transfer over the data connection.\n\nIf the transfer is active, send a port command and the\ntransfer command, and accept the connection.  If the server is\npassive, send a pasv command, connect to it, and start the\ntransfer command.  Either way, return the socket for the\nconnection and the expected size of the transfer.  The\nexpected size may be None if it could not be determined.\n\nOptional 'rest' argument can be a string that is sent as the\nargument to a REST command.  This is essentially a server\nmarker used to tell the server to skip over any data up to the\ngiven marker.\n"
+'REST %s'
+'150'
+'Like ntransfercmd() but returns only the socket.'
+'Login, default anonymous.'
+'anonymous'
+'anonymous@'
+'USER '
+'PASS '
+'ACCT '
+'Retrieve data in binary mode.  A new port is created for you.\n\nArgs:\n  cmd: A RETR command.\n  callback: A single parameter callable to be called on each\n            block of data read.\n  blocksize: The maximum number of bytes to read from the\n             socket at one time.  [default: 8192]\n  rest: Passed to transfercmd().  [default: None]\n\nReturns:\n  The response code.\n'
+'TYPE I'
+'Retrieve data in line mode.  A new port is created for you.\n\nArgs:\n  cmd: A RETR, LIST, or NLST command.\n  callback: An optional single parameter callable that is called\n            for each line with the trailing CRLF stripped.\n            [default: print_line()]\n\nReturns:\n  The response code.\n'
+'TYPE A'
+'got more than %d bytes'
+'*retr*'
+'Store a file in binary mode.  A new port is created for you.\n\nArgs:\n  cmd: A STOR command.\n  fp: A file-like object with a read(num_bytes) method.\n  blocksize: The maximum data size to read from fp and send over\n             the connection at once.  [default: 8192]\n  callback: An optional single parameter callable that is called on\n            each block of data after it is sent.  [default: None]\n  rest: Passed to transfercmd().  [default: None]\n\nReturns:\n  The response code.\n'
+'TYPE I'
+'Store a file in line mode.  A new port is created for you.\n\nArgs:\n  cmd: A STOR command.\n  fp: A file-like object with a readline() method.\n  callback: An optional single parameter callable that is called on\n            each line after it is sent.  [default: None]\n\nReturns:\n  The response code.\n'
+'TYPE A'
+'got more than %d bytes'
+'Send new account name.'
+'ACCT '
+'Return a list of files in a given directory (default the current).'
+'NLST'
+'List a directory in long form.\nBy default list current directory to stdout.\nOptional last argument is callback function; all\nnon-empty arguments before it are concatenated to the\nLIST command.  (This *should* only be used for a pathname.)'
+'LIST'
+'List a directory in a standardized format by using MLSD\ncommand (RFC-3659). If path is omitted the current directory\nis assumed. "facts" is a list of strings representing the type\nof information desired (e.g. ["type", "size", "perm"]).\n\nReturn a generator object yielding a tuple of two elements\nfor every file found in path.\nFirst element is the file name, the second one is a dictionary\nincluding a variable number of "facts" depending on the server\nand whether "facts" argument has been provided.\n'
+'OPTS MLST '
+'MLSD %s'
+'MLSD'
+'Rename a file.'
+'RNFR '
+'RNTO '
+'Delete a file.'
+'DELE '
+'Change to a directory.'
+'..'
+'CDUP'
+'500'
+'CWD '
+'Retrieve the size of a file.'
+'SIZE '
+'213'
+'Make a directory, return its full pathname.'
+'MKD '
+'257'
+'Remove a directory.'
+'RMD '
+'Return current working directory.'
+'PWD'
+'257'
+'Quit, and close the connection.'
+'QUIT'
+'Close the connection without assuming anything about it.'
+'FTP_TLS'
+"A FTP subclass which adds TLS support to FTP as described\nin RFC-4217.\n\nConnect as usual to port 21 implicitly securing the FTP control\nconnection before authenticating.\n\nSecuring the data connection requires user to explicitly ask\nfor it by calling prot_p() method.\n\nUsage example:\n>>> from ftplib import FTP_TLS\n>>> ftps = FTP_TLS('ftp.python.org')\n>>> ftps.login()  # login anonymously previously securing control channel\n'230 Guest login ok, access restrictions apply.'\n>>> ftps.prot_p()  # switch to secure data connection\n'200 Protection level set to P'\n>>> ftps.retrlines('LIST')  # list directory content securely\ntotal 9\ndrwxr-xr-x   8 root     wheel        1024 Jan  3  1994 .\ndrwxr-xr-x   8 root     wheel        1024 Jan  3  1994 ..\ndrwxr-xr-x   2 root     wheel        1024 Jan  3  1994 bin\ndrwxr-xr-x   2 root     wheel        1024 Jan  3  1994 etc\nd-wxrwxr-x   2 ftp      wheel        1024 Sep  5 13:43 incoming\ndrwxr-xr-x   2 root     wheel        1024 Nov 17  1993 lib\ndrwxr-xr-x   6 1094     wheel        1024 Sep 13 19:07 pub\ndrwxr-xr-x   3 root     wheel        1024 Jan  3  1994 usr\n-rw-r--r--   1 root     root          312 Aug  1  1994 welcome.msg\n'226 Transfer complete.'\n>>> ftps.quit()\n'221 Goodbye.'\n>>>\n"
+'context'
+'timeout'
+'source_address'
+'encoding'
+'utf-8'
+'Set up secure control connection by using TLS/SSL.'
+'Already using TLS'
+'AUTH TLS'
+'AUTH SSL'
+'Switch back to a clear-text control connection.'
+'not using TLS'
+'CCC'
+'Set up secure data connection.'
+'PBSZ 0'
+'PROT P'
+'Set up clear text data connection.'
+'PROT C'
+'FTP_TLS'
+"Parse the '150' response for a RETR request.\nReturns the expected transfer size or None; size is not guaranteed to\nbe present in the 150 message.\n"
+'150'
+'150 .* \\((\\d+) bytes\\)'
+"Parse the '227' response for a PASV request.\nRaises error_proto if it does not contain '(h1,h2,h3,h4,p1,p2)'\nReturn ('host.addr.as.numbers', port#) tuple."
+'227'
+'(\\d+),(\\d+),(\\d+),(\\d+),(\\d+),(\\d+)'
+"Parse the '229' response for an EPSV request.\nRaises error_proto if it does not contain '(|||port|)'\nReturn ('host.addr.as.numbers', port#) tuple."
+'229'
+"Parse the '257' response for a MKD or PWD request.\nThis is a response to a MKD or PWD request: a directory name.\nReturns the directoryname in the 257 reply."
+'257'
+' "'
+'Default retrlines callback to print a line.'
+'Copy file from one FTP-instance to another.'
+'TYPE '
+'PASV'
+'STOR '
+'RETR '
+'Test program.\nUsage: ftplib [-d] [-r[file]] host [-l[dir]] [-d[dir]] [-p] [file] ...\n\nOptions:\n  -d        increase debugging level\n  -r[file]  set alternate ~/.netrc file\n\nCommands:\n  -l[dir]   list directory\n  -d[dir]   change the current directory\n  -p        toggle passive and active mode\n  file      retrieve the file and write it to stdout\n'
+'-d'
+'-r'
+'No account -- using anonymous login.'
+'Could not open account file -- using anonymous login.'
+'-l'
+'CWD'
+'-p'
+'RETR '
+'__main__'

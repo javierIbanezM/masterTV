@@ -1,0 +1,130 @@
+<module>()  line 1
+    trace(msg)  line 31
+    trace(msg)  line 36
+    _decode_source(source_bytes)  line 40
+    get_pyz_toc_tree()  line 64
+    _build_pyz_prefix_tree(pyz_archive)  line 107
+    PyiFrozenFinder()  line 125
+        PyiFrozenFinder.__repr__(self)  line 135
+        PyiFrozenFinder.path_hook(cls, path)  line 138
+        PyiFrozenFinder.__init__(self, path)  line 149
+        PyiFrozenFinder._compute_pyz_entry_name(self, fullname)  line 182
+        PyiFrozenFinder.fallback_finder(self)  line 193
+        PyiFrozenFinder._find_fallback_spec(self, fullname, target)  line 227
+        PyiFrozenFinder.invalidate_caches(self)  line 247
+        PyiFrozenFinder.find_spec(self, fullname, target)  line 262
+        PyiFrozenFinder.find_loader(self, fullname)  line 346
+        PyiFrozenFinder.find_module(self, fullname)  line 364
+    _check_name(method)  line 379
+        _check_name.<locals>._check_name_wrapper(self, name)  line 380
+    PyiFrozenLoader()  line 388
+        PyiFrozenLoader.__init__(self, name, pyz_archive, pyz_entry_name, is_package)  line 396
+        PyiFrozenLoader.create_module(self, spec)  line 428
+        PyiFrozenLoader.exec_module(self, module)  line 437
+        PyiFrozenLoader.load_module(self, fullname)  line 464
+        PyiFrozenLoader.get_filename(self, fullname)  line 480
+        PyiFrozenLoader.get_code(self, fullname)  line 495
+        PyiFrozenLoader.get_source(self, fullname)  line 505
+        PyiFrozenLoader.is_package(self, fullname)  line 529
+        PyiFrozenLoader.get_data(self, path)  line 541
+        PyiFrozenLoader.get_resource_reader(self, fullname)  line 556
+    PyiFrozenResourceReader()  line 564
+        PyiFrozenResourceReader.__init__(self, loader)  line 595
+        PyiFrozenResourceReader.open_resource(self, resource)  line 602
+        PyiFrozenResourceReader.resource_path(self, resource)  line 605
+        PyiFrozenResourceReader.is_resource(self, path)  line 608
+        PyiFrozenResourceReader.contents(self)  line 611
+            PyiFrozenResourceReader.contents.<locals>.<genexpr>(.0)  line 612
+        PyiFrozenResourceReader.files(self)  line 614
+    PyiFrozenEntryPointLoader()  line 618
+        PyiFrozenEntryPointLoader.__repr__(self)  line 622
+        PyiFrozenEntryPointLoader.get_code(self, fullname)  line 625
+    install()  line 634
+    _fixup_frozen_stdlib()  line 698
+    _patch_zipimporter_get_source()  line 745
+        _patch_zipimporter_get_source.<locals>._get_source(self, fullname)  line 750
+
+--- strings ---
+'\nPEP-302 and PEP-451 importers for frozen applications.\n'
+"\nDecode bytes representing source code and return the string. Universal newline support is used in the decoding.\nBased on CPython's implementation of the same functionality:\nhttps://github.com/python/cpython/blob/3.9/Lib/importlib/_bootstrap_external.py#L679-L688\n"
+'darwin'
+'Contents/Frameworks'
+'Resources'
+'PyiFrozenFinder'
+'\nPyInstaller\'s frozen path entry finder for specific search path.\n\nPer-path instances allow us to properly translate the given module name ("fullname") into full PYZ entry name.\nFor example, with search path being `sys._MEIPASS`, the module "mypackage.mod" would translate to "mypackage.mod"\nin the PYZ archive. However, if search path was `sys._MEIPASS/myotherpackage/_vendored` (for example, if\n`myotherpacakge` added this path to `sys.path`), then "mypackage.mod" would need to translate to\n"myotherpackage._vendored.mypackage.mod" in the PYZ archive.\n'
+'PyInstaller: running path finder hook for path: '
+'PyInstaller: hook succeeded'
+'PyInstaller: hook failed: '
+'..'
+'Failed to determine relative path w.r.t. top-level application directory.'
+'only directories are supported'
+"\nConvert module fullname into PYZ entry name, subject to the prefix implied by this finder's search path.\n"
+'\nOpportunistically create a *fallback finder* using `sys.path_hooks` entries that are located *after* our hook.\nThe main goal of this exercise is to obtain an instance of python\'s FileFinder, but in theory any other hook\nthat comes after ours is eligible to be a fallback.\n\nHaving this fallback allows our finder to "cooperate" with python\'s FileFinder, as if the two were a single\nfinder, which allows us to work around the python\'s PathFinder permitting only one finder instance per path\nwithout subclassing FileFinder.\n'
+'_fallback_finder'
+'\nAttempt to find the spec using fallback finder, which is opportunistically created here. Typically, this would\nbe python\'s FileFinder, which can discover specs for on-filesystem modules, such as extension modules and\nmodules that are collected only as source .py files.\n\nHaving this fallback allows our finder to "cooperate" with python\'s FileFinder, as if the two were a single\nfinder, which allows us to work around the python\'s PathFinder permitting only one finder instance per path\nwithout subclassing FileFinder.\n'
+'_fallback_finder'
+'\nA method which, when called, should invalidate any internal cache used by the finder. Used by\nimportlib.invalidate_caches() when invalidating the caches of all finders on sys.meta_path.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.MetaPathFinder.invalidate_caches\n'
+'_fallback_finder'
+'invalidate_caches'
+'\nA method for finding a spec for the specified module. The finder will search for the module only within the\npath entry to which it is assigned. If a spec cannot be found, None is returned. When passed in, target is a\nmodule object that the finder may use to make a more educated guess about what spec to return.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.PathEntryFinder.find_spec\n'
+': find_spec: called with fullname='
+', target='
+': find_spec: '
+' not found in PYZ...'
+': find_spec: attempting resolve using fallback finder '
+': find_spec: fallback finder returned spec: '
+': find_spec: fallback finder is not available.'
+': find_spec: found '
+' in PYZ as '
+', typecode='
+'\nA legacy method for finding a loader for the specified module. Returns a 2-tuple of (loader, portion) where\nportion is a sequence of file system locations contributing to part of a namespace package. The loader may\nbe None while specifying portion to signify the contribution of the file system locations to a namespace\npackage. An empty list can be used for portion to signify the loader is not part of a namespace package. If\nloader is None and portion is the empty list then no loader or location for a namespace package were found\n(i.e. failure to find anything for the module).\n\nDeprecated since python 3.4, removed in 3.12.\n'
+'\nA concrete implementation of Finder.find_module() which is equivalent to self.find_loader(fullname)[0].\n\nDeprecated since python 3.4, removed in 3.12.\n'
+'PyiFrozenFinder'
+'loader for '
+' cannot handle '
+'PyiFrozenLoader'
+"\nPyInstaller's frozen loader for modules in the PYZ archive, which are discovered by PyiFrozenFinder.\n\nSince this loader is instantiated only from PyiFrozenFinder and since each loader instance is tied to a specific\nmodule, the fact that the loader was instantiated serves as the proof that the module exists in the PYZ archive.\nHence, we can avoid any additional validation in the implementation of the loader's methods.\n"
+'__init__.py'
+'.py'
+'\nA method that returns the module object to use when importing a module. This method may return None, indicating\nthat default module creation semantics should take place.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.Loader.create_module\n'
+'\nA method that executes the module in its own namespace when a module is imported or reloaded. The module\nshould already be initialized when exec_module() is called. When this method exists, create_module()\nmust be defined.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.Loader.exec_module\n'
+'Failed to retrieve bytecode for '
+'__file__'
+"\nA legacy method for loading a module. If the module cannot be loaded, ImportError is raised, otherwise the\nloaded module is returned.\n\nDeprecated since python 3.4, slated for removal in 3.12 (but still present in python's own FileLoader in\nboth v3.12.4 and v3.13.0rc1).\n"
+'\nA method that is to return the value of __file__ for the specified module. If no path is available, ImportError\nis raised.\n\nIf source code is available, then the method should return the path to the source file, regardless of whether a\nbytecode was used to load the module.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.ExecutionLoader.get_filename\n'
+'\nReturn the code object for a module, or None if the module does not have a code object (as would be the case,\nfor example, for a built-in module). Raise an ImportError if loader cannot find the requested module.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.InspectLoader.get_code\n'
+"\n        A method to return the source of a module. It is returned as a text string using universal newlines, translating\n        all recognized line separators into '\n' characters. Returns None if no source is available (e.g. a built-in\n        module). Raises ImportError if the loader cannot find the module specified.\n\n        https://docs.python.org/3/library/importlib.html#importlib.abc.InspectLoader.get_source\n        "
+'rb'
+'\nA method to return a true value if the module is a package, a false value otherwise. ImportError is raised if\nthe loader cannot find the module.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.InspectLoader.is_package\n'
+'\nA method to return the bytes for the data located at path. Loaders that have a file-like storage back-end that\nallows storing arbitrary data can implement this abstract method to give direct access to the data stored.\nOSError is to be raised if the path cannot be found. The path is expected to be constructed using a module’s\n__file__ attribute or an item from a package’s __path__.\n\nhttps://docs.python.org/3/library/importlib.html#importlib.abc.ResourceLoader.get_data\n'
+'rb'
+'\nReturn resource reader compatible with `importlib.resources`.\n'
+'PyiFrozenLoader'
+'PyiFrozenResourceReader'
+"\nResource reader for importlib.resources / importlib_resources support.\n\nSupports only on-disk resources, which should cover the typical use cases, i.e., the access to data files;\nPyInstaller collects data files onto filesystem, and as of v6.0.0, the embedded PYZ archive is guaranteed\nto contain only .pyc modules.\n\nWhen listing resources, source .py files will not be listed as they are not collected by default. Similarly,\nsub-directories that contained only .py files are not reconstructed on filesystem, so they will not be listed,\neither. If access to .py files is required for whatever reason, they need to be explicitly collected as data files\nanyway, which will place them on filesystem and make them appear as resources.\n\nFor on-disk resources, we *must* return path compatible with pathlib.Path() in order to avoid copy to a temporary\nfile, which might break under some circumstances, e.g., metpy with importlib_resources back-port, due to:\nhttps://github.com/Unidata/MetPy/blob/a3424de66a44bf3a92b0dcacf4dff82ad7b86712/src/metpy/plots/wx_symbols.py#L24-L25\n(importlib_resources tries to use 'fonts/wx_symbols.ttf' as a temporary filename suffix, which fails as it contains\na separator).\n\nFurthermore, some packages expect files() to return either pathlib.Path or zipfile.Path, e.g.,\nhttps://github.com/tensorflow/datasets/blob/master/tensorflow_datasets/core/utils/resource_utils.py#L81-L97\nThis makes implementation of mixed support for on-disk and embedded resources using importlib.abc.Traversable\nprotocol rather difficult.\n\nSo in order to maximize compatibility with unfrozen behavior, the below implementation is basically equivalent of\nimportlib.readers.FileReader from python 3.10:\n  https://github.com/python/cpython/blob/839d7893943782ee803536a47f1d4de160314f85/Lib/importlib/readers.py#L11\nand its underlying classes, importlib.abc.TraversableResources and importlib.abc.ResourceReader:\n  https://github.com/python/cpython/blob/839d7893943782ee803536a47f1d4de160314f85/Lib/importlib/abc.py#L422\n  https://github.com/python/cpython/blob/839d7893943782ee803536a47f1d4de160314f85/Lib/importlib/abc.py#L312\n"
+'rb'
+'PyiFrozenResourceReader'
+'PyiFrozenEntryPointLoader'
+'\nA special loader that enables retrieval of the code-object for the __main__ module.\n'
+'__main__'
+' cannot handle module '
+'PyiFrozenEntryPointLoader'
+"\nInstall PyInstaller's frozen finders/loaders/importers into python's import machinery.\n"
+'_pyinstaller_pyz'
+'Bootloader did not set sys._pyinstaller_pyz!'
+'Failed to setup PYZ archive reader!'
+'__name__'
+'WindowsRegistryFinder'
+'zipimporter'
+'PyInstaller: inserting our finder hook at index '
+' in sys.path_hooks.'
+'PyInstaller: zipimporter hook not found in sys.path_hooks! Prepending our finder hook to the list.'
+'__main__'
+'.__init__'
+'.pyc'
+'__file__'
+'importlib._bootstrap'
+'base_library.zip'
+'__init__.py'
+'.py'
+'rb'

@@ -1,0 +1,442 @@
+<module>()  line 1
+    reduce_array(a)  line 48
+    rebuild_as_list(obj)  line 53
+    Token()  line 63
+        Token.__init__(self, typeid, address, id)  line 69
+        Token.__getstate__(self)  line 72
+        Token.__setstate__(self, state)  line 75
+        Token.__repr__(self)  line 78
+    dispatch(c, id, methodname, args, kwds)  line 86
+    convert_to_error(kind, result)  line 99
+    RemoteError()  line 114
+        RemoteError.__str__(self)  line 115
+    all_methods(obj)  line 122
+    public_methods(obj)  line 133
+    Server()  line 143
+        Server.__init__(self, registry, address, authkey, serializer)  line 150
+        Server.serve_forever(self)  line 168
+        Server.accepter(self)  line 190
+        Server._handle_request(self, c)  line 200
+        Server.handle_request(self, conn)  line 230
+        Server.serve_client(self, conn)  line 242
+        Server.fallback_getvalue(self, conn, ident, obj)  line 323
+        Server.fallback_str(self, conn, ident, obj)  line 326
+        Server.fallback_repr(self, conn, ident, obj)  line 329
+        Server.dummy(self, c)  line 338
+        Server.debug_info(self, c)  line 341
+        Server.number_of_objects(self, c)  line 357
+        Server.shutdown(self, c)  line 364
+        Server.create(self, c, typeid)  line 377
+        Server.get_methods(self, c, token)  line 413
+        Server.accept_connection(self, c, name)  line 419
+        Server.incref(self, c, ident)  line 427
+        Server.decref(self, c, ident)  line 444
+    State()  line 476
+    BaseManager()  line 495
+        BaseManager.__init__(self, address, authkey, serializer, ctx, shutdown_timeout)  line 502
+        BaseManager.get_server(self)  line 515
+        BaseManager.connect(self)  line 530
+        BaseManager.start(self, initializer, initargs)  line 539
+            BaseManager.start.<locals>.<genexpr>(.0)  line 564
+        BaseManager._run_server(cls, registry, address, authkey, serializer, writer, initializer, initargs)  line 582
+        BaseManager._create(self, typeid)  line 605
+        BaseManager.join(self, timeout)  line 617
+        BaseManager._debug_info(self)  line 626
+        BaseManager._number_of_objects(self)  line 636
+        BaseManager.__enter__(self)  line 646
+        BaseManager.__exit__(self, exc_type, exc_val, exc_tb)  line 659
+        BaseManager._finalize_manager(process, address, authkey, state, _Client, shutdown_timeout)  line 662
+        BaseManager.address(self)  line 697
+        BaseManager.register(cls, typeid, callable, proxytype, exposed, method_to_typeid, create_method)  line 701
+            BaseManager.register.<locals>.temp(self)  line 728
+    ProcessLocalSet()  line 745
+        ProcessLocalSet.__init__(self)  line 746
+            ProcessLocalSet.__init__.<locals>.<lambda>(obj)  line 747
+        ProcessLocalSet.__reduce__(self)  line 748
+    BaseProxy()  line 755
+        BaseProxy.__init__(self, token, serializer, manager, authkey, exposed, incref, manager_owned)  line 766
+        BaseProxy._connect(self)  line 810
+        BaseProxy._callmethod(self, methodname, args, kwds)  line 819
+        BaseProxy._getvalue(self)  line 852
+        BaseProxy._incref(self)  line 858
+        BaseProxy._decref(token, serial, authkey, state, tls, idset, _Client)  line 878
+        BaseProxy._after_fork(self)  line 903
+        BaseProxy.__reduce__(self)  line 911
+        BaseProxy.__deepcopy__(self, memo)  line 924
+        BaseProxy.__repr__(self)  line 927
+        BaseProxy.__str__(self)  line 931
+    RebuildProxy(func, token, serializer, kwds)  line 944
+    MakeProxyType(name, exposed, _cache)  line 965
+    AutoProxy(token, serializer, manager, authkey, exposed, incref, manager_owned)  line 987
+    Namespace()  line 1016
+        Namespace.__init__(self)  line 1017
+        Namespace.__repr__(self)  line 1019
+    Value()  line 1028
+        Value.__init__(self, typecode, value, lock)  line 1029
+        Value.get(self)  line 1032
+        Value.set(self, value)  line 1034
+        Value.__repr__(self)  line 1036
+    Array(typecode, sequence, lock)  line 1040
+    IteratorProxy()  line 1047
+        IteratorProxy.__iter__(self)  line 1049
+        IteratorProxy.__next__(self)  line 1051
+        IteratorProxy.send(self)  line 1053
+        IteratorProxy.throw(self)  line 1055
+        IteratorProxy.close(self)  line 1057
+    AcquirerProxy()  line 1061
+        AcquirerProxy.acquire(self, blocking, timeout)  line 1063
+        AcquirerProxy.release(self)  line 1066
+        AcquirerProxy.locked(self)  line 1068
+        AcquirerProxy.__enter__(self)  line 1070
+        AcquirerProxy.__exit__(self, exc_type, exc_val, exc_tb)  line 1072
+    ConditionProxy()  line 1076
+        ConditionProxy.wait(self, timeout)  line 1078
+        ConditionProxy.notify(self, n)  line 1080
+        ConditionProxy.notify_all(self)  line 1082
+        ConditionProxy.wait_for(self, predicate, timeout)  line 1084
+    EventProxy()  line 1103
+        EventProxy.is_set(self)  line 1105
+        EventProxy.set(self)  line 1107
+        EventProxy.clear(self)  line 1109
+        EventProxy.wait(self, timeout)  line 1111
+    BarrierProxy()  line 1115
+        BarrierProxy.wait(self, timeout)  line 1117
+        BarrierProxy.abort(self)  line 1119
+        BarrierProxy.reset(self)  line 1121
+        BarrierProxy.parties(self)  line 1123
+        BarrierProxy.n_waiting(self)  line 1126
+        BarrierProxy.broken(self)  line 1129
+    NamespaceProxy()  line 1134
+        NamespaceProxy.__getattr__(self, key)  line 1136
+        NamespaceProxy.__setattr__(self, key, value)  line 1141
+        NamespaceProxy.__delattr__(self, key)  line 1146
+    ValueProxy()  line 1153
+        ValueProxy.get(self)  line 1155
+        ValueProxy.set(self, value)  line 1157
+    ListProxy()  line 1170
+        ListProxy.__iadd__(self, value)  line 1171
+        ListProxy.__imul__(self, value)  line 1174
+    DictProxy()  line 1191
+        DictProxy.__ior__(self, value)  line 1192
+    SetProxy()  line 1211
+        SetProxy.__ior__(self, value)  line 1212
+        SetProxy.__iand__(self, value)  line 1215
+        SetProxy.__ixor__(self, value)  line 1218
+        SetProxy.__isub__(self, value)  line 1221
+    PoolProxy()  line 1246
+        PoolProxy.__enter__(self)  line 1247
+        PoolProxy.__exit__(self, exc_type, exc_val, exc_tb)  line 1249
+    SyncManager()  line 1256
+    _SharedMemoryTracker()  line 1294
+        _SharedMemoryTracker.__init__(self, name, segment_names)  line 1297
+        _SharedMemoryTracker.register_segment(self, segment_name)  line 1301
+        _SharedMemoryTracker.destroy_segment(self, segment_name)  line 1306
+        _SharedMemoryTracker.unlink(self)  line 1315
+        _SharedMemoryTracker.__del__(self)  line 1320
+        _SharedMemoryTracker.__getstate__(self)  line 1324
+        _SharedMemoryTracker.__setstate__(self, state)  line 1327
+    SharedMemoryServer()  line 1331
+        SharedMemoryServer.__init__(self)  line 1336
+        SharedMemoryServer.create(self, c, typeid)  line 1346
+        SharedMemoryServer.shutdown(self, c)  line 1356
+        SharedMemoryServer.track_segment(self, c, segment_name)  line 1361
+        SharedMemoryServer.release_segment(self, c, segment_name)  line 1365
+        SharedMemoryServer.list_segments(self, c)  line 1370
+    SharedMemoryManager()  line 1376
+        SharedMemoryManager.__init__(self)  line 1388
+        SharedMemoryManager.__del__(self)  line 1400
+        SharedMemoryManager.get_server(self)  line 1403
+        SharedMemoryManager.SharedMemory(self, size)  line 1416
+        SharedMemoryManager.ShareableList(self, sequence)  line 1428
+
+--- strings ---
+'BaseManager'
+'SyncManager'
+'BaseProxy'
+'Token'
+'SharedMemoryManager'
+'Token'
+'\nType to uniquely identify a shared object\n'
+'(typeid='
+', address='
+', id='
+'\nSend a message to manager using connection `c` and return response\n'
+'#RETURN'
+'#ERROR'
+'#UNSERIALIZABLE'
+"Result {0!r} (kind '{1}') type is {2}, not str"
+'Unserializable message: %s\n'
+'Unrecognized message type {!r}'
+'RemoteError'
+'---------------------------------------------------------------------------'
+'\n---------------------------------------------------------------------------\n'
+'RemoteError'
+'\nReturn a list of names of methods of `obj`\n'
+"\nReturn a list of names of methods of `obj` which do not start with '_'\n"
+'Server'
+'\nServer class which runs in a process controlled by a manager object\n'
+'Authkey {0!r} is type {1!s}, not bytes'
+'\nRun the server forever\n'
+'resetting stdout, stderr'
+'%r unrecognized'
+'#RETURN'
+'#TRACEBACK'
+'Failure to send message: %r'
+' ... request was %r'
+' ... exception was %r'
+'\nHandle a new connection\n'
+'\nHandle requests from the proxies in a particular process/thread\n'
+'starting server thread to service %r'
+'method '
+' of '
+' object is not in exposed='
+'#PROXY'
+'#RETURN'
+'#ERROR'
+'#TRACEBACK'
+'got EOF -- exiting thread serving %r'
+'#UNSERIALIZABLE'
+'exception in thread serving %r'
+' ... message was %r'
+' ... exception was %r'
+'__str__'
+'__repr__'
+'#GETVALUE'
+'\nReturn some info --- useful to spot problems with refcounting\n'
+'  '
+':       refcount='
+'\n    '
+'\nNumber of shared objects\n'
+'\nShutdown this process\n'
+'manager received shutdown message'
+'\nCreate a new shared object and return its id\n'
+'Without callable, must have one non-keyword argument'
+'Method_to_typeid {0!r}: type {1!s}, not dict'
+'%x'
+'%r callable returned object with id %r'
+'\nReturn the methods of the shared object indicated by token\n'
+'\nSpawn a new thread to serve this connection\n'
+'Server re-enabled tracking & INCREF %r'
+'Server DECREF skipping %r'
+'Id {0!s} ({1!r}) has refcount {2:n}, not 1+'
+'disposing of obj with id %r'
+'Server'
+'State'
+'value'
+'State'
+'pickle'
+'xmlrpclib'
+'BaseManager'
+'\nBase class for managers\n'
+'shutdown_timeout'
+'\nReturn server object with serve_forever() method and address attribute\n'
+'Already started server'
+'Manager has shut down'
+'Unknown state {!r}'
+'\nConnect manager object to the server process\n'
+'dummy'
+'\nSpawn a server process for this manager object\n'
+'Already started server'
+'Manager has shut down'
+'Unknown state {!r}'
+'initializer must be a callable'
+'\nCreate a server, report its address and run it\n'
+'manager serving at %r'
+'\nCreate a new shared object; return the token and exposed tuple\n'
+'server not yet started'
+'create'
+'\nJoin the manager process (if it has been spawned)\n'
+'\nReturn some info about the servers shared objects and connections\n'
+'debug_info'
+'\nReturn the number of shared objects\n'
+'number_of_objects'
+'Unable to start server'
+'Manager has shut down'
+'Unknown state {!r}'
+'\nShutdown the manager process; will be registered as a finalizer\n'
+'sending shutdown message to manager'
+'shutdown'
+'manager still alive'
+'terminate'
+'trying to `terminate()` manager process'
+'manager still alive after terminate'
+'\nRegister a typeid with the manager type\n'
+'_registry'
+'_exposed_'
+'_method_to_typeid_'
+'%r is not a string'
+'requesting creation of a shared %r object'
+'decref'
+'ProcessLocalSet'
+'ProcessLocalSet'
+'BaseProxy'
+'\nA base for proxies of shared objects\n'
+'making connection to manager'
+'MainThread'
+'accept_connection'
+'\nTry to call a method of the referent and return a copy of the result\n'
+'thread %r does not own a connection'
+'#RETURN'
+'#PROXY'
+'decref'
+'\nGet a copy of the value of the referent\n'
+'#GETVALUE'
+'owned_by_manager skipped INCREF of %r'
+'incref'
+'INCREF %r'
+'DECREF %r'
+'decref'
+'... decref failed %s'
+'DECREF %r -- manager already shutdown'
+'connection'
+'thread %r has no more proxies so closing conn'
+'incref failed: %s'
+'authkey'
+'_isauto'
+'exposed'
+'<%s object, typeid %r at %#x>'
+'\nReturn representation of the referent (or a fall-back if that fails)\n'
+'__repr__'
+"; '__str__()' failed>"
+'\nFunction used for unpickling proxy objects.\n'
+'_manager_server'
+'Rebuild a proxy owned by manager, token=%r'
+'manager_owned'
+'incref'
+'_inheriting'
+'\nReturn a proxy type whose methods are given by `exposed`\n'
+'def '
+'(self, /, *args, **kwds):\n        return self._callmethod('
+', args, kwds)'
+'\nReturn an auto-proxy for `token`\n'
+'get_methods'
+'AutoProxy[%s]'
+'Namespace'
+', '
+'Namespace'
+'Value'
+', '
+'Value'
+'IteratorProxy'
+'__next__'
+'send'
+'throw'
+'close'
+'IteratorProxy'
+'AcquirerProxy'
+'acquire'
+'release'
+'locked'
+'acquire'
+'release'
+'AcquirerProxy'
+'ConditionProxy'
+'wait'
+'notify'
+'notify_all'
+'ConditionProxy'
+'EventProxy'
+'is_set'
+'set'
+'clear'
+'wait'
+'EventProxy'
+'BarrierProxy'
+'wait'
+'abort'
+'reset'
+'__getattribute__'
+'__getattribute__'
+'__getattribute__'
+'BarrierProxy'
+'NamespaceProxy'
+'_callmethod'
+'__getattribute__'
+'_callmethod'
+'__setattr__'
+'_callmethod'
+'__delattr__'
+'NamespaceProxy'
+'ValueProxy'
+'get'
+'set'
+'ValueProxy'
+'BaseListProxy'
+'ListProxy'
+'extend'
+'__imul__'
+'ListProxy'
+'_BaseDictProxy'
+'__iter__'
+'Iterator'
+'DictProxy'
+'__ior__'
+'DictProxy'
+'_BaseSetProxy'
+'SetProxy'
+'__ior__'
+'__iand__'
+'__ixor__'
+'__isub__'
+'SetProxy'
+'ArrayProxy'
+'PoolProxy'
+'apply_async'
+'imap'
+'imap_unordered'
+'map_async'
+'starmap_async'
+'AsyncResult'
+'PoolProxy'
+'SyncManager'
+'\nSubclass of `BaseManager` which supports a number of shared object types.\n\nThe types registered are those intended for the synchronization\nof threads, plus `dict`, `list` and `Namespace`.\n\nThe `multiprocessing.Manager()` function creates started instances of\nthis class.\n'
+'Queue'
+'JoinableQueue'
+'Event'
+'Lock'
+'RLock'
+'Semaphore'
+'BoundedSemaphore'
+'Condition'
+'Barrier'
+'Pool'
+'list'
+'dict'
+'set'
+'Array'
+'_SharedMemoryTracker'
+'Manages one or more shared memory segments.'
+'Adds the supplied shared memory block name to tracker.'
+'Register segment '
+' in pid '
+'Calls unlink() on the shared memory block with the supplied name\nand removes it from the list of blocks being tracked.'
+'Destroy segment '
+' in pid '
+'Calls destroy_segment() on all tracked shared memory blocks.'
+'Call '
+'.__del__ in '
+'_SharedMemoryTracker'
+'SharedMemoryServer'
+'shm_'
+'SharedMemoryServer started by pid '
+'Create a new distributed-shared object (not backed by a shared\nmemory block) and return its id to be used in a Proxy Object.'
+'_shared_memory_proxy'
+'shared_memory_context'
+'Call unlink() on all tracked shared memory, terminate the Server.'
+"Adds the supplied shared memory block name to Server's tracker."
+'Calls unlink() on the shared memory block with the supplied name\nand removes it from the tracker instance inside the Server.'
+'Returns a list of names of shared memory blocks that the Server\nis currently tracking.'
+'SharedMemoryServer'
+'SharedMemoryManager'
+'Like SyncManager but uses SharedMemoryServer instead of Server.\n\nIt provides methods for creating and returning SharedMemory instances\nand for creating a list-like object (ShareableList) backed by shared\nmemory.  It also provides methods that create and return Proxy Objects\nthat support synchronization across processes (i.e. multi-process-safe\nlocks and semaphores).\n'
+'posix'
+' created by pid '
+'.__del__ by pid '
+'Better than monkeypatching for now; merge into Server ultimately'
+'Already started SharedMemoryServer'
+'SharedMemoryManager has shut down'
+'Unknown state {!r}'
+'Returns a new SharedMemory instance with the specified size in\nbytes, to be tracked by the manager.'
+'track_segment'
+'Returns a new ShareableList instance populated with the values\nfrom the input sequence, to be tracked by the manager.'
+'track_segment'

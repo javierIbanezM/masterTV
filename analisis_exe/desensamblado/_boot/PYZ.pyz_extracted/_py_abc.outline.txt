@@ -1,0 +1,33 @@
+<module>()  line 1
+    get_cache_token()  line 4
+    ABCMeta()  line 14
+        ABCMeta.__new__(mcls, name, bases, namespace)  line 35
+        ABCMeta.register(cls, subclass)  line 54
+        ABCMeta._dump_registry(cls, file)  line 72
+        ABCMeta._abc_registry_clear(cls)  line 83
+        ABCMeta._abc_caches_clear(cls)  line 87
+        ABCMeta.__instancecheck__(cls, instance)  line 92
+            ABCMeta.__instancecheck__.<locals>.<genexpr>(.0)  line 106
+        ABCMeta.__subclasscheck__(cls, subclass)  line 108
+
+--- strings ---
+'Returns the current ABC cache token.\n\nThe token is an opaque object (supporting equality testing) identifying the\ncurrent version of the ABC cache for virtual subclasses. The token changes\nwith every call to ``register()`` on any ABC.\n'
+'ABCMeta'
+"Metaclass for defining Abstract Base Classes (ABCs).\n\nUse this metaclass to create an ABC.  An ABC can be subclassed\ndirectly, and then acts as a mix-in class.  You can also register\nunrelated concrete classes (even built-in classes) and unrelated\nABCs as 'virtual subclasses' -- these and their descendants will\nbe considered subclasses of the registering ABC by the built-in\nissubclass() function, but the registering ABC won't show up in\ntheir MRO (Method Resolution Order) nor will method\nimplementations defined by the registering ABC be callable (not\neven via super()).\n"
+'__isabstractmethod__'
+'__abstractmethods__'
+'Register a virtual subclass of an ABC.\n\nReturns the subclass, to allow usage as a class decorator.\n'
+'Can only register classes'
+'Refusing to create an inheritance cycle'
+'Debug helper to print the ABC registry.'
+'Class: '
+'Inv. counter: '
+'_abc_'
+': '
+'Clear the registry (for debugging or testing).'
+'Clear the caches (for debugging or testing).'
+'Override for isinstance(instance, cls).'
+'Override for issubclass(subclass, cls).'
+'issubclass() arg 1 must be a class'
+'__mro__'
+'ABCMeta'

@@ -1,0 +1,2727 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Selectors module.\n\nThis module allows high-level and efficient I/O multiplexing, built upon the\n`select` module primitives.\n')
+              STORE_NAME               0 (__doc__)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('ABCMeta', 'abstractmethod'))
+              IMPORT_NAME              1 (abc)
+              IMPORT_FROM              2 (ABCMeta)
+              STORE_NAME               2 (ABCMeta)
+              IMPORT_FROM              3 (abstractmethod)
+              STORE_NAME               3 (abstractmethod)
+              POP_TOP
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('namedtuple',))
+              IMPORT_NAME              4 (collections)
+              IMPORT_FROM              5 (namedtuple)
+              STORE_NAME               5 (namedtuple)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Mapping',))
+              IMPORT_NAME              6 (collections.abc)
+              IMPORT_FROM              7 (Mapping)
+              STORE_NAME               7 (Mapping)
+              POP_TOP
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              8 (math)
+              STORE_NAME               8 (math)
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME              9 (select)
+              STORE_NAME               9 (select)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (None)
+              IMPORT_NAME             10 (sys)
+              STORE_NAME              10 (sys)
+
+ 17           LOAD_SMALL_INT           1
+              STORE_NAME              11 (EVENT_READ)
+
+ 18           LOAD_SMALL_INT           2
+              STORE_NAME              12 (EVENT_WRITE)
+
+ 21           LOAD_CONST               5 (<code object _fileobj_to_fd at 0x00000204B9FA7480, file "selectors.py", line 21>)
+              MAKE_FUNCTION
+              STORE_NAME              13 (_fileobj_to_fd)
+
+ 46           LOAD_NAME                5 (namedtuple)
+              PUSH_NULL
+              LOAD_CONST               6 ('SelectorKey')
+              BUILD_LIST               0
+              LOAD_CONST              36 (('fileobj', 'fd', 'events', 'data'))
+              LIST_EXTEND              1
+              CALL                     2
+              STORE_NAME              14 (SelectorKey)
+
+ 48           LOAD_CONST               7 ('SelectorKey(fileobj, fd, events, data)\n\n    Object used to associate a file object to its backing\n    file descriptor, selected event mask, and attached data.\n')
+              LOAD_NAME               14 (SelectorKey)
+              STORE_ATTR               0 (__doc__)
+
+ 53           LOAD_CONST               8 ('File object registered.')
+              LOAD_NAME               14 (SelectorKey)
+              LOAD_ATTR               30 (fileobj)
+              STORE_ATTR               0 (__doc__)
+
+ 54           LOAD_CONST               9 ('Underlying file descriptor.')
+              LOAD_NAME               14 (SelectorKey)
+              LOAD_ATTR               32 (fd)
+              STORE_ATTR               0 (__doc__)
+
+ 55           LOAD_CONST              10 ('Events that must be waited for on this file object.')
+              LOAD_NAME               14 (SelectorKey)
+              LOAD_ATTR               34 (events)
+              STORE_ATTR               0 (__doc__)
+
+ 56           LOAD_CONST              11 ('Optional opaque data associated to this file object.\nFor example, this could be used to store a per-client session ID.')
+              LOAD_NAME               14 (SelectorKey)
+              LOAD_ATTR               36 (data)
+              STORE_ATTR               0 (__doc__)
+
+ 60           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              12 (<code object _SelectorMapping at 0x00000204BA0A7870, file "selectors.py", line 60>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 ('_SelectorMapping')
+              LOAD_NAME                7 (Mapping)
+              CALL                     3
+              STORE_NAME              19 (_SelectorMapping)
+
+ 84           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              14 (<code object BaseSelector at 0x00000204B9F72AD0, file "selectors.py", line 84>)
+              MAKE_FUNCTION
+              LOAD_CONST              15 ('BaseSelector')
+              LOAD_NAME                2 (ABCMeta)
+              LOAD_CONST              16 (('metaclass',))
+              CALL_KW                  3
+              STORE_NAME              20 (BaseSelector)
+
+210           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              17 (<code object _BaseSelectorImpl at 0x00000204B9FEF0E0, file "selectors.py", line 210>)
+              MAKE_FUNCTION
+              LOAD_CONST              18 ('_BaseSelectorImpl')
+              LOAD_NAME               20 (BaseSelector)
+              CALL                     3
+              STORE_NAME              21 (_BaseSelectorImpl)
+
+281           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              19 (<code object SelectSelector at 0x00000204B9FB74B0, file "selectors.py", line 281>)
+              MAKE_FUNCTION
+              LOAD_CONST              20 ('SelectSelector')
+              LOAD_NAME               21 (_BaseSelectorImpl)
+              CALL                     3
+              STORE_NAME              22 (SelectSelector)
+
+330           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              21 (<code object _PollLikeSelector at 0x00000204BA0B8EA0, file "selectors.py", line 330>)
+              MAKE_FUNCTION
+              LOAD_CONST              22 ('_PollLikeSelector')
+              LOAD_NAME               21 (_BaseSelectorImpl)
+              CALL                     3
+              STORE_NAME              23 (_PollLikeSelector)
+
+412           LOAD_NAME               24 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (select)
+              LOAD_CONST              23 ('poll')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+414           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              24 (<code object PollSelector at 0x00000204BA0A9070, file "selectors.py", line 414>)
+              MAKE_FUNCTION
+              LOAD_CONST              25 ('PollSelector')
+              LOAD_NAME               23 (_PollLikeSelector)
+              CALL                     3
+              STORE_NAME              25 (PollSelector)
+
+421   L1:     LOAD_NAME               24 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (select)
+              LOAD_CONST              26 ('epoll')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       38 (to L2)
+              NOT_TAKEN
+
+423           LOAD_NAME                9 (select)
+              LOAD_ATTR               52 (EPOLLIN)
+              UNARY_INVERT
+              STORE_NAME              27 (_NOT_EPOLLIN)
+
+424           LOAD_NAME                9 (select)
+              LOAD_ATTR               56 (EPOLLOUT)
+              UNARY_INVERT
+              STORE_NAME              29 (_NOT_EPOLLOUT)
+
+426           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              27 (<code object EpollSelector at 0x00000204B9F71FD0, file "selectors.py", line 426>)
+              MAKE_FUNCTION
+              LOAD_CONST              28 ('EpollSelector')
+              LOAD_NAME               23 (_PollLikeSelector)
+              CALL                     3
+              STORE_NAME              30 (EpollSelector)
+
+470   L2:     LOAD_NAME               24 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (select)
+              LOAD_CONST              29 ('devpoll')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L3)
+              NOT_TAKEN
+
+472           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              30 (<code object DevpollSelector at 0x00000204B9F731B0, file "selectors.py", line 472>)
+              MAKE_FUNCTION
+              LOAD_CONST              31 ('DevpollSelector')
+              LOAD_NAME               23 (_PollLikeSelector)
+              CALL                     3
+              STORE_NAME              31 (DevpollSelector)
+
+486   L3:     LOAD_NAME               24 (hasattr)
+              PUSH_NULL
+              LOAD_NAME                9 (select)
+              LOAD_CONST              32 ('kqueue')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L4)
+              NOT_TAKEN
+
+488           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              33 (<code object KqueueSelector at 0x00000204BA0A91B0, file "selectors.py", line 488>)
+              MAKE_FUNCTION
+              LOAD_CONST              34 ('KqueueSelector')
+              LOAD_NAME               21 (_BaseSelectorImpl)
+              CALL                     3
+              STORE_NAME              32 (KqueueSelector)
+
+568   L4:     LOAD_CONST              35 (<code object _can_use at 0x00000204BA12A8D0, file "selectors.py", line 568>)
+              MAKE_FUNCTION
+              STORE_NAME              33 (_can_use)
+
+594           LOAD_NAME               33 (_can_use)
+              PUSH_NULL
+              LOAD_CONST              32 ('kqueue')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        5 (to L5)
+              NOT_TAKEN
+
+595           LOAD_NAME               32 (KqueueSelector)
+              STORE_NAME              34 (DefaultSelector)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+596   L5:     LOAD_NAME               33 (_can_use)
+              PUSH_NULL
+              LOAD_CONST              26 ('epoll')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        5 (to L6)
+              NOT_TAKEN
+
+597           LOAD_NAME               30 (EpollSelector)
+              STORE_NAME              34 (DefaultSelector)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+598   L6:     LOAD_NAME               33 (_can_use)
+              PUSH_NULL
+              LOAD_CONST              29 ('devpoll')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        5 (to L7)
+              NOT_TAKEN
+
+599           LOAD_NAME               31 (DevpollSelector)
+              STORE_NAME              34 (DefaultSelector)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+600   L7:     LOAD_NAME               33 (_can_use)
+              PUSH_NULL
+              LOAD_CONST              23 ('poll')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        5 (to L8)
+              NOT_TAKEN
+
+601           LOAD_NAME               25 (PollSelector)
+              STORE_NAME              34 (DefaultSelector)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+603   L8:     LOAD_NAME               22 (SelectSelector)
+              STORE_NAME              34 (DefaultSelector)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _fileobj_to_fd at 0x00000204B9FA7480, file "selectors.py", line 21>:
+  21           RESUME                   0
+
+  33           LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         0 (fileobj)
+               LOAD_GLOBAL              2 (int)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        4 (to L1)
+               NOT_TAKEN
+
+  34           LOAD_FAST                0 (fileobj)
+               STORE_FAST               1 (fd)
+               JUMP_FORWARD            26 (to L3)
+
+  36   L1:     NOP
+
+  37   L2:     LOAD_GLOBAL              3 (int + NULL)
+               LOAD_FAST_BORROW         0 (fileobj)
+               LOAD_ATTR                5 (fileno + NULL|self)
+               CALL                     0
+               CALL                     1
+               STORE_FAST               1 (fd)
+
+  41   L3:     LOAD_FAST_BORROW         1 (fd)
+               LOAD_SMALL_INT           0
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       27 (to L4)
+               NOT_TAKEN
+
+  42           LOAD_GLOBAL             11 (ValueError + NULL)
+               LOAD_CONST               3 ('Invalid file descriptor: {}')
+               LOAD_ATTR               13 (format + NULL|self)
+               LOAD_FAST_BORROW         1 (fd)
+               CALL                     1
+               CALL                     1
+               RAISE_VARARGS            1
+
+  43   L4:     LOAD_FAST_BORROW         1 (fd)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+  38           LOAD_GLOBAL              6 (AttributeError)
+               LOAD_GLOBAL              8 (TypeError)
+               LOAD_GLOBAL             10 (ValueError)
+               BUILD_TUPLE              3
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       29 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  39           LOAD_GLOBAL             11 (ValueError + NULL)
+               LOAD_CONST               1 ('Invalid file object: {!r}')
+
+  40           LOAD_ATTR               13 (format + NULL|self)
+               LOAD_FAST                0 (fileobj)
+               CALL                     1
+
+  39           CALL                     1
+
+  40           LOAD_CONST               2 (None)
+
+  39           RAISE_VARARGS            2
+
+  38   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L5 [0]
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object _SelectorMapping at 0x00000204BA0A7870, file "selectors.py", line 60>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  60           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_SelectorMapping')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          60
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  61           LOAD_CONST               1 ('Mapping of file objects to selector keys.')
+               STORE_NAME               4 (__doc__)
+
+  63           LOAD_CONST               2 (<code object __init__ at 0x00000204BA093000, file "selectors.py", line 63>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  66           LOAD_CONST               3 (<code object __len__ at 0x00000204BA0FC7A0, file "selectors.py", line 66>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__len__)
+
+  69           LOAD_CONST               9 ((None,))
+               LOAD_CONST               5 (<code object get at 0x00000204B9F73470, file "selectors.py", line 69>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (get)
+
+  73           LOAD_CONST               6 (<code object __getitem__ at 0x00000204B9F6EDB0, file "selectors.py", line 73>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__getitem__)
+
+  80           LOAD_CONST               7 (<code object __iter__ at 0x00000204BA0FC250, file "selectors.py", line 80>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__iter__)
+               LOAD_CONST               8 (('_selector',))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA093000, file "selectors.py", line 63>:
+ 63           RESUME                   0
+
+ 64           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (selector, self)
+              STORE_ATTR               0 (_selector)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __len__ at 0x00000204BA0FC7A0, file "selectors.py", line 66>:
+ 66           RESUME                   0
+
+ 67           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_selector)
+              LOAD_ATTR                4 (_fd_to_key)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object get at 0x00000204B9F73470, file "selectors.py", line 69>:
+ 69           RESUME                   0
+
+ 70           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_selector)
+              LOAD_ATTR                3 (_fileobj_lookup + NULL|self)
+              LOAD_FAST_BORROW         1 (fileobj)
+              CALL                     1
+              STORE_FAST               3 (fd)
+
+ 71           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_selector)
+              LOAD_ATTR                4 (_fd_to_key)
+              LOAD_ATTR                7 (get + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (fd, default)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __getitem__ at 0x00000204B9F6EDB0, file "selectors.py", line 73>:
+ 73           RESUME                   0
+
+ 74           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_selector)
+              LOAD_ATTR                3 (_fileobj_lookup + NULL|self)
+              LOAD_FAST_BORROW         1 (fileobj)
+              CALL                     1
+              STORE_FAST               2 (fd)
+
+ 75           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_selector)
+              LOAD_ATTR                4 (_fd_to_key)
+              LOAD_ATTR                7 (get + NULL|self)
+              LOAD_FAST_BORROW         2 (fd)
+              CALL                     1
+              STORE_FAST               3 (key)
+
+ 76           LOAD_FAST_BORROW         3 (key)
+              POP_JUMP_IF_NOT_NONE    27 (to L1)
+              NOT_TAKEN
+
+ 77           LOAD_GLOBAL              9 (KeyError + NULL)
+              LOAD_CONST               1 ('{!r} is not registered')
+              LOAD_ATTR               11 (format + NULL|self)
+              LOAD_FAST_BORROW         1 (fileobj)
+              CALL                     1
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 78   L1:     LOAD_FAST_BORROW         3 (key)
+              RETURN_VALUE
+
+Disassembly of <code object __iter__ at 0x00000204BA0FC250, file "selectors.py", line 80>:
+ 80           RESUME                   0
+
+ 81           LOAD_GLOBAL              1 (iter + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_selector)
+              LOAD_ATTR                4 (_fd_to_key)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object BaseSelector at 0x00000204B9F72AD0, file "selectors.py", line 84>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  84           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BaseSelector')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          84
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  85           LOAD_CONST               1 ('Selector abstract base class.\n\nA selector supports registering file objects to be monitored for specific\nI/O events.\n\nA file object is a file descriptor or any object with a `fileno()` method.\nAn arbitrary object can be attached to the file object, which can be used\nfor example to store context information, a callback, etc.\n\nA selector can use various implementations (select(), poll(), epoll()...)\ndepending on the platform. The default `Selector` class uses the most\nefficient implementation on the current platform.\n')
+               STORE_NAME               4 (__doc__)
+
+  99           LOAD_NAME                5 (abstractmethod)
+
+ 100           LOAD_CONST              13 ((None,))
+               LOAD_CONST               3 (<code object register at 0x00000204BA0C2170, file "selectors.py", line 99>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+  99           CALL                     0
+
+ 100           STORE_NAME               6 (register)
+
+ 122           LOAD_NAME                5 (abstractmethod)
+
+ 123           LOAD_CONST               4 (<code object unregister at 0x00000204BA620030, file "selectors.py", line 122>)
+               MAKE_FUNCTION
+
+ 122           CALL                     0
+
+ 123           STORE_NAME               7 (unregister)
+
+ 141           LOAD_CONST              13 ((None,))
+               LOAD_CONST               5 (<code object modify at 0x00000204BA0A7990, file "selectors.py", line 141>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               8 (modify)
+
+ 158           LOAD_NAME                5 (abstractmethod)
+
+ 159           LOAD_CONST              13 ((None,))
+               LOAD_CONST               6 (<code object select at 0x00000204BA620110, file "selectors.py", line 158>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+ 158           CALL                     0
+
+ 159           STORE_NAME               9 (select)
+
+ 177           LOAD_CONST               7 (<code object close at 0x00000204BA6201F0, file "selectors.py", line 177>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (close)
+
+ 184           LOAD_CONST               8 (<code object get_key at 0x00000204B9FB77B0, file "selectors.py", line 184>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (get_key)
+
+ 198           LOAD_NAME                5 (abstractmethod)
+
+ 199           LOAD_CONST               9 (<code object get_map at 0x00000204BA6202D0, file "selectors.py", line 198>)
+               MAKE_FUNCTION
+
+ 198           CALL                     0
+
+ 199           STORE_NAME              12 (get_map)
+
+ 203           LOAD_CONST              10 (<code object __enter__ at 0x00000204BA6203B0, file "selectors.py", line 203>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (__enter__)
+
+ 206           LOAD_CONST              11 (<code object __exit__ at 0x00000204BA08B030, file "selectors.py", line 206>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (__exit__)
+               LOAD_CONST              12 (())
+               STORE_NAME              15 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              16 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object register at 0x00000204BA0C2170, file "selectors.py", line 99>:
+ 99           RESUME                   0
+
+120           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object unregister at 0x00000204BA620030, file "selectors.py", line 122>:
+122           RESUME                   0
+
+139           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object modify at 0x00000204BA0A7990, file "selectors.py", line 141>:
+141           RESUME                   0
+
+155           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (unregister + NULL|self)
+              LOAD_FAST_BORROW         1 (fileobj)
+              CALL                     1
+              POP_TOP
+
+156           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (register + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (fileobj, events)
+              LOAD_FAST_BORROW         3 (data)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object select at 0x00000204BA620110, file "selectors.py", line 158>:
+158           RESUME                   0
+
+175           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object close at 0x00000204BA6201F0, file "selectors.py", line 177>:
+177           RESUME                   0
+
+182           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_key at 0x00000204B9FB77B0, file "selectors.py", line 184>:
+ 184           RESUME                   0
+
+ 190           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (get_map + NULL|self)
+               CALL                     0
+               STORE_FAST               2 (mapping)
+
+ 191           LOAD_FAST_BORROW         2 (mapping)
+               POP_JUMP_IF_NOT_NONE    12 (to L1)
+               NOT_TAKEN
+
+ 192           LOAD_GLOBAL              3 (RuntimeError + NULL)
+               LOAD_CONST               2 ('Selector is closed')
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 193   L1:     NOP
+
+ 194   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (mapping, fileobj)
+               BINARY_OP               26 ([])
+       L3:     RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 195           LOAD_GLOBAL              4 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       29 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 196           LOAD_GLOBAL              5 (KeyError + NULL)
+               LOAD_CONST               3 ('{!r} is not registered')
+               LOAD_ATTR                7 (format + NULL|self)
+               LOAD_FAST                1 (fileobj)
+               CALL                     1
+               CALL                     1
+               LOAD_CONST               1 (None)
+               RAISE_VARARGS            2
+
+ 195   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L6 -> L6 [1] lasti
+
+Disassembly of <code object get_map at 0x00000204BA6202D0, file "selectors.py", line 198>:
+198           RESUME                   0
+
+201           LOAD_GLOBAL              0 (NotImplementedError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object __enter__ at 0x00000204BA6203B0, file "selectors.py", line 203>:
+203           RESUME                   0
+
+204           LOAD_FAST_BORROW         0 (self)
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA08B030, file "selectors.py", line 206>:
+206           RESUME                   0
+
+207           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _BaseSelectorImpl at 0x00000204B9FEF0E0, file "selectors.py", line 210>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 210           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_BaseSelectorImpl')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         210
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 211           LOAD_CONST               1 ('Base selector implementation.')
+               STORE_NAME               4 (__doc__)
+
+ 213           LOAD_CONST               2 (<code object __init__ at 0x00000204BA0FF550, file "selectors.py", line 213>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 219           LOAD_CONST               3 (<code object _fileobj_lookup at 0x00000204BA0B7230, file "selectors.py", line 219>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_fileobj_lookup)
+
+ 238           LOAD_CONST              11 ((None,))
+               LOAD_CONST               5 (<code object register at 0x00000204BA4E6B30, file "selectors.py", line 238>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (register)
+
+ 251           LOAD_CONST               6 (<code object unregister at 0x00000204B9FB7DB0, file "selectors.py", line 251>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (unregister)
+
+ 258           LOAD_CONST              11 ((None,))
+               LOAD_CONST               7 (<code object modify at 0x00000204BA37F1E0, file "selectors.py", line 258>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               9 (modify)
+
+ 272           LOAD_CONST               8 (<code object close at 0x00000204BA0A6AF0, file "selectors.py", line 272>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (close)
+
+ 276           LOAD_CONST               9 (<code object get_map at 0x00000204BA092F10, file "selectors.py", line 276>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (get_map)
+               LOAD_CONST              10 (('_fd_to_key', '_map'))
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FF550, file "selectors.py", line 213>:
+213           RESUME                   0
+
+215           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_fd_to_key)
+
+217           LOAD_GLOBAL              3 (_SelectorMapping + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_map)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _fileobj_lookup at 0x00000204BA0B7230, file "selectors.py", line 219>:
+ 219            RESUME                   0
+
+ 228            NOP
+
+ 229    L1:     LOAD_GLOBAL              1 (_fileobj_to_fd + NULL)
+                LOAD_FAST_BORROW         1 (fileobj)
+                CALL                     1
+        L2:     RETURN_VALUE
+
+  --    L3:     PUSH_EXC_INFO
+
+ 230            LOAD_GLOBAL              2 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       68 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 232            LOAD_FAST                0 (self)
+                LOAD_ATTR                4 (_fd_to_key)
+                LOAD_ATTR                7 (values + NULL|self)
+                CALL                     0
+                GET_ITER
+        L4:     FOR_ITER                35 (to L8)
+                STORE_FAST               2 (key)
+
+ 233            LOAD_FAST                2 (key)
+                LOAD_ATTR                8 (fileobj)
+                LOAD_FAST                1 (fileobj)
+                IS_OP                    0 (is)
+        L5:     POP_JUMP_IF_TRUE         3 (to L6)
+                NOT_TAKEN
+                JUMP_BACKWARD           21 (to L4)
+
+ 234    L6:     LOAD_FAST                2 (key)
+                LOAD_ATTR               10 (fd)
+                SWAP                     2
+                POP_TOP
+                SWAP                     2
+        L7:     POP_EXCEPT
+                RETURN_VALUE
+
+ 232    L8:     END_FOR
+                POP_ITER
+
+ 236            RAISE_VARARGS            0
+
+ 230    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L5 -> L10 [1] lasti
+  L6 to L7 -> L10 [1] lasti
+  L8 to L10 -> L10 [1] lasti
+
+Disassembly of <code object register at 0x00000204BA4E6B30, file "selectors.py", line 238>:
+238           RESUME                   0
+
+239           LOAD_FAST_BORROW         2 (events)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       32 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (events)
+              LOAD_GLOBAL              0 (EVENT_READ)
+              LOAD_GLOBAL              2 (EVENT_WRITE)
+              BINARY_OP                7 (|)
+              UNARY_INVERT
+              BINARY_OP                1 (&)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L2)
+              NOT_TAKEN
+
+240   L1:     LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               0 ('Invalid events: {!r}')
+              LOAD_ATTR                7 (format + NULL|self)
+              LOAD_FAST_BORROW         2 (events)
+              CALL                     1
+              CALL                     1
+              RAISE_VARARGS            1
+
+242   L2:     LOAD_GLOBAL              9 (SelectorKey + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fileobj, self)
+              LOAD_ATTR               11 (_fileobj_lookup + NULL|self)
+              LOAD_FAST_BORROW         1 (fileobj)
+              CALL                     1
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (events, data)
+              CALL                     4
+              STORE_FAST               4 (key)
+
+244           LOAD_FAST_BORROW         4 (key)
+              LOAD_ATTR               12 (fd)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (_fd_to_key)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       37 (to L3)
+              NOT_TAKEN
+
+245           LOAD_GLOBAL             17 (KeyError + NULL)
+              LOAD_CONST               1 ('{!r} (FD {}) is already registered')
+
+246           LOAD_ATTR                7 (format + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (fileobj, key)
+              LOAD_ATTR               12 (fd)
+              CALL                     2
+
+245           CALL                     1
+              RAISE_VARARGS            1
+
+248   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (key, self)
+              LOAD_ATTR               14 (_fd_to_key)
+              LOAD_FAST_BORROW         4 (key)
+              LOAD_ATTR               12 (fd)
+              STORE_SUBSCR
+
+249           LOAD_FAST_BORROW         4 (key)
+              RETURN_VALUE
+
+Disassembly of <code object unregister at 0x00000204B9FB7DB0, file "selectors.py", line 251>:
+ 251           RESUME                   0
+
+ 252           NOP
+
+ 253   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_fd_to_key)
+               LOAD_ATTR                3 (pop + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (_fileobj_lookup + NULL|self)
+               LOAD_FAST_BORROW         1 (fileobj)
+               CALL                     1
+               CALL                     1
+               STORE_FAST               2 (key)
+
+ 256   L2:     LOAD_FAST_BORROW         2 (key)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 254           LOAD_GLOBAL              6 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       29 (to L4)
+               NOT_TAKEN
+               POP_TOP
+
+ 255           LOAD_GLOBAL              7 (KeyError + NULL)
+               LOAD_CONST               0 ('{!r} is not registered')
+               LOAD_ATTR                9 (format + NULL|self)
+               LOAD_FAST                1 (fileobj)
+               CALL                     1
+               CALL                     1
+               LOAD_CONST               1 (None)
+               RAISE_VARARGS            2
+
+ 254   L4:     RERAISE                  0
+
+  --   L5:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L5 -> L5 [1] lasti
+
+Disassembly of <code object modify at 0x00000204BA37F1E0, file "selectors.py", line 258>:
+ 258           RESUME                   0
+
+ 259           NOP
+
+ 260   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_fd_to_key)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                3 (_fileobj_lookup + NULL|self)
+               LOAD_FAST_BORROW         1 (fileobj)
+               CALL                     1
+               BINARY_OP               26 ([])
+               STORE_FAST               4 (key)
+
+ 263   L2:     LOAD_FAST_LOAD_FAST     36 (events, key)
+               LOAD_ATTR                8 (events)
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       38 (to L3)
+               NOT_TAKEN
+
+ 264           LOAD_FAST                0 (self)
+               LOAD_ATTR               11 (unregister + NULL|self)
+               LOAD_FAST                1 (fileobj)
+               CALL                     1
+               POP_TOP
+
+ 265           LOAD_FAST                0 (self)
+               LOAD_ATTR               13 (register + NULL|self)
+               LOAD_FAST_LOAD_FAST     18 (fileobj, events)
+               LOAD_FAST                3 (data)
+               CALL                     3
+               STORE_FAST               4 (key)
+
+ 270           LOAD_FAST                4 (key)
+               RETURN_VALUE
+
+ 266   L3:     LOAD_FAST_LOAD_FAST     52 (data, key)
+               LOAD_ATTR               14 (data)
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       43 (to L4)
+               NOT_TAKEN
+
+ 268           LOAD_FAST                4 (key)
+               LOAD_ATTR               17 (_replace + NULL|self)
+               LOAD_FAST                3 (data)
+               LOAD_CONST               2 (('data',))
+               CALL_KW                  1
+               STORE_FAST               4 (key)
+
+ 269           LOAD_FAST_LOAD_FAST     64 (key, self)
+               LOAD_ATTR                0 (_fd_to_key)
+               LOAD_FAST                4 (key)
+               LOAD_ATTR               18 (fd)
+               STORE_SUBSCR
+
+ 270   L4:     LOAD_FAST                4 (key)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 261           LOAD_GLOBAL              4 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       29 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 262           LOAD_GLOBAL              5 (KeyError + NULL)
+               LOAD_CONST               0 ('{!r} is not registered')
+               LOAD_ATTR                7 (format + NULL|self)
+               LOAD_FAST                1 (fileobj)
+               CALL                     1
+               CALL                     1
+               LOAD_CONST               1 (None)
+               RAISE_VARARGS            2
+
+ 261   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object close at 0x00000204BA0A6AF0, file "selectors.py", line 272>:
+272           RESUME                   0
+
+273           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fd_to_key)
+              LOAD_ATTR                3 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+
+274           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_map)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_map at 0x00000204BA092F10, file "selectors.py", line 276>:
+276           RESUME                   0
+
+277           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_map)
+              RETURN_VALUE
+
+Disassembly of <code object SelectSelector at 0x00000204B9FB74B0, file "selectors.py", line 281>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 281           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SelectSelector')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (281)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 282           LOAD_CONST               2 ('Select-based selector.')
+               STORE_NAME               4 (__doc__)
+
+ 284           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object __init__ at 0x00000204B9FEF800, file "selectors.py", line 284>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+
+ 289           LOAD_CONST              10 ((None,))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               4 (<code object register at 0x00000204B9FC2970, file "selectors.py", line 289>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (register)
+
+ 297           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object unregister at 0x00000204BA129F70, file "selectors.py", line 297>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               7 (unregister)
+
+ 303           LOAD_NAME                8 (sys)
+               LOAD_ATTR               18 (platform)
+               LOAD_CONST               6 ('win32')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        7 (to L1)
+               NOT_TAKEN
+
+ 304           LOAD_CONST              10 ((None,))
+               LOAD_CONST               7 (<code object _select at 0x00000204BA0A73F0, file "selectors.py", line 304>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              10 (_select)
+               JUMP_FORWARD            12 (to L2)
+
+ 308   L1:     LOAD_NAME               11 (select)
+               LOAD_ATTR               22 (select)
+               STORE_NAME              10 (_select)
+
+ 310   L2:     LOAD_CONST              10 ((None,))
+               LOAD_CONST               8 (<code object select at 0x00000204BA38BBC0, file "selectors.py", line 310>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              11 (select)
+               LOAD_CONST               9 (('_readers', '_writers'))
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              14 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9FEF800, file "selectors.py", line 284>:
+  --           COPY_FREE_VARS           1
+
+ 284           RESUME                   0
+
+ 285           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 286           LOAD_GLOBAL              5 (set + NULL)
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_readers)
+
+ 287           LOAD_GLOBAL              5 (set + NULL)
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_writers)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object register at 0x00000204B9FC2970, file "selectors.py", line 289>:
+  --           COPY_FREE_VARS           1
+
+ 289           RESUME                   0
+
+ 290           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               5 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (register + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (fileobj, events)
+               LOAD_FAST_BORROW         3 (data)
+               CALL                     3
+               STORE_FAST               4 (key)
+
+ 291           LOAD_FAST_BORROW         2 (events)
+               LOAD_GLOBAL              4 (EVENT_READ)
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       38 (to L1)
+               NOT_TAKEN
+
+ 292           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_readers)
+               LOAD_ATTR                9 (add + NULL|self)
+               LOAD_FAST_BORROW         4 (key)
+               LOAD_ATTR               10 (fd)
+               CALL                     1
+               POP_TOP
+
+ 293   L1:     LOAD_FAST_BORROW         2 (events)
+               LOAD_GLOBAL             12 (EVENT_WRITE)
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       38 (to L2)
+               NOT_TAKEN
+
+ 294           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               14 (_writers)
+               LOAD_ATTR                9 (add + NULL|self)
+               LOAD_FAST_BORROW         4 (key)
+               LOAD_ATTR               10 (fd)
+               CALL                     1
+               POP_TOP
+
+ 295   L2:     LOAD_FAST_BORROW         4 (key)
+               RETURN_VALUE
+
+Disassembly of <code object unregister at 0x00000204BA129F70, file "selectors.py", line 297>:
+  --           COPY_FREE_VARS           1
+
+ 297           RESUME                   0
+
+ 298           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (unregister + NULL|self)
+               LOAD_FAST_BORROW         1 (fileobj)
+               CALL                     1
+               STORE_FAST               2 (key)
+
+ 299           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_readers)
+               LOAD_ATTR                7 (discard + NULL|self)
+               LOAD_FAST_BORROW         2 (key)
+               LOAD_ATTR                8 (fd)
+               CALL                     1
+               POP_TOP
+
+ 300           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_writers)
+               LOAD_ATTR                7 (discard + NULL|self)
+               LOAD_FAST_BORROW         2 (key)
+               LOAD_ATTR                8 (fd)
+               CALL                     1
+               POP_TOP
+
+ 301           LOAD_FAST_BORROW         2 (key)
+               RETURN_VALUE
+
+Disassembly of <code object _select at 0x00000204BA0A73F0, file "selectors.py", line 304>:
+304           RESUME                   0
+
+305           LOAD_GLOBAL              0 (select)
+              LOAD_ATTR                0 (select)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (r, w)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (w, timeout)
+              CALL                     4
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   18 (r, w)
+              STORE_FAST               5 (x)
+
+306           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (r, w)
+              LOAD_FAST_BORROW         5 (x)
+              BINARY_OP                0 (+)
+              BUILD_LIST               0
+              BUILD_TUPLE              3
+              RETURN_VALUE
+
+Disassembly of <code object select at 0x00000204BA38BBC0, file "selectors.py", line 310>:
+ 310            RESUME                   0
+
+ 311            LOAD_FAST_BORROW         1 (timeout)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+                LOAD_CONST               0 (None)
+                JUMP_FORWARD            11 (to L2)
+        L1:     LOAD_GLOBAL              1 (max + NULL)
+                LOAD_FAST_BORROW         1 (timeout)
+                LOAD_SMALL_INT           0
+                CALL                     2
+        L2:     STORE_FAST               1 (timeout)
+
+ 312            BUILD_LIST               0
+                STORE_FAST               2 (ready)
+
+ 313            NOP
+
+ 314    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (_select + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_readers)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_writers)
+                BUILD_LIST               0
+                LOAD_FAST_BORROW         1 (timeout)
+                CALL                     4
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST   52 (r, w)
+                STORE_FAST               5 (_)
+
+ 317    L4:     LOAD_GLOBAL             11 (frozenset + NULL)
+                LOAD_FAST                3 (r)
+                CALL                     1
+                STORE_FAST               3 (r)
+
+ 318            LOAD_GLOBAL             11 (frozenset + NULL)
+                LOAD_FAST                4 (w)
+                CALL                     1
+                STORE_FAST               4 (w)
+
+ 319            LOAD_FAST_LOAD_FAST     52 (r, w)
+                BINARY_OP                7 (|)
+                STORE_FAST               6 (rw)
+
+ 320            LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (_fd_to_key)
+                LOAD_ATTR               14 (get)
+                STORE_FAST               7 (fd_to_key_get)
+
+ 321            LOAD_FAST                6 (rw)
+                GET_ITER
+        L5:     FOR_ITER                97 (to L9)
+                STORE_FAST               8 (fd)
+
+ 322            LOAD_FAST                7 (fd_to_key_get)
+                PUSH_NULL
+                LOAD_FAST                8 (fd)
+                CALL                     1
+                STORE_FAST               9 (key)
+
+ 323            LOAD_FAST                9 (key)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L6)
+                NOT_TAKEN
+                JUMP_BACKWARD           21 (to L5)
+
+ 324    L6:     LOAD_FAST_LOAD_FAST    131 (fd, r)
+                CONTAINS_OP              0 (in)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L7)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             16 (EVENT_READ)
+
+ 325    L7:     LOAD_FAST_LOAD_FAST    132 (fd, w)
+                CONTAINS_OP              0 (in)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L8)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             18 (EVENT_WRITE)
+
+ 324    L8:     BINARY_OP                7 (|)
+                STORE_FAST              10 (events)
+
+ 326            LOAD_FAST                2 (ready)
+                LOAD_ATTR               21 (append + NULL|self)
+                LOAD_FAST_LOAD_FAST    154 (key, events)
+                LOAD_FAST                9 (key)
+                LOAD_ATTR               22 (events)
+                BINARY_OP                1 (&)
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           99 (to L5)
+
+ 321    L9:     END_FOR
+                POP_ITER
+
+ 327            LOAD_FAST                2 (ready)
+                RETURN_VALUE
+
+  --   L10:     PUSH_EXC_INFO
+
+ 315            LOAD_GLOBAL              8 (InterruptedError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 316            LOAD_FAST                2 (ready)
+                SWAP                     2
+       L11:     POP_EXCEPT
+                RETURN_VALUE
+
+ 315   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L10 [0]
+  L10 to L11 -> L13 [1] lasti
+  L12 to L13 -> L13 [1] lasti
+
+Disassembly of <code object _PollLikeSelector at 0x00000204BA0B8EA0, file "selectors.py", line 330>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 330           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_PollLikeSelector')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (330)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 331           LOAD_CONST               2 ('Base class shared between poll, epoll and devpoll selectors.')
+               STORE_NAME               4 (__doc__)
+
+ 332           LOAD_CONST               3 (None)
+               STORE_NAME               5 (_selector_cls)
+
+ 333           LOAD_CONST               3 (None)
+               STORE_NAME               6 (_EVENT_READ)
+
+ 334           LOAD_CONST               3 (None)
+               STORE_NAME               7 (_EVENT_WRITE)
+
+ 336           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               4 (<code object __init__ at 0x00000204BA0A7E10, file "selectors.py", line 336>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               8 (__init__)
+
+ 340           LOAD_CONST              10 ((None,))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object register at 0x00000204B9F5B830, file "selectors.py", line 340>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               9 (register)
+
+ 351           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               6 (<code object unregister at 0x00000204BA610030, file "selectors.py", line 351>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              10 (unregister)
+
+ 361           LOAD_CONST              10 ((None,))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               7 (<code object modify at 0x00000204BA387780, file "selectors.py", line 361>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              11 (modify)
+
+ 385           LOAD_CONST              10 ((None,))
+               LOAD_CONST               8 (<code object select at 0x00000204BA388300, file "selectors.py", line 385>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (select)
+               LOAD_CONST               9 (('_selector',))
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              15 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7E10, file "selectors.py", line 336>:
+  --           COPY_FREE_VARS           1
+
+ 336           RESUME                   0
+
+ 337           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 338           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (_selector_cls + NULL|self)
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_selector)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object register at 0x00000204B9F5B830, file "selectors.py", line 340>:
+  --           COPY_FREE_VARS           1
+
+ 340           RESUME                   0
+
+ 341           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (register + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (fileobj, events)
+               LOAD_FAST_BORROW         3 (data)
+               CALL                     3
+               STORE_FAST               4 (key)
+
+ 342           LOAD_FAST_BORROW         2 (events)
+               LOAD_GLOBAL              4 (EVENT_READ)
+               BINARY_OP                1 (&)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       13 (to L1)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_EVENT_READ)
+
+ 343   L1:     LOAD_FAST_BORROW         2 (events)
+               LOAD_GLOBAL              8 (EVENT_WRITE)
+               BINARY_OP                1 (&)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       13 (to L2)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_EVENT_WRITE)
+
+ 342   L2:     BINARY_OP                7 (|)
+               STORE_FAST               5 (poller_events)
+
+ 344           NOP
+
+ 345   L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_selector)
+               LOAD_ATTR                3 (register + NULL|self)
+               LOAD_FAST_BORROW         4 (key)
+               LOAD_ATTR               14 (fd)
+               LOAD_FAST_BORROW         5 (poller_events)
+               CALL                     2
+               POP_TOP
+
+ 349   L4:     LOAD_FAST_BORROW         4 (key)
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 346           POP_TOP
+
+ 347           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST                0 (self)
+               LOAD_SUPER_ATTR         33 (unregister + NULL|self)
+               LOAD_FAST                1 (fileobj)
+               CALL                     1
+               POP_TOP
+
+ 348           RAISE_VARARGS            0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object unregister at 0x00000204BA610030, file "selectors.py", line 351>:
+  --           COPY_FREE_VARS           1
+
+ 351           RESUME                   0
+
+ 352           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (unregister + NULL|self)
+               LOAD_FAST_BORROW         1 (fileobj)
+               CALL                     1
+               STORE_FAST               2 (key)
+
+ 353           NOP
+
+ 354   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_selector)
+               LOAD_ATTR                3 (unregister + NULL|self)
+               LOAD_FAST_BORROW         2 (key)
+               LOAD_ATTR                6 (fd)
+               CALL                     1
+               POP_TOP
+
+ 359   L2:     LOAD_FAST_BORROW         2 (key)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 355           LOAD_GLOBAL              8 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 358   L4:     POP_EXCEPT
+
+ 359           LOAD_FAST                2 (key)
+               RETURN_VALUE
+
+ 355   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object modify at 0x00000204BA387780, file "selectors.py", line 361>:
+  --            COPY_FREE_VARS           1
+
+ 361            RESUME                   0
+
+ 362            NOP
+
+ 363    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_fd_to_key)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                3 (_fileobj_lookup + NULL|self)
+                LOAD_FAST_BORROW         1 (fileobj)
+                CALL                     1
+                BINARY_OP               26 ([])
+                STORE_FAST               4 (key)
+
+ 367    L2:     LOAD_CONST               2 (False)
+                STORE_FAST               5 (changed)
+
+ 368            LOAD_FAST_LOAD_FAST     36 (events, key)
+                LOAD_ATTR                6 (events)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE      113 (to L7)
+                NOT_TAKEN
+
+ 369            LOAD_FAST                2 (events)
+                LOAD_GLOBAL              8 (EVENT_READ)
+                BINARY_OP                1 (&)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L3)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               10 (_EVENT_READ)
+
+ 370    L3:     LOAD_FAST                2 (events)
+                LOAD_GLOBAL             12 (EVENT_WRITE)
+                BINARY_OP                1 (&)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L4)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               14 (_EVENT_WRITE)
+
+ 369    L4:     BINARY_OP                7 (|)
+                STORE_FAST               6 (selector_events)
+
+ 371            NOP
+
+ 372    L5:     LOAD_FAST                0 (self)
+                LOAD_ATTR               16 (_selector)
+                LOAD_ATTR               19 (modify + NULL|self)
+                LOAD_FAST                4 (key)
+                LOAD_ATTR               20 (fd)
+                LOAD_FAST                6 (selector_events)
+                CALL                     2
+                POP_TOP
+
+ 376    L6:     LOAD_CONST               3 (True)
+                STORE_FAST               5 (changed)
+
+ 377    L7:     LOAD_FAST_LOAD_FAST     52 (data, key)
+                LOAD_ATTR               26 (data)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE        3 (to L8)
+                NOT_TAKEN
+
+ 378            LOAD_CONST               3 (True)
+                STORE_FAST               5 (changed)
+
+ 380    L8:     LOAD_FAST                5 (changed)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       43 (to L9)
+                NOT_TAKEN
+
+ 381            LOAD_FAST                4 (key)
+                LOAD_ATTR               29 (_replace + NULL|self)
+                LOAD_FAST_LOAD_FAST     35 (events, data)
+                LOAD_CONST               4 (('events', 'data'))
+                CALL_KW                  2
+                STORE_FAST               4 (key)
+
+ 382            LOAD_FAST_LOAD_FAST     64 (key, self)
+                LOAD_ATTR                0 (_fd_to_key)
+                LOAD_FAST                4 (key)
+                LOAD_ATTR               20 (fd)
+                STORE_SUBSCR
+
+ 383    L9:     LOAD_FAST                4 (key)
+                RETURN_VALUE
+
+  --   L10:     PUSH_EXC_INFO
+
+ 364            LOAD_GLOBAL              4 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       18 (to L11)
+                NOT_TAKEN
+                POP_TOP
+
+ 365            LOAD_GLOBAL              5 (KeyError + NULL)
+                LOAD_FAST                1 (fileobj)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               0 (' is not registered')
+                BUILD_STRING             2
+                CALL                     1
+                LOAD_CONST               1 (None)
+                RAISE_VARARGS            2
+
+ 364   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L13:     PUSH_EXC_INFO
+
+ 373            POP_TOP
+
+ 374            LOAD_GLOBAL             22 (super)
+                LOAD_DEREF               7 (__class__)
+                LOAD_FAST                0 (self)
+                LOAD_SUPER_ATTR         49 (unregister + NULL|self)
+                LOAD_FAST                1 (fileobj)
+                CALL                     1
+                POP_TOP
+
+ 375            RAISE_VARARGS            0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L10 [0]
+  L5 to L6 -> L13 [0]
+  L10 to L12 -> L12 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object select at 0x00000204BA388300, file "selectors.py", line 385>:
+ 385            RESUME                   0
+
+ 388            LOAD_FAST_BORROW         1 (timeout)
+                POP_JUMP_IF_NOT_NONE     4 (to L1)
+                NOT_TAKEN
+
+ 389            LOAD_CONST               0 (None)
+                STORE_FAST               1 (timeout)
+                JUMP_FORWARD            39 (to L3)
+
+ 390    L1:     LOAD_FAST_BORROW         1 (timeout)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        4 (to L2)
+                NOT_TAKEN
+
+ 391            LOAD_SMALL_INT           0
+                STORE_FAST               1 (timeout)
+                JUMP_FORWARD            29 (to L3)
+
+ 395    L2:     LOAD_GLOBAL              0 (math)
+                LOAD_ATTR                2 (ceil)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (timeout)
+                LOAD_CONST               1 (1000.0)
+                BINARY_OP                5 (*)
+                CALL                     1
+                STORE_FAST               1 (timeout)
+
+ 396    L3:     BUILD_LIST               0
+                STORE_FAST               2 (ready)
+
+ 397            NOP
+
+ 398    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_selector)
+                LOAD_ATTR                7 (poll + NULL|self)
+                LOAD_FAST_BORROW         1 (timeout)
+                CALL                     1
+                STORE_FAST               3 (fd_event_list)
+
+ 402    L5:     LOAD_FAST                0 (self)
+                LOAD_ATTR               10 (_fd_to_key)
+                LOAD_ATTR               12 (get)
+                STORE_FAST               4 (fd_to_key_get)
+
+ 403            LOAD_FAST                3 (fd_event_list)
+                GET_ITER
+        L6:     FOR_ITER               129 (to L10)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   86 (fd, event)
+
+ 404            LOAD_FAST                4 (fd_to_key_get)
+                PUSH_NULL
+                LOAD_FAST                5 (fd)
+                CALL                     1
+                STORE_FAST               7 (key)
+
+ 405            LOAD_FAST                7 (key)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L7)
+                NOT_TAKEN
+                JUMP_BACKWARD           23 (to L6)
+
+ 406    L7:     LOAD_FAST_LOAD_FAST     96 (event, self)
+                LOAD_ATTR               14 (_EVENT_READ)
+                UNARY_INVERT
+                BINARY_OP                1 (&)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L8)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             16 (EVENT_WRITE)
+
+ 407    L8:     LOAD_FAST_LOAD_FAST     96 (event, self)
+                LOAD_ATTR               18 (_EVENT_WRITE)
+                UNARY_INVERT
+                BINARY_OP                1 (&)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L9)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             20 (EVENT_READ)
+
+ 406    L9:     BINARY_OP                7 (|)
+                STORE_FAST               8 (events)
+
+ 408            LOAD_FAST                2 (ready)
+                LOAD_ATTR               23 (append + NULL|self)
+                LOAD_FAST_LOAD_FAST    120 (key, events)
+                LOAD_FAST                7 (key)
+                LOAD_ATTR               24 (events)
+                BINARY_OP                1 (&)
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          131 (to L6)
+
+ 403   L10:     END_FOR
+                POP_ITER
+
+ 409            LOAD_FAST                2 (ready)
+                RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 399            LOAD_GLOBAL              8 (InterruptedError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 400            LOAD_FAST                2 (ready)
+                SWAP                     2
+       L12:     POP_EXCEPT
+                RETURN_VALUE
+
+ 399   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L11 [0]
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object PollSelector at 0x00000204BA0A9070, file "selectors.py", line 414>:
+414           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('PollSelector')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (414)
+              STORE_NAME               3 (__firstlineno__)
+
+415           LOAD_CONST               2 ('Poll-based selector.')
+              STORE_NAME               4 (__doc__)
+
+416           LOAD_NAME                5 (select)
+              LOAD_ATTR               12 (poll)
+              STORE_NAME               7 (_selector_cls)
+
+417           LOAD_NAME                5 (select)
+              LOAD_ATTR               16 (POLLIN)
+              STORE_NAME               9 (_EVENT_READ)
+
+418           LOAD_NAME                5 (select)
+              LOAD_ATTR               20 (POLLOUT)
+              STORE_NAME              11 (_EVENT_WRITE)
+              LOAD_CONST               3 (())
+              STORE_NAME              12 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object EpollSelector at 0x00000204B9F71FD0, file "selectors.py", line 426>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 426           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('EpollSelector')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (426)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 427           LOAD_CONST               2 ('Epoll-based selector.')
+               STORE_NAME               4 (__doc__)
+
+ 428           LOAD_NAME                5 (select)
+               LOAD_ATTR               12 (epoll)
+               STORE_NAME               7 (_selector_cls)
+
+ 429           LOAD_NAME                5 (select)
+               LOAD_ATTR               16 (EPOLLIN)
+               STORE_NAME               9 (_EVENT_READ)
+
+ 430           LOAD_NAME                5 (select)
+               LOAD_ATTR               20 (EPOLLOUT)
+               STORE_NAME              11 (_EVENT_WRITE)
+
+ 432           LOAD_CONST               3 (<code object fileno at 0x00000204BA0FECD0, file "selectors.py", line 432>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (fileno)
+
+ 435           LOAD_CONST               7 ((None,))
+               LOAD_CONST               4 (<code object select at 0x00000204BA3E9360, file "selectors.py", line 435>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (select)
+
+ 465           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object close at 0x00000204BA100290, file "selectors.py", line 465>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              13 (close)
+               LOAD_CONST               6 (())
+               STORE_NAME              14 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              15 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              16 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object fileno at 0x00000204BA0FECD0, file "selectors.py", line 432>:
+432           RESUME                   0
+
+433           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_selector)
+              LOAD_ATTR                3 (fileno + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object select at 0x00000204BA3E9360, file "selectors.py", line 435>:
+ 435            RESUME                   0
+
+ 436            LOAD_FAST_BORROW         1 (timeout)
+                POP_JUMP_IF_NOT_NONE     4 (to L1)
+                NOT_TAKEN
+
+ 437            LOAD_CONST               3 (-1)
+                STORE_FAST               1 (timeout)
+                JUMP_FORWARD            46 (to L3)
+
+ 438    L1:     LOAD_FAST_BORROW         1 (timeout)
+                LOAD_SMALL_INT           0
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        4 (to L2)
+                NOT_TAKEN
+
+ 439            LOAD_SMALL_INT           0
+                STORE_FAST               1 (timeout)
+                JUMP_FORWARD            36 (to L3)
+
+ 443    L2:     LOAD_GLOBAL              0 (math)
+                LOAD_ATTR                2 (ceil)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (timeout)
+                LOAD_CONST               1 (1000.0)
+                BINARY_OP                5 (*)
+                CALL                     1
+                LOAD_CONST               2 (0.001)
+                BINARY_OP                5 (*)
+                STORE_FAST               1 (timeout)
+
+ 448    L3:     LOAD_GLOBAL              5 (len + NULL)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_fd_to_key)
+                CALL                     1
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L4)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_SMALL_INT           1
+        L4:     STORE_FAST               2 (max_ev)
+
+ 450            BUILD_LIST               0
+                STORE_FAST               3 (ready)
+
+ 451            NOP
+
+ 452    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_selector)
+                LOAD_ATTR               11 (poll + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (timeout, max_ev)
+                CALL                     2
+                STORE_FAST               4 (fd_event_list)
+
+ 456    L6:     LOAD_FAST                0 (self)
+                LOAD_ATTR                6 (_fd_to_key)
+                STORE_FAST               5 (fd_to_key)
+
+ 457            LOAD_FAST                4 (fd_event_list)
+                GET_ITER
+        L7:     FOR_ITER               126 (to L11)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  103 (fd, event)
+
+ 458            LOAD_FAST                5 (fd_to_key)
+                LOAD_ATTR               15 (get + NULL|self)
+                LOAD_FAST                6 (fd)
+                CALL                     1
+                STORE_FAST               8 (key)
+
+ 459            LOAD_FAST                8 (key)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L8)
+                NOT_TAKEN
+                JUMP_BACKWARD           32 (to L7)
+
+ 460    L8:     LOAD_FAST                7 (event)
+                LOAD_GLOBAL             16 (_NOT_EPOLLIN)
+                BINARY_OP                1 (&)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L9)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             18 (EVENT_WRITE)
+
+ 461    L9:     LOAD_FAST                7 (event)
+                LOAD_GLOBAL             20 (_NOT_EPOLLOUT)
+                BINARY_OP                1 (&)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L10)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             22 (EVENT_READ)
+
+ 460   L10:     BINARY_OP                7 (|)
+                STORE_FAST               9 (events)
+
+ 462            LOAD_FAST                3 (ready)
+                LOAD_ATTR               25 (append + NULL|self)
+                LOAD_FAST_LOAD_FAST    137 (key, events)
+                LOAD_FAST                8 (key)
+                LOAD_ATTR               26 (events)
+                BINARY_OP                1 (&)
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          128 (to L7)
+
+ 457   L11:     END_FOR
+                POP_ITER
+
+ 463            LOAD_FAST                3 (ready)
+                RETURN_VALUE
+
+  --   L12:     PUSH_EXC_INFO
+
+ 453            LOAD_GLOBAL             12 (InterruptedError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L14)
+                NOT_TAKEN
+                POP_TOP
+
+ 454            LOAD_FAST                3 (ready)
+                SWAP                     2
+       L13:     POP_EXCEPT
+                RETURN_VALUE
+
+ 453   L14:     RERAISE                  0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L12 [0]
+  L12 to L13 -> L15 [1] lasti
+  L14 to L15 -> L15 [1] lasti
+
+Disassembly of <code object close at 0x00000204BA100290, file "selectors.py", line 465>:
+  --           COPY_FREE_VARS           1
+
+ 465           RESUME                   0
+
+ 466           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_selector)
+               LOAD_ATTR                3 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 467           LOAD_GLOBAL              4 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object DevpollSelector at 0x00000204B9F731B0, file "selectors.py", line 472>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 472           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DevpollSelector')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (472)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 473           LOAD_CONST               2 ('Solaris /dev/poll selector.')
+               STORE_NAME               4 (__doc__)
+
+ 474           LOAD_NAME                5 (select)
+               LOAD_ATTR               12 (devpoll)
+               STORE_NAME               7 (_selector_cls)
+
+ 475           LOAD_NAME                5 (select)
+               LOAD_ATTR               16 (POLLIN)
+               STORE_NAME               9 (_EVENT_READ)
+
+ 476           LOAD_NAME                5 (select)
+               LOAD_ATTR               20 (POLLOUT)
+               STORE_NAME              11 (_EVENT_WRITE)
+
+ 478           LOAD_CONST               3 (<code object fileno at 0x00000204BA0FD020, file "selectors.py", line 478>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (fileno)
+
+ 481           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               4 (<code object close at 0x00000204BA1022A0, file "selectors.py", line 481>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              13 (close)
+               LOAD_CONST               5 (())
+               STORE_NAME              14 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              15 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              16 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object fileno at 0x00000204BA0FD020, file "selectors.py", line 478>:
+478           RESUME                   0
+
+479           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_selector)
+              LOAD_ATTR                3 (fileno + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204BA1022A0, file "selectors.py", line 481>:
+  --           COPY_FREE_VARS           1
+
+ 481           RESUME                   0
+
+ 482           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_selector)
+               LOAD_ATTR                3 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 483           LOAD_GLOBAL              4 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object KqueueSelector at 0x00000204BA0A91B0, file "selectors.py", line 488>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 488           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('KqueueSelector')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (488)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 489           LOAD_CONST               2 ('Kqueue-based selector.')
+               STORE_NAME               4 (__doc__)
+
+ 491           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0AAD30, file "selectors.py", line 491>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__init__)
+
+ 496           LOAD_CONST               4 (<code object fileno at 0x00000204BA0FFCC0, file "selectors.py", line 496>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (fileno)
+
+ 499           LOAD_CONST              10 ((None,))
+               LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object register at 0x00000204BA35BFC0, file "selectors.py", line 499>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (register)
+
+ 517           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               6 (<code object unregister at 0x00000204BA3ACB20, file "selectors.py", line 517>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               8 (unregister)
+
+ 540           LOAD_CONST              10 ((None,))
+               LOAD_CONST               7 (<code object select at 0x00000204BA3ACEC0, file "selectors.py", line 540>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               9 (select)
+
+ 563           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               8 (<code object close at 0x00000204BA101CB0, file "selectors.py", line 563>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              10 (close)
+               LOAD_CONST               9 (('_max_events', '_selector'))
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              13 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0AAD30, file "selectors.py", line 491>:
+  --           COPY_FREE_VARS           1
+
+ 491           RESUME                   0
+
+ 492           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 493           LOAD_GLOBAL              4 (select)
+               LOAD_ATTR                6 (kqueue)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_selector)
+
+ 494           LOAD_SMALL_INT           0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               5 (_max_events)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object fileno at 0x00000204BA0FFCC0, file "selectors.py", line 496>:
+496           RESUME                   0
+
+497           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_selector)
+              LOAD_ATTR                3 (fileno + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object register at 0x00000204BA35BFC0, file "selectors.py", line 499>:
+  --           COPY_FREE_VARS           1
+
+ 499           RESUME                   0
+
+ 500           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (register + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (fileobj, events)
+               LOAD_FAST_BORROW         3 (data)
+               CALL                     3
+               STORE_FAST               4 (key)
+
+ 501           NOP
+
+ 502   L1:     LOAD_FAST_BORROW         2 (events)
+               LOAD_GLOBAL              4 (EVENT_READ)
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      118 (to L2)
+               NOT_TAKEN
+
+ 503           LOAD_GLOBAL              6 (select)
+               LOAD_ATTR                8 (kevent)
+               PUSH_NULL
+               LOAD_FAST_BORROW         4 (key)
+               LOAD_ATTR               10 (fd)
+               LOAD_GLOBAL              6 (select)
+               LOAD_ATTR               12 (KQ_FILTER_READ)
+
+ 504           LOAD_GLOBAL              6 (select)
+               LOAD_ATTR               14 (KQ_EV_ADD)
+
+ 503           CALL                     3
+               STORE_FAST               5 (kev)
+
+ 505           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               16 (_selector)
+               LOAD_ATTR               19 (control + NULL|self)
+               LOAD_FAST_BORROW         5 (kev)
+               BUILD_LIST               1
+               LOAD_SMALL_INT           0
+               LOAD_SMALL_INT           0
+               CALL                     3
+               POP_TOP
+
+ 506           LOAD_FAST_BORROW         0 (self)
+               COPY                     1
+               LOAD_ATTR               20 (_max_events)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               SWAP                     2
+               STORE_ATTR              10 (_max_events)
+
+ 507   L2:     LOAD_FAST_BORROW         2 (events)
+               LOAD_GLOBAL             22 (EVENT_WRITE)
+               BINARY_OP                1 (&)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      118 (to L5)
+       L3:     NOT_TAKEN
+
+ 508   L4:     LOAD_GLOBAL              6 (select)
+               LOAD_ATTR                8 (kevent)
+               PUSH_NULL
+               LOAD_FAST_BORROW         4 (key)
+               LOAD_ATTR               10 (fd)
+               LOAD_GLOBAL              6 (select)
+               LOAD_ATTR               24 (KQ_FILTER_WRITE)
+
+ 509           LOAD_GLOBAL              6 (select)
+               LOAD_ATTR               14 (KQ_EV_ADD)
+
+ 508           CALL                     3
+               STORE_FAST               5 (kev)
+
+ 510           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               16 (_selector)
+               LOAD_ATTR               19 (control + NULL|self)
+               LOAD_FAST_BORROW         5 (kev)
+               BUILD_LIST               1
+               LOAD_SMALL_INT           0
+               LOAD_SMALL_INT           0
+               CALL                     3
+               POP_TOP
+
+ 511           LOAD_FAST_BORROW         0 (self)
+               COPY                     1
+               LOAD_ATTR               20 (_max_events)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               SWAP                     2
+               STORE_ATTR              10 (_max_events)
+
+ 515   L5:     LOAD_FAST_BORROW         4 (key)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 512           POP_TOP
+
+ 513           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST                0 (self)
+               LOAD_SUPER_ATTR         53 (unregister + NULL|self)
+               LOAD_FAST                1 (fileobj)
+               CALL                     1
+               POP_TOP
+
+ 514           RAISE_VARARGS            0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [0]
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object unregister at 0x00000204BA3ACB20, file "selectors.py", line 517>:
+  --            COPY_FREE_VARS           1
+
+ 517            RESUME                   0
+
+ 518            LOAD_GLOBAL              0 (super)
+                LOAD_DEREF               4 (__class__)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_SUPER_ATTR          5 (unregister + NULL|self)
+                LOAD_FAST_BORROW         1 (fileobj)
+                CALL                     1
+                STORE_FAST               2 (key)
+
+ 519            LOAD_FAST_BORROW         2 (key)
+                LOAD_ATTR                4 (events)
+                LOAD_GLOBAL              6 (EVENT_READ)
+                BINARY_OP                1 (&)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      119 (to L2)
+                NOT_TAKEN
+
+ 520            LOAD_GLOBAL              8 (select)
+                LOAD_ATTR               10 (kevent)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (key)
+                LOAD_ATTR               12 (fd)
+                LOAD_GLOBAL              8 (select)
+                LOAD_ATTR               14 (KQ_FILTER_READ)
+
+ 521            LOAD_GLOBAL              8 (select)
+                LOAD_ATTR               16 (KQ_EV_DELETE)
+
+ 520            CALL                     3
+                STORE_FAST               3 (kev)
+
+ 522            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR               18 (_max_events)
+                LOAD_SMALL_INT           1
+                BINARY_OP               23 (-=)
+                SWAP                     2
+                STORE_ATTR               9 (_max_events)
+
+ 523            NOP
+
+ 524    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (_selector)
+                LOAD_ATTR               23 (control + NULL|self)
+                LOAD_FAST_BORROW         3 (kev)
+                BUILD_LIST               1
+                LOAD_SMALL_INT           0
+                LOAD_SMALL_INT           0
+                CALL                     3
+                POP_TOP
+
+ 529    L2:     LOAD_FAST_BORROW         2 (key)
+                LOAD_ATTR                4 (events)
+                LOAD_GLOBAL             26 (EVENT_WRITE)
+                BINARY_OP                1 (&)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      121 (to L5)
+                NOT_TAKEN
+
+ 530            LOAD_GLOBAL              8 (select)
+                LOAD_ATTR               10 (kevent)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (key)
+                LOAD_ATTR               12 (fd)
+                LOAD_GLOBAL              8 (select)
+                LOAD_ATTR               28 (KQ_FILTER_WRITE)
+
+ 531            LOAD_GLOBAL              8 (select)
+                LOAD_ATTR               16 (KQ_EV_DELETE)
+
+ 530            CALL                     3
+                STORE_FAST               3 (kev)
+
+ 532            LOAD_FAST_BORROW         0 (self)
+                COPY                     1
+                LOAD_ATTR               18 (_max_events)
+                LOAD_SMALL_INT           1
+                BINARY_OP               23 (-=)
+                SWAP                     2
+                STORE_ATTR               9 (_max_events)
+
+ 533            NOP
+
+ 534    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (_selector)
+                LOAD_ATTR               23 (control + NULL|self)
+                LOAD_FAST_BORROW         3 (kev)
+                BUILD_LIST               1
+                LOAD_SMALL_INT           0
+                LOAD_SMALL_INT           0
+                CALL                     3
+                POP_TOP
+
+ 538    L4:     LOAD_FAST_BORROW         2 (key)
+                RETURN_VALUE
+        L5:     LOAD_FAST_BORROW         2 (key)
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+ 525            LOAD_GLOBAL             24 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+ 528    L7:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 164 (to L2)
+
+ 525    L8:     RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     PUSH_EXC_INFO
+
+ 535            LOAD_GLOBAL             24 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 537   L11:     POP_EXCEPT
+
+ 538            LOAD_FAST                2 (key)
+                RETURN_VALUE
+
+ 535   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L3 to L4 -> L10 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+  L10 to L11 -> L13 [1] lasti
+  L12 to L13 -> L13 [1] lasti
+
+Disassembly of <code object select at 0x00000204BA3ACEC0, file "selectors.py", line 540>:
+ 540            RESUME                   0
+
+ 541            LOAD_FAST_BORROW         1 (timeout)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+                LOAD_CONST               0 (None)
+                JUMP_FORWARD            11 (to L2)
+        L1:     LOAD_GLOBAL              1 (max + NULL)
+                LOAD_FAST_BORROW         1 (timeout)
+                LOAD_SMALL_INT           0
+                CALL                     2
+        L2:     STORE_FAST               1 (timeout)
+
+ 545            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_max_events)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L3)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_SMALL_INT           1
+        L3:     STORE_FAST               2 (max_ev)
+
+ 546            BUILD_LIST               0
+                STORE_FAST               3 (ready)
+
+ 547            NOP
+
+ 548    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_selector)
+                LOAD_ATTR                7 (control + NULL|self)
+                LOAD_CONST               0 (None)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (max_ev, timeout)
+                CALL                     3
+                STORE_FAST               4 (kev_list)
+
+ 552    L5:     LOAD_FAST                0 (self)
+                LOAD_ATTR               10 (_fd_to_key)
+                LOAD_ATTR               12 (get)
+                STORE_FAST               5 (fd_to_key_get)
+
+ 553            LOAD_FAST                4 (kev_list)
+                GET_ITER
+        L6:     FOR_ITER               151 (to L10)
+                STORE_FAST               6 (kev)
+
+ 554            LOAD_FAST                6 (kev)
+                LOAD_ATTR               14 (ident)
+                STORE_FAST               7 (fd)
+
+ 555            LOAD_FAST                6 (kev)
+                LOAD_ATTR               16 (filter)
+                STORE_FAST               8 (flag)
+
+ 556            LOAD_FAST                5 (fd_to_key_get)
+                PUSH_NULL
+                LOAD_FAST                7 (fd)
+                CALL                     1
+                STORE_FAST               9 (key)
+
+ 557            LOAD_FAST                9 (key)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L7)
+                NOT_TAKEN
+                JUMP_BACKWARD           45 (to L6)
+
+ 558    L7:     LOAD_FAST                8 (flag)
+                LOAD_GLOBAL             18 (select)
+                LOAD_ATTR               20 (KQ_FILTER_READ)
+                COMPARE_OP              72 (==)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L8)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             22 (EVENT_READ)
+
+ 559    L8:     LOAD_FAST                8 (flag)
+                LOAD_GLOBAL             18 (select)
+                LOAD_ATTR               24 (KQ_FILTER_WRITE)
+                COMPARE_OP              72 (==)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        7 (to L9)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL             26 (EVENT_WRITE)
+
+ 558    L9:     BINARY_OP                7 (|)
+                STORE_FAST              10 (events)
+
+ 560            LOAD_FAST                3 (ready)
+                LOAD_ATTR               29 (append + NULL|self)
+                LOAD_FAST_LOAD_FAST    154 (key, events)
+                LOAD_FAST                9 (key)
+                LOAD_ATTR               30 (events)
+                BINARY_OP                1 (&)
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          153 (to L6)
+
+ 553   L10:     END_FOR
+                POP_ITER
+
+ 561            LOAD_FAST                3 (ready)
+                RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 549            LOAD_GLOBAL              8 (InterruptedError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 550            LOAD_FAST                3 (ready)
+                SWAP                     2
+       L12:     POP_EXCEPT
+                RETURN_VALUE
+
+ 549   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L11 [0]
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object close at 0x00000204BA101CB0, file "selectors.py", line 563>:
+  --           COPY_FREE_VARS           1
+
+ 563           RESUME                   0
+
+ 564           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_selector)
+               LOAD_ATTR                3 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 565           LOAD_GLOBAL              4 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _can_use at 0x00000204BA12A8D0, file "selectors.py", line 568>:
+ 568           RESUME                   0
+
+ 572           LOAD_GLOBAL              1 (getattr + NULL)
+               LOAD_GLOBAL              2 (select)
+               LOAD_FAST_BORROW         0 (method)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               STORE_FAST               1 (selector)
+
+ 573           LOAD_FAST_BORROW         1 (selector)
+               POP_JUMP_IF_NOT_NONE     3 (to L1)
+               NOT_TAKEN
+
+ 575           LOAD_CONST               2 (False)
+               RETURN_VALUE
+
+ 578   L1:     NOP
+
+ 579   L2:     LOAD_FAST_BORROW         1 (selector)
+               PUSH_NULL
+               CALL                     0
+               STORE_FAST               2 (selector_obj)
+
+ 580           LOAD_FAST_BORROW         0 (method)
+               LOAD_CONST               3 ('poll')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       20 (to L4)
+               NOT_TAKEN
+
+ 582           LOAD_FAST_BORROW         2 (selector_obj)
+               LOAD_ATTR                5 (poll + NULL|self)
+               LOAD_SMALL_INT           0
+               CALL                     1
+               POP_TOP
+
+ 586   L3:     LOAD_CONST               4 (True)
+               RETURN_VALUE
+
+ 585   L4:     LOAD_FAST_BORROW         2 (selector_obj)
+               LOAD_ATTR                7 (close + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 586   L5:     LOAD_CONST               4 (True)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+ 587           LOAD_GLOBAL              8 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+ 588   L7:     POP_EXCEPT
+               LOAD_CONST               2 (False)
+               RETURN_VALUE
+
+ 587   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L6 [0]
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti

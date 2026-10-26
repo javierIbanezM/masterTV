@@ -1,0 +1,76 @@
+<module>()  line 1
+    remove_duplicates(items)  line 18
+    FileReader()  line 22
+        FileReader.__init__(self, loader)  line 23
+        FileReader.resource_path(self, resource)  line 26
+        FileReader.files(self)  line 34
+    ZipReader()  line 38
+        ZipReader.__init__(self, loader, module)  line 39
+        ZipReader.open_resource(self, resource)  line 46
+        ZipReader.is_resource(self, path)  line 52
+        ZipReader.files(self)  line 60
+    MultiplexedPath()  line 64
+        MultiplexedPath.__init__(self)  line 72
+            MultiplexedPath.__init__.<locals>.<genexpr>(.0)  line 77
+        MultiplexedPath.iterdir(self)  line 80
+            MultiplexedPath.iterdir.<locals>.<genexpr>(.0)  line 81
+            MultiplexedPath.iterdir.<locals>.<genexpr>(.0)  line 84
+        MultiplexedPath.read_bytes(self)  line 86
+        MultiplexedPath.read_text(self)  line 89
+        MultiplexedPath.is_dir(self)  line 92
+        MultiplexedPath.is_file(self)  line 95
+        MultiplexedPath.joinpath(self)  line 98
+        MultiplexedPath._follow(cls, children)  line 106
+        MultiplexedPath.open(self)  line 125
+        MultiplexedPath.name(self)  line 128
+        MultiplexedPath.__repr__(self)  line 132
+            MultiplexedPath.__repr__.<locals>.<genexpr>(.0)  line 133
+    NamespaceReader()  line 137
+        NamespaceReader.__init__(self, namespace_path)  line 138
+        NamespaceReader.__annotate__(format)  line 144
+        NamespaceReader._resolve(cls, path_str)  line 143
+            NamespaceReader._resolve.<locals>.<genexpr>(.0)  line 156
+        NamespaceReader.__annotate__(format)  line 160
+        NamespaceReader._candidate_paths(cls, path_str)  line 159
+        NamespaceReader.__annotate__(format)  line 165
+        NamespaceReader._resolve_zip_path(path_str)  line 164
+        NamespaceReader.resource_path(self, resource)  line 176
+        NamespaceReader.files(self)  line 184
+    _ensure_traversable(path)  line 188
+
+--- strings ---
+'FileReader'
+'\nReturn the file system path to prevent\n`resources.path()` from creating a temporary\ncopy.\n'
+'FileReader'
+'ZipReader'
+'\nWorkaround for `zipfile.Path.is_file` returning true\nfor non-existent paths.\n'
+'ZipReader'
+'MultiplexedPath'
+'\nGiven a series of Traversable objects, implement a merged\nversion of the interface across all objects. Useful for\nnamespace packages which may be multihomed at a single\nname.\n'
+'MultiplexedPath must contain at least one path'
+'MultiplexedPath only supports directories'
+'name'
+' is not a file'
+' is not a file'
+'\nConstruct a MultiplexedPath if needed.\n\nIf children contains a sole element, return it.\nOtherwise, return a MultiplexedPath of the items.\nUnless one of the items is not a Directory, then return the first.\n'
+' is not a file'
+', '
+'MultiplexedPath('
+'MultiplexedPath'
+'NamespaceReader'
+'NamespacePath'
+'Invalid path'
+'return'
+'abc.Traversable | None'
+'\nGiven an item from a namespace path, resolve it to a Traversable.\n\npath_str might be a directory on the filesystem or a path to a\nzipfile plus the path within the zipfile, e.g. ``/foo/bar`` or\n``/foo/baz.zip/inner_dir`` or ``foo\\baz.zip\\inner_dir\\sub``.\n\npath_str might also be a sentinel used by editable packages to\ntrigger other behaviors (see python/importlib_resources#311).\nIn that case, return None.\n'
+'path_str'
+'str'
+'return'
+'Iterator[abc.Traversable]'
+'path_str'
+'str'
+'[\\\\/]'
+'\nReturn the file system path to prevent\n`resources.path()` from creating a temporary\ncopy.\n'
+'NamespaceReader'
+'\nConvert deprecated string arguments to traversables (pathlib.Path).\n\nRemove with Python 3.15.\n'
+'String arguments are deprecated. Pass a Traversable instead.'

@@ -1,0 +1,498 @@
+<module>()  line 1
+    getLevelNamesMapping()  line 126
+    getLevelName(level)  line 129
+    addLevelName(level, levelName)  line 156
+    <lambda>()  line 167
+    currentframe()  line 169
+    _is_internal_frame(frame)  line 197
+    _checkLevel(level)  line 205
+    _prepareFork()  line 231
+    _afterFork()  line 245
+    _register_at_fork_reinit_lock(instance)  line 257
+    _register_at_fork_reinit_lock(instance)  line 265
+    _after_at_fork_child_reinit_locks()  line 269
+    LogRecord()  line 286
+        LogRecord.__init__(self, name, level, pathname, lineno, msg, args, exc_info, func, sinfo)  line 298
+        LogRecord.__repr__(self)  line 387
+        LogRecord.getMessage(self)  line 391
+    setLogRecordFactory(factory)  line 408
+    getLogRecordFactory()  line 418
+    makeLogRecord(dict)  line 425
+    PercentStyle()  line 444
+        PercentStyle.__init__(self, fmt, defaults)  line 451
+        PercentStyle.usesTime(self)  line 455
+        PercentStyle.validate(self)  line 458
+        PercentStyle._format(self, record)  line 463
+        PercentStyle.format(self, record)  line 470
+    StrFormatStyle()  line 477
+        StrFormatStyle._format(self, record)  line 485
+        StrFormatStyle.validate(self)  line 492
+    StringTemplateStyle()  line 511
+        StringTemplateStyle.__init__(self)  line 516
+        StringTemplateStyle.usesTime(self)  line 520
+        StringTemplateStyle.validate(self)  line 524
+        StringTemplateStyle._format(self, record)  line 538
+    Formatter()  line 554
+        Formatter.__init__(self, fmt, datefmt, style, validate, defaults)  line 601
+        Formatter.formatTime(self, record, datefmt)  line 631
+        Formatter.formatException(self, ei)  line 658
+        Formatter.usesTime(self)  line 677
+        Formatter.formatMessage(self, record)  line 683
+        Formatter.formatStack(self, stack_info)  line 686
+        Formatter.format(self, record)  line 699
+    BufferingFormatter()  line 736
+        BufferingFormatter.__init__(self, linefmt)  line 740
+        BufferingFormatter.formatHeader(self, records)  line 750
+        BufferingFormatter.formatFooter(self, records)  line 756
+        BufferingFormatter.format(self, records)  line 762
+    Filter()  line 778
+        Filter.__init__(self, name)  line 789
+        Filter.filter(self, record)  line 800
+    Filterer()  line 815
+        Filterer.__init__(self)  line 820
+        Filterer.addFilter(self, filter)  line 826
+        Filterer.removeFilter(self, filter)  line 833
+        Filterer.filter(self, record)  line 840
+    _removeHandlerRef(wr)  line 883
+    _addHandlerRef(handler)  line 899
+    getHandlerByName(name)  line 907
+    getHandlerNames()  line 915
+    Handler()  line 922
+        Handler.__init__(self, level)  line 931
+        Handler.get_name(self)  line 945
+        Handler.set_name(self, name)  line 948
+        Handler.createLock(self)  line 958
+        Handler._at_fork_reinit(self)  line 965
+        Handler.acquire(self)  line 968
+        Handler.release(self)  line 975
+        Handler.setLevel(self, level)  line 982
+        Handler.format(self, record)  line 988
+        Handler.emit(self, record)  line 1001
+        Handler.handle(self, record)  line 1011
+        Handler.setFormatter(self, fmt)  line 1030
+        Handler.flush(self)  line 1036
+        Handler.close(self)  line 1045
+        Handler.handleError(self, record)  line 1060
+        Handler.__repr__(self)  line 1107
+    StreamHandler()  line 1111
+        StreamHandler.__init__(self, stream)  line 1120
+        StreamHandler.flush(self)  line 1131
+        StreamHandler.emit(self, record)  line 1139
+        StreamHandler.setStream(self, stream)  line 1161
+        StreamHandler.__repr__(self)  line 1178
+    FileHandler()  line 1190
+        FileHandler.__init__(self, filename, mode, encoding, delay, errors)  line 1194
+        FileHandler.close(self)  line 1221
+        FileHandler._open(self)  line 1242
+        FileHandler.emit(self, record)  line 1251
+        FileHandler.__repr__(self)  line 1267
+    _StderrHandler()  line 1272
+        _StderrHandler.__init__(self, level)  line 1278
+        _StderrHandler.stream(self)  line 1284
+    PlaceHolder()  line 1296
+        PlaceHolder.__init__(self, alogger)  line 1302
+        PlaceHolder.append(self, alogger)  line 1308
+    setLoggerClass(klass)  line 1319
+    getLoggerClass()  line 1332
+    Manager()  line 1338
+        Manager.__init__(self, rootnode)  line 1343
+        Manager.disable(self)  line 1354
+        Manager.disable(self, value)  line 1358
+        Manager.getLogger(self, name)  line 1362
+        Manager.setLoggerClass(self, klass)  line 1393
+        Manager.setLogRecordFactory(self, factory)  line 1403
+        Manager._fixupParents(self, alogger)  line 1410
+        Manager._fixupChildren(self, ph, alogger)  line 1434
+        Manager._clear_cache(self)  line 1447
+    Logger()  line 1463
+        Logger.__init__(self, name, level)  line 1478
+        Logger.setLevel(self, level)  line 1491
+        Logger.debug(self, msg)  line 1498
+        Logger.info(self, msg)  line 1510
+        Logger.warning(self, msg)  line 1522
+        Logger.warn(self, msg)  line 1534
+        Logger.error(self, msg)  line 1539
+        Logger.exception(self, msg, exc_info)  line 1551
+        Logger.critical(self, msg)  line 1557
+        Logger.fatal(self, msg)  line 1569
+        Logger.log(self, level, msg)  line 1575
+        Logger.findCaller(self, stack_info, stacklevel)  line 1592
+        Logger.makeRecord(self, name, level, fn, lno, msg, args, exc_info, func, extra, sinfo)  line 1626
+        Logger._log(self, level, msg, args, exc_info, extra, stack_info, stacklevel)  line 1641
+        Logger.handle(self, record)  line 1667
+        Logger.addHandler(self, hdlr)  line 1683
+        Logger.removeHandler(self, hdlr)  line 1691
+        Logger.hasHandlers(self)  line 1699
+        Logger.callHandlers(self, record)  line 1721
+        Logger.getEffectiveLevel(self)  line 1751
+        Logger.isEnabledFor(self, level)  line 1765
+        Logger.getChild(self, suffix)  line 1784
+        Logger.getChildren(self)  line 1803
+            Logger.getChildren.<locals>._hierlevel(logger)  line 1805
+            Logger.getChildren.<locals>.<genexpr>(.0)  line 1815
+        Logger.__repr__(self)  line 1819
+        Logger.__reduce__(self)  line 1823
+    RootLogger()  line 1830
+        RootLogger.__init__(self, level)  line 1836
+        RootLogger.__reduce__(self)  line 1842
+    LoggerAdapter()  line 1847
+        LoggerAdapter.__init__(self, logger, extra, merge_extra)  line 1853
+        LoggerAdapter.process(self, msg, kwargs)  line 1878
+        LoggerAdapter.debug(self, msg)  line 1897
+        LoggerAdapter.info(self, msg)  line 1903
+        LoggerAdapter.warning(self, msg)  line 1909
+        LoggerAdapter.warn(self, msg)  line 1915
+        LoggerAdapter.error(self, msg)  line 1920
+        LoggerAdapter.exception(self, msg, exc_info)  line 1926
+        LoggerAdapter.critical(self, msg)  line 1932
+        LoggerAdapter.log(self, level, msg)  line 1938
+        LoggerAdapter.isEnabledFor(self, level)  line 1947
+        LoggerAdapter.setLevel(self, level)  line 1953
+        LoggerAdapter.getEffectiveLevel(self)  line 1959
+        LoggerAdapter.hasHandlers(self)  line 1965
+        LoggerAdapter._log(self, level, msg, args)  line 1971
+        LoggerAdapter.manager(self)  line 1977
+        LoggerAdapter.manager(self, value)  line 1981
+        LoggerAdapter.name(self)  line 1985
+        LoggerAdapter.__repr__(self)  line 1989
+    basicConfig()  line 2004
+    getLogger(name)  line 2129
+    critical(msg)  line 2139
+    fatal(msg)  line 2149
+    error(msg)  line 2155
+    exception(msg, exc_info)  line 2165
+    warning(msg)  line 2173
+    warn(msg)  line 2183
+    info(msg)  line 2188
+    debug(msg)  line 2198
+    log(level, msg)  line 2208
+    disable(level)  line 2218
+    shutdown(handlerList)  line 2225
+    NullHandler()  line 2265
+        NullHandler.handle(self, record)  line 2275
+        NullHandler.emit(self, record)  line 2278
+        NullHandler.createLock(self)  line 2281
+        NullHandler._at_fork_reinit(self)  line 2284
+    _showwarning(message, category, filename, lineno, file, line)  line 2291
+    captureWarnings(capture)  line 2311
+
+--- strings ---
+"\nLogging package for Python. Based on PEP 282 and comments thereto in\ncomp.lang.python.\n\nCopyright (C) 2001-2022 Vinay Sajip. All Rights Reserved.\n\nTo use, simply 'import logging' and log away!\n"
+'BASIC_FORMAT'
+'BufferingFormatter'
+'CRITICAL'
+'DEBUG'
+'ERROR'
+'FATAL'
+'FileHandler'
+'Filter'
+'Formatter'
+'Handler'
+'INFO'
+'LogRecord'
+'Logger'
+'LoggerAdapter'
+'NOTSET'
+'NullHandler'
+'StreamHandler'
+'WARN'
+'WARNING'
+'addLevelName'
+'basicConfig'
+'captureWarnings'
+'critical'
+'debug'
+'disable'
+'error'
+'exception'
+'fatal'
+'getLevelName'
+'getLogger'
+'getLoggerClass'
+'info'
+'log'
+'makeLogRecord'
+'setLoggerClass'
+'shutdown'
+'warn'
+'warning'
+'getLogRecordFactory'
+'setLogRecordFactory'
+'lastResort'
+'raiseExceptions'
+'getLevelNamesMapping'
+'getHandlerByName'
+'getHandlerNames'
+'Vinay Sajip <vinay_sajip@red-dove.com>'
+'production'
+'0.5.1.2'
+'07 February 2010'
+"\nReturn the textual or numeric representation of logging level 'level'.\n\nIf the level is one of the predefined levels (CRITICAL, ERROR, WARNING,\nINFO, DEBUG) then you get the corresponding string. If you have\nassociated levels with names using addLevelName then the name you have\nassociated with 'level' is returned.\n\nIf a numeric value corresponding to one of the defined levels is passed\nin, the corresponding string representation is returned.\n\nIf a string representation of the level is passed in, the corresponding\nnumeric value is returned.\n\nIf no matching numeric or string value is passed in, the string\n'Level %s' % level is returned.\n"
+'Level %s'
+"\nAssociate 'levelName' with 'level'.\n\nThis is used when converting levels to text during message formatting.\n"
+'_getframe'
+"Return the frame object for the caller's stack frame."
+'Signal whether the frame is a CPython or logging module internal.'
+'importlib'
+'_bootstrap'
+'Unknown level: %r'
+'Level not an integer or a valid string: '
+'\nPrepare to fork a new child process by acquiring the module-level lock.\n\nThis should be used in conjunction with _afterFork().\n'
+'\nAfter a new child process has been forked, release the module-level lock.\n\nThis should be used in conjunction with _prepareFork().\n'
+'register_at_fork'
+'LogRecord'
+'\nA LogRecord instance represents an event being logged.\n\nLogRecord instances are created every time something is logged. They\ncontain all the information pertinent to the event being logged. The\nmain information passed in is in msg and args, which are combined\nusing str(msg) % args to create the message field of the record. The\nrecord also includes information such as when the record was created,\nthe source line where the logging call was made, and any exception\ninformation to be logged.\n'
+'\nInitialize a logging record with interesting information.\n'
+'Unknown module'
+'MainProcess'
+'multiprocessing'
+'getpid'
+'asyncio'
+'<LogRecord: '
+', '
+', "'
+'">'
+'\nReturn the message for this LogRecord.\n\nReturn the message for this LogRecord after merging any user-supplied\narguments with the message.\n'
+'\nSet the factory to be used when instantiating a log record.\n\n:param factory: A callable which will be called to instantiate\na log record.\n'
+'\nReturn the factory to be used when instantiating a log record.\n'
+'\nMake a LogRecord whose attributes are defined by the specified dictionary,\nThis function is useful for converting a logging event received over\na socket connection (which is sent as a dictionary) into a LogRecord\ninstance.\n'
+'PercentStyle'
+'%(message)s'
+'%(asctime)s'
+'%(asctime)'
+'%\\(\\w+\\)[#0+ -]*(\\*|\\d+)?(\\.(\\*|\\d+))?[diouxefgcrsa%]'
+'defaults'
+'Validate the input format, ensure it matches the correct style'
+"Invalid format '"
+"' for '"
+"' style"
+'Formatting field not found in record: %s'
+'PercentStyle'
+'StrFormatStyle'
+'{message}'
+'{asctime}'
+'{asctime'
+'^(.?[<>=^])?[+ -]?#?0?(\\d+|{\\w+})?[,_]?(\\.(\\d+|{\\w+}))?[bcdefgnosx%]?$'
+'^(\\d+|\\w+)(\\.\\w+|\\[[^]]+\\])*$'
+'Validate the input format, ensure it is the correct string formatting style'
+'invalid field name/expression: %r'
+'rsa'
+'invalid conversion: %r'
+'bad specifier: %r'
+'invalid format: %s'
+'invalid format: no fields'
+'StrFormatStyle'
+'StringTemplateStyle'
+'${message}'
+'${asctime}'
+'$asctime'
+'named'
+'braced'
+"invalid format: bare '$' not allowed"
+'invalid format: no fields'
+'StringTemplateStyle'
+'%(levelname)s:%(name)s:%(message)s'
+'{levelname}:{name}:{message}'
+'${levelname}:${name}:${message}'
+'Formatter'
+'\nFormatter instances are used to convert a LogRecord to text.\n\nFormatters need to know how a LogRecord is constructed. They are\nresponsible for converting a LogRecord to (usually) a string which can\nbe interpreted by either a human or an external system. The base Formatter\nallows a formatting string to be specified. If none is supplied, the\nstyle-dependent default value, "%(message)s", "{message}", or\n"${message}", is used.\n\nThe Formatter can be initialized with a format string which makes use of\nknowledge of the LogRecord attributes - e.g. the default value mentioned\nabove makes use of the fact that the user\'s message and arguments are pre-\nformatted into a LogRecord\'s message attribute. Currently, the useful\nattributes in a LogRecord are described by:\n\n%(name)s            Name of the logger (logging channel)\n%(levelno)s         Numeric logging level for the message (DEBUG, INFO,\n                    WARNING, ERROR, CRITICAL)\n%(levelname)s       Text logging level for the message ("DEBUG", "INFO",\n                    "WARNING", "ERROR", "CRITICAL")\n%(pathname)s        Full pathname of the source file where the logging\n                    call was issued (if available)\n%(filename)s        Filename portion of pathname\n%(module)s          Module (name portion of filename)\n%(lineno)d          Source line number where the logging call was issued\n                    (if available)\n%(funcName)s        Function name\n%(created)f         Time when the LogRecord was created (time.time_ns() / 1e9\n                    return value)\n%(asctime)s         Textual time when the LogRecord was created\n%(msecs)d           Millisecond portion of the creation time\n%(relativeCreated)d Time in milliseconds when the LogRecord was created,\n                    relative to the time the logging module was loaded\n                    (typically at application startup time)\n%(thread)d          Thread ID (if available)\n%(threadName)s      Thread name (if available)\n%(taskName)s        Task name (if available)\n%(process)d         Process ID (if available)\n%(processName)s     Process name (if available)\n%(message)s         The result of record.getMessage(), computed just as\n                    the record is emitted\n'
+'defaults'
+"\nInitialize the formatter with specified format strings.\n\nInitialize the formatter either with the specified format string, or a\ndefault as described above. Allow for specialized date formatting with\nthe optional datefmt argument. If datefmt is omitted, you get an\nISO8601-like (or RFC 3339-like) format.\n\nUse a style parameter of '%', '{' or '$' to specify that you want to\nuse one of %-formatting, :meth:`str.format` (``{}``) formatting or\n:class:`string.Template` formatting in your format string.\n\n.. versionchanged:: 3.2\n   Added the ``style`` parameter.\n"
+'Style must be one of: %s'
+'%Y-%m-%d %H:%M:%S'
+'%s,%03d'
+"\nReturn the creation time of the specified LogRecord as formatted text.\n\nThis method should be called from format() by a formatter which\nwants to make use of a formatted time. This method can be overridden\nin formatters to provide for any specific requirement, but the\nbasic behaviour is as follows: if datefmt (a string) is specified,\nit is used with time.strftime() to format the creation time of the\nrecord. Otherwise, an ISO8601-like (or RFC 3339-like) format is used.\nThe resulting string is returned. This function uses a user-configurable\nfunction to convert the creation time to a tuple. By default,\ntime.localtime() is used; to change this for a particular formatter\ninstance, set the 'converter' attribute to a function with the same\nsignature as time.localtime() or time.gmtime(). To change it for all\nformatters, for example if you want all logging times to be shown in GMT,\nset the 'converter' attribute in the Formatter class.\n"
+'\nFormat and return the specified exception information as a string.\n\nThis default implementation just uses\ntraceback.print_exception()\n'
+'\nCheck if the format uses the creation time of the record.\n'
+'\nThis method is provided as an extension point for specialized\nformatting of stack information.\n\nThe input data is a string as returned from a call to\n:func:`traceback.print_stack`, but with the last trailing newline\nremoved.\n\nThe base implementation just returns the value passed in.\n'
+"\nFormat the specified record as text.\n\nThe record's attribute dictionary is used as the operand to a\nstring formatting operation which yields the returned string.\nBefore formatting the dictionary, a couple of preparatory steps\nare carried out. The message attribute of the record is computed\nusing LogRecord.getMessage(). If the formatting string uses the\ntime (as determined by a call to usesTime(), formatTime() is\ncalled to format the event time. If there is exception information,\nit is formatted using formatException() and appended to the message.\n"
+'BufferingFormatter'
+'\nA formatter suitable for formatting a number of records.\n'
+'\nOptionally specify a formatter which will be used to format each\nindividual record.\n'
+'\nReturn the header string for the specified records.\n'
+'\nReturn the footer string for the specified records.\n'
+'\nFormat the specified records and return the result as a string.\n'
+'Filter'
+'\nFilter instances are used to perform arbitrary filtering of LogRecords.\n\nLoggers and Handlers can optionally use Filter instances to filter\nrecords as desired. The base filter class only allows events which are\nbelow a certain point in the logger hierarchy. For example, a filter\ninitialized with "A.B" will allow events logged by loggers "A.B",\n"A.B.C", "A.B.C.D", "A.B.D" etc. but not "A.BB", "B.A.B" etc. If\ninitialized with the empty string, all events are passed.\n'
+'\nInitialize a filter.\n\nInitialize with the name of the logger which, together with its\nchildren, will have its events allowed through the filter. If no\nname is specified, allow every event.\n'
+'\nDetermine if the specified record is to be logged.\n\nReturns True if the record should be logged, or False otherwise.\nIf deemed appropriate, the record may be modified in-place.\n'
+'Filterer'
+'\nA base class for loggers and handlers which allows them to share\ncommon code.\n'
+'\nInitialize the list of filters to be an empty list.\n'
+'\nAdd the specified filter to this handler.\n'
+'\nRemove the specified filter from this handler.\n'
+'\nDetermine if a record is loggable by consulting all the filters.\n\nThe default is to allow the record to be logged; any filter can veto\nthis by returning a false value.\nIf a filter attached to a handler returns a log record instance,\nthen that instance is used in place of the original log record in\nany further processing of the event by that handler.\nIf a filter returns any other true value, the original log record\nis used in any further processing of the event by that handler.\n\nIf none of the filters return false values, this method returns\na log record.\nIf any of the filters return a false value, this method returns\na false value.\n\n.. versionchanged:: 3.2\n\n   Allow filters to be just callables.\n\n.. versionchanged:: 3.12\n   Allow filters to return a LogRecord instead of\n   modifying it in place.\n'
+'filter'
+'Filterer'
+'\nRemove a handler reference from the internal cleanup list.\n'
+'\nAdd a handler to the internal cleanup list using a weak reference.\n'
+"\nGet a handler with the specified *name*, or None if there isn't one with\nthat name.\n"
+'\nReturn all known handler names as an immutable set.\n'
+'Handler'
+"\nHandler instances dispatch logging events to specific destinations.\n\nThe base handler class. Acts as a placeholder which defines the Handler\ninterface. Handlers can optionally use Formatter instances to format\nrecords as desired. By default, no formatter is specified; in this case,\nthe 'raw' message as determined by record.message is logged.\n"
+'\nInitializes the instance - basically setting the formatter to None\nand the filter list to empty.\n'
+'\nAcquire a thread lock for serializing access to the underlying I/O.\n'
+'\nAcquire the I/O thread lock.\n'
+'\nRelease the I/O thread lock.\n'
+'\nSet the logging level of this handler.  level must be an int or a str.\n'
+'\nFormat the specified record.\n\nIf a formatter is set, use it. Otherwise, use the default formatter\nfor the module.\n'
+'\nDo whatever it takes to actually log the specified logging record.\n\nThis version is intended to be implemented by subclasses and so\nraises a NotImplementedError.\n'
+'emit must be implemented by Handler subclasses'
+'\nConditionally emit the specified logging record.\n\nEmission depends on filters which may have been added to the handler.\nWrap the actual emission of the record with acquisition/release of\nthe I/O thread lock.\n\nReturns an instance of the log record that was emitted\nif it passed all filters, otherwise a false value is returned.\n'
+'\nSet the formatter for this handler.\n'
+'\nEnsure all logging output has been flushed.\n\nThis version does nothing and is intended to be implemented by\nsubclasses.\n'
+'\nTidy up any resources used by the handler.\n\nThis version removes the handler from an internal map of handlers,\n_handlers, which is used for handler lookup by name. Subclasses\nshould ensure that this gets called from overridden close()\nmethods.\n'
+'\nHandle errors which occur during an emit() call.\n\nThis method should be called from handlers when an exception is\nencountered during an emit() call. If raiseExceptions is false,\nexceptions get silently ignored. This is what is mostly wanted\nfor a logging system - most users will not care about errors in\nthe logging system, they are more interested in application errors.\nYou could, however, replace this with a custom handler if you wish.\nThe record which was being processed is passed in to this method.\n'
+'--- Logging error ---\n'
+'Call stack:\n'
+'Logged from file '
+', line '
+'Message: '
+'\nArguments: '
+'Unable to print the message and arguments - possible formatting error.\nUse the traceback above to help find the error.\n'
+' ('
+')>'
+'StreamHandler'
+'\nA handler class which writes logging records, appropriately formatted,\nto a stream. Note that this class does not close the stream, as\nsys.stdout or sys.stderr may be used.\n'
+'\nInitialize the handler.\n\nIf stream is not specified, sys.stderr is used.\n'
+'\nFlushes the stream.\n'
+'flush'
+"\nEmit a record.\n\nIf a formatter is specified, it is used to format the record.\nThe record is then written to the stream with a trailing newline.  If\nexception information is present, it is formatted using\ntraceback.print_exception and appended to the stream.  If the stream\nhas an 'encoding' attribute, it is used to determine how to do the\noutput to the stream.\n"
+"\nSets the StreamHandler's stream to the specified value,\nif it is different.\n\nReturns the old stream, if the stream was changed, or None\nif it wasn't.\n"
+'name'
+')>'
+'FileHandler'
+'\nA handler class which writes formatted logging records to disk files.\n'
+'\nOpen the specified file and use it as the stream for logging.\n'
+'\nCloses the stream.\n'
+'close'
+'\nOpen the current base file with the (original) mode and encoding.\nReturn the resulting stream.\n'
+"\nEmit a record.\n\nIf the stream was not opened because 'delay' was specified in the\nconstructor, open it before calling the superclass's emit.\n\nIf stream is not open, current mode is 'w' and `_closed=True`, record\nwill not be emitted (see Issue #42378).\n"
+' ('
+')>'
+'_StderrHandler'
+'\nThis class is like a StreamHandler using sys.stderr, but always uses\nwhatever sys.stderr is currently set to rather than the value of\nsys.stderr at handler construction time.\n'
+'\nInitialize the handler.\n'
+'_StderrHandler'
+'PlaceHolder'
+'\nPlaceHolder instances are used in the Manager logger hierarchy to take\nthe place of nodes for which no loggers have been defined. This class is\nintended for internal use only and not as part of the public API.\n'
+'\nInitialize with the specified logger being a child of this placeholder.\n'
+'\nAdd the specified logger as a child of this placeholder.\n'
+'PlaceHolder'
+'\nSet the class to be used when instantiating a logger. The class should\ndefine __init__() such that only a name argument is required, and the\n__init__() should call Logger.__init__()\n'
+'logger not derived from logging.Logger: '
+'\nReturn the class to be used when instantiating a logger.\n'
+'Manager'
+'\nThere is [under normal circumstances] just one Manager instance, which\nholds the hierarchy of loggers.\n'
+'\nInitialize the manager with the root node of the logger hierarchy.\n'
+'\nGet a logger with the specified name (channel name), creating it\nif it doesn\'t yet exist. This name is a dot-separated hierarchical\nname, such as "a", "a.b", "a.b.c" or similar.\n\nIf a PlaceHolder existed for the specified name [i.e. the logger\ndidn\'t exist but a child of it did], replace it with the created\nlogger and fix up the parent/child references which pointed to the\nplaceholder to now point to the logger.\n'
+'A logger name must be a string'
+'\nSet the class to be used when instantiating a logger with this Manager.\n'
+'logger not derived from logging.Logger: '
+'\nSet the factory to be used when instantiating a log record with this\nManager.\n'
+'\nEnsure that there are either loggers or placeholders all the way\nfrom the specified logger to the root of the logger hierarchy.\n'
+'\nEnsure that children of the placeholder ph are connected to the\nspecified logger.\n'
+'\nClear the cache for all loggers in loggerDict\nCalled when level changes are made\n'
+'Manager'
+'Logger'
+'\nInstances of the Logger class represent a single logging channel. A\n"logging channel" indicates an area of an application. Exactly how an\n"area" is defined is up to the application developer. Since an\napplication can have any number of areas, logging channels are identified\nby a unique string. Application areas can be nested (e.g. an area\nof "input processing" might include sub-areas "read CSV files", "read\nXLS files" and "read Gnumeric files"). To cater for this natural nesting,\nchannel names are organized into a namespace hierarchy where levels are\nseparated by periods, much like the Java or Python package namespace. So\nin the instance given above, channel names might be "input" for the upper\nlevel, and "input.csv", "input.xls" and "input.gnu" for the sub-levels.\nThere is no arbitrary limit to the depth of nesting.\n'
+'\nInitialize the logger with a name and an optional level.\n'
+'\nSet the logging level of this logger.  level must be an int or a str.\n'
+'\nLog \'msg % args\' with severity \'DEBUG\'.\n\nTo pass exception information, use the keyword argument exc_info with\na true value, e.g.\n\nlogger.debug("Houston, we have a %s", "thorny problem", exc_info=True)\n'
+'\nLog \'msg % args\' with severity \'INFO\'.\n\nTo pass exception information, use the keyword argument exc_info with\na true value, e.g.\n\nlogger.info("Houston, we have a %s", "notable problem", exc_info=True)\n'
+'\nLog \'msg % args\' with severity \'WARNING\'.\n\nTo pass exception information, use the keyword argument exc_info with\na true value, e.g.\n\nlogger.warning("Houston, we have a %s", "bit of a problem", exc_info=True)\n'
+"The 'warn' method is deprecated, use 'warning' instead"
+'\nLog \'msg % args\' with severity \'ERROR\'.\n\nTo pass exception information, use the keyword argument exc_info with\na true value, e.g.\n\nlogger.error("Houston, we have a %s", "major problem", exc_info=True)\n'
+'exc_info'
+'\nConvenience method for logging an ERROR with exception information.\n'
+'exc_info'
+'\nLog \'msg % args\' with severity \'CRITICAL\'.\n\nTo pass exception information, use the keyword argument exc_info with\na true value, e.g.\n\nlogger.critical("Houston, we have a %s", "major disaster", exc_info=True)\n'
+"\nDon't use this method, use critical() instead.\n"
+'\nLog \'msg % args\' with the integer severity \'level\'.\n\nTo pass exception information, use the keyword argument exc_info with\na true value, e.g.\n\nlogger.log(level, "We have a %s", "mysterious problem", exc_info=True)\n'
+'level must be an integer'
+'\nFind the stack frame of the caller so that we can note the source\nfile name, line number and function name.\n'
+'Stack (most recent call last):\n'
+'\nA factory method which can be overridden in subclasses to create\nspecialized LogRecords.\n'
+'Attempt to overwrite %r in LogRecord'
+'\nLow-level logging routine which creates a LogRecord and then calls\nall the handlers of this logger to handle the record.\n'
+'(unknown file)'
+'(unknown function)'
+'\nCall the handlers for the specified record.\n\nThis method is used for unpickled records received from a socket, as\nwell as those created locally. Logger-level filtering is applied.\n'
+'\nAdd the specified handler to this logger.\n'
+'\nRemove the specified handler from this logger.\n'
+'\nSee if this logger has any handlers configured.\n\nLoop through all handlers for this logger and its parents in the\nlogger hierarchy. Return True if a handler was found, else False.\nStop searching up the hierarchy whenever a logger with the "propagate"\nattribute set to zero is found - that will be the last logger which\nis checked for the existence of handlers.\n'
+'\nPass a record to all relevant handlers.\n\nLoop through all handlers for this logger and its parents in the\nlogger hierarchy. If no handler was found, output a one-off error\nmessage to sys.stderr. Stop searching up the hierarchy whenever a\nlogger with the "propagate" attribute set to zero is found - that\nwill be the last logger whose handlers are called.\n'
+'No handlers could be found for logger "%s"\n'
+'\nGet the effective level for this logger.\n\nLoop through this logger and its parents in the logger hierarchy,\nlooking for a non-zero logging level. Return the first one found.\n'
+"\nIs this logger enabled for level 'level'?\n"
+"\nGet a logger which is a descendant to this one.\n\nThis is a convenience method, such that\n\nlogging.getLogger('abc').getChild('def.ghi')\n\nis the same as\n\nlogging.getLogger('abc.def.ghi')\n\nIt's useful, for example, when the parent logger is named using\n__name__ rather than a literal string.\n"
+' ('
+')>'
+'logger cannot be pickled'
+'RootLogger'
+'\nA root logger is not that different to any other logger, except that\nit must have a logging level and there is only one instance of it in\nthe hierarchy.\n'
+'\nInitialize the logger with the name "root".\n'
+'root'
+'RootLogger'
+'LoggerAdapter'
+'\nAn adapter for loggers which makes it easier to specify contextual\ninformation in logging output.\n'
+'\nInitialize the adapter with a logger and a dict-like object which\nprovides contextual information. This constructor signature allows\neasy stacking of LoggerAdapters, if so desired.\n\nYou can effectively pass keyword arguments as shown in the\nfollowing example:\n\nadapter = LoggerAdapter(someLogger, dict(p1=v1, p2="v2"))\n\nBy default, LoggerAdapter objects will drop the "extra" argument\npassed on the individual log calls to use its own instead.\n\nInitializing it with merge_extra=True will instead merge both\nmaps when logging, the individual call extra taking precedence\nover the LoggerAdapter instance extra\n\n.. versionchanged:: 3.13\n   The *merge_extra* argument was added.\n'
+"\nProcess the logging message and keyword arguments passed in to\na logging call to insert contextual information. You can either\nmanipulate the message itself, the keyword args or both. Return\nthe message and kwargs modified (or not) to suit your needs.\n\nNormally, you'll only need to override this one method in a\nLoggerAdapter subclass for your specific needs.\n"
+'extra'
+'\nDelegate a debug call to the underlying logger.\n'
+'\nDelegate an info call to the underlying logger.\n'
+'\nDelegate a warning call to the underlying logger.\n'
+"The 'warn' method is deprecated, use 'warning' instead"
+'\nDelegate an error call to the underlying logger.\n'
+'exc_info'
+'\nDelegate an exception call to the underlying logger.\n'
+'exc_info'
+'\nDelegate a critical call to the underlying logger.\n'
+'\nDelegate a log call to the underlying logger, after adding\ncontextual information from this adapter instance.\n'
+"\nIs this logger enabled for level 'level'?\n"
+'\nSet the specified level on the underlying logger.\n'
+'\nGet the effective level for the underlying logger.\n'
+'\nSee if the underlying logger has any handlers.\n'
+'\nLow-level log implementation, proxied to allow nested logger adapters.\n'
+' ('
+')>'
+"\nDo basic configuration for the logging system.\n\nThis function does nothing if the root logger already has handlers\nconfigured, unless the keyword argument *force* is set to ``True``.\nIt is a convenience method intended for use by simple scripts\nto do one-shot configuration of the logging package.\n\nThe default behaviour is to create a StreamHandler which writes to\nsys.stderr, set a formatter using the BASIC_FORMAT format string, and\nadd the handler to the root logger.\n\nA number of optional keyword arguments may be specified, which can alter\nthe default behaviour.\n\nfilename  Specifies that a FileHandler be created, using the specified\n          filename, rather than a StreamHandler.\nfilemode  Specifies the mode to open the file, if filename is specified\n          (if filemode is unspecified, it defaults to 'a').\nformat    Use the specified format string for the handler.\ndatefmt   Use the specified date/time format.\nstyle     If a format string is specified, use this to specify the\n          type of format string (possible values '%', '{', '$', for\n          %-formatting, :meth:`str.format` and :class:`string.Template`\n          - defaults to '%').\nlevel     Set the root logger level to the specified level.\nstream    Use the specified stream to initialize the StreamHandler. Note\n          that this argument is incompatible with 'filename' - if both\n          are present, 'stream' is ignored.\nhandlers  If specified, this should be an iterable of already created\n          handlers, which will be added to the root logger. Any handler\n          in the list which does not have a formatter assigned will be\n          assigned the formatter created in this function.\nforce     If this keyword  is specified as true, any existing handlers\n          attached to the root logger are removed and closed, before\n          carrying out the configuration as specified by the other\n          arguments.\nencoding  If specified together with a filename, this encoding is passed to\n          the created FileHandler, causing it to be used when the file is\n          opened.\nerrors    If specified together with a filename, this value is passed to the\n          created FileHandler, causing it to be used when the file is\n          opened in text mode. If not specified, the default value is\n          `backslashreplace`.\n\nNote that you could specify a stream created using open(filename, mode)\nrather than passing the filename and mode in. However, it should be\nremembered that StreamHandler does not close its stream (since it may be\nusing sys.stdout or sys.stderr), whereas FileHandler closes its stream\nwhen the handler is closed.\n\n.. versionchanged:: 3.2\n   Added the ``style`` parameter.\n\n.. versionchanged:: 3.3\n   Added the ``handlers`` parameter. A ``ValueError`` is now thrown for\n   incompatible arguments (e.g. ``handlers`` specified together with\n   ``filename``/``filemode``, or ``filename``/``filemode`` specified\n   together with ``stream``, or ``handlers`` specified together with\n   ``stream``.\n\n.. versionchanged:: 3.8\n   Added the ``force`` parameter.\n\n.. versionchanged:: 3.9\n   Added the ``encoding`` and ``errors`` parameters.\n"
+'force'
+'encoding'
+'errors'
+'backslashreplace'
+'handlers'
+'stream'
+'filename'
+"'stream' and 'filename' should not be specified together"
+"'stream' or 'filename' should not be specified together with 'handlers'"
+'filemode'
+'datefmt'
+'style'
+'Style must be one of: %s'
+'format'
+'level'
+', '
+'Unrecognised argument(s): %s'
+'\nReturn a logger with the specified name, creating it if necessary.\n\nIf no name is specified, return the root logger.\n'
+"\nLog a message with severity 'CRITICAL' on the root logger. If the logger\nhas no handlers, call basicConfig() to add a console handler with a\npre-defined format.\n"
+"\nDon't use this function, use critical() instead.\n"
+"\nLog a message with severity 'ERROR' on the root logger. If the logger has\nno handlers, call basicConfig() to add a console handler with a pre-defined\nformat.\n"
+'exc_info'
+"\nLog a message with severity 'ERROR' on the root logger, with exception\ninformation. If the logger has no handlers, basicConfig() is called to add\na console handler with a pre-defined format.\n"
+'exc_info'
+"\nLog a message with severity 'WARNING' on the root logger. If the logger has\nno handlers, call basicConfig() to add a console handler with a pre-defined\nformat.\n"
+"The 'warn' function is deprecated, use 'warning' instead"
+"\nLog a message with severity 'INFO' on the root logger. If the logger has\nno handlers, call basicConfig() to add a console handler with a pre-defined\nformat.\n"
+"\nLog a message with severity 'DEBUG' on the root logger. If the logger has\nno handlers, call basicConfig() to add a console handler with a pre-defined\nformat.\n"
+"\nLog 'msg % args' with the integer severity 'level' on the root logger. If\nthe logger has no handlers, call basicConfig() to add a console handler\nwith a pre-defined format.\n"
+"\nDisable all logging calls of severity 'level' and below.\n"
+'\nPerform any cleanup actions in the logging system (e.g. flushing\nbuffers).\n\nShould be called at application exit.\n'
+'flushOnClose'
+'NullHandler'
+'\nThis handler does nothing. It\'s intended to be used to avoid the\n"No handlers could be found for logger XXX" one-off warning. This is\nimportant for library code, which may contain code to log events. If a user\nof the library does not configure logging, the one-off warning might be\nproduced; to avoid this, the library developer simply needs to instantiate\na NullHandler and add it to the top-level logger of the library module or\npackage.\n'
+'Stub.'
+'Stub.'
+'\nImplementation of showwarnings which redirects to logging, which will first\ncheck to see if the file parameter is None. If a file is specified, it will\ndelegate to the original warnings implementation of showwarning. Otherwise,\nit will call warnings.formatwarning and will log the resulting string to a\nwarnings logger named "py.warnings" with level logging.WARNING.\n'
+'py.warnings'
+'\nIf capture is true, redirect all warnings to the logging package.\nIf capture is False, ensure that warnings are not redirected to logging\nbut to their original destinations.\n'

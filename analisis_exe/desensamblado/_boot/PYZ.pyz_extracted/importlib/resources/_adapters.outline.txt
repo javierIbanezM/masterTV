@@ -1,0 +1,67 @@
+<module>()  line 1
+    SpecLoaderAdapter()  line 7
+        SpecLoaderAdapter.<lambda>(spec)  line 12
+        SpecLoaderAdapter.__init__(self, spec, adapter)  line 12
+        SpecLoaderAdapter.__getattr__(self, name)  line 16
+    TraversableResourcesLoader()  line 20
+        TraversableResourcesLoader.__init__(self, spec)  line 25
+        TraversableResourcesLoader.get_resource_reader(self, name)  line 28
+    _io_wrapper(file, mode)  line 32
+    CompatibilityFiles()  line 40
+        CompatibilityFiles.SpecPath()  line 46
+            CompatibilityFiles.SpecPath.__init__(self, spec, reader)  line 52
+            CompatibilityFiles.SpecPath.iterdir(self)  line 56
+                CompatibilityFiles.SpecPath.iterdir.<locals>.<genexpr>(.0)  line 59
+            CompatibilityFiles.SpecPath.is_file(self)  line 64
+            CompatibilityFiles.SpecPath.joinpath(self, other)  line 69
+            CompatibilityFiles.SpecPath.name(self)  line 74
+            CompatibilityFiles.SpecPath.open(self, mode)  line 78
+        CompatibilityFiles.ChildPath()  line 81
+            CompatibilityFiles.ChildPath.__init__(self, reader, name)  line 87
+            CompatibilityFiles.ChildPath.iterdir(self)  line 91
+            CompatibilityFiles.ChildPath.is_file(self)  line 94
+            CompatibilityFiles.ChildPath.is_dir(self)  line 97
+            CompatibilityFiles.ChildPath.joinpath(self, other)  line 100
+            CompatibilityFiles.ChildPath.name(self)  line 103
+            CompatibilityFiles.ChildPath.open(self, mode)  line 107
+        CompatibilityFiles.OrphanPath()  line 112
+            CompatibilityFiles.OrphanPath.__init__(self)  line 118
+            CompatibilityFiles.OrphanPath.iterdir(self)  line 123
+            CompatibilityFiles.OrphanPath.is_file(self)  line 126
+            CompatibilityFiles.OrphanPath.joinpath(self, other)  line 131
+            CompatibilityFiles.OrphanPath.name(self)  line 134
+            CompatibilityFiles.OrphanPath.open(self, mode)  line 138
+        CompatibilityFiles.__init__(self, spec)  line 141
+        CompatibilityFiles._reader(self)  line 144
+        CompatibilityFiles._native(self)  line 149
+        CompatibilityFiles.__getattr__(self, attr)  line 156
+        CompatibilityFiles.files(self)  line 159
+    wrap_spec(package)  line 163
+
+--- strings ---
+'SpecLoaderAdapter'
+'\nAdapt a package spec to adapt the underlying loader.\n'
+'SpecLoaderAdapter'
+'TraversableResourcesLoader'
+'\nAdapt a loader to provide TraversableResources.\n'
+'TraversableResourcesLoader'
+'rb'
+"Invalid mode value '"
+"', only 'r' and 'rb' are supported"
+'CompatibilityFiles'
+'\nAdapter for an existing or non-existent resource reader\nto provide a compatibility .files().\n'
+'CompatibilityFiles.SpecPath'
+'\nPath tied to a module spec.\nCan be read and exposes the resource reader children.\n'
+'SpecPath'
+'CompatibilityFiles.ChildPath'
+"\nPath tied to a resource reader child.\nCan be read but doesn't expose any meaningful children.\n"
+'ChildPath'
+'CompatibilityFiles.OrphanPath'
+"\nOrphan path, not tied to a module spec or resource reader.\nCan't be read and doesn't expose any meaningful children.\n"
+'Need at least one path part to construct a path'
+"Can't open orphan path"
+'OrphanPath'
+'\nReturn the native reader if it supports files().\n'
+'files'
+'CompatibilityFiles'
+'\nConstruct a package spec with traversable compatibility\non the spec/loader/reader.\n'

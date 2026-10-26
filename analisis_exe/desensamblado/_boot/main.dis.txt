@@ -1,0 +1,319 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (sys)
+              STORE_NAME               0 (sys)
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('QColor', 'QPalette'))
+              IMPORT_NAME              1 (PyQt6.QtGui)
+              IMPORT_FROM              2 (QColor)
+              STORE_NAME               2 (QColor)
+              IMPORT_FROM              3 (QPalette)
+              STORE_NAME               3 (QPalette)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('QApplication',))
+              IMPORT_NAME              4 (PyQt6.QtWidgets)
+              IMPORT_FROM              5 (QApplication)
+              STORE_NAME               5 (QApplication)
+              POP_TOP
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('APP_NAME',))
+              IMPORT_NAME              6 (atvmaster)
+              IMPORT_FROM              7 (APP_NAME)
+              STORE_NAME               7 (APP_NAME)
+              POP_TOP
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('AppContext',))
+              IMPORT_NAME              8 (atvmaster.ui.common)
+              IMPORT_FROM              9 (AppContext)
+              STORE_NAME               9 (AppContext)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('MainWindow',))
+              IMPORT_NAME             10 (atvmaster.ui.main_window)
+              IMPORT_FROM             11 (MainWindow)
+              STORE_NAME              11 (MainWindow)
+              POP_TOP
+
+ 11           LOAD_CONST               7 (<code object __annotate__ at 0x00000204BA088330, file "main.py", line 11>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 (<code object apply_dark at 0x00000204BA3AE6D0, file "main.py", line 11>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              12 (apply_dark)
+
+ 28           LOAD_CONST               9 (<code object __annotate__ at 0x00000204BA08B030, file "main.py", line 28>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 (<code object main at 0x00000204B9FFA3A0, file "main.py", line 28>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              13 (main)
+
+ 38           LOAD_NAME               14 (__name__)
+              LOAD_CONST              11 ('__main__')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       26 (to L1)
+              NOT_TAKEN
+
+ 39           LOAD_NAME                0 (sys)
+              LOAD_ATTR               30 (exit)
+              PUSH_NULL
+              LOAD_NAME               13 (main)
+              PUSH_NULL
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 38   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA088330, file "main.py", line 11>:
+ 11           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('app')
+              LOAD_GLOBAL              0 (QApplication)
+              LOAD_CONST               2 ('return')
+              LOAD_CONST               3 (None)
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object apply_dark at 0x00000204BA3AE6D0, file "main.py", line 11>:
+ 11           RESUME                   0
+
+ 12           LOAD_FAST_BORROW         0 (app)
+              LOAD_ATTR                1 (setStyle + NULL|self)
+              LOAD_CONST               0 ('Fusion')
+              CALL                     1
+              POP_TOP
+
+ 13           LOAD_GLOBAL              3 (QPalette + NULL)
+              CALL                     0
+              STORE_FAST               1 (p)
+
+ 14           LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT          32
+              LOAD_SMALL_INT          34
+              LOAD_SMALL_INT          40
+              CALL                     3
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT          24
+              LOAD_SMALL_INT          26
+              LOAD_SMALL_INT          31
+              CALL                     3
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT         225
+              LOAD_SMALL_INT         228
+              LOAD_SMALL_INT         235
+              CALL                     3
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT          56
+              LOAD_SMALL_INT         132
+              LOAD_SMALL_INT         255
+              CALL                     3
+              BUILD_TUPLE              4
+              UNPACK_SEQUENCE          4
+              STORE_FAST_STORE_FAST   35 (bg, base)
+              STORE_FAST_STORE_FAST   69 (text, accent)
+
+ 15           LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR                8 (Window)
+              LOAD_FAST_BORROW         2 (bg)
+              BUILD_TUPLE              2
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               10 (Base)
+              LOAD_FAST_BORROW         3 (base)
+              BUILD_TUPLE              2
+
+ 16           LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               12 (AlternateBase)
+              LOAD_FAST_BORROW         2 (bg)
+              BUILD_TUPLE              2
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               14 (Button)
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT          46
+              LOAD_SMALL_INT          49
+              LOAD_SMALL_INT          58
+              CALL                     3
+              BUILD_TUPLE              2
+
+ 17           LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               16 (WindowText)
+              LOAD_FAST_BORROW         4 (text)
+              BUILD_TUPLE              2
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               18 (Text)
+              LOAD_FAST_BORROW         4 (text)
+              BUILD_TUPLE              2
+
+ 18           LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               20 (ButtonText)
+              LOAD_FAST_BORROW         4 (text)
+              BUILD_TUPLE              2
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               22 (ToolTipBase)
+              LOAD_FAST_BORROW         3 (base)
+              BUILD_TUPLE              2
+
+ 19           LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               24 (ToolTipText)
+              LOAD_FAST_BORROW         4 (text)
+              BUILD_TUPLE              2
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               26 (Highlight)
+              LOAD_FAST_BORROW         5 (accent)
+              BUILD_TUPLE              2
+
+ 20           LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               28 (HighlightedText)
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT         255
+              LOAD_SMALL_INT         255
+              LOAD_SMALL_INT         255
+              CALL                     3
+              BUILD_TUPLE              2
+
+ 21           LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               30 (PlaceholderText)
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT         130
+              LOAD_SMALL_INT         135
+              LOAD_SMALL_INT         148
+              CALL                     3
+              BUILD_TUPLE              2
+
+ 15           BUILD_TUPLE             12
+              GET_ITER
+      L1:     FOR_ITER                22 (to L2)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  103 (role, color)
+
+ 22           LOAD_FAST_BORROW         1 (p)
+              LOAD_ATTR               33 (setColor + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (role, color)
+              CALL                     2
+              POP_TOP
+              JUMP_BACKWARD           24 (to L1)
+
+ 15   L2:     END_FOR
+              POP_ITER
+
+ 23           LOAD_FAST_BORROW         1 (p)
+              LOAD_ATTR               33 (setColor + NULL|self)
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR               34 (ColorGroup)
+              LOAD_ATTR               36 (Disabled)
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               20 (ButtonText)
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT         110
+              LOAD_SMALL_INT         114
+              LOAD_SMALL_INT         125
+              CALL                     3
+              CALL                     3
+              POP_TOP
+
+ 24           LOAD_FAST_BORROW         1 (p)
+              LOAD_ATTR               33 (setColor + NULL|self)
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR               34 (ColorGroup)
+              LOAD_ATTR               36 (Disabled)
+              LOAD_GLOBAL              2 (QPalette)
+              LOAD_ATTR                6 (ColorRole)
+              LOAD_ATTR               18 (Text)
+              LOAD_GLOBAL              5 (QColor + NULL)
+              LOAD_SMALL_INT         110
+              LOAD_SMALL_INT         114
+              LOAD_SMALL_INT         125
+              CALL                     3
+              CALL                     3
+              POP_TOP
+
+ 25           LOAD_FAST_BORROW         0 (app)
+              LOAD_ATTR               39 (setPalette + NULL|self)
+              LOAD_FAST_BORROW         1 (p)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08B030, file "main.py", line 28>:
+ 28           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_GLOBAL              0 (int)
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object main at 0x00000204B9FFA3A0, file "main.py", line 28>:
+ 28           RESUME                   0
+
+ 29           LOAD_GLOBAL              1 (QApplication + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (argv)
+              CALL                     1
+              STORE_FAST               0 (app)
+
+ 30           LOAD_FAST_BORROW         0 (app)
+              LOAD_ATTR                7 (setApplicationName + NULL|self)
+              LOAD_GLOBAL              8 (APP_NAME)
+              CALL                     1
+              POP_TOP
+
+ 31           LOAD_GLOBAL             11 (apply_dark + NULL)
+              LOAD_FAST_BORROW         0 (app)
+              CALL                     1
+              POP_TOP
+
+ 32           LOAD_GLOBAL             13 (AppContext + NULL)
+              CALL                     0
+              STORE_FAST               1 (ctx)
+
+ 33           LOAD_GLOBAL             15 (MainWindow + NULL)
+              LOAD_FAST_BORROW         1 (ctx)
+              CALL                     1
+              STORE_FAST               2 (win)
+
+ 34           LOAD_FAST_BORROW         2 (win)
+              LOAD_ATTR               17 (show + NULL|self)
+              CALL                     0
+              POP_TOP
+
+ 35           LOAD_FAST_BORROW         0 (app)
+              LOAD_ATTR               19 (exec + NULL|self)
+              CALL                     0
+              RETURN_VALUE

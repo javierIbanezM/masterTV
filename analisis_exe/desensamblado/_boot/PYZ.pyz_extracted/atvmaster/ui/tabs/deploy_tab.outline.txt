@@ -1,0 +1,93 @@
+<module>()  line 1
+    DeployTab()  line 11
+        DeployTab.__init__(self, ctx)  line 14
+        DeployTab.on_activated(self)  line 75
+        DeployTab.on_device_changed(self)  line 78
+        DeployTab.refresh(self)  line 82
+        DeployTab.export_template(self)  line 97
+            DeployTab.export_template.<locals>.work()  line 112
+            DeployTab.export_template.<locals>.done(t)  line 118
+            DeployTab.export_template.<locals>.<lambda>(e)  line 122
+        DeployTab.import_template(self)  line 124
+        DeployTab.download(self)  line 135
+            DeployTab.download.<locals>.work()  line 143
+            DeployTab.download.<locals>.done(res)  line 148
+            DeployTab.download.<locals>.<lambda>(e)  line 153
+        DeployTab.deploy(self)  line 156
+            DeployTab.deploy.<locals>.work()  line 184
+            DeployTab.deploy.<locals>.done(rep)  line 190
+            DeployTab.deploy.<locals>.<lambda>(e)  line 196
+
+--- strings ---
+'DeployTab'
+'Despliegue Fully (EMM)'
+'Instala la edición <b>EMM</b> de Fully Kiosk (descargada de la web oficial de Fully) en una TV con <b>nuestra configuración</b>: Start URL propia, arranque automático y el resto de ajustes de una TV de referencia. Fully los importa solo en el primer arranque.'
+'1 · Plantilla de configuración (de una TV de referencia)'
+'⬇ Exportar desde la TV seleccionada…'
+'📂 Importar de un archivo…'
+'2 · APK de Fully edición EMM'
+'⬇ Descargar / actualizar APK EMM…'
+'3 · Instalar en la TV seleccionada'
+'Desactivar el Fully de Google Play al terminar (reversible), para que no compita con la EMM al arrancar la TV'
+'🚀 Instalar Fully EMM con la plantilla…'
+'font-family: Consolas, monospace;'
+'✔ Plantilla guardada ('
+' ajustes). Start URL de referencia: '
+'startURL'
+'\nSe sustituye la Start URL por la de cada TV (pestaña Kiosco) al instalar.'
+'✖ Sin plantilla. Exporta una desde una TV ya configurada o importa un fully-settings.json.'
+'✔ '
+' · '
+'.1f'
+' MB · SHA-256 '
+'✖ No descargada. Se obtiene de '
+'Exportar plantilla desde la TV'
+'Se abrirán los ajustes de Fully en la TV (≈1 min), se pulsará «Export Settings» y «Guardar» en el selector de Android. Se crea el archivo Download/fully-settings.json en la TV y se descarga al PC. No se cambia ningún ajuste.'
+'adb -s '
+' pull '
+'Ocupado'
+'Hay otra operación de kiosco en curso en esta TV.'
+'Exportando desde la TV…'
+'Plantilla exportada: '
+' ajustes.'
+'Error: '
+'fully-settings.json'
+'JSON (*.json)'
+'Archivo no válido'
+'Plantilla importada: '
+' ajustes.'
+'Descargar APK de Fully (edición EMM)'
+'Se leerá '
+' para localizar la APK «EMM Edition» y se descargará de fully-kiosk.com a la carpeta tools/fully de la aplicación. Se mostrará su tamaño y SHA-256 al terminar.'
+'Buscando el enlace en la página de descargas…'
+'Descargando '
+'Descargada: '
+'.1f'
+' MB · SHA-256 '
+'Error: '
+'Sin dispositivo'
+'Selecciona una TV primero.'
+'Faltan pasos'
+'Primero necesitas la plantilla (1) y la APK (2).'
+'Sin URL'
+'Escribe la URL de esta TV en la pestaña «Kiosco» y guárdala.'
+'adb -s '
+' push fully-once-settings.json '
+'\nadb -s '
+' install -r -d '
+' shell pm grant '
+' android.permission.READ_EXTERNAL_STORAGE\nadb -s '
+' shell appops set '
+' MANAGE_EXTERNAL_STORAGE allow\nadb -s '
+' SYSTEM_ALERT_WINDOW allow'
+' shell pm disable-user --user 0 '
+'Instalar Fully EMM en «'
+'Se instalará Fully EMM (una app aparte, junto a la de Google Play) con la Start URL '
+'. No se desinstala nada.'
+' Al terminar se DESACTIVARÁ el Fully de Google Play (reversible).'
+'\nLa pantalla de la TV cambiará durante unos minutos.'
+'Ocupado'
+'Hay otra operación de kiosco en curso en esta TV.'
+'Instalando… (varios minutos)'
+'Error: '
+'DeployTab'

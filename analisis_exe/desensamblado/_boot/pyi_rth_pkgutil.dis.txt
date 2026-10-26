@@ -1,0 +1,177 @@
+  0           RESUME                   0
+
+ 16           LOAD_CONST               0 (<code object _pyi_rthook at 0x00000204BA0BAE20, file "pyi_rth_pkgutil.py", line 16>)
+              MAKE_FUNCTION
+              STORE_NAME               0 (_pyi_rthook)
+
+ 63           LOAD_NAME                0 (_pyi_rthook)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+
+ 64           DELETE_NAME              0 (_pyi_rthook)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _pyi_rthook at 0x00000204BA0BAE20, file "pyi_rth_pkgutil.py", line 16>:
+  --           MAKE_CELL                1 (pkgutil)
+               MAKE_CELL                2 (pyimod02_importers)
+
+  16           RESUME                   0
+
+  17           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (pkgutil)
+               STORE_DEREF              1 (pkgutil)
+
+  19           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (pyimod02_importers)
+               STORE_DEREF              2 (pyimod02_importers)
+
+  24           LOAD_CONST               3 (('',))
+               LOAD_FAST_BORROW         1 (pkgutil)
+               LOAD_FAST_BORROW         2 (pyimod02_importers)
+               BUILD_TUPLE              2
+               LOAD_CONST               2 (<code object _iter_pyi_frozen_finder_modules at 0x00000204BA38BBC0, file "pyi_rth_pkgutil.py", line 24>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_FAST               0 (_iter_pyi_frozen_finder_modules)
+
+  57           LOAD_DEREF               1 (pkgutil)
+               LOAD_ATTR                4 (iter_importer_modules)
+               LOAD_ATTR                7 (register + NULL|self)
+
+  58           LOAD_DEREF               2 (pyimod02_importers)
+               LOAD_ATTR                8 (PyiFrozenFinder)
+
+  59           LOAD_FAST_BORROW         0 (_iter_pyi_frozen_finder_modules)
+
+  57           CALL                     2
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _iter_pyi_frozen_finder_modules at 0x00000204BA38BBC0, file "pyi_rth_pkgutil.py", line 24>:
+  --            COPY_FREE_VARS           2
+
+  24            RETURN_GENERATOR
+                POP_TOP
+        L1:     RESUME                   0
+
+  26            LOAD_DEREF              10 (pyimod02_importers)
+                LOAD_ATTR                1 (get_pyz_toc_tree + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (pyz_toc_tree)
+
+  30            LOAD_FAST_BORROW         0 (finder)
+                LOAD_ATTR                2 (_pyz_entry_prefix)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       29 (to L2)
+                NOT_TAKEN
+
+  31            LOAD_FAST_BORROW         0 (finder)
+                LOAD_ATTR                2 (_pyz_entry_prefix)
+                LOAD_ATTR                5 (split + NULL|self)
+                LOAD_CONST               0 ('.')
+                CALL                     1
+                STORE_FAST               3 (pkg_name_parts)
+                JUMP_FORWARD             2 (to L3)
+
+  33    L2:     BUILD_LIST               0
+                STORE_FAST               3 (pkg_name_parts)
+
+  35    L3:     LOAD_FAST                2 (pyz_toc_tree)
+                STORE_FAST               4 (tree_node)
+
+  36            LOAD_FAST_BORROW         3 (pkg_name_parts)
+                GET_ITER
+        L4:     FOR_ITER                46 (to L7)
+                STORE_FAST               5 (pkg_name_part)
+
+  37            LOAD_FAST_BORROW         4 (tree_node)
+                LOAD_ATTR                7 (get + NULL|self)
+                LOAD_FAST_BORROW         5 (pkg_name_part)
+                CALL                     1
+                STORE_FAST               4 (tree_node)
+
+  38            LOAD_GLOBAL              9 (isinstance + NULL)
+                LOAD_FAST_BORROW         4 (tree_node)
+                LOAD_GLOBAL             10 (dict)
+                CALL                     2
+                TO_BOOL
+        L5:     POP_JUMP_IF_FALSE        3 (to L6)
+                NOT_TAKEN
+                JUMP_BACKWARD           44 (to L4)
+
+  42    L6:     BUILD_MAP                0
+                STORE_FAST               4 (tree_node)
+
+  43            POP_TOP
+                JUMP_FORWARD             2 (to L8)
+
+  36    L7:     END_FOR
+                POP_ITER
+
+  46    L8:     LOAD_FAST_BORROW         4 (tree_node)
+                LOAD_ATTR               13 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+        L9:     FOR_ITER                33 (to L10)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  103 (entry_name, entry_data)
+
+  47            LOAD_GLOBAL              9 (isinstance + NULL)
+                LOAD_FAST_BORROW         7 (entry_data)
+                LOAD_GLOBAL             10 (dict)
+                CALL                     2
+                STORE_FAST               8 (is_pkg)
+
+  48            LOAD_FAST_BORROW_LOAD_FAST_BORROW 22 (prefix, entry_name)
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         8 (is_pkg)
+                BUILD_TUPLE              2
+                YIELD_VALUE              0
+                RESUME                   5
+                POP_TOP
+                JUMP_BACKWARD           35 (to L9)
+
+  46   L10:     END_FOR
+                POP_ITER
+
+  54            LOAD_FAST_BORROW         0 (finder)
+                LOAD_ATTR               14 (fallback_finder)
+                POP_JUMP_IF_NONE        39 (to L15)
+                NOT_TAKEN
+
+  55            LOAD_DEREF               9 (pkgutil)
+                LOAD_ATTR               17 (iter_importer_modules + NULL|self)
+                LOAD_FAST_BORROW         0 (finder)
+                LOAD_ATTR               14 (fallback_finder)
+                LOAD_FAST_BORROW         1 (prefix)
+                CALL                     2
+                GET_YIELD_FROM_ITER
+                LOAD_CONST               1 (None)
+       L11:     SEND                     3 (to L14)
+       L12:     YIELD_VALUE              1
+       L13:     RESUME                   2
+                JUMP_BACKWARD_NO_INTERRUPT 5 (to L11)
+       L14:     END_SEND
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  54   L15:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  55   L16:     CLEANUP_THROW
+       L17:     JUMP_BACKWARD_NO_INTERRUPT 8 (to L14)
+
+  --   L18:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+                RERAISE                  1
+ExceptionTable:
+  L1 to L5 -> L18 [0] lasti
+  L6 to L12 -> L18 [0] lasti
+  L12 to L13 -> L16 [2]
+  L13 to L17 -> L18 [0] lasti

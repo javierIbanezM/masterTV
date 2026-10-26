@@ -1,0 +1,264 @@
+<module>()  line 1
+    Error()  line 75
+    SameFileError()  line 78
+    SpecialFileError()  line 81
+    ReadError()  line 86
+    RegistryError()  line 89
+    _GiveupOnFastCopy()  line 93
+    _fastcopy_fcopyfile(fsrc, fdst, flags)  line 98
+    _determine_linux_fastcopy_blocksize(infd)  line 118
+    _fastcopy_copy_file_range(fsrc, fdst)  line 137
+    _fastcopy_sendfile(fsrc, fdst)  line 178
+    _copyfileobj_readinto(fsrc, fdst, length)  line 229
+    copyfileobj(fsrc, fdst, length)  line 249
+    _samefile(src, dst)  line 259
+    _stat(fn)  line 277
+    _islink(fn)  line 280
+    copyfile(src, dst, follow_symlinks)  line 283
+    copymode(src, dst, follow_symlinks)  line 355
+        copymode.<locals>.chmod_func()  line 373
+    _copyxattr(src, dst, follow_symlinks)  line 382
+    _copyxattr()  line 406
+    copystat(src, dst, follow_symlinks)  line 409
+        copystat.<locals>._nop(ns, follow_symlinks)  line 423
+        copystat.<locals>.lookup(name)  line 430
+        copystat.<locals>.lookup(name)  line 435
+    copy(src, dst, follow_symlinks)  line 475
+    copy2(src, dst, follow_symlinks)  line 493
+    ignore_patterns()  line 533
+        ignore_patterns.<locals>._ignore_patterns(path, names)  line 538
+    _copytree(entries, src, dst, symlinks, ignore, copy_function, ignore_dangling_symlinks, dirs_exist_ok)  line 545
+    copytree(src, dst, symlinks, ignore, copy_function, ignore_dangling_symlinks, dirs_exist_ok)  line 611
+    _rmtree_islink(st)  line 660
+    _rmtree_islink(st)  line 665
+    _rmtree_unsafe(path, dir_fd, onexc)  line 669
+        _rmtree_unsafe.<locals>.onerror(err)  line 685
+    _rmtree_safe_fd(path, dir_fd, onexc)  line 714
+    _rmtree_safe_fd_step(stack, onexc)  line 733
+    rmtree(path, ignore_errors, onerror, onexc, dir_fd)  line 810
+        rmtree.<locals>.onexc()  line 833
+        rmtree.<locals>.onexc()  line 836
+        rmtree.<locals>.onexc()  line 840
+        rmtree.<locals>.onexc()  line 844
+    _basename(path)  line 858
+    move(src, dst, copy_function)  line 876
+    _destinsrc(src, dst)  line 942
+    _is_immutable(src)  line 951
+    _get_gid(name)  line 956
+    _get_uid(name)  line 974
+    _make_tarball(base_name, base_dir, compress, verbose, dry_run, owner, group, logger, root_dir)  line 992
+        _make_tarball.<locals>._set_uid_gid(tarinfo)  line 1041
+    _make_zipfile(base_name, base_dir, verbose, dry_run, logger, owner, group, root_dir)  line 1064
+    get_archive_formats()  line 1150
+    register_archive_format(name, function, extra_args, description)  line 1160
+    unregister_archive_format(name)  line 1181
+    make_archive(base_name, format, root_dir, base_dir, verbose, dry_run, owner, group, logger)  line 1184
+    get_unpack_formats()  line 1248
+    _check_unpack_options(extensions, function, extra_args)  line 1259
+    register_unpack_format(name, extensions, function, extra_args, description)  line 1277
+    unregister_unpack_format(name)  line 1299
+    _ensure_directory(path)  line 1303
+    _unpack_zipfile(filename, extract_dir)  line 1309
+    _unpack_tarfile(filename, extract_dir, filter)  line 1339
+    _find_unpack_format(filename)  line 1379
+    unpack_archive(filename, extract_dir, format, filter)  line 1386
+    disk_usage(path)  line 1443
+    disk_usage(path)  line 1460
+    chown(path, user, group, dir_fd, follow_symlinks)  line 1471
+    get_terminal_size(fallback)  line 1511
+    _access_check(fn, mode)  line 1560
+    _win_path_needs_curdir(cmd, mode)  line 1565
+    which(cmd, mode, path)  line 1575
+        which.<locals>.<genexpr>(.0)  line 1639
+    __getattr__(name)  line 1657
+
+--- strings ---
+"Utility functions for copying and archiving files and directory trees.\n\nXXX The functions here don't copy the resource fork or other metadata on Mac.\n\n"
+'nt'
+'posix'
+'win32'
+'sendfile'
+'copy_file_range'
+'_fcopyfile'
+'.COM;.EXE;.BAT;.CMD;.VBS;.JS;.WS;.MSC'
+'Error'
+'SpecialFileError'
+'SameFileError'
+'Error'
+'SameFileError'
+'Raised when source and destination are the same file.'
+'SpecialFileError'
+'Raised when trying to do a kind of operation (e.g. copying) which is\nnot supported on a special file (e.g. a named pipe)'
+'ReadError'
+'Raised when an archive cannot be read'
+'ReadError'
+'RegistryError'
+'Raised when a registry operation with the archiving\nand unpacking registries fails'
+'RegistryError'
+'_GiveupOnFastCopy'
+'Raised as a signal to fallback on using raw read()/write()\nfile copy when fast-copy functions fail to do so.\n'
+'_GiveupOnFastCopy'
+'Copy a regular file content or metadata by using high-performance\nfcopyfile(3) syscall (macOS).\n'
+"Determine blocksize for fastcopying on Linux.\n\nHopefully the whole file will be copied in a single call.\nThe copying itself should be performed in a loop 'till EOF is\nreached (0 return) so a blocksize smaller or bigger than the actual\nfile size should not make any difference, also in case the file\ncontent changes while being copied.\n"
+'Copy data from one regular mmap-like fd to another by using\na high-performance copy_file_range(2) syscall that gives filesystems\nan opportunity to implement the use of reflinks or server-side copy.\n\nThis should work on Linux >= 4.5 only.\n'
+'Copy data from one regular mmap-like fd to another by using\nhigh-performance sendfile(2) syscall.\nThis should work on Linux >= 2.6.33, Android and Solaris.\n'
+'readinto()/memoryview() based variant of copyfileobj().\n*fsrc* must support readinto() method and both files must be\nopen in binary mode.\n'
+'copy data from file-like object fsrc to file-like object fdst'
+'samestat'
+'samefile'
+'follow_symlinks'
+'Copy data from src to dst in the most efficient way possible.\n\nIf follow_symlinks is not set and src is a symbolic link, a new\nsymlink will be created instead of copying the file it points to.\n\n'
+'shutil.copyfile'
+'{!r} and {!r} are the same file'
+'`%s` is a named pipe'
+'rb'
+'wb'
+'Directory does not exist: '
+"Copy mode bits from src to dst.\n\nIf follow_symlinks is not set, symlinks aren't followed if and only\nif both `src` and `dst` are symlinks.  If `lchmod` isn't available\n(e.g. Linux) this method does nothing.\n\n"
+'shutil.copymode'
+'lchmod'
+'nt'
+'follow_symlinks'
+'listxattr'
+"Copy extended filesystem attributes from `src` to `dst`.\n\nOverwrite existing attributes.\n\nIf `follow_symlinks` is false, symlinks won't be followed.\n\n"
+'Copy file metadata\n\nCopy the permission bits, last access time, last modification time, and\nflags from `src` to `dst`. On Linux, copystat() also copies the "extended\nattributes" where possible. The file contents, owner, and group are\nunaffected. `src` and `dst` are path-like objects or path names given as\nstrings.\n\nIf the optional flag `follow_symlinks` is not set, symlinks aren\'t\nfollowed if and only if both `src` and `dst` are symlinks.\n'
+'shutil.copystat'
+'ns'
+'follow_symlinks'
+'stat'
+'utime'
+'chmod'
+'st_flags'
+'chflags'
+'Copy data and mode bits ("cp src dst"). Return the file\'s destination.\n\nThe destination may be a directory.\n\nIf follow_symlinks is false, symlinks won\'t be followed. This\nresembles GNU\'s "cp -P src dst".\n\nIf source and destination are the same file, a SameFileError will be\nraised.\n\n'
+'Copy data and metadata. Return the file\'s destination.\n\nMetadata is copied with copystat(). Please see the copystat function\nfor more information.\n\nThe destination may be a directory.\n\nIf follow_symlinks is false, symlinks won\'t be followed. This\nresembles GNU\'s "cp -P src dst".\n'
+'CopyFile2'
+'Function that can be used as copytree() ignore parameter.\n\nPatterns is a sequence of glob-style patterns\nthat are used to exclude files'
+'nt'
+'winerror'
+"Recursively copy a directory tree and return the destination directory.\n\nIf exception(s) occur, an Error is raised with a list of reasons.\n\nIf the optional symlinks flag is true, symbolic links in the\nsource tree result in symbolic links in the destination tree; if\nit is false, the contents of the files pointed to by symbolic\nlinks are copied. If the file pointed to by the symlink doesn't\nexist, an exception will be added in the list of errors raised in\nan Error exception at the end of the copy process.\n\nYou can set the optional ignore_dangling_symlinks flag to true if you\nwant to silence this exception. Notice that this has no effect on\nplatforms that don't support os.symlink.\n\nThe optional ignore argument is a callable. If given, it\nis called with the `src` parameter, which is the directory\nbeing visited by copytree(), and `names` which is the list of\n`src` contents, as returned by os.listdir():\n\n    callable(src, names) -> ignored_names\n\nSince copytree() is called recursively, the callable will be\ncalled once for each directory that is copied. It returns a\nlist of names relative to the `src` directory that should\nnot be copied.\n\nThe optional copy_function argument is a callable that will be used\nto copy each file. It will be called with the source path and the\ndestination path as arguments. By default, copy2() is used, but any\nfunction that supports the same signature (like copy()) can be used.\n\nIf dirs_exist_ok is false (the default) and `dst` already exists, a\n`FileExistsError` is raised. If `dirs_exist_ok` is true, the copying\noperation will continue if it encounters existing directories, and files\nwithin the `dst` tree will be overwritten by corresponding files from the\n`src` tree.\n"
+'shutil.copytree'
+'st_file_attributes'
+'dir_fd unavailable on this platform'
+'Cannot call rmtree on a symbolic link'
+'Cannot call rmtree on a symbolic link'
+'onexc'
+'dir_fd'
+'Recursively delete a directory tree.\n\nIf dir_fd is not None, it should be a file descriptor open to a directory;\npath will then be relative to that directory.\ndir_fd may not be implemented on your platform.\nIf it is unavailable, using it will raise a NotImplementedError.\n\nIf ignore_errors is set, errors are ignored; otherwise, if onexc or\nonerror is set, it is called to handle the error with arguments (func,\npath, exc_info) where func is platform and implementation dependent;\npath is the argument to that function that caused it to fail; and\nthe value of exc_info describes the exception. For onexc it is the\nexception instance, and for onerror it is a tuple as returned by\nsys.exc_info().  If ignore_errors is false and both onexc and\nonerror are None, the exception is reraised.\n\nonerror is deprecated and only remains for backwards compatibility.\nIf both onerror and onexc are set, onerror is ignored and onexc is used.\n'
+'shutil.rmtree'
+"A basename() variant which first strips the trailing slash, if present.\nThus we always get the last component of the path, even for directories.\n\npath: Union[PathLike, str]\n\ne.g.\n>>> os.path.basename('/bar/foo')\n'foo'\n>>> os.path.basename('/bar/foo/')\n''\n>>> _basename('/bar/foo/')\n'foo'\n"
+'Recursively move a file or directory to another location. This is\nsimilar to the Unix "mv" command. Return the file or directory\'s\ndestination.\n\nIf dst is an existing directory or a symlink to a directory, then src is\nmoved inside that directory. The destination path in that directory must\nnot already exist.\n\nIf dst already exists but is not a directory, it may be overwritten\ndepending on os.rename() semantics.\n\nIf the destination is on our current filesystem, then rename() is used.\nOtherwise, src is copied to the destination and then removed. Symlinks are\nrecreated under the new name if os.rename() fails because of cross\nfilesystem renames.\n\nThe optional `copy_function` argument is a callable that will be used\nto copy the source or it will be delegated to `copytree`.\nBy default, copy2() is used, but any function that supports the same\nsignature (like copy()) can be used.\n\nA lot more could be done here...  A look at a mv.c shows a lot of\nthe issues this implementation glosses over.\n\n'
+'shutil.move'
+"Destination path '%s' already exists"
+"Cannot move a directory '"
+"' into itself '"
+"'."
+'darwin'
+"Cannot move the non-empty directory '"
+"': Lacking write permission to '"
+'st_flags'
+'Returns a gid, given a group name.'
+'Returns an uid, given a user name.'
+'Create a (possibly compressed) tar file from all the files under\n\'base_dir\'.\n\n\'compress\' must be "gzip" (the default), "bzip2", "xz", "zst", or None.\n\n\'owner\' and \'group\' can be used to define an owner and a group for the\narchive that is being built. If not provided, the current owner and group\nwill be used.\n\nThe output tar file will be named \'base_name\' +  ".tar", possibly plus\nthe appropriate compression extension (".gz", ".bz2", ".xz", or ".zst").\n\nReturns the output filename.\n'
+'gzip'
+'gz'
+'bzip2'
+'bz2'
+'xz'
+'zst'
+"bad value for 'compress', or compression format not supported : {0}"
+'.tar'
+'creating %s'
+'Creating tar archive'
+'w|%s'
+'Create a zip file from all the files under \'base_dir\'.\n\nThe output zip file will be named \'base_name\' + ".zip".  Returns the\nname of the output zip file.\n'
+'.zip'
+'creating %s'
+"creating '%s' and adding '%s' to it"
+"adding '%s'"
+'tar'
+'uncompressed tar file'
+"gzip'ed tar-file"
+'gztar'
+'ZIP file'
+'zip'
+"bzip2'ed tar-file"
+'bztar'
+"xz'ed tar-file"
+'xztar'
+"zstd'ed tar-file"
+'zstdtar'
+'Returns a list of supported formats for archiving and unarchiving.\n\nEach element of the returned sequence is a tuple (name, description)\n'
+'Registers an archive format.\n\nname is the name of the format. function is the callable that will be\nused to create archives. If provided, extra_args is a sequence of\n(name, value) tuples that will be passed as arguments to the callable.\ndescription can be provided to describe the format, and will be returned\nby the get_archive_formats() function.\n'
+'The %s object is not callable'
+'extra_args needs to be a sequence'
+'extra_args elements are : (arg_name, value)'
+'Create an archive file (eg. zip or tar).\n\n\'base_name\' is the name of the file to create, minus any format-specific\nextension; \'format\' is the archive format: one of "zip", "tar", "gztar",\n"bztar", "xztar", or "zstdtar".  Or any other registered format.\n\n\'root_dir\' is a directory that will be the root directory of the\narchive; ie. we typically chdir into \'root_dir\' before creating the\narchive.  \'base_dir\' is the directory where we start archiving from;\nie. \'base_dir\' will be the common prefix of all files and\ndirectories in the archive.  \'root_dir\' and \'base_dir\' both default\nto the current directory.  Returns the name of the archive file.\n\n\'owner\' and \'group\' are used when creating a tar archive. By default,\nuses the current owner and group.\n'
+'shutil.make_archive'
+"unknown archive format '%s'"
+'dry_run'
+'logger'
+'owner'
+'group'
+'supports_root_dir'
+'Not a directory'
+'root_dir'
+"changing into '%s'"
+"changing back to '%s'"
+'Returns a list of supported formats for unpacking.\n\nEach element of the returned sequence is a tuple\n(name, extensions, description)\n'
+'Checks what gets registered as an unpacker.'
+'%s is already registered for "%s"'
+'The registered function must be a callable'
+"Registers an unpack format.\n\n`name` is the name of the format. `extensions` is a list of extensions\ncorresponding to the format.\n\n`function` is the callable that will be\nused to unpack archives. The callable will receive archives to unpack.\nIf it's unable to handle an archive, it needs to raise a ReadError\nexception.\n\nIf provided, `extra_args` is a sequence of\n(name, value) tuples that will be passed as arguments to the callable.\ndescription can be provided to describe the format, and will be returned\nby the get_unpack_formats() function.\n"
+'Removes the pack format from the registry.'
+'Ensure that the parent directory of `path` exists'
+'Unpack zip `filename` to `extract_dir`\n    '
+'%s is not a zip file'
+'..'
+'wb'
+'filter'
+'Unpack tar/tar.gz/tar.bz2/tar.xz/tar.zst `filename` to `extract_dir`\n    '
+'%s is not a compressed or uncompressed tar file'
+'.tar'
+'.zip'
+'.tar.gz'
+'.tgz'
+'.tar.bz2'
+'.tbz2'
+'.tar.xz'
+'.txz'
+'.tar.zst'
+'.tzst'
+'Unpack an archive.\n\n`filename` is the name of the archive.\n\n`extract_dir` is the name of the target directory, where the archive\nis unpacked. If not provided, the current working directory is used.\n\n`format` is the archive format: one of "zip", "tar", "gztar", "bztar",\n"xztar", or "zstdtar".  Or any other registered format.  If not provided,\nunpack_archive will use the filename extension and see if an unpacker\nwas registered for that extension.\n\nIn case none is found, a ValueError is raised.\n\nIf `filter` is given, it is passed to the underlying\nextraction function.\n'
+'shutil.unpack_archive'
+'filter'
+"Unknown unpack format '{0}'"
+"Unknown archive format '{0}'"
+'statvfs'
+'disk_usage'
+'usage'
+'total used free'
+'Total space in bytes'
+'Used space in bytes'
+'Free space in bytes'
+"Return disk usage statistics about the given path.\n\nReturned value is a named tuple with attributes 'total', 'used' and\n'free', which are the amount of total, used and free space, in bytes.\n"
+"Return disk usage statistics about the given path.\n\nReturned values is a named tuple with attributes 'total', 'used' and\n'free', which are the amount of total, used and free space, in bytes.\n"
+'Change owner user and group of the given path.\n\nuser and group can be the uid/gid or the user/group names, and in that case,\nthey are converted to their respective uid/gid.\n\nIf dir_fd is set, it should be an open file descriptor to the directory to\nbe used as the root of *path* if it is relative.\n\nIf follow_symlinks is set to False and the last element of the path is a\nsymbolic link, chown will modify the link itself and not the file being\nreferenced by the link.\n'
+'shutil.chown'
+'user and/or group must be set'
+'no such user: {!r}'
+'no such group: {!r}'
+"Get the size of the terminal window.\n\nFor each of the two dimensions, the environment variable, COLUMNS\nand LINES respectively, is checked. If the variable is defined and\nthe value is a positive integer, it is used.\n\nWhen COLUMNS or LINES is not defined, which is the common case,\nthe terminal connected to sys.__stdout__ is queried\nby invoking os.get_terminal_size.\n\nIf the terminal size cannot be successfully queried, either because\nthe system doesn't support querying, or because we are not\nconnected to a terminal, the value given in fallback parameter\nis used. Fallback defaults to (80, 24) which is the default\nsize used by many terminal emulators.\n\nThe value returned is a named tuple of type os.terminal_size.\n"
+'COLUMNS'
+'LINES'
+'\nOn Windows, we can use NeedCurrentDirectoryForExePath to figure out\nif we should add the cwd to PATH when searching for executables if\nthe mode is executable.\n'
+'Given a command, mode, and a PATH string, return the path which\nconforms to the given mode on the PATH, or None if there is no such\nfile.\n\n`mode` defaults to os.F_OK | os.X_OK. `path` defaults to the result\nof os.environ.get("PATH"), or can be overridden with a custom search\npath.\n\n'
+'PATH'
+'CS_PATH'
+'win32'
+'PATHEXT'
+'ExecError'
+'shutil.ExecError'
+"; it isn't raised by any shutil function."
+'module '
+' has no attribute '

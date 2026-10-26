@@ -1,0 +1,839 @@
+   0           RESUME                   0
+
+   9           LOAD_CONST               0 ('\nHooks to make ctypes.CDLL, .PyDLL, etc. look in sys._MEIPASS first.\n')
+               STORE_NAME               0 (__doc__)
+
+  13           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (sys)
+               STORE_NAME               1 (sys)
+
+  16           LOAD_CONST               2 (<code object install at 0x00000204BA3ACBF0, file "pyimod03_ctypes.py", line 16>)
+               MAKE_FUNCTION
+               STORE_NAME               2 (install)
+
+ 125           LOAD_NAME                1 (sys)
+               LOAD_ATTR                6 (platform)
+               LOAD_ATTR                9 (startswith + NULL|self)
+               LOAD_CONST               3 ('darwin')
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       48 (to L3)
+               NOT_TAKEN
+
+ 126           NOP
+
+ 127   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               4 (('dyld',))
+               IMPORT_NAME              5 (ctypes.macholib)
+               IMPORT_FROM              6 (dyld)
+               STORE_NAME               6 (dyld)
+               POP_TOP
+
+ 128           LOAD_NAME                6 (dyld)
+               LOAD_ATTR               14 (DEFAULT_LIBRARY_FALLBACK)
+               LOAD_ATTR               17 (insert + NULL|self)
+               LOAD_SMALL_INT           0
+               LOAD_NAME                1 (sys)
+               LOAD_ATTR               18 (_MEIPASS)
+               CALL                     2
+               POP_TOP
+       L2:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 125   L3:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 129           LOAD_NAME               10 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 131   L5:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 129   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object install at 0x00000204BA3ACBF0, file "pyimod03_ctypes.py", line 16>:
+  --            MAKE_CELL                5 (PyInstallerImportError)
+                MAKE_CELL                6 (_frozen_name)
+                MAKE_CELL                7 (ctypes)
+                MAKE_CELL                8 (os)
+
+  16            RESUME                   0
+
+  24            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              0 (os)
+                STORE_DEREF              8 (os)
+
+  26            NOP
+
+  27    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (ctypes)
+                STORE_DEREF              7 (ctypes)
+
+  32    L2:     LOAD_FAST                8 (os)
+                BUILD_TUPLE              1
+                LOAD_CONST               2 (<code object _frozen_name at 0x00000204B9F5AA30, file "pyimod03_ctypes.py", line 32>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                STORE_DEREF              6 (_frozen_name)
+
+  41            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST               3 (<code object PyInstallerImportError at 0x00000204BA109230, file "pyimod03_ctypes.py", line 41>)
+                MAKE_FUNCTION
+                LOAD_CONST               4 ('PyInstallerImportError')
+                LOAD_GLOBAL              6 (OSError)
+                CALL                     3
+                STORE_DEREF              5 (PyInstallerImportError)
+
+  49            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST                5 (PyInstallerImportError)
+                LOAD_FAST                6 (_frozen_name)
+                BUILD_TUPLE              2
+                LOAD_CONST               5 (<code object PyInstallerCDLL at 0x00000204BA0FF440, file "pyimod03_ctypes.py", line 49>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST               6 ('PyInstallerCDLL')
+                LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR                8 (CDLL)
+                CALL                     3
+                STORE_FAST               0 (PyInstallerCDLL)
+
+  57            LOAD_FAST                0 (PyInstallerCDLL)
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR               4 (CDLL)
+
+  58            LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               11 (LibraryLoader + NULL|self)
+                LOAD_FAST                0 (PyInstallerCDLL)
+                CALL                     1
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR               6 (cdll)
+
+  60            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST                5 (PyInstallerImportError)
+                LOAD_FAST                6 (_frozen_name)
+                BUILD_TUPLE              2
+                LOAD_CONST               7 (<code object PyInstallerPyDLL at 0x00000204BA0FD020, file "pyimod03_ctypes.py", line 60>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST               8 ('PyInstallerPyDLL')
+                LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               14 (PyDLL)
+                CALL                     3
+                STORE_FAST               1 (PyInstallerPyDLL)
+
+  68            LOAD_FAST                1 (PyInstallerPyDLL)
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR               7 (PyDLL)
+
+  69            LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               11 (LibraryLoader + NULL|self)
+                LOAD_FAST                1 (PyInstallerPyDLL)
+                CALL                     1
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR               8 (pydll)
+
+  71            LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               20 (platform)
+                LOAD_ATTR               23 (startswith + NULL|self)
+                LOAD_CONST               9 ('win')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE      140 (to L5)
+                NOT_TAKEN
+
+  73            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST                5 (PyInstallerImportError)
+                LOAD_FAST                6 (_frozen_name)
+                BUILD_TUPLE              2
+                LOAD_CONST              10 (<code object PyInstallerWinDLL at 0x00000204BA0FC7A0, file "pyimod03_ctypes.py", line 73>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST              11 ('PyInstallerWinDLL')
+                LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               24 (WinDLL)
+                CALL                     3
+                STORE_FAST               2 (PyInstallerWinDLL)
+
+  81            LOAD_FAST                2 (PyInstallerWinDLL)
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR              12 (WinDLL)
+
+  82            LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               11 (LibraryLoader + NULL|self)
+                LOAD_FAST                2 (PyInstallerWinDLL)
+                CALL                     1
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR              13 (windll)
+
+  84            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST                5 (PyInstallerImportError)
+                LOAD_FAST                6 (_frozen_name)
+                BUILD_TUPLE              2
+                LOAD_CONST              12 (<code object PyInstallerOleDLL at 0x00000204BA0FC250, file "pyimod03_ctypes.py", line 84>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST              13 ('PyInstallerOleDLL')
+                LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               28 (OleDLL)
+                CALL                     3
+                STORE_FAST               3 (PyInstallerOleDLL)
+
+  92            LOAD_FAST                3 (PyInstallerOleDLL)
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR              14 (OleDLL)
+
+  93            LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               11 (LibraryLoader + NULL|self)
+                LOAD_FAST                3 (PyInstallerOleDLL)
+                CALL                     1
+                LOAD_DEREF               7 (ctypes)
+                STORE_ATTR              15 (oledll)
+
+  95            NOP
+
+  96    L3:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME             16 (ctypes.util)
+                STORE_DEREF              7 (ctypes)
+
+ 102    L4:     LOAD_FAST                7 (ctypes)
+                LOAD_FAST                8 (os)
+                BUILD_TUPLE              2
+                LOAD_CONST              14 (<code object pyinstaller_find_library at 0x00000204BA33C8F0, file "pyimod03_ctypes.py", line 102>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                STORE_FAST               4 (pyinstaller_find_library)
+
+ 118            LOAD_FAST                4 (pyinstaller_find_library)
+                LOAD_DEREF               7 (ctypes)
+                LOAD_ATTR               34 (util)
+                STORE_ATTR              18 (find_library)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  71    L5:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+  28            LOAD_GLOBAL              4 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+  30    L7:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  28    L8:     RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     PUSH_EXC_INFO
+
+  97            LOAD_GLOBAL              4 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+  99   L11:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  97   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L6 [0]
+  L3 to L4 -> L10 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+  L10 to L11 -> L13 [1] lasti
+  L12 to L13 -> L13 [1] lasti
+
+Disassembly of <code object _frozen_name at 0x00000204B9F5AA30, file "pyimod03_ctypes.py", line 32>:
+  --           COPY_FREE_VARS           1
+
+  32           RESUME                   0
+
+  35           LOAD_FAST_BORROW         0 (name)
+               TO_BOOL
+               POP_JUMP_IF_FALSE      136 (to L1)
+               NOT_TAKEN
+               LOAD_DEREF               2 (os)
+               LOAD_ATTR                0 (path)
+               LOAD_ATTR                3 (isfile + NULL|self)
+               LOAD_FAST_BORROW         0 (name)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE       103 (to L1)
+               NOT_TAKEN
+
+  36           LOAD_DEREF               2 (os)
+               LOAD_ATTR                0 (path)
+               LOAD_ATTR                5 (join + NULL|self)
+               LOAD_GLOBAL              6 (sys)
+               LOAD_ATTR                8 (_MEIPASS)
+               LOAD_DEREF               2 (os)
+               LOAD_ATTR                0 (path)
+               LOAD_ATTR               11 (basename + NULL|self)
+               LOAD_FAST_BORROW         0 (name)
+               CALL                     1
+               CALL                     2
+               STORE_FAST               1 (frozen_name)
+
+  37           LOAD_DEREF               2 (os)
+               LOAD_ATTR                0 (path)
+               LOAD_ATTR                3 (isfile + NULL|self)
+               LOAD_FAST_BORROW         1 (frozen_name)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+  38           LOAD_FAST                1 (frozen_name)
+               STORE_FAST               0 (name)
+
+  39   L1:     LOAD_FAST_BORROW         0 (name)
+               RETURN_VALUE
+
+Disassembly of <code object PyInstallerImportError at 0x00000204BA109230, file "pyimod03_ctypes.py", line 41>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  41           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('install.<locals>.PyInstallerImportError')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          41
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  42           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0A7090, file "pyimod03_ctypes.py", line 42>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+               LOAD_CONST               2 (('args', 'msg'))
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7090, file "pyimod03_ctypes.py", line 42>:
+ 42           RESUME                   0
+
+ 44           LOAD_CONST               0 ('Failed to load dynlib/dll %r. Most likely this dynlib/dll was not found when the application was frozen.')
+
+ 45           LOAD_FAST_BORROW         1 (name)
+
+ 44           BINARY_OP                6 (%)
+
+ 43           LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (msg)
+
+ 47           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (msg)
+              BUILD_TUPLE              1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (args)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object PyInstallerCDLL at 0x00000204BA0FF440, file "pyimod03_ctypes.py", line 49>:
+  --           COPY_FREE_VARS           2
+               MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  49           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('install.<locals>.PyInstallerCDLL')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          49
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  50           LOAD_FAST_BORROW         2 (PyInstallerImportError)
+               LOAD_FAST_BORROW         0 (__class__)
+               LOAD_FAST_BORROW         3 (_frozen_name)
+               BUILD_TUPLE              3
+               LOAD_CONST               1 (<code object __init__ at 0x00000204BA0B8EA0, file "pyimod03_ctypes.py", line 50>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               4 (__init__)
+               LOAD_CONST               2 (())
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               7 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0B8EA0, file "pyimod03_ctypes.py", line 50>:
+  --           COPY_FREE_VARS           3
+
+  50           RESUME                   0
+
+  51           LOAD_DEREF               7 (_frozen_name)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     1
+               STORE_FAST               1 (name)
+
+  52           NOP
+
+  53   L1:     LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (__init__)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               BUILD_LIST               1
+               LOAD_FAST_BORROW         2 (args)
+               LIST_EXTEND              1
+               CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         3 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+       L2:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  54           LOAD_GLOBAL              4 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       15 (to L6)
+               NOT_TAKEN
+               STORE_FAST               4 (base_error)
+
+  55   L4:     LOAD_DEREF               5 (PyInstallerImportError)
+               PUSH_NULL
+               LOAD_FAST                1 (name)
+               CALL                     1
+               LOAD_FAST                4 (base_error)
+               RAISE_VARARGS            2
+
+  --   L5:     LOAD_CONST               0 (None)
+               STORE_FAST               4 (base_error)
+               DELETE_FAST              4 (base_error)
+               RERAISE                  1
+
+  54   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L7 [1] lasti
+  L4 to L5 -> L5 [1] lasti
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object PyInstallerPyDLL at 0x00000204BA0FD020, file "pyimod03_ctypes.py", line 60>:
+  --           COPY_FREE_VARS           2
+               MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  60           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('install.<locals>.PyInstallerPyDLL')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          60
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  61           LOAD_FAST_BORROW         2 (PyInstallerImportError)
+               LOAD_FAST_BORROW         0 (__class__)
+               LOAD_FAST_BORROW         3 (_frozen_name)
+               BUILD_TUPLE              3
+               LOAD_CONST               1 (<code object __init__ at 0x00000204BA0BB360, file "pyimod03_ctypes.py", line 61>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               4 (__init__)
+               LOAD_CONST               2 (())
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               7 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BB360, file "pyimod03_ctypes.py", line 61>:
+  --           COPY_FREE_VARS           3
+
+  61           RESUME                   0
+
+  62           LOAD_DEREF               7 (_frozen_name)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     1
+               STORE_FAST               1 (name)
+
+  63           NOP
+
+  64   L1:     LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (__init__)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               BUILD_LIST               1
+               LOAD_FAST_BORROW         2 (args)
+               LIST_EXTEND              1
+               CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         3 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+       L2:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  65           LOAD_GLOBAL              4 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       15 (to L6)
+               NOT_TAKEN
+               STORE_FAST               4 (base_error)
+
+  66   L4:     LOAD_DEREF               5 (PyInstallerImportError)
+               PUSH_NULL
+               LOAD_FAST                1 (name)
+               CALL                     1
+               LOAD_FAST                4 (base_error)
+               RAISE_VARARGS            2
+
+  --   L5:     LOAD_CONST               0 (None)
+               STORE_FAST               4 (base_error)
+               DELETE_FAST              4 (base_error)
+               RERAISE                  1
+
+  65   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L7 [1] lasti
+  L4 to L5 -> L5 [1] lasti
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object PyInstallerWinDLL at 0x00000204BA0FC7A0, file "pyimod03_ctypes.py", line 73>:
+  --           COPY_FREE_VARS           2
+               MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  73           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('install.<locals>.PyInstallerWinDLL')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          73
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  74           LOAD_FAST_BORROW         2 (PyInstallerImportError)
+               LOAD_FAST_BORROW         0 (__class__)
+               LOAD_FAST_BORROW         3 (_frozen_name)
+               BUILD_TUPLE              3
+               LOAD_CONST               1 (<code object __init__ at 0x00000204BA0BB4B0, file "pyimod03_ctypes.py", line 74>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               4 (__init__)
+               LOAD_CONST               2 (())
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               7 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BB4B0, file "pyimod03_ctypes.py", line 74>:
+  --           COPY_FREE_VARS           3
+
+  74           RESUME                   0
+
+  75           LOAD_DEREF               7 (_frozen_name)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     1
+               STORE_FAST               1 (name)
+
+  76           NOP
+
+  77   L1:     LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (__init__)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               BUILD_LIST               1
+               LOAD_FAST_BORROW         2 (args)
+               LIST_EXTEND              1
+               CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         3 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+       L2:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  78           LOAD_GLOBAL              4 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       15 (to L6)
+               NOT_TAKEN
+               STORE_FAST               4 (base_error)
+
+  79   L4:     LOAD_DEREF               5 (PyInstallerImportError)
+               PUSH_NULL
+               LOAD_FAST                1 (name)
+               CALL                     1
+               LOAD_FAST                4 (base_error)
+               RAISE_VARARGS            2
+
+  --   L5:     LOAD_CONST               0 (None)
+               STORE_FAST               4 (base_error)
+               DELETE_FAST              4 (base_error)
+               RERAISE                  1
+
+  78   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L7 [1] lasti
+  L4 to L5 -> L5 [1] lasti
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object PyInstallerOleDLL at 0x00000204BA0FC250, file "pyimod03_ctypes.py", line 84>:
+  --           COPY_FREE_VARS           2
+               MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  84           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('install.<locals>.PyInstallerOleDLL')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          84
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  85           LOAD_FAST_BORROW         2 (PyInstallerImportError)
+               LOAD_FAST_BORROW         0 (__class__)
+               LOAD_FAST_BORROW         3 (_frozen_name)
+               BUILD_TUPLE              3
+               LOAD_CONST               1 (<code object __init__ at 0x00000204BA0BB600, file "pyimod03_ctypes.py", line 85>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               4 (__init__)
+               LOAD_CONST               2 (())
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               7 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BB600, file "pyimod03_ctypes.py", line 85>:
+  --           COPY_FREE_VARS           3
+
+  85           RESUME                   0
+
+  86           LOAD_DEREF               7 (_frozen_name)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     1
+               STORE_FAST               1 (name)
+
+  87           NOP
+
+  88   L1:     LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               6 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (__init__)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               BUILD_LIST               1
+               LOAD_FAST_BORROW         2 (args)
+               LIST_EXTEND              1
+               CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         3 (kwargs)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+       L2:     LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  89           LOAD_GLOBAL              4 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       15 (to L6)
+               NOT_TAKEN
+               STORE_FAST               4 (base_error)
+
+  90   L4:     LOAD_DEREF               5 (PyInstallerImportError)
+               PUSH_NULL
+               LOAD_FAST                1 (name)
+               CALL                     1
+               LOAD_FAST                4 (base_error)
+               RAISE_VARARGS            2
+
+  --   L5:     LOAD_CONST               0 (None)
+               STORE_FAST               4 (base_error)
+               DELETE_FAST              4 (base_error)
+               RERAISE                  1
+
+  89   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L7 [1] lasti
+  L4 to L5 -> L5 [1] lasti
+  L5 to L7 -> L7 [1] lasti
+
+Disassembly of <code object pyinstaller_find_library at 0x00000204BA33C8F0, file "pyimod03_ctypes.py", line 102>:
+  --           COPY_FREE_VARS           2
+
+ 102           RESUME                   0
+
+ 103           LOAD_FAST_BORROW         0 (name)
+               LOAD_CONST               4 (('c', 'm'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       27 (to L1)
+               NOT_TAKEN
+
+ 104           LOAD_DEREF               4 (ctypes)
+               LOAD_ATTR                0 (util)
+               LOAD_ATTR                3 (find_msvcrt + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+
+ 106   L1:     LOAD_GLOBAL              4 (sys)
+               LOAD_ATTR                6 (_MEIPASS)
+               BUILD_LIST               1
+               LOAD_DEREF               5 (os)
+               LOAD_ATTR                8 (environ)
+               LOAD_CONST               1 ('PATH')
+               BINARY_OP               26 ([])
+               LOAD_ATTR               11 (split + NULL|self)
+               LOAD_DEREF               5 (os)
+               LOAD_ATTR               12 (pathsep)
+               CALL                     1
+               BINARY_OP                0 (+)
+               STORE_FAST               1 (search_dirs)
+
+ 107           LOAD_FAST_BORROW         1 (search_dirs)
+               GET_ITER
+       L2:     FOR_ITER               152 (to L6)
+               STORE_FAST               2 (directory)
+
+ 108           LOAD_DEREF               5 (os)
+               LOAD_ATTR               14 (path)
+               LOAD_ATTR               17 (join + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (directory, name)
+               CALL                     2
+               STORE_FAST               3 (fname)
+
+ 109           LOAD_DEREF               5 (os)
+               LOAD_ATTR               14 (path)
+               LOAD_ATTR               19 (isfile + NULL|self)
+               LOAD_FAST_BORROW         3 (fname)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        5 (to L3)
+               NOT_TAKEN
+
+ 110           LOAD_FAST_BORROW         3 (fname)
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 111   L3:     LOAD_FAST_BORROW         3 (fname)
+               LOAD_ATTR               21 (lower + NULL|self)
+               CALL                     0
+               LOAD_ATTR               23 (endswith + NULL|self)
+               LOAD_CONST               2 ('.dll')
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+
+ 112           JUMP_BACKWARD          106 (to L2)
+
+ 113   L4:     LOAD_FAST_BORROW         3 (fname)
+               LOAD_CONST               2 ('.dll')
+               BINARY_OP                0 (+)
+               STORE_FAST               3 (fname)
+
+ 114           LOAD_DEREF               5 (os)
+               LOAD_ATTR               14 (path)
+               LOAD_ATTR               19 (isfile + NULL|self)
+               LOAD_FAST_BORROW         3 (fname)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L5)
+               NOT_TAKEN
+               JUMP_BACKWARD          150 (to L2)
+
+ 115   L5:     LOAD_FAST_BORROW         3 (fname)
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 107   L6:     END_FOR
+               POP_ITER
+
+ 116           LOAD_CONST               3 (None)
+               RETURN_VALUE

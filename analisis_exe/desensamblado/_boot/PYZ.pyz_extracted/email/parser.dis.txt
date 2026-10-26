@@ -1,0 +1,390 @@
+  0           RESUME                   0
+
+  5           LOAD_CONST               0 ('A parser of RFC 2822 and MIME email messages.')
+              STORE_NAME               0 (__doc__)
+
+  7           BUILD_LIST               0
+              LOAD_CONST              13 (('Parser', 'HeaderParser', 'BytesParser', 'BytesHeaderParser', 'FeedParser', 'BytesFeedParser'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (__all__)
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('StringIO', 'TextIOWrapper'))
+              IMPORT_NAME              2 (io)
+              IMPORT_FROM              3 (StringIO)
+              STORE_NAME               3 (StringIO)
+              IMPORT_FROM              4 (TextIOWrapper)
+              STORE_NAME               4 (TextIOWrapper)
+              POP_TOP
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('FeedParser', 'BytesFeedParser'))
+              IMPORT_NAME              5 (email.feedparser)
+              IMPORT_FROM              6 (FeedParser)
+              STORE_NAME               6 (FeedParser)
+              IMPORT_FROM              7 (BytesFeedParser)
+              STORE_NAME               7 (BytesFeedParser)
+              POP_TOP
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               7 (('compat32',))
+              IMPORT_NAME              8 (email._policybase)
+              IMPORT_FROM              9 (compat32)
+              STORE_NAME               9 (compat32)
+              POP_TOP
+
+ 16           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               8 (<code object Parser at 0x00000204BA0A6D30, file "email\parser.py", line 16>)
+              MAKE_FUNCTION
+              LOAD_CONST               1 ('Parser')
+              CALL                     2
+              STORE_NAME              10 (Parser)
+
+ 67           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object HeaderParser at 0x00000204BA6C8580, file "email\parser.py", line 67>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('HeaderParser')
+              LOAD_NAME               10 (Parser)
+              CALL                     3
+              STORE_NAME              11 (HeaderParser)
+
+ 75           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object BytesParser at 0x00000204BA6C8690, file "email\parser.py", line 75>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('BytesParser')
+              CALL                     2
+              STORE_NAME              12 (BytesParser)
+
+122           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object BytesHeaderParser at 0x00000204BA6C87A0, file "email\parser.py", line 122>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('BytesHeaderParser')
+              LOAD_NAME               12 (BytesParser)
+              CALL                     3
+              STORE_NAME              13 (BytesHeaderParser)
+              LOAD_CONST              12 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Parser at 0x00000204BA0A6D30, file "email\parser.py", line 16>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  16           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Parser')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          16
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  17           LOAD_CONST               7 ((None,))
+               LOAD_CONST               2 ('policy')
+               LOAD_NAME                4 (compat32)
+               BUILD_MAP                1
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0924C0, file "email\parser.py", line 17>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+  41           LOAD_CONST               8 ((False,))
+               LOAD_CONST               4 (<code object parse at 0x00000204B9F9F4B0, file "email\parser.py", line 41>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (parse)
+
+  56           LOAD_CONST               8 ((False,))
+               LOAD_CONST               5 (<code object parsestr at 0x00000204BA6C8360, file "email\parser.py", line 56>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (parsestr)
+               LOAD_CONST               6 (('_class', 'policy'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0924C0, file "email\parser.py", line 17>:
+ 17           RESUME                   0
+
+ 38           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (_class, self)
+              STORE_ATTR               0 (_class)
+
+ 39           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (policy, self)
+              STORE_ATTR               1 (policy)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204B9F9F4B0, file "email\parser.py", line 41>:
+ 41           RESUME                   0
+
+ 49           LOAD_GLOBAL              1 (FeedParser + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_class)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (policy)
+              LOAD_CONST               1 (('policy',))
+              CALL_KW                  2
+              STORE_FAST               3 (feedparser)
+
+ 50           LOAD_FAST_BORROW         2 (headersonly)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+ 51           LOAD_FAST_BORROW         3 (feedparser)
+              LOAD_ATTR                7 (_set_headersonly + NULL|self)
+              CALL                     0
+              POP_TOP
+
+ 52   L1:     LOAD_FAST_BORROW         1 (fp)
+              LOAD_ATTR                9 (read + NULL|self)
+              LOAD_CONST               2 (8192)
+              CALL                     1
+              COPY                     1
+              STORE_FAST               4 (data)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L2)
+              NOT_TAKEN
+
+ 53           LOAD_FAST_BORROW         3 (feedparser)
+              LOAD_ATTR               11 (feed + NULL|self)
+              LOAD_FAST_BORROW         4 (data)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           44 (to L1)
+
+ 54   L2:     LOAD_FAST_BORROW         3 (feedparser)
+              LOAD_ATTR               13 (close + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object parsestr at 0x00000204BA6C8360, file "email\parser.py", line 56>:
+ 56           RESUME                   0
+
+ 64           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (parse + NULL|self)
+              LOAD_GLOBAL              3 (StringIO + NULL)
+              LOAD_FAST_BORROW         1 (text)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (headersonly)
+              LOAD_CONST               1 (('headersonly',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object HeaderParser at 0x00000204BA6C8580, file "email\parser.py", line 67>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  67           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('HeaderParser')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          67
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  68           LOAD_CONST               5 ((True,))
+               LOAD_CONST               1 (<code object parse at 0x00000204BA10A430, file "email\parser.py", line 68>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (parse)
+
+  71           LOAD_CONST               5 ((True,))
+               LOAD_CONST               2 (<code object parsestr at 0x00000204BA10AD30, file "email\parser.py", line 71>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (parsestr)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA10A430, file "email\parser.py", line 68>:
+ 68           RESUME                   0
+
+ 69           LOAD_GLOBAL              0 (Parser)
+              LOAD_ATTR                3 (parse + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fp)
+              LOAD_CONST               0 (True)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object parsestr at 0x00000204BA10AD30, file "email\parser.py", line 71>:
+ 71           RESUME                   0
+
+ 72           LOAD_GLOBAL              0 (Parser)
+              LOAD_ATTR                3 (parsestr + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, text)
+              LOAD_CONST               0 (True)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object BytesParser at 0x00000204BA6C8690, file "email\parser.py", line 75>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  75           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BytesParser')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          75
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  77           LOAD_CONST               1 (<code object __init__ at 0x00000204BA10A030, file "email\parser.py", line 77>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  95           LOAD_CONST               6 ((False,))
+               LOAD_CONST               2 (<code object parse at 0x00000204BA6BC5F0, file "email\parser.py", line 95>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (parse)
+
+ 110           LOAD_CONST               6 ((False,))
+               LOAD_CONST               3 (<code object parsebytes at 0x00000204BA102D50, file "email\parser.py", line 110>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (parsebytes)
+               LOAD_CONST               4 (('parser',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA10A030, file "email\parser.py", line 77>:
+ 77           RESUME                   0
+
+ 93           LOAD_GLOBAL              1 (Parser + NULL)
+              LOAD_FAST_BORROW         1 (args)
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         2 (kw)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (parser)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA6BC5F0, file "email\parser.py", line 95>:
+  95           RESUME                   0
+
+ 103           LOAD_GLOBAL              1 (TextIOWrapper + NULL)
+               LOAD_FAST_BORROW         1 (fp)
+               LOAD_CONST               1 ('ascii')
+               LOAD_CONST               2 ('surrogateescape')
+               LOAD_CONST               3 (('encoding', 'errors'))
+               CALL_KW                  3
+               STORE_FAST               1 (fp)
+
+ 104           NOP
+
+ 105   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (parser)
+               LOAD_ATTR                5 (parse + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (fp, headersonly)
+               CALL                     2
+
+ 107   L2:     LOAD_FAST_BORROW         1 (fp)
+               LOAD_ATTR                7 (detach + NULL|self)
+               CALL                     0
+               POP_TOP
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 107           LOAD_FAST                1 (fp)
+               LOAD_ATTR                7 (detach + NULL|self)
+               CALL                     0
+               POP_TOP
+               RERAISE                  0
+
+  --   L4:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L4 [1] lasti
+
+Disassembly of <code object parsebytes at 0x00000204BA102D50, file "email\parser.py", line 110>:
+110           RESUME                   0
+
+118           LOAD_FAST_BORROW         1 (text)
+              LOAD_ATTR                1 (decode + NULL|self)
+              LOAD_CONST               1 ('ASCII')
+              LOAD_CONST               2 ('surrogateescape')
+              LOAD_CONST               3 (('errors',))
+              CALL_KW                  2
+              STORE_FAST               1 (text)
+
+119           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (parser)
+              LOAD_ATTR                5 (parsestr + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (text, headersonly)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object BytesHeaderParser at 0x00000204BA6C87A0, file "email\parser.py", line 122>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 122           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BytesHeaderParser')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         122
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 123           LOAD_CONST               5 ((True,))
+               LOAD_CONST               1 (<code object parse at 0x00000204BA109030, file "email\parser.py", line 123>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (parse)
+
+ 126           LOAD_CONST               5 ((True,))
+               LOAD_CONST               2 (<code object parsebytes at 0x00000204BA10B330, file "email\parser.py", line 126>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (parsebytes)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA109030, file "email\parser.py", line 123>:
+123           RESUME                   0
+
+124           LOAD_GLOBAL              0 (BytesParser)
+              LOAD_ATTR                3 (parse + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fp)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               1 (('headersonly',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object parsebytes at 0x00000204BA10B330, file "email\parser.py", line 126>:
+126           RESUME                   0
+
+127           LOAD_GLOBAL              0 (BytesParser)
+              LOAD_ATTR                3 (parsebytes + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, text)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               1 (('headersonly',))
+              CALL_KW                  3
+              RETURN_VALUE

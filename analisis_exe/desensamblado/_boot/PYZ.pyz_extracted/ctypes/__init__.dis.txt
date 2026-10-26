@@ -1,0 +1,3552 @@
+   0            RESUME                   0
+
+   1            LOAD_CONST               0 ('create and manipulate C data types in Python')
+                STORE_NAME               0 (__doc__)
+
+   3            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (os)
+                STORE_NAME               2 (_os)
+                LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              3 (sys)
+                STORE_NAME               4 (_sys)
+
+   4            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              5 (types)
+                STORE_NAME               6 (_types)
+
+   6            LOAD_CONST               2 ('1.1.0')
+                STORE_NAME               7 (__version__)
+
+   8            LOAD_SMALL_INT           0
+                LOAD_CONST               3 (('Union', 'Structure', 'Array'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM              9 (Union)
+                STORE_NAME               9 (Union)
+                IMPORT_FROM             10 (Structure)
+                STORE_NAME              10 (Structure)
+                IMPORT_FROM             11 (Array)
+                STORE_NAME              11 (Array)
+                POP_TOP
+
+   9            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (('_Pointer',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             12 (_Pointer)
+                STORE_NAME              12 (_Pointer)
+                POP_TOP
+
+  10            LOAD_SMALL_INT           0
+                LOAD_CONST               5 (('CFuncPtr',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             13 (CFuncPtr)
+                STORE_NAME              14 (_CFuncPtr)
+                POP_TOP
+
+  11            LOAD_SMALL_INT           0
+                LOAD_CONST               6 (('__version__',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM              7 (__version__)
+                STORE_NAME              15 (_ctypes_version)
+                POP_TOP
+
+  12            LOAD_SMALL_INT           0
+                LOAD_CONST               7 (('RTLD_LOCAL', 'RTLD_GLOBAL'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             16 (RTLD_LOCAL)
+                STORE_NAME              16 (RTLD_LOCAL)
+                IMPORT_FROM             17 (RTLD_GLOBAL)
+                STORE_NAME              17 (RTLD_GLOBAL)
+                POP_TOP
+
+  13            LOAD_SMALL_INT           0
+                LOAD_CONST               8 (('ArgumentError',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             18 (ArgumentError)
+                STORE_NAME              18 (ArgumentError)
+                POP_TOP
+
+  14            LOAD_SMALL_INT           0
+                LOAD_CONST               9 (('SIZEOF_TIME_T',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             19 (SIZEOF_TIME_T)
+                STORE_NAME              19 (SIZEOF_TIME_T)
+                POP_TOP
+
+  15            LOAD_SMALL_INT           0
+                LOAD_CONST              10 (('CField',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             20 (CField)
+                STORE_NAME              20 (CField)
+                POP_TOP
+
+  17            LOAD_SMALL_INT           0
+                LOAD_CONST              11 (('calcsize',))
+                IMPORT_NAME             21 (struct)
+                IMPORT_FROM             22 (calcsize)
+                STORE_NAME              23 (_calcsize)
+                POP_TOP
+
+  19            LOAD_NAME                7 (__version__)
+                LOAD_NAME               15 (_ctypes_version)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       11 (to L1)
+                NOT_TAKEN
+
+  20            LOAD_NAME               24 (Exception)
+                PUSH_NULL
+                LOAD_CONST              12 ('Version number mismatch')
+                LOAD_NAME                7 (__version__)
+                LOAD_NAME               15 (_ctypes_version)
+                CALL                     3
+                RAISE_VARARGS            1
+
+  22    L1:     LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              13 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       11 (to L2)
+                NOT_TAKEN
+
+  23            LOAD_SMALL_INT           0
+                LOAD_CONST              14 (('COMError', 'CopyComPointer', 'FormatError'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             26 (COMError)
+                STORE_NAME              26 (COMError)
+                IMPORT_FROM             27 (CopyComPointer)
+                STORE_NAME              27 (CopyComPointer)
+                IMPORT_FROM             28 (FormatError)
+                STORE_NAME              28 (FormatError)
+                POP_TOP
+
+  25    L2:     LOAD_NAME               16 (RTLD_LOCAL)
+                STORE_NAME              29 (DEFAULT_MODE)
+
+  26            LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              15 ('posix')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       80 (to L3)
+                NOT_TAKEN
+                LOAD_NAME                4 (_sys)
+                LOAD_ATTR               60 (platform)
+                LOAD_CONST              16 ('darwin')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       63 (to L3)
+                NOT_TAKEN
+
+  32            LOAD_NAME               31 (int)
+                PUSH_NULL
+                LOAD_NAME                2 (_os)
+                LOAD_ATTR               64 (uname)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR               66 (release)
+                LOAD_ATTR               69 (split + NULL|self)
+                LOAD_CONST              17 ('.')
+                CALL                     1
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                CALL                     1
+                LOAD_SMALL_INT           8
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        3 (to L3)
+                NOT_TAKEN
+
+  33            LOAD_NAME               17 (RTLD_GLOBAL)
+                STORE_NAME              29 (DEFAULT_MODE)
+
+  35    L3:     LOAD_SMALL_INT           0
+                LOAD_CONST              18 (('FUNCFLAG_CDECL', 'FUNCFLAG_PYTHONAPI', 'FUNCFLAG_USE_ERRNO', 'FUNCFLAG_USE_LASTERROR'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             35 (FUNCFLAG_CDECL)
+                STORE_NAME              36 (_FUNCFLAG_CDECL)
+                IMPORT_FROM             37 (FUNCFLAG_PYTHONAPI)
+                STORE_NAME              38 (_FUNCFLAG_PYTHONAPI)
+                IMPORT_FROM             39 (FUNCFLAG_USE_ERRNO)
+                STORE_NAME              40 (_FUNCFLAG_USE_ERRNO)
+                IMPORT_FROM             41 (FUNCFLAG_USE_LASTERROR)
+                STORE_NAME              42 (_FUNCFLAG_USE_LASTERROR)
+                POP_TOP
+
+  50            LOAD_CONST             123 ((None,))
+                LOAD_CONST              19 (<code object create_string_buffer at 0x00000204BA36B200, file "ctypes\__init__.py", line 50>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME              43 (create_string_buffer)
+
+  71            LOAD_NAME               43 (create_string_buffer)
+                STORE_NAME              44 (c_buffer)
+
+  73            BUILD_MAP                0
+                STORE_NAME              45 (_c_functype_cache)
+
+  74            LOAD_CONST              20 (<code object CFUNCTYPE at 0x00000204BA592FD0, file "ctypes\__init__.py", line 74>)
+                MAKE_FUNCTION
+                STORE_NAME              46 (CFUNCTYPE)
+
+ 110            LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              13 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       70 (to L5)
+                NOT_TAKEN
+
+ 111            LOAD_SMALL_INT           0
+                LOAD_CONST              21 (('LoadLibrary',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             47 (LoadLibrary)
+                STORE_NAME              48 (_dlopen)
+                POP_TOP
+
+ 112            LOAD_SMALL_INT           0
+                LOAD_CONST              22 (('FUNCFLAG_STDCALL',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             49 (FUNCFLAG_STDCALL)
+                STORE_NAME              50 (_FUNCFLAG_STDCALL)
+                POP_TOP
+
+ 114            BUILD_MAP                0
+                STORE_NAME              51 (_win_functype_cache)
+
+ 115            LOAD_CONST              23 (<code object WINFUNCTYPE at 0x00000204BA593E10, file "ctypes\__init__.py", line 115>)
+                MAKE_FUNCTION
+                STORE_NAME              52 (WINFUNCTYPE)
+
+ 136            LOAD_NAME               52 (WINFUNCTYPE)
+                LOAD_ATTR                0 (__doc__)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       34 (to L4)
+                NOT_TAKEN
+
+ 137            LOAD_NAME               46 (CFUNCTYPE)
+                LOAD_ATTR                0 (__doc__)
+                LOAD_ATTR              107 (replace + NULL|self)
+                LOAD_CONST              24 ('CFUNCTYPE')
+                LOAD_CONST              25 ('WINFUNCTYPE')
+                CALL                     2
+                LOAD_NAME               52 (WINFUNCTYPE)
+                STORE_ATTR               0 (__doc__)
+
+  --    L4:     JUMP_FORWARD            23 (to L6)
+
+ 139    L5:     LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              15 ('posix')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        7 (to L6)
+                NOT_TAKEN
+
+ 140            LOAD_SMALL_INT           0
+                LOAD_CONST              26 (('dlopen',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             54 (dlopen)
+                STORE_NAME              48 (_dlopen)
+                POP_TOP
+
+ 142    L6:     LOAD_SMALL_INT           0
+                LOAD_CONST              27 (('sizeof', 'byref', 'addressof', 'alignment', 'resize'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             55 (sizeof)
+                STORE_NAME              55 (sizeof)
+                IMPORT_FROM             56 (byref)
+                STORE_NAME              56 (byref)
+                IMPORT_FROM             57 (addressof)
+                STORE_NAME              57 (addressof)
+                IMPORT_FROM             58 (alignment)
+                STORE_NAME              58 (alignment)
+                IMPORT_FROM             59 (resize)
+                STORE_NAME              59 (resize)
+                POP_TOP
+
+ 143            LOAD_SMALL_INT           0
+                LOAD_CONST              28 (('get_errno', 'set_errno'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             60 (get_errno)
+                STORE_NAME              60 (get_errno)
+                IMPORT_FROM             61 (set_errno)
+                STORE_NAME              61 (set_errno)
+                POP_TOP
+
+ 144            LOAD_SMALL_INT           0
+                LOAD_CONST              29 (('_SimpleCData',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM             62 (_SimpleCData)
+                STORE_NAME              62 (_SimpleCData)
+                POP_TOP
+
+ 146            LOAD_CONST             123 ((None,))
+                LOAD_CONST              30 (<code object _check_size at 0x00000204B9F723F0, file "ctypes\__init__.py", line 146>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME              63 (_check_size)
+
+ 158            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              31 (<code object py_object at 0x00000204B9FEF800, file "ctypes\__init__.py", line 158>)
+                MAKE_FUNCTION
+                LOAD_CONST              32 ('py_object')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              64 (py_object)
+
+ 166            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               64 (py_object)
+                LOAD_CONST              33 ('P')
+                CALL                     2
+                POP_TOP
+
+ 168            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              34 (<code object c_short at 0x00000204BA0934B0, file "ctypes\__init__.py", line 168>)
+                MAKE_FUNCTION
+                LOAD_CONST              35 ('c_short')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              65 (c_short)
+
+ 170            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               65 (c_short)
+                CALL                     1
+                POP_TOP
+
+ 172            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              36 (<code object c_ushort at 0x00000204BA092F10, file "ctypes\__init__.py", line 172>)
+                MAKE_FUNCTION
+                LOAD_CONST              37 ('c_ushort')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              66 (c_ushort)
+
+ 174            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               66 (c_ushort)
+                CALL                     1
+                POP_TOP
+
+ 176            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              38 (<code object c_long at 0x00000204BA093000, file "ctypes\__init__.py", line 176>)
+                MAKE_FUNCTION
+                LOAD_CONST              39 ('c_long')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              67 (c_long)
+
+ 178            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               67 (c_long)
+                CALL                     1
+                POP_TOP
+
+ 180            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              40 (<code object c_ulong at 0x00000204BA092A60, file "ctypes\__init__.py", line 180>)
+                MAKE_FUNCTION
+                LOAD_CONST              41 ('c_ulong')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              68 (c_ulong)
+
+ 182            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               68 (c_ulong)
+                CALL                     1
+                POP_TOP
+
+ 184            LOAD_NAME               23 (_calcsize)
+                PUSH_NULL
+                LOAD_CONST              42 ('i')
+                CALL                     1
+                LOAD_NAME               23 (_calcsize)
+                PUSH_NULL
+                LOAD_CONST              43 ('l')
+                CALL                     1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L7)
+                NOT_TAKEN
+
+ 186            LOAD_NAME               67 (c_long)
+                STORE_NAME              69 (c_int)
+
+ 187            LOAD_NAME               68 (c_ulong)
+                STORE_NAME              70 (c_uint)
+                JUMP_FORWARD            38 (to L8)
+
+ 189    L7:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              44 (<code object c_int at 0x00000204BA0926A0, file "ctypes\__init__.py", line 189>)
+                MAKE_FUNCTION
+                LOAD_CONST              45 ('c_int')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              69 (c_int)
+
+ 191            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               69 (c_int)
+                CALL                     1
+                POP_TOP
+
+ 193            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              46 (<code object c_uint at 0x00000204BA0913E0, file "ctypes\__init__.py", line 193>)
+                MAKE_FUNCTION
+                LOAD_CONST              47 ('c_uint')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              70 (c_uint)
+
+ 195            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               70 (c_uint)
+                CALL                     1
+                POP_TOP
+
+ 197    L8:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              48 (<code object c_float at 0x00000204BA0925B0, file "ctypes\__init__.py", line 197>)
+                MAKE_FUNCTION
+                LOAD_CONST              49 ('c_float')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              71 (c_float)
+
+ 199            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               71 (c_float)
+                CALL                     1
+                POP_TOP
+
+ 201            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              50 (<code object c_double at 0x00000204BA092C40, file "ctypes\__init__.py", line 201>)
+                MAKE_FUNCTION
+                LOAD_CONST              51 ('c_double')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              72 (c_double)
+
+ 203            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               72 (c_double)
+                CALL                     1
+                POP_TOP
+
+ 205            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              52 (<code object c_longdouble at 0x00000204BA092D30, file "ctypes\__init__.py", line 205>)
+                MAKE_FUNCTION
+                LOAD_CONST              53 ('c_longdouble')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              73 (c_longdouble)
+
+ 207            LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               73 (c_longdouble)
+                CALL                     1
+                LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               72 (c_double)
+                CALL                     1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L9)
+                NOT_TAKEN
+
+ 208            LOAD_NAME               72 (c_double)
+                STORE_NAME              73 (c_longdouble)
+
+ 210    L9:     NOP
+
+ 211   L10:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              54 (<code object c_double_complex at 0x00000204BA0930F0, file "ctypes\__init__.py", line 211>)
+                MAKE_FUNCTION
+                LOAD_CONST              55 ('c_double_complex')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              74 (c_double_complex)
+
+ 213            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               74 (c_double_complex)
+                CALL                     1
+                POP_TOP
+
+ 214            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              56 (<code object c_float_complex at 0x00000204BA0924C0, file "ctypes\__init__.py", line 214>)
+                MAKE_FUNCTION
+                LOAD_CONST              57 ('c_float_complex')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              75 (c_float_complex)
+
+ 216            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               75 (c_float_complex)
+                CALL                     1
+                POP_TOP
+
+ 217            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              58 (<code object c_longdouble_complex at 0x00000204BA092880, file "ctypes\__init__.py", line 217>)
+                MAKE_FUNCTION
+                LOAD_CONST              59 ('c_longdouble_complex')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              76 (c_longdouble_complex)
+
+ 222   L11:     LOAD_NAME               23 (_calcsize)
+                PUSH_NULL
+                LOAD_CONST              43 ('l')
+                CALL                     1
+                LOAD_NAME               23 (_calcsize)
+                PUSH_NULL
+                LOAD_CONST              60 ('q')
+                CALL                     1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L12)
+                NOT_TAKEN
+
+ 224            LOAD_NAME               67 (c_long)
+                STORE_NAME              78 (c_longlong)
+
+ 225            LOAD_NAME               68 (c_ulong)
+                STORE_NAME              79 (c_ulonglong)
+                JUMP_FORWARD            38 (to L13)
+
+ 227   L12:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              61 (<code object c_longlong at 0x00000204BA093C30, file "ctypes\__init__.py", line 227>)
+                MAKE_FUNCTION
+                LOAD_CONST              62 ('c_longlong')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              78 (c_longlong)
+
+ 229            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               78 (c_longlong)
+                CALL                     1
+                POP_TOP
+
+ 231            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              63 (<code object c_ulonglong at 0x00000204BA0932D0, file "ctypes\__init__.py", line 231>)
+                MAKE_FUNCTION
+                LOAD_CONST              64 ('c_ulonglong')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              79 (c_ulonglong)
+
+ 236            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               79 (c_ulonglong)
+                CALL                     1
+                POP_TOP
+
+ 238   L13:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              65 (<code object c_ubyte at 0x00000204BA093960, file "ctypes\__init__.py", line 238>)
+                MAKE_FUNCTION
+                LOAD_CONST              66 ('c_ubyte')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              80 (c_ubyte)
+
+ 240            LOAD_NAME               80 (c_ubyte)
+                COPY                     1
+                LOAD_NAME               80 (c_ubyte)
+                STORE_ATTR              81 (__ctype_le__)
+                LOAD_NAME               80 (c_ubyte)
+                STORE_ATTR              82 (__ctype_be__)
+
+ 243            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               80 (c_ubyte)
+                CALL                     1
+                POP_TOP
+
+ 245            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              67 (<code object c_byte at 0x00000204BA0922E0, file "ctypes\__init__.py", line 245>)
+                MAKE_FUNCTION
+                LOAD_CONST              68 ('c_byte')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              83 (c_byte)
+
+ 247            LOAD_NAME               83 (c_byte)
+                COPY                     1
+                LOAD_NAME               83 (c_byte)
+                STORE_ATTR              81 (__ctype_le__)
+                LOAD_NAME               83 (c_byte)
+                STORE_ATTR              82 (__ctype_be__)
+
+ 248            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               83 (c_byte)
+                CALL                     1
+                POP_TOP
+
+ 250            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              69 (<code object c_char at 0x00000204BA0914D0, file "ctypes\__init__.py", line 250>)
+                MAKE_FUNCTION
+                LOAD_CONST              70 ('c_char')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              84 (c_char)
+
+ 252            LOAD_NAME               84 (c_char)
+                COPY                     1
+                LOAD_NAME               84 (c_char)
+                STORE_ATTR              81 (__ctype_le__)
+                LOAD_NAME               84 (c_char)
+                STORE_ATTR              82 (__ctype_be__)
+
+ 253            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               84 (c_char)
+                CALL                     1
+                POP_TOP
+
+ 255            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              71 (<code object c_char_p at 0x00000204BA08B130, file "ctypes\__init__.py", line 255>)
+                MAKE_FUNCTION
+                LOAD_CONST              72 ('c_char_p')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              85 (c_char_p)
+
+ 259            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               85 (c_char_p)
+                LOAD_CONST              33 ('P')
+                CALL                     2
+                POP_TOP
+
+ 261            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              73 (<code object c_void_p at 0x00000204BA0935A0, file "ctypes\__init__.py", line 261>)
+                MAKE_FUNCTION
+                LOAD_CONST              74 ('c_void_p')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              86 (c_void_p)
+
+ 263            LOAD_NAME               86 (c_void_p)
+                STORE_NAME              87 (c_voidp)
+
+ 264            LOAD_NAME               63 (_check_size)
+                PUSH_NULL
+                LOAD_NAME               86 (c_void_p)
+                CALL                     1
+                POP_TOP
+
+ 266            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              75 (<code object c_bool at 0x00000204BA092790, file "ctypes\__init__.py", line 266>)
+                MAKE_FUNCTION
+                LOAD_CONST              76 ('c_bool')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              88 (c_bool)
+
+ 269            LOAD_CONST              77 (<code object POINTER at 0x00000204BA3AC6F0, file "ctypes\__init__.py", line 269>)
+                MAKE_FUNCTION
+                STORE_NAME              89 (POINTER)
+
+ 295            LOAD_CONST              78 (<code object pointer at 0x00000204BA0FC7A0, file "ctypes\__init__.py", line 295>)
+                MAKE_FUNCTION
+                STORE_NAME              90 (pointer)
+
+ 305            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              79 (<code object _PointerTypeCache at 0x00000204BA0FECD0, file "ctypes\__init__.py", line 305>)
+                MAKE_FUNCTION
+                LOAD_CONST              80 ('_PointerTypeCache')
+                CALL                     2
+                STORE_NAME              91 (_PointerTypeCache)
+
+ 333            BUILD_MAP                0
+                STORE_NAME              92 (_pointer_type_cache_fallback)
+
+ 334            LOAD_NAME               91 (_PointerTypeCache)
+                PUSH_NULL
+                CALL                     0
+                STORE_NAME              93 (_pointer_type_cache)
+
+ 336            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              81 (<code object c_wchar_p at 0x00000204BA08A530, file "ctypes\__init__.py", line 336>)
+                MAKE_FUNCTION
+                LOAD_CONST              82 ('c_wchar_p')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              94 (c_wchar_p)
+
+ 341            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              83 (<code object c_wchar at 0x00000204BA093870, file "ctypes\__init__.py", line 341>)
+                MAKE_FUNCTION
+                LOAD_CONST              84 ('c_wchar')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME              95 (c_wchar)
+
+ 344            LOAD_CONST              85 (<code object _reset_cache at 0x00000204B9F5BA30, file "ctypes\__init__.py", line 344>)
+                MAKE_FUNCTION
+                STORE_NAME              96 (_reset_cache)
+
+ 354            LOAD_CONST             123 ((None,))
+                LOAD_CONST              86 (<code object create_unicode_buffer at 0x00000204BA38BBC0, file "ctypes\__init__.py", line 354>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME              97 (create_unicode_buffer)
+
+ 383            LOAD_CONST              87 (<code object SetPointerType at 0x00000204BA102FB0, file "ctypes\__init__.py", line 383>)
+                MAKE_FUNCTION
+                STORE_NAME              98 (SetPointerType)
+
+ 388            LOAD_CONST              88 (<code object ARRAY at 0x00000204BA093690, file "ctypes\__init__.py", line 388>)
+                MAKE_FUNCTION
+                STORE_NAME              99 (ARRAY)
+
+ 394            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              89 (<code object CDLL at 0x00000204BA101DE0, file "ctypes\__init__.py", line 394>)
+                MAKE_FUNCTION
+                LOAD_CONST              90 ('CDLL')
+                LOAD_NAME              100 (object)
+                CALL                     3
+                STORE_NAME             101 (CDLL)
+
+ 485            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              91 (<code object PyDLL at 0x00000204BA08AD30, file "ctypes\__init__.py", line 485>)
+                MAKE_FUNCTION
+                LOAD_CONST              92 ('PyDLL')
+                LOAD_NAME              101 (CDLL)
+                CALL                     3
+                STORE_NAME             102 (PyDLL)
+
+ 492            LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              13 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       42 (to L14)
+                NOT_TAKEN
+
+ 494            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              93 (<code object WinDLL at 0x00000204BA093A50, file "ctypes\__init__.py", line 494>)
+                MAKE_FUNCTION
+                LOAD_CONST              94 ('WinDLL')
+                LOAD_NAME              101 (CDLL)
+                CALL                     3
+                STORE_NAME             103 (WinDLL)
+
+ 502            LOAD_SMALL_INT           0
+                LOAD_CONST              95 (('_check_HRESULT', '_SimpleCData'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM            104 (_check_HRESULT)
+                STORE_NAME             104 (_check_HRESULT)
+                IMPORT_FROM             62 (_SimpleCData)
+                STORE_NAME              62 (_SimpleCData)
+                POP_TOP
+
+ 503            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              96 (<code object HRESULT at 0x00000204BA093B40, file "ctypes\__init__.py", line 503>)
+                MAKE_FUNCTION
+                LOAD_CONST              97 ('HRESULT')
+                LOAD_NAME               62 (_SimpleCData)
+                CALL                     3
+                STORE_NAME             105 (HRESULT)
+
+ 516            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              98 (<code object OleDLL at 0x00000204BA08B330, file "ctypes\__init__.py", line 516>)
+                MAKE_FUNCTION
+                LOAD_CONST              99 ('OleDLL')
+                LOAD_NAME              101 (CDLL)
+                CALL                     3
+                STORE_NAME             106 (OleDLL)
+
+ 525   L14:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST             100 (<code object LibraryLoader at 0x00000204BA102E80, file "ctypes\__init__.py", line 525>)
+                MAKE_FUNCTION
+                LOAD_CONST             101 ('LibraryLoader')
+                LOAD_NAME              100 (object)
+                CALL                     3
+                STORE_NAME             107 (LibraryLoader)
+
+ 547            LOAD_NAME              107 (LibraryLoader)
+                PUSH_NULL
+                LOAD_NAME              101 (CDLL)
+                CALL                     1
+                STORE_NAME             108 (cdll)
+
+ 548            LOAD_NAME              107 (LibraryLoader)
+                PUSH_NULL
+                LOAD_NAME              102 (PyDLL)
+                CALL                     1
+                STORE_NAME             109 (pydll)
+
+ 550            LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              13 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       22 (to L15)
+                NOT_TAKEN
+
+ 551            LOAD_NAME              102 (PyDLL)
+                PUSH_NULL
+                LOAD_CONST             102 ('python dll')
+                LOAD_CONST               1 (None)
+                LOAD_NAME                4 (_sys)
+                LOAD_ATTR              220 (dllhandle)
+                CALL                     3
+                STORE_NAME             111 (pythonapi)
+                JUMP_FORWARD           108 (to L18)
+
+ 552   L15:     LOAD_NAME                4 (_sys)
+                LOAD_ATTR               60 (platform)
+                LOAD_CONST             103 ('android')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       34 (to L16)
+                NOT_TAKEN
+
+ 553            LOAD_NAME              102 (PyDLL)
+                PUSH_NULL
+                LOAD_CONST             104 ('libpython%d.%d.so')
+                LOAD_NAME                4 (_sys)
+                LOAD_ATTR              224 (version_info)
+                LOAD_CONST             105 (slice(None, 2, None))
+                BINARY_OP               26 ([])
+                BINARY_OP                6 (%)
+                CALL                     1
+                STORE_NAME             111 (pythonapi)
+                JUMP_FORWARD            58 (to L18)
+
+ 554   L16:     LOAD_NAME                4 (_sys)
+                LOAD_ATTR               60 (platform)
+                LOAD_CONST             106 ('cygwin')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       34 (to L17)
+                NOT_TAKEN
+
+ 555            LOAD_NAME              102 (PyDLL)
+                PUSH_NULL
+                LOAD_CONST             107 ('libpython%d.%d.dll')
+                LOAD_NAME                4 (_sys)
+                LOAD_ATTR              224 (version_info)
+                LOAD_CONST             105 (slice(None, 2, None))
+                BINARY_OP               26 ([])
+                BINARY_OP                6 (%)
+                CALL                     1
+                STORE_NAME             111 (pythonapi)
+                JUMP_FORWARD             8 (to L18)
+
+ 557   L17:     LOAD_NAME              102 (PyDLL)
+                PUSH_NULL
+                LOAD_CONST               1 (None)
+                CALL                     1
+                STORE_NAME             111 (pythonapi)
+
+ 560   L18:     LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              13 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       52 (to L19)
+                NOT_TAKEN
+
+ 561            LOAD_NAME              107 (LibraryLoader)
+                PUSH_NULL
+                LOAD_NAME              103 (WinDLL)
+                CALL                     1
+                STORE_NAME             113 (windll)
+
+ 562            LOAD_NAME              107 (LibraryLoader)
+                PUSH_NULL
+                LOAD_NAME              106 (OleDLL)
+                CALL                     1
+                STORE_NAME             114 (oledll)
+
+ 564            LOAD_NAME              113 (windll)
+                LOAD_ATTR              230 (kernel32)
+                LOAD_ATTR              232 (GetLastError)
+                STORE_NAME             116 (GetLastError)
+
+ 565            LOAD_SMALL_INT           0
+                LOAD_CONST             108 (('get_last_error', 'set_last_error'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM            117 (get_last_error)
+                STORE_NAME             117 (get_last_error)
+                IMPORT_FROM            118 (set_last_error)
+                STORE_NAME             118 (set_last_error)
+                POP_TOP
+
+ 567            LOAD_CONST             124 ((None, None))
+                LOAD_CONST             109 (<code object WinError at 0x00000204BA0BB9F0, file "ctypes\__init__.py", line 567>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME             119 (WinError)
+
+ 574   L19:     LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               70 (c_uint)
+                CALL                     1
+                LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               86 (c_void_p)
+                CALL                     1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L20)
+                NOT_TAKEN
+
+ 575            LOAD_NAME               70 (c_uint)
+                STORE_NAME             120 (c_size_t)
+
+ 576            LOAD_NAME               69 (c_int)
+                STORE_NAME             121 (c_ssize_t)
+                JUMP_FORWARD            47 (to L22)
+
+ 577   L20:     LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               68 (c_ulong)
+                CALL                     1
+                LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               86 (c_void_p)
+                CALL                     1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        6 (to L21)
+                NOT_TAKEN
+
+ 578            LOAD_NAME               68 (c_ulong)
+                STORE_NAME             120 (c_size_t)
+
+ 579            LOAD_NAME               67 (c_long)
+                STORE_NAME             121 (c_ssize_t)
+                JUMP_FORWARD            23 (to L22)
+
+ 580   L21:     LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               79 (c_ulonglong)
+                CALL                     1
+                LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME               86 (c_void_p)
+                CALL                     1
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        5 (to L22)
+                NOT_TAKEN
+
+ 581            LOAD_NAME               79 (c_ulonglong)
+                STORE_NAME             120 (c_size_t)
+
+ 582            LOAD_NAME               78 (c_longlong)
+                STORE_NAME             121 (c_ssize_t)
+
+ 586   L22:     LOAD_SMALL_INT           0
+                LOAD_CONST             110 (('_memmove_addr', '_memset_addr', '_string_at_addr', '_cast_addr'))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM            122 (_memmove_addr)
+                STORE_NAME             122 (_memmove_addr)
+                IMPORT_FROM            123 (_memset_addr)
+                STORE_NAME             123 (_memset_addr)
+                IMPORT_FROM            124 (_string_at_addr)
+                STORE_NAME             124 (_string_at_addr)
+                IMPORT_FROM            125 (_cast_addr)
+                STORE_NAME             125 (_cast_addr)
+                POP_TOP
+
+ 587            LOAD_SMALL_INT           0
+                LOAD_CONST             111 (('_memoryview_at_addr',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM            126 (_memoryview_at_addr)
+                STORE_NAME             126 (_memoryview_at_addr)
+                POP_TOP
+
+ 590            LOAD_NAME               46 (CFUNCTYPE)
+                PUSH_NULL
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME              120 (c_size_t)
+                CALL                     4
+                PUSH_NULL
+                LOAD_NAME              122 (_memmove_addr)
+                CALL                     1
+                STORE_NAME             127 (memmove)
+
+ 593            LOAD_NAME               46 (CFUNCTYPE)
+                PUSH_NULL
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME               69 (c_int)
+                LOAD_NAME              120 (c_size_t)
+                CALL                     4
+                PUSH_NULL
+                LOAD_NAME              123 (_memset_addr)
+                CALL                     1
+                STORE_NAME             128 (memset)
+
+ 595            LOAD_CONST             112 (<code object PYFUNCTYPE at 0x00000204BA10A730, file "ctypes\__init__.py", line 595>)
+                MAKE_FUNCTION
+                STORE_NAME             129 (PYFUNCTYPE)
+
+ 602            LOAD_NAME              129 (PYFUNCTYPE)
+                PUSH_NULL
+                LOAD_NAME               64 (py_object)
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME               64 (py_object)
+                LOAD_NAME               64 (py_object)
+                CALL                     4
+                PUSH_NULL
+                LOAD_NAME              125 (_cast_addr)
+                CALL                     1
+                STORE_NAME             130 (_cast)
+
+ 603            LOAD_CONST             113 (<code object cast at 0x00000204BA0912F0, file "ctypes\__init__.py", line 603>)
+                MAKE_FUNCTION
+                STORE_NAME             131 (cast)
+
+ 606            LOAD_NAME              129 (PYFUNCTYPE)
+                PUSH_NULL
+                LOAD_NAME               64 (py_object)
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME               69 (c_int)
+                CALL                     3
+                PUSH_NULL
+                LOAD_NAME              124 (_string_at_addr)
+                CALL                     1
+                STORE_NAME             132 (_string_at)
+
+ 607            LOAD_CONST             125 ((-1,))
+                LOAD_CONST             114 (<code object string_at at 0x00000204BA092E20, file "ctypes\__init__.py", line 607>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME             133 (string_at)
+
+ 613            LOAD_NAME              129 (PYFUNCTYPE)
+                PUSH_NULL
+
+ 614            LOAD_NAME               64 (py_object)
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME              121 (c_ssize_t)
+                LOAD_NAME               69 (c_int)
+
+ 613            CALL                     4
+                PUSH_NULL
+
+ 614            LOAD_NAME              126 (_memoryview_at_addr)
+
+ 613            CALL                     1
+                STORE_NAME             134 (_memoryview_at)
+
+ 615            LOAD_CONST             126 ((False,))
+                LOAD_CONST             115 (<code object memoryview_at at 0x00000204BA108F30, file "ctypes\__init__.py", line 615>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME             135 (memoryview_at)
+
+ 621            NOP
+
+ 622   L23:     LOAD_SMALL_INT           0
+                LOAD_CONST             116 (('_wstring_at_addr',))
+                IMPORT_NAME              8 (_ctypes)
+                IMPORT_FROM            136 (_wstring_at_addr)
+                STORE_NAME             136 (_wstring_at_addr)
+                POP_TOP
+
+ 626   L24:     LOAD_NAME              129 (PYFUNCTYPE)
+                PUSH_NULL
+                LOAD_NAME               64 (py_object)
+                LOAD_NAME               86 (c_void_p)
+                LOAD_NAME               69 (c_int)
+                CALL                     3
+                PUSH_NULL
+                LOAD_NAME              136 (_wstring_at_addr)
+                CALL                     1
+                STORE_NAME             137 (_wstring_at)
+
+ 627            LOAD_CONST             125 ((-1,))
+                LOAD_CONST             117 (<code object wstring_at at 0x00000204BA093780, file "ctypes\__init__.py", line 627>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME             138 (wstring_at)
+
+ 634   L25:     LOAD_NAME                2 (_os)
+                LOAD_ATTR               50 (name)
+                LOAD_CONST              13 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        7 (to L26)
+                NOT_TAKEN
+
+ 635            LOAD_CONST             118 (<code object DllGetClassObject at 0x00000204B9F73890, file "ctypes\__init__.py", line 635>)
+                MAKE_FUNCTION
+                STORE_NAME             140 (DllGetClassObject)
+
+ 643            LOAD_CONST             119 (<code object DllCanUnloadNow at 0x00000204B9F718F0, file "ctypes\__init__.py", line 643>)
+                MAKE_FUNCTION
+                STORE_NAME             141 (DllCanUnloadNow)
+
+ 650   L26:     LOAD_SMALL_INT           0
+                LOAD_CONST             120 (('BigEndianStructure', 'LittleEndianStructure'))
+                IMPORT_NAME            142 (ctypes._endian)
+                IMPORT_FROM            143 (BigEndianStructure)
+                STORE_NAME             143 (BigEndianStructure)
+                IMPORT_FROM            144 (LittleEndianStructure)
+                STORE_NAME             144 (LittleEndianStructure)
+                POP_TOP
+
+ 651            LOAD_SMALL_INT           0
+                LOAD_CONST             121 (('BigEndianUnion', 'LittleEndianUnion'))
+                IMPORT_NAME            142 (ctypes._endian)
+                IMPORT_FROM            145 (BigEndianUnion)
+                STORE_NAME             145 (BigEndianUnion)
+                IMPORT_FROM            146 (LittleEndianUnion)
+                STORE_NAME             146 (LittleEndianUnion)
+                POP_TOP
+
+ 654            LOAD_NAME               83 (c_byte)
+                STORE_NAME             147 (c_int8)
+
+ 655            LOAD_NAME               80 (c_ubyte)
+                STORE_NAME             148 (c_uint8)
+
+ 656            LOAD_NAME               65 (c_short)
+                LOAD_NAME               69 (c_int)
+                LOAD_NAME               67 (c_long)
+                LOAD_NAME               78 (c_longlong)
+                BUILD_TUPLE              4
+                GET_ITER
+       L27:     FOR_ITER                54 (to L31)
+                STORE_NAME             149 (kind)
+
+ 657            LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME              149 (kind)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        5 (to L28)
+                NOT_TAKEN
+                LOAD_NAME              149 (kind)
+                STORE_NAME             150 (c_int16)
+                JUMP_BACKWARD           20 (to L27)
+
+ 658   L28:     LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME              149 (kind)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        5 (to L29)
+                NOT_TAKEN
+                LOAD_NAME              149 (kind)
+                STORE_NAME             151 (c_int32)
+                JUMP_BACKWARD           37 (to L27)
+
+ 659   L29:     LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME              149 (kind)
+                CALL                     1
+                LOAD_SMALL_INT           8
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         3 (to L30)
+                NOT_TAKEN
+                JUMP_BACKWARD           52 (to L27)
+       L30:     LOAD_NAME              149 (kind)
+                STORE_NAME             152 (c_int64)
+                JUMP_BACKWARD           56 (to L27)
+
+ 656   L31:     END_FOR
+                POP_ITER
+
+ 660            LOAD_NAME               66 (c_ushort)
+                LOAD_NAME               70 (c_uint)
+                LOAD_NAME               68 (c_ulong)
+                LOAD_NAME               79 (c_ulonglong)
+                BUILD_TUPLE              4
+                GET_ITER
+       L32:     FOR_ITER                54 (to L36)
+                STORE_NAME             149 (kind)
+
+ 661            LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME              149 (kind)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        5 (to L33)
+                NOT_TAKEN
+                LOAD_NAME              149 (kind)
+                STORE_NAME             153 (c_uint16)
+                JUMP_BACKWARD           20 (to L32)
+
+ 662   L33:     LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME              149 (kind)
+                CALL                     1
+                LOAD_SMALL_INT           4
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        5 (to L34)
+                NOT_TAKEN
+                LOAD_NAME              149 (kind)
+                STORE_NAME             154 (c_uint32)
+                JUMP_BACKWARD           37 (to L32)
+
+ 663   L34:     LOAD_NAME               55 (sizeof)
+                PUSH_NULL
+                LOAD_NAME              149 (kind)
+                CALL                     1
+                LOAD_SMALL_INT           8
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         3 (to L35)
+                NOT_TAKEN
+                JUMP_BACKWARD           52 (to L32)
+       L35:     LOAD_NAME              149 (kind)
+                STORE_NAME             155 (c_uint64)
+                JUMP_BACKWARD           56 (to L32)
+
+ 660   L36:     END_FOR
+                POP_ITER
+
+ 664            DELETE_NAME            149 (kind)
+
+ 666            LOAD_NAME               19 (SIZEOF_TIME_T)
+                LOAD_SMALL_INT           8
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        4 (to L37)
+                NOT_TAKEN
+
+ 667            LOAD_NAME              152 (c_int64)
+                STORE_NAME             156 (c_time_t)
+                JUMP_FORWARD            22 (to L39)
+
+ 668   L37:     LOAD_NAME               19 (SIZEOF_TIME_T)
+                LOAD_SMALL_INT           4
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        4 (to L38)
+                NOT_TAKEN
+
+ 669            LOAD_NAME              151 (c_int32)
+                STORE_NAME             156 (c_time_t)
+                JUMP_FORWARD            12 (to L39)
+
+ 671   L38:     LOAD_NAME              157 (SystemError)
+                PUSH_NULL
+                LOAD_CONST             122 ('Unexpected sizeof(time_t): SIZEOF_TIME_T=')
+                LOAD_NAME               19 (SIZEOF_TIME_T)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 673   L39:     LOAD_NAME               96 (_reset_cache)
+                PUSH_NULL
+                CALL                     0
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L40:     PUSH_EXC_INFO
+
+ 219            LOAD_NAME               77 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L42)
+                NOT_TAKEN
+                POP_TOP
+
+ 220   L41:     POP_EXCEPT
+                EXTENDED_ARG             4
+                JUMP_BACKWARD_NO_INTERRUPT 1035 (to L11)
+
+ 219   L42:     RERAISE                  0
+
+  --   L43:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L44:     PUSH_EXC_INFO
+
+ 623            LOAD_NAME              139 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L46)
+                NOT_TAKEN
+                POP_TOP
+
+ 624   L45:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 236 (to L25)
+
+ 623   L46:     RERAISE                  0
+
+  --   L47:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L10 to L11 -> L40 [0]
+  L23 to L24 -> L44 [0]
+  L40 to L41 -> L43 [1] lasti
+  L42 to L43 -> L43 [1] lasti
+  L44 to L45 -> L47 [1] lasti
+  L46 to L47 -> L47 [1] lasti
+
+Disassembly of <code object create_string_buffer at 0x00000204BA36B200, file "ctypes\__init__.py", line 50>:
+ 50           RESUME                   0
+
+ 55           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              LOAD_GLOBAL              2 (bytes)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       74 (to L2)
+              NOT_TAKEN
+
+ 56           LOAD_FAST_BORROW         1 (size)
+              POP_JUMP_IF_NOT_NONE    19 (to L1)
+              NOT_TAKEN
+
+ 57           LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               1 (size)
+
+ 58   L1:     LOAD_GLOBAL              6 (_sys)
+              LOAD_ATTR                8 (audit)
+              PUSH_NULL
+              LOAD_CONST               2 ('ctypes.create_string_buffer')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (init, size)
+              CALL                     3
+              POP_TOP
+
+ 59           LOAD_GLOBAL             10 (c_char)
+              LOAD_FAST_BORROW         1 (size)
+              BINARY_OP                5 (*)
+              STORE_FAST               2 (buftype)
+
+ 60           LOAD_FAST_BORROW         2 (buftype)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               3 (buf)
+
+ 61           LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (init, buf)
+              STORE_ATTR               6 (value)
+
+ 62           LOAD_FAST_BORROW         3 (buf)
+              RETURN_VALUE
+
+ 63   L2:     LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              LOAD_GLOBAL             14 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       47 (to L3)
+              NOT_TAKEN
+
+ 64           LOAD_GLOBAL              6 (_sys)
+              LOAD_ATTR                8 (audit)
+              PUSH_NULL
+              LOAD_CONST               2 ('ctypes.create_string_buffer')
+              LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (init)
+              CALL                     3
+              POP_TOP
+
+ 65           LOAD_GLOBAL             10 (c_char)
+              LOAD_FAST_BORROW         0 (init)
+              BINARY_OP                5 (*)
+              STORE_FAST               2 (buftype)
+
+ 66           LOAD_FAST_BORROW         2 (buftype)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               3 (buf)
+
+ 67           LOAD_FAST_BORROW         3 (buf)
+              RETURN_VALUE
+
+ 68   L3:     LOAD_GLOBAL             17 (TypeError + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object CFUNCTYPE at 0x00000204BA592FD0, file "ctypes\__init__.py", line 74>:
+  --            MAKE_CELL                0 (restype)
+                MAKE_CELL                1 (argtypes)
+                MAKE_CELL                4 (flags)
+
+  74            RESUME                   0
+
+  90            LOAD_GLOBAL              0 (_FUNCFLAG_CDECL)
+                STORE_DEREF              4 (flags)
+
+  91            LOAD_FAST_BORROW         2 (kw)
+                LOAD_ATTR                3 (pop + NULL|self)
+                LOAD_CONST               1 ('use_errno')
+                LOAD_CONST               2 (False)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       14 (to L1)
+                NOT_TAKEN
+
+  92            LOAD_DEREF               4 (flags)
+                LOAD_GLOBAL              4 (_FUNCFLAG_USE_ERRNO)
+                BINARY_OP               20 (|=)
+                STORE_DEREF              4 (flags)
+
+  93    L1:     LOAD_FAST_BORROW         2 (kw)
+                LOAD_ATTR                3 (pop + NULL|self)
+                LOAD_CONST               3 ('use_last_error')
+                LOAD_CONST               2 (False)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       14 (to L2)
+                NOT_TAKEN
+
+  94            LOAD_DEREF               4 (flags)
+                LOAD_GLOBAL              6 (_FUNCFLAG_USE_LASTERROR)
+                BINARY_OP               20 (|=)
+                STORE_DEREF              4 (flags)
+
+  95    L2:     LOAD_FAST_BORROW         2 (kw)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       33 (to L3)
+                NOT_TAKEN
+
+  96            LOAD_GLOBAL              9 (ValueError + NULL)
+                LOAD_CONST               4 ('unexpected keyword argument(s) %s')
+                LOAD_FAST_BORROW         2 (kw)
+                LOAD_ATTR               11 (keys + NULL|self)
+                CALL                     0
+                BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+  98    L3:     NOP
+
+  99    L4:     LOAD_GLOBAL             12 (_c_functype_cache)
+                LOAD_DEREF               0 (restype)
+                LOAD_DEREF               1 (argtypes)
+                LOAD_DEREF               4 (flags)
+                BUILD_TUPLE              3
+                BINARY_OP               26 ([])
+        L5:     RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+ 100            LOAD_GLOBAL             14 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+ 101    L7:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L10)
+
+ 100    L8:     RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 103   L10:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST                1 (argtypes)
+                LOAD_FAST                4 (flags)
+                LOAD_FAST                0 (restype)
+                BUILD_TUPLE              3
+                LOAD_CONST               5 (<code object CFunctionType at 0x00000204BA088330, file "ctypes\__init__.py", line 103>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST               6 ('CFunctionType')
+                LOAD_GLOBAL             16 (_CFuncPtr)
+                CALL                     3
+                STORE_FAST               3 (CFunctionType)
+
+ 107            LOAD_FAST                3 (CFunctionType)
+                LOAD_GLOBAL             12 (_c_functype_cache)
+                LOAD_DEREF               0 (restype)
+                LOAD_DEREF               1 (argtypes)
+                LOAD_DEREF               4 (flags)
+                BUILD_TUPLE              3
+                STORE_SUBSCR
+
+ 108            LOAD_FAST                3 (CFunctionType)
+                RETURN_VALUE
+ExceptionTable:
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object CFunctionType at 0x00000204BA088330, file "ctypes\__init__.py", line 103>:
+  --           COPY_FREE_VARS           3
+
+ 103           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('CFUNCTYPE.<locals>.CFunctionType')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         103
+               STORE_NAME               3 (__firstlineno__)
+
+ 104           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  0 (argtypes)
+               STORE_NAME               4 (_argtypes_)
+
+ 105           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  2 (restype)
+               STORE_NAME               5 (_restype_)
+
+ 106           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  1 (flags)
+               STORE_NAME               6 (_flags_)
+               LOAD_CONST               1 (())
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object WINFUNCTYPE at 0x00000204BA593E10, file "ctypes\__init__.py", line 115>:
+  --            MAKE_CELL                0 (restype)
+                MAKE_CELL                1 (argtypes)
+                MAKE_CELL                4 (flags)
+
+ 115            RESUME                   0
+
+ 117            LOAD_GLOBAL              0 (_FUNCFLAG_STDCALL)
+                STORE_DEREF              4 (flags)
+
+ 118            LOAD_FAST_BORROW         2 (kw)
+                LOAD_ATTR                3 (pop + NULL|self)
+                LOAD_CONST               0 ('use_errno')
+                LOAD_CONST               1 (False)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       14 (to L1)
+                NOT_TAKEN
+
+ 119            LOAD_DEREF               4 (flags)
+                LOAD_GLOBAL              4 (_FUNCFLAG_USE_ERRNO)
+                BINARY_OP               20 (|=)
+                STORE_DEREF              4 (flags)
+
+ 120    L1:     LOAD_FAST_BORROW         2 (kw)
+                LOAD_ATTR                3 (pop + NULL|self)
+                LOAD_CONST               2 ('use_last_error')
+                LOAD_CONST               1 (False)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       14 (to L2)
+                NOT_TAKEN
+
+ 121            LOAD_DEREF               4 (flags)
+                LOAD_GLOBAL              6 (_FUNCFLAG_USE_LASTERROR)
+                BINARY_OP               20 (|=)
+                STORE_DEREF              4 (flags)
+
+ 122    L2:     LOAD_FAST_BORROW         2 (kw)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       33 (to L3)
+                NOT_TAKEN
+
+ 123            LOAD_GLOBAL              9 (ValueError + NULL)
+                LOAD_CONST               3 ('unexpected keyword argument(s) %s')
+                LOAD_FAST_BORROW         2 (kw)
+                LOAD_ATTR               11 (keys + NULL|self)
+                CALL                     0
+                BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 125    L3:     NOP
+
+ 126    L4:     LOAD_GLOBAL             12 (_win_functype_cache)
+                LOAD_DEREF               0 (restype)
+                LOAD_DEREF               1 (argtypes)
+                LOAD_DEREF               4 (flags)
+                BUILD_TUPLE              3
+                BINARY_OP               26 ([])
+        L5:     RETURN_VALUE
+
+  --    L6:     PUSH_EXC_INFO
+
+ 127            LOAD_GLOBAL             14 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L8)
+                NOT_TAKEN
+                POP_TOP
+
+ 128    L7:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L10)
+
+ 127    L8:     RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 130   L10:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST                1 (argtypes)
+                LOAD_FAST                4 (flags)
+                LOAD_FAST                0 (restype)
+                BUILD_TUPLE              3
+                LOAD_CONST               4 (<code object WinFunctionType at 0x00000204BA08AC30, file "ctypes\__init__.py", line 130>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST               5 ('WinFunctionType')
+                LOAD_GLOBAL             16 (_CFuncPtr)
+                CALL                     3
+                STORE_FAST               3 (WinFunctionType)
+
+ 134            LOAD_FAST                3 (WinFunctionType)
+                LOAD_GLOBAL             12 (_win_functype_cache)
+                LOAD_DEREF               0 (restype)
+                LOAD_DEREF               1 (argtypes)
+                LOAD_DEREF               4 (flags)
+                BUILD_TUPLE              3
+                STORE_SUBSCR
+
+ 135            LOAD_FAST                3 (WinFunctionType)
+                RETURN_VALUE
+ExceptionTable:
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object WinFunctionType at 0x00000204BA08AC30, file "ctypes\__init__.py", line 130>:
+  --           COPY_FREE_VARS           3
+
+ 130           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('WINFUNCTYPE.<locals>.WinFunctionType')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         130
+               STORE_NAME               3 (__firstlineno__)
+
+ 131           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  0 (argtypes)
+               STORE_NAME               4 (_argtypes_)
+
+ 132           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  2 (restype)
+               STORE_NAME               5 (_restype_)
+
+ 133           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  1 (flags)
+               STORE_NAME               6 (_flags_)
+               LOAD_CONST               1 (())
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _check_size at 0x00000204B9F723F0, file "ctypes\__init__.py", line 146>:
+146           RESUME                   0
+
+149           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('calcsize',))
+              IMPORT_NAME              0 (struct)
+              IMPORT_FROM              1 (calcsize)
+              STORE_FAST               2 (calcsize)
+              POP_TOP
+
+150           LOAD_FAST_BORROW         1 (typecode)
+              POP_JUMP_IF_NOT_NONE    13 (to L1)
+              NOT_TAKEN
+
+152           LOAD_FAST_BORROW         0 (typ)
+              LOAD_ATTR                4 (_type_)
+              STORE_FAST               1 (typecode)
+
+153   L1:     LOAD_GLOBAL              7 (sizeof + NULL)
+              LOAD_FAST_BORROW         0 (typ)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (calcsize)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (typecode)
+              CALL                     1
+              STORE_FAST_STORE_FAST   67 (required, actual)
+
+154           LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (actual, required)
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE       21 (to L2)
+              NOT_TAKEN
+
+155           LOAD_GLOBAL              9 (SystemError + NULL)
+              LOAD_CONST               3 ('sizeof(%s) wrong: %d instead of %d')
+
+156           LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (typ, actual)
+              LOAD_FAST_BORROW         4 (required)
+              BUILD_TUPLE              3
+
+155           BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+154   L2:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object py_object at 0x00000204B9FEF800, file "ctypes\__init__.py", line 158>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 158           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('py_object')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         158
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 159           LOAD_CONST               1 ('O')
+               STORE_NAME               4 (_type_)
+
+ 160           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __repr__ at 0x00000204BA0BAF70, file "ctypes\__init__.py", line 160>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__repr__)
+
+ 165           LOAD_NAME                6 (classmethod)
+               PUSH_NULL
+               LOAD_NAME                7 (_types)
+               LOAD_ATTR               16 (GenericAlias)
+               CALL                     1
+               STORE_NAME               9 (__class_getitem__)
+               LOAD_CONST               3 (())
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              12 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0BAF70, file "ctypes\__init__.py", line 160>:
+  --           COPY_FREE_VARS           1
+
+ 160           RESUME                   0
+
+ 161           NOP
+
+ 162   L1:     LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               1 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__repr__ + NULL|self)
+               CALL                     0
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 163           LOAD_GLOBAL              4 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       32 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 164           LOAD_CONST               0 ('%s(<NULL>)')
+               LOAD_GLOBAL              7 (type + NULL)
+               LOAD_FAST                0 (self)
+               CALL                     1
+               LOAD_ATTR                8 (__name__)
+               BINARY_OP                6 (%)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 163   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object c_short at 0x00000204BA0934B0, file "ctypes\__init__.py", line 168>:
+168           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_short')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         168
+              STORE_NAME               3 (__firstlineno__)
+
+169           LOAD_CONST               1 ('h')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_ushort at 0x00000204BA092F10, file "ctypes\__init__.py", line 172>:
+172           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_ushort')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         172
+              STORE_NAME               3 (__firstlineno__)
+
+173           LOAD_CONST               1 ('H')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_long at 0x00000204BA093000, file "ctypes\__init__.py", line 176>:
+176           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_long')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         176
+              STORE_NAME               3 (__firstlineno__)
+
+177           LOAD_CONST               1 ('l')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_ulong at 0x00000204BA092A60, file "ctypes\__init__.py", line 180>:
+180           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_ulong')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         180
+              STORE_NAME               3 (__firstlineno__)
+
+181           LOAD_CONST               1 ('L')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_int at 0x00000204BA0926A0, file "ctypes\__init__.py", line 189>:
+189           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_int')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         189
+              STORE_NAME               3 (__firstlineno__)
+
+190           LOAD_CONST               1 ('i')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_uint at 0x00000204BA0913E0, file "ctypes\__init__.py", line 193>:
+193           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_uint')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         193
+              STORE_NAME               3 (__firstlineno__)
+
+194           LOAD_CONST               1 ('I')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_float at 0x00000204BA0925B0, file "ctypes\__init__.py", line 197>:
+197           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_float')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         197
+              STORE_NAME               3 (__firstlineno__)
+
+198           LOAD_CONST               1 ('f')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_double at 0x00000204BA092C40, file "ctypes\__init__.py", line 201>:
+201           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_double')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         201
+              STORE_NAME               3 (__firstlineno__)
+
+202           LOAD_CONST               1 ('d')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_longdouble at 0x00000204BA092D30, file "ctypes\__init__.py", line 205>:
+205           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_longdouble')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         205
+              STORE_NAME               3 (__firstlineno__)
+
+206           LOAD_CONST               1 ('g')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_double_complex at 0x00000204BA0930F0, file "ctypes\__init__.py", line 211>:
+211           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_double_complex')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         211
+              STORE_NAME               3 (__firstlineno__)
+
+212           LOAD_CONST               1 ('D')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_float_complex at 0x00000204BA0924C0, file "ctypes\__init__.py", line 214>:
+214           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_float_complex')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         214
+              STORE_NAME               3 (__firstlineno__)
+
+215           LOAD_CONST               1 ('F')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_longdouble_complex at 0x00000204BA092880, file "ctypes\__init__.py", line 217>:
+217           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_longdouble_complex')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         217
+              STORE_NAME               3 (__firstlineno__)
+
+218           LOAD_CONST               1 ('G')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_longlong at 0x00000204BA093C30, file "ctypes\__init__.py", line 227>:
+227           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_longlong')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         227
+              STORE_NAME               3 (__firstlineno__)
+
+228           LOAD_CONST               1 ('q')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_ulonglong at 0x00000204BA0932D0, file "ctypes\__init__.py", line 231>:
+231           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_ulonglong')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         231
+              STORE_NAME               3 (__firstlineno__)
+
+232           LOAD_CONST               1 ('Q')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_ubyte at 0x00000204BA093960, file "ctypes\__init__.py", line 238>:
+238           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_ubyte')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         238
+              STORE_NAME               3 (__firstlineno__)
+
+239           LOAD_CONST               1 ('B')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_byte at 0x00000204BA0922E0, file "ctypes\__init__.py", line 245>:
+245           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_byte')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         245
+              STORE_NAME               3 (__firstlineno__)
+
+246           LOAD_CONST               1 ('b')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_char at 0x00000204BA0914D0, file "ctypes\__init__.py", line 250>:
+250           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_char')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         250
+              STORE_NAME               3 (__firstlineno__)
+
+251           LOAD_CONST               1 ('c')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_char_p at 0x00000204BA08B130, file "ctypes\__init__.py", line 255>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 255           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('c_char_p')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         255
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 256           LOAD_CONST               1 ('z')
+               STORE_NAME               4 (_type_)
+
+ 257           LOAD_CONST               2 (<code object __repr__ at 0x00000204BA0B8EA0, file "ctypes\__init__.py", line 257>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__repr__)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0B8EA0, file "ctypes\__init__.py", line 257>:
+257           RESUME                   0
+
+258           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR                2 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 ('(')
+              LOAD_GLOBAL              4 (c_void_p)
+              LOAD_ATTR                7 (from_buffer + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR                8 (value)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (')')
+              BUILD_STRING             4
+              RETURN_VALUE
+
+Disassembly of <code object c_void_p at 0x00000204BA0935A0, file "ctypes\__init__.py", line 261>:
+261           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_void_p')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (261)
+              STORE_NAME               3 (__firstlineno__)
+
+262           LOAD_CONST               2 ('P')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               3 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object c_bool at 0x00000204BA092790, file "ctypes\__init__.py", line 266>:
+266           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_bool')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (266)
+              STORE_NAME               3 (__firstlineno__)
+
+267           LOAD_CONST               2 ('?')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               3 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object POINTER at 0x00000204BA3AC6F0, file "ctypes\__init__.py", line 269>:
+ 269            RESUME                   0
+
+ 275            LOAD_FAST_BORROW         0 (cls)
+                POP_JUMP_IF_NOT_NONE     7 (to L1)
+                NOT_TAKEN
+
+ 276            LOAD_GLOBAL              0 (c_void_p)
+                RETURN_VALUE
+
+ 277    L1:     NOP
+
+ 278    L2:     LOAD_FAST_BORROW         0 (cls)
+                LOAD_ATTR                2 (__pointer_type__)
+        L3:     RETURN_VALUE
+
+  --    L4:     PUSH_EXC_INFO
+
+ 279            LOAD_GLOBAL              4 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L6)
+                NOT_TAKEN
+                POP_TOP
+
+ 280    L5:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L8)
+
+ 279    L6:     RERAISE                  0
+
+  --    L7:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 281    L8:     LOAD_GLOBAL              7 (isinstance + NULL)
+                LOAD_FAST                0 (cls)
+                LOAD_GLOBAL              8 (str)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       87 (to L15)
+                NOT_TAKEN
+
+ 283            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              5 (warnings)
+                STORE_FAST               1 (warnings)
+
+ 284            LOAD_FAST                1 (warnings)
+                LOAD_ATTR               13 (_deprecated + NULL|self)
+                LOAD_CONST               2 ('ctypes.POINTER with string')
+                LOAD_CONST               6 ((3, 19))
+                LOAD_CONST               3 (('remove',))
+                CALL_KW                  2
+                POP_TOP
+
+ 285            NOP
+
+ 286    L9:     LOAD_GLOBAL             14 (_pointer_type_cache_fallback)
+                LOAD_FAST                0 (cls)
+                BINARY_OP               26 ([])
+       L10:     RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 287            LOAD_GLOBAL             16 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       36 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 288            LOAD_GLOBAL             19 (type + NULL)
+                LOAD_CONST               4 ('LP_')
+                LOAD_FAST                0 (cls)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_GLOBAL             20 (_Pointer)
+                BUILD_TUPLE              1
+                BUILD_MAP                0
+                CALL                     3
+                STORE_FAST               2 (result)
+
+ 289            LOAD_FAST                2 (result)
+                LOAD_GLOBAL             14 (_pointer_type_cache_fallback)
+                LOAD_FAST                0 (cls)
+                STORE_SUBSCR
+
+ 290            LOAD_FAST                2 (result)
+                SWAP                     2
+       L12:     POP_EXCEPT
+                RETURN_VALUE
+
+ 287   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 293   L15:     LOAD_GLOBAL             19 (type + NULL)
+                LOAD_CONST               4 ('LP_')
+                LOAD_FAST                0 (cls)
+                LOAD_ATTR               22 (__name__)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_GLOBAL             20 (_Pointer)
+                BUILD_TUPLE              1
+                LOAD_CONST               5 ('_type_')
+                LOAD_FAST                0 (cls)
+                BUILD_MAP                1
+                CALL                     3
+                RETURN_VALUE
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+  L9 to L10 -> L11 [0]
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+
+Disassembly of <code object pointer at 0x00000204BA0FC7A0, file "ctypes\__init__.py", line 295>:
+295           RESUME                   0
+
+302           LOAD_GLOBAL              1 (POINTER + NULL)
+              LOAD_GLOBAL              3 (type + NULL)
+              LOAD_FAST_BORROW         0 (obj)
+              CALL                     1
+              CALL                     1
+              STORE_FAST               1 (typ)
+
+303           LOAD_FAST_BORROW         1 (typ)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (obj)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _PointerTypeCache at 0x00000204BA0FECD0, file "ctypes\__init__.py", line 305>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 305           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_PointerTypeCache')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (305)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 306           LOAD_CONST               2 (<code object __setitem__ at 0x00000204BA0BBB40, file "ctypes\__init__.py", line 306>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__setitem__)
+
+ 314           LOAD_CONST               3 (<code object __getitem__ at 0x00000204B9F72550, file "ctypes\__init__.py", line 314>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__getitem__)
+
+ 322           LOAD_CONST               8 ((None,))
+               LOAD_CONST               5 (<code object get at 0x00000204B9FF3E00, file "ctypes\__init__.py", line 322>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               6 (get)
+
+ 330           LOAD_CONST               6 (<code object __contains__ at 0x00000204BA0931E0, file "ctypes\__init__.py", line 330>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__contains__)
+               LOAD_CONST               7 (())
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __setitem__ at 0x00000204BA0BBB40, file "ctypes\__init__.py", line 306>:
+ 306           RESUME                   0
+
+ 307           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (warnings)
+               STORE_FAST               3 (warnings)
+
+ 308           LOAD_FAST_BORROW         3 (warnings)
+               LOAD_ATTR                3 (_deprecated + NULL|self)
+               LOAD_CONST               2 ('ctypes._pointer_type_cache')
+               LOAD_CONST               4 ((3, 19))
+               LOAD_CONST               3 (('remove',))
+               CALL_KW                  2
+               POP_TOP
+
+ 309           NOP
+
+ 310   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (pointer_type, cls)
+               STORE_ATTR               2 (__pointer_type__)
+       L2:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 311           LOAD_GLOBAL              6 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       14 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 312           LOAD_FAST                2 (pointer_type)
+               LOAD_GLOBAL              8 (_pointer_type_cache_fallback)
+               LOAD_FAST                1 (cls)
+               STORE_SUBSCR
+       L4:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 311   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object __getitem__ at 0x00000204B9F72550, file "ctypes\__init__.py", line 314>:
+ 314           RESUME                   0
+
+ 315           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (warnings)
+               STORE_FAST               2 (warnings)
+
+ 316           LOAD_FAST_BORROW         2 (warnings)
+               LOAD_ATTR                3 (_deprecated + NULL|self)
+               LOAD_CONST               2 ('ctypes._pointer_type_cache')
+               LOAD_CONST               4 ((3, 19))
+               LOAD_CONST               3 (('remove',))
+               CALL_KW                  2
+               POP_TOP
+
+ 317           NOP
+
+ 318   L1:     LOAD_FAST_BORROW         1 (cls)
+               LOAD_ATTR                4 (__pointer_type__)
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 319           LOAD_GLOBAL              6 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       17 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 320           LOAD_GLOBAL              8 (_pointer_type_cache_fallback)
+               LOAD_FAST                1 (cls)
+               BINARY_OP               26 ([])
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 319   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object get at 0x00000204B9FF3E00, file "ctypes\__init__.py", line 322>:
+ 322           RESUME                   0
+
+ 323           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (warnings)
+               STORE_FAST               3 (warnings)
+
+ 324           LOAD_FAST_BORROW         3 (warnings)
+               LOAD_ATTR                3 (_deprecated + NULL|self)
+               LOAD_CONST               2 ('ctypes._pointer_type_cache')
+               LOAD_CONST               4 ((3, 19))
+               LOAD_CONST               3 (('remove',))
+               CALL_KW                  2
+               POP_TOP
+
+ 325           NOP
+
+ 326   L1:     LOAD_FAST_BORROW         1 (cls)
+               LOAD_ATTR                4 (__pointer_type__)
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 327           LOAD_GLOBAL              6 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       25 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 328           LOAD_GLOBAL              8 (_pointer_type_cache_fallback)
+               LOAD_ATTR               11 (get + NULL|self)
+               LOAD_FAST_LOAD_FAST     18 (cls, default)
+               CALL                     2
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 327   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object __contains__ at 0x00000204BA0931E0, file "ctypes\__init__.py", line 330>:
+330           RESUME                   0
+
+331           LOAD_GLOBAL              1 (hasattr + NULL)
+              LOAD_FAST_BORROW         1 (cls)
+              LOAD_CONST               0 ('__pointer_type__')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object c_wchar_p at 0x00000204BA08A530, file "ctypes\__init__.py", line 336>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 336           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('c_wchar_p')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (336)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 337           LOAD_CONST               2 ('Z')
+               STORE_NAME               4 (_type_)
+
+ 338           LOAD_CONST               3 (<code object __repr__ at 0x00000204BA0BB8A0, file "ctypes\__init__.py", line 338>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__repr__)
+               LOAD_CONST               4 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0BB8A0, file "ctypes\__init__.py", line 338>:
+338           RESUME                   0
+
+339           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR                2 (__name__)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 ('(')
+              LOAD_GLOBAL              4 (c_void_p)
+              LOAD_ATTR                7 (from_buffer + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR                8 (value)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (')')
+              BUILD_STRING             4
+              RETURN_VALUE
+
+Disassembly of <code object c_wchar at 0x00000204BA093870, file "ctypes\__init__.py", line 341>:
+341           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('c_wchar')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (341)
+              STORE_NAME               3 (__firstlineno__)
+
+342           LOAD_CONST               2 ('u')
+              STORE_NAME               4 (_type_)
+              LOAD_CONST               3 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _reset_cache at 0x00000204B9F5BA30, file "ctypes\__init__.py", line 344>:
+344           RESUME                   0
+
+345           LOAD_GLOBAL              0 (_pointer_type_cache_fallback)
+              LOAD_ATTR                3 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+
+346           LOAD_GLOBAL              4 (_c_functype_cache)
+              LOAD_ATTR                3 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+
+347           LOAD_GLOBAL              6 (_os)
+              LOAD_ATTR                8 (name)
+              LOAD_CONST               0 ('nt')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       21 (to L1)
+              NOT_TAKEN
+
+348           LOAD_GLOBAL             10 (_win_functype_cache)
+              LOAD_ATTR                3 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+
+350   L1:     LOAD_GLOBAL             12 (c_wchar_p)
+              LOAD_ATTR               14 (from_param)
+              LOAD_GLOBAL             17 (POINTER + NULL)
+              LOAD_GLOBAL             18 (c_wchar)
+              CALL                     1
+              STORE_ATTR               7 (from_param)
+
+352           LOAD_GLOBAL             20 (c_char_p)
+              LOAD_ATTR               14 (from_param)
+              LOAD_GLOBAL             17 (POINTER + NULL)
+              LOAD_GLOBAL             22 (c_char)
+              CALL                     1
+              STORE_ATTR               7 (from_param)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object create_unicode_buffer at 0x00000204BA38BBC0, file "ctypes\__init__.py", line 354>:
+354           RESUME                   0
+
+359           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              LOAD_GLOBAL              2 (str)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE      120 (to L3)
+              NOT_TAKEN
+
+360           LOAD_FAST_BORROW         1 (size)
+              POP_JUMP_IF_NOT_NONE    65 (to L2)
+              NOT_TAKEN
+
+361           LOAD_GLOBAL              5 (sizeof + NULL)
+              LOAD_GLOBAL              6 (c_wchar)
+              CALL                     1
+              LOAD_SMALL_INT           2
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+365           LOAD_GLOBAL              9 (sum + NULL)
+              LOAD_CONST               2 (<code object <genexpr> at 0x00000204BA0A7BD0, file "ctypes\__init__.py", line 365>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (init)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               1 (size)
+              JUMP_FORWARD            18 (to L2)
+
+369   L1:     LOAD_GLOBAL             11 (len + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               1 (size)
+
+370   L2:     LOAD_GLOBAL             12 (_sys)
+              LOAD_ATTR               14 (audit)
+              PUSH_NULL
+              LOAD_CONST               3 ('ctypes.create_unicode_buffer')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (init, size)
+              CALL                     3
+              POP_TOP
+
+371           LOAD_GLOBAL              6 (c_wchar)
+              LOAD_FAST_BORROW         1 (size)
+              BINARY_OP                5 (*)
+              STORE_FAST               2 (buftype)
+
+372           LOAD_FAST_BORROW         2 (buftype)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               3 (buf)
+
+373           LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (init, buf)
+              STORE_ATTR               8 (value)
+
+374           LOAD_FAST_BORROW         3 (buf)
+              RETURN_VALUE
+
+375   L3:     LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              LOAD_GLOBAL             18 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       47 (to L4)
+              NOT_TAKEN
+
+376           LOAD_GLOBAL             12 (_sys)
+              LOAD_ATTR               14 (audit)
+              PUSH_NULL
+              LOAD_CONST               3 ('ctypes.create_unicode_buffer')
+              LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (init)
+              CALL                     3
+              POP_TOP
+
+377           LOAD_GLOBAL              6 (c_wchar)
+              LOAD_FAST_BORROW         0 (init)
+              BINARY_OP                5 (*)
+              STORE_FAST               2 (buftype)
+
+378           LOAD_FAST_BORROW         2 (buftype)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               3 (buf)
+
+379           LOAD_FAST_BORROW         3 (buf)
+              RETURN_VALUE
+
+380   L4:     LOAD_GLOBAL             21 (TypeError + NULL)
+              LOAD_FAST_BORROW         0 (init)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A7BD0, file "ctypes\__init__.py", line 365>:
+ 365           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                25 (to L5)
+               STORE_FAST               1 (c)
+               LOAD_GLOBAL              1 (ord + NULL)
+               LOAD_FAST_BORROW         1 (c)
+               CALL                     1
+               LOAD_CONST               0 (65535)
+               COMPARE_OP             148 (bool(>))
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+               LOAD_SMALL_INT           2
+               JUMP_FORWARD             1 (to L4)
+       L3:     LOAD_SMALL_INT           1
+       L4:     YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           27 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L6 -> L6 [0] lasti
+
+Disassembly of <code object SetPointerType at 0x00000204BA102FB0, file "ctypes\__init__.py", line 383>:
+383           RESUME                   0
+
+384           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (warnings)
+              STORE_FAST               2 (warnings)
+
+385           LOAD_FAST_BORROW         2 (warnings)
+              LOAD_ATTR                3 (_deprecated + NULL|self)
+              LOAD_CONST               2 ('ctypes.SetPointerType')
+              LOAD_CONST               4 ((3, 15))
+              LOAD_CONST               3 (('remove',))
+              CALL_KW                  2
+              POP_TOP
+
+386           LOAD_FAST_BORROW         0 (pointer)
+              LOAD_ATTR                5 (set_type + NULL|self)
+              LOAD_FAST_BORROW         1 (cls)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ARRAY at 0x00000204BA093690, file "ctypes\__init__.py", line 388>:
+388           RESUME                   0
+
+389           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (typ, len)
+              BINARY_OP                5 (*)
+              RETURN_VALUE
+
+Disassembly of <code object CDLL at 0x00000204BA101DE0, file "ctypes\__init__.py", line 394>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 394           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('CDLL')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (394)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 395           LOAD_CONST               2 ("An instance of this class represents a loaded dll/shared\nlibrary, exporting functions using the standard C calling\nconvention (named 'cdecl' on Windows).\n\nThe exported functions can be accessed as attributes, or by\nindexing with the function name.  Examples:\n\n<obj>.qsort -> callable object\n<obj>['qsort'] -> callable object\n\nCalling the functions releases the Python GIL during the call and\nreacquires it afterwards.\n")
+               STORE_NAME               4 (__doc__)
+
+ 408           LOAD_NAME                5 (_FUNCFLAG_CDECL)
+               STORE_NAME               6 (_func_flags_)
+
+ 409           LOAD_NAME                7 (c_int)
+               STORE_NAME               8 (_func_restype_)
+
+ 411           LOAD_CONST               3 ('<uninitialized>')
+               STORE_NAME               9 (_name)
+
+ 412           LOAD_SMALL_INT           0
+               STORE_NAME              10 (_handle)
+
+ 413           LOAD_CONST               4 (None)
+               STORE_NAME              11 (_FuncPtr)
+
+ 415           LOAD_NAME               12 (DEFAULT_MODE)
+               LOAD_CONST               4 (None)
+
+ 416           LOAD_CONST               5 (False)
+
+ 417           LOAD_CONST               5 (False)
+
+ 418           LOAD_CONST               4 (None)
+
+ 415           BUILD_TUPLE              5
+               LOAD_CONST               6 (<code object __init__ at 0x00000204BA468A00, file "ctypes\__init__.py", line 415>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              13 (__init__)
+
+ 466           LOAD_CONST               7 (<code object __repr__ at 0x00000204B9FC3870, file "ctypes\__init__.py", line 466>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (__repr__)
+
+ 472           LOAD_CONST               8 (<code object __getattr__ at 0x00000204BA12A740, file "ctypes\__init__.py", line 472>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (__getattr__)
+
+ 479           LOAD_CONST               9 (<code object __getitem__ at 0x00000204BA0AB230, file "ctypes\__init__.py", line 479>)
+               MAKE_FUNCTION
+               STORE_NAME              16 (__getitem__)
+               LOAD_CONST              10 (('_FuncPtr', '_handle', '_name'))
+               STORE_NAME              17 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              18 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA468A00, file "ctypes\__init__.py", line 415>:
+  --            MAKE_CELL                0 (self)
+                MAKE_CELL               10 (flags)
+
+ 415            RESUME                   0
+
+ 419            LOAD_FAST_BORROW         1 (name)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      177 (to L3)
+                NOT_TAKEN
+
+ 420            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                2 (fspath)
+                PUSH_NULL
+                LOAD_FAST_BORROW         1 (name)
+                CALL                     1
+                STORE_FAST               1 (name)
+
+ 425            LOAD_FAST_BORROW         1 (name)
+                LOAD_ATTR                5 (endswith + NULL|self)
+                LOAD_CONST               0 ('.fwork')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE      132 (to L3)
+                NOT_TAKEN
+
+ 426            LOAD_GLOBAL              7 (open + NULL)
+                LOAD_FAST_BORROW         1 (name)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     STORE_FAST               7 (f)
+
+ 427            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               11 (join + NULL|self)
+
+ 428            LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               13 (dirname + NULL|self)
+                LOAD_GLOBAL             14 (_sys)
+                LOAD_ATTR               16 (executable)
+                CALL                     1
+
+ 429            LOAD_FAST_BORROW         7 (f)
+                LOAD_ATTR               19 (read + NULL|self)
+                CALL                     0
+                LOAD_ATTR               21 (strip + NULL|self)
+                CALL                     0
+
+ 427            CALL                     2
+                STORE_FAST               1 (name)
+
+ 426    L2:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+
+ 432    L3:     LOAD_FAST_BORROW         1 (name)
+                LOAD_DEREF               0 (self)
+                STORE_ATTR              11 (_name)
+
+ 433            LOAD_DEREF               0 (self)
+                LOAD_ATTR               24 (_func_flags_)
+                STORE_DEREF             10 (flags)
+
+ 434            LOAD_FAST_BORROW         4 (use_errno)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       14 (to L4)
+                NOT_TAKEN
+
+ 435            LOAD_DEREF              10 (flags)
+                LOAD_GLOBAL             26 (_FUNCFLAG_USE_ERRNO)
+                BINARY_OP               20 (|=)
+                STORE_DEREF             10 (flags)
+
+ 436    L4:     LOAD_FAST_BORROW         5 (use_last_error)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       14 (to L5)
+                NOT_TAKEN
+
+ 437            LOAD_DEREF              10 (flags)
+                LOAD_GLOBAL             28 (_FUNCFLAG_USE_LASTERROR)
+                BINARY_OP               20 (|=)
+                STORE_DEREF             10 (flags)
+
+ 438    L5:     LOAD_GLOBAL             14 (_sys)
+                LOAD_ATTR               30 (platform)
+                LOAD_ATTR               33 (startswith + NULL|self)
+                LOAD_CONST               2 ('aix')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       84 (to L6)
+                NOT_TAKEN
+
+ 439            NOP
+
+ 444            LOAD_FAST_BORROW         1 (name)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       75 (to L6)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         1 (name)
+                LOAD_ATTR                5 (endswith + NULL|self)
+                LOAD_CONST               3 (')')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       52 (to L6)
+                NOT_TAKEN
+                LOAD_CONST               4 ('.a(')
+                LOAD_FAST_BORROW         1 (name)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       45 (to L6)
+                NOT_TAKEN
+
+ 445            LOAD_FAST_BORROW         2 (mode)
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               34 (RTLD_MEMBER)
+                LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               36 (RTLD_NOW)
+                BINARY_OP                7 (|)
+                BINARY_OP               20 (|=)
+                STORE_FAST               2 (mode)
+
+ 446    L6:     LOAD_GLOBAL              0 (_os)
+                LOAD_ATTR               38 (name)
+                LOAD_CONST               5 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       88 (to L9)
+                NOT_TAKEN
+
+ 447            LOAD_FAST_BORROW         6 (winmode)
+                POP_JUMP_IF_NONE         4 (to L7)
+                NOT_TAKEN
+
+ 448            LOAD_FAST                6 (winmode)
+                STORE_FAST               2 (mode)
+                JUMP_FORWARD            80 (to L9)
+
+ 450    L7:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME             20 (nt)
+                STORE_FAST               8 (nt)
+
+ 451            LOAD_FAST_BORROW         8 (nt)
+                LOAD_ATTR               42 (_LOAD_LIBRARY_SEARCH_DEFAULT_DIRS)
+                STORE_FAST               2 (mode)
+
+ 452            LOAD_CONST               6 ('/')
+                LOAD_FAST_BORROW         1 (name)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_TRUE         8 (to L8)
+                NOT_TAKEN
+                LOAD_CONST               7 ('\\')
+                LOAD_FAST_BORROW         1 (name)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       51 (to L9)
+                NOT_TAKEN
+
+ 453    L8:     LOAD_FAST_BORROW         8 (nt)
+                LOAD_ATTR               45 (_getfullpathname + NULL|self)
+                LOAD_DEREF               0 (self)
+                LOAD_ATTR               22 (_name)
+                CALL                     1
+                LOAD_DEREF               0 (self)
+                STORE_ATTR              11 (_name)
+
+ 454            LOAD_FAST_BORROW_LOAD_FAST_BORROW 40 (mode, nt)
+                LOAD_ATTR               46 (_LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR)
+                BINARY_OP               20 (|=)
+                STORE_FAST               2 (mode)
+
+ 456    L9:     LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_FAST_BORROW        10 (flags)
+                LOAD_FAST_BORROW         0 (self)
+                BUILD_TUPLE              2
+                LOAD_CONST               8 (<code object _FuncPtr at 0x00000204BA0FFCC0, file "ctypes\__init__.py", line 456>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_CONST               9 ('_FuncPtr')
+                LOAD_GLOBAL             48 (_CFuncPtr)
+                CALL                     3
+                STORE_FAST               9 (_FuncPtr)
+
+ 459            LOAD_FAST_BORROW         9 (_FuncPtr)
+                LOAD_DEREF               0 (self)
+                STORE_ATTR              25 (_FuncPtr)
+
+ 461            LOAD_FAST_BORROW         3 (handle)
+                POP_JUMP_IF_NOT_NONE    30 (to L10)
+                NOT_TAKEN
+
+ 462            LOAD_GLOBAL             53 (_dlopen + NULL)
+                LOAD_DEREF               0 (self)
+                LOAD_ATTR               22 (_name)
+                LOAD_FAST_BORROW         2 (mode)
+                CALL                     2
+                LOAD_DEREF               0 (self)
+                STORE_ATTR              27 (_handle)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 464   L10:     LOAD_FAST_BORROW         3 (handle)
+                LOAD_DEREF               0 (self)
+                STORE_ATTR              27 (_handle)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 426   L11:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L12)
+                NOT_TAKEN
+                RERAISE                  2
+       L12:     POP_TOP
+       L13:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 374 (to L3)
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L11 [2] lasti
+  L11 to L13 -> L14 [4] lasti
+
+Disassembly of <code object _FuncPtr at 0x00000204BA0FFCC0, file "ctypes\__init__.py", line 456>:
+  --           COPY_FREE_VARS           2
+
+ 456           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('CDLL.__init__.<locals>._FuncPtr')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (456)
+               STORE_NAME               3 (__firstlineno__)
+
+ 457           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  0 (flags)
+               STORE_NAME               4 (_flags_)
+
+ 458           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  1 (self)
+               LOAD_ATTR               10 (_func_restype_)
+               STORE_NAME               6 (_restype_)
+               LOAD_CONST               2 (())
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204B9FC3870, file "ctypes\__init__.py", line 466>:
+466           RESUME                   0
+
+467           LOAD_CONST               0 ("<%s '%s', handle %x at %#x>")
+
+468           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_ATTR                2 (__name__)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_name)
+
+469           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_handle)
+              LOAD_GLOBAL              8 (_sys)
+              LOAD_ATTR               10 (maxsize)
+              LOAD_SMALL_INT           2
+              BINARY_OP                5 (*)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              BINARY_OP                1 (&)
+
+470           LOAD_GLOBAL             13 (id + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_GLOBAL              8 (_sys)
+              LOAD_ATTR               10 (maxsize)
+              LOAD_SMALL_INT           2
+              BINARY_OP                5 (*)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              BINARY_OP                1 (&)
+
+468           BUILD_TUPLE              4
+
+467           BINARY_OP                6 (%)
+              RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x00000204BA12A740, file "ctypes\__init__.py", line 472>:
+472           RESUME                   0
+
+473           LOAD_FAST_BORROW         1 (name)
+              LOAD_ATTR                1 (startswith + NULL|self)
+              LOAD_CONST               0 ('__')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       35 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_ATTR                3 (endswith + NULL|self)
+              LOAD_CONST               0 ('__')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+474           LOAD_GLOBAL              5 (AttributeError + NULL)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              RAISE_VARARGS            1
+
+475   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (__getitem__ + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              STORE_FAST               2 (func)
+
+476           LOAD_GLOBAL              9 (setattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+              LOAD_FAST_BORROW         2 (func)
+              CALL                     3
+              POP_TOP
+
+477           LOAD_FAST_BORROW         2 (func)
+              RETURN_VALUE
+
+Disassembly of <code object __getitem__ at 0x00000204BA0AB230, file "ctypes\__init__.py", line 479>:
+479           RESUME                   0
+
+480           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_FuncPtr + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (name_or_ordinal, self)
+              BUILD_TUPLE              2
+              CALL                     1
+              STORE_FAST               2 (func)
+
+481           LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (name_or_ordinal)
+              LOAD_GLOBAL              4 (int)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         7 (to L1)
+              NOT_TAKEN
+
+482           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name_or_ordinal, func)
+              STORE_ATTR               3 (__name__)
+
+483   L1:     LOAD_FAST_BORROW         2 (func)
+              RETURN_VALUE
+
+Disassembly of <code object PyDLL at 0x00000204BA08AD30, file "ctypes\__init__.py", line 485>:
+485           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('PyDLL')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (485)
+              STORE_NAME               3 (__firstlineno__)
+
+486           LOAD_CONST               2 ('This class represents the Python library itself.  It allows\naccessing Python API functions.  The GIL is not released, and\nPython exceptions are handled correctly.\n')
+              STORE_NAME               4 (__doc__)
+
+490           LOAD_NAME                5 (_FUNCFLAG_CDECL)
+              LOAD_NAME                6 (_FUNCFLAG_PYTHONAPI)
+              BINARY_OP                7 (|)
+              STORE_NAME               7 (_func_flags_)
+              LOAD_CONST               3 (())
+              STORE_NAME               8 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object WinDLL at 0x00000204BA093A50, file "ctypes\__init__.py", line 494>:
+494           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('WinDLL')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (494)
+              STORE_NAME               3 (__firstlineno__)
+
+495           LOAD_CONST               2 ('This class represents a dll exporting functions using the\nWindows stdcall calling convention.\n')
+              STORE_NAME               4 (__doc__)
+
+498           LOAD_NAME                5 (_FUNCFLAG_STDCALL)
+              STORE_NAME               6 (_func_flags_)
+              LOAD_CONST               3 (())
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object HRESULT at 0x00000204BA093B40, file "ctypes\__init__.py", line 503>:
+503           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('HRESULT')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (503)
+              STORE_NAME               3 (__firstlineno__)
+
+504           LOAD_CONST               2 ('l')
+              STORE_NAME               4 (_type_)
+
+514           LOAD_NAME                5 (_check_HRESULT)
+              STORE_NAME               6 (_check_retval_)
+              LOAD_CONST               3 (())
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object OleDLL at 0x00000204BA08B330, file "ctypes\__init__.py", line 516>:
+516           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('OleDLL')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (516)
+              STORE_NAME               3 (__firstlineno__)
+
+517           LOAD_CONST               2 ('This class represents a dll exporting functions using the\nWindows stdcall calling convention, and returning HRESULT.\nHRESULT error values are automatically raised as OSError\nexceptions.\n')
+              STORE_NAME               4 (__doc__)
+
+522           LOAD_NAME                5 (_FUNCFLAG_STDCALL)
+              STORE_NAME               6 (_func_flags_)
+
+523           LOAD_NAME                7 (HRESULT)
+              STORE_NAME               8 (_func_restype_)
+              LOAD_CONST               3 (())
+              STORE_NAME               9 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object LibraryLoader at 0x00000204BA102E80, file "ctypes\__init__.py", line 525>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 525           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('LibraryLoader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (525)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 526           LOAD_CONST               2 (<code object __init__ at 0x00000204BA090D50, file "ctypes\__init__.py", line 526>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+ 529           LOAD_CONST               3 (<code object __getattr__ at 0x00000204B9FB7C30, file "ctypes\__init__.py", line 529>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__getattr__)
+
+ 539           LOAD_CONST               4 (<code object __getitem__ at 0x00000204BA0923D0, file "ctypes\__init__.py", line 539>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__getitem__)
+
+ 542           LOAD_CONST               5 (<code object LoadLibrary at 0x00000204BA10A830, file "ctypes\__init__.py", line 542>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (LoadLibrary)
+
+ 545           LOAD_NAME                8 (classmethod)
+               PUSH_NULL
+               LOAD_NAME                9 (_types)
+               LOAD_ATTR               20 (GenericAlias)
+               CALL                     1
+               STORE_NAME              11 (__class_getitem__)
+               LOAD_CONST               6 (('_dlltype',))
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA090D50, file "ctypes\__init__.py", line 526>:
+526           RESUME                   0
+
+527           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (dlltype, self)
+              STORE_ATTR               0 (_dlltype)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x00000204B9FB7C30, file "ctypes\__init__.py", line 529>:
+ 529           RESUME                   0
+
+ 530           LOAD_FAST_BORROW         1 (name)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               LOAD_CONST               1 ('_')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       12 (to L1)
+               NOT_TAKEN
+
+ 531           LOAD_GLOBAL              1 (AttributeError + NULL)
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 532   L1:     NOP
+
+ 533   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                3 (_dlltype + NULL|self)
+               LOAD_FAST_BORROW         1 (name)
+               CALL                     1
+               STORE_FAST               2 (dll)
+
+ 536   L3:     LOAD_GLOBAL              7 (setattr + NULL)
+               LOAD_FAST_LOAD_FAST      1 (self, name)
+               LOAD_FAST                2 (dll)
+               CALL                     3
+               POP_TOP
+
+ 537           LOAD_FAST                2 (dll)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 534           LOAD_GLOBAL              4 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       13 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 535           LOAD_GLOBAL              1 (AttributeError + NULL)
+               LOAD_FAST                1 (name)
+               CALL                     1
+               RAISE_VARARGS            1
+
+ 534   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L6 -> L6 [1] lasti
+
+Disassembly of <code object __getitem__ at 0x00000204BA0923D0, file "ctypes\__init__.py", line 539>:
+539           RESUME                   0
+
+540           LOAD_GLOBAL              1 (getattr + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object LoadLibrary at 0x00000204BA10A830, file "ctypes\__init__.py", line 542>:
+542           RESUME                   0
+
+543           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_dlltype + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object WinError at 0x00000204BA0BB9F0, file "ctypes\__init__.py", line 567>:
+567           RESUME                   0
+
+568           LOAD_FAST_BORROW         0 (code)
+              POP_JUMP_IF_NOT_NONE    11 (to L1)
+              NOT_TAKEN
+
+569           LOAD_GLOBAL              1 (GetLastError + NULL)
+              CALL                     0
+              STORE_FAST               0 (code)
+
+570   L1:     LOAD_FAST_BORROW         1 (descr)
+              POP_JUMP_IF_NOT_NONE    26 (to L2)
+              NOT_TAKEN
+
+571           LOAD_GLOBAL              3 (FormatError + NULL)
+              LOAD_FAST_BORROW         0 (code)
+              CALL                     1
+              LOAD_ATTR                5 (strip + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (descr)
+
+572   L2:     LOAD_GLOBAL              7 (OSError + NULL)
+              LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         1 (descr)
+              LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (code)
+              CALL                     4
+              RETURN_VALUE
+
+Disassembly of <code object PYFUNCTYPE at 0x00000204BA10A730, file "ctypes\__init__.py", line 595>:
+  --           MAKE_CELL                0 (restype)
+               MAKE_CELL                1 (argtypes)
+
+ 595           RESUME                   0
+
+ 596           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (argtypes)
+               LOAD_FAST_BORROW         0 (restype)
+               BUILD_TUPLE              2
+               LOAD_CONST               0 (<code object CFunctionType at 0x00000204BA0FFDD0, file "ctypes\__init__.py", line 596>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_CONST               1 ('CFunctionType')
+               LOAD_GLOBAL              0 (_CFuncPtr)
+               CALL                     3
+               STORE_FAST               2 (CFunctionType)
+
+ 600           LOAD_FAST_BORROW         2 (CFunctionType)
+               RETURN_VALUE
+
+Disassembly of <code object CFunctionType at 0x00000204BA0FFDD0, file "ctypes\__init__.py", line 596>:
+  --           COPY_FREE_VARS           2
+
+ 596           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('PYFUNCTYPE.<locals>.CFunctionType')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (596)
+               STORE_NAME               3 (__firstlineno__)
+
+ 597           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  0 (argtypes)
+               STORE_NAME               4 (_argtypes_)
+
+ 598           LOAD_LOCALS
+               LOAD_FROM_DICT_OR_DEREF  1 (restype)
+               STORE_NAME               5 (_restype_)
+
+ 599           LOAD_NAME                6 (_FUNCFLAG_CDECL)
+               LOAD_NAME                7 (_FUNCFLAG_PYTHONAPI)
+               BINARY_OP                7 (|)
+               STORE_NAME               8 (_flags_)
+               LOAD_CONST               2 (())
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object cast at 0x00000204BA0912F0, file "ctypes\__init__.py", line 603>:
+603           RESUME                   0
+
+604           LOAD_GLOBAL              1 (_cast + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 0 (obj, obj)
+              LOAD_FAST_BORROW         1 (typ)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object string_at at 0x00000204BA092E20, file "ctypes\__init__.py", line 607>:
+607           RESUME                   0
+
+611           LOAD_GLOBAL              1 (_string_at + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (ptr, size)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object memoryview_at at 0x00000204BA108F30, file "ctypes\__init__.py", line 615>:
+615           RESUME                   0
+
+619           LOAD_GLOBAL              1 (_memoryview_at + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (ptr, size)
+              LOAD_GLOBAL              3 (bool + NULL)
+              LOAD_FAST_BORROW         2 (readonly)
+              CALL                     1
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object wstring_at at 0x00000204BA093780, file "ctypes\__init__.py", line 627>:
+627           RESUME                   0
+
+631           LOAD_GLOBAL              1 (_wstring_at + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (ptr, size)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object DllGetClassObject at 0x00000204B9F73890, file "ctypes\__init__.py", line 635>:
+ 635           RESUME                   0
+
+ 636           NOP
+
+ 637   L1:     LOAD_GLOBAL              1 (__import__ + NULL)
+               LOAD_CONST               0 ('comtypes.server.inprocserver')
+               LOAD_GLOBAL              3 (globals + NULL)
+               CALL                     0
+               LOAD_GLOBAL              5 (locals + NULL)
+               CALL                     0
+               LOAD_CONST               1 ('*')
+               BUILD_LIST               1
+               CALL                     4
+               STORE_FAST               3 (ccom)
+
+ 641   L2:     LOAD_FAST_BORROW         3 (ccom)
+               LOAD_ATTR                7 (DllGetClassObject + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (rclsid, riid)
+               LOAD_FAST_BORROW         2 (ppv)
+               CALL                     3
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 638           LOAD_GLOBAL              8 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 639           LOAD_CONST               2 (-2147221231)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 638   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object DllCanUnloadNow at 0x00000204B9F718F0, file "ctypes\__init__.py", line 643>:
+ 643           RESUME                   0
+
+ 644           NOP
+
+ 645   L1:     LOAD_GLOBAL              1 (__import__ + NULL)
+               LOAD_CONST               0 ('comtypes.server.inprocserver')
+               LOAD_GLOBAL              3 (globals + NULL)
+               CALL                     0
+               LOAD_GLOBAL              5 (locals + NULL)
+               CALL                     0
+               LOAD_CONST               1 ('*')
+               BUILD_LIST               1
+               CALL                     4
+               STORE_FAST               0 (ccom)
+
+ 648   L2:     LOAD_FAST_BORROW         0 (ccom)
+               LOAD_ATTR                9 (DllCanUnloadNow + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 646           LOAD_GLOBAL              6 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 647   L4:     POP_EXCEPT
+               LOAD_SMALL_INT           0
+               RETURN_VALUE
+
+ 646   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti

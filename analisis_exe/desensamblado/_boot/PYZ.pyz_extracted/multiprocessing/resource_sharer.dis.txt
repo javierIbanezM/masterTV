@@ -1,0 +1,1040 @@
+  0           RESUME                   0
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (os)
+              STORE_NAME               0 (os)
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (signal)
+              STORE_NAME               1 (signal)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (socket)
+              STORE_NAME               2 (socket)
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              3 (sys)
+              STORE_NAME               3 (sys)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (threading)
+              STORE_NAME               4 (threading)
+
+ 17           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('process',))
+              IMPORT_NAME              5
+              IMPORT_FROM              6 (process)
+              STORE_NAME               6 (process)
+              POP_TOP
+
+ 18           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('reduction',))
+              IMPORT_NAME              7 (context)
+              IMPORT_FROM              8 (reduction)
+              STORE_NAME               8 (reduction)
+              POP_TOP
+
+ 19           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('util',))
+              IMPORT_NAME              5
+              IMPORT_FROM              9 (util)
+              STORE_NAME               9 (util)
+              POP_TOP
+
+ 21           LOAD_CONST               5 ('stop')
+              BUILD_LIST               1
+              STORE_NAME              10 (__all__)
+
+ 24           LOAD_NAME                3 (sys)
+              LOAD_ATTR               22 (platform)
+              LOAD_CONST               6 ('win32')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       23 (to L1)
+              NOT_TAKEN
+
+ 25           LOAD_NAME               10 (__all__)
+              LOAD_CONST               7 ('DupSocket')
+              BUILD_LIST               1
+              BINARY_OP               13 (+=)
+              STORE_NAME              10 (__all__)
+
+ 27           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               8 (<code object DupSocket at 0x00000204BA08AF30, file "multiprocessing\resource_sharer.py", line 27>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 ('DupSocket')
+              LOAD_NAME               12 (object)
+              CALL                     3
+              STORE_NAME              13 (DupSocket)
+              JUMP_FORWARD            21 (to L2)
+
+ 43   L1:     LOAD_NAME               10 (__all__)
+              LOAD_CONST               9 ('DupFd')
+              BUILD_LIST               1
+              BINARY_OP               13 (+=)
+              STORE_NAME              10 (__all__)
+
+ 45           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              10 (<code object DupFd at 0x00000204BA08B130, file "multiprocessing\resource_sharer.py", line 45>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 ('DupFd')
+              LOAD_NAME               12 (object)
+              CALL                     3
+              STORE_NAME              14 (DupFd)
+
+ 61   L2:     LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object _ResourceSharer at 0x00000204BA102FB0, file "multiprocessing\resource_sharer.py", line 61>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 ('_ResourceSharer')
+              LOAD_NAME               12 (object)
+              CALL                     3
+              STORE_NAME              15 (_ResourceSharer)
+
+153           LOAD_NAME               15 (_ResourceSharer)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME              16 (_resource_sharer)
+
+154           LOAD_NAME               16 (_resource_sharer)
+              LOAD_ATTR               34 (stop)
+              STORE_NAME              17 (stop)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object DupSocket at 0x00000204BA08AF30, file "multiprocessing\resource_sharer.py", line 27>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  27           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DupSocket')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          27
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  28           LOAD_CONST               1 ('Picklable wrapper for a socket.')
+               STORE_NAME               4 (__doc__)
+
+  29           LOAD_CONST               2 (<code object __init__ at 0x00000204BA0BAE20, file "multiprocessing\resource_sharer.py", line 29>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  36           LOAD_CONST               3 (<code object detach at 0x00000204B9FFB120, file "multiprocessing\resource_sharer.py", line 36>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (detach)
+               LOAD_CONST               4 (('_id',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BAE20, file "multiprocessing\resource_sharer.py", line 29>:
+  --           MAKE_CELL                3 (new_sock)
+
+  29           RESUME                   0
+
+  30           LOAD_FAST_BORROW         1 (sock)
+               LOAD_ATTR                1 (dup + NULL|self)
+               CALL                     0
+               STORE_DEREF              3 (new_sock)
+
+  31           LOAD_FAST_BORROW         3 (new_sock)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object send at 0x00000204BA0A7510, file "multiprocessing\resource_sharer.py", line 31>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               2 (send)
+
+  34           LOAD_GLOBAL              2 (_resource_sharer)
+               LOAD_ATTR                5 (register + NULL|self)
+               LOAD_FAST_BORROW         2 (send)
+               LOAD_DEREF               3 (new_sock)
+               LOAD_ATTR                6 (close)
+               CALL                     2
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_id)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object send at 0x00000204BA0A7510, file "multiprocessing\resource_sharer.py", line 31>:
+  --           COPY_FREE_VARS           1
+
+  31           RESUME                   0
+
+  32           LOAD_DEREF               3 (new_sock)
+               LOAD_ATTR                1 (share + NULL|self)
+               LOAD_FAST_BORROW         1 (pid)
+               CALL                     1
+               STORE_FAST               2 (share)
+
+  33           LOAD_FAST_BORROW         0 (conn)
+               LOAD_ATTR                3 (send_bytes + NULL|self)
+               LOAD_FAST_BORROW         2 (share)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object detach at 0x00000204B9FFB120, file "multiprocessing\resource_sharer.py", line 36>:
+  36           RESUME                   0
+
+  38           LOAD_GLOBAL              0 (_resource_sharer)
+               LOAD_ATTR                3 (get_connection + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_id)
+               CALL                     1
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     STORE_FAST               1 (conn)
+
+  39           LOAD_FAST_BORROW         1 (conn)
+               LOAD_ATTR                7 (recv_bytes + NULL|self)
+               CALL                     0
+               STORE_FAST               2 (share)
+
+  40           LOAD_GLOBAL              8 (socket)
+               LOAD_ATTR               10 (fromshare)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (share)
+               CALL                     1
+
+  38   L2:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object DupFd at 0x00000204BA08B130, file "multiprocessing\resource_sharer.py", line 45>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  45           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DupFd')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          45
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  46           LOAD_CONST               1 ('Wrapper for fd which can be used at any time.')
+               STORE_NAME               4 (__doc__)
+
+  47           LOAD_CONST               2 (<code object __init__ at 0x00000204BA0BB9F0, file "multiprocessing\resource_sharer.py", line 47>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  55           LOAD_CONST               3 (<code object detach at 0x00000204BA129160, file "multiprocessing\resource_sharer.py", line 55>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (detach)
+               LOAD_CONST               4 (('_id',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BB9F0, file "multiprocessing\resource_sharer.py", line 47>:
+  --           MAKE_CELL                4 (new_fd)
+
+  47           RESUME                   0
+
+  48           LOAD_GLOBAL              0 (os)
+               LOAD_ATTR                2 (dup)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (fd)
+               CALL                     1
+               STORE_DEREF              4 (new_fd)
+
+  49           LOAD_FAST_BORROW         4 (new_fd)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object send at 0x00000204BA0FECD0, file "multiprocessing\resource_sharer.py", line 49>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               2 (send)
+
+  51           LOAD_FAST_BORROW         4 (new_fd)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object close at 0x00000204BA0FFEE0, file "multiprocessing\resource_sharer.py", line 51>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               3 (close)
+
+  53           LOAD_GLOBAL              4 (_resource_sharer)
+               LOAD_ATTR                7 (register + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (send, close)
+               CALL                     2
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               4 (_id)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object send at 0x00000204BA0FECD0, file "multiprocessing\resource_sharer.py", line 49>:
+  --           COPY_FREE_VARS           1
+
+  49           RESUME                   0
+
+  50           LOAD_GLOBAL              0 (reduction)
+               LOAD_ATTR                2 (send_handle)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (conn)
+               LOAD_DEREF               2 (new_fd)
+               LOAD_FAST_BORROW         1 (pid)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204BA0FFEE0, file "multiprocessing\resource_sharer.py", line 51>:
+  --           COPY_FREE_VARS           1
+
+  51           RESUME                   0
+
+  52           LOAD_GLOBAL              0 (os)
+               LOAD_ATTR                2 (close)
+               PUSH_NULL
+               LOAD_DEREF               0 (new_fd)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object detach at 0x00000204BA129160, file "multiprocessing\resource_sharer.py", line 55>:
+  55           RESUME                   0
+
+  57           LOAD_GLOBAL              0 (_resource_sharer)
+               LOAD_ATTR                3 (get_connection + NULL|self)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_id)
+               CALL                     1
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     STORE_FAST               1 (conn)
+
+  58           LOAD_GLOBAL              6 (reduction)
+               LOAD_ATTR                8 (recv_handle)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (conn)
+               CALL                     1
+
+  57   L2:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object _ResourceSharer at 0x00000204BA102FB0, file "multiprocessing\resource_sharer.py", line 61>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  61           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_ResourceSharer')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          61
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  62           LOAD_CONST               1 ('Manager for resources using background thread.')
+               STORE_NAME               4 (__doc__)
+
+  63           LOAD_CONST               2 (<code object __init__ at 0x00000204B9F6DF10, file "multiprocessing\resource_sharer.py", line 63>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  72           LOAD_CONST               3 (<code object register at 0x00000204BA4466B0, file "multiprocessing\resource_sharer.py", line 72>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (register)
+
+  81           LOAD_NAME                7 (staticmethod)
+
+  82           LOAD_CONST               4 (<code object get_connection at 0x00000204BA129DE0, file "multiprocessing\resource_sharer.py", line 81>)
+               MAKE_FUNCTION
+
+  81           CALL                     0
+
+  82           STORE_NAME               8 (get_connection)
+
+  90           LOAD_CONST              11 ((None,))
+               LOAD_CONST               6 (<code object stop at 0x00000204BA449230, file "multiprocessing\resource_sharer.py", line 90>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               9 (stop)
+
+ 111           LOAD_CONST               7 (<code object _afterfork at 0x00000204BA4455B0, file "multiprocessing\resource_sharer.py", line 111>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (_afterfork)
+
+ 122           LOAD_CONST               8 (<code object _start at 0x00000204BA3ABDB0, file "multiprocessing\resource_sharer.py", line 122>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (_start)
+
+ 133           LOAD_CONST               9 (<code object _serve at 0x00000204BA3735D0, file "multiprocessing\resource_sharer.py", line 133>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (_serve)
+               LOAD_CONST              10 (('_address', '_cache', '_key', '_listener', '_lock', '_thread'))
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F6DF10, file "multiprocessing\resource_sharer.py", line 63>:
+ 63           RESUME                   0
+
+ 64           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_key)
+
+ 65           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_cache)
+
+ 66           LOAD_GLOBAL              4 (threading)
+              LOAD_ATTR                6 (Lock)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_lock)
+
+ 67           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_listener)
+
+ 68           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (_address)
+
+ 69           LOAD_CONST               1 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_thread)
+
+ 70           LOAD_GLOBAL             16 (util)
+              LOAD_ATTR               18 (register_after_fork)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_GLOBAL             20 (_ResourceSharer)
+              LOAD_ATTR               22 (_afterfork)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object register at 0x00000204BA4466B0, file "multiprocessing\resource_sharer.py", line 72>:
+  72           RESUME                   0
+
+  74           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_lock)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+  75           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_address)
+               POP_JUMP_IF_NOT_NONE    17 (to L2)
+               NOT_TAKEN
+
+  76           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (_start + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  77   L2:     LOAD_FAST_BORROW         0 (self)
+               COPY                     1
+               LOAD_ATTR                6 (_key)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               SWAP                     2
+               STORE_ATTR               3 (_key)
+
+  78           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (send, close)
+               BUILD_TUPLE              2
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_cache)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_key)
+               STORE_SUBSCR
+
+  79           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_address)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_key)
+               BUILD_TUPLE              2
+
+  74   L3:     SWAP                     3
+               SWAP                     2
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               RETURN_VALUE
+       L4:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L5)
+               NOT_TAKEN
+               RERAISE                  2
+       L5:     POP_TOP
+       L6:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L4 [2] lasti
+  L4 to L6 -> L7 [4] lasti
+
+Disassembly of <code object get_connection at 0x00000204BA129DE0, file "multiprocessing\resource_sharer.py", line 81>:
+ 81           RESUME                   0
+
+ 84           LOAD_SMALL_INT           1
+              LOAD_CONST               1 (('Client',))
+              IMPORT_NAME              0 (connection)
+              IMPORT_FROM              1 (Client)
+              STORE_FAST               1 (Client)
+              POP_TOP
+
+ 85           LOAD_FAST_BORROW         0 (ident)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   35 (address, key)
+
+ 86           LOAD_FAST_BORROW         1 (Client)
+              PUSH_NULL
+              LOAD_FAST_BORROW         2 (address)
+              LOAD_GLOBAL              4 (process)
+              LOAD_ATTR                6 (current_process)
+              PUSH_NULL
+              CALL                     0
+              LOAD_ATTR                8 (authkey)
+              LOAD_CONST               2 (('authkey',))
+              CALL_KW                  2
+              STORE_FAST               4 (c)
+
+ 87           LOAD_FAST_BORROW         4 (c)
+              LOAD_ATTR               11 (send + NULL|self)
+              LOAD_FAST_BORROW         3 (key)
+              LOAD_GLOBAL             12 (os)
+              LOAD_ATTR               14 (getpid)
+              PUSH_NULL
+              CALL                     0
+              BUILD_TUPLE              2
+              CALL                     1
+              POP_TOP
+
+ 88           LOAD_FAST_BORROW         4 (c)
+              RETURN_VALUE
+
+Disassembly of <code object stop at 0x00000204BA449230, file "multiprocessing\resource_sharer.py", line 90>:
+  90            RESUME                   0
+
+  92            LOAD_SMALL_INT           1
+                LOAD_CONST               1 (('Client',))
+                IMPORT_NAME              0 (connection)
+                IMPORT_FROM              1 (Client)
+                STORE_FAST               2 (Client)
+                POP_TOP
+
+  93            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_lock)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+  94            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_address)
+                EXTENDED_ARG             1
+                POP_JUMP_IF_NONE       282 (to L7)
+                NOT_TAKEN
+
+  95            LOAD_FAST_BORROW         2 (Client)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_address)
+
+  96            LOAD_GLOBAL              8 (process)
+                LOAD_ATTR               10 (current_process)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR               12 (authkey)
+
+  95            LOAD_CONST               3 (('authkey',))
+                CALL_KW                  2
+                STORE_FAST               3 (c)
+
+  97            LOAD_FAST_BORROW         3 (c)
+                LOAD_ATTR               15 (send + NULL|self)
+                LOAD_CONST               2 (None)
+                CALL                     1
+                POP_TOP
+
+  98            LOAD_FAST_BORROW         3 (c)
+                LOAD_ATTR               17 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  99            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               18 (_thread)
+                LOAD_ATTR               21 (join + NULL|self)
+                LOAD_FAST_BORROW         1 (timeout)
+                CALL                     1
+                POP_TOP
+
+ 100            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               18 (_thread)
+                LOAD_ATTR               23 (is_alive + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE       23 (to L4)
+        L2:     NOT_TAKEN
+
+ 101    L3:     LOAD_GLOBAL             24 (util)
+                LOAD_ATTR               26 (sub_warning)
+                PUSH_NULL
+                LOAD_CONST               4 ('_ResourceSharer thread did not stop when asked')
+                CALL                     1
+                POP_TOP
+
+ 103    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               28 (_listener)
+                LOAD_ATTR               17 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 104            LOAD_CONST               2 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               9 (_thread)
+
+ 105            LOAD_CONST               2 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               3 (_address)
+
+ 106            LOAD_CONST               2 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              14 (_listener)
+
+ 107            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               30 (_cache)
+                LOAD_ATTR               33 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+        L5:     FOR_ITER                15 (to L6)
+                UNPACK_SEQUENCE          2
+                STORE_FAST               4 (key)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   86 (send, close)
+
+ 108            LOAD_FAST_BORROW         6 (close)
+                PUSH_NULL
+                CALL                     0
+                POP_TOP
+                JUMP_BACKWARD           17 (to L5)
+
+ 107    L6:     END_FOR
+                POP_ITER
+
+ 109            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               30 (_cache)
+                LOAD_ATTR               35 (clear + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  93    L7:     LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+        L8:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L9)
+                NOT_TAKEN
+                RERAISE                  2
+        L9:     POP_TOP
+       L10:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               2 (None)
+                RETURN_VALUE
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L8 [2] lasti
+  L3 to L7 -> L8 [2] lasti
+  L8 to L10 -> L11 [4] lasti
+
+Disassembly of <code object _afterfork at 0x00000204BA4455B0, file "multiprocessing\resource_sharer.py", line 111>:
+111           RESUME                   0
+
+112           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cache)
+              LOAD_ATTR                3 (items + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                15 (to L2)
+              UNPACK_SEQUENCE          2
+              STORE_FAST               1 (key)
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   35 (send, close)
+
+113           LOAD_FAST_BORROW         3 (close)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+              JUMP_BACKWARD           17 (to L1)
+
+112   L2:     END_FOR
+              POP_ITER
+
+114           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cache)
+              LOAD_ATTR                5 (clear + NULL|self)
+              CALL                     0
+              POP_TOP
+
+115           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_lock)
+              LOAD_ATTR                9 (_at_fork_reinit + NULL|self)
+              CALL                     0
+              POP_TOP
+
+116           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_listener)
+              POP_JUMP_IF_NONE        27 (to L3)
+              NOT_TAKEN
+
+117           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_listener)
+              LOAD_ATTR               13 (close + NULL|self)
+              CALL                     0
+              POP_TOP
+
+118   L3:     LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_listener)
+
+119           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_address)
+
+120           LOAD_CONST               0 (None)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               8 (_thread)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _start at 0x00000204BA3ABDB0, file "multiprocessing\resource_sharer.py", line 122>:
+122           RESUME                   0
+
+123           LOAD_SMALL_INT           1
+              LOAD_CONST               1 (('Listener',))
+              IMPORT_NAME              0 (connection)
+              IMPORT_FROM              1 (Listener)
+              STORE_FAST               1 (Listener)
+              POP_TOP
+
+124           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_listener)
+              POP_JUMP_IF_NONE         8 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              LOAD_CONST               3 ('Already have Listener')
+              CALL                     0
+              RAISE_VARARGS            1
+
+125   L1:     LOAD_GLOBAL              6 (util)
+              LOAD_ATTR                8 (debug)
+              PUSH_NULL
+              LOAD_CONST               4 ('starting listener and thread for sending handles')
+              CALL                     1
+              POP_TOP
+
+126           LOAD_FAST_BORROW         1 (Listener)
+              PUSH_NULL
+              LOAD_GLOBAL             10 (process)
+              LOAD_ATTR               12 (current_process)
+              PUSH_NULL
+              CALL                     0
+              LOAD_ATTR               14 (authkey)
+              LOAD_SMALL_INT         128
+              LOAD_CONST               5 (('authkey', 'backlog'))
+              CALL_KW                  2
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_listener)
+
+127           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_listener)
+              LOAD_ATTR               16 (address)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               9 (_address)
+
+128           LOAD_GLOBAL             20 (threading)
+              LOAD_ATTR               22 (Thread)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               24 (_serve)
+              LOAD_CONST               6 (('target',))
+              CALL_KW                  1
+              STORE_FAST               2 (t)
+
+129           LOAD_CONST               7 (True)
+              LOAD_FAST_BORROW         2 (t)
+              STORE_ATTR              13 (daemon)
+
+130           LOAD_FAST_BORROW         2 (t)
+              LOAD_ATTR               29 (start + NULL|self)
+              CALL                     0
+              POP_TOP
+
+131           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (t, self)
+              STORE_ATTR              15 (_thread)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _serve at 0x00000204BA3735D0, file "multiprocessing\resource_sharer.py", line 133>:
+ 133            RESUME                   0
+
+ 134            LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_GLOBAL              2 (signal)
+                LOAD_CONST               0 ('pthread_sigmask')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       57 (to L1)
+                NOT_TAKEN
+
+ 135            LOAD_GLOBAL              2 (signal)
+                LOAD_ATTR                4 (pthread_sigmask)
+                PUSH_NULL
+                LOAD_GLOBAL              2 (signal)
+                LOAD_ATTR                6 (SIG_BLOCK)
+                LOAD_GLOBAL              2 (signal)
+                LOAD_ATTR                8 (valid_signals)
+                PUSH_NULL
+                CALL                     0
+                CALL                     2
+                POP_TOP
+
+ 136    L1:     NOP
+
+ 137            NOP
+
+ 138    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               10 (_listener)
+                LOAD_ATTR               13 (accept + NULL|self)
+                CALL                     0
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L3:     STORE_FAST               1 (conn)
+
+ 139            LOAD_FAST_BORROW         1 (conn)
+                LOAD_ATTR               15 (recv + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (msg)
+
+ 140            LOAD_FAST_BORROW         2 (msg)
+                POP_JUMP_IF_NOT_NONE    12 (to L6)
+                NOT_TAKEN
+
+ 141            NOP
+
+ 138    L4:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+        L5:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 142    L6:     LOAD_FAST_BORROW         2 (msg)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   52 (key, destination_pid)
+
+ 143            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               16 (_cache)
+                LOAD_ATTR               19 (pop + NULL|self)
+                LOAD_FAST_BORROW         3 (key)
+                CALL                     1
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   86 (send, close)
+
+ 144    L7:     NOP
+
+ 145    L8:     LOAD_FAST_BORROW         5 (send)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (conn, destination_pid)
+                CALL                     2
+                POP_TOP
+
+ 147    L9:     LOAD_FAST_BORROW         6 (close)
+                PUSH_NULL
+                CALL                     0
+                POP_TOP
+       L10:     NOP
+
+ 138   L11:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+       L12:     JUMP_BACKWARD          128 (to L1)
+
+  --   L13:     PUSH_EXC_INFO
+
+ 147            LOAD_FAST                6 (close)
+                PUSH_NULL
+                CALL                     0
+                POP_TOP
+                RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 138   L15:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L16)
+                NOT_TAKEN
+                RERAISE                  2
+       L16:     POP_TOP
+       L17:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+       L18:     JUMP_BACKWARD          157 (to L1)
+
+  --   L19:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L20:     PUSH_EXC_INFO
+
+ 148            POP_TOP
+
+ 149            LOAD_GLOBAL             20 (util)
+                LOAD_ATTR               22 (is_exiting)
+                PUSH_NULL
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE        43 (to L22)
+                NOT_TAKEN
+
+ 150            LOAD_GLOBAL             24 (sys)
+                LOAD_ATTR               26 (excepthook)
+                PUSH_NULL
+                LOAD_GLOBAL             24 (sys)
+                LOAD_ATTR               28 (exc_info)
+                PUSH_NULL
+                CALL                     0
+                PUSH_NULL
+                CALL_FUNCTION_EX
+                POP_TOP
+       L21:     POP_EXCEPT
+                JUMP_BACKWARD          231 (to L1)
+
+ 149   L22:     POP_EXCEPT
+                JUMP_BACKWARD          234 (to L1)
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L20 [0]
+  L3 to L4 -> L15 [2] lasti
+  L4 to L5 -> L20 [0]
+  L6 to L7 -> L15 [2] lasti
+  L8 to L9 -> L13 [2]
+  L9 to L10 -> L15 [2] lasti
+  L11 to L12 -> L20 [0]
+  L13 to L14 -> L14 [3] lasti
+  L14 to L15 -> L15 [2] lasti
+  L15 to L17 -> L19 [4] lasti
+  L17 to L18 -> L20 [0]
+  L19 to L20 -> L20 [0]
+  L20 to L21 -> L23 [1] lasti

@@ -1,0 +1,156 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (collections)
+              STORE_NAME               0 (collections)
+
+  5           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               2 (<code object FreezableDefaultDict at 0x00000204BA0FF550, file "importlib\metadata\_collections.py", line 5>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('FreezableDefaultDict')
+              LOAD_NAME                0 (collections)
+              LOAD_ATTR                2 (defaultdict)
+              CALL                     3
+              STORE_NAME               2 (FreezableDefaultDict)
+
+ 27           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object Pair at 0x00000204BA088330, file "importlib\metadata\_collections.py", line 27>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('Pair')
+              LOAD_NAME                0 (collections)
+              LOAD_ATTR                6 (namedtuple)
+              PUSH_NULL
+              LOAD_CONST               5 ('Pair')
+              LOAD_CONST               6 ('name value')
+              CALL                     2
+              CALL                     3
+              STORE_NAME               4 (Pair)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object FreezableDefaultDict at 0x00000204BA0FF550, file "importlib\metadata\_collections.py", line 5>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+   5           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('FreezableDefaultDict')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT           5
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+   6           LOAD_CONST               1 ("\nOften it is desirable to prevent the mutation of\na default dict after its initial construction, such\nas to prevent mutation during iteration.\n\n>>> dd = FreezableDefaultDict(list)\n>>> dd[0].append('1')\n>>> dd.freeze()\n>>> dd[1]\n[]\n>>> len(dd)\n1\n")
+               STORE_NAME               4 (__doc__)
+
+  20           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object __missing__ at 0x00000204BA083110, file "importlib\metadata\_collections.py", line 20>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               5 (__missing__)
+
+  23           LOAD_CONST               3 (<code object freeze at 0x00000204BA0924C0, file "importlib\metadata\_collections.py", line 23>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (freeze)
+               LOAD_CONST               4 (('_frozen',))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               9 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __missing__ at 0x00000204BA083110, file "importlib\metadata\_collections.py", line 20>:
+  --           COPY_FREE_VARS           1
+
+  20           RESUME                   0
+
+  21           LOAD_GLOBAL              1 (getattr + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_CONST               0 ('_frozen')
+               LOAD_GLOBAL              2 (super)
+               LOAD_DEREF               2 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          8 (__missing__)
+               CALL                     3
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (key)
+               CALL                     1
+               RETURN_VALUE
+
+Disassembly of <code object freeze at 0x00000204BA0924C0, file "importlib\metadata\_collections.py", line 23>:
+  --           MAKE_CELL                0 (self)
+
+  23           RESUME                   0
+
+  24           LOAD_FAST_BORROW         0 (self)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object <lambda> at 0x00000204BA08A530, file "importlib\metadata\_collections.py", line 24>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_DEREF               0 (self)
+               STORE_ATTR               0 (_frozen)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA08A530, file "importlib\metadata\_collections.py", line 24>:
+  --           COPY_FREE_VARS           1
+
+  24           RESUME                   0
+               LOAD_DEREF               1 (self)
+               LOAD_ATTR                1 (default_factory + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+
+Disassembly of <code object Pair at 0x00000204BA088330, file "importlib\metadata\_collections.py", line 27>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  27           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Pair')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          27
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  28           LOAD_NAME                4 (classmethod)
+
+  29           LOAD_CONST               1 (<code object parse at 0x00000204BA1004F0, file "importlib\metadata\_collections.py", line 28>)
+               MAKE_FUNCTION
+
+  28           CALL                     0
+
+  29           STORE_NAME               5 (parse)
+               LOAD_CONST               2 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA1004F0, file "importlib\metadata\_collections.py", line 28>:
+ 28           RESUME                   0
+
+ 30           LOAD_FAST_BORROW         0 (cls)
+              PUSH_NULL
+              LOAD_GLOBAL              1 (map + NULL)
+              LOAD_GLOBAL              2 (str)
+              LOAD_ATTR                4 (strip)
+              LOAD_FAST_BORROW         1 (text)
+              LOAD_ATTR                7 (split + NULL|self)
+              LOAD_CONST               0 ('=')
+              LOAD_SMALL_INT           1
+              CALL                     2
+              CALL                     2
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE

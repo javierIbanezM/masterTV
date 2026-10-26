@@ -1,0 +1,197 @@
+
+DEF <module>() @1
+1: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+3: LOAD_SMALL_INT 0; LOAD_CONST ('QComboBox', 'QFileDialog', 'QHBoxLayout', 'QLabel', 'QLineEdit', 'QListWidget', 'QPushButton', 'QVBoxLayout'); IMPORT_NAME PyQt6.QtWidgets; IMPORT_FROM QComboBox; STORE_NAME QComboBox; IMPORT_FROM QFileDialog; STORE_NAME QFileDialog; IMPORT_FROM QHBoxLayout; STORE_NAME QHBoxLayout; IMPORT_FROM QLabel; STORE_NAME QLabel; IMPORT_FROM QLineEdit; STORE_NAME QLineEdit; IMPORT_FROM QListWidget; STORE_NAME QListWidget; IMPORT_FROM QPushButton; STORE_NAME QPushButton; IMPORT_FROM QVBoxLayout; STORE_NAME QVBoxLayout
+6: LOAD_SMALL_INT 2; LOAD_CONST ('DeviceTab',); IMPORT_NAME base_tab; IMPORT_FROM DeviceTab; STORE_NAME DeviceTab
+7: LOAD_SMALL_INT 2; LOAD_CONST ('confirm', 'warn'); IMPORT_NAME common; IMPORT_FROM confirm; STORE_NAME confirm; IMPORT_FROM warn; STORE_NAME warn
+10: LOAD_BUILD_CLASS; LOAD_CONST <code AppsTab>; MAKE_FUNCTION; LOAD_CONST 'AppsTab'; LOAD_NAME DeviceTab; CALL; STORE_NAME AppsTab; LOAD_CONST None; RETURN_VALUE
+
+  DEF AppsTab() @10
+  10: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'AppsTab'; STORE_NAME __qualname__; LOAD_SMALL_INT 10; STORE_NAME __firstlineno__
+  11: LOAD_CONST 'Aplicaciones'; STORE_NAME title
+  13: LOAD_FAST_BORROW __class__; BUILD_TUPLE; LOAD_CONST <code AppsTab.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_NAME __init__
+  48: LOAD_CONST <code AppsTab.on_device_changed>; MAKE_FUNCTION; STORE_NAME on_device_changed
+  54: LOAD_CONST <code AppsTab.on_activated>; MAKE_FUNCTION; STORE_NAME on_activated
+  58: LOAD_CONST <code AppsTab.refresh>; MAKE_FUNCTION; STORE_NAME refresh
+  71: LOAD_CONST <code AppsTab._fill>; MAKE_FUNCTION; STORE_NAME _fill
+  80: LOAD_CONST <code AppsTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code AppsTab._pkg>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _pkg
+  87: LOAD_CONST <code AppsTab.launch>; MAKE_FUNCTION; STORE_NAME launch
+  93: LOAD_CONST <code AppsTab.stop>; MAKE_FUNCTION; STORE_NAME stop
+  99: LOAD_CONST <code AppsTab.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code AppsTab._guard_user_app>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME _guard_user_app
+  107: LOAD_CONST <code AppsTab.clear>; MAKE_FUNCTION; STORE_NAME clear
+  114: LOAD_CONST <code AppsTab.uninstall>; MAKE_FUNCTION; STORE_NAME uninstall
+  124: LOAD_CONST <code AppsTab.install>; MAKE_FUNCTION; STORE_NAME install; LOAD_CONST ('allpk', 'count', 'filter', 'list', 'scope', 'third'); STORE_NAME __static_attributes__; LOAD_FAST_BORROW __class__; COPY; STORE_NAME __classcell__; RETURN_VALUE
+
+    DEF AppsTab.__init__(self,ctx) @13
+    14: LOAD_GLOBAL super; LOAD_DEREF __class__; LOAD_DEREF self; LOAD_SUPER_ATTR __init__ + NULL|self; LOAD_FAST_BORROW ctx; CALL
+    15: LOAD_GLOBAL set + NULL; CALL; LOAD_DEREF self; STORE_ATTR third
+    16: BUILD_LIST; LOAD_DEREF self; STORE_ATTR allpk
+    17: LOAD_GLOBAL QVBoxLayout + NULL; LOAD_DEREF self; CALL; STORE_FAST lay
+    19: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST top
+    20: LOAD_GLOBAL QComboBox + NULL; CALL; LOAD_DEREF self; STORE_ATTR scope
+    21: LOAD_DEREF self; LOAD_ATTR scope; LOAD_ATTR addItems + NULL|self; BUILD_LIST; LOAD_CONST ('Instaladas por el usuario', 'Sistema', 'Todas'); LIST_EXTEND; CALL
+    22: LOAD_DEREF self; LOAD_ATTR scope; LOAD_ATTR currentIndexChanged; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR _fill; CALL
+    23: LOAD_GLOBAL QLineEdit + NULL; CALL; LOAD_DEREF self; STORE_ATTR filter
+    24: LOAD_DEREF self; LOAD_ATTR filter; LOAD_ATTR setPlaceholderText + NULL|self; LOAD_CONST 'Filtrar por nombre de paquete…'; CALL
+    25: LOAD_DEREF self; LOAD_ATTR filter; LOAD_ATTR textChanged; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR _fill; CALL
+    26: LOAD_GLOBAL QPushButton + NULL; LOAD_CONST 'Actualizar'; CALL; STORE_FAST refresh
+    27: LOAD_FAST_BORROW refresh; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_DEREF self; LOAD_ATTR refresh; CALL
+    28: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR scope; CALL
+    29: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR filter; LOAD_SMALL_INT 1; CALL
+    30: LOAD_FAST_BORROW top; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW refresh; CALL
+    31: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW top; CALL
+    33: LOAD_GLOBAL QListWidget + NULL; CALL; LOAD_DEREF self; STORE_ATTR list
+    34: LOAD_DEREF self; LOAD_ATTR list; LOAD_ATTR itemDoubleClicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.__init__.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL
+    35: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR list; LOAD_SMALL_INT 1; CALL
+    36: LOAD_GLOBAL QLabel + NULL; LOAD_CONST ''; CALL; LOAD_DEREF self; STORE_ATTR count
+    37: LOAD_FAST_BORROW lay; LOAD_ATTR addWidget + NULL|self; LOAD_DEREF self; LOAD_ATTR count; CALL
+    39: LOAD_GLOBAL QHBoxLayout + NULL; CALL; STORE_FAST row
+    40: LOAD_CONST '▶ Abrir'; LOAD_DEREF self; LOAD_ATTR launch; BUILD_TUPLE; LOAD_CONST '■ Forzar cierre'; LOAD_DEREF self; LOAD_ATTR stop; BUILD_TUPLE
+    41: LOAD_CONST '🧹 Borrar datos…'; LOAD_DEREF self; LOAD_ATTR clear; BUILD_TUPLE; LOAD_CONST '🗑 Desinstalar…'; LOAD_DEREF self; LOAD_ATTR uninstall; BUILD_TUPLE
+    42: LOAD_CONST '📦 Instalar APK…'; LOAD_DEREF self; LOAD_ATTR install; BUILD_TUPLE
+    40: BUILD_TUPLE; GET_ITER; <L1164>; FOR_ITER ->1288; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST text, slot
+    43: LOAD_GLOBAL QPushButton + NULL; LOAD_FAST_BORROW text; CALL; STORE_FAST b
+    44: LOAD_FAST_BORROW b; LOAD_ATTR clicked; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW slot; CALL
+    45: LOAD_FAST_BORROW row; LOAD_ATTR addWidget + NULL|self; LOAD_FAST_BORROW b; CALL; JUMP_BACKWARD ->1164
+    40: <L1288>; END_FOR; POP_ITER
+    46: LOAD_FAST_BORROW lay; LOAD_ATTR addLayout + NULL|self; LOAD_FAST_BORROW row; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.__init__.<locals>.<lambda>(_) @34
+      34: LOAD_DEREF self; LOAD_ATTR launch + NULL|self; CALL; RETURN_VALUE
+
+    DEF AppsTab.on_device_changed(self) @48
+    49: LOAD_FAST_BORROW self; LOAD_ATTR list; LOAD_ATTR clear + NULL|self; CALL
+    50: BUILD_LIST; LOAD_FAST_BORROW self; STORE_ATTR allpk
+    51: LOAD_GLOBAL set + NULL; CALL; LOAD_FAST_BORROW self; STORE_ATTR third
+    52: LOAD_FAST_BORROW self; LOAD_ATTR count; LOAD_ATTR setText + NULL|self; LOAD_CONST ''; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF AppsTab.on_activated(self) @54
+    55: LOAD_FAST_BORROW self; LOAD_ATTR ctx; LOAD_ATTR current; TO_BOOL; POP_JUMP_IF_FALSE ->182; LOAD_FAST_BORROW self; LOAD_ATTR is_online + NULL|self; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->178; LOAD_FAST_BORROW self; LOAD_ATTR allpk; TO_BOOL; POP_JUMP_IF_TRUE ->174
+    56: LOAD_FAST_BORROW self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+    55: <L174>; LOAD_CONST None; RETURN_VALUE; <L178>; LOAD_CONST None; RETURN_VALUE; <L182>; LOAD_CONST None; RETURN_VALUE
+
+    DEF AppsTab.refresh(self) @58
+    59: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.refresh.<locals>.work>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST work
+    63: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.refresh.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    69: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW work, done; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.refresh.<locals>.work(s) @59
+      60: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; STORE_FAST a
+      61: LOAD_FAST_BORROW a; LOAD_ATTR packages + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST '-3'; CALL; LOAD_FAST_BORROW a; LOAD_ATTR packages + NULL|self; LOAD_FAST_BORROW s; LOAD_CONST ''; CALL; BUILD_TUPLE; RETURN_VALUE
+
+      DEF AppsTab.refresh.<locals>.done(res) @63
+      64: LOAD_FAST_BORROW res; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST third, allp
+      65: LOAD_GLOBAL set + NULL; LOAD_FAST_BORROW third; CALL; LOAD_DEREF self; STORE_ATTR third
+      66: LOAD_FAST_BORROW allp; LOAD_DEREF self; STORE_ATTR allpk
+      67: LOAD_DEREF self; LOAD_ATTR _fill + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+    DEF AppsTab._fill(self) @71
+    72: LOAD_FAST_BORROW self; LOAD_ATTR scope; LOAD_ATTR currentIndex + NULL|self; CALL; STORE_FAST mode
+    73: LOAD_FAST_BORROW self; LOAD_ATTR filter; LOAD_ATTR text + NULL|self; CALL; LOAD_ATTR lower + NULL|self; CALL; STORE_FAST txt
+    74: LOAD_FAST_BORROW self; LOAD_ATTR allpk; GET_ITER; LOAD_FAST_AND_CLEAR p; SWAP; BUILD_LIST; SWAP; <L166>; FOR_ITER ->286; STORE_FAST p
+    75: LOAD_FAST_BORROW mode; LOAD_SMALL_INT 2; COMPARE_OP bool(==); POP_JUMP_IF_TRUE ->234; LOAD_FAST_BORROW mode; LOAD_SMALL_INT 0; COMPARE_OP ==; LOAD_FAST_BORROW_LOAD_FAST_BORROW p, self; LOAD_ATTR third; CONTAINS_OP in; COMPARE_OP bool(==)
+    74: POP_JUMP_IF_TRUE ->234; JUMP_BACKWARD ->166
+    75: <L234>; LOAD_FAST_BORROW_LOAD_FAST_BORROW txt, p; LOAD_ATTR lower + NULL|self; CALL; CONTAINS_OP in
+    74: POP_JUMP_IF_TRUE ->278; JUMP_BACKWARD ->166; <L278>; LOAD_FAST_BORROW p; LIST_APPEND; JUMP_BACKWARD ->166; <L286>; END_FOR; POP_ITER; STORE_FAST items; STORE_FAST p
+    76: LOAD_FAST_BORROW self; LOAD_ATTR list; LOAD_ATTR clear + NULL|self; CALL
+    77: LOAD_FAST_BORROW self; LOAD_ATTR list; LOAD_ATTR addItems + NULL|self; LOAD_FAST_BORROW items; CALL
+    78: LOAD_FAST_BORROW self; LOAD_ATTR count; LOAD_ATTR setText + NULL|self; LOAD_GLOBAL len + NULL; LOAD_FAST_BORROW items; CALL; FORMAT_SIMPLE; LOAD_CONST ' paquetes'; BUILD_STRING; CALL; LOAD_CONST None; RETURN_VALUE
+    None: SWAP
+    74: SWAP; STORE_FAST p; RERAISE
+
+    DEF AppsTab._pkg(self) @80
+    81: LOAD_FAST_BORROW self; LOAD_ATTR list; LOAD_ATTR currentItem + NULL|self; CALL; STORE_FAST it
+    82: LOAD_FAST_BORROW it; TO_BOOL; POP_JUMP_IF_TRUE ->100
+    83: LOAD_GLOBAL warn + NULL; LOAD_FAST_BORROW self; LOAD_CONST 'Sin selección'; LOAD_CONST 'Selecciona un paquete de la lista.'; CALL
+    84: LOAD_CONST None; RETURN_VALUE
+    85: <L100>; LOAD_FAST_BORROW it; LOAD_ATTR text + NULL|self; CALL; RETURN_VALUE
+
+    DEF AppsTab.launch(self) @87
+    88: LOAD_DEREF self; LOAD_ATTR _pkg + NULL|self; CALL; STORE_DEREF p
+    89: LOAD_DEREF p; TO_BOOL; POP_JUMP_IF_FALSE ->114
+    90: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW p; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.launch.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    91: LOAD_FAST_BORROW p; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.launch.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    90: CALL; LOAD_CONST None; RETURN_VALUE
+    89: <L114>; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.launch.<locals>.<lambda>(s) @90
+      90: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR launch + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF p; CALL; RETURN_VALUE
+
+      DEF AppsTab.launch.<locals>.<lambda>(r) @91
+      91: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Abriendo '; LOAD_DEREF p; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF AppsTab.stop(self) @93
+    94: LOAD_DEREF self; LOAD_ATTR _pkg + NULL|self; CALL; STORE_DEREF p
+    95: LOAD_DEREF p; TO_BOOL; POP_JUMP_IF_FALSE ->114
+    96: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW p; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.stop.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    97: LOAD_FAST_BORROW p; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.stop.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure
+    96: CALL; LOAD_CONST None; RETURN_VALUE
+    95: <L114>; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.stop.<locals>.<lambda>(s) @96
+      96: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR force_stop + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF p; CALL; RETURN_VALUE
+
+      DEF AppsTab.stop.<locals>.<lambda>(r) @97
+      97: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Cerrada '; LOAD_DEREF p; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF AppsTab._guard_user_app(self,p,what) @99
+    100: LOAD_FAST_BORROW_LOAD_FAST_BORROW p, self; LOAD_ATTR third; CONTAINS_OP not in; POP_JUMP_IF_FALSE ->76
+    101: LOAD_GLOBAL warn + NULL; LOAD_FAST_BORROW self; LOAD_CONST 'Aplicación del sistema'
+    102: LOAD_FAST_BORROW p; FORMAT_SIMPLE; LOAD_CONST ' es una aplicación del sistema. Por seguridad la aplicación no permite '
+    103: LOAD_FAST_BORROW what; FORMAT_SIMPLE; LOAD_CONST ' apps del sistema (podría dejar la TV inestable o sin arranque).'
+    102: BUILD_STRING
+    101: CALL
+    104: LOAD_CONST False; RETURN_VALUE
+    105: <L76>; LOAD_CONST True; RETURN_VALUE
+
+    DEF AppsTab.clear(self) @107
+    108: LOAD_DEREF self; LOAD_ATTR _pkg + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; SWAP; STORE_DEREF p; STORE_FAST s
+    109: LOAD_DEREF p; TO_BOOL; POP_JUMP_IF_FALSE ->282; LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->278; LOAD_DEREF self; LOAD_ATTR _guard_user_app + NULL|self; LOAD_DEREF p; LOAD_CONST 'borrar los datos de'; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->274; LOAD_GLOBAL confirm + NULL
+    110: LOAD_DEREF self; LOAD_CONST 'Borrar datos de la app'
+    111: LOAD_CONST 'Se borrarán TODOS los datos y ajustes de '; LOAD_DEREF p; FORMAT_SIMPLE; LOAD_CONST '.'; BUILD_STRING; LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' shell pm clear '; LOAD_DEREF p; FORMAT_SIMPLE; BUILD_STRING
+    109: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->270
+    112: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW p; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.clear.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.clear.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; CALL; LOAD_CONST None; RETURN_VALUE
+    109: <L270>; LOAD_CONST None; RETURN_VALUE; <L274>; LOAD_CONST None; RETURN_VALUE; <L278>; LOAD_CONST None; RETURN_VALUE; <L282>; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.clear.<locals>.<lambda>(s) @112
+      112: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR clear_data + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF p; CALL; RETURN_VALUE
+
+      DEF AppsTab.clear.<locals>.<lambda>(r) @112
+      112: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_FAST_BORROW r; LOAD_ATTR text; CALL; RETURN_VALUE
+
+    DEF AppsTab.uninstall(self) @114
+    115: LOAD_DEREF self; LOAD_ATTR _pkg + NULL|self; CALL; LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; SWAP; STORE_DEREF p; STORE_FAST s
+    116: LOAD_DEREF p; TO_BOOL; POP_JUMP_IF_FALSE ->288; LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_FALSE ->284; LOAD_DEREF self; LOAD_ATTR _guard_user_app + NULL|self; LOAD_DEREF p; LOAD_CONST 'desinstalar'; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->280; LOAD_GLOBAL confirm + NULL
+    117: LOAD_DEREF self; LOAD_CONST 'Desinstalar aplicación'; LOAD_CONST 'Se desinstalará '; LOAD_DEREF p; FORMAT_SIMPLE; LOAD_CONST '.'; BUILD_STRING
+    118: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' uninstall '; LOAD_DEREF p; FORMAT_SIMPLE; BUILD_STRING
+    116: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->276
+    119: LOAD_FAST_BORROW p; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.uninstall.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    122: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW p; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.uninstall.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+    116: <L276>; LOAD_CONST None; RETURN_VALUE; <L280>; LOAD_CONST None; RETURN_VALUE; <L284>; LOAD_CONST None; RETURN_VALUE; <L288>; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.uninstall.<locals>.done(r) @119
+      120: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Desinstalar '; LOAD_DEREF p; FORMAT_SIMPLE; LOAD_CONST ': '; LOAD_FAST_BORROW r; LOAD_ATTR text; FORMAT_SIMPLE; BUILD_STRING; CALL
+      121: LOAD_DEREF self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.uninstall.<locals>.<lambda>(s) @122
+      122: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR uninstall + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF p; CALL; RETURN_VALUE
+
+    DEF AppsTab.install(self) @124
+    125: LOAD_DEREF self; LOAD_ATTR serial + NULL|self; CALL; STORE_FAST s
+    126: LOAD_FAST_BORROW s; TO_BOOL; POP_JUMP_IF_TRUE ->58
+    127: LOAD_CONST None; RETURN_VALUE
+    128: <L58>; LOAD_GLOBAL QFileDialog; LOAD_ATTR getOpenFileName; LOAD_DEREF self; LOAD_CONST 'Elegir APK'; LOAD_CONST ''; LOAD_CONST 'APK (*.apk)'; CALL; UNPACK_SEQUENCE; STORE_DEREF apk; STORE_FAST _
+    129: LOAD_DEREF apk; TO_BOOL; POP_JUMP_IF_FALSE ->320; LOAD_GLOBAL confirm + NULL; LOAD_DEREF self; LOAD_CONST 'Instalar APK'; LOAD_CONST 'Se instalará (o actualizará) '; LOAD_DEREF apk; FORMAT_SIMPLE; LOAD_CONST ' en la TV.'; BUILD_STRING
+    130: LOAD_CONST 'adb -s '; LOAD_FAST_BORROW s; FORMAT_SIMPLE; LOAD_CONST ' install -r "'; LOAD_DEREF apk; FORMAT_SIMPLE; LOAD_CONST '"'; BUILD_STRING
+    129: CALL; TO_BOOL; POP_JUMP_IF_FALSE ->316
+    131: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Instalando '; LOAD_DEREF apk; FORMAT_SIMPLE; LOAD_CONST '…'; BUILD_STRING; CALL
+    133: LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.install.<locals>.done>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; STORE_FAST done
+    136: LOAD_DEREF self; LOAD_ATTR call + NULL|self; LOAD_FAST_BORROW apk; LOAD_FAST_BORROW self; BUILD_TUPLE; LOAD_CONST <code AppsTab.install.<locals>.<lambda>>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE closure; LOAD_FAST_BORROW done; CALL; LOAD_CONST None; RETURN_VALUE
+    129: <L316>; LOAD_CONST None; RETURN_VALUE; <L320>; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.install.<locals>.done(r) @133
+      134: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR log + NULL|self; LOAD_CONST 'Instalación: '; LOAD_FAST_BORROW r; LOAD_ATTR text; FORMAT_SIMPLE; BUILD_STRING; CALL
+      135: LOAD_DEREF self; LOAD_ATTR refresh + NULL|self; CALL; LOAD_CONST None; RETURN_VALUE
+
+      DEF AppsTab.install.<locals>.<lambda>(s) @136
+      136: LOAD_DEREF self; LOAD_ATTR ctx; LOAD_ATTR adb; LOAD_ATTR install + NULL|self; LOAD_FAST_BORROW s; LOAD_DEREF apk; CALL; RETURN_VALUE

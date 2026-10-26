@@ -1,0 +1,51 @@
+
+DEF <module>() @1
+1: LOAD_CONST 'Lanzador de scrcpy (escritorio remoto: espejo de pantalla con ratón y teclado).'; STORE_NAME __doc__
+2: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+4: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME os; STORE_NAME os
+5: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME subprocess; STORE_NAME subprocess
+6: LOAD_SMALL_INT 0; LOAD_CONST ('dataclass',); IMPORT_NAME dataclasses; IMPORT_FROM dataclass; STORE_NAME dataclass
+9: LOAD_NAME dataclass
+10: LOAD_BUILD_CLASS; LOAD_CONST <code ScrcpyOptions>; MAKE_FUNCTION; LOAD_CONST 'ScrcpyOptions'; CALL
+9: CALL
+10: STORE_NAME ScrcpyOptions
+40: LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code launch>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME launch; LOAD_CONST None; RETURN_VALUE
+
+  DEF ScrcpyOptions() @9
+  9: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'ScrcpyOptions'; STORE_NAME __qualname__; LOAD_SMALL_INT 9; STORE_NAME __firstlineno__; SETUP_ANNOTATIONS
+  11: LOAD_SMALL_INT 0; STORE_NAME max_size; LOAD_CONST 'int'; LOAD_NAME __annotations__; LOAD_CONST 'max_size'; STORE_SUBSCR
+  12: LOAD_SMALL_INT 8; STORE_NAME bitrate_mbps; LOAD_CONST 'int'; LOAD_NAME __annotations__; LOAD_CONST 'bitrate_mbps'; STORE_SUBSCR
+  13: LOAD_SMALL_INT 30; STORE_NAME max_fps; LOAD_CONST 'int'; LOAD_NAME __annotations__; LOAD_CONST 'max_fps'; STORE_SUBSCR
+  14: LOAD_CONST True; STORE_NAME no_audio; LOAD_CONST 'bool'; LOAD_NAME __annotations__; LOAD_CONST 'no_audio'; STORE_SUBSCR
+  15: LOAD_CONST True; STORE_NAME stay_awake; LOAD_CONST 'bool'; LOAD_NAME __annotations__; LOAD_CONST 'stay_awake'; STORE_SUBSCR
+  16: LOAD_CONST False; STORE_NAME screen_off; LOAD_CONST 'bool'; LOAD_NAME __annotations__; LOAD_CONST 'screen_off'; STORE_SUBSCR
+  17: LOAD_CONST False; STORE_NAME fullscreen; LOAD_CONST 'bool'; LOAD_NAME __annotations__; LOAD_CONST 'fullscreen'; STORE_SUBSCR
+  18: LOAD_CONST False; STORE_NAME always_on_top; LOAD_CONST 'bool'; LOAD_NAME __annotations__; LOAD_CONST 'always_on_top'; STORE_SUBSCR
+  19: LOAD_CONST ''; STORE_NAME record_path; LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'record_path'; STORE_SUBSCR
+  21: LOAD_CONST <code ScrcpyOptions.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code ScrcpyOptions.to_args>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME to_args; LOAD_CONST (); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+    DEF ScrcpyOptions.to_args(self) @21
+    22: LOAD_CONST '--video-bit-rate='; LOAD_FAST_BORROW self; LOAD_ATTR bitrate_mbps; FORMAT_SIMPLE; LOAD_CONST 'M'; BUILD_STRING; LOAD_CONST '--max-fps='; LOAD_FAST_BORROW self; LOAD_ATTR max_fps; FORMAT_SIMPLE; BUILD_STRING; BUILD_LIST; STORE_FAST a
+    23: LOAD_FAST_BORROW self; LOAD_ATTR max_size; TO_BOOL; POP_JUMP_IF_FALSE ->160
+    24: LOAD_FAST_BORROW a; LOAD_ATTR append + NULL|self; LOAD_CONST '--max-size='; LOAD_FAST_BORROW self; LOAD_ATTR max_size; FORMAT_SIMPLE; BUILD_STRING; CALL
+    25: <L160>; LOAD_FAST_BORROW self; LOAD_ATTR no_audio; TO_BOOL; POP_JUMP_IF_FALSE ->230
+    26: LOAD_FAST_BORROW a; LOAD_ATTR append + NULL|self; LOAD_CONST '--no-audio'; CALL
+    27: <L230>; LOAD_FAST_BORROW self; LOAD_ATTR stay_awake; TO_BOOL; POP_JUMP_IF_FALSE ->300
+    28: LOAD_FAST_BORROW a; LOAD_ATTR append + NULL|self; LOAD_CONST '--stay-awake'; CALL
+    29: <L300>; LOAD_FAST_BORROW self; LOAD_ATTR screen_off; TO_BOOL; POP_JUMP_IF_FALSE ->370
+    30: LOAD_FAST_BORROW a; LOAD_ATTR append + NULL|self; LOAD_CONST '--turn-screen-off'; CALL
+    31: <L370>; LOAD_FAST_BORROW self; LOAD_ATTR fullscreen; TO_BOOL; POP_JUMP_IF_FALSE ->440
+    32: LOAD_FAST_BORROW a; LOAD_ATTR append + NULL|self; LOAD_CONST '--fullscreen'; CALL
+    33: <L440>; LOAD_FAST_BORROW self; LOAD_ATTR always_on_top; TO_BOOL; POP_JUMP_IF_FALSE ->510
+    34: LOAD_FAST_BORROW a; LOAD_ATTR append + NULL|self; LOAD_CONST '--always-on-top'; CALL
+    35: <L510>; LOAD_FAST_BORROW self; LOAD_ATTR record_path; TO_BOOL; POP_JUMP_IF_FALSE ->606
+    36: LOAD_FAST_BORROW a; LOAD_ATTR append + NULL|self; LOAD_CONST '--record='; LOAD_FAST_BORROW self; LOAD_ATTR record_path; FORMAT_SIMPLE; BUILD_STRING; CALL
+    37: <L606>; LOAD_FAST_BORROW a; RETURN_VALUE
+
+  DEF launch(scrcpy_path,adb_path,serial,title,opts) @40
+  42: LOAD_GLOBAL dict + NULL; LOAD_GLOBAL os; LOAD_ATTR environ; LOAD_FAST_BORROW adb_path; LOAD_CONST ('ADB',); CALL_KW; STORE_FAST env
+  43: LOAD_FAST_BORROW scrcpy_path; LOAD_CONST '-s'; LOAD_FAST_BORROW serial; LOAD_CONST '--window-title='; LOAD_FAST_BORROW title; FORMAT_SIMPLE; BUILD_STRING; BUILD_LIST; LOAD_FAST_BORROW opts; LOAD_ATTR to_args + NULL|self; CALL; LIST_EXTEND; STORE_FAST cmd
+  44: LOAD_GLOBAL os; LOAD_ATTR name; LOAD_CONST 'nt'; COMPARE_OP bool(==); POP_JUMP_IF_FALSE ->152; LOAD_CONST 134217728; JUMP_FORWARD ->154; <L152>; LOAD_SMALL_INT 0; <L154>; STORE_FAST flags
+  45: LOAD_GLOBAL subprocess; LOAD_ATTR Popen; LOAD_FAST_BORROW_LOAD_FAST_BORROW cmd, env; LOAD_FAST_BORROW flags
+  46: LOAD_GLOBAL subprocess; LOAD_ATTR DEVNULL; LOAD_GLOBAL subprocess; LOAD_ATTR PIPE
+  45: LOAD_CONST ('env', 'creationflags', 'stdout', 'stderr'); CALL_KW; RETURN_VALUE

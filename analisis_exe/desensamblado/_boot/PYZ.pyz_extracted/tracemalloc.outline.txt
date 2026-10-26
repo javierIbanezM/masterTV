@@ -1,0 +1,152 @@
+<module>()  line 1
+    _format_size(size, sign)  line 13
+    Statistic()  line 30
+        Statistic.__init__(self, traceback, size, count)  line 37
+        Statistic.__hash__(self)  line 42
+        Statistic.__eq__(self, other)  line 45
+        Statistic.__str__(self)  line 52
+        Statistic.__repr__(self)  line 62
+        Statistic._sort_key(self)  line 66
+    StatisticDiff()  line 70
+        StatisticDiff.__init__(self, traceback, size, size_diff, count, count_diff)  line 77
+        StatisticDiff.__hash__(self)  line 84
+        StatisticDiff.__eq__(self, other)  line 88
+        StatisticDiff.__str__(self)  line 97
+        StatisticDiff.__repr__(self)  line 109
+        StatisticDiff._sort_key(self)  line 114
+    _compare_grouped_stats(old_group, new_group)  line 120
+    Frame()  line 140
+        Frame.__init__(self, frame)  line 147
+        Frame.filename(self)  line 151
+        Frame.lineno(self)  line 155
+        Frame.__eq__(self, other)  line 159
+        Frame.__lt__(self, other)  line 164
+        Frame.__hash__(self)  line 169
+        Frame.__str__(self)  line 172
+        Frame.__repr__(self)  line 175
+    Traceback()  line 179
+        Traceback.__init__(self, frames, total_nframe)  line 187
+        Traceback.total_nframe(self)  line 196
+        Traceback.__len__(self)  line 200
+        Traceback.__getitem__(self, index)  line 203
+            Traceback.__getitem__.<locals>.<genexpr>(.0)  line 205
+        Traceback.__contains__(self, frame)  line 209
+        Traceback.__hash__(self)  line 212
+        Traceback.__eq__(self, other)  line 215
+        Traceback.__lt__(self, other)  line 220
+        Traceback.__str__(self)  line 225
+        Traceback.__repr__(self)  line 228
+        Traceback.format(self, limit, most_recent_first)  line 236
+    get_object_traceback(obj)  line 257
+    Trace()  line 272
+        Trace.__init__(self, trace)  line 278
+        Trace.domain(self)  line 283
+        Trace.size(self)  line 287
+        Trace.traceback(self)  line 291
+        Trace.__eq__(self, other)  line 295
+        Trace.__hash__(self)  line 300
+        Trace.__str__(self)  line 303
+        Trace.__repr__(self)  line 306
+    _Traces()  line 311
+        _Traces.__init__(self, traces)  line 312
+        _Traces.__len__(self)  line 317
+        _Traces.__getitem__(self, index)  line 320
+            _Traces.__getitem__.<locals>.<genexpr>(.0)  line 322
+        _Traces.__contains__(self, trace)  line 326
+        _Traces.__eq__(self, other)  line 329
+        _Traces.__repr__(self)  line 334
+    _normalize_filename(filename)  line 338
+    BaseFilter()  line 345
+        BaseFilter.__init__(self, inclusive)  line 346
+        BaseFilter._match(self, trace)  line 349
+    Filter()  line 353
+        Filter.__init__(self, inclusive, filename_pattern, lineno, all_frames, domain)  line 354
+        Filter.filename_pattern(self)  line 363
+        Filter._match_frame_impl(self, filename, lineno)  line 367
+        Filter._match_frame(self, filename, lineno)  line 376
+        Filter._match_traceback(self, traceback)  line 379
+            Filter._match_traceback.<locals>.<genexpr>(.0)  line 381
+        Filter._match(self, trace)  line 390
+    DomainFilter()  line 401
+        DomainFilter.__init__(self, inclusive, domain)  line 402
+        DomainFilter.domain(self)  line 406
+        DomainFilter._match(self, trace)  line 410
+    Snapshot()  line 415
+        Snapshot.__init__(self, traces, traceback_limit)  line 420
+        Snapshot.dump(self, filename)  line 426
+        Snapshot.load(filename)  line 433
+        Snapshot._filter_trace(self, include_filters, exclude_filters, trace)  line 441
+            Snapshot._filter_trace.<locals>.<genexpr>(.0)  line 443
+            Snapshot._filter_trace.<locals>.<genexpr>(.0)  line 447
+        Snapshot.filter_traces(self, filters)  line 452
+        Snapshot._group_by(self, key_type, cumulative)  line 477
+        Snapshot.statistics(self, key_type, cumulative)  line 528
+        Snapshot.compare_to(self, old_snapshot, key_type, cumulative)  line 538
+    take_snapshot()  line 551
+
+--- strings ---
+'TiB'
+'%+.1f %s'
+'%.1f %s'
+'%+.0f %s'
+'%.0f %s'
+'Statistic'
+'\nStatistic difference on memory allocations between two Snapshot instance.\n'
+'%s: size=%s, count=%i'
+', average=%s'
+'<Statistic traceback=%r size=%i count=%i>'
+'Statistic'
+'StatisticDiff'
+'\nStatistic difference on memory allocations between an old and a new\nSnapshot instance.\n'
+'%s: size=%s (%s), count=%i (%+i)'
+', average=%s'
+'<StatisticDiff traceback=%r size=%i (%+i) count=%i (%+i)>'
+'StatisticDiff'
+'Frame'
+'\nFrame of a traceback.\n'
+'<Frame filename='
+' lineno='
+'Frame'
+'Traceback'
+'\nSequence of Frame instances sorted from the oldest frame\nto the most recent frame.\n'
+'<Traceback '
+' total_nframe='
+'  File "'
+'", line '
+'    %s'
+'Traceback'
+'\nGet the traceback where the Python object *obj* was allocated.\nReturn a Traceback instance.\n\nReturn None if the tracemalloc module is not tracing memory allocations or\ndid not trace the allocation of the object.\n'
+'Trace'
+'\nTrace of a memory block.\n'
+': '
+'<Trace domain='
+' size='
+', traceback='
+'Trace'
+'_Traces'
+'<Traces len=%s>'
+'_Traces'
+'.pyc'
+'BaseFilter'
+'BaseFilter'
+'Filter'
+'Filter'
+'DomainFilter'
+'DomainFilter'
+'Snapshot'
+'\nSnapshot of traces of memory blocks allocated by Python.\n'
+'\nWrite the snapshot into a file.\n'
+'wb'
+'\nLoad a snapshot from a file.\n'
+'rb'
+'\nCreate a new Snapshot instance with a filtered traces sequence, filters\nis a list of Filter or DomainFilter instances.  If filters is an empty\nlist, return a new Snapshot instance with a copy of the traces.\n'
+'filters must be a list of filters, not %s'
+'traceback'
+'lineno'
+'unknown key_type: '
+'cumulative mode cannot by used with key type %r'
+'\nGroup statistics by key_type. Return a sorted list of Statistic\ninstances.\n'
+'\nCompute the differences with an old snapshot old_snapshot. Get\nstatistics as a sorted list of StatisticDiff instances, grouped by\ngroup_by.\n'
+'Snapshot'
+'\nTake a snapshot of traces of memory blocks allocated by Python.\n'
+'the tracemalloc module must be tracing memory allocations to take a snapshot'

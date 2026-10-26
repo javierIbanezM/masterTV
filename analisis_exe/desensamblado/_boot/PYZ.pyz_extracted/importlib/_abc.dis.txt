@@ -1,0 +1,86 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Subset of importlib.abc used to reduce importlib.util imports.')
+              STORE_NAME               0 (__doc__)
+
+  2           LOAD_SMALL_INT           1
+              LOAD_CONST               1 (('_bootstrap',))
+              IMPORT_NAME              1
+              IMPORT_FROM              2 (_bootstrap)
+              STORE_NAME               2 (_bootstrap)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (abc)
+              STORE_NAME               3 (abc)
+
+  6           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               3 (<code object Loader at 0x00000204BA08AC30, file "importlib\_abc.py", line 6>)
+              MAKE_FUNCTION
+              LOAD_CONST               4 ('Loader')
+              LOAD_NAME                3 (abc)
+              LOAD_ATTR                8 (ABCMeta)
+              LOAD_CONST               5 (('metaclass',))
+              CALL_KW                  3
+              STORE_NAME               5 (Loader)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Loader at 0x00000204BA08AC30, file "importlib\_abc.py", line 6>:
+  --           MAKE_CELL                0 (__classdict__)
+
+   6           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Loader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT           6
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+   8           LOAD_CONST               1 ('Abstract base class for import loaders.')
+               STORE_NAME               4 (__doc__)
+
+  10           LOAD_CONST               2 (<code object create_module at 0x00000204BA6E0FF0, file "importlib\_abc.py", line 10>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (create_module)
+
+  23           LOAD_CONST               3 (<code object load_module at 0x00000204B9FEF800, file "importlib\_abc.py", line 23>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (load_module)
+               LOAD_CONST               4 (())
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object create_module at 0x00000204BA6E0FF0, file "importlib\_abc.py", line 10>:
+ 10           RESUME                   0
+
+ 18           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object load_module at 0x00000204B9FEF800, file "importlib\_abc.py", line 23>:
+ 23           RESUME                   0
+
+ 36           LOAD_GLOBAL              1 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_CONST               1 ('exec_module')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         7 (to L1)
+              NOT_TAKEN
+
+ 37           LOAD_GLOBAL              2 (ImportError)
+              RAISE_VARARGS            1
+
+ 39   L1:     LOAD_GLOBAL              4 (_bootstrap)
+              LOAD_ATTR                6 (_load_module_shim)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, fullname)
+              CALL                     2
+              RETURN_VALUE

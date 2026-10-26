@@ -1,0 +1,518 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (_signal)
+              STORE_NAME               0 (_signal)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('*',))
+              IMPORT_NAME              0 (_signal)
+              CALL_INTRINSIC_1         2 (INTRINSIC_IMPORT_STAR)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('IntEnum',))
+              IMPORT_NAME              1 (enum)
+              IMPORT_FROM              2 (IntEnum)
+              STORE_NAME               3 (_IntEnum)
+              POP_TOP
+
+  5           LOAD_NAME                4 (globals)
+              PUSH_NULL
+              CALL                     0
+              STORE_NAME               5 (_globals)
+
+  7           LOAD_NAME                3 (_IntEnum)
+              LOAD_ATTR               12 (_convert_)
+              PUSH_NULL
+
+  8           LOAD_CONST               4 ('Signals')
+              LOAD_NAME                7 (__name__)
+
+  9           LOAD_CONST               5 (<code object <lambda> at 0x00000204B9F6EDB0, file "signal.py", line 9>)
+              MAKE_FUNCTION
+
+  7           CALL                     3
+              POP_TOP
+
+ 14           LOAD_NAME                3 (_IntEnum)
+              LOAD_ATTR               12 (_convert_)
+              PUSH_NULL
+
+ 15           LOAD_CONST               6 ('Handlers')
+              LOAD_NAME                7 (__name__)
+
+ 16           LOAD_CONST               7 (<code object <lambda> at 0x00000204BA620650, file "signal.py", line 16>)
+              MAKE_FUNCTION
+
+ 14           CALL                     3
+              POP_TOP
+
+ 18           LOAD_CONST               8 ('pthread_sigmask')
+              LOAD_NAME                5 (_globals)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       22 (to L1)
+              NOT_TAKEN
+
+ 19           LOAD_NAME                3 (_IntEnum)
+              LOAD_ATTR               12 (_convert_)
+              PUSH_NULL
+
+ 20           LOAD_CONST               9 ('Sigmasks')
+              LOAD_NAME                7 (__name__)
+
+ 21           LOAD_CONST              10 (<code object <lambda> at 0x00000204BA620570, file "signal.py", line 21>)
+              MAKE_FUNCTION
+
+ 19           CALL                     3
+              POP_TOP
+
+ 24   L1:     LOAD_CONST              11 (<code object _int_to_enum at 0x00000204BA0A9070, file "signal.py", line 24>)
+              MAKE_FUNCTION
+              STORE_NAME               8 (_int_to_enum)
+
+ 36           LOAD_CONST              12 (<code object _enum_to_int at 0x00000204BA0A7750, file "signal.py", line 36>)
+              MAKE_FUNCTION
+              STORE_NAME               9 (_enum_to_int)
+
+ 50           LOAD_CONST              13 (<code object _wraps at 0x00000204BA0934B0, file "signal.py", line 50>)
+              MAKE_FUNCTION
+              STORE_NAME              10 (_wraps)
+
+ 56           LOAD_NAME               10 (_wraps)
+              PUSH_NULL
+              LOAD_NAME                0 (_signal)
+              LOAD_ATTR               22 (signal)
+              CALL                     1
+
+ 57           LOAD_CONST              14 (<code object signal at 0x00000204BA0BB750, file "signal.py", line 56>)
+              MAKE_FUNCTION
+
+ 56           CALL                     0
+
+ 57           STORE_NAME              11 (signal)
+
+ 62           LOAD_NAME               10 (_wraps)
+              PUSH_NULL
+              LOAD_NAME                0 (_signal)
+              LOAD_ATTR               24 (getsignal)
+              CALL                     1
+
+ 63           LOAD_CONST              15 (<code object getsignal at 0x00000204BA0A6550, file "signal.py", line 62>)
+              MAKE_FUNCTION
+
+ 62           CALL                     0
+
+ 63           STORE_NAME              12 (getsignal)
+
+ 68           LOAD_CONST               8 ('pthread_sigmask')
+              LOAD_NAME                5 (_globals)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       25 (to L2)
+              NOT_TAKEN
+
+ 69           LOAD_NAME               10 (_wraps)
+              PUSH_NULL
+              LOAD_NAME                0 (_signal)
+              LOAD_ATTR               26 (pthread_sigmask)
+              CALL                     1
+
+ 70           LOAD_CONST              16 (<code object pthread_sigmask at 0x00000204BA102760, file "signal.py", line 69>)
+              MAKE_FUNCTION
+
+ 69           CALL                     0
+
+ 70           STORE_NAME              13 (pthread_sigmask)
+
+ 75   L2:     LOAD_CONST              17 ('sigpending')
+              LOAD_NAME                5 (_globals)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       25 (to L3)
+              NOT_TAKEN
+
+ 76           LOAD_NAME               10 (_wraps)
+              PUSH_NULL
+              LOAD_NAME                0 (_signal)
+              LOAD_ATTR               28 (sigpending)
+              CALL                     1
+
+ 77           LOAD_CONST              18 (<code object sigpending at 0x00000204BA0B8D50, file "signal.py", line 76>)
+              MAKE_FUNCTION
+
+ 76           CALL                     0
+
+ 77           STORE_NAME              14 (sigpending)
+
+ 81   L3:     LOAD_CONST              19 ('sigwait')
+              LOAD_NAME                5 (_globals)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       25 (to L4)
+              NOT_TAKEN
+
+ 82           LOAD_NAME               10 (_wraps)
+              PUSH_NULL
+              LOAD_NAME                0 (_signal)
+              LOAD_ATTR               30 (sigwait)
+              CALL                     1
+
+ 83           LOAD_CONST              20 (<code object sigwait at 0x00000204BA0A71B0, file "signal.py", line 82>)
+              MAKE_FUNCTION
+
+ 82           CALL                     0
+
+ 83           STORE_NAME              15 (sigwait)
+
+ 88   L4:     LOAD_CONST              21 ('valid_signals')
+              LOAD_NAME                5 (_globals)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       25 (to L5)
+              NOT_TAKEN
+
+ 89           LOAD_NAME               10 (_wraps)
+              PUSH_NULL
+              LOAD_NAME                0 (_signal)
+              LOAD_ATTR               32 (valid_signals)
+              CALL                     1
+
+ 90           LOAD_CONST              22 (<code object valid_signals at 0x00000204BA0BB600, file "signal.py", line 89>)
+              MAKE_FUNCTION
+
+ 89           CALL                     0
+
+ 90           STORE_NAME              16 (valid_signals)
+
+ 94   L5:     DELETE_NAME              5 (_globals)
+              DELETE_NAME             10 (_wraps)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204B9F6EDB0, file "signal.py", line 9>:
+  9           RESUME                   0
+
+ 10           LOAD_FAST_BORROW         0 (name)
+              LOAD_ATTR                1 (isupper + NULL|self)
+              CALL                     0
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       56 (to L1)
+              NOT_TAKEN
+              POP_TOP
+
+ 11           LOAD_FAST_BORROW         0 (name)
+              LOAD_ATTR                3 (startswith + NULL|self)
+              LOAD_CONST               0 ('SIG')
+              CALL                     1
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       31 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (name)
+              LOAD_ATTR                3 (startswith + NULL|self)
+              LOAD_CONST               1 ('SIG_')
+              CALL                     1
+              TO_BOOL
+              UNARY_NOT
+
+ 10           COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        18 (to L2)
+              NOT_TAKEN
+      L1:     POP_TOP
+
+ 12           LOAD_FAST_BORROW         0 (name)
+              LOAD_ATTR                3 (startswith + NULL|self)
+              LOAD_CONST               2 ('CTRL_')
+              CALL                     1
+
+ 10   L2:     RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA620650, file "signal.py", line 16>:
+ 16           RESUME                   0
+              LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               1 (('SIG_DFL', 'SIG_IGN'))
+              CONTAINS_OP              0 (in)
+              RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA620570, file "signal.py", line 21>:
+ 21           RESUME                   0
+              LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               1 (('SIG_BLOCK', 'SIG_UNBLOCK', 'SIG_SETMASK'))
+              CONTAINS_OP              0 (in)
+              RETURN_VALUE
+
+Disassembly of <code object _int_to_enum at 0x00000204BA0A9070, file "signal.py", line 24>:
+  24           RESUME                   0
+
+  28           LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         0 (value)
+               LOAD_GLOBAL              2 (int)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L1)
+               NOT_TAKEN
+
+  29           LOAD_FAST_BORROW         0 (value)
+               RETURN_VALUE
+
+  30   L1:     NOP
+
+  31   L2:     LOAD_FAST_BORROW         1 (enum_klass)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (value)
+               CALL                     1
+       L3:     RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  32           LOAD_GLOBAL              4 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  33           LOAD_FAST                0 (value)
+               SWAP                     2
+       L5:     POP_EXCEPT
+               RETURN_VALUE
+
+  32   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object _enum_to_int at 0x00000204BA0A7750, file "signal.py", line 36>:
+  36           RESUME                   0
+
+  40           NOP
+
+  41   L1:     LOAD_GLOBAL              1 (int + NULL)
+               LOAD_FAST_BORROW         0 (value)
+               CALL                     1
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  42           LOAD_GLOBAL              2 (ValueError)
+               LOAD_GLOBAL              4 (TypeError)
+               BUILD_TUPLE              2
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  43           LOAD_FAST                0 (value)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+  42   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object _wraps at 0x00000204BA0934B0, file "signal.py", line 50>:
+  --           MAKE_CELL                0 (wrapped)
+
+  50           RESUME                   0
+
+  51           LOAD_FAST_BORROW         0 (wrapped)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object decorator at 0x00000204BA10AE30, file "signal.py", line 51>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_FAST               1 (decorator)
+
+  54           LOAD_FAST_BORROW         1 (decorator)
+               RETURN_VALUE
+
+Disassembly of <code object decorator at 0x00000204BA10AE30, file "signal.py", line 51>:
+  --           COPY_FREE_VARS           1
+
+  51           RESUME                   0
+
+  52           LOAD_DEREF               1 (wrapped)
+               LOAD_ATTR                0 (__doc__)
+               LOAD_FAST_BORROW         0 (wrapper)
+               STORE_ATTR               0 (__doc__)
+
+  53           LOAD_FAST_BORROW         0 (wrapper)
+               RETURN_VALUE
+
+Disassembly of <code object signal at 0x00000204BA0BB750, file "signal.py", line 56>:
+ 56           RESUME                   0
+
+ 58           LOAD_GLOBAL              0 (_signal)
+              LOAD_ATTR                2 (signal)
+              PUSH_NULL
+              LOAD_GLOBAL              5 (_enum_to_int + NULL)
+              LOAD_FAST_BORROW         0 (signalnum)
+              CALL                     1
+              LOAD_GLOBAL              5 (_enum_to_int + NULL)
+              LOAD_FAST_BORROW         1 (handler)
+              CALL                     1
+              CALL                     2
+              STORE_FAST               1 (handler)
+
+ 59           LOAD_GLOBAL              7 (_int_to_enum + NULL)
+              LOAD_FAST_BORROW         1 (handler)
+              LOAD_GLOBAL              8 (Handlers)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object getsignal at 0x00000204BA0A6550, file "signal.py", line 62>:
+ 62           RESUME                   0
+
+ 64           LOAD_GLOBAL              0 (_signal)
+              LOAD_ATTR                2 (getsignal)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (signalnum)
+              CALL                     1
+              STORE_FAST               1 (handler)
+
+ 65           LOAD_GLOBAL              5 (_int_to_enum + NULL)
+              LOAD_FAST_BORROW         1 (handler)
+              LOAD_GLOBAL              6 (Handlers)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object pthread_sigmask at 0x00000204BA102760, file "signal.py", line 69>:
+ 69           RESUME                   0
+
+ 71           LOAD_GLOBAL              0 (_signal)
+              LOAD_ATTR                2 (pthread_sigmask)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (how, mask)
+              CALL                     2
+              STORE_FAST               2 (sigs_set)
+
+ 72           LOAD_GLOBAL              5 (set + NULL)
+              LOAD_CONST               0 (<code object <genexpr> at 0x00000204BA0A6E50, file "signal.py", line 72>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         2 (sigs_set)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A6E50, file "signal.py", line 72>:
+  72           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                21 (to L3)
+               STORE_FAST               1 (x)
+               LOAD_GLOBAL              1 (_int_to_enum + NULL)
+               LOAD_FAST_BORROW         1 (x)
+               LOAD_GLOBAL              2 (Signals)
+               CALL                     2
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           23 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object sigpending at 0x00000204BA0B8D50, file "signal.py", line 76>:
+  76           RESUME                   0
+
+  78           LOAD_GLOBAL              0 (_signal)
+               LOAD_ATTR                2 (sigpending)
+               PUSH_NULL
+               CALL                     0
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      0 (x)
+               SWAP                     2
+       L1:     BUILD_SET                0
+               SWAP                     2
+       L2:     FOR_ITER                19 (to L3)
+               STORE_FAST               0 (x)
+               LOAD_GLOBAL              5 (_int_to_enum + NULL)
+               LOAD_FAST_BORROW         0 (x)
+               LOAD_GLOBAL              6 (Signals)
+               CALL                     2
+               SET_ADD                  2
+               JUMP_BACKWARD           21 (to L2)
+       L3:     END_FOR
+               POP_ITER
+       L4:     SWAP                     2
+               STORE_FAST               0 (x)
+               RETURN_VALUE
+
+  --   L5:     SWAP                     2
+               POP_TOP
+
+  78           SWAP                     2
+               STORE_FAST               0 (x)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L5 [2]
+
+Disassembly of <code object sigwait at 0x00000204BA0A71B0, file "signal.py", line 82>:
+ 82           RESUME                   0
+
+ 84           LOAD_GLOBAL              0 (_signal)
+              LOAD_ATTR                2 (sigwait)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (sigset)
+              CALL                     1
+              STORE_FAST               1 (retsig)
+
+ 85           LOAD_GLOBAL              5 (_int_to_enum + NULL)
+              LOAD_FAST_BORROW         1 (retsig)
+              LOAD_GLOBAL              6 (Signals)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object valid_signals at 0x00000204BA0BB600, file "signal.py", line 89>:
+  89           RESUME                   0
+
+  91           LOAD_GLOBAL              0 (_signal)
+               LOAD_ATTR                2 (valid_signals)
+               PUSH_NULL
+               CALL                     0
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      0 (x)
+               SWAP                     2
+       L1:     BUILD_SET                0
+               SWAP                     2
+       L2:     FOR_ITER                19 (to L3)
+               STORE_FAST               0 (x)
+               LOAD_GLOBAL              5 (_int_to_enum + NULL)
+               LOAD_FAST_BORROW         0 (x)
+               LOAD_GLOBAL              6 (Signals)
+               CALL                     2
+               SET_ADD                  2
+               JUMP_BACKWARD           21 (to L2)
+       L3:     END_FOR
+               POP_ITER
+       L4:     SWAP                     2
+               STORE_FAST               0 (x)
+               RETURN_VALUE
+
+  --   L5:     SWAP                     2
+               POP_TOP
+
+  91           SWAP                     2
+               STORE_FAST               0 (x)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L5 [2]

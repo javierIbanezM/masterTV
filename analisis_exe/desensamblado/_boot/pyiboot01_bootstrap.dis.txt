@@ -1,0 +1,248 @@
+  0           RESUME                   0
+
+ 13           LOAD_CONST               0 (<code object _pyi_bootstrap at 0x00000204BA35BFC0, file "pyiboot01_bootstrap.py", line 13>)
+              MAKE_FUNCTION
+              STORE_NAME               0 (_pyi_bootstrap)
+
+ 95           LOAD_NAME                0 (_pyi_bootstrap)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+
+ 96           DELETE_NAME              0 (_pyi_bootstrap)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _pyi_bootstrap at 0x00000204BA35BFC0, file "pyiboot01_bootstrap.py", line 13>:
+  13            RESUME                   0
+
+  17            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              0 (sys)
+                STORE_FAST               0 (sys)
+
+  18            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              1 (os)
+                STORE_FAST               1 (os)
+
+  21            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              2 (pyimod02_importers)
+                STORE_FAST               2 (pyimod02_importers)
+
+  22            LOAD_FAST_BORROW         2 (pyimod02_importers)
+                LOAD_ATTR                7 (install + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  28            LOAD_GLOBAL              9 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (sys)
+                LOAD_CONST               2 ('frozen')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE         8 (to L1)
+                NOT_TAKEN
+
+  29            LOAD_CONST               3 (True)
+                LOAD_FAST_BORROW         0 (sys)
+                STORE_ATTR               5 (frozen)
+
+  35    L1:     LOAD_CONST               4 ('VIRTUAL_ENV')
+                STORE_FAST               3 (VIRTENV)
+
+  36            LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (VIRTENV, os)
+                LOAD_ATTR               12 (environ)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       29 (to L2)
+                NOT_TAKEN
+
+  39            LOAD_CONST               5 ('')
+                LOAD_FAST_BORROW         1 (os)
+                LOAD_ATTR               12 (environ)
+                LOAD_FAST_BORROW         3 (VIRTENV)
+                STORE_SUBSCR
+
+  40            LOAD_FAST_BORROW         1 (os)
+                LOAD_ATTR               12 (environ)
+                LOAD_FAST_BORROW         3 (VIRTENV)
+                DELETE_SUBSCR
+
+  50    L2:     NOP
+
+  51    L3:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              7 (encodings)
+                STORE_FAST               4 (encodings)
+
+  61    L4:     LOAD_FAST_BORROW         4 (encodings)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      101 (to L5)
+                NOT_TAKEN
+                LOAD_GLOBAL              9 (hasattr + NULL)
+                LOAD_FAST_BORROW         4 (encodings)
+                LOAD_CONST               6 ('__path__')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       83 (to L5)
+                NOT_TAKEN
+
+  62            LOAD_FAST_BORROW         1 (os)
+                LOAD_ATTR               18 (path)
+                LOAD_ATTR               21 (join + NULL|self)
+                LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               22 (_MEIPASS)
+                LOAD_CONST               7 ('base_library.zip')
+                LOAD_CONST               8 ('encodings')
+                CALL                     3
+                STORE_FAST               5 (encodings_dir)
+
+  63            LOAD_FAST_BORROW_LOAD_FAST_BORROW 84 (encodings_dir, encodings)
+                LOAD_ATTR               24 (__path__)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE       28 (to L5)
+                NOT_TAKEN
+
+  64            LOAD_FAST_BORROW         4 (encodings)
+                LOAD_ATTR               24 (__path__)
+                LOAD_ATTR               27 (append + NULL|self)
+                LOAD_FAST_BORROW         5 (encodings_dir)
+                CALL                     1
+                POP_TOP
+
+  67    L5:     LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               28 (warnoptions)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        6 (to L7)
+                NOT_TAKEN
+
+  68            NOP
+
+  69    L6:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME             15 (warnings)
+                STORE_FAST               6 (warnings)
+
+  74    L7:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME             16 (pyimod03_ctypes)
+                STORE_FAST               7 (pyimod03_ctypes)
+
+  75            LOAD_FAST_BORROW         7 (pyimod03_ctypes)
+                LOAD_ATTR                7 (install + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  78            LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               34 (platform)
+                LOAD_ATTR               37 (startswith + NULL|self)
+                LOAD_CONST               9 ('win')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       21 (to L8)
+                NOT_TAKEN
+
+  79            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME             19 (pyimod04_pywin32)
+                STORE_FAST               8 (pyimod04_pywin32)
+
+  80            LOAD_FAST_BORROW         8 (pyimod04_pywin32)
+                LOAD_ATTR                7 (install + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  87    L8:     LOAD_FAST_BORROW         1 (os)
+                LOAD_ATTR               41 (listdir + NULL|self)
+                LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               22 (_MEIPASS)
+                CALL                     1
+                GET_ITER
+        L9:     FOR_ITER               128 (to L12)
+                STORE_FAST               9 (entry)
+
+  88            LOAD_FAST_BORROW         1 (os)
+                LOAD_ATTR               18 (path)
+                LOAD_ATTR               21 (join + NULL|self)
+                LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               22 (_MEIPASS)
+                LOAD_FAST_BORROW         9 (entry)
+                CALL                     2
+                STORE_FAST               9 (entry)
+
+  89            LOAD_FAST_BORROW         1 (os)
+                LOAD_ATTR               18 (path)
+                LOAD_ATTR               43 (isdir + NULL|self)
+                LOAD_FAST_BORROW         9 (entry)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L10)
+                NOT_TAKEN
+
+  90            JUMP_BACKWARD           76 (to L9)
+
+  91   L10:     LOAD_FAST_BORROW         9 (entry)
+                LOAD_ATTR               45 (endswith + NULL|self)
+                LOAD_CONST              10 ('.egg')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L11)
+                NOT_TAKEN
+                JUMP_BACKWARD          101 (to L9)
+
+  92   L11:     LOAD_FAST_BORROW         0 (sys)
+                LOAD_ATTR               18 (path)
+                LOAD_ATTR               27 (append + NULL|self)
+                LOAD_FAST_BORROW         9 (entry)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          130 (to L9)
+
+  87   L12:     END_FOR
+                POP_ITER
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L13:     PUSH_EXC_INFO
+
+  52            LOAD_GLOBAL             16 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        7 (to L15)
+                NOT_TAKEN
+                POP_TOP
+
+  53            LOAD_CONST               1 (None)
+                STORE_FAST               4 (encodings)
+       L14:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 381 (to L4)
+
+  52   L15:     RERAISE                  0
+
+  --   L16:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L17:     PUSH_EXC_INFO
+
+  70            LOAD_GLOBAL             16 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L19)
+                NOT_TAKEN
+                POP_TOP
+
+  71   L18:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 268 (to L7)
+
+  70   L19:     RERAISE                  0
+
+  --   L20:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L13 [0]
+  L6 to L7 -> L17 [0]
+  L13 to L14 -> L16 [1] lasti
+  L15 to L16 -> L16 [1] lasti
+  L17 to L18 -> L20 [1] lasti
+  L19 to L20 -> L20 [1] lasti

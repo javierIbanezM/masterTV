@@ -1,0 +1,752 @@
+   0            RESUME                   0
+
+   1            LOAD_CONST               0 ('Abstract base classes related to import.')
+                STORE_NAME               0 (__doc__)
+
+   2            LOAD_SMALL_INT           1
+                LOAD_CONST               1 (('_bootstrap_external',))
+                IMPORT_NAME              1
+                IMPORT_FROM              2 (_bootstrap_external)
+                STORE_NAME               2 (_bootstrap_external)
+                POP_TOP
+
+   3            LOAD_SMALL_INT           1
+                LOAD_CONST               2 (('machinery',))
+                IMPORT_NAME              1
+                IMPORT_FROM              3 (machinery)
+                STORE_NAME               3 (machinery)
+                POP_TOP
+
+   4            NOP
+
+   5    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               3 (None)
+                IMPORT_NAME              4 (_frozen_importlib)
+                STORE_NAME               4 (_frozen_importlib)
+
+  10    L2:     NOP
+
+  11    L3:     LOAD_SMALL_INT           0
+                LOAD_CONST               3 (None)
+                IMPORT_NAME              8 (_frozen_importlib_external)
+                STORE_NAME               8 (_frozen_importlib_external)
+
+  14    L4:     LOAD_SMALL_INT           1
+                LOAD_CONST               5 (('Loader',))
+                IMPORT_NAME              9 (_abc)
+                IMPORT_FROM             10 (Loader)
+                STORE_NAME              10 (Loader)
+                POP_TOP
+
+  15            LOAD_SMALL_INT           0
+                LOAD_CONST               3 (None)
+                IMPORT_NAME             11 (abc)
+                STORE_NAME              11 (abc)
+
+  18            BUILD_LIST               0
+                LOAD_CONST              22 (('Loader', 'MetaPathFinder', 'PathEntryFinder', 'ResourceLoader', 'InspectLoader', 'ExecutionLoader', 'FileLoader', 'SourceLoader'))
+                LIST_EXTEND              1
+                STORE_NAME              12 (__all__)
+
+  25            LOAD_CONST              13 (<code object _register at 0x00000204B9F4DD30, file "importlib\abc.py", line 25>)
+                MAKE_FUNCTION
+                STORE_NAME              13 (_register)
+
+  36            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              14 (<code object MetaPathFinder at 0x00000204BA088330, file "importlib\abc.py", line 36>)
+                MAKE_FUNCTION
+                LOAD_CONST               6 ('MetaPathFinder')
+                LOAD_NAME               11 (abc)
+                LOAD_ATTR               28 (ABCMeta)
+                LOAD_CONST              15 (('metaclass',))
+                CALL_KW                  3
+                STORE_NAME              15 (MetaPathFinder)
+
+  48            LOAD_NAME               13 (_register)
+                PUSH_NULL
+                LOAD_NAME               15 (MetaPathFinder)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               32 (BuiltinImporter)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               34 (FrozenImporter)
+
+  49            LOAD_NAME                3 (machinery)
+                LOAD_ATTR               36 (PathFinder)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               38 (WindowsRegistryFinder)
+
+  48            CALL                     5
+                POP_TOP
+
+  52            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              16 (<code object PathEntryFinder at 0x00000204BA08B330, file "importlib\abc.py", line 52>)
+                MAKE_FUNCTION
+                LOAD_CONST               7 ('PathEntryFinder')
+                LOAD_NAME               11 (abc)
+                LOAD_ATTR               28 (ABCMeta)
+                LOAD_CONST              15 (('metaclass',))
+                CALL_KW                  3
+                STORE_NAME              20 (PathEntryFinder)
+
+  61            LOAD_NAME               13 (_register)
+                PUSH_NULL
+                LOAD_NAME               20 (PathEntryFinder)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               42 (FileFinder)
+                CALL                     2
+                POP_TOP
+
+  64            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              17 (<code object ResourceLoader at 0x00000204BA0A68B0, file "importlib\abc.py", line 64>)
+                MAKE_FUNCTION
+                LOAD_CONST               8 ('ResourceLoader')
+                LOAD_NAME               10 (Loader)
+                CALL                     3
+                STORE_NAME              22 (ResourceLoader)
+
+  83            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              18 (<code object InspectLoader at 0x00000204BA0B7230, file "importlib\abc.py", line 83>)
+                MAKE_FUNCTION
+                LOAD_CONST               9 ('InspectLoader')
+                LOAD_NAME               10 (Loader)
+                CALL                     3
+                STORE_NAME              23 (InspectLoader)
+
+ 133            LOAD_NAME               13 (_register)
+                PUSH_NULL
+                LOAD_NAME               23 (InspectLoader)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               32 (BuiltinImporter)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               34 (FrozenImporter)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               48 (NamespaceLoader)
+                CALL                     4
+                POP_TOP
+
+ 136            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              19 (<code object ExecutionLoader at 0x00000204BA0A7AB0, file "importlib\abc.py", line 136>)
+                MAKE_FUNCTION
+                LOAD_CONST              10 ('ExecutionLoader')
+                LOAD_NAME               23 (InspectLoader)
+                CALL                     3
+                STORE_NAME              25 (ExecutionLoader)
+
+ 170            LOAD_NAME               13 (_register)
+                PUSH_NULL
+
+ 171            LOAD_NAME               25 (ExecutionLoader)
+
+ 172            LOAD_NAME                3 (machinery)
+                LOAD_ATTR               52 (ExtensionFileLoader)
+
+ 173            LOAD_NAME                3 (machinery)
+                LOAD_ATTR               54 (AppleFrameworkLoader)
+
+ 170            CALL                     3
+                POP_TOP
+
+ 177            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              20 (<code object FileLoader at 0x00000204BA093690, file "importlib\abc.py", line 177>)
+                MAKE_FUNCTION
+                LOAD_CONST              11 ('FileLoader')
+                LOAD_NAME                2 (_bootstrap_external)
+                LOAD_ATTR               56 (FileLoader)
+                LOAD_NAME               22 (ResourceLoader)
+                LOAD_NAME               25 (ExecutionLoader)
+                CALL                     5
+                STORE_NAME              28 (FileLoader)
+
+ 182            LOAD_NAME               13 (_register)
+                PUSH_NULL
+                LOAD_NAME               28 (FileLoader)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               58 (SourceFileLoader)
+
+ 183            LOAD_NAME                3 (machinery)
+                LOAD_ATTR               60 (SourcelessFileLoader)
+
+ 182            CALL                     3
+                POP_TOP
+
+ 186            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              21 (<code object SourceLoader at 0x00000204BA0FECD0, file "importlib\abc.py", line 186>)
+                MAKE_FUNCTION
+                LOAD_CONST              12 ('SourceLoader')
+                LOAD_NAME                2 (_bootstrap_external)
+                LOAD_ATTR               62 (SourceLoader)
+                LOAD_NAME               22 (ResourceLoader)
+                LOAD_NAME               25 (ExecutionLoader)
+                CALL                     5
+                STORE_NAME              31 (SourceLoader)
+
+ 234            LOAD_NAME               13 (_register)
+                PUSH_NULL
+                LOAD_NAME               31 (SourceLoader)
+                LOAD_NAME                3 (machinery)
+                LOAD_ATTR               58 (SourceFileLoader)
+                CALL                     2
+                POP_TOP
+                LOAD_CONST               3 (None)
+                RETURN_VALUE
+
+  --    L5:     PUSH_EXC_INFO
+
+   6            LOAD_NAME                5 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       32 (to L10)
+                NOT_TAKEN
+                STORE_NAME               6 (exc)
+
+   7    L6:     LOAD_NAME                6 (exc)
+                LOAD_ATTR               14 (name)
+                LOAD_CONST               4 ('_frozen_importlib')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE        2 (to L7)
+                NOT_TAKEN
+
+   8            RAISE_VARARGS            0
+
+   9    L7:     LOAD_CONST               3 (None)
+                STORE_NAME               4 (_frozen_importlib)
+        L8:     POP_EXCEPT
+                LOAD_CONST               3 (None)
+                STORE_NAME               6 (exc)
+                DELETE_NAME              6 (exc)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 371 (to L2)
+
+  --    L9:     LOAD_CONST               3 (None)
+                STORE_NAME               6 (exc)
+                DELETE_NAME              6 (exc)
+                RERAISE                  1
+
+   6   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L12:     PUSH_EXC_INFO
+
+  12            LOAD_NAME                5 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        7 (to L14)
+                NOT_TAKEN
+                POP_TOP
+
+  13            LOAD_NAME                2 (_bootstrap_external)
+                STORE_NAME               8 (_frozen_importlib_external)
+       L13:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 386 (to L4)
+
+  12   L14:     RERAISE                  0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L3 to L4 -> L12 [0]
+  L5 to L6 -> L11 [1] lasti
+  L6 to L8 -> L9 [1] lasti
+  L9 to L11 -> L11 [1] lasti
+  L12 to L13 -> L15 [1] lasti
+  L14 to L15 -> L15 [1] lasti
+
+Disassembly of <code object _register at 0x00000204B9F4DD30, file "importlib\abc.py", line 25>:
+  25           RESUME                   0
+
+  26           LOAD_FAST_BORROW         1 (classes)
+               GET_ITER
+       L1:     FOR_ITER                74 (to L5)
+               STORE_FAST               2 (cls)
+
+  27           LOAD_FAST_BORROW         0 (abstract_cls)
+               LOAD_ATTR                1 (register + NULL|self)
+               LOAD_FAST_BORROW         2 (cls)
+               CALL                     1
+               POP_TOP
+
+  28           LOAD_GLOBAL              2 (_frozen_importlib)
+               POP_JUMP_IF_NOT_NONE     3 (to L2)
+               NOT_TAKEN
+               JUMP_BACKWARD           30 (to L1)
+
+  29   L2:     NOP
+
+  30   L3:     LOAD_GLOBAL              5 (getattr + NULL)
+               LOAD_GLOBAL              2 (_frozen_importlib)
+               LOAD_FAST_BORROW         2 (cls)
+               LOAD_ATTR                6 (__name__)
+               CALL                     2
+               STORE_FAST               3 (frozen_cls)
+
+  33   L4:     LOAD_FAST_BORROW         0 (abstract_cls)
+               LOAD_ATTR                1 (register + NULL|self)
+               LOAD_FAST_BORROW         3 (frozen_cls)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD           76 (to L1)
+
+  26   L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+  31           LOAD_GLOBAL              8 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       30 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+  32           LOAD_GLOBAL              5 (getattr + NULL)
+               LOAD_GLOBAL             10 (_frozen_importlib_external)
+               LOAD_FAST                2 (cls)
+               LOAD_ATTR                6 (__name__)
+               CALL                     2
+               STORE_FAST               3 (frozen_cls)
+       L7:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 62 (to L4)
+
+  31   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L6 [1]
+  L6 to L7 -> L9 [2] lasti
+  L8 to L9 -> L9 [2] lasti
+
+Disassembly of <code object MetaPathFinder at 0x00000204BA088330, file "importlib\abc.py", line 36>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  36           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('MetaPathFinder')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          36
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  38           LOAD_CONST               1 ('Abstract base class for import finders on sys.meta_path.')
+               STORE_NAME               4 (__doc__)
+
+  43           LOAD_CONST               2 (<code object invalidate_caches at 0x00000204BA0C2170, file "importlib\abc.py", line 43>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (invalidate_caches)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object invalidate_caches at 0x00000204BA0C2170, file "importlib\abc.py", line 43>:
+ 43           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object PathEntryFinder at 0x00000204BA08B330, file "importlib\abc.py", line 52>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  52           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('PathEntryFinder')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          52
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  54           LOAD_CONST               1 ('Abstract base class for path entry finders used by PathFinder.')
+               STORE_NAME               4 (__doc__)
+
+  56           LOAD_CONST               2 (<code object invalidate_caches at 0x00000204BA6E0B90, file "importlib\abc.py", line 56>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (invalidate_caches)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object invalidate_caches at 0x00000204BA6E0B90, file "importlib\abc.py", line 56>:
+ 56           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object ResourceLoader at 0x00000204BA0A68B0, file "importlib\abc.py", line 64>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  64           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ResourceLoader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          64
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  66           LOAD_CONST               1 ('Abstract base class for loaders which can return data from their\nback-end storage to facilitate reading data to perform an import.\n\nThis ABC represents one of the optional protocols specified by PEP 302.\n\nFor directly loading resources, use TraversableResources instead. This class\nprimarily exists for backwards compatibility with other ABCs in this module.\n\n')
+               STORE_NAME               4 (__doc__)
+
+  76           LOAD_NAME                5 (abc)
+               LOAD_ATTR               12 (abstractmethod)
+
+  77           LOAD_CONST               2 (<code object get_data at 0x00000204BA6E11B0, file "importlib\abc.py", line 76>)
+               MAKE_FUNCTION
+
+  76           CALL                     0
+
+  77           STORE_NAME               7 (get_data)
+               LOAD_CONST               3 (())
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object get_data at 0x00000204BA6E11B0, file "importlib\abc.py", line 76>:
+ 76           RESUME                   0
+
+ 80           LOAD_GLOBAL              0 (OSError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object InspectLoader at 0x00000204BA0B7230, file "importlib\abc.py", line 83>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  83           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('InspectLoader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          83
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  85           LOAD_CONST               1 ('Abstract base class for loaders which support inspection about the\nmodules they can load.\n\nThis ABC represents one of the optional protocols specified by PEP 302.\n\n')
+               STORE_NAME               4 (__doc__)
+
+  92           LOAD_CONST               2 (<code object is_package at 0x00000204BA6E08F0, file "importlib\abc.py", line 92>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (is_package)
+
+ 100           LOAD_CONST               3 (<code object get_code at 0x00000204B9FEF800, file "importlib\abc.py", line 100>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (get_code)
+
+ 113           LOAD_NAME                7 (abc)
+               LOAD_ATTR               16 (abstractmethod)
+
+ 114           LOAD_CONST               4 (<code object get_source at 0x00000204BA6E0650, file "importlib\abc.py", line 113>)
+               MAKE_FUNCTION
+
+ 113           CALL                     0
+
+ 114           STORE_NAME               9 (get_source)
+
+ 122           LOAD_NAME               10 (staticmethod)
+
+ 123           LOAD_CONST               8 (('<string>',))
+               LOAD_CONST               5 (<code object source_to_code at 0x00000204BA0926A0, file "importlib\abc.py", line 122>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+
+ 122           CALL                     0
+
+ 123           STORE_NAME              11 (source_to_code)
+
+ 130           LOAD_NAME               12 (_bootstrap_external)
+               LOAD_ATTR               26 (_LoaderBasics)
+               LOAD_ATTR               28 (exec_module)
+               STORE_NAME              14 (exec_module)
+
+ 131           LOAD_NAME               12 (_bootstrap_external)
+               LOAD_ATTR               26 (_LoaderBasics)
+               LOAD_ATTR               30 (load_module)
+               STORE_NAME              15 (load_module)
+               LOAD_CONST               6 (())
+               STORE_NAME              16 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              17 (__classdictcell__)
+               LOAD_CONST               7 (None)
+               RETURN_VALUE
+
+Disassembly of <code object is_package at 0x00000204BA6E08F0, file "importlib\abc.py", line 92>:
+ 92           RESUME                   0
+
+ 98           LOAD_GLOBAL              0 (ImportError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object get_code at 0x00000204B9FEF800, file "importlib\abc.py", line 100>:
+100           RESUME                   0
+
+108           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (get_source + NULL|self)
+              LOAD_FAST_BORROW         1 (fullname)
+              CALL                     1
+              STORE_FAST               2 (source)
+
+109           LOAD_FAST_BORROW         2 (source)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+110           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+111   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (source_to_code + NULL|self)
+              LOAD_FAST_BORROW         2 (source)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object get_source at 0x00000204BA6E0650, file "importlib\abc.py", line 113>:
+113           RESUME                   0
+
+120           LOAD_GLOBAL              0 (ImportError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object source_to_code at 0x00000204BA0926A0, file "importlib\abc.py", line 122>:
+122           RESUME                   0
+
+128           LOAD_GLOBAL              1 (compile + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (data, path)
+              LOAD_CONST               1 ('exec')
+              LOAD_CONST               2 (True)
+              LOAD_CONST               3 (('dont_inherit',))
+              CALL_KW                  4
+              RETURN_VALUE
+
+Disassembly of <code object ExecutionLoader at 0x00000204BA0A7AB0, file "importlib\abc.py", line 136>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 136           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ExecutionLoader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         136
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 138           LOAD_CONST               1 ('Abstract base class for loaders that wish to support the execution of\nmodules as scripts.\n\nThis ABC represents one of the optional protocols specified in PEP 302.\n\n')
+               STORE_NAME               4 (__doc__)
+
+ 145           LOAD_NAME                5 (abc)
+               LOAD_ATTR               12 (abstractmethod)
+
+ 146           LOAD_CONST               2 (<code object get_filename at 0x00000204BA6E0C70, file "importlib\abc.py", line 145>)
+               MAKE_FUNCTION
+
+ 145           CALL                     0
+
+ 146           STORE_NAME               7 (get_filename)
+
+ 154           LOAD_CONST               3 (<code object get_code at 0x00000204BA129160, file "importlib\abc.py", line 154>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (get_code)
+               LOAD_CONST               4 (())
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object get_filename at 0x00000204BA6E0C70, file "importlib\abc.py", line 145>:
+145           RESUME                   0
+
+152           LOAD_GLOBAL              0 (ImportError)
+              RAISE_VARARGS            1
+
+Disassembly of <code object get_code at 0x00000204BA129160, file "importlib\abc.py", line 154>:
+ 154           RESUME                   0
+
+ 160           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (get_source + NULL|self)
+               LOAD_FAST_BORROW         1 (fullname)
+               CALL                     1
+               STORE_FAST               2 (source)
+
+ 161           LOAD_FAST_BORROW         2 (source)
+               POP_JUMP_IF_NOT_NONE     3 (to L1)
+               NOT_TAKEN
+
+ 162           LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 163   L1:     NOP
+
+ 164   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                3 (get_filename + NULL|self)
+               LOAD_FAST_BORROW         1 (fullname)
+               CALL                     1
+               STORE_FAST               3 (path)
+
+ 168   L3:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                5 (source_to_code + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (source, path)
+               CALL                     2
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 165           LOAD_GLOBAL              6 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       21 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 166           LOAD_FAST                0 (self)
+               LOAD_ATTR                5 (source_to_code + NULL|self)
+               LOAD_FAST                2 (source)
+               CALL                     1
+               SWAP                     2
+       L5:     POP_EXCEPT
+               RETURN_VALUE
+
+ 165   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object FileLoader at 0x00000204BA093690, file "importlib\abc.py", line 177>:
+177           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('FileLoader')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         177
+              STORE_NAME               3 (__firstlineno__)
+
+179           LOAD_CONST               1 ('Abstract base class partially implementing the ResourceLoader and\nExecutionLoader ABCs.')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object SourceLoader at 0x00000204BA0FECD0, file "importlib\abc.py", line 186>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 186           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SourceLoader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         186
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 188           LOAD_CONST               1 ('Abstract base class for loading source code (and optionally any\ncorresponding bytecode).\n\nTo support loading from source code, the abstractmethods inherited from\nResourceLoader and ExecutionLoader need to be implemented. To also support\nloading from bytecode, the optional methods specified directly by this ABC\nis required.\n\nInherited abstractmethods not implemented in this ABC:\n\n    * ResourceLoader.get_data\n    * ExecutionLoader.get_filename\n\n')
+               STORE_NAME               4 (__doc__)
+
+ 203           LOAD_CONST               2 (<code object path_mtime at 0x00000204B9FFBB40, file "importlib\abc.py", line 203>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (path_mtime)
+
+ 213           LOAD_CONST               3 (<code object path_stats at 0x00000204B9F72C30, file "importlib\abc.py", line 213>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (path_stats)
+
+ 224           LOAD_CONST               4 (<code object set_data at 0x00000204BA6E0030, file "importlib\abc.py", line 224>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (set_data)
+               LOAD_CONST               5 (())
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object path_mtime at 0x00000204B9FFBB40, file "importlib\abc.py", line 203>:
+203           RESUME                   0
+
+205           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (warnings)
+              STORE_FAST               2 (warnings)
+
+206           LOAD_FAST_BORROW         2 (warnings)
+              LOAD_ATTR                3 (warn + NULL|self)
+              LOAD_CONST               2 ('SourceLoader.path_mtime is deprecated in favour of SourceLoader.path_stats().')
+
+208           LOAD_GLOBAL              4 (DeprecationWarning)
+              LOAD_SMALL_INT           2
+
+206           LOAD_CONST               3 (('stacklevel',))
+              CALL_KW                  3
+              POP_TOP
+
+209           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (path_stats)
+              LOAD_ATTR                8 (__func__)
+              LOAD_GLOBAL             10 (SourceLoader)
+              LOAD_ATTR                6 (path_stats)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE        7 (to L1)
+              NOT_TAKEN
+
+210           LOAD_GLOBAL             12 (OSError)
+              RAISE_VARARGS            1
+
+211   L1:     LOAD_GLOBAL             15 (int + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (path_stats + NULL|self)
+              LOAD_FAST_BORROW         1 (path)
+              CALL                     1
+              LOAD_CONST               4 ('mtime')
+              BINARY_OP               26 ([])
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object path_stats at 0x00000204B9F72C30, file "importlib\abc.py", line 213>:
+213           RESUME                   0
+
+220           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (path_mtime)
+              LOAD_ATTR                2 (__func__)
+              LOAD_GLOBAL              4 (SourceLoader)
+              LOAD_ATTR                0 (path_mtime)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE        7 (to L1)
+              NOT_TAKEN
+
+221           LOAD_GLOBAL              6 (OSError)
+              RAISE_VARARGS            1
+
+222   L1:     LOAD_CONST               1 ('mtime')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (path_mtime + NULL|self)
+              LOAD_FAST_BORROW         1 (path)
+              CALL                     1
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object set_data at 0x00000204BA6E0030, file "importlib\abc.py", line 224>:
+224           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

@@ -1,0 +1,3679 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Envoltorio fino sobre el ejecutable adb. Todas las llamadas son bloqueantes:\nla UI las ejecuta en hilos (ver workers.py).')
+              STORE_NAME               0 (__doc__)
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              1 (__future__)
+              IMPORT_FROM              2 (annotations)
+              STORE_NAME               2 (annotations)
+              POP_TOP
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              3 (os)
+              STORE_NAME               3 (os)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              4 (re)
+              STORE_NAME               4 (re)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              5 (shlex)
+              STORE_NAME               5 (shlex)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              6 (socket)
+              STORE_NAME               6 (socket)
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              7 (subprocess)
+              STORE_NAME               7 (subprocess)
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('dataclass',))
+              IMPORT_NAME              8 (dataclasses)
+              IMPORT_FROM              9 (dataclass)
+              STORE_NAME               9 (dataclass)
+              POP_TOP
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('Path',))
+              IMPORT_NAME             10 (pathlib)
+              IMPORT_FROM             11 (Path)
+              STORE_NAME              11 (Path)
+              POP_TOP
+
+ 12           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('Callable',))
+              IMPORT_NAME             12 (typing)
+              IMPORT_FROM             13 (Callable)
+              STORE_NAME              13 (Callable)
+              POP_TOP
+
+ 14           LOAD_CONST             112 (('de.ozerov.fully', 'com.fullykiosk.emm'))
+              STORE_NAME              14 (FULLY_PACKAGES)
+
+ 15           LOAD_NAME                3 (os)
+              LOAD_ATTR               30 (name)
+              LOAD_CONST               6 ('nt')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               7 (134217728)
+              JUMP_FORWARD             1 (to L2)
+      L1:     LOAD_SMALL_INT           0
+      L2:     STORE_NAME              16 (_NO_WINDOW)
+
+ 16           LOAD_CONST               8 (b'\x89PNG\r\n\x1a\n')
+              STORE_NAME              17 (_PNG_SIG)
+
+ 18           BUILD_MAP                0
+
+ 19           LOAD_CONST               9 ('Encender/Apagar')
+              LOAD_CONST              10 ('KEYCODE_POWER')
+
+ 18           MAP_ADD                  1
+
+ 20           LOAD_CONST              11 ('Despertar')
+              LOAD_CONST              12 ('KEYCODE_WAKEUP')
+
+ 18           MAP_ADD                  1
+
+ 21           LOAD_CONST              13 ('Standby')
+              LOAD_CONST              14 ('KEYCODE_SLEEP')
+
+ 18           MAP_ADD                  1
+
+ 22           LOAD_CONST              15 ('Inicio')
+              LOAD_CONST              16 ('KEYCODE_HOME')
+
+ 18           MAP_ADD                  1
+
+ 23           LOAD_CONST              17 ('Atrás')
+              LOAD_CONST              18 ('KEYCODE_BACK')
+
+ 18           MAP_ADD                  1
+
+ 24           LOAD_CONST              19 ('Menú')
+              LOAD_CONST              20 ('KEYCODE_MENU')
+
+ 18           MAP_ADD                  1
+
+ 25           LOAD_CONST              21 ('Arriba')
+              LOAD_CONST              22 ('KEYCODE_DPAD_UP')
+
+ 18           MAP_ADD                  1
+
+ 26           LOAD_CONST              23 ('Abajo')
+              LOAD_CONST              24 ('KEYCODE_DPAD_DOWN')
+
+ 18           MAP_ADD                  1
+
+ 27           LOAD_CONST              25 ('Izquierda')
+              LOAD_CONST              26 ('KEYCODE_DPAD_LEFT')
+
+ 18           MAP_ADD                  1
+
+ 28           LOAD_CONST              27 ('Derecha')
+              LOAD_CONST              28 ('KEYCODE_DPAD_RIGHT')
+
+ 18           MAP_ADD                  1
+
+ 29           LOAD_CONST              29 ('OK')
+              LOAD_CONST              30 ('KEYCODE_DPAD_CENTER')
+
+ 18           MAP_ADD                  1
+
+ 30           LOAD_CONST              31 ('Vol +')
+              LOAD_CONST              32 ('KEYCODE_VOLUME_UP')
+
+ 18           MAP_ADD                  1
+
+ 31           LOAD_CONST              33 ('Vol -')
+              LOAD_CONST              34 ('KEYCODE_VOLUME_DOWN')
+
+ 18           MAP_ADD                  1
+
+ 32           LOAD_CONST              35 ('Silencio')
+              LOAD_CONST              36 ('KEYCODE_VOLUME_MUTE')
+
+ 18           MAP_ADD                  1
+
+ 33           LOAD_CONST              37 ('Play/Pausa')
+              LOAD_CONST              38 ('KEYCODE_MEDIA_PLAY_PAUSE')
+
+ 18           MAP_ADD                  1
+
+ 34           LOAD_CONST              39 ('Stop')
+              LOAD_CONST              40 ('KEYCODE_MEDIA_STOP')
+
+ 18           MAP_ADD                  1
+
+ 35           LOAD_CONST              41 ('Siguiente')
+              LOAD_CONST              42 ('KEYCODE_MEDIA_NEXT')
+
+ 18           MAP_ADD                  1
+
+ 36           LOAD_CONST              43 ('Anterior')
+              LOAD_CONST              44 ('KEYCODE_MEDIA_PREVIOUS')
+
+ 37           LOAD_CONST              45 ('Retroceder')
+              LOAD_CONST              46 ('KEYCODE_MEDIA_REWIND')
+
+ 38           LOAD_CONST              47 ('Avanzar')
+              LOAD_CONST              48 ('KEYCODE_MEDIA_FAST_FORWARD')
+
+ 39           LOAD_CONST              49 ('Canal +')
+              LOAD_CONST              50 ('KEYCODE_CHANNEL_UP')
+
+ 40           LOAD_CONST              51 ('Canal -')
+              LOAD_CONST              52 ('KEYCODE_CHANNEL_DOWN')
+
+ 41           LOAD_CONST              53 ('Entradas (fuente)')
+              LOAD_CONST              54 ('KEYCODE_TV_INPUT')
+
+ 42           LOAD_CONST              55 ('Ajustes')
+              LOAD_CONST              56 ('KEYCODE_SETTINGS')
+
+ 43           LOAD_CONST              57 ('Guía')
+              LOAD_CONST              58 ('KEYCODE_GUIDE')
+
+ 44           LOAD_CONST              59 ('Información')
+              LOAD_CONST              60 ('KEYCODE_INFO')
+
+ 45           LOAD_CONST              61 ('Asistente')
+              LOAD_CONST              62 ('KEYCODE_ASSIST')
+
+ 46           LOAD_CONST              63 ('Aplicaciones recientes')
+              LOAD_CONST              64 ('KEYCODE_APP_SWITCH')
+
+ 18           BUILD_MAP               11
+              DICT_UPDATE              1
+              STORE_NAME              18 (KEYCODES)
+
+ 51           LOAD_CONST              65 ('Ajustes (principal)')
+              LOAD_CONST              66 ('android.settings.SETTINGS')
+
+ 52           LOAD_CONST              67 ('Wi-Fi')
+              LOAD_CONST              68 ('android.settings.WIFI_SETTINGS')
+
+ 53           LOAD_CONST              69 ('Red / Internet')
+              LOAD_CONST              70 ('android.settings.WIRELESS_SETTINGS')
+
+ 54           LOAD_CONST              71 ('Bluetooth')
+              LOAD_CONST              72 ('android.settings.BLUETOOTH_SETTINGS')
+
+ 55           LOAD_CONST              73 ('Pantalla')
+              LOAD_CONST              74 ('android.settings.DISPLAY_SETTINGS')
+
+ 56           LOAD_CONST              75 ('Sonido')
+              LOAD_CONST              76 ('android.settings.SOUND_SETTINGS')
+
+ 57           LOAD_CONST              77 ('Aplicaciones')
+              LOAD_CONST              78 ('android.settings.APPLICATION_SETTINGS')
+
+ 58           LOAD_CONST              79 ('Almacenamiento')
+              LOAD_CONST              80 ('android.settings.INTERNAL_STORAGE_SETTINGS')
+
+ 59           LOAD_CONST              81 ('Idioma / Teclado')
+              LOAD_CONST              82 ('android.settings.LOCALE_SETTINGS')
+
+ 60           LOAD_CONST              83 ('Fecha y hora')
+              LOAD_CONST              84 ('android.settings.DATE_SETTINGS')
+
+ 61           LOAD_CONST              85 ('Accesibilidad')
+              LOAD_CONST              86 ('android.settings.ACCESSIBILITY_SETTINGS')
+
+ 62           LOAD_CONST              87 ('Opciones de desarrollador')
+              LOAD_CONST              88 ('android.settings.APPLICATION_DEVELOPMENT_SETTINGS')
+
+ 63           LOAD_CONST              89 ('Información del dispositivo')
+              LOAD_CONST              90 ('android.settings.DEVICE_INFO_SETTINGS')
+
+ 64           LOAD_CONST              91 ('Cuentas')
+              LOAD_CONST              92 ('android.settings.SYNC_SETTINGS')
+
+ 65           LOAD_CONST              93 ('Entradas de TV')
+              LOAD_CONST              94 ('android.settings.INPUT_METHOD_SETTINGS')
+
+ 50           BUILD_MAP               15
+              STORE_NAME              19 (SETTINGS_SCREENS)
+
+ 69           LOAD_NAME                4 (re)
+              LOAD_ATTR               40 (compile)
+              PUSH_NULL
+
+ 70           LOAD_CONST              95 ('(^|[;&|\\s])(rm|rmdir|mv|dd|mkfs\\S*|reboot|poweroff|shutdown|wipe|format|pm\\s+(uninstall|clear|disable\\S*|hide|suspend)|settings\\s+(put|delete)|setprop|svc\\s+\\S+\\s+(disable)|su|chmod|chown|mount|umount|cmd\\s+package\\s+(uninstall|clear)|am\\s+(kill|force-stop|broadcast)|wm\\s+(size|density)|content\\s+(insert|update|delete))(\\s|$)')
+
+ 75           LOAD_NAME                4 (re)
+              LOAD_ATTR               42 (IGNORECASE)
+
+ 69           CALL                     2
+              STORE_NAME              22 (_DANGEROUS)
+
+ 79           LOAD_CONST              96 (<code object __annotate__ at 0x00000204BA0922E0, file "atvmaster\adb.py", line 79>)
+              MAKE_FUNCTION
+              LOAD_CONST              97 (<code object is_dangerous_shell at 0x00000204BA083110, file "atvmaster\adb.py", line 79>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              23 (is_dangerous_shell)
+
+ 83           LOAD_NAME                9 (dataclass)
+
+ 84           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              98 (<code object Result at 0x00000204BA0AA1F0, file "atvmaster\adb.py", line 83>)
+              MAKE_FUNCTION
+              LOAD_CONST              99 ('Result')
+              CALL                     2
+
+ 83           CALL                     0
+
+ 84           STORE_NAME              24 (Result)
+
+ 99           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST             100 (<code object AdbError at 0x00000204BA092D30, file "atvmaster\adb.py", line 99>)
+              MAKE_FUNCTION
+              LOAD_CONST             101 ('AdbError')
+              LOAD_NAME               25 (RuntimeError)
+              CALL                     3
+              STORE_NAME              26 (AdbError)
+
+103           LOAD_CONST             113 ((1.5,))
+              LOAD_CONST             102 (<code object __annotate__ at 0x00000204BA08A530, file "atvmaster\adb.py", line 103>)
+              MAKE_FUNCTION
+              LOAD_CONST             103 (<code object tcp_open at 0x00000204B9FB7630, file "atvmaster\adb.py", line 103>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              27 (tcp_open)
+
+111           LOAD_CONST             104 (<code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\adb.py", line 111>)
+              MAKE_FUNCTION
+              LOAD_CONST             105 (<code object shell_quote at 0x00000204BA08B330, file "atvmaster\adb.py", line 111>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              28 (shell_quote)
+
+115           LOAD_CONST             106 (<code object __annotate__ at 0x00000204BA092970, file "atvmaster\adb.py", line 115>)
+              MAKE_FUNCTION
+              LOAD_CONST             107 (<code object arp_mac at 0x00000204BA38BBC0, file "atvmaster\adb.py", line 115>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              29 (arp_mac)
+
+129           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST             108 (<code object Adb at 0x00000204BA35BFC0, file "atvmaster\adb.py", line 129>)
+              MAKE_FUNCTION
+              LOAD_CONST             109 ('Adb')
+              CALL                     2
+              STORE_NAME              30 (Adb)
+
+435           LOAD_CONST             110 (<code object __annotate__ at 0x00000204BA109530, file "atvmaster\adb.py", line 435>)
+              MAKE_FUNCTION
+              LOAD_CONST             111 (<code object save_bytes at 0x00000204BA0A9BB0, file "atvmaster\adb.py", line 435>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              31 (save_bytes)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0922E0, file "atvmaster\adb.py", line 79>:
+ 79           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('cmd')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('bool')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object is_dangerous_shell at 0x00000204BA083110, file "atvmaster\adb.py", line 79>:
+ 79           RESUME                   0
+
+ 80           LOAD_GLOBAL              1 (bool + NULL)
+              LOAD_GLOBAL              2 (_DANGEROUS)
+              LOAD_ATTR                5 (search + NULL|self)
+              LOAD_FAST_BORROW         0 (cmd)
+              CALL                     1
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object Result at 0x00000204BA0AA1F0, file "atvmaster\adb.py", line 83>:
+ 83           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Result')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          83
+              STORE_NAME               3 (__firstlineno__)
+              SETUP_ANNOTATIONS
+
+ 85           LOAD_CONST               1 ('int')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               2 ('rc')
+              STORE_SUBSCR
+
+ 86           LOAD_CONST               3 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               4 ('out')
+              STORE_SUBSCR
+
+ 87           LOAD_CONST               3 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               5 ('err')
+              STORE_SUBSCR
+
+ 88           LOAD_CONST               6 (b'')
+              STORE_NAME               5 (raw)
+              LOAD_CONST               7 ('bytes')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               8 ('raw')
+              STORE_SUBSCR
+
+ 90           LOAD_NAME                6 (property)
+
+ 91           LOAD_CONST               9 (<code object __annotate__ at 0x00000204BA0934B0, file "atvmaster\adb.py", line 91>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 (<code object ok at 0x00000204BA092880, file "atvmaster\adb.py", line 90>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+ 90           CALL                     0
+
+ 91           STORE_NAME               7 (ok)
+
+ 94           LOAD_NAME                6 (property)
+
+ 95           LOAD_CONST              11 (<code object __annotate__ at 0x00000204BA092C40, file "atvmaster\adb.py", line 95>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 (<code object text at 0x00000204B9FFBB40, file "atvmaster\adb.py", line 94>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+ 94           CALL                     0
+
+ 95           STORE_NAME               8 (text)
+              LOAD_CONST              13 (())
+              STORE_NAME               9 (__static_attributes__)
+              LOAD_CONST              14 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0934B0, file "atvmaster\adb.py", line 91>:
+ 91           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('bool')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object ok at 0x00000204BA092880, file "atvmaster\adb.py", line 90>:
+ 90           RESUME                   0
+
+ 92           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (rc)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092C40, file "atvmaster\adb.py", line 95>:
+ 95           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object text at 0x00000204B9FFBB40, file "atvmaster\adb.py", line 94>:
+ 94           RESUME                   0
+
+ 96           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (out)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (err)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       58 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (out)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        40 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 ('\n')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (err)
+              BINARY_OP                0 (+)
+              BINARY_OP                0 (+)
+              LOAD_ATTR                5 (strip + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+      L1:     LOAD_CONST               1 ('')
+              BINARY_OP                0 (+)
+              LOAD_ATTR                5 (strip + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object AdbError at 0x00000204BA092D30, file "atvmaster\adb.py", line 99>:
+ 99           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('AdbError')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          99
+              STORE_NAME               3 (__firstlineno__)
+
+100           LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08A530, file "atvmaster\adb.py", line 103>:
+103           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('host')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('port')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('timeout')
+              LOAD_CONST               6 ('float')
+              LOAD_CONST               7 ('return')
+              LOAD_CONST               8 ('bool')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object tcp_open at 0x00000204B9FB7630, file "atvmaster\adb.py", line 103>:
+ 103            RESUME                   0
+
+ 104            NOP
+
+ 105    L1:     LOAD_GLOBAL              0 (socket)
+                LOAD_ATTR                2 (create_connection)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (host, port)
+                BUILD_TUPLE              2
+                LOAD_FAST_BORROW         2 (timeout)
+                LOAD_CONST               0 (('timeout',))
+                CALL_KW                  2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L2:     POP_TOP
+
+ 106            NOP
+
+ 105    L3:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+        L4:     LOAD_CONST               2 (True)
+                RETURN_VALUE
+        L5:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L6)
+                NOT_TAKEN
+                RERAISE                  2
+        L6:     POP_TOP
+        L7:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+        L8:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     PUSH_EXC_INFO
+
+ 107            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 108   L11:     POP_EXCEPT
+                LOAD_CONST               3 (False)
+                RETURN_VALUE
+
+ 107   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L10 [0]
+  L2 to L3 -> L5 [2] lasti
+  L3 to L4 -> L10 [0]
+  L5 to L7 -> L9 [4] lasti
+  L7 to L8 -> L10 [0]
+  L9 to L10 -> L10 [0]
+  L10 to L11 -> L13 [1] lasti
+  L12 to L13 -> L13 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA0913E0, file "atvmaster\adb.py", line 111>:
+111           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('s')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object shell_quote at 0x00000204BA08B330, file "atvmaster\adb.py", line 111>:
+111           RESUME                   0
+
+112           LOAD_GLOBAL              0 (shlex)
+              LOAD_ATTR                2 (quote)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (s)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092970, file "atvmaster\adb.py", line 115>:
+115           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('host')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object arp_mac at 0x00000204BA38BBC0, file "atvmaster\adb.py", line 115>:
+ 115           RESUME                   0
+
+ 117           LOAD_GLOBAL              0 (re)
+               LOAD_ATTR                2 (fullmatch)
+               PUSH_NULL
+               LOAD_CONST               1 ('\\d{1,3}(\\.\\d{1,3}){3}')
+               LOAD_FAST_BORROW         0 (host)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L1)
+               NOT_TAKEN
+
+ 118           LOAD_CONST               2 ('')
+               RETURN_VALUE
+
+ 119   L1:     NOP
+
+ 120   L2:     LOAD_GLOBAL              4 (subprocess)
+               LOAD_ATTR                6 (run)
+               PUSH_NULL
+               LOAD_CONST               3 ('arp')
+               LOAD_CONST               4 ('-a')
+               LOAD_FAST_BORROW         0 (host)
+               BUILD_LIST               3
+               LOAD_CONST               5 (True)
+               LOAD_SMALL_INT           5
+
+ 121           LOAD_GLOBAL              8 (_NO_WINDOW)
+
+ 120           LOAD_CONST               6 (('capture_output', 'timeout', 'creationflags'))
+               CALL_KW                  4
+               STORE_FAST               1 (p)
+
+ 124   L3:     LOAD_GLOBAL              0 (re)
+               LOAD_ATTR               14 (search)
+               PUSH_NULL
+               LOAD_GLOBAL              0 (re)
+               LOAD_ATTR               16 (escape)
+               PUSH_NULL
+               LOAD_FAST                0 (host)
+               CALL                     1
+               FORMAT_SIMPLE
+               LOAD_CONST               7 ('\\s+([0-9a-f]{2}(?:[-:][0-9a-f]{2}){5})')
+               BUILD_STRING             2
+
+ 125           LOAD_FAST                1 (p)
+               LOAD_ATTR               18 (stdout)
+               LOAD_ATTR               21 (decode + NULL|self)
+               LOAD_CONST               8 ('utf-8')
+               LOAD_CONST               9 ('replace')
+               CALL                     2
+               LOAD_GLOBAL              0 (re)
+               LOAD_ATTR               22 (I)
+
+ 124           CALL                     3
+               STORE_FAST               2 (m)
+
+ 126           LOAD_FAST                2 (m)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       48 (to L4)
+               NOT_TAKEN
+               LOAD_FAST                2 (m)
+               LOAD_ATTR               25 (group + NULL|self)
+               LOAD_SMALL_INT           1
+               CALL                     1
+               LOAD_ATTR               27 (replace + NULL|self)
+               LOAD_CONST              10 ('-')
+               LOAD_CONST              11 (':')
+               CALL                     2
+               LOAD_ATTR               29 (lower + NULL|self)
+               CALL                     0
+               RETURN_VALUE
+       L4:     LOAD_CONST               2 ('')
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 122           LOAD_GLOBAL             10 (OSError)
+               LOAD_GLOBAL              4 (subprocess)
+               LOAD_ATTR               12 (TimeoutExpired)
+               BUILD_TUPLE              2
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 123   L6:     POP_EXCEPT
+               LOAD_CONST               2 ('')
+               RETURN_VALUE
+
+ 122   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L5 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object Adb at 0x00000204BA35BFC0, file "atvmaster\adb.py", line 129>:
+129           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Adb')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         129
+              STORE_NAME               3 (__firstlineno__)
+
+130           LOAD_CONST               1 ('Cliente adb. `path_getter` devuelve la ruta actual del ejecutable.')
+              STORE_NAME               4 (__doc__)
+
+132           LOAD_CONST               2 (<code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\adb.py", line 132>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 (<code object __init__ at 0x00000204BA0914D0, file "atvmaster\adb.py", line 132>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               5 (__init__)
+
+135           LOAD_NAME                6 (property)
+
+136           LOAD_CONST               4 (<code object __annotate__ at 0x00000204BA0924C0, file "atvmaster\adb.py", line 136>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 (<code object path at 0x00000204BA0A7630, file "atvmaster\adb.py", line 135>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+
+135           CALL                     0
+
+136           STORE_NAME               7 (path)
+
+146           LOAD_CONST              94 ((None, 20, None))
+              LOAD_CONST               7 (<code object __annotate__ at 0x00000204BA08B130, file "atvmaster\adb.py", line 146>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 (<code object run at 0x00000204BA388300, file "atvmaster\adb.py", line 146>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               8 (run)
+
+163           LOAD_CONST              95 ((20,))
+              LOAD_CONST               9 (<code object __annotate__ at 0x00000204BA08AC30, file "atvmaster\adb.py", line 163>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 (<code object shell at 0x00000204BA08AF30, file "atvmaster\adb.py", line 163>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME               9 (shell)
+
+167           LOAD_CONST              11 (<code object __annotate__ at 0x00000204BA0935A0, file "atvmaster\adb.py", line 167>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 (<code object start_server at 0x00000204BA088330, file "atvmaster\adb.py", line 167>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              10 (start_server)
+
+170           LOAD_CONST              13 (<code object __annotate__ at 0x00000204BA092A60, file "atvmaster\adb.py", line 170>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 (<code object kill_server at 0x00000204BA10A430, file "atvmaster\adb.py", line 170>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              11 (kill_server)
+
+173           LOAD_CONST              96 ((8,))
+              LOAD_CONST              15 (<code object __annotate__ at 0x00000204BA109930, file "atvmaster\adb.py", line 173>)
+              MAKE_FUNCTION
+              LOAD_CONST              16 (<code object connect at 0x00000204BA10BA30, file "atvmaster\adb.py", line 173>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              12 (connect)
+
+176           LOAD_CONST              17 (<code object __annotate__ at 0x00000204BA093C30, file "atvmaster\adb.py", line 176>)
+              MAKE_FUNCTION
+              LOAD_CONST              18 (<code object disconnect at 0x00000204BA10AE30, file "atvmaster\adb.py", line 176>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              13 (disconnect)
+
+179           LOAD_CONST              19 (<code object __annotate__ at 0x00000204BA10B030, file "atvmaster\adb.py", line 179>)
+              MAKE_FUNCTION
+              LOAD_CONST              20 (<code object pair at 0x00000204BA10A930, file "atvmaster\adb.py", line 179>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              14 (pair)
+
+182           LOAD_CONST              21 (<code object __annotate__ at 0x00000204BA0930F0, file "atvmaster\adb.py", line 182>)
+              MAKE_FUNCTION
+              LOAD_CONST              22 (<code object devices at 0x00000204B9F9F4B0, file "atvmaster\adb.py", line 182>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              15 (devices)
+
+191           LOAD_CONST              23 (<code object __annotate__ at 0x00000204BA10A530, file "atvmaster\adb.py", line 191>)
+              MAKE_FUNCTION
+              LOAD_CONST              24 (<code object probe at 0x00000204B9FA6310, file "atvmaster\adb.py", line 191>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              16 (probe)
+
+206           LOAD_CONST              25 (<code object __annotate__ at 0x00000204BA109730, file "atvmaster\adb.py", line 206>)
+              MAKE_FUNCTION
+              LOAD_CONST              26 (<code object getprop at 0x00000204BA0FF440, file "atvmaster\adb.py", line 206>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              17 (getprop)
+
+209           LOAD_CONST              27 (<code object __annotate__ at 0x00000204BA0931E0, file "atvmaster\adb.py", line 209>)
+              MAKE_FUNCTION
+              LOAD_CONST              28 (<code object device_info at 0x00000204BA449230, file "atvmaster\adb.py", line 209>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              18 (device_info)
+
+249           LOAD_CONST              29 (<code object __annotate__ at 0x00000204BA093870, file "atvmaster\adb.py", line 249>)
+              MAKE_FUNCTION
+              LOAD_CONST              30 (<code object mac at 0x00000204B9F5B830, file "atvmaster\adb.py", line 249>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              19 (mac)
+
+259           LOAD_CONST              31 (<code object __annotate__ at 0x00000204BA093690, file "atvmaster\adb.py", line 259>)
+              MAKE_FUNCTION
+              LOAD_CONST              32 (<code object storage at 0x00000204BA0FFDD0, file "atvmaster\adb.py", line 259>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              20 (storage)
+
+262           LOAD_CONST              33 (<code object __annotate__ at 0x00000204BA093A50, file "atvmaster\adb.py", line 262>)
+              MAKE_FUNCTION
+              LOAD_CONST              34 (<code object memory at 0x00000204BA0FFEE0, file "atvmaster\adb.py", line 262>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              21 (memory)
+
+265           LOAD_CONST              35 (<code object __annotate__ at 0x00000204BA093B40, file "atvmaster\adb.py", line 265>)
+              MAKE_FUNCTION
+              LOAD_CONST              36 (<code object wakefulness at 0x00000204B9FF3280, file "atvmaster\adb.py", line 265>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              22 (wakefulness)
+
+270           LOAD_CONST              37 (<code object __annotate__ at 0x00000204BA10A330, file "atvmaster\adb.py", line 270>)
+              MAKE_FUNCTION
+              LOAD_CONST              38 (<code object keyevent at 0x00000204BA10A630, file "atvmaster\adb.py", line 270>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              23 (keyevent)
+
+273           LOAD_CONST              39 (<code object __annotate__ at 0x00000204BA10B530, file "atvmaster\adb.py", line 273>)
+              MAKE_FUNCTION
+              LOAD_CONST              40 (<code object text at 0x00000204BA0AAE70, file "atvmaster\adb.py", line 273>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              24 (text)
+
+276           LOAD_CONST              41 (<code object __annotate__ at 0x00000204BA10AC30, file "atvmaster\adb.py", line 276>)
+              MAKE_FUNCTION
+              LOAD_CONST              42 (<code object tap at 0x00000204BA0FFCC0, file "atvmaster\adb.py", line 276>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              25 (tap)
+
+279           LOAD_CONST              97 ((300,))
+              LOAD_CONST              43 (<code object __annotate__ at 0x00000204BA0FD020, file "atvmaster\adb.py", line 279>)
+              MAKE_FUNCTION
+              LOAD_CONST              44 (<code object swipe at 0x00000204BA0A6C10, file "atvmaster\adb.py", line 279>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              26 (swipe)
+
+283           LOAD_CONST              45 (<code object __annotate__ at 0x00000204BA093E10, file "atvmaster\adb.py", line 283>)
+              MAKE_FUNCTION
+              LOAD_CONST              46 (<code object screencap at 0x00000204B9FB6D30, file "atvmaster\adb.py", line 283>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              27 (screencap)
+
+292           LOAD_CONST              98 (('-3',))
+              LOAD_CONST              47 (<code object __annotate__ at 0x00000204BA10B830, file "atvmaster\adb.py", line 292>)
+              MAKE_FUNCTION
+              LOAD_CONST              48 (<code object packages at 0x00000204BA6A4030, file "atvmaster\adb.py", line 292>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              28 (packages)
+
+298           LOAD_CONST              49 (<code object __annotate__ at 0x00000204BA10B930, file "atvmaster\adb.py", line 298>)
+              MAKE_FUNCTION
+              LOAD_CONST              50 (<code object launch at 0x00000204BA6A41A0, file "atvmaster\adb.py", line 298>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              29 (launch)
+
+306           LOAD_CONST              51 (<code object __annotate__ at 0x00000204BA108E30, file "atvmaster\adb.py", line 306>)
+              MAKE_FUNCTION
+              LOAD_CONST              52 (<code object force_stop at 0x00000204BA109330, file "atvmaster\adb.py", line 306>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              30 (force_stop)
+
+309           LOAD_CONST              53 (<code object __annotate__ at 0x00000204BA109830, file "atvmaster\adb.py", line 309>)
+              MAKE_FUNCTION
+              LOAD_CONST              54 (<code object clear_data at 0x00000204BA109430, file "atvmaster\adb.py", line 309>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              31 (clear_data)
+
+312           LOAD_CONST              55 (<code object __annotate__ at 0x00000204BA109E30, file "atvmaster\adb.py", line 312>)
+              MAKE_FUNCTION
+              LOAD_CONST              56 (<code object uninstall at 0x00000204BA109F30, file "atvmaster\adb.py", line 312>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              32 (uninstall)
+
+315           LOAD_CONST              57 (<code object __annotate__ at 0x00000204BA10B130, file "atvmaster\adb.py", line 315>)
+              MAKE_FUNCTION
+              LOAD_CONST              58 (<code object install at 0x00000204BA10BC30, file "atvmaster\adb.py", line 315>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              33 (install)
+
+318           LOAD_CONST              59 (<code object __annotate__ at 0x00000204BA10BD30, file "atvmaster\adb.py", line 318>)
+              MAKE_FUNCTION
+              LOAD_CONST              60 (<code object open_settings at 0x00000204BA10BE30, file "atvmaster\adb.py", line 318>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              34 (open_settings)
+
+321           LOAD_CONST              61 (<code object __annotate__ at 0x00000204BA090D50, file "atvmaster\adb.py", line 321>)
+              MAKE_FUNCTION
+              LOAD_CONST              62 (<code object foreground at 0x00000204B9F5AA30, file "atvmaster\adb.py", line 321>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              35 (foreground)
+
+333           LOAD_CONST              63 (<code object __annotate__ at 0x00000204BA0923D0, file "atvmaster\adb.py", line 333>)
+              MAKE_FUNCTION
+              LOAD_CONST              64 (<code object display_info at 0x00000204BA3735D0, file "atvmaster\adb.py", line 333>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              36 (display_info)
+
+348           LOAD_CONST              65 (<code object __annotate__ at 0x00000204BA10AB30, file "atvmaster\adb.py", line 348>)
+              MAKE_FUNCTION
+              LOAD_CONST              66 (<code object set_density at 0x00000204BA0AB9B0, file "atvmaster\adb.py", line 348>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              37 (set_density)
+
+353           LOAD_CONST              67 (<code object __annotate__ at 0x00000204BA092E20, file "atvmaster\adb.py", line 353>)
+              MAKE_FUNCTION
+              LOAD_CONST              68 (<code object reset_density at 0x00000204BA10B430, file "atvmaster\adb.py", line 353>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              38 (reset_density)
+
+356           LOAD_CONST              69 (<code object __annotate__ at 0x00000204BA093780, file "atvmaster\adb.py", line 356>)
+              MAKE_FUNCTION
+              LOAD_CONST              70 (<code object boot_completed at 0x00000204BA0A72D0, file "atvmaster\adb.py", line 356>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              39 (boot_completed)
+
+359           LOAD_CONST              71 (<code object __annotate__ at 0x00000204BA10B630, file "atvmaster\adb.py", line 359>)
+              MAKE_FUNCTION
+              LOAD_CONST              72 (<code object kiosk_launch at 0x00000204BA3E0130, file "atvmaster\adb.py", line 359>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              40 (kiosk_launch)
+
+370           LOAD_CONST              73 (<code object __annotate__ at 0x00000204BA10B730, file "atvmaster\adb.py", line 370>)
+              MAKE_FUNCTION
+              LOAD_CONST              74 (<code object resolve_on_tv at 0x00000204B9F9E6B0, file "atvmaster\adb.py", line 370>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              41 (resolve_on_tv)
+
+376           LOAD_CONST              75 (<code object __annotate__ at 0x00000204BA10B230, file "atvmaster\adb.py", line 376>)
+              MAKE_FUNCTION
+              LOAD_CONST              76 (<code object http_status_from_tv at 0x00000204B9FB6A30, file "atvmaster\adb.py", line 376>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              42 (http_status_from_tv)
+
+382           LOAD_CONST              77 (<code object __annotate__ at 0x00000204BA10BB30, file "atvmaster\adb.py", line 382>)
+              MAKE_FUNCTION
+              LOAD_CONST              78 (<code object settings_list at 0x00000204BA0B7230, file "atvmaster\adb.py", line 382>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              43 (settings_list)
+
+391           LOAD_CONST              79 (<code object __annotate__ at 0x00000204BA109230, file "atvmaster\adb.py", line 391>)
+              MAKE_FUNCTION
+              LOAD_CONST              80 (<code object settings_put at 0x00000204B9FEF800, file "atvmaster\adb.py", line 391>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              44 (settings_put)
+
+395           LOAD_CONST              81 (<code object __annotate__ at 0x00000204BA109630, file "atvmaster\adb.py", line 395>)
+              MAKE_FUNCTION
+              LOAD_CONST              82 (<code object ls at 0x00000204BA3BE460, file "atvmaster\adb.py", line 395>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              45 (ls)
+
+418           LOAD_CONST              83 (<code object __annotate__ at 0x00000204BA10A230, file "atvmaster\adb.py", line 418>)
+              MAKE_FUNCTION
+              LOAD_CONST              84 (<code object pull at 0x00000204BA10A130, file "atvmaster\adb.py", line 418>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              46 (pull)
+
+421           LOAD_CONST              85 (<code object __annotate__ at 0x00000204BA109B30, file "atvmaster\adb.py", line 421>)
+              MAKE_FUNCTION
+              LOAD_CONST              86 (<code object push at 0x00000204BA109C30, file "atvmaster\adb.py", line 421>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              47 (push)
+
+424           LOAD_CONST              87 (<code object __annotate__ at 0x00000204BA109D30, file "atvmaster\adb.py", line 424>)
+              MAKE_FUNCTION
+              LOAD_CONST              88 (<code object remove at 0x00000204BA660140, file "atvmaster\adb.py", line 424>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              48 (remove)
+
+428           LOAD_CONST              89 (<code object __annotate__ at 0x00000204BA0921F0, file "atvmaster\adb.py", line 428>)
+              MAKE_FUNCTION
+              LOAD_CONST              90 (<code object reboot at 0x00000204BA10AA30, file "atvmaster\adb.py", line 428>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              49 (reboot)
+
+431           LOAD_CONST              91 (<code object __annotate__ at 0x00000204BA0933C0, file "atvmaster\adb.py", line 431>)
+              MAKE_FUNCTION
+              LOAD_CONST              92 (<code object power_off at 0x00000204BA109130, file "atvmaster\adb.py", line 431>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              50 (power_off)
+              LOAD_CONST              93 (('_path_getter',))
+              STORE_NAME              51 (__static_attributes__)
+              LOAD_CONST               6 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0926A0, file "atvmaster\adb.py", line 132>:
+132           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('path_getter')
+              LOAD_CONST               2 ('Callable[[], str | None]')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0914D0, file "atvmaster\adb.py", line 132>:
+132           RESUME                   0
+
+133           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (path_getter, self)
+              STORE_ATTR               0 (_path_getter)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0924C0, file "atvmaster\adb.py", line 136>:
+136           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object path at 0x00000204BA0A7630, file "atvmaster\adb.py", line 135>:
+135           RESUME                   0
+
+137           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_path_getter + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (p)
+
+138           LOAD_FAST_BORROW         1 (p)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        12 (to L1)
+              NOT_TAKEN
+
+139           LOAD_GLOBAL              3 (AdbError + NULL)
+
+140           LOAD_CONST               0 ('No se encuentra adb.exe. Indica su ruta en Configuración o copia platform-tools a la carpeta tools/.')
+
+139           CALL                     1
+              RAISE_VARARGS            1
+
+143   L1:     LOAD_FAST_BORROW         1 (p)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA08B130, file "atvmaster\adb.py", line 146>:
+146           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('args')
+              LOAD_CONST               2 ('list[str]')
+              LOAD_CONST               3 ('serial')
+              LOAD_CONST               4 ('str | None')
+              LOAD_CONST               5 ('timeout')
+              LOAD_CONST               6 ('float')
+              LOAD_CONST               7 ('input_data')
+
+147           LOAD_CONST               8 ('bytes | None')
+
+146           LOAD_CONST               9 ('return')
+
+147           LOAD_CONST              10 ('Result')
+
+146           BUILD_MAP                5
+              RETURN_VALUE
+
+Disassembly of <code object run at 0x00000204BA388300, file "atvmaster\adb.py", line 146>:
+ 146            RESUME                   0
+
+ 148            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (path)
+                BUILD_LIST               1
+                STORE_FAST               5 (cmd)
+
+ 149            LOAD_FAST_BORROW         2 (serial)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L1)
+                NOT_TAKEN
+
+ 150            LOAD_FAST_BORROW         5 (cmd)
+                LOAD_CONST               0 ('-s')
+                LOAD_FAST_BORROW         2 (serial)
+                BUILD_LIST               2
+                BINARY_OP               13 (+=)
+                STORE_FAST               5 (cmd)
+
+ 151    L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (cmd, args)
+                BINARY_OP               13 (+=)
+                STORE_FAST               5 (cmd)
+
+ 152            NOP
+
+ 153    L2:     LOAD_GLOBAL              2 (subprocess)
+                LOAD_ATTR                4 (run)
+                PUSH_NULL
+                LOAD_FAST_BORROW         5 (cmd)
+                LOAD_CONST               1 (True)
+                LOAD_FAST_BORROW         3 (timeout)
+
+ 154            LOAD_FAST_BORROW         4 (input_data)
+                LOAD_GLOBAL              6 (_NO_WINDOW)
+
+ 153            LOAD_CONST               2 (('capture_output', 'timeout', 'input', 'creationflags'))
+                CALL_KW                  5
+                STORE_FAST               6 (p)
+
+ 159    L3:     LOAD_FAST                6 (p)
+                LOAD_ATTR               18 (stdout)
+                LOAD_ATTR               21 (decode + NULL|self)
+                LOAD_CONST               8 ('utf-8')
+                LOAD_CONST               9 ('replace')
+                CALL                     2
+                LOAD_ATTR               23 (replace + NULL|self)
+                LOAD_CONST              10 ('\r\n')
+                LOAD_CONST              11 ('\n')
+                CALL                     2
+                STORE_FAST               8 (out)
+
+ 160            LOAD_FAST                6 (p)
+                LOAD_ATTR               24 (stderr)
+                LOAD_ATTR               21 (decode + NULL|self)
+                LOAD_CONST               8 ('utf-8')
+                LOAD_CONST               9 ('replace')
+                CALL                     2
+                LOAD_ATTR               23 (replace + NULL|self)
+                LOAD_CONST              10 ('\r\n')
+                LOAD_CONST              11 ('\n')
+                CALL                     2
+                STORE_FAST               9 (err)
+
+ 161            LOAD_GLOBAL             11 (Result + NULL)
+                LOAD_FAST                6 (p)
+                LOAD_ATTR               26 (returncode)
+                LOAD_FAST                8 (out)
+                LOAD_ATTR               29 (strip + NULL|self)
+                CALL                     0
+                LOAD_FAST                9 (err)
+                LOAD_ATTR               29 (strip + NULL|self)
+                CALL                     0
+                LOAD_FAST                6 (p)
+                LOAD_ATTR               18 (stdout)
+                CALL                     4
+                RETURN_VALUE
+
+  --    L4:     PUSH_EXC_INFO
+
+ 155            LOAD_GLOBAL              2 (subprocess)
+                LOAD_ATTR                8 (TimeoutExpired)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       22 (to L6)
+                NOT_TAKEN
+                POP_TOP
+
+ 156            LOAD_GLOBAL             11 (Result + NULL)
+                LOAD_SMALL_INT         124
+                LOAD_CONST               3 ('')
+                LOAD_CONST               4 ('Tiempo de espera agotado (')
+                LOAD_FAST                3 (timeout)
+                LOAD_CONST               5 ('.0f')
+                FORMAT_WITH_SPEC
+                LOAD_CONST               6 ('s)')
+                BUILD_STRING             3
+                CALL                     3
+                SWAP                     2
+        L5:     POP_EXCEPT
+                RETURN_VALUE
+
+ 157    L6:     LOAD_GLOBAL             12 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       27 (to L11)
+        L7:     NOT_TAKEN
+        L8:     STORE_FAST               7 (e)
+
+ 158    L9:     LOAD_GLOBAL             15 (AdbError + NULL)
+                LOAD_GLOBAL             17 (str + NULL)
+                LOAD_FAST                7 (e)
+                CALL                     1
+                CALL                     1
+                LOAD_FAST                7 (e)
+                RAISE_VARARGS            2
+
+  --   L10:     LOAD_CONST               7 (None)
+                STORE_FAST               7 (e)
+                DELETE_FAST              7 (e)
+                RERAISE                  1
+
+ 157   L11:     RERAISE                  0
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L12 [1] lasti
+  L6 to L7 -> L12 [1] lasti
+  L8 to L9 -> L12 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+  L10 to L12 -> L12 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA08AC30, file "atvmaster\adb.py", line 163>:
+163           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('command')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('timeout')
+              LOAD_CONST               5 ('float')
+              LOAD_CONST               6 ('return')
+              LOAD_CONST               7 ('Result')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object shell at 0x00000204BA08AF30, file "atvmaster\adb.py", line 163>:
+163           RESUME                   0
+
+164           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('shell')
+              LOAD_FAST_BORROW         2 (command)
+              BUILD_LIST               2
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (serial, timeout)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0935A0, file "atvmaster\adb.py", line 167>:
+167           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Result')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object start_server at 0x00000204BA088330, file "atvmaster\adb.py", line 167>:
+167           RESUME                   0
+
+168           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('start-server')
+              BUILD_LIST               1
+              LOAD_SMALL_INT          15
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092A60, file "atvmaster\adb.py", line 170>:
+170           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Result')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object kill_server at 0x00000204BA10A430, file "atvmaster\adb.py", line 170>:
+170           RESUME                   0
+
+171           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('kill-server')
+              BUILD_LIST               1
+              LOAD_SMALL_INT          15
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109930, file "atvmaster\adb.py", line 173>:
+173           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('timeout')
+              LOAD_CONST               4 ('float')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object connect at 0x00000204BA10BA30, file "atvmaster\adb.py", line 173>:
+173           RESUME                   0
+
+174           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('connect')
+              LOAD_FAST_BORROW         1 (serial)
+              BUILD_LIST               2
+              LOAD_FAST_BORROW         2 (timeout)
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093C30, file "atvmaster\adb.py", line 176>:
+176           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Result')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object disconnect at 0x00000204BA10AE30, file "atvmaster\adb.py", line 176>:
+176           RESUME                   0
+
+177           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('disconnect')
+              LOAD_FAST_BORROW         1 (serial)
+              BUILD_LIST               2
+              LOAD_SMALL_INT           8
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B030, file "atvmaster\adb.py", line 179>:
+179           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('host_port')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('code')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object pair at 0x00000204BA10A930, file "atvmaster\adb.py", line 179>:
+179           RESUME                   0
+
+180           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('pair')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (host_port, code)
+              BUILD_LIST               3
+              LOAD_SMALL_INT          20
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0930F0, file "atvmaster\adb.py", line 182>:
+182           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('dict[str, str]')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object devices at 0x00000204B9F9F4B0, file "atvmaster\adb.py", line 182>:
+182           RESUME                   0
+
+183           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('devices')
+              BUILD_LIST               1
+              LOAD_SMALL_INT          10
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  2
+              STORE_FAST               1 (r)
+
+184           BUILD_MAP                0
+              STORE_FAST               2 (states)
+
+185           LOAD_FAST_BORROW         1 (r)
+              LOAD_ATTR                2 (out)
+              LOAD_ATTR                5 (splitlines + NULL|self)
+              CALL                     0
+              LOAD_CONST               2 (slice(1, None, None))
+              BINARY_OP               26 ([])
+              GET_ITER
+      L1:     FOR_ITER                55 (to L3)
+              STORE_FAST               3 (line)
+
+186           LOAD_FAST_BORROW         3 (line)
+              LOAD_ATTR                7 (split + NULL|self)
+              CALL                     0
+              STORE_FAST               4 (parts)
+
+187           LOAD_GLOBAL              9 (len + NULL)
+              LOAD_FAST_BORROW         4 (parts)
+              CALL                     1
+              LOAD_SMALL_INT           2
+              COMPARE_OP             188 (bool(>=))
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           37 (to L1)
+
+188   L2:     LOAD_FAST_BORROW         4 (parts)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (states, parts)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              STORE_SUBSCR
+              JUMP_BACKWARD           57 (to L1)
+
+185   L3:     END_FOR
+              POP_ITER
+
+189           LOAD_FAST_BORROW         2 (states)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10A530, file "atvmaster\adb.py", line 191>:
+191           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('host')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('port')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object probe at 0x00000204B9FA6310, file "atvmaster\adb.py", line 191>:
+191           RESUME                   0
+
+194           LOAD_FAST_BORROW         1 (host)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (':')
+              LOAD_FAST_BORROW         2 (port)
+              FORMAT_SIMPLE
+              BUILD_STRING             3
+              STORE_FAST               3 (serial)
+
+195           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (devices + NULL|self)
+              CALL                     0
+              LOAD_ATTR                3 (get + NULL|self)
+              LOAD_FAST_BORROW         3 (serial)
+              CALL                     1
+              STORE_FAST               4 (known)
+
+196           LOAD_FAST_BORROW         4 (known)
+              LOAD_CONST               2 ('device')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+197           LOAD_CONST               2 ('device')
+              RETURN_VALUE
+
+198   L1:     LOAD_GLOBAL              5 (tcp_open + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (host, port)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE        28 (to L3)
+              NOT_TAKEN
+
+199           LOAD_FAST_BORROW         4 (known)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L2)
+              NOT_TAKEN
+
+200           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                7 (disconnect + NULL|self)
+              LOAD_FAST_BORROW         3 (serial)
+              CALL                     1
+              POP_TOP
+
+201   L2:     LOAD_CONST               3 ('unreachable')
+              RETURN_VALUE
+
+202   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (connect + NULL|self)
+              LOAD_FAST_BORROW         3 (serial)
+              LOAD_SMALL_INT           8
+              LOAD_CONST               4 (('timeout',))
+              CALL_KW                  2
+              POP_TOP
+
+203           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (devices + NULL|self)
+              CALL                     0
+              LOAD_ATTR                3 (get + NULL|self)
+              LOAD_FAST_BORROW         3 (serial)
+              LOAD_CONST               5 ('offline')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109730, file "atvmaster\adb.py", line 206>:
+206           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('key')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object getprop at 0x00000204BA0FF440, file "atvmaster\adb.py", line 206>:
+206           RESUME                   0
+
+207           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('getprop ')
+              LOAD_FAST_BORROW         2 (key)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     2
+              LOAD_ATTR                2 (out)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0931E0, file "atvmaster\adb.py", line 209>:
+209           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('dict[str, str]')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object device_info at 0x00000204BA449230, file "atvmaster\adb.py", line 209>:
+ 209            RESUME                   0
+
+ 211            LOAD_CONST               0 ('Modelo')
+                LOAD_CONST               1 ('ro.product.model')
+
+ 212            LOAD_CONST               2 ('Fabricante')
+                LOAD_CONST               3 ('ro.product.manufacturer')
+
+ 213            LOAD_CONST               4 ('Marca')
+                LOAD_CONST               5 ('ro.product.brand')
+
+ 214            LOAD_CONST               6 ('Dispositivo')
+                LOAD_CONST               7 ('ro.product.device')
+
+ 215            LOAD_CONST               8 ('Android')
+                LOAD_CONST               9 ('ro.build.version.release')
+
+ 216            LOAD_CONST              10 ('SDK')
+                LOAD_CONST              11 ('ro.build.version.sdk')
+
+ 217            LOAD_CONST              12 ('Parche de seguridad')
+                LOAD_CONST              13 ('ro.build.version.security_patch')
+
+ 218            LOAD_CONST              14 ('Compilación')
+                LOAD_CONST              15 ('ro.build.display.id')
+
+ 219            LOAD_CONST              16 ('Nº de serie')
+                LOAD_CONST              17 ('ro.serialno')
+
+ 220            LOAD_CONST              18 ('Idioma')
+                LOAD_CONST              19 ('persist.sys.locale')
+
+ 221            LOAD_CONST              20 ('Zona horaria')
+                LOAD_CONST              21 ('persist.sys.timezone')
+
+ 210            BUILD_MAP               11
+                STORE_FAST               2 (props)
+
+ 224            LOAD_FAST_BORROW         2 (props)
+                LOAD_ATTR                1 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      3 (label)
+                LOAD_FAST_AND_CLEAR      4 (key)
+                SWAP                     3
+        L1:     BUILD_MAP                0
+                SWAP                     2
+        L2:     FOR_ITER                11 (to L3)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   52 (label, key)
+                LOAD_FAST_BORROW         3 (label)
+                LOAD_CONST              22 ('getprop ')
+                LOAD_FAST_BORROW         4 (key)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                MAP_ADD                  2
+                JUMP_BACKWARD           13 (to L2)
+        L3:     END_FOR
+                POP_ITER
+        L4:     STORE_FAST               5 (cmds)
+                STORE_FAST               3 (label)
+                STORE_FAST               4 (key)
+
+ 225            LOAD_FAST_BORROW         5 (cmds)
+                LOAD_ATTR                3 (update + NULL|self)
+
+ 226            LOAD_CONST              23 ('Resolución')
+                LOAD_CONST              24 ('wm size')
+
+ 227            LOAD_CONST              25 ('Densidad')
+                LOAD_CONST              26 ('wm density')
+
+ 228            LOAD_CONST              27 ('Tiempo encendida')
+                LOAD_CONST              28 ('uptime')
+
+ 229            LOAD_CONST              29 ('Estado de energía')
+                LOAD_CONST              30 ('dumpsys power | grep -m1 mWakefulness=')
+
+ 230            LOAD_CONST              31 ('Red')
+                LOAD_CONST              32 ("ip -o -4 addr show | grep -v ' lo '")
+
+ 225            BUILD_MAP                5
+                CALL                     1
+                POP_TOP
+
+ 232            LOAD_CONST              33 ('; ')
+                LOAD_ATTR                5 (join + NULL|self)
+                LOAD_CONST              34 (<code object <genexpr> at 0x00000204BA0FF550, file "atvmaster\adb.py", line 232>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         5 (cmds)
+                LOAD_ATTR                1 (items + NULL|self)
+                CALL                     0
+                GET_ITER
+                CALL                     0
+                CALL                     1
+                STORE_FAST               6 (script)
+
+ 233            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                7 (shell + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 22 (serial, script)
+                LOAD_SMALL_INT          60
+                LOAD_CONST              35 (('timeout',))
+                CALL_KW                  3
+                LOAD_ATTR                8 (out)
+                STORE_FAST               7 (out)
+
+ 234            BUILD_MAP                0
+                STORE_FAST               8 (info)
+
+ 235            LOAD_CONST              36 (None)
+                STORE_FAST               3 (label)
+
+ 236            LOAD_FAST_BORROW         7 (out)
+                LOAD_ATTR               11 (splitlines + NULL|self)
+                CALL                     0
+                GET_ITER
+        L5:     FOR_ITER                94 (to L10)
+                STORE_FAST               9 (line)
+
+ 237            LOAD_FAST_BORROW         9 (line)
+                LOAD_ATTR               13 (startswith + NULL|self)
+                LOAD_CONST              37 ('@@')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       16 (to L6)
+                NOT_TAKEN
+
+ 238            LOAD_FAST_BORROW         9 (line)
+                LOAD_CONST              38 (slice(2, None, None))
+                BINARY_OP               26 ([])
+                STORE_FAST               3 (label)
+
+ 239            LOAD_CONST              39 ('')
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 131 (info, label)
+                STORE_SUBSCR
+                JUMP_BACKWARD           41 (to L5)
+
+ 240    L6:     LOAD_FAST_BORROW         3 (label)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L7)
+                NOT_TAKEN
+                JUMP_BACKWARD           51 (to L5)
+
+ 241    L7:     LOAD_FAST_LOAD_FAST    131 (info, label)
+                COPY                     2
+                COPY                     2
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 131 (info, label)
+                BINARY_OP               26 ([])
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L8)
+                NOT_TAKEN
+                LOAD_CONST              40 ('\n')
+                JUMP_FORWARD             1 (to L9)
+        L8:     LOAD_CONST              39 ('')
+        L9:     LOAD_FAST_BORROW         9 (line)
+                BINARY_OP                0 (+)
+                BINARY_OP               13 (+=)
+                SWAP                     3
+                SWAP                     2
+                STORE_SUBSCR
+                JUMP_BACKWARD           96 (to L5)
+
+ 236   L10:     END_FOR
+                POP_ITER
+
+ 242            LOAD_FAST_BORROW         8 (info)
+                LOAD_ATTR               15 (get + NULL|self)
+                LOAD_CONST              23 ('Resolución')
+                LOAD_CONST              39 ('')
+                CALL                     2
+                LOAD_ATTR               17 (replace + NULL|self)
+                LOAD_CONST              41 ('Physical size: ')
+                LOAD_CONST              39 ('')
+                CALL                     2
+                LOAD_FAST_BORROW         8 (info)
+                LOAD_CONST              23 ('Resolución')
+                STORE_SUBSCR
+
+ 243            LOAD_FAST_BORROW         8 (info)
+                LOAD_ATTR               15 (get + NULL|self)
+                LOAD_CONST              25 ('Densidad')
+                LOAD_CONST              39 ('')
+                CALL                     2
+                LOAD_ATTR               17 (replace + NULL|self)
+                LOAD_CONST              42 ('Physical density: ')
+                LOAD_CONST              39 ('')
+                CALL                     2
+                LOAD_FAST_BORROW         8 (info)
+                LOAD_CONST              25 ('Densidad')
+                STORE_SUBSCR
+
+ 244            LOAD_FAST_BORROW         8 (info)
+                LOAD_ATTR               15 (get + NULL|self)
+                LOAD_CONST              29 ('Estado de energía')
+                LOAD_CONST              39 ('')
+                CALL                     2
+                STORE_FAST              10 (wake)
+
+ 245            LOAD_CONST              43 ('=')
+                LOAD_FAST_BORROW        10 (wake)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       25 (to L11)
+                NOT_TAKEN
+                LOAD_FAST_BORROW        10 (wake)
+                LOAD_ATTR               19 (split + NULL|self)
+                LOAD_CONST              43 ('=')
+                CALL                     1
+                LOAD_CONST              45 (-1)
+                BINARY_OP               26 ([])
+                JUMP_FORWARD             1 (to L12)
+       L11:     LOAD_FAST               10 (wake)
+       L12:     LOAD_FAST_BORROW         8 (info)
+                LOAD_CONST              29 ('Estado de energía')
+                STORE_SUBSCR
+
+ 246            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               21 (mac + NULL|self)
+                LOAD_FAST_BORROW         1 (serial)
+                CALL                     1
+                LOAD_FAST_BORROW         8 (info)
+                LOAD_CONST              44 ('MAC')
+                STORE_SUBSCR
+
+ 247            LOAD_FAST_BORROW         8 (info)
+                RETURN_VALUE
+
+  --   L13:     SWAP                     2
+                POP_TOP
+
+ 224            SWAP                     3
+                STORE_FAST               4 (key)
+                STORE_FAST               3 (label)
+                RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L13 [3]
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FF550, file "atvmaster\adb.py", line 232>:
+ 232           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                15 (to L3)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   18 (label, c)
+               LOAD_CONST               0 ("echo '@@")
+               LOAD_FAST_BORROW         1 (label)
+               FORMAT_SIMPLE
+               LOAD_CONST               1 ("'; ")
+               LOAD_FAST_BORROW         2 (c)
+               FORMAT_SIMPLE
+               BUILD_STRING             4
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           17 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA093870, file "atvmaster\adb.py", line 249>:
+249           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object mac at 0x00000204B9F5B830, file "atvmaster\adb.py", line 249>:
+249           RESUME                   0
+
+252           LOAD_CONST               6 (('wlan0', 'eth0'))
+              GET_ITER
+      L1:     FOR_ITER               107 (to L4)
+              STORE_FAST               2 (iface)
+
+253           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               1 ('cat /sys/class/net/')
+              LOAD_FAST_BORROW         2 (iface)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('/address 2>/dev/null')
+              BUILD_STRING             3
+              CALL                     2
+              STORE_FAST               3 (r)
+
+254           LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                2 (out)
+              LOAD_ATTR                5 (strip + NULL|self)
+              CALL                     0
+              LOAD_ATTR                7 (lower + NULL|self)
+              CALL                     0
+              STORE_FAST               4 (m)
+
+255           LOAD_GLOBAL              8 (re)
+              LOAD_ATTR               10 (fullmatch)
+              PUSH_NULL
+              LOAD_CONST               3 ('([0-9a-f]{2}:){5}[0-9a-f]{2}')
+              LOAD_FAST_BORROW         4 (m)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           96 (to L1)
+      L2:     LOAD_FAST_BORROW         4 (m)
+              LOAD_CONST               4 ('00:00:00:00:00:00')
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD          105 (to L1)
+
+256   L3:     LOAD_FAST_BORROW         4 (m)
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+252   L4:     END_FOR
+              POP_ITER
+
+257           LOAD_GLOBAL             13 (arp_mac + NULL)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_ATTR               15 (rsplit + NULL|self)
+              LOAD_CONST               5 (':')
+              LOAD_SMALL_INT           1
+              CALL                     2
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093690, file "atvmaster\adb.py", line 259>:
+259           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object storage at 0x00000204BA0FFDD0, file "atvmaster\adb.py", line 259>:
+259           RESUME                   0
+
+260           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('df -h')
+              CALL                     2
+              LOAD_ATTR                2 (out)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093A50, file "atvmaster\adb.py", line 262>:
+262           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object memory at 0x00000204BA0FFEE0, file "atvmaster\adb.py", line 262>:
+262           RESUME                   0
+
+263           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('head -n 4 /proc/meminfo')
+              CALL                     2
+              LOAD_ATTR                2 (out)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093B40, file "atvmaster\adb.py", line 265>:
+265           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object wakefulness at 0x00000204B9FF3280, file "atvmaster\adb.py", line 265>:
+265           RESUME                   0
+
+266           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('dumpsys power | grep -m1 mWakefulness=')
+              CALL                     2
+              LOAD_ATTR                2 (out)
+              STORE_FAST               2 (r)
+
+267           LOAD_CONST               1 ('=')
+              LOAD_FAST_BORROW         2 (r)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       39 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (r)
+              LOAD_ATTR                5 (split + NULL|self)
+              LOAD_CONST               1 ('=')
+              CALL                     1
+              LOAD_CONST               3 (-1)
+              BINARY_OP               26 ([])
+              LOAD_ATTR                7 (strip + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+      L1:     LOAD_CONST               2 ('')
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10A330, file "atvmaster\adb.py", line 270>:
+270           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('key')
+              LOAD_CONST               4 ('str | int')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object keyevent at 0x00000204BA10A630, file "atvmaster\adb.py", line 270>:
+270           RESUME                   0
+
+271           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('input keyevent ')
+              LOAD_FAST_BORROW         2 (key)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B530, file "atvmaster\adb.py", line 273>:
+273           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('text')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object text at 0x00000204BA0AAE70, file "atvmaster\adb.py", line 273>:
+273           RESUME                   0
+
+274           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('input text ')
+              LOAD_GLOBAL              3 (shell_quote + NULL)
+              LOAD_FAST_BORROW         2 (text)
+              LOAD_ATTR                5 (replace + NULL|self)
+              LOAD_CONST               1 (' ')
+              LOAD_CONST               2 ('%s')
+              CALL                     2
+              CALL                     1
+              BINARY_OP                0 (+)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10AC30, file "atvmaster\adb.py", line 276>:
+276           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('x')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('y')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               6 ('return')
+              LOAD_CONST               7 ('Result')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object tap at 0x00000204BA0FFCC0, file "atvmaster\adb.py", line 276>:
+276           RESUME                   0
+
+277           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('input tap ')
+              LOAD_FAST_BORROW         2 (x)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         3 (y)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0FD020, file "atvmaster\adb.py", line 279>:
+279           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('x1')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('y1')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               6 ('x2')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               7 ('y2')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               8 ('ms')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               9 ('return')
+              LOAD_CONST              10 ('Result')
+              BUILD_MAP                7
+              RETURN_VALUE
+
+Disassembly of <code object swipe at 0x00000204BA0A6C10, file "atvmaster\adb.py", line 279>:
+279           RESUME                   0
+
+280           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('input swipe ')
+              LOAD_FAST_BORROW         2 (x1)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         3 (y1)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         4 (x2)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         5 (y2)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         6 (ms)
+              FORMAT_SIMPLE
+              BUILD_STRING            10
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093E10, file "atvmaster\adb.py", line 283>:
+283           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('bytes')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object screencap at 0x00000204B9FB6D30, file "atvmaster\adb.py", line 283>:
+283           RESUME                   0
+
+285           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              BUILD_LIST               0
+              LOAD_CONST               4 (('exec-out', 'screencap', '-p'))
+              LIST_EXTEND              1
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_SMALL_INT          20
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  3
+              STORE_FAST               2 (r)
+
+286           LOAD_FAST_BORROW         2 (r)
+              LOAD_ATTR                2 (raw)
+              LOAD_ATTR                5 (find + NULL|self)
+              LOAD_GLOBAL              6 (_PNG_SIG)
+              CALL                     1
+              STORE_FAST               3 (i)
+
+287           LOAD_FAST_BORROW         3 (i)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+288           LOAD_GLOBAL              9 (AdbError + NULL)
+              LOAD_CONST               2 ('La TV no devolvió una imagen válida (¿pantalla protegida o apagada?)')
+              CALL                     1
+              RAISE_VARARGS            1
+
+289   L1:     LOAD_FAST_BORROW         2 (r)
+              LOAD_ATTR                2 (raw)
+              LOAD_FAST_BORROW         3 (i)
+              LOAD_CONST               3 (None)
+              BINARY_SLICE
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B830, file "atvmaster\adb.py", line 292>:
+292           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('scope')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('list[str]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object packages at 0x00000204BA6A4030, file "atvmaster\adb.py", line 292>:
+292           RESUME                   0
+
+294           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               1 ('pm list packages ')
+              LOAD_FAST_BORROW         2 (scope)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              LOAD_ATTR                3 (strip + NULL|self)
+              CALL                     0
+              LOAD_SMALL_INT          30
+              LOAD_CONST               2 (('timeout',))
+              CALL_KW                  3
+              STORE_FAST               3 (r)
+
+295           LOAD_GLOBAL              5 (sorted + NULL)
+              LOAD_CONST               3 (<code object <genexpr> at 0x00000204B9FB7DB0, file "atvmaster\adb.py", line 295>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                6 (out)
+              LOAD_ATTR                9 (splitlines + NULL|self)
+              CALL                     0
+              GET_ITER
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204B9FB7DB0, file "atvmaster\adb.py", line 295>:
+ 295           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                69 (to L5)
+               STORE_FAST               1 (l)
+
+ 296           LOAD_FAST_BORROW         1 (l)
+               LOAD_ATTR                1 (startswith + NULL|self)
+               LOAD_CONST               0 ('package:')
+               CALL                     1
+               TO_BOOL
+
+ 295   L3:     POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           28 (to L2)
+       L4:     LOAD_FAST_BORROW         1 (l)
+               LOAD_ATTR                3 (split + NULL|self)
+               LOAD_CONST               1 (':')
+               LOAD_SMALL_INT           1
+               CALL                     2
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               LOAD_ATTR                5 (strip + NULL|self)
+               CALL                     0
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           71 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [0] lasti
+  L4 to L6 -> L6 [0] lasti
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B930, file "atvmaster\adb.py", line 298>:
+298           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('package')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object launch at 0x00000204BA6A41A0, file "atvmaster\adb.py", line 298>:
+298           RESUME                   0
+
+299           LOAD_CONST               6 (('android.intent.category.LEANBACK_LAUNCHER', 'android.intent.category.LAUNCHER'))
+              GET_ITER
+      L1:     FOR_ITER                68 (to L4)
+              STORE_FAST               3 (cat)
+
+301           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               1 ('monkey -p ')
+              LOAD_FAST_BORROW         2 (package)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (' -c ')
+              LOAD_FAST_BORROW         3 (cat)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (' 1')
+              BUILD_STRING             5
+              CALL                     2
+              STORE_FAST               4 (r)
+
+302           LOAD_CONST               4 ('No activities found')
+              LOAD_FAST_BORROW         4 (r)
+              LOAD_ATTR                2 (out)
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           47 (to L1)
+      L2:     LOAD_CONST               5 ('monkey aborted')
+              LOAD_FAST_BORROW         4 (r)
+              LOAD_ATTR                2 (out)
+              CONTAINS_OP              1 (not in)
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+              JUMP_BACKWARD           66 (to L1)
+
+303   L3:     LOAD_FAST_BORROW         4 (r)
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+299   L4:     END_FOR
+              POP_ITER
+
+304           LOAD_FAST_CHECK          4 (r)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA108E30, file "atvmaster\adb.py", line 306>:
+306           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('package')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object force_stop at 0x00000204BA109330, file "atvmaster\adb.py", line 306>:
+306           RESUME                   0
+
+307           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('am force-stop ')
+              LOAD_FAST_BORROW         2 (package)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109830, file "atvmaster\adb.py", line 309>:
+309           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('package')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object clear_data at 0x00000204BA109430, file "atvmaster\adb.py", line 309>:
+309           RESUME                   0
+
+310           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('pm clear ')
+              LOAD_FAST_BORROW         2 (package)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109E30, file "atvmaster\adb.py", line 312>:
+312           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('package')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object uninstall at 0x00000204BA109F30, file "atvmaster\adb.py", line 312>:
+312           RESUME                   0
+
+313           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('uninstall')
+              LOAD_FAST_BORROW         2 (package)
+              BUILD_LIST               2
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_SMALL_INT          60
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B130, file "atvmaster\adb.py", line 315>:
+315           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('apk')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object install at 0x00000204BA10BC30, file "atvmaster\adb.py", line 315>:
+315           RESUME                   0
+
+316           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('install')
+              LOAD_CONST               1 ('-r')
+              LOAD_FAST_BORROW         2 (apk)
+              BUILD_LIST               3
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               2 (600)
+              LOAD_CONST               3 (('timeout',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10BD30, file "atvmaster\adb.py", line 318>:
+318           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('action')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object open_settings at 0x00000204BA10BE30, file "atvmaster\adb.py", line 318>:
+318           RESUME                   0
+
+319           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('am start -a ')
+              LOAD_FAST_BORROW         2 (action)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA090D50, file "atvmaster\adb.py", line 321>:
+321           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('tuple[str, str]')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object foreground at 0x00000204B9F5AA30, file "atvmaster\adb.py", line 321>:
+321           RESUME                   0
+
+323           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+
+324           LOAD_FAST_BORROW         1 (serial)
+
+325           LOAD_CONST               1 ("dumpsys power | grep -m1 mWakefulness=; echo @@; dumpsys activity activities | grep -m1 -E 'topResumedActivity|mResumedActivity'")
+
+327           LOAD_SMALL_INT          30
+
+323           LOAD_CONST               2 (('timeout',))
+              CALL_KW                  3
+
+327           LOAD_ATTR                2 (out)
+
+323           STORE_FAST               2 (out)
+
+328           LOAD_FAST_BORROW         2 (out)
+              LOAD_ATTR                5 (partition + NULL|self)
+              LOAD_CONST               3 ('@@')
+              CALL                     1
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST   52 (wake_part, _)
+              STORE_FAST               5 (act_part)
+
+329           LOAD_CONST               4 ('=')
+              LOAD_FAST_BORROW         3 (wake_part)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       39 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (wake_part)
+              LOAD_ATTR                7 (split + NULL|self)
+              LOAD_CONST               4 ('=')
+              CALL                     1
+              LOAD_CONST               7 (-1)
+              BINARY_OP               26 ([])
+              LOAD_ATTR                9 (strip + NULL|self)
+              CALL                     0
+              JUMP_FORWARD             1 (to L2)
+      L1:     LOAD_CONST               5 ('')
+      L2:     STORE_FAST               6 (wake)
+
+330           LOAD_GLOBAL             10 (re)
+              LOAD_ATTR               12 (search)
+              PUSH_NULL
+              LOAD_CONST               6 ('\\bu\\d+\\s+([\\w.]+)/')
+              LOAD_FAST_BORROW         5 (act_part)
+              CALL                     2
+              STORE_FAST               7 (m)
+
+331           LOAD_FAST_LOAD_FAST    103 (wake, m)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         7 (m)
+              LOAD_ATTR               15 (group + NULL|self)
+              LOAD_SMALL_INT           1
+              CALL                     1
+              BUILD_TUPLE              2
+              RETURN_VALUE
+      L3:     LOAD_CONST               5 ('')
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0923D0, file "atvmaster\adb.py", line 333>:
+333           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('dict[str, int]')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object display_info at 0x00000204BA3735D0, file "atvmaster\adb.py", line 333>:
+333           RESUME                   0
+
+335           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               1 ('wm size; wm density')
+              CALL                     2
+              LOAD_ATTR                2 (out)
+              STORE_FAST               2 (out)
+
+336           LOAD_CONST               2 ('width')
+              LOAD_CONST               3 (1920)
+              LOAD_CONST               4 ('height')
+              LOAD_CONST               5 (1080)
+              LOAD_CONST               6 ('physical_dpi')
+              LOAD_SMALL_INT           0
+              LOAD_CONST               7 ('current_dpi')
+              LOAD_SMALL_INT           0
+              BUILD_MAP                4
+              STORE_FAST               3 (info)
+
+337           LOAD_GLOBAL              4 (re)
+              LOAD_ATTR                6 (search)
+              PUSH_NULL
+              LOAD_CONST               8 ('Physical size:\\s*(\\d+)x(\\d+)')
+              LOAD_FAST_BORROW         2 (out)
+              CALL                     2
+              STORE_FAST               4 (m)
+
+338           LOAD_FAST_BORROW         4 (m)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       44 (to L1)
+              NOT_TAKEN
+
+339           LOAD_GLOBAL              9 (int + NULL)
+              LOAD_FAST_BORROW         4 (m)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              CALL                     1
+              LOAD_GLOBAL              9 (int + NULL)
+              LOAD_FAST_BORROW         4 (m)
+              LOAD_SMALL_INT           2
+              BINARY_OP               26 ([])
+              CALL                     1
+              SWAP                     2
+              LOAD_FAST_BORROW         3 (info)
+              LOAD_CONST               2 ('width')
+              STORE_SUBSCR
+              LOAD_FAST_BORROW         3 (info)
+              LOAD_CONST               4 ('height')
+              STORE_SUBSCR
+
+340   L1:     LOAD_GLOBAL              4 (re)
+              LOAD_ATTR                6 (search)
+              PUSH_NULL
+              LOAD_CONST               9 ('Physical density:\\s*(\\d+)')
+              LOAD_FAST_BORROW         2 (out)
+              CALL                     2
+              STORE_FAST               4 (m)
+
+341           LOAD_FAST_BORROW         4 (m)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L2)
+              NOT_TAKEN
+
+342           LOAD_GLOBAL              9 (int + NULL)
+              LOAD_FAST_BORROW         4 (m)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              CALL                     1
+              COPY                     1
+              LOAD_FAST_BORROW         3 (info)
+              LOAD_CONST               6 ('physical_dpi')
+              STORE_SUBSCR
+              LOAD_FAST_BORROW         3 (info)
+              LOAD_CONST               7 ('current_dpi')
+              STORE_SUBSCR
+
+343   L2:     LOAD_GLOBAL              4 (re)
+              LOAD_ATTR                6 (search)
+              PUSH_NULL
+              LOAD_CONST              10 ('Override density:\\s*(\\d+)')
+              LOAD_FAST_BORROW         2 (out)
+              CALL                     2
+              STORE_FAST               4 (m)
+
+344           LOAD_FAST_BORROW         4 (m)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       22 (to L3)
+              NOT_TAKEN
+
+345           LOAD_GLOBAL              9 (int + NULL)
+              LOAD_FAST_BORROW         4 (m)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              CALL                     1
+              LOAD_FAST_BORROW         3 (info)
+              LOAD_CONST               7 ('current_dpi')
+              STORE_SUBSCR
+
+346   L3:     LOAD_FAST_BORROW         3 (info)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10AB30, file "atvmaster\adb.py", line 348>:
+348           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('dpi')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object set_density at 0x00000204BA0AB9B0, file "atvmaster\adb.py", line 348>:
+348           RESUME                   0
+
+349           LOAD_SMALL_INT          72
+              LOAD_FAST                2 (dpi)
+              SWAP                     2
+              COPY                     2
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE        8 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               1 (640)
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_TRUE        14 (to L3)
+              NOT_TAKEN
+              JUMP_FORWARD             1 (to L2)
+      L1:     POP_TOP
+
+350   L2:     LOAD_GLOBAL              1 (AdbError + NULL)
+              LOAD_CONST               2 ('La densidad debe estar entre 72 y 640 dpi')
+              CALL                     1
+              RAISE_VARARGS            1
+
+351   L3:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               3 ('wm density ')
+              LOAD_FAST_BORROW         2 (dpi)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA092E20, file "atvmaster\adb.py", line 353>:
+353           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Result')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object reset_density at 0x00000204BA10B430, file "atvmaster\adb.py", line 353>:
+353           RESUME                   0
+
+354           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('wm density reset')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA093780, file "atvmaster\adb.py", line 356>:
+356           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('bool')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object boot_completed at 0x00000204BA0A72D0, file "atvmaster\adb.py", line 356>:
+356           RESUME                   0
+
+357           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (getprop + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('sys.boot_completed')
+              CALL                     2
+              LOAD_ATTR                3 (strip + NULL|self)
+              CALL                     0
+              LOAD_CONST               1 ('1')
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B630, file "atvmaster\adb.py", line 359>:
+359           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('url')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('package')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Result')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object kiosk_launch at 0x00000204BA3E0130, file "atvmaster\adb.py", line 359>:
+359           RESUME                   0
+
+362           LOAD_FAST_BORROW         3 (package)
+              LOAD_GLOBAL              0 (FULLY_PACKAGES)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        7 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               1 ('-n ')
+              LOAD_FAST_BORROW         3 (package)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('/de.ozerov.fully.MainActivity')
+              BUILD_STRING             3
+              JUMP_FORWARD            13 (to L2)
+
+363   L1:     LOAD_CONST               3 ('-p ')
+              LOAD_GLOBAL              3 (shell_quote + NULL)
+              LOAD_FAST_BORROW         3 (package)
+              CALL                     1
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+
+362   L2:     STORE_FAST               4 (target)
+
+364           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               4 ('am start -a android.intent.action.VIEW -d ')
+              LOAD_GLOBAL              3 (shell_quote + NULL)
+              LOAD_FAST_BORROW         2 (url)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (' ')
+              LOAD_FAST_BORROW         4 (target)
+              FORMAT_SIMPLE
+              BUILD_STRING             4
+
+365           LOAD_SMALL_INT          30
+
+364           LOAD_CONST               6 (('timeout',))
+              CALL_KW                  3
+              STORE_FAST               5 (r)
+
+366           LOAD_CONST               7 ('Error')
+              LOAD_FAST_BORROW         5 (r)
+              LOAD_ATTR                6 (text)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_TRUE        18 (to L3)
+              NOT_TAKEN
+              LOAD_CONST               8 ('Exception')
+              LOAD_FAST_BORROW         5 (r)
+              LOAD_ATTR                6 (text)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       67 (to L5)
+              NOT_TAKEN
+
+367   L3:     LOAD_GLOBAL              9 (AdbError + NULL)
+              LOAD_FAST_BORROW         5 (r)
+              LOAD_ATTR                6 (text)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       38 (to L4)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         5 (r)
+              LOAD_ATTR                6 (text)
+              LOAD_ATTR               11 (splitlines + NULL|self)
+              CALL                     0
+              LOAD_CONST              10 (-1)
+              BINARY_OP               26 ([])
+              CALL                     1
+              RAISE_VARARGS            1
+      L4:     LOAD_CONST               9 ('am start falló')
+              CALL                     1
+              RAISE_VARARGS            1
+
+368   L5:     LOAD_FAST_BORROW         5 (r)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B730, file "atvmaster\adb.py", line 370>:
+370           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('host')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('tuple[str | None, str]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object resolve_on_tv at 0x00000204B9F9E6B0, file "atvmaster\adb.py", line 370>:
+370           RESUME                   0
+
+372           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               1 ('ping -c 1 -W 3 ')
+              LOAD_GLOBAL              3 (shell_quote + NULL)
+              LOAD_FAST_BORROW         2 (host)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (' 2>&1 | head -n 3')
+              BUILD_STRING             3
+              LOAD_SMALL_INT          20
+              LOAD_CONST               3 (('timeout',))
+              CALL_KW                  3
+              STORE_FAST               3 (r)
+
+373           LOAD_GLOBAL              4 (re)
+              LOAD_ATTR                6 (search)
+              PUSH_NULL
+              LOAD_CONST               4 ('PING \\S+ \\(([\\d.]+)\\)')
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                8 (out)
+              CALL                     2
+              STORE_FAST               4 (m)
+
+374           LOAD_FAST_BORROW         4 (m)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       30 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         4 (m)
+              LOAD_ATTR               11 (group + NULL|self)
+              LOAD_SMALL_INT           1
+              CALL                     1
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                8 (out)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+      L1:     LOAD_CONST               5 (None)
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                8 (out)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10B230, file "atvmaster\adb.py", line 376>:
+376           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('ip')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('host')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               5 ('port')
+              LOAD_CONST               6 ('int')
+              LOAD_CONST               7 ('path')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               8 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                6
+              RETURN_VALUE
+
+Disassembly of <code object http_status_from_tv at 0x00000204B9FB6A30, file "atvmaster\adb.py", line 376>:
+376           RESUME                   0
+
+377           LOAD_CONST               0 ('GET ')
+              LOAD_FAST_BORROW         5 (path)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' HTTP/1.0\\r\\nHost: ')
+              LOAD_FAST_BORROW         3 (host)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('\\r\\n\\r\\n')
+              BUILD_STRING             5
+              STORE_FAST               6 (req)
+
+378           LOAD_CONST               3 ('printf ')
+              LOAD_GLOBAL              1 (shell_quote + NULL)
+              LOAD_FAST_BORROW         6 (req)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               4 (' | toybox nc -w 5 ')
+              LOAD_GLOBAL              1 (shell_quote + NULL)
+              LOAD_FAST_BORROW         2 (ip)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (' ')
+              LOAD_FAST_BORROW         4 (port)
+              FORMAT_SIMPLE
+              LOAD_CONST               6 (' | head -n 1')
+              BUILD_STRING             7
+              STORE_FAST               7 (cmd)
+
+379           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (shell + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 23 (serial, cmd)
+              LOAD_SMALL_INT          20
+              LOAD_CONST               7 (('timeout',))
+              CALL_KW                  3
+              LOAD_ATTR                4 (out)
+              LOAD_ATTR                7 (strip + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10BB30, file "atvmaster\adb.py", line 382>:
+382           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('namespace')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('dict[str, str]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object settings_list at 0x00000204BA0B7230, file "atvmaster\adb.py", line 382>:
+382           RESUME                   0
+
+383           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('settings list ')
+              LOAD_FAST_BORROW         2 (namespace)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              LOAD_SMALL_INT          30
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  3
+              STORE_FAST               3 (r)
+
+384           BUILD_MAP                0
+              STORE_FAST               4 (out)
+
+385           LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                2 (out)
+              LOAD_ATTR                5 (splitlines + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER                36 (to L3)
+              STORE_FAST               5 (line)
+
+386           LOAD_CONST               2 ('=')
+              LOAD_FAST_BORROW         5 (line)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           12 (to L1)
+
+387   L2:     LOAD_FAST_BORROW         5 (line)
+              LOAD_ATTR                7 (split + NULL|self)
+              LOAD_CONST               2 ('=')
+              LOAD_SMALL_INT           1
+              CALL                     2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  103 (k, v)
+
+388           LOAD_FAST_BORROW_LOAD_FAST_BORROW 116 (v, out)
+              LOAD_FAST_BORROW         6 (k)
+              STORE_SUBSCR
+              JUMP_BACKWARD           38 (to L1)
+
+385   L3:     END_FOR
+              POP_ITER
+
+389           LOAD_FAST_BORROW         4 (out)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109230, file "atvmaster\adb.py", line 391>:
+391           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('namespace')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('key')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               5 ('value')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               6 ('return')
+              LOAD_CONST               7 ('Result')
+              BUILD_MAP                5
+              RETURN_VALUE
+
+Disassembly of <code object settings_put at 0x00000204B9FEF800, file "atvmaster\adb.py", line 391>:
+391           RESUME                   0
+
+392           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('settings put ')
+              LOAD_FAST_BORROW         2 (namespace)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_GLOBAL              3 (shell_quote + NULL)
+              LOAD_FAST_BORROW         3 (key)
+              CALL                     1
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (' ')
+              LOAD_GLOBAL              3 (shell_quote + NULL)
+              LOAD_FAST_BORROW         4 (value)
+              CALL                     1
+              FORMAT_SIMPLE
+              BUILD_STRING             6
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109630, file "atvmaster\adb.py", line 395>:
+395           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('path')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('list[tuple[str, bool, str, str]]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object ls at 0x00000204BA3BE460, file "atvmaster\adb.py", line 395>:
+395           RESUME                   0
+
+397           LOAD_FAST_BORROW         2 (path)
+              LOAD_ATTR                1 (rstrip + NULL|self)
+              LOAD_CONST               1 ('/')
+              CALL                     1
+              LOAD_CONST               1 ('/')
+              BINARY_OP                0 (+)
+              STORE_FAST               2 (path)
+
+398           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               2 ('ls -la ')
+              LOAD_GLOBAL              5 (shell_quote + NULL)
+              LOAD_FAST_BORROW         2 (path)
+              CALL                     1
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              LOAD_SMALL_INT          20
+              LOAD_CONST               3 (('timeout',))
+              CALL_KW                  3
+              STORE_FAST               3 (r)
+
+399           LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                6 (ok)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        50 (to L2)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                8 (out)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        32 (to L2)
+              NOT_TAKEN
+
+400           LOAD_GLOBAL             11 (AdbError + NULL)
+              LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR               12 (err)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               4 ('No se pudo listar la carpeta')
+      L1:     CALL                     1
+              RAISE_VARARGS            1
+
+401   L2:     BUILD_LIST               0
+              STORE_FAST               4 (entries)
+
+402           LOAD_FAST_BORROW         3 (r)
+              LOAD_ATTR                8 (out)
+              LOAD_ATTR               15 (splitlines + NULL|self)
+              CALL                     0
+              GET_ITER
+      L3:     FOR_ITER               217 (to L9)
+              STORE_FAST               5 (line)
+
+403           LOAD_GLOBAL             16 (re)
+              LOAD_ATTR               18 (match)
+              PUSH_NULL
+              LOAD_CONST               5 ('^([\\-dlbcps][rwxsStT\\-]{9})\\s+\\d+\\s+\\S+\\s+\\S+\\s+(\\d+)?\\s*(\\d{4}-\\d{2}-\\d{2}\\s+\\d{2}:\\d{2})\\s+(.+)$')
+
+404           LOAD_FAST_BORROW         5 (line)
+
+403           CALL                     2
+              STORE_FAST               6 (m)
+
+405           LOAD_FAST_BORROW         6 (m)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L4)
+              NOT_TAKEN
+
+406           JUMP_BACKWARD           36 (to L3)
+
+407   L4:     LOAD_FAST_BORROW         6 (m)
+              LOAD_ATTR               21 (groups + NULL|self)
+              CALL                     0
+              UNPACK_SEQUENCE          4
+              STORE_FAST_STORE_FAST  120 (perms, size)
+              STORE_FAST_STORE_FAST  154 (date, name)
+
+408           LOAD_FAST_BORROW        10 (name)
+              LOAD_CONST              13 (('.', '..'))
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE        3 (to L5)
+              NOT_TAKEN
+
+409           JUMP_BACKWARD           64 (to L3)
+
+410   L5:     LOAD_FAST_BORROW         7 (perms)
+              LOAD_ATTR               23 (startswith + NULL|self)
+              LOAD_CONST               6 ('d')
+              CALL                     1
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        43 (to L6)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         7 (perms)
+              LOAD_ATTR               23 (startswith + NULL|self)
+              LOAD_CONST               7 ('l')
+              CALL                     1
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       18 (to L6)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW        10 (name)
+              LOAD_ATTR               25 (endswith + NULL|self)
+              LOAD_CONST               1 ('/')
+              CALL                     1
+      L6:     STORE_FAST              11 (is_dir)
+
+411           LOAD_FAST_BORROW         7 (perms)
+              LOAD_ATTR               23 (startswith + NULL|self)
+              LOAD_CONST               7 ('l')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       34 (to L7)
+              NOT_TAKEN
+              LOAD_CONST               8 (' -> ')
+              LOAD_FAST_BORROW        10 (name)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       27 (to L7)
+              NOT_TAKEN
+
+412           LOAD_FAST_BORROW        10 (name)
+              LOAD_ATTR               27 (split + NULL|self)
+              LOAD_CONST               8 (' -> ')
+              CALL                     1
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              STORE_FAST              10 (name)
+
+413           LOAD_CONST               9 (True)
+              STORE_FAST              11 (is_dir)
+
+414   L7:     LOAD_FAST                4 (entries)
+              LOAD_ATTR               29 (append + NULL|self)
+              LOAD_FAST_LOAD_FAST    171 (name, is_dir)
+              LOAD_FAST                8 (size)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L8)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST              10 ('')
+      L8:     LOAD_FAST_BORROW         9 (date)
+              BUILD_TUPLE              4
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD          219 (to L3)
+
+402   L9:     END_FOR
+              POP_ITER
+
+415           LOAD_FAST_BORROW         4 (entries)
+              LOAD_ATTR               31 (sort + NULL|self)
+              LOAD_CONST              11 (<code object <lambda> at 0x00000204BA0A6AF0, file "atvmaster\adb.py", line 415>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 (('key',))
+              CALL_KW                  1
+              POP_TOP
+
+416           LOAD_FAST_BORROW         4 (entries)
+              RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x00000204BA0A6AF0, file "atvmaster\adb.py", line 415>:
+415           RESUME                   0
+              LOAD_FAST_BORROW         0 (e)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              TO_BOOL
+              UNARY_NOT
+              LOAD_FAST_BORROW         0 (e)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_ATTR                1 (lower + NULL|self)
+              CALL                     0
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA10A230, file "atvmaster\adb.py", line 418>:
+418           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('remote')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('local')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Result')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object pull at 0x00000204BA10A130, file "atvmaster\adb.py", line 418>:
+418           RESUME                   0
+
+419           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('pull')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (remote, local)
+              BUILD_LIST               3
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               1 (600)
+              LOAD_CONST               2 (('timeout',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109B30, file "atvmaster\adb.py", line 421>:
+421           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('local')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('remote')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Result')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object push at 0x00000204BA109C30, file "atvmaster\adb.py", line 421>:
+421           RESUME                   0
+
+422           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('push')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (local, remote)
+              BUILD_LIST               3
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               1 (600)
+              LOAD_CONST               2 (('timeout',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109D30, file "atvmaster\adb.py", line 424>:
+424           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('remote')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('Result')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object remove at 0x00000204BA660140, file "atvmaster\adb.py", line 424>:
+424           RESUME                   0
+
+425           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('rm -rf ')
+              LOAD_GLOBAL              3 (shell_quote + NULL)
+              LOAD_FAST_BORROW         2 (remote)
+              CALL                     1
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0921F0, file "atvmaster\adb.py", line 428>:
+428           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Result')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object reboot at 0x00000204BA10AA30, file "atvmaster\adb.py", line 428>:
+428           RESUME                   0
+
+429           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (run + NULL|self)
+              LOAD_CONST               0 ('reboot')
+              BUILD_LIST               1
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_SMALL_INT          10
+              LOAD_CONST               1 (('timeout',))
+              CALL_KW                  3
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA0933C0, file "atvmaster\adb.py", line 431>:
+431           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('serial')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Result')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object power_off at 0x00000204BA109130, file "atvmaster\adb.py", line 431>:
+431           RESUME                   0
+
+432           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (shell + NULL|self)
+              LOAD_FAST_BORROW         1 (serial)
+              LOAD_CONST               0 ('reboot -p')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x00000204BA109530, file "atvmaster\adb.py", line 435>:
+435           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('path')
+              LOAD_CONST               2 ('Path')
+              LOAD_CONST               3 ('data')
+              LOAD_CONST               4 ('bytes')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('None')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object save_bytes at 0x00000204BA0A9BB0, file "atvmaster\adb.py", line 435>:
+435           RESUME                   0
+
+436           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                0 (parent)
+              LOAD_ATTR                3 (mkdir + NULL|self)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               1 (('parents', 'exist_ok'))
+              CALL_KW                  2
+              POP_TOP
+
+437           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                5 (write_bytes + NULL|self)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE

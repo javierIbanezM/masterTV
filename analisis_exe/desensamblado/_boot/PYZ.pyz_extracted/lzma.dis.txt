@@ -1,0 +1,1189 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Interface to the liblzma compression library.\n\nThis module provides a class for reading and writing compressed files,\nclasses for incremental (de)compression, and convenience functions for\none-shot (de)compression.\n\nThese classes and functions support both the XZ and legacy LZMA\ncontainer formats, as well as raw compressed data streams.\n')
+              STORE_NAME               0 (__doc__)
+
+ 11           BUILD_LIST               0
+
+ 12           LOAD_CONST               1 ('CHECK_NONE')
+
+ 11           LIST_APPEND              1
+
+ 12           LOAD_CONST               2 ('CHECK_CRC32')
+
+ 11           LIST_APPEND              1
+
+ 12           LOAD_CONST               3 ('CHECK_CRC64')
+
+ 11           LIST_APPEND              1
+
+ 12           LOAD_CONST               4 ('CHECK_SHA256')
+
+ 11           LIST_APPEND              1
+
+ 13           LOAD_CONST               5 ('CHECK_ID_MAX')
+
+ 11           LIST_APPEND              1
+
+ 13           LOAD_CONST               6 ('CHECK_UNKNOWN')
+
+ 11           LIST_APPEND              1
+
+ 14           LOAD_CONST               7 ('FILTER_LZMA1')
+
+ 11           LIST_APPEND              1
+
+ 14           LOAD_CONST               8 ('FILTER_LZMA2')
+
+ 11           LIST_APPEND              1
+
+ 14           LOAD_CONST               9 ('FILTER_DELTA')
+
+ 11           LIST_APPEND              1
+
+ 14           LOAD_CONST              10 ('FILTER_X86')
+
+ 11           LIST_APPEND              1
+
+ 14           LOAD_CONST              11 ('FILTER_IA64')
+
+ 11           LIST_APPEND              1
+
+ 15           LOAD_CONST              12 ('FILTER_ARM')
+
+ 11           LIST_APPEND              1
+
+ 15           LOAD_CONST              13 ('FILTER_ARMTHUMB')
+
+ 11           LIST_APPEND              1
+
+ 15           LOAD_CONST              14 ('FILTER_POWERPC')
+
+ 11           LIST_APPEND              1
+
+ 15           LOAD_CONST              15 ('FILTER_SPARC')
+
+ 11           LIST_APPEND              1
+
+ 16           LOAD_CONST              16 ('FORMAT_AUTO')
+
+ 11           LIST_APPEND              1
+
+ 16           LOAD_CONST              17 ('FORMAT_XZ')
+
+ 11           LIST_APPEND              1
+
+ 16           LOAD_CONST              18 ('FORMAT_ALONE')
+
+ 11           LIST_APPEND              1
+
+ 16           LOAD_CONST              19 ('FORMAT_RAW')
+
+ 11           LIST_APPEND              1
+
+ 17           LOAD_CONST              20 ('MF_HC3')
+
+ 11           LIST_APPEND              1
+
+ 17           LOAD_CONST              21 ('MF_HC4')
+
+ 11           LIST_APPEND              1
+
+ 17           LOAD_CONST              22 ('MF_BT2')
+
+ 11           LIST_APPEND              1
+
+ 17           LOAD_CONST              23 ('MF_BT3')
+
+ 11           LIST_APPEND              1
+
+ 17           LOAD_CONST              24 ('MF_BT4')
+
+ 11           LIST_APPEND              1
+
+ 18           LOAD_CONST              25 ('MODE_FAST')
+
+ 11           LIST_APPEND              1
+
+ 18           LOAD_CONST              26 ('MODE_NORMAL')
+
+ 11           LIST_APPEND              1
+
+ 18           LOAD_CONST              27 ('PRESET_DEFAULT')
+
+ 11           LIST_APPEND              1
+
+ 18           LOAD_CONST              28 ('PRESET_EXTREME')
+
+ 11           LIST_APPEND              1
+
+ 20           LOAD_CONST              29 ('LZMACompressor')
+
+ 11           LIST_APPEND              1
+
+ 20           LOAD_CONST              30 ('LZMADecompressor')
+
+ 11           LIST_APPEND              1
+
+ 20           LOAD_CONST              31 ('LZMAFile')
+
+ 11           LIST_APPEND              1
+
+ 20           LOAD_CONST              32 ('LZMAError')
+
+ 11           LIST_APPEND              1
+
+ 21           LOAD_CONST              33 ('open')
+
+ 11           LIST_APPEND              1
+
+ 21           LOAD_CONST              34 ('compress')
+
+ 11           LIST_APPEND              1
+
+ 21           LOAD_CONST              35 ('decompress')
+
+ 11           LIST_APPEND              1
+
+ 21           LOAD_CONST              36 ('is_check_supported')
+
+ 11           LIST_APPEND              1
+              STORE_NAME               1 (__all__)
+
+ 24           LOAD_SMALL_INT           0
+              LOAD_CONST              37 (None)
+              IMPORT_NAME              2 (builtins)
+              STORE_NAME               2 (builtins)
+
+ 25           LOAD_SMALL_INT           0
+              LOAD_CONST              37 (None)
+              IMPORT_NAME              3 (io)
+              STORE_NAME               3 (io)
+
+ 26           LOAD_SMALL_INT           0
+              LOAD_CONST              37 (None)
+              IMPORT_NAME              4 (os)
+              STORE_NAME               4 (os)
+
+ 27           LOAD_SMALL_INT           0
+              LOAD_CONST              38 (('_streams',))
+              IMPORT_NAME              5 (compression._common)
+              IMPORT_FROM              6 (_streams)
+              STORE_NAME               6 (_streams)
+              POP_TOP
+
+ 28           LOAD_SMALL_INT           0
+              LOAD_CONST              39 (('*',))
+              IMPORT_NAME              7 (_lzma)
+              CALL_INTRINSIC_1         2 (INTRINSIC_IMPORT_STAR)
+              POP_TOP
+
+ 29           LOAD_SMALL_INT           0
+              LOAD_CONST              40 (('_encode_filter_properties', '_decode_filter_properties'))
+              IMPORT_NAME              7 (_lzma)
+              IMPORT_FROM              8 (_encode_filter_properties)
+              STORE_NAME               8 (_encode_filter_properties)
+              IMPORT_FROM              9 (_decode_filter_properties)
+              STORE_NAME               9 (_decode_filter_properties)
+              POP_TOP
+
+ 33           LOAD_SMALL_INT           1
+              STORE_NAME              10 (_MODE_READ)
+
+ 35           LOAD_SMALL_INT           3
+              STORE_NAME              11 (_MODE_WRITE)
+
+ 38           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              41 (<code object LZMAFile at 0x00000204B9F9F4B0, file "lzma.py", line 38>)
+              MAKE_FUNCTION
+              LOAD_CONST              31 ('LZMAFile')
+              LOAD_NAME                6 (_streams)
+              LOAD_ATTR               24 (BaseStream)
+              CALL                     3
+              STORE_NAME              13 (LZMAFile)
+
+279           LOAD_CONST              52 (('rb',))
+              LOAD_CONST              42 ('format')
+
+280           LOAD_CONST              37 (None)
+
+279           LOAD_CONST              43 ('check')
+
+280           LOAD_CONST              53 (-1)
+
+279           LOAD_CONST              44 ('preset')
+
+280           LOAD_CONST              37 (None)
+
+279           LOAD_CONST              45 ('filters')
+
+280           LOAD_CONST              37 (None)
+
+279           LOAD_CONST              46 ('encoding')
+
+281           LOAD_CONST              37 (None)
+
+279           LOAD_CONST              47 ('errors')
+
+281           LOAD_CONST              37 (None)
+
+279           LOAD_CONST              48 ('newline')
+
+281           LOAD_CONST              37 (None)
+
+279           BUILD_MAP                7
+              LOAD_CONST              49 (<code object open at 0x00000204BA445170, file "lzma.py", line 279>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              14 (open)
+
+327           LOAD_NAME               15 (FORMAT_XZ)
+              LOAD_CONST              53 (-1)
+              LOAD_CONST              37 (None)
+              LOAD_CONST              37 (None)
+              BUILD_TUPLE              4
+              LOAD_CONST              50 (<code object compress at 0x00000204BA0AA470, file "lzma.py", line 327>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              16 (compress)
+
+339           LOAD_NAME               17 (FORMAT_AUTO)
+              LOAD_CONST              37 (None)
+              LOAD_CONST              37 (None)
+              BUILD_TUPLE              3
+              LOAD_CONST              51 (<code object decompress at 0x00000204B9F5AA30, file "lzma.py", line 339>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              18 (decompress)
+              LOAD_CONST              37 (None)
+              RETURN_VALUE
+
+Disassembly of <code object LZMAFile at 0x00000204B9F9F4B0, file "lzma.py", line 38>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  38           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('LZMAFile')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          38
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  40           LOAD_CONST               1 ('A file object providing transparent LZMA (de)compression.\n\nAn LZMAFile can act as a wrapper for an existing file object, or\nrefer directly to a named file on disk.\n\nNote that LZMAFile provides a *binary* file interface - data read\nis returned as bytes, and data to be written must be given as bytes.\n')
+               STORE_NAME               4 (__doc__)
+
+  49           LOAD_CONST              24 ((None, 'r'))
+               LOAD_CONST               3 ('format')
+
+  50           LOAD_CONST               2 (None)
+
+  49           LOAD_CONST               4 ('check')
+
+  50           LOAD_CONST              25 (-1)
+
+  49           LOAD_CONST               5 ('preset')
+
+  50           LOAD_CONST               2 (None)
+
+  49           LOAD_CONST               6 ('filters')
+
+  50           LOAD_CONST               2 (None)
+
+  49           BUILD_MAP                4
+               LOAD_CONST               7 (<code object __init__ at 0x00000204BA3A3280, file "lzma.py", line 49>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+ 134           LOAD_CONST               8 (<code object close at 0x00000204BA338F90, file "lzma.py", line 134>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (close)
+
+ 157           LOAD_NAME                7 (property)
+
+ 158           LOAD_CONST               9 (<code object closed at 0x00000204BA0922E0, file "lzma.py", line 157>)
+               MAKE_FUNCTION
+
+ 157           CALL                     0
+
+ 158           STORE_NAME               8 (closed)
+
+ 162           LOAD_NAME                7 (property)
+
+ 163           LOAD_CONST              10 (<code object name at 0x00000204BA0A7AB0, file "lzma.py", line 162>)
+               MAKE_FUNCTION
+
+ 162           CALL                     0
+
+ 163           STORE_NAME               9 (name)
+
+ 167           LOAD_NAME                7 (property)
+
+ 168           LOAD_CONST              11 (<code object mode at 0x00000204BA0FC250, file "lzma.py", line 167>)
+               MAKE_FUNCTION
+
+ 167           CALL                     0
+
+ 168           STORE_NAME              10 (mode)
+
+ 171           LOAD_CONST              12 (<code object fileno at 0x00000204B9FEF0E0, file "lzma.py", line 171>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (fileno)
+
+ 176           LOAD_CONST              13 (<code object seekable at 0x00000204BA0AAAB0, file "lzma.py", line 176>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (seekable)
+
+ 180           LOAD_CONST              14 (<code object readable at 0x00000204BA0A7090, file "lzma.py", line 180>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (readable)
+
+ 185           LOAD_CONST              15 (<code object writable at 0x00000204BA0A7990, file "lzma.py", line 185>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (writable)
+
+ 190           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              16 (<code object peek at 0x00000204BA102500, file "lzma.py", line 190>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              15 (peek)
+
+ 201           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              17 (<code object read at 0x00000204BA1022A0, file "lzma.py", line 201>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              16 (read)
+
+ 210           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              18 (<code object read1 at 0x00000204B9F71FD0, file "lzma.py", line 210>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              17 (read1)
+
+ 222           LOAD_CONST              26 ((-1,))
+               LOAD_CONST              19 (<code object readline at 0x00000204BA102760, file "lzma.py", line 222>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              18 (readline)
+
+ 232           LOAD_CONST              20 (<code object write at 0x00000204BA446050, file "lzma.py", line 232>)
+               MAKE_FUNCTION
+               STORE_NAME              19 (write)
+
+ 253           LOAD_NAME               20 (io)
+               LOAD_ATTR               42 (SEEK_SET)
+               BUILD_TUPLE              1
+               LOAD_CONST              21 (<code object seek at 0x00000204BA102630, file "lzma.py", line 253>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              22 (seek)
+
+ 271           LOAD_CONST              22 (<code object tell at 0x00000204BA620310, file "lzma.py", line 271>)
+               MAKE_FUNCTION
+               STORE_NAME              23 (tell)
+               LOAD_CONST              23 (('_buffer', '_closefp', '_compressor', '_fp', '_mode', '_pos'))
+               STORE_NAME              24 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              25 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA3A3280, file "lzma.py", line 49>:
+ 49            RESUME                   0
+
+ 93            LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fp)
+
+ 94            LOAD_CONST               2 (False)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_closefp)
+
+ 95            LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (_mode)
+
+ 97            LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST              13 (('r', 'rb'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       51 (to L4)
+               NOT_TAKEN
+
+ 98            LOAD_FAST_BORROW         4 (check)
+               LOAD_CONST              14 (-1)
+               COMPARE_OP             119 (bool(!=))
+               POP_JUMP_IF_FALSE       12 (to L1)
+               NOT_TAKEN
+
+ 99            LOAD_GLOBAL              7 (ValueError + NULL)
+               LOAD_CONST               3 ('Cannot specify an integrity check when opening a file for reading')
+               CALL                     1
+               RAISE_VARARGS            1
+
+101    L1:     LOAD_FAST_BORROW         5 (preset)
+               POP_JUMP_IF_NONE        12 (to L2)
+               NOT_TAKEN
+
+102            LOAD_GLOBAL              7 (ValueError + NULL)
+               LOAD_CONST               4 ('Cannot specify a preset compression level when opening a file for reading')
+               CALL                     1
+               RAISE_VARARGS            1
+
+104    L2:     LOAD_FAST_BORROW         3 (format)
+               POP_JUMP_IF_NOT_NONE     7 (to L3)
+               NOT_TAKEN
+
+105            LOAD_GLOBAL              8 (FORMAT_AUTO)
+               STORE_FAST               3 (format)
+
+106    L3:     LOAD_GLOBAL             10 (_MODE_READ)
+               STORE_FAST               7 (mode_code)
+               JUMP_FORWARD            75 (to L7)
+
+107    L4:     LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST              15 (('w', 'wb', 'a', 'ab', 'x', 'xb'))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       43 (to L6)
+               NOT_TAKEN
+
+108            LOAD_FAST_BORROW         3 (format)
+               POP_JUMP_IF_NOT_NONE     7 (to L5)
+               NOT_TAKEN
+
+109            LOAD_GLOBAL             12 (FORMAT_XZ)
+               STORE_FAST               3 (format)
+
+110    L5:     LOAD_GLOBAL             14 (_MODE_WRITE)
+               STORE_FAST               7 (mode_code)
+
+111            LOAD_GLOBAL             17 (LZMACompressor + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (format, check)
+
+112            LOAD_FAST_BORROW_LOAD_FAST_BORROW 86 (preset, filters)
+
+111            LOAD_CONST               5 (('format', 'check', 'preset', 'filters'))
+               CALL_KW                  4
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               9 (_compressor)
+
+113            LOAD_SMALL_INT           0
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              10 (_pos)
+               JUMP_FORWARD            26 (to L7)
+
+115    L6:     LOAD_GLOBAL              7 (ValueError + NULL)
+               LOAD_CONST               6 ('Invalid mode: {!r}')
+               LOAD_ATTR               23 (format + NULL|self)
+               LOAD_FAST_BORROW         2 (mode)
+               CALL                     1
+               CALL                     1
+               RAISE_VARARGS            1
+
+117    L7:     LOAD_GLOBAL             25 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (filename)
+               LOAD_GLOBAL             26 (str)
+               LOAD_GLOBAL             28 (bytes)
+               LOAD_GLOBAL             30 (os)
+               LOAD_ATTR               32 (PathLike)
+               BUILD_TUPLE              3
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       58 (to L9)
+               NOT_TAKEN
+
+118            LOAD_CONST               7 ('b')
+               LOAD_FAST_BORROW         2 (mode)
+               CONTAINS_OP              1 (not in)
+               POP_JUMP_IF_FALSE       10 (to L8)
+               NOT_TAKEN
+
+119            LOAD_FAST_BORROW         2 (mode)
+               LOAD_CONST               7 ('b')
+               BINARY_OP               13 (+=)
+               STORE_FAST               2 (mode)
+
+120    L8:     LOAD_GLOBAL             34 (builtins)
+               LOAD_ATTR               36 (open)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (filename, mode)
+               CALL                     2
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               0 (_fp)
+
+121            LOAD_CONST               8 (True)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_closefp)
+
+122            LOAD_FAST_BORROW_LOAD_FAST_BORROW 112 (mode_code, self)
+               STORE_ATTR               2 (_mode)
+               JUMP_FORWARD            60 (to L12)
+
+123    L9:     LOAD_GLOBAL             39 (hasattr + NULL)
+               LOAD_FAST_BORROW         1 (filename)
+               LOAD_CONST               9 ('read')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        19 (to L10)
+               NOT_TAKEN
+               LOAD_GLOBAL             39 (hasattr + NULL)
+               LOAD_FAST_BORROW         1 (filename)
+               LOAD_CONST              10 ('write')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       14 (to L11)
+               NOT_TAKEN
+
+124   L10:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (filename, self)
+               STORE_ATTR               0 (_fp)
+
+125            LOAD_FAST_BORROW_LOAD_FAST_BORROW 112 (mode_code, self)
+               STORE_ATTR               2 (_mode)
+               JUMP_FORWARD            11 (to L12)
+
+127   L11:     LOAD_GLOBAL             41 (TypeError + NULL)
+               LOAD_CONST              11 ('filename must be a str, bytes, file or PathLike object')
+               CALL                     1
+               RAISE_VARARGS            1
+
+129   L12:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_mode)
+               LOAD_GLOBAL             10 (_MODE_READ)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       74 (to L13)
+               NOT_TAKEN
+
+130            LOAD_GLOBAL             42 (_streams)
+               LOAD_ATTR               44 (DecompressReader)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_fp)
+               LOAD_GLOBAL             46 (LZMADecompressor)
+
+131            LOAD_GLOBAL             48 (LZMAError)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 54 (format, filters)
+
+130            LOAD_CONST              12 (('trailing_error', 'format', 'filters'))
+               CALL_KW                  5
+               STORE_FAST               8 (raw)
+
+132            LOAD_GLOBAL             50 (io)
+               LOAD_ATTR               52 (BufferedReader)
+               PUSH_NULL
+               LOAD_FAST_BORROW         8 (raw)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR              27 (_buffer)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+129   L13:     LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object close at 0x00000204BA338F90, file "lzma.py", line 134>:
+ 134            RESUME                   0
+
+ 140            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (closed)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+
+ 141            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 142    L1:     NOP
+
+ 143    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_mode)
+                LOAD_GLOBAL              4 (_MODE_READ)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       35 (to L3)
+                NOT_TAKEN
+
+ 144            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_buffer)
+                LOAD_ATTR                9 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 145            LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               3 (_buffer)
+                JUMP_FORWARD            79 (to L4)
+
+ 146    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_mode)
+                LOAD_GLOBAL             10 (_MODE_WRITE)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       59 (to L4)
+                NOT_TAKEN
+
+ 147            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (_fp)
+                LOAD_ATTR               15 (write + NULL|self)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               16 (_compressor)
+                LOAD_ATTR               19 (flush + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+
+ 148            LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               8 (_compressor)
+
+ 150    L4:     NOP
+
+ 151    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (_closefp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L6)
+                NOT_TAKEN
+
+ 152            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               12 (_fp)
+                LOAD_ATTR                9 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 154    L6:     LOAD_CONST               1 (None)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 155            LOAD_CONST               2 (False)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR              10 (_closefp)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 154            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 155            LOAD_CONST               2 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              10 (_closefp)
+                RERAISE                  0
+
+  --    L8:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+        L9:     PUSH_EXC_INFO
+
+ 150   L10:     NOP
+
+ 151   L11:     LOAD_FAST                0 (self)
+                LOAD_ATTR               20 (_closefp)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       27 (to L12)
+                NOT_TAKEN
+
+ 152            LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (_fp)
+                LOAD_ATTR                9 (close + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 154   L12:     LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 155            LOAD_CONST               2 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              10 (_closefp)
+                RERAISE                  0
+
+  --   L13:     PUSH_EXC_INFO
+
+ 154            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               6 (_fp)
+
+ 155            LOAD_CONST               2 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR              10 (_closefp)
+                RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L4 -> L9 [0]
+  L5 to L6 -> L7 [0]
+  L7 to L8 -> L8 [1] lasti
+  L9 to L10 -> L15 [1] lasti
+  L11 to L12 -> L13 [2]
+  L12 to L13 -> L15 [1] lasti
+  L13 to L14 -> L14 [3] lasti
+  L14 to L15 -> L15 [1] lasti
+
+Disassembly of <code object closed at 0x00000204BA0922E0, file "lzma.py", line 157>:
+157           RESUME                   0
+
+160           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_fp)
+              LOAD_CONST               1 (None)
+              IS_OP                    0 (is)
+              RETURN_VALUE
+
+Disassembly of <code object name at 0x00000204BA0A7AB0, file "lzma.py", line 162>:
+162           RESUME                   0
+
+164           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+165           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_fp)
+              LOAD_ATTR                4 (name)
+              RETURN_VALUE
+
+Disassembly of <code object mode at 0x00000204BA0FC250, file "lzma.py", line 167>:
+167           RESUME                   0
+
+169           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_mode)
+              LOAD_GLOBAL              2 (_MODE_WRITE)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 ('wb')
+              RETURN_VALUE
+      L1:     LOAD_CONST               1 ('rb')
+              RETURN_VALUE
+
+Disassembly of <code object fileno at 0x00000204B9FEF0E0, file "lzma.py", line 171>:
+171           RESUME                   0
+
+173           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+174           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_fp)
+              LOAD_ATTR                5 (fileno + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object seekable at 0x00000204BA0AAAB0, file "lzma.py", line 176>:
+176           RESUME                   0
+
+178           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (readable + NULL|self)
+              CALL                     0
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (seekable + NULL|self)
+              CALL                     0
+      L1:     RETURN_VALUE
+
+Disassembly of <code object readable at 0x00000204BA0A7090, file "lzma.py", line 180>:
+180           RESUME                   0
+
+182           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+183           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_READ)
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object writable at 0x00000204BA0A7990, file "lzma.py", line 185>:
+185           RESUME                   0
+
+187           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+188           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_WRITE)
+              COMPARE_OP              72 (==)
+              RETURN_VALUE
+
+Disassembly of <code object peek at 0x00000204BA102500, file "lzma.py", line 190>:
+190           RESUME                   0
+
+196           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+199           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (peek + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object read at 0x00000204BA1022A0, file "lzma.py", line 201>:
+201           RESUME                   0
+
+207           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+208           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (read + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object read1 at 0x00000204B9F71FD0, file "lzma.py", line 210>:
+210           RESUME                   0
+
+217           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+218           LOAD_FAST_BORROW         1 (size)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+219           LOAD_GLOBAL              2 (io)
+              LOAD_ATTR                4 (DEFAULT_BUFFER_SIZE)
+              STORE_FAST               1 (size)
+
+220   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_buffer)
+              LOAD_ATTR                9 (read1 + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object readline at 0x00000204BA102760, file "lzma.py", line 222>:
+222           RESUME                   0
+
+229           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_read + NULL|self)
+              CALL                     0
+              POP_TOP
+
+230           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (readline + NULL|self)
+              LOAD_FAST_BORROW         1 (size)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object write at 0x00000204BA446050, file "lzma.py", line 232>:
+232           RESUME                   0
+
+240           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_write + NULL|self)
+              CALL                     0
+              POP_TOP
+
+241           LOAD_GLOBAL              3 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              LOAD_GLOBAL              4 (bytes)
+              LOAD_GLOBAL              6 (bytearray)
+              BUILD_TUPLE              2
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+242           LOAD_GLOBAL              9 (len + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               2 (length)
+              JUMP_FORWARD            23 (to L2)
+
+245   L1:     LOAD_GLOBAL             11 (memoryview + NULL)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               1 (data)
+
+246           LOAD_FAST_BORROW         1 (data)
+              LOAD_ATTR               12 (nbytes)
+              STORE_FAST               2 (length)
+
+248   L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               14 (_compressor)
+              LOAD_ATTR               17 (compress + NULL|self)
+              LOAD_FAST_BORROW         1 (data)
+              CALL                     1
+              STORE_FAST               3 (compressed)
+
+249           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               18 (_fp)
+              LOAD_ATTR               21 (write + NULL|self)
+              LOAD_FAST_BORROW         3 (compressed)
+              CALL                     1
+              POP_TOP
+
+250           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR               22 (_pos)
+              LOAD_FAST_BORROW         2 (length)
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR              11 (_pos)
+
+251           LOAD_FAST_BORROW         2 (length)
+              RETURN_VALUE
+
+Disassembly of <code object seek at 0x00000204BA102630, file "lzma.py", line 253>:
+253           RESUME                   0
+
+268           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_can_seek + NULL|self)
+              CALL                     0
+              POP_TOP
+
+269           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_buffer)
+              LOAD_ATTR                5 (seek + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (offset, whence)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object tell at 0x00000204BA620310, file "lzma.py", line 271>:
+271           RESUME                   0
+
+273           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_check_not_closed + NULL|self)
+              CALL                     0
+              POP_TOP
+
+274           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_mode)
+              LOAD_GLOBAL              4 (_MODE_READ)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+
+275           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_buffer)
+              LOAD_ATTR                9 (tell + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+276   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_pos)
+              RETURN_VALUE
+
+Disassembly of <code object open at 0x00000204BA445170, file "lzma.py", line 279>:
+279           RESUME                   0
+
+305           LOAD_CONST               1 ('t')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       24 (to L2)
+              NOT_TAKEN
+
+306           LOAD_CONST               2 ('b')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       16 (to L1)
+              NOT_TAKEN
+
+307           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               3 ('Invalid mode: ')
+              LOAD_FAST_BORROW         1 (mode)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+306   L1:     JUMP_FORWARD            45 (to L5)
+
+309   L2:     LOAD_FAST_BORROW         6 (encoding)
+              POP_JUMP_IF_NONE        12 (to L3)
+              NOT_TAKEN
+
+310           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               4 ("Argument 'encoding' not supported in binary mode")
+              CALL                     1
+              RAISE_VARARGS            1
+
+311   L3:     LOAD_FAST_BORROW         7 (errors)
+              POP_JUMP_IF_NONE        12 (to L4)
+              NOT_TAKEN
+
+312           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               5 ("Argument 'errors' not supported in binary mode")
+              CALL                     1
+              RAISE_VARARGS            1
+
+313   L4:     LOAD_FAST_BORROW         8 (newline)
+              POP_JUMP_IF_NONE        12 (to L5)
+              NOT_TAKEN
+
+314           LOAD_GLOBAL              1 (ValueError + NULL)
+              LOAD_CONST               6 ("Argument 'newline' not supported in binary mode")
+              CALL                     1
+              RAISE_VARARGS            1
+
+316   L5:     LOAD_FAST_BORROW         1 (mode)
+              LOAD_ATTR                3 (replace + NULL|self)
+              LOAD_CONST               1 ('t')
+              LOAD_CONST               7 ('')
+              CALL                     2
+              STORE_FAST               9 (lz_mode)
+
+317           LOAD_GLOBAL              5 (LZMAFile + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 9 (filename, lz_mode)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (format, check)
+
+318           LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (preset, filters)
+
+317           LOAD_CONST               8 (('format', 'check', 'preset', 'filters'))
+              CALL_KW                  6
+              STORE_FAST              10 (binary_file)
+
+320           LOAD_CONST               1 ('t')
+              LOAD_FAST_BORROW         1 (mode)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       46 (to L6)
+              NOT_TAKEN
+
+321           LOAD_GLOBAL              6 (io)
+              LOAD_ATTR                8 (text_encoding)
+              PUSH_NULL
+              LOAD_FAST_BORROW         6 (encoding)
+              CALL                     1
+              STORE_FAST               6 (encoding)
+
+322           LOAD_GLOBAL              6 (io)
+              LOAD_ATTR               10 (TextIOWrapper)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 166 (binary_file, encoding)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 120 (errors, newline)
+              CALL                     4
+              RETURN_VALUE
+
+324   L6:     LOAD_FAST_BORROW        10 (binary_file)
+              RETURN_VALUE
+
+Disassembly of <code object compress at 0x00000204BA0AA470, file "lzma.py", line 327>:
+327           RESUME                   0
+
+335           LOAD_GLOBAL              1 (LZMACompressor + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (format, check)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (preset, filters)
+              CALL                     4
+              STORE_FAST               5 (comp)
+
+336           LOAD_FAST_BORROW         5 (comp)
+              LOAD_ATTR                3 (compress + NULL|self)
+              LOAD_FAST_BORROW         0 (data)
+              CALL                     1
+              LOAD_FAST_BORROW         5 (comp)
+              LOAD_ATTR                5 (flush + NULL|self)
+              CALL                     0
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object decompress at 0x00000204B9F5AA30, file "lzma.py", line 339>:
+ 339            RESUME                   0
+
+ 347            BUILD_LIST               0
+                STORE_FAST               4 (results)
+
+ 348    L1:     NOP
+
+ 349            LOAD_GLOBAL              1 (LZMADecompressor + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (format, memlimit)
+                LOAD_FAST_BORROW         3 (filters)
+                CALL                     3
+                STORE_FAST               5 (decomp)
+
+ 350            NOP
+
+ 351    L2:     LOAD_FAST_BORROW         5 (decomp)
+                LOAD_ATTR                3 (decompress + NULL|self)
+                LOAD_FAST_BORROW         0 (data)
+                CALL                     1
+                STORE_FAST               6 (res)
+
+ 357    L3:     LOAD_FAST                4 (results)
+                LOAD_ATTR                7 (append + NULL|self)
+                LOAD_FAST                6 (res)
+                CALL                     1
+                POP_TOP
+
+ 358            LOAD_FAST                5 (decomp)
+                LOAD_ATTR                8 (eof)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        12 (to L4)
+                NOT_TAKEN
+
+ 359            LOAD_GLOBAL              5 (LZMAError + NULL)
+                LOAD_CONST               1 ('Compressed data ended before the end-of-stream marker was reached')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 361    L4:     LOAD_FAST                5 (decomp)
+                LOAD_ATTR               10 (unused_data)
+                STORE_FAST               0 (data)
+
+ 362            LOAD_FAST                0 (data)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L5)
+                NOT_TAKEN
+                JUMP_BACKWARD           99 (to L1)
+
+ 363    L5:     NOP
+
+ 364    L6:     LOAD_CONST               2 (b'')
+                LOAD_ATTR               13 (join + NULL|self)
+                LOAD_FAST                4 (results)
+                CALL                     1
+                RETURN_VALUE
+
+  --    L7:     PUSH_EXC_INFO
+
+ 352            LOAD_GLOBAL              4 (LZMAError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       14 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 353            LOAD_FAST                4 (results)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        4 (to L9)
+        L8:     NOT_TAKEN
+
+ 354            POP_EXCEPT
+                JUMP_BACKWARD           39 (to L6)
+
+ 356    L9:     RAISE_VARARGS            0
+
+ 352   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L7 [0]
+  L7 to L8 -> L11 [1] lasti
+  L9 to L11 -> L11 [1] lasti

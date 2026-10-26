@@ -1,0 +1,1623 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('runpy.py - locating and running Python code using the module namespace\n\nProvides support for locating and running Python scripts using the Python\nmodule namespace instead of the native filesystem.\n\nThis allows Python code to play nicely with non-filesystem based PEP 302\nimporters when locating support scripts as well as when importing modules.\n')
+              STORE_NAME               0 (__doc__)
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (sys)
+              STORE_NAME               1 (sys)
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (importlib.machinery)
+              STORE_NAME               3 (importlib)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              4 (importlib.util)
+              STORE_NAME               3 (importlib)
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              5 (io)
+              STORE_NAME               5 (io)
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              6 (os)
+              STORE_NAME               6 (os)
+
+ 20           LOAD_CONST               2 ('run_module')
+              LOAD_CONST               3 ('run_path')
+
+ 19           BUILD_LIST               2
+              STORE_NAME               7 (__all__)
+
+ 24           LOAD_NAME                8 (type)
+              PUSH_NULL
+              LOAD_NAME                1 (sys)
+              CALL                     1
+              STORE_NAME               9 (ModuleType)
+
+ 26           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object _TempModule at 0x00000204BA0FC7A0, file "runpy.py", line 26>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('_TempModule')
+              LOAD_NAME               10 (object)
+              CALL                     3
+              STORE_NAME              11 (_TempModule)
+
+ 49           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object _ModifiedArgv0 at 0x00000204BA610250, file "runpy.py", line 49>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 ('_ModifiedArgv0')
+              LOAD_NAME               10 (object)
+              CALL                     3
+              STORE_NAME              12 (_ModifiedArgv0)
+
+ 65           LOAD_CONST              21 ((None, None, None, None, None))
+              LOAD_CONST               8 (<code object _run_code at 0x00000204B9F4E9E0, file "runpy.py", line 65>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              13 (_run_code)
+
+ 91           LOAD_CONST              21 ((None, None, None, None, None))
+              LOAD_CONST               9 (<code object _run_module_code at 0x00000204BA36B8C0, file "runpy.py", line 91>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              14 (_run_module_code)
+
+105           LOAD_NAME               15 (ImportError)
+              BUILD_TUPLE              1
+              LOAD_CONST              10 (<code object _get_module_details at 0x00000204BA431F40, file "runpy.py", line 105>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              16 (_get_module_details)
+
+166           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              11 (<code object _Error at 0x00000204BA092880, file "runpy.py", line 166>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 ('_Error')
+              LOAD_NAME               17 (Exception)
+              CALL                     3
+              STORE_NAME              18 (_Error)
+
+173           LOAD_CONST              22 ((True,))
+              LOAD_CONST              13 (<code object _run_module_as_main at 0x00000204BA38BBC0, file "runpy.py", line 173>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              19 (_run_module_as_main)
+
+201           LOAD_CONST              23 ((None, None, False))
+              LOAD_CONST              14 (<code object run_module at 0x00000204BA0A9070, file "runpy.py", line 201>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              20 (run_module)
+
+231           LOAD_NAME               15 (ImportError)
+              BUILD_TUPLE              1
+              LOAD_CONST              15 (<code object _get_main_module_details at 0x00000204BA3E1DA0, file "runpy.py", line 231>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              21 (_get_main_module_details)
+
+250           LOAD_CONST              16 (<code object _get_code_from_file at 0x00000204BA3660E0, file "runpy.py", line 250>)
+              MAKE_FUNCTION
+              STORE_NAME              22 (_get_code_from_file)
+
+262           LOAD_CONST              24 ((None, None))
+              LOAD_CONST              17 (<code object run_path at 0x00000204BA3562C0, file "runpy.py", line 262>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              23 (run_path)
+
+313           LOAD_NAME               24 (__name__)
+              LOAD_CONST              18 ('__main__')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       86 (to L2)
+              NOT_TAKEN
+
+315           LOAD_NAME               25 (len)
+              PUSH_NULL
+              LOAD_NAME                1 (sys)
+              LOAD_ATTR               52 (argv)
+              CALL                     1
+              LOAD_SMALL_INT           2
+              COMPARE_OP              18 (bool(<))
+              POP_JUMP_IF_FALSE       23 (to L1)
+              NOT_TAKEN
+
+316           LOAD_NAME               27 (print)
+              PUSH_NULL
+              LOAD_CONST              19 ('No module specified for execution')
+              LOAD_NAME                1 (sys)
+              LOAD_ATTR               56 (stderr)
+              LOAD_CONST              20 (('file',))
+              CALL_KW                  2
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+318   L1:     LOAD_NAME                1 (sys)
+              LOAD_ATTR               52 (argv)
+              LOAD_SMALL_INT           0
+              DELETE_SUBSCR
+
+319           LOAD_NAME               19 (_run_module_as_main)
+              PUSH_NULL
+              LOAD_NAME                1 (sys)
+              LOAD_ATTR               52 (argv)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+313   L2:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _TempModule at 0x00000204BA0FC7A0, file "runpy.py", line 26>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  26           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_TempModule')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          26
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  27           LOAD_CONST               1 ('Temporarily replace a module in sys.modules with an empty namespace')
+               STORE_NAME               4 (__doc__)
+
+  28           LOAD_CONST               2 (<code object __init__ at 0x00000204BA0FF550, file "runpy.py", line 28>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  33           LOAD_CONST               3 (<code object __enter__ at 0x00000204B9FFA3A0, file "runpy.py", line 33>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__enter__)
+
+  42           LOAD_CONST               4 (<code object __exit__ at 0x00000204B9F6F0F0, file "runpy.py", line 42>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__exit__)
+               LOAD_CONST               5 (('_saved_module', 'mod_name', 'module'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FF550, file "runpy.py", line 28>:
+ 28           RESUME                   0
+
+ 29           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (mod_name, self)
+              STORE_ATTR               0 (mod_name)
+
+ 30           LOAD_GLOBAL              3 (ModuleType + NULL)
+              LOAD_FAST_BORROW         1 (mod_name)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (module)
+
+ 31           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_saved_module)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204B9FFA3A0, file "runpy.py", line 33>:
+  33           RESUME                   0
+
+  34           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (mod_name)
+               STORE_FAST               1 (mod_name)
+
+  35           NOP
+
+  36   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_saved_module)
+               LOAD_ATTR                5 (append + NULL|self)
+               LOAD_GLOBAL              6 (sys)
+               LOAD_ATTR                8 (modules)
+               LOAD_FAST_BORROW         1 (mod_name)
+               BINARY_OP               26 ([])
+               CALL                     1
+               POP_TOP
+
+  39   L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (module)
+               LOAD_GLOBAL              6 (sys)
+               LOAD_ATTR                8 (modules)
+               LOAD_FAST_BORROW         1 (mod_name)
+               STORE_SUBSCR
+
+  40           LOAD_FAST_BORROW         0 (self)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  37           LOAD_GLOBAL             10 (KeyError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  38   L4:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 44 (to L2)
+
+  37   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object __exit__ at 0x00000204B9F6F0F0, file "runpy.py", line 42>:
+ 42           RESUME                   0
+
+ 43           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_saved_module)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       48 (to L1)
+              NOT_TAKEN
+
+ 44           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_saved_module)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (modules)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (mod_name)
+              STORE_SUBSCR
+              JUMP_FORWARD            27 (to L2)
+
+ 46   L1:     LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (modules)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (mod_name)
+              DELETE_SUBSCR
+
+ 47   L2:     BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_saved_module)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _ModifiedArgv0 at 0x00000204BA610250, file "runpy.py", line 49>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  49           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_ModifiedArgv0')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          49
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  50           LOAD_CONST               1 (<code object __init__ at 0x00000204BA610140, file "runpy.py", line 50>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  54           LOAD_CONST               2 (<code object __enter__ at 0x00000204B9F6F430, file "runpy.py", line 54>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__enter__)
+
+  60           LOAD_CONST               3 (<code object __exit__ at 0x00000204BA0AA6F0, file "runpy.py", line 60>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__exit__)
+               LOAD_CONST               4 (('_saved_value', '_sentinel', 'value'))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA610140, file "runpy.py", line 50>:
+ 50           RESUME                   0
+
+ 51           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (value, self)
+              STORE_ATTR               0 (value)
+
+ 52           LOAD_GLOBAL              3 (object + NULL)
+              CALL                     0
+              COPY                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_saved_value)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_sentinel)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204B9F6F430, file "runpy.py", line 54>:
+ 54           RESUME                   0
+
+ 55           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_saved_value)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_sentinel)
+              IS_OP                    1 (is not)
+              POP_JUMP_IF_FALSE       12 (to L1)
+              NOT_TAKEN
+
+ 56           LOAD_GLOBAL              5 (RuntimeError + NULL)
+              LOAD_CONST               0 ('Already preserving saved value')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 57   L1:     LOAD_GLOBAL              6 (sys)
+              LOAD_ATTR                8 (argv)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_saved_value)
+
+ 58           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (value)
+              LOAD_GLOBAL              6 (sys)
+              LOAD_ATTR                8 (argv)
+              LOAD_SMALL_INT           0
+              STORE_SUBSCR
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA0AA6F0, file "runpy.py", line 60>:
+ 60           RESUME                   0
+
+ 61           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_sentinel)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (value)
+
+ 62           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_saved_value)
+              LOAD_GLOBAL              6 (sys)
+              LOAD_ATTR                8 (argv)
+              LOAD_SMALL_INT           0
+              STORE_SUBSCR
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _run_code at 0x00000204B9F4E9E0, file "runpy.py", line 65>:
+ 65           RESUME                   0
+
+ 69           LOAD_FAST_BORROW         2 (init_globals)
+              POP_JUMP_IF_NONE        18 (to L1)
+              NOT_TAKEN
+
+ 70           LOAD_FAST_BORROW         1 (run_globals)
+              LOAD_ATTR                1 (update + NULL|self)
+              LOAD_FAST_BORROW         2 (init_globals)
+              CALL                     1
+              POP_TOP
+
+ 71   L1:     LOAD_FAST_BORROW         4 (mod_spec)
+              POP_JUMP_IF_NOT_NONE     8 (to L2)
+              NOT_TAKEN
+
+ 72           LOAD_CONST               1 (None)
+              STORE_FAST               7 (loader)
+
+ 73           LOAD_FAST                6 (script_name)
+              STORE_FAST               8 (fname)
+
+ 74           LOAD_CONST               1 (None)
+              STORE_FAST               9 (cached)
+              JUMP_FORWARD            52 (to L3)
+
+ 76   L2:     LOAD_FAST_BORROW         4 (mod_spec)
+              LOAD_ATTR                2 (loader)
+              STORE_FAST               7 (loader)
+
+ 77           LOAD_FAST_BORROW         4 (mod_spec)
+              LOAD_ATTR                4 (origin)
+              STORE_FAST               8 (fname)
+
+ 78           LOAD_FAST_BORROW         4 (mod_spec)
+              LOAD_ATTR                6 (cached)
+              STORE_FAST               9 (cached)
+
+ 79           LOAD_FAST_BORROW         5 (pkg_name)
+              POP_JUMP_IF_NOT_NONE    13 (to L3)
+              NOT_TAKEN
+
+ 80           LOAD_FAST_BORROW         4 (mod_spec)
+              LOAD_ATTR                8 (parent)
+              STORE_FAST               5 (pkg_name)
+
+ 81   L3:     LOAD_FAST_BORROW         1 (run_globals)
+              LOAD_ATTR                1 (update + NULL|self)
+              LOAD_FAST_BORROW         3 (mod_name)
+
+ 82           LOAD_FAST_BORROW         8 (fname)
+
+ 83           LOAD_FAST_BORROW         9 (cached)
+
+ 84           LOAD_CONST               1 (None)
+
+ 85           LOAD_FAST_BORROW         7 (loader)
+
+ 86           LOAD_FAST_BORROW         5 (pkg_name)
+
+ 87           LOAD_FAST_BORROW         4 (mod_spec)
+
+ 81           LOAD_CONST               2 (('__name__', '__file__', '__cached__', '__doc__', '__loader__', '__package__', '__spec__'))
+              CALL_KW                  7
+              POP_TOP
+
+ 88           LOAD_GLOBAL             11 (exec + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (code, run_globals)
+              CALL                     2
+              POP_TOP
+
+ 89           LOAD_FAST_BORROW         1 (run_globals)
+              RETURN_VALUE
+
+Disassembly of <code object _run_module_code at 0x00000204BA36B8C0, file "runpy.py", line 91>:
+  91            RESUME                   0
+
+  95            LOAD_FAST_BORROW         3 (mod_spec)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+                LOAD_FAST                5 (script_name)
+                JUMP_FORWARD            11 (to L2)
+        L1:     LOAD_FAST_BORROW         3 (mod_spec)
+                LOAD_ATTR                0 (origin)
+        L2:     STORE_FAST               6 (fname)
+
+  96            LOAD_GLOBAL              3 (_TempModule + NULL)
+                LOAD_FAST_BORROW         2 (mod_name)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L3:     STORE_FAST               7 (temp_module)
+                LOAD_GLOBAL              5 (_ModifiedArgv0 + NULL)
+                LOAD_FAST_BORROW         6 (fname)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L4:     POP_TOP
+
+  97            LOAD_FAST_BORROW         7 (temp_module)
+                LOAD_ATTR                6 (module)
+                LOAD_ATTR                8 (__dict__)
+                STORE_FAST               8 (mod_globals)
+
+  98            LOAD_GLOBAL             11 (_run_code + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 8 (code, mod_globals)
+                LOAD_FAST_BORROW         1 (init_globals)
+
+  99            LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (mod_name, mod_spec)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (pkg_name, script_name)
+
+  98            CALL                     7
+                POP_TOP
+
+  96    L5:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+        L6:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+
+ 102            LOAD_FAST_CHECK          8 (mod_globals)
+                LOAD_ATTR               13 (copy + NULL|self)
+                CALL                     0
+                RETURN_VALUE
+
+  96    L7:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L8)
+                NOT_TAKEN
+                RERAISE                  2
+        L8:     POP_TOP
+        L9:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 40 (to L6)
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  96   L11:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L12)
+                NOT_TAKEN
+                RERAISE                  2
+       L12:     POP_TOP
+       L13:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+
+ 102            LOAD_FAST_CHECK          8 (mod_globals)
+                LOAD_ATTR               13 (copy + NULL|self)
+                CALL                     0
+                RETURN_VALUE
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L11 [2] lasti
+  L4 to L5 -> L7 [4] lasti
+  L5 to L6 -> L11 [2] lasti
+  L7 to L9 -> L10 [6] lasti
+  L9 to L11 -> L11 [2] lasti
+  L11 to L13 -> L14 [4] lasti
+
+Disassembly of <code object _get_module_details at 0x00000204BA431F40, file "runpy.py", line 105>:
+ 105            RESUME                   0
+
+ 106            LOAD_FAST_BORROW         0 (mod_name)
+                LOAD_ATTR                1 (startswith + NULL|self)
+                LOAD_CONST               0 ('.')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        9 (to L1)
+                NOT_TAKEN
+
+ 107            LOAD_FAST_BORROW         1 (error)
+                PUSH_NULL
+                LOAD_CONST               1 ('Relative module names not supported')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 108    L1:     LOAD_FAST_BORROW         0 (mod_name)
+                LOAD_ATTR                3 (rpartition + NULL|self)
+                LOAD_CONST               0 ('.')
+                CALL                     1
+                UNPACK_SEQUENCE          3
+                STORE_FAST               2 (pkg_name)
+                POP_TOP
+                STORE_FAST               3 (_)
+
+ 109            LOAD_FAST_BORROW         2 (pkg_name)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      107 (to L4)
+                NOT_TAKEN
+
+ 111            NOP
+
+ 112    L2:     LOAD_GLOBAL              5 (__import__ + NULL)
+                LOAD_FAST_BORROW         2 (pkg_name)
+                CALL                     1
+                POP_TOP
+
+ 121    L3:     LOAD_GLOBAL             10 (sys)
+                LOAD_ATTR               12 (modules)
+                LOAD_ATTR               15 (get + NULL|self)
+                LOAD_FAST_BORROW         0 (mod_name)
+                CALL                     1
+                STORE_FAST               5 (existing)
+
+ 122            LOAD_FAST_BORROW         5 (existing)
+                POP_JUMP_IF_NONE        60 (to L4)
+                NOT_TAKEN
+                LOAD_GLOBAL             17 (hasattr + NULL)
+                LOAD_FAST_BORROW         5 (existing)
+                LOAD_CONST               3 ('__path__')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        42 (to L4)
+                NOT_TAKEN
+
+ 123            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (('warn',))
+                IMPORT_NAME              9 (warnings)
+                IMPORT_FROM             10 (warn)
+                STORE_FAST               6 (warn)
+                POP_TOP
+
+ 124            LOAD_CONST               5 ('{mod_name!r} found in sys.modules after import of package {pkg_name!r}, but prior to execution of {mod_name!r}; this may result in unpredictable behaviour')
+
+ 127            LOAD_ATTR               23 (format + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (mod_name, pkg_name)
+                LOAD_CONST               6 (('mod_name', 'pkg_name'))
+                CALL_KW                  2
+
+ 124            STORE_FAST               7 (msg)
+
+ 128            LOAD_FAST_BORROW         6 (warn)
+                PUSH_NULL
+                LOAD_GLOBAL             25 (RuntimeWarning + NULL)
+                LOAD_FAST_BORROW         7 (msg)
+                CALL                     1
+                CALL                     1
+                POP_TOP
+
+ 130    L4:     NOP
+
+ 131    L5:     LOAD_GLOBAL             26 (importlib)
+                LOAD_ATTR               28 (util)
+                LOAD_ATTR               31 (find_spec + NULL|self)
+                LOAD_FAST_BORROW         0 (mod_name)
+                CALL                     1
+                STORE_FAST               8 (spec)
+
+ 141    L6:     LOAD_FAST                8 (spec)
+                POP_JUMP_IF_NOT_NONE    16 (to L7)
+                NOT_TAKEN
+
+ 142            LOAD_FAST                1 (error)
+                PUSH_NULL
+                LOAD_CONST              12 ('No module named %s')
+                LOAD_FAST                0 (mod_name)
+                BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 143    L7:     LOAD_FAST                8 (spec)
+                LOAD_ATTR               44 (submodule_search_locations)
+                POP_JUMP_IF_NONE        60 (to L12)
+                NOT_TAKEN
+
+ 144            LOAD_FAST                0 (mod_name)
+                LOAD_CONST              13 ('__main__')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE        24 (to L8)
+                NOT_TAKEN
+                LOAD_FAST                0 (mod_name)
+                LOAD_ATTR               39 (endswith + NULL|self)
+                LOAD_CONST              14 ('.__main__')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE        9 (to L9)
+                NOT_TAKEN
+
+ 145    L8:     LOAD_FAST                1 (error)
+                PUSH_NULL
+                LOAD_CONST              15 ('Cannot use package as __main__ module')
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 146    L9:     NOP
+
+ 147   L10:     LOAD_FAST                0 (mod_name)
+                LOAD_CONST              14 ('.__main__')
+                BINARY_OP                0 (+)
+                STORE_FAST              10 (pkg_main_name)
+
+ 148            LOAD_GLOBAL             47 (_get_module_details + NULL)
+                LOAD_FAST_LOAD_FAST    161 (pkg_main_name, error)
+                CALL                     2
+       L11:     RETURN_VALUE
+
+ 154   L12:     LOAD_FAST                8 (spec)
+                LOAD_ATTR               48 (loader)
+                STORE_FAST              11 (loader)
+
+ 155            LOAD_FAST               11 (loader)
+                POP_JUMP_IF_NOT_NONE    16 (to L13)
+                NOT_TAKEN
+
+ 156            LOAD_FAST                1 (error)
+                PUSH_NULL
+                LOAD_CONST              16 ('%r is a namespace package and cannot be executed')
+
+ 157            LOAD_FAST                0 (mod_name)
+
+ 156            BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 158   L13:     NOP
+
+ 159   L14:     LOAD_FAST               11 (loader)
+                LOAD_ATTR               51 (get_code + NULL|self)
+                LOAD_FAST                0 (mod_name)
+                CALL                     1
+                STORE_FAST              12 (code)
+
+ 162   L15:     LOAD_FAST               12 (code)
+                POP_JUMP_IF_NOT_NONE    16 (to L16)
+                NOT_TAKEN
+
+ 163            LOAD_FAST                1 (error)
+                PUSH_NULL
+                LOAD_CONST              17 ('No code object available for %s')
+                LOAD_FAST                0 (mod_name)
+                BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 164   L16:     LOAD_FAST_LOAD_FAST      8 (mod_name, spec)
+                LOAD_FAST               12 (code)
+                BUILD_TUPLE              3
+                RETURN_VALUE
+
+  --   L17:     PUSH_EXC_INFO
+
+ 113            LOAD_GLOBAL              6 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       84 (to L23)
+                NOT_TAKEN
+                STORE_FAST               4 (e)
+
+ 117   L18:     LOAD_FAST                4 (e)
+                LOAD_ATTR                8 (name)
+                POP_JUMP_IF_NONE        58 (to L20)
+                NOT_TAKEN
+                LOAD_FAST                4 (e)
+                LOAD_ATTR                8 (name)
+                LOAD_FAST                2 (pkg_name)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       42 (to L21)
+                NOT_TAKEN
+
+ 118            LOAD_FAST                2 (pkg_name)
+                LOAD_ATTR                1 (startswith + NULL|self)
+                LOAD_FAST                4 (e)
+                LOAD_ATTR                8 (name)
+                LOAD_CONST               0 ('.')
+                BINARY_OP                0 (+)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L21)
+       L19:     NOT_TAKEN
+
+ 119   L20:     RAISE_VARARGS            0
+
+  --   L21:     POP_EXCEPT
+                LOAD_CONST               2 (None)
+                STORE_FAST               4 (e)
+                DELETE_FAST              4 (e)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 379 (to L3)
+       L22:     LOAD_CONST               2 (None)
+                STORE_FAST               4 (e)
+                DELETE_FAST              4 (e)
+                RERAISE                  1
+
+ 113   L23:     RERAISE                  0
+
+  --   L24:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L25:     PUSH_EXC_INFO
+
+ 132            LOAD_GLOBAL              6 (ImportError)
+                LOAD_GLOBAL             32 (AttributeError)
+                LOAD_GLOBAL             34 (TypeError)
+                LOAD_GLOBAL             36 (ValueError)
+                BUILD_TUPLE              4
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       95 (to L29)
+                NOT_TAKEN
+                STORE_FAST               9 (ex)
+
+ 136   L26:     LOAD_CONST               7 ('Error while finding module specification for {!r} ({}: {})')
+                STORE_FAST               7 (msg)
+
+ 137            LOAD_FAST                0 (mod_name)
+                LOAD_ATTR               39 (endswith + NULL|self)
+                LOAD_CONST               8 ('.py')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L27)
+                NOT_TAKEN
+
+ 138            LOAD_FAST                7 (msg)
+                LOAD_CONST               9 (". Try using '")
+                LOAD_FAST                0 (mod_name)
+                LOAD_CONST               2 (None)
+                LOAD_CONST              18 (-3)
+                BINARY_SLICE
+                FORMAT_SIMPLE
+                LOAD_CONST              10 ("' instead of '")
+
+ 139            LOAD_FAST                0 (mod_name)
+                FORMAT_SIMPLE
+                LOAD_CONST              11 ("' as the module name.")
+
+ 138            BUILD_STRING             5
+                BINARY_OP               13 (+=)
+                STORE_FAST               7 (msg)
+
+ 140   L27:     LOAD_FAST                1 (error)
+                PUSH_NULL
+                LOAD_FAST                7 (msg)
+                LOAD_ATTR               23 (format + NULL|self)
+                LOAD_FAST                0 (mod_name)
+                LOAD_GLOBAL             41 (type + NULL)
+                LOAD_FAST                9 (ex)
+                CALL                     1
+                LOAD_ATTR               42 (__name__)
+                LOAD_FAST                9 (ex)
+                CALL                     3
+                CALL                     1
+                LOAD_FAST                9 (ex)
+                RAISE_VARARGS            2
+
+  --   L28:     LOAD_CONST               2 (None)
+                STORE_FAST               9 (ex)
+                DELETE_FAST              9 (ex)
+                RERAISE                  1
+
+ 132   L29:     RERAISE                  0
+
+  --   L30:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L31:     PUSH_EXC_INFO
+
+ 149            LOAD_FAST                1 (error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       44 (to L35)
+                NOT_TAKEN
+                STORE_FAST               4 (e)
+
+ 150   L32:     LOAD_FAST                0 (mod_name)
+                LOAD_GLOBAL             10 (sys)
+                LOAD_ATTR               12 (modules)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        2 (to L33)
+                NOT_TAKEN
+
+ 151            RAISE_VARARGS            0
+
+ 152   L33:     LOAD_FAST                1 (error)
+                PUSH_NULL
+                LOAD_CONST              19 ('%s; %r is a package and cannot be directly executed')
+
+ 153            LOAD_FAST_LOAD_FAST     64 (e, mod_name)
+                BUILD_TUPLE              2
+
+ 152            BINARY_OP                6 (%)
+                CALL                     1
+                RAISE_VARARGS            1
+
+  --   L34:     LOAD_CONST               2 (None)
+                STORE_FAST               4 (e)
+                DELETE_FAST              4 (e)
+                RERAISE                  1
+
+ 149   L35:     RERAISE                  0
+
+  --   L36:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L37:     PUSH_EXC_INFO
+
+ 160            LOAD_GLOBAL              6 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       24 (to L40)
+                NOT_TAKEN
+                STORE_FAST               4 (e)
+
+ 161   L38:     LOAD_FAST                1 (error)
+                PUSH_NULL
+                LOAD_GLOBAL             23 (format + NULL)
+                LOAD_FAST                4 (e)
+                CALL                     1
+                CALL                     1
+                LOAD_FAST                4 (e)
+                RAISE_VARARGS            2
+
+  --   L39:     LOAD_CONST               2 (None)
+                STORE_FAST               4 (e)
+                DELETE_FAST              4 (e)
+                RERAISE                  1
+
+ 160   L40:     RERAISE                  0
+
+  --   L41:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L17 [0]
+  L5 to L6 -> L25 [0]
+  L10 to L11 -> L31 [0]
+  L14 to L15 -> L37 [0]
+  L17 to L18 -> L24 [1] lasti
+  L18 to L19 -> L22 [1] lasti
+  L20 to L21 -> L22 [1] lasti
+  L22 to L24 -> L24 [1] lasti
+  L25 to L26 -> L30 [1] lasti
+  L26 to L28 -> L28 [1] lasti
+  L28 to L30 -> L30 [1] lasti
+  L31 to L32 -> L36 [1] lasti
+  L32 to L34 -> L34 [1] lasti
+  L34 to L36 -> L36 [1] lasti
+  L37 to L38 -> L41 [1] lasti
+  L38 to L39 -> L39 [1] lasti
+  L39 to L41 -> L41 [1] lasti
+
+Disassembly of <code object _Error at 0x00000204BA092880, file "runpy.py", line 166>:
+166           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('_Error')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         166
+              STORE_NAME               3 (__firstlineno__)
+
+167           LOAD_CONST               1 ('Error that _run_module_as_main() should report without a traceback')
+              STORE_NAME               4 (__doc__)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _run_module_as_main at 0x00000204BA38BBC0, file "runpy.py", line 173>:
+ 173            RESUME                   0
+
+ 187            NOP
+
+ 188    L1:     LOAD_FAST_BORROW         1 (alter_argv)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         8 (to L4)
+        L2:     NOT_TAKEN
+        L3:     LOAD_FAST_BORROW         0 (mod_name)
+                LOAD_CONST               1 ('__main__')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       21 (to L6)
+                NOT_TAKEN
+
+ 189    L4:     LOAD_GLOBAL              1 (_get_module_details + NULL)
+                LOAD_FAST_BORROW         0 (mod_name)
+                LOAD_GLOBAL              2 (_Error)
+                CALL                     2
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST    2 (mod_name, mod_spec)
+                STORE_FAST               3 (code)
+        L5:     JUMP_FORWARD            19 (to L8)
+
+ 191    L6:     LOAD_GLOBAL              5 (_get_main_module_details + NULL)
+                LOAD_GLOBAL              2 (_Error)
+                CALL                     1
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST    2 (mod_name, mod_spec)
+                STORE_FAST               3 (code)
+        L7:     NOP
+
+ 195    L8:     LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR               12 (modules)
+                LOAD_CONST               1 ('__main__')
+                BINARY_OP               26 ([])
+                LOAD_ATTR               14 (__dict__)
+                STORE_FAST               6 (main_globals)
+
+ 196            LOAD_FAST_BORROW         1 (alter_argv)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       30 (to L9)
+                NOT_TAKEN
+
+ 197            LOAD_FAST_CHECK          2 (mod_spec)
+                LOAD_ATTR               16 (origin)
+                LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR               18 (argv)
+                LOAD_SMALL_INT           0
+                STORE_SUBSCR
+
+ 198    L9:     LOAD_GLOBAL             21 (_run_code + NULL)
+                LOAD_FAST_CHECK          3 (code)
+                LOAD_FAST_BORROW         6 (main_globals)
+                LOAD_CONST               3 (None)
+
+ 199            LOAD_CONST               1 ('__main__')
+                LOAD_FAST_CHECK          2 (mod_spec)
+
+ 198            CALL                     5
+                RETURN_VALUE
+
+  --   L10:     PUSH_EXC_INFO
+
+ 192            LOAD_GLOBAL              2 (_Error)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       56 (to L14)
+                NOT_TAKEN
+                STORE_FAST               4 (exc)
+
+ 193   L11:     LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR                8 (executable)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               2 (': ')
+                LOAD_FAST                4 (exc)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                BUILD_STRING             3
+                STORE_FAST               5 (msg)
+
+ 194            LOAD_GLOBAL              6 (sys)
+                LOAD_ATTR               10 (exit)
+                PUSH_NULL
+                LOAD_FAST                5 (msg)
+                CALL                     1
+                POP_TOP
+       L12:     POP_EXCEPT
+                LOAD_CONST               3 (None)
+                STORE_FAST               4 (exc)
+                DELETE_FAST              4 (exc)
+                JUMP_BACKWARD_NO_INTERRUPT 146 (to L8)
+
+  --   L13:     LOAD_CONST               3 (None)
+                STORE_FAST               4 (exc)
+                DELETE_FAST              4 (exc)
+                RERAISE                  1
+
+ 192   L14:     RERAISE                  0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L10 [0]
+  L3 to L5 -> L10 [0]
+  L6 to L7 -> L10 [0]
+  L10 to L11 -> L15 [1] lasti
+  L11 to L12 -> L13 [1] lasti
+  L13 to L15 -> L15 [1] lasti
+
+Disassembly of <code object run_module at 0x00000204BA0A9070, file "runpy.py", line 201>:
+201           RESUME                   0
+
+222           LOAD_GLOBAL              1 (_get_module_details + NULL)
+              LOAD_FAST_BORROW         0 (mod_name)
+              CALL                     1
+              UNPACK_SEQUENCE          3
+              STORE_FAST_STORE_FAST    4 (mod_name, mod_spec)
+              STORE_FAST               5 (code)
+
+223           LOAD_FAST_BORROW         2 (run_name)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+224           LOAD_FAST                0 (mod_name)
+              STORE_FAST               2 (run_name)
+
+225   L1:     LOAD_FAST_BORROW         3 (alter_sys)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       13 (to L2)
+              NOT_TAKEN
+
+226           LOAD_GLOBAL              3 (_run_module_code + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 81 (code, init_globals)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 36 (run_name, mod_spec)
+              CALL                     4
+              RETURN_VALUE
+
+229   L2:     LOAD_GLOBAL              5 (_run_code + NULL)
+              LOAD_FAST_BORROW         5 (code)
+              BUILD_MAP                0
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (init_globals, run_name)
+              LOAD_FAST_BORROW         4 (mod_spec)
+              CALL                     5
+              RETURN_VALUE
+
+Disassembly of <code object _get_main_module_details at 0x00000204BA3E1DA0, file "runpy.py", line 231>:
+ 231            RESUME                   0
+
+ 236            LOAD_CONST               0 ('__main__')
+                STORE_FAST               1 (main_name)
+
+ 237            LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR                2 (modules)
+                LOAD_FAST_BORROW         1 (main_name)
+                BINARY_OP               26 ([])
+                STORE_FAST               2 (saved_main)
+
+ 238            LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR                2 (modules)
+                LOAD_FAST_BORROW         1 (main_name)
+                DELETE_SUBSCR
+
+ 239            NOP
+
+ 240    L1:     LOAD_GLOBAL              5 (_get_module_details + NULL)
+                LOAD_FAST_BORROW         1 (main_name)
+                CALL                     1
+
+ 247    L2:     LOAD_FAST_BORROW         2 (saved_main)
+                LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR                2 (modules)
+                LOAD_FAST_BORROW         1 (main_name)
+                STORE_SUBSCR
+                RETURN_VALUE
+
+  --    L3:     PUSH_EXC_INFO
+
+ 241            LOAD_GLOBAL              6 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       61 (to L7)
+                NOT_TAKEN
+                STORE_FAST               3 (exc)
+
+ 242    L4:     LOAD_FAST                1 (main_name)
+                LOAD_GLOBAL              9 (str + NULL)
+                LOAD_FAST                3 (exc)
+                CALL                     1
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       39 (to L5)
+                NOT_TAKEN
+
+ 243            LOAD_FAST                0 (error)
+                PUSH_NULL
+                LOAD_CONST               1 ("can't find ")
+
+ 244            LOAD_FAST                1 (main_name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               2 (' module in ')
+                LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR               10 (path)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+
+ 243            BUILD_STRING             4
+                CALL                     1
+
+ 244            LOAD_FAST                3 (exc)
+
+ 243            RAISE_VARARGS            2
+
+ 245    L5:     RAISE_VARARGS            0
+
+  --    L6:     LOAD_CONST               3 (None)
+                STORE_FAST               3 (exc)
+                DELETE_FAST              3 (exc)
+                RERAISE                  1
+
+ 241    L7:     RERAISE                  0
+
+  --    L8:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+        L9:     PUSH_EXC_INFO
+
+ 247            LOAD_FAST                2 (saved_main)
+                LOAD_GLOBAL              0 (sys)
+                LOAD_ATTR                2 (modules)
+                LOAD_FAST                1 (main_name)
+                STORE_SUBSCR
+                RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L8 [1] lasti
+  L4 to L6 -> L6 [1] lasti
+  L6 to L8 -> L8 [1] lasti
+  L8 to L9 -> L9 [0]
+  L9 to L10 -> L10 [1] lasti
+
+Disassembly of <code object _get_code_from_file at 0x00000204BA3660E0, file "runpy.py", line 250>:
+ 250            RESUME                   0
+
+ 252            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (('read_code',))
+                IMPORT_NAME              0 (pkgutil)
+                IMPORT_FROM              1 (read_code)
+                STORE_FAST               1 (read_code)
+                POP_TOP
+
+ 253            LOAD_GLOBAL              4 (os)
+                LOAD_ATTR                6 (path)
+                LOAD_ATTR                9 (abspath + NULL|self)
+                LOAD_FAST_BORROW         0 (fname)
+                CALL                     1
+                STORE_FAST               2 (code_path)
+
+ 254            LOAD_GLOBAL             10 (io)
+                LOAD_ATTR               12 (open_code)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (code_path)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     STORE_FAST               3 (f)
+
+ 255            LOAD_FAST_BORROW         1 (read_code)
+                PUSH_NULL
+                LOAD_FAST_BORROW         3 (f)
+                CALL                     1
+                STORE_FAST               4 (code)
+
+ 254    L2:     LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                CALL                     3
+                POP_TOP
+
+ 256    L3:     LOAD_FAST_CHECK          4 (code)
+                POP_JUMP_IF_NOT_NONE    69 (to L6)
+                NOT_TAKEN
+
+ 258            LOAD_GLOBAL             10 (io)
+                LOAD_ATTR               12 (open_code)
+                PUSH_NULL
+                LOAD_FAST_BORROW         2 (code_path)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L4:     STORE_FAST               3 (f)
+
+ 259            LOAD_GLOBAL             15 (compile + NULL)
+                LOAD_FAST_BORROW         3 (f)
+                LOAD_ATTR               17 (read + NULL|self)
+                CALL                     0
+                LOAD_FAST_BORROW         0 (fname)
+                LOAD_CONST               3 ('exec')
+                CALL                     3
+                STORE_FAST               4 (code)
+
+ 258    L5:     LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                LOAD_CONST               2 (None)
+                CALL                     3
+                POP_TOP
+
+ 260            LOAD_FAST_BORROW         4 (code)
+                RETURN_VALUE
+        L6:     LOAD_FAST_BORROW         4 (code)
+                RETURN_VALUE
+
+ 254    L7:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L8)
+                NOT_TAKEN
+                RERAISE                  2
+        L8:     POP_TOP
+        L9:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_BACKWARD_NO_INTERRUPT 90 (to L3)
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 258   L11:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L12)
+                NOT_TAKEN
+                RERAISE                  2
+       L12:     POP_TOP
+       L13:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+
+ 260            LOAD_FAST                4 (code)
+                RETURN_VALUE
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L7 [2] lasti
+  L4 to L5 -> L11 [2] lasti
+  L7 to L9 -> L10 [4] lasti
+  L11 to L13 -> L14 [4] lasti
+
+Disassembly of <code object run_path at 0x00000204BA3562C0, file "runpy.py", line 262>:
+ 262            RESUME                   0
+
+ 277            LOAD_FAST_BORROW         2 (run_name)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+
+ 278            LOAD_CONST               2 ('<run_path>')
+                STORE_FAST               2 (run_name)
+
+ 279    L1:     LOAD_FAST                2 (run_name)
+                LOAD_ATTR                1 (rpartition + NULL|self)
+                LOAD_CONST               3 ('.')
+                CALL                     1
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               3 (pkg_name)
+
+ 280            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (('get_importer',))
+                IMPORT_NAME              1 (pkgutil)
+                IMPORT_FROM              2 (get_importer)
+                STORE_FAST               4 (get_importer)
+                POP_TOP
+
+ 281            LOAD_FAST_BORROW         4 (get_importer)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (path_name)
+                CALL                     1
+                STORE_FAST               5 (importer)
+
+ 282            LOAD_GLOBAL              6 (os)
+                LOAD_ATTR                8 (fsdecode)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (path_name)
+                CALL                     1
+                STORE_FAST               0 (path_name)
+
+ 283            LOAD_GLOBAL             11 (isinstance + NULL)
+                LOAD_FAST_BORROW         5 (importer)
+                LOAD_GLOBAL             13 (type + NULL)
+                LOAD_CONST               1 (None)
+                CALL                     1
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       26 (to L2)
+                NOT_TAKEN
+
+ 286            LOAD_GLOBAL             15 (_get_code_from_file + NULL)
+                LOAD_FAST_BORROW         0 (path_name)
+                CALL                     1
+                STORE_FAST               6 (code)
+
+ 287            LOAD_GLOBAL             17 (_run_module_code + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 97 (code, init_globals)
+                LOAD_FAST_BORROW         2 (run_name)
+
+ 288            LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (pkg_name, path_name)
+
+ 287            LOAD_CONST               5 (('pkg_name', 'script_name'))
+                CALL_KW                  5
+                RETURN_VALUE
+
+ 292    L2:     LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               23 (insert + NULL|self)
+                LOAD_SMALL_INT           0
+                LOAD_FAST_BORROW         0 (path_name)
+                CALL                     2
+                POP_TOP
+
+ 293            NOP
+
+ 300    L3:     LOAD_GLOBAL             25 (_get_main_module_details + NULL)
+                CALL                     0
+                UNPACK_SEQUENCE          3
+                STORE_FAST_STORE_FAST  120 (mod_name, mod_spec)
+                STORE_FAST               6 (code)
+
+ 301            LOAD_GLOBAL             27 (_TempModule + NULL)
+                LOAD_FAST_BORROW         2 (run_name)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L4:     STORE_FAST               9 (temp_module)
+
+ 302            LOAD_GLOBAL             29 (_ModifiedArgv0 + NULL)
+                LOAD_FAST_BORROW         0 (path_name)
+                CALL                     1
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L5:     POP_TOP
+
+ 303            LOAD_FAST_BORROW         9 (temp_module)
+                LOAD_ATTR               30 (module)
+                LOAD_ATTR               32 (__dict__)
+                STORE_FAST              10 (mod_globals)
+
+ 304            LOAD_GLOBAL             35 (_run_code + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 106 (code, mod_globals)
+                LOAD_FAST_BORROW         1 (init_globals)
+
+ 305            LOAD_FAST_BORROW_LOAD_FAST_BORROW 40 (run_name, mod_spec)
+                LOAD_FAST_BORROW         3 (pkg_name)
+
+ 304            CALL                     6
+
+ 305            LOAD_ATTR               37 (copy + NULL|self)
+                CALL                     0
+
+ 302    L6:     SWAP                     3
+                SWAP                     2
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+
+ 301    L7:     SWAP                     3
+                SWAP                     2
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+
+ 307    L8:     NOP
+
+ 308    L9:     LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               39 (remove + NULL|self)
+                LOAD_FAST_BORROW         0 (path_name)
+                CALL                     1
+                POP_TOP
+       L10:     RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 309            LOAD_GLOBAL             40 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 310   L12:     POP_EXCEPT
+                RETURN_VALUE
+
+ 309   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 302   L15:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L16)
+                NOT_TAKEN
+                RERAISE                  2
+       L16:     POP_TOP
+       L17:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_FORWARD             3 (to L19)
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 302   L19:     NOP
+
+ 301   L20:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                JUMP_FORWARD            19 (to L25)
+       L21:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L22)
+                NOT_TAKEN
+                RERAISE                  2
+       L22:     POP_TOP
+       L23:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                JUMP_FORWARD             3 (to L25)
+
+  --   L24:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 307   L25:     NOP
+
+ 308   L26:     LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               39 (remove + NULL|self)
+                LOAD_FAST                0 (path_name)
+                CALL                     1
+                POP_TOP
+       L27:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L28:     PUSH_EXC_INFO
+
+ 309            LOAD_GLOBAL             40 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L30)
+                NOT_TAKEN
+                POP_TOP
+
+ 310   L29:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 309   L30:     RERAISE                  0
+
+  --   L31:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L32:     PUSH_EXC_INFO
+
+ 307   L33:     NOP
+
+ 308   L34:     LOAD_GLOBAL             18 (sys)
+                LOAD_ATTR               20 (path)
+                LOAD_ATTR               39 (remove + NULL|self)
+                LOAD_FAST                0 (path_name)
+                CALL                     1
+                POP_TOP
+       L35:     RERAISE                  0
+
+  --   L36:     PUSH_EXC_INFO
+
+ 309            LOAD_GLOBAL             40 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L38)
+                NOT_TAKEN
+                POP_TOP
+
+ 310   L37:     POP_EXCEPT
+                RERAISE                  0
+
+ 309   L38:     RERAISE                  0
+
+  --   L39:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L40:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L32 [0]
+  L4 to L5 -> L21 [2] lasti
+  L5 to L6 -> L15 [4] lasti
+  L6 to L7 -> L21 [2] lasti
+  L7 to L8 -> L32 [0]
+  L9 to L10 -> L11 [1]
+  L11 to L12 -> L14 [2] lasti
+  L13 to L14 -> L14 [2] lasti
+  L15 to L17 -> L18 [6] lasti
+  L17 to L19 -> L21 [2] lasti
+  L20 to L21 -> L32 [0]
+  L21 to L23 -> L24 [4] lasti
+  L23 to L25 -> L32 [0]
+  L26 to L27 -> L28 [0]
+  L28 to L29 -> L31 [1] lasti
+  L30 to L31 -> L31 [1] lasti
+  L32 to L33 -> L40 [1] lasti
+  L34 to L35 -> L36 [2]
+  L35 to L36 -> L40 [1] lasti
+  L36 to L37 -> L39 [3] lasti
+  L37 to L38 -> L40 [1] lasti
+  L38 to L39 -> L39 [3] lasti
+  L39 to L40 -> L40 [1] lasti

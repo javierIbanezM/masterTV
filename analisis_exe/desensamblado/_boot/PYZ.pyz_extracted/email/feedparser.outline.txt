@@ -1,0 +1,64 @@
+<module>()  line 1
+    BufferedSubFile()  line 46
+        BufferedSubFile.__init__(self)  line 54
+        BufferedSubFile.push_eof_matcher(self, pred)  line 65
+        BufferedSubFile.pop_eof_matcher(self)  line 68
+        BufferedSubFile.close(self)  line 71
+        BufferedSubFile.readline(self)  line 79
+        BufferedSubFile.unreadline(self, line)  line 97
+        BufferedSubFile.push(self, data)  line 102
+        BufferedSubFile.pushlines(self, lines)  line 123
+        BufferedSubFile.__iter__(self)  line 126
+        BufferedSubFile.__next__(self)  line 129
+    FeedParser()  line 136
+        FeedParser.__init__(self, _factory, policy)  line 139
+        FeedParser._set_headersonly(self)  line 170
+        FeedParser.feed(self, data)  line 173
+        FeedParser._call_parse(self)  line 178
+        FeedParser.close(self)  line 184
+        FeedParser._new_message(self)  line 197
+        FeedParser._pop_message(self)  line 210
+        FeedParser._parsegen(self)  line 218
+            FeedParser._parsegen.<locals>.boundarymatch(line)  line 332
+        FeedParser._parse_headers(self, lines)  line 472
+    BytesFeedParser()  line 533
+        BytesFeedParser.feed(self, data)  line 536
+
+--- strings ---
+"FeedParser - An email feed parser.\n\nThe feed parser implements an interface for incrementally parsing an email\nmessage, line by line.  This has advantages for certain applications, such as\nthose reading email messages off a socket.\n\nFeedParser.feed() is the primary interface for pushing new data into the\nparser.  It returns when there's nothing more it can do with the available\ndata.  When you have no more data to push into the parser, call .close().\nThis completes the parsing and returns the root message object.\n\nThe other advantage of this parser is that it will never raise a parsing\nexception.  Instead, when it finds something unexpected, it adds a 'defect' to\nthe current message.  Defects are just instances that live on the message\nobject's .defects attribute.\n"
+'FeedParser'
+'BytesFeedParser'
+'\\r\\n|\\r|\\n'
+'(\\r\\n|\\r|\\n)'
+'(\\r\\n|\\r|\\n)\\z'
+'^(From |[\\041-\\071\\073-\\176]*:|[\\t ])'
+'(?P<end>--)?(?P<ws>[ \\t]*)(?P<linesep>\\r\\n|\\r|\\n)?$'
+'BufferedSubFile'
+'A file-ish object that can have new data loaded into it.\n\nYou can also push and pop line-matching predicates onto a stack.  When the\ncurrent predicate matches the current line, a false EOF response\n(i.e. empty string) is returned instead.  This lets the parser adhere to a\nsimple abstraction -- it parses until EOF closes the current message.\n'
+'Push some new data into this object.'
+'BufferedSubFile'
+'FeedParser'
+'A feed-style parser of email.'
+'policy'
+"_factory is called with no arguments to create a new message obj\n\nThe policy keyword specifies a policy object that controls a number of\naspects of the parser's operation.  The default policy maintains\nbackward compatibility.\n\n"
+'Push more data into the parser.'
+'Parse all remaining data and return the root message object.'
+'multipart'
+'multipart/digest'
+'message/rfc822'
+'message/delivery-status'
+'message'
+'multipart'
+'content-transfer-encoding'
+'8bit'
+'--'
+'end'
+'linesep'
+' \t'
+'From '
+'Missing header name.'
+'_parse_headers fed line with no : and no leading WS'
+'BytesFeedParser'
+'Like FeedParser, but feed accepts bytes.'
+'ascii'
+'surrogateescape'

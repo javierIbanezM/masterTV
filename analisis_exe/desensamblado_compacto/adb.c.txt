@@ -1,0 +1,508 @@
+
+DEF <module>() @1
+1: LOAD_CONST 'Envoltorio fino sobre el ejecutable adb. Todas las llamadas son bloqueantes:\nla UI las ejecuta en hilos (ver workers.py).'; STORE_NAME __doc__
+3: LOAD_SMALL_INT 0; LOAD_CONST ('annotations',); IMPORT_NAME __future__; IMPORT_FROM annotations; STORE_NAME annotations
+5: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME os; STORE_NAME os
+6: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME re; STORE_NAME re
+7: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME shlex; STORE_NAME shlex
+8: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME socket; STORE_NAME socket
+9: LOAD_SMALL_INT 0; LOAD_CONST None; IMPORT_NAME subprocess; STORE_NAME subprocess
+10: LOAD_SMALL_INT 0; LOAD_CONST ('dataclass',); IMPORT_NAME dataclasses; IMPORT_FROM dataclass; STORE_NAME dataclass
+11: LOAD_SMALL_INT 0; LOAD_CONST ('Path',); IMPORT_NAME pathlib; IMPORT_FROM Path; STORE_NAME Path
+12: LOAD_SMALL_INT 0; LOAD_CONST ('Callable',); IMPORT_NAME typing; IMPORT_FROM Callable; STORE_NAME Callable
+14: LOAD_CONST ('de.ozerov.fully', 'com.fullykiosk.emm'); STORE_NAME FULLY_PACKAGES
+15: LOAD_NAME os; LOAD_ATTR name; LOAD_CONST 'nt'; COMPARE_OP bool(==); POP_JUMP_IF_FALSE ->136; LOAD_CONST 134217728; JUMP_FORWARD ->138; <L136>; LOAD_SMALL_INT 0; <L138>; STORE_NAME _NO_WINDOW
+16: LOAD_CONST b'\x89PNG\r\n\x1a\n'; STORE_NAME _PNG_SIG
+18: BUILD_MAP
+19: LOAD_CONST 'Encender/Apagar'; LOAD_CONST 'KEYCODE_POWER'
+18: MAP_ADD
+20: LOAD_CONST 'Despertar'; LOAD_CONST 'KEYCODE_WAKEUP'
+18: MAP_ADD
+21: LOAD_CONST 'Standby'; LOAD_CONST 'KEYCODE_SLEEP'
+18: MAP_ADD
+22: LOAD_CONST 'Inicio'; LOAD_CONST 'KEYCODE_HOME'
+18: MAP_ADD
+23: LOAD_CONST 'Atrás'; LOAD_CONST 'KEYCODE_BACK'
+18: MAP_ADD
+24: LOAD_CONST 'Menú'; LOAD_CONST 'KEYCODE_MENU'
+18: MAP_ADD
+25: LOAD_CONST 'Arriba'; LOAD_CONST 'KEYCODE_DPAD_UP'
+18: MAP_ADD
+26: LOAD_CONST 'Abajo'; LOAD_CONST 'KEYCODE_DPAD_DOWN'
+18: MAP_ADD
+27: LOAD_CONST 'Izquierda'; LOAD_CONST 'KEYCODE_DPAD_LEFT'
+18: MAP_ADD
+28: LOAD_CONST 'Derecha'; LOAD_CONST 'KEYCODE_DPAD_RIGHT'
+18: MAP_ADD
+29: LOAD_CONST 'OK'; LOAD_CONST 'KEYCODE_DPAD_CENTER'
+18: MAP_ADD
+30: LOAD_CONST 'Vol +'; LOAD_CONST 'KEYCODE_VOLUME_UP'
+18: MAP_ADD
+31: LOAD_CONST 'Vol -'; LOAD_CONST 'KEYCODE_VOLUME_DOWN'
+18: MAP_ADD
+32: LOAD_CONST 'Silencio'; LOAD_CONST 'KEYCODE_VOLUME_MUTE'
+18: MAP_ADD
+33: LOAD_CONST 'Play/Pausa'; LOAD_CONST 'KEYCODE_MEDIA_PLAY_PAUSE'
+18: MAP_ADD
+34: LOAD_CONST 'Stop'; LOAD_CONST 'KEYCODE_MEDIA_STOP'
+18: MAP_ADD
+35: LOAD_CONST 'Siguiente'; LOAD_CONST 'KEYCODE_MEDIA_NEXT'
+18: MAP_ADD
+36: LOAD_CONST 'Anterior'; LOAD_CONST 'KEYCODE_MEDIA_PREVIOUS'
+37: LOAD_CONST 'Retroceder'; LOAD_CONST 'KEYCODE_MEDIA_REWIND'
+38: LOAD_CONST 'Avanzar'; LOAD_CONST 'KEYCODE_MEDIA_FAST_FORWARD'
+39: LOAD_CONST 'Canal +'; LOAD_CONST 'KEYCODE_CHANNEL_UP'
+40: LOAD_CONST 'Canal -'; LOAD_CONST 'KEYCODE_CHANNEL_DOWN'
+41: LOAD_CONST 'Entradas (fuente)'; LOAD_CONST 'KEYCODE_TV_INPUT'
+42: LOAD_CONST 'Ajustes'; LOAD_CONST 'KEYCODE_SETTINGS'
+43: LOAD_CONST 'Guía'; LOAD_CONST 'KEYCODE_GUIDE'
+44: LOAD_CONST 'Información'; LOAD_CONST 'KEYCODE_INFO'
+45: LOAD_CONST 'Asistente'; LOAD_CONST 'KEYCODE_ASSIST'
+46: LOAD_CONST 'Aplicaciones recientes'; LOAD_CONST 'KEYCODE_APP_SWITCH'
+18: BUILD_MAP; DICT_UPDATE; STORE_NAME KEYCODES
+51: LOAD_CONST 'Ajustes (principal)'; LOAD_CONST 'android.settings.SETTINGS'
+52: LOAD_CONST 'Wi-Fi'; LOAD_CONST 'android.settings.WIFI_SETTINGS'
+53: LOAD_CONST 'Red / Internet'; LOAD_CONST 'android.settings.WIRELESS_SETTINGS'
+54: LOAD_CONST 'Bluetooth'; LOAD_CONST 'android.settings.BLUETOOTH_SETTINGS'
+55: LOAD_CONST 'Pantalla'; LOAD_CONST 'android.settings.DISPLAY_SETTINGS'
+56: LOAD_CONST 'Sonido'; LOAD_CONST 'android.settings.SOUND_SETTINGS'
+57: LOAD_CONST 'Aplicaciones'; LOAD_CONST 'android.settings.APPLICATION_SETTINGS'
+58: LOAD_CONST 'Almacenamiento'; LOAD_CONST 'android.settings.INTERNAL_STORAGE_SETTINGS'
+59: LOAD_CONST 'Idioma / Teclado'; LOAD_CONST 'android.settings.LOCALE_SETTINGS'
+60: LOAD_CONST 'Fecha y hora'; LOAD_CONST 'android.settings.DATE_SETTINGS'
+61: LOAD_CONST 'Accesibilidad'; LOAD_CONST 'android.settings.ACCESSIBILITY_SETTINGS'
+62: LOAD_CONST 'Opciones de desarrollador'; LOAD_CONST 'android.settings.APPLICATION_DEVELOPMENT_SETTINGS'
+63: LOAD_CONST 'Información del dispositivo'; LOAD_CONST 'android.settings.DEVICE_INFO_SETTINGS'
+64: LOAD_CONST 'Cuentas'; LOAD_CONST 'android.settings.SYNC_SETTINGS'
+65: LOAD_CONST 'Entradas de TV'; LOAD_CONST 'android.settings.INPUT_METHOD_SETTINGS'
+50: BUILD_MAP; STORE_NAME SETTINGS_SCREENS
+69: LOAD_NAME re; LOAD_ATTR compile
+70: LOAD_CONST '(^|[;&|\\s])(rm|rmdir|mv|dd|mkfs\\S*|reboot|poweroff|shutdown|wipe|format|pm\\s+(uninstall|clear|disable\\S*|hide|suspend)|settings\\s+(put|delete)|setprop|svc\\s+\\S+\\s+(disable)|su|chmod|chown|mount|umount|cmd\\s+package\\s+(uninstall|clear)|am\\s+(kill|force-stop|broadcast)|wm\\s+(size|density)|content\\s+(insert|update|delete))(\\s|$)'
+75: LOAD_NAME re; LOAD_ATTR IGNORECASE
+69: CALL; STORE_NAME _DANGEROUS
+79: LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code is_dangerous_shell>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME is_dangerous_shell
+83: LOAD_NAME dataclass
+84: LOAD_BUILD_CLASS; LOAD_CONST <code Result>; MAKE_FUNCTION; LOAD_CONST 'Result'; CALL
+83: CALL
+84: STORE_NAME Result
+99: LOAD_BUILD_CLASS; LOAD_CONST <code AdbError>; MAKE_FUNCTION; LOAD_CONST 'AdbError'; LOAD_NAME RuntimeError; CALL; STORE_NAME AdbError
+103: LOAD_CONST (1.5,); LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code tcp_open>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME tcp_open
+111: LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code shell_quote>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME shell_quote
+115: LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code arp_mac>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME arp_mac
+129: LOAD_BUILD_CLASS; LOAD_CONST <code Adb>; MAKE_FUNCTION; LOAD_CONST 'Adb'; CALL; STORE_NAME Adb
+435: LOAD_CONST <code __annotate__>; MAKE_FUNCTION; LOAD_CONST <code save_bytes>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME save_bytes; LOAD_CONST None; RETURN_VALUE
+
+  DEF is_dangerous_shell(cmd) @79
+  80: LOAD_GLOBAL bool + NULL; LOAD_GLOBAL _DANGEROUS; LOAD_ATTR search + NULL|self; LOAD_FAST_BORROW cmd; CALL; CALL; RETURN_VALUE
+
+  DEF Result() @83
+  83: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'Result'; STORE_NAME __qualname__; LOAD_SMALL_INT 83; STORE_NAME __firstlineno__; SETUP_ANNOTATIONS
+  85: LOAD_CONST 'int'; LOAD_NAME __annotations__; LOAD_CONST 'rc'; STORE_SUBSCR
+  86: LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'out'; STORE_SUBSCR
+  87: LOAD_CONST 'str'; LOAD_NAME __annotations__; LOAD_CONST 'err'; STORE_SUBSCR
+  88: LOAD_CONST b''; STORE_NAME raw; LOAD_CONST 'bytes'; LOAD_NAME __annotations__; LOAD_CONST 'raw'; STORE_SUBSCR
+  90: LOAD_NAME property
+  91: LOAD_CONST <code Result.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Result.ok>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate
+  90: CALL
+  91: STORE_NAME ok
+  94: LOAD_NAME property
+  95: LOAD_CONST <code Result.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Result.text>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate
+  94: CALL
+  95: STORE_NAME text; LOAD_CONST (); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+    DEF Result.ok(self) @90
+    92: LOAD_FAST_BORROW self; LOAD_ATTR rc; LOAD_SMALL_INT 0; COMPARE_OP ==; RETURN_VALUE
+
+    DEF Result.text(self) @94
+    96: LOAD_FAST_BORROW self; LOAD_ATTR out; LOAD_FAST_BORROW self; LOAD_ATTR err; TO_BOOL; POP_JUMP_IF_FALSE ->174; LOAD_FAST_BORROW self; LOAD_ATTR out; TO_BOOL; POP_JUMP_IF_TRUE ->174; LOAD_CONST '\n'; LOAD_FAST_BORROW self; LOAD_ATTR err; BINARY_OP +; BINARY_OP +; LOAD_ATTR strip + NULL|self; CALL; RETURN_VALUE; <L174>; LOAD_CONST ''; BINARY_OP +; LOAD_ATTR strip + NULL|self; CALL; RETURN_VALUE
+
+  DEF AdbError() @99
+  99: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'AdbError'; STORE_NAME __qualname__; LOAD_SMALL_INT 99; STORE_NAME __firstlineno__
+  100: LOAD_CONST (); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+  DEF tcp_open(host,port,timeout) @103
+  105: LOAD_GLOBAL socket; LOAD_ATTR create_connection; LOAD_FAST_BORROW_LOAD_FAST_BORROW host, port; BUILD_TUPLE; LOAD_FAST_BORROW timeout; LOAD_CONST ('timeout',); CALL_KW; COPY; LOAD_SPECIAL __exit__; SWAP; SWAP; LOAD_SPECIAL __enter__; CALL; LOAD_CONST None; LOAD_CONST None; LOAD_CONST None; CALL; LOAD_CONST True; RETURN_VALUE; PUSH_EXC_INFO; WITH_EXCEPT_START; TO_BOOL; POP_JUMP_IF_TRUE ->114; RERAISE; POP_EXCEPT; LOAD_CONST None; RETURN_VALUE
+  None: COPY; POP_EXCEPT; RERAISE; PUSH_EXC_INFO
+  107: LOAD_GLOBAL OSError; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->162
+  108: POP_EXCEPT; LOAD_CONST False; RETURN_VALUE
+  107: <L162>; RERAISE
+  None: COPY; POP_EXCEPT; RERAISE
+
+  DEF shell_quote(s) @111
+  112: LOAD_GLOBAL shlex; LOAD_ATTR quote; LOAD_FAST_BORROW s; CALL; RETURN_VALUE
+
+  DEF arp_mac(host) @115
+  117: LOAD_GLOBAL re; LOAD_ATTR fullmatch; LOAD_CONST '\\d{1,3}(\\.\\d{1,3}){3}'; LOAD_FAST_BORROW host; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->64
+  118: LOAD_CONST ''; RETURN_VALUE
+  120: LOAD_GLOBAL subprocess; LOAD_ATTR run; LOAD_CONST 'arp'; LOAD_CONST '-a'; LOAD_FAST_BORROW host; BUILD_LIST; LOAD_CONST True; LOAD_SMALL_INT 5
+  121: LOAD_GLOBAL _NO_WINDOW
+  120: LOAD_CONST ('capture_output', 'timeout', 'creationflags'); CALL_KW; STORE_FAST p
+  124: LOAD_GLOBAL re; LOAD_ATTR search; LOAD_GLOBAL re; LOAD_ATTR escape; LOAD_FAST host; CALL; FORMAT_SIMPLE; LOAD_CONST '\\s+([0-9a-f]{2}(?:[-:][0-9a-f]{2}){5})'; BUILD_STRING
+  125: LOAD_FAST p; LOAD_ATTR stdout; LOAD_ATTR decode + NULL|self; LOAD_CONST 'utf-8'; LOAD_CONST 'replace'; CALL; LOAD_GLOBAL re; LOAD_ATTR I
+  124: CALL; STORE_FAST m
+  126: LOAD_FAST m; TO_BOOL; POP_JUMP_IF_FALSE ->416; LOAD_FAST m; LOAD_ATTR group + NULL|self; LOAD_SMALL_INT 1; CALL; LOAD_ATTR replace + NULL|self; LOAD_CONST '-'; LOAD_CONST ':'; CALL; LOAD_ATTR lower + NULL|self; CALL; RETURN_VALUE; <L416>; LOAD_CONST ''; RETURN_VALUE
+  None: PUSH_EXC_INFO
+  122: LOAD_GLOBAL OSError; LOAD_GLOBAL subprocess; LOAD_ATTR TimeoutExpired; BUILD_TUPLE; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->480
+  123: POP_EXCEPT; LOAD_CONST ''; RETURN_VALUE
+  122: <L480>; RERAISE
+  None: COPY; POP_EXCEPT; RERAISE
+
+  DEF Adb() @129
+  129: LOAD_NAME __name__; STORE_NAME __module__; LOAD_CONST 'Adb'; STORE_NAME __qualname__; LOAD_SMALL_INT 129; STORE_NAME __firstlineno__
+  130: LOAD_CONST 'Cliente adb. `path_getter` devuelve la ruta actual del ejecutable.'; STORE_NAME __doc__
+  132: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.__init__>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME __init__
+  135: LOAD_NAME property
+  136: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.path>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate
+  135: CALL
+  136: STORE_NAME path
+  146: LOAD_CONST (None, 20, None); LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.run>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME run
+  163: LOAD_CONST (20,); LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.shell>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME shell
+  167: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.start_server>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME start_server
+  170: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.kill_server>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME kill_server
+  173: LOAD_CONST (8,); LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.connect>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME connect
+  176: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.disconnect>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME disconnect
+  179: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.pair>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME pair
+  182: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.devices>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME devices
+  191: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.probe>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME probe
+  206: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.getprop>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME getprop
+  209: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.device_info>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME device_info
+  249: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.mac>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME mac
+  259: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.storage>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME storage
+  262: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.memory>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME memory
+  265: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.wakefulness>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME wakefulness
+  270: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.keyevent>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME keyevent
+  273: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.text>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME text
+  276: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.tap>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME tap
+  279: LOAD_CONST (300,); LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.swipe>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME swipe
+  283: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.screencap>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME screencap
+  292: LOAD_CONST ('-3',); LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.packages>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; SET_FUNCTION_ATTRIBUTE defaults; STORE_NAME packages
+  298: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.launch>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME launch
+  306: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.force_stop>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME force_stop
+  309: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.clear_data>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME clear_data
+  312: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.uninstall>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME uninstall
+  315: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.install>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME install
+  318: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.open_settings>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME open_settings
+  321: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.foreground>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME foreground
+  333: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.display_info>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME display_info
+  348: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.set_density>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME set_density
+  353: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.reset_density>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME reset_density
+  356: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.boot_completed>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME boot_completed
+  359: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.kiosk_launch>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME kiosk_launch
+  370: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.resolve_on_tv>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME resolve_on_tv
+  376: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.http_status_from_tv>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME http_status_from_tv
+  382: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.settings_list>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME settings_list
+  391: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.settings_put>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME settings_put
+  395: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.ls>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME ls
+  418: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.pull>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME pull
+  421: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.push>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME push
+  424: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.remove>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME remove
+  428: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.reboot>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME reboot
+  431: LOAD_CONST <code Adb.__annotate__>; MAKE_FUNCTION; LOAD_CONST <code Adb.power_off>; MAKE_FUNCTION; SET_FUNCTION_ATTRIBUTE annotate; STORE_NAME power_off; LOAD_CONST ('_path_getter',); STORE_NAME __static_attributes__; LOAD_CONST None; RETURN_VALUE
+
+    DEF Adb.__init__(self,path_getter) @132
+    133: LOAD_FAST_BORROW_LOAD_FAST_BORROW path_getter, self; STORE_ATTR _path_getter; LOAD_CONST None; RETURN_VALUE
+
+    DEF Adb.path(self) @135
+    137: LOAD_FAST_BORROW self; LOAD_ATTR _path_getter + NULL|self; CALL; STORE_FAST p
+    138: LOAD_FAST_BORROW p; TO_BOOL; POP_JUMP_IF_TRUE ->72
+    139: LOAD_GLOBAL AdbError + NULL
+    140: LOAD_CONST 'No se encuentra adb.exe. Indica su ruta en Configuración o copia platform-tools a la carpeta tools/.'
+    139: CALL; RAISE_VARARGS
+    143: <L72>; LOAD_FAST_BORROW p; RETURN_VALUE
+
+    DEF Adb.run(self,args,serial,timeout,input_data) @146
+    148: LOAD_FAST_BORROW self; LOAD_ATTR path; BUILD_LIST; STORE_FAST cmd
+    149: LOAD_FAST_BORROW serial; TO_BOOL; POP_JUMP_IF_FALSE ->66
+    150: LOAD_FAST_BORROW cmd; LOAD_CONST '-s'; LOAD_FAST_BORROW serial; BUILD_LIST; BINARY_OP +=; STORE_FAST cmd
+    151: <L66>; LOAD_FAST_BORROW_LOAD_FAST_BORROW cmd, args; BINARY_OP +=; STORE_FAST cmd
+    153: LOAD_GLOBAL subprocess; LOAD_ATTR run; LOAD_FAST_BORROW cmd; LOAD_CONST True; LOAD_FAST_BORROW timeout
+    154: LOAD_FAST_BORROW input_data; LOAD_GLOBAL _NO_WINDOW
+    153: LOAD_CONST ('capture_output', 'timeout', 'input', 'creationflags'); CALL_KW; STORE_FAST p
+    159: LOAD_FAST p; LOAD_ATTR stdout; LOAD_ATTR decode + NULL|self; LOAD_CONST 'utf-8'; LOAD_CONST 'replace'; CALL; LOAD_ATTR replace + NULL|self; LOAD_CONST '\r\n'; LOAD_CONST '\n'; CALL; STORE_FAST out
+    160: LOAD_FAST p; LOAD_ATTR stderr; LOAD_ATTR decode + NULL|self; LOAD_CONST 'utf-8'; LOAD_CONST 'replace'; CALL; LOAD_ATTR replace + NULL|self; LOAD_CONST '\r\n'; LOAD_CONST '\n'; CALL; STORE_FAST err
+    161: LOAD_GLOBAL Result + NULL; LOAD_FAST p; LOAD_ATTR returncode; LOAD_FAST out; LOAD_ATTR strip + NULL|self; CALL; LOAD_FAST err; LOAD_ATTR strip + NULL|self; CALL; LOAD_FAST p; LOAD_ATTR stdout; CALL; RETURN_VALUE
+    None: PUSH_EXC_INFO
+    155: LOAD_GLOBAL subprocess; LOAD_ATTR TimeoutExpired; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->528
+    156: LOAD_GLOBAL Result + NULL; LOAD_SMALL_INT 124; LOAD_CONST ''; LOAD_CONST 'Tiempo de espera agotado ('; LOAD_FAST timeout; LOAD_CONST '.0f'; FORMAT_WITH_SPEC; LOAD_CONST 's)'; BUILD_STRING; CALL; SWAP; POP_EXCEPT; RETURN_VALUE
+    157: <L528>; LOAD_GLOBAL OSError; CHECK_EXC_MATCH; POP_JUMP_IF_FALSE ->598; STORE_FAST e
+    158: LOAD_GLOBAL AdbError + NULL; LOAD_GLOBAL str + NULL; LOAD_FAST e; CALL; CALL; LOAD_FAST e; RAISE_VARARGS
+    None: LOAD_CONST None; STORE_FAST e; DELETE_FAST e; RERAISE
+    157: <L598>; RERAISE
+    None: COPY; POP_EXCEPT; RERAISE
+
+    DEF Adb.shell(self,serial,command,timeout) @163
+    164: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'shell'; LOAD_FAST_BORROW command; BUILD_LIST; LOAD_FAST_BORROW_LOAD_FAST_BORROW serial, timeout; CALL; RETURN_VALUE
+
+    DEF Adb.start_server(self) @167
+    168: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'start-server'; BUILD_LIST; LOAD_SMALL_INT 15; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.kill_server(self) @170
+    171: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'kill-server'; BUILD_LIST; LOAD_SMALL_INT 15; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.connect(self,serial,timeout) @173
+    174: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'connect'; LOAD_FAST_BORROW serial; BUILD_LIST; LOAD_FAST_BORROW timeout; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.disconnect(self,serial) @176
+    177: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'disconnect'; LOAD_FAST_BORROW serial; BUILD_LIST; LOAD_SMALL_INT 8; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.pair(self,host_port,code) @179
+    180: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'pair'; LOAD_FAST_BORROW_LOAD_FAST_BORROW host_port, code; BUILD_LIST; LOAD_SMALL_INT 20; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.devices(self) @182
+    183: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'devices'; BUILD_LIST; LOAD_SMALL_INT 10; LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+    184: BUILD_MAP; STORE_FAST states
+    185: LOAD_FAST_BORROW r; LOAD_ATTR out; LOAD_ATTR splitlines + NULL|self; CALL; LOAD_CONST slice(1, None, None); BINARY_OP []; GET_ITER; <L112>; FOR_ITER ->226; STORE_FAST line
+    186: LOAD_FAST_BORROW line; LOAD_ATTR split + NULL|self; CALL; STORE_FAST parts
+    187: LOAD_GLOBAL len + NULL; LOAD_FAST_BORROW parts; CALL; LOAD_SMALL_INT 2; COMPARE_OP bool(>=); POP_JUMP_IF_TRUE ->186; JUMP_BACKWARD ->112
+    188: <L186>; LOAD_FAST_BORROW parts; LOAD_SMALL_INT 1; BINARY_OP []; LOAD_FAST_BORROW_LOAD_FAST_BORROW states, parts; LOAD_SMALL_INT 0; BINARY_OP []; STORE_SUBSCR; JUMP_BACKWARD ->112
+    185: <L226>; END_FOR; POP_ITER
+    189: LOAD_FAST_BORROW states; RETURN_VALUE
+
+    DEF Adb.probe(self,host,port) @191
+    194: LOAD_FAST_BORROW host; FORMAT_SIMPLE; LOAD_CONST ':'; LOAD_FAST_BORROW port; FORMAT_SIMPLE; BUILD_STRING; STORE_FAST serial
+    195: LOAD_FAST_BORROW self; LOAD_ATTR devices + NULL|self; CALL; LOAD_ATTR get + NULL|self; LOAD_FAST_BORROW serial; CALL; STORE_FAST known
+    196: LOAD_FAST_BORROW known; LOAD_CONST 'device'; COMPARE_OP bool(==); POP_JUMP_IF_FALSE ->96
+    197: LOAD_CONST 'device'; RETURN_VALUE
+    198: <L96>; LOAD_GLOBAL tcp_open + NULL; LOAD_FAST_BORROW_LOAD_FAST_BORROW host, port; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->184
+    199: LOAD_FAST_BORROW known; TO_BOOL; POP_JUMP_IF_FALSE ->180
+    200: LOAD_FAST_BORROW self; LOAD_ATTR disconnect + NULL|self; LOAD_FAST_BORROW serial; CALL
+    201: <L180>; LOAD_CONST 'unreachable'; RETURN_VALUE
+    202: <L184>; LOAD_FAST_BORROW self; LOAD_ATTR connect + NULL|self; LOAD_FAST_BORROW serial; LOAD_SMALL_INT 8; LOAD_CONST ('timeout',); CALL_KW
+    203: LOAD_FAST_BORROW self; LOAD_ATTR devices + NULL|self; CALL; LOAD_ATTR get + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'offline'; CALL; RETURN_VALUE
+
+    DEF Adb.getprop(self,serial,key) @206
+    207: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'getprop '; LOAD_FAST_BORROW key; FORMAT_SIMPLE; BUILD_STRING; CALL; LOAD_ATTR out; RETURN_VALUE
+
+    DEF Adb.device_info(self,serial) @209
+    211: LOAD_CONST 'Modelo'; LOAD_CONST 'ro.product.model'
+    212: LOAD_CONST 'Fabricante'; LOAD_CONST 'ro.product.manufacturer'
+    213: LOAD_CONST 'Marca'; LOAD_CONST 'ro.product.brand'
+    214: LOAD_CONST 'Dispositivo'; LOAD_CONST 'ro.product.device'
+    215: LOAD_CONST 'Android'; LOAD_CONST 'ro.build.version.release'
+    216: LOAD_CONST 'SDK'; LOAD_CONST 'ro.build.version.sdk'
+    217: LOAD_CONST 'Parche de seguridad'; LOAD_CONST 'ro.build.version.security_patch'
+    218: LOAD_CONST 'Compilación'; LOAD_CONST 'ro.build.display.id'
+    219: LOAD_CONST 'Nº de serie'; LOAD_CONST 'ro.serialno'
+    220: LOAD_CONST 'Idioma'; LOAD_CONST 'persist.sys.locale'
+    221: LOAD_CONST 'Zona horaria'; LOAD_CONST 'persist.sys.timezone'
+    210: BUILD_MAP; STORE_FAST props
+    224: LOAD_FAST_BORROW props; LOAD_ATTR items + NULL|self; CALL; GET_ITER; LOAD_FAST_AND_CLEAR label; LOAD_FAST_AND_CLEAR key; SWAP; BUILD_MAP; SWAP; <L92>; FOR_ITER ->118; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST label, key; LOAD_FAST_BORROW label; LOAD_CONST 'getprop '; LOAD_FAST_BORROW key; FORMAT_SIMPLE; BUILD_STRING; MAP_ADD; JUMP_BACKWARD ->92; <L118>; END_FOR; POP_ITER; STORE_FAST cmds; STORE_FAST label; STORE_FAST key
+    225: LOAD_FAST_BORROW cmds; LOAD_ATTR update + NULL|self
+    226: LOAD_CONST 'Resolución'; LOAD_CONST 'wm size'
+    227: LOAD_CONST 'Densidad'; LOAD_CONST 'wm density'
+    228: LOAD_CONST 'Tiempo encendida'; LOAD_CONST 'uptime'
+    229: LOAD_CONST 'Estado de energía'; LOAD_CONST 'dumpsys power | grep -m1 mWakefulness='
+    230: LOAD_CONST 'Red'; LOAD_CONST "ip -o -4 addr show | grep -v ' lo '"
+    225: BUILD_MAP; CALL
+    232: LOAD_CONST '; '; LOAD_ATTR join + NULL|self; LOAD_CONST <code Adb.device_info.<locals>.<genexpr>>; MAKE_FUNCTION; LOAD_FAST_BORROW cmds; LOAD_ATTR items + NULL|self; CALL; GET_ITER; CALL; CALL; STORE_FAST script
+    233: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW serial, script; LOAD_SMALL_INT 60; LOAD_CONST ('timeout',); CALL_KW; LOAD_ATTR out; STORE_FAST out
+    234: BUILD_MAP; STORE_FAST info
+    235: LOAD_CONST None; STORE_FAST label
+    236: LOAD_FAST_BORROW out; LOAD_ATTR splitlines + NULL|self; CALL; GET_ITER; <L356>; FOR_ITER ->548; STORE_FAST line
+    237: LOAD_FAST_BORROW line; LOAD_ATTR startswith + NULL|self; LOAD_CONST '@@'; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->438
+    238: LOAD_FAST_BORROW line; LOAD_CONST slice(2, None, None); BINARY_OP []; STORE_FAST label
+    239: LOAD_CONST ''; LOAD_FAST_BORROW_LOAD_FAST_BORROW info, label; STORE_SUBSCR; JUMP_BACKWARD ->356
+    240: <L438>; LOAD_FAST_BORROW label; TO_BOOL; POP_JUMP_IF_TRUE ->458; JUMP_BACKWARD ->356
+    241: <L458>; LOAD_FAST_LOAD_FAST info, label; COPY; COPY; BINARY_OP []; LOAD_FAST_BORROW_LOAD_FAST_BORROW info, label; BINARY_OP []; TO_BOOL; POP_JUMP_IF_FALSE ->508; LOAD_CONST '\n'; JUMP_FORWARD ->510; <L508>; LOAD_CONST ''; <L510>; LOAD_FAST_BORROW line; BINARY_OP +; BINARY_OP +=; SWAP; SWAP; STORE_SUBSCR; JUMP_BACKWARD ->356
+    236: <L548>; END_FOR; POP_ITER
+    242: LOAD_FAST_BORROW info; LOAD_ATTR get + NULL|self; LOAD_CONST 'Resolución'; LOAD_CONST ''; CALL; LOAD_ATTR replace + NULL|self; LOAD_CONST 'Physical size: '; LOAD_CONST ''; CALL; LOAD_FAST_BORROW info; LOAD_CONST 'Resolución'; STORE_SUBSCR
+    243: LOAD_FAST_BORROW info; LOAD_ATTR get + NULL|self; LOAD_CONST 'Densidad'; LOAD_CONST ''; CALL; LOAD_ATTR replace + NULL|self; LOAD_CONST 'Physical density: '; LOAD_CONST ''; CALL; LOAD_FAST_BORROW info; LOAD_CONST 'Densidad'; STORE_SUBSCR
+    244: LOAD_FAST_BORROW info; LOAD_ATTR get + NULL|self; LOAD_CONST 'Estado de energía'; LOAD_CONST ''; CALL; STORE_FAST wake
+    245: LOAD_CONST '='; LOAD_FAST_BORROW wake; CONTAINS_OP in; POP_JUMP_IF_FALSE ->798; LOAD_FAST_BORROW wake; LOAD_ATTR split + NULL|self; LOAD_CONST '='; CALL; LOAD_CONST -1; BINARY_OP []; JUMP_FORWARD ->800; <L798>; LOAD_FAST wake; <L800>; LOAD_FAST_BORROW info; LOAD_CONST 'Estado de energía'; STORE_SUBSCR
+    246: LOAD_FAST_BORROW self; LOAD_ATTR mac + NULL|self; LOAD_FAST_BORROW serial; CALL; LOAD_FAST_BORROW info; LOAD_CONST 'MAC'; STORE_SUBSCR
+    247: LOAD_FAST_BORROW info; RETURN_VALUE
+    None: SWAP
+    224: SWAP; STORE_FAST key; STORE_FAST label; RERAISE
+
+      DEF Adb.device_info.<locals>.<genexpr>(.0) @232
+      232: RETURN_GENERATOR; LOAD_FAST .0; <L8>; FOR_ITER ->42; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST label, c; LOAD_CONST "echo '@@"; LOAD_FAST_BORROW label; FORMAT_SIMPLE; LOAD_CONST "'; "; LOAD_FAST_BORROW c; FORMAT_SIMPLE; BUILD_STRING; YIELD_VALUE; JUMP_BACKWARD ->8; <L42>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+      None: CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR; RERAISE
+
+    DEF Adb.mac(self,serial) @249
+    252: LOAD_CONST ('wlan0', 'eth0'); GET_ITER; <L6>; FOR_ITER ->224; STORE_FAST iface
+    253: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'cat /sys/class/net/'; LOAD_FAST_BORROW iface; FORMAT_SIMPLE; LOAD_CONST '/address 2>/dev/null'; BUILD_STRING; CALL; STORE_FAST r
+    254: LOAD_FAST_BORROW r; LOAD_ATTR out; LOAD_ATTR strip + NULL|self; CALL; LOAD_ATTR lower + NULL|self; CALL; STORE_FAST m
+    255: LOAD_GLOBAL re; LOAD_ATTR fullmatch; LOAD_CONST '([0-9a-f]{2}:){5}[0-9a-f]{2}'; LOAD_FAST_BORROW m; CALL; TO_BOOL; POP_JUMP_IF_TRUE ->198; JUMP_BACKWARD ->6; <L198>; LOAD_FAST_BORROW m; LOAD_CONST '00:00:00:00:00:00'; COMPARE_OP bool(!=); POP_JUMP_IF_TRUE ->216; JUMP_BACKWARD ->6
+    256: <L216>; LOAD_FAST_BORROW m; SWAP; RETURN_VALUE
+    252: <L224>; END_FOR; POP_ITER
+    257: LOAD_GLOBAL arp_mac + NULL; LOAD_FAST_BORROW serial; LOAD_ATTR rsplit + NULL|self; LOAD_CONST ':'; LOAD_SMALL_INT 1; CALL; LOAD_SMALL_INT 0; BINARY_OP []; CALL; RETURN_VALUE
+
+    DEF Adb.storage(self,serial) @259
+    260: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'df -h'; CALL; LOAD_ATTR out; RETURN_VALUE
+
+    DEF Adb.memory(self,serial) @262
+    263: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'head -n 4 /proc/meminfo'; CALL; LOAD_ATTR out; RETURN_VALUE
+
+    DEF Adb.wakefulness(self,serial) @265
+    266: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'dumpsys power | grep -m1 mWakefulness='; CALL; LOAD_ATTR out; STORE_FAST r
+    267: LOAD_CONST '='; LOAD_FAST_BORROW r; CONTAINS_OP in; POP_JUMP_IF_FALSE ->148; LOAD_FAST_BORROW r; LOAD_ATTR split + NULL|self; LOAD_CONST '='; CALL; LOAD_CONST -1; BINARY_OP []; LOAD_ATTR strip + NULL|self; CALL; RETURN_VALUE; <L148>; LOAD_CONST ''; RETURN_VALUE
+
+    DEF Adb.keyevent(self,serial,key) @270
+    271: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'input keyevent '; LOAD_FAST_BORROW key; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.text(self,serial,text) @273
+    274: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'input text '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW text; LOAD_ATTR replace + NULL|self; LOAD_CONST ' '; LOAD_CONST '%s'; CALL; CALL; BINARY_OP +; CALL; RETURN_VALUE
+
+    DEF Adb.tap(self,serial,x,y) @276
+    277: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'input tap '; LOAD_FAST_BORROW x; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_FAST_BORROW y; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.swipe(self,serial,x1,y1,x2,y2,ms) @279
+    280: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'input swipe '; LOAD_FAST_BORROW x1; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_FAST_BORROW y1; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_FAST_BORROW x2; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_FAST_BORROW y2; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_FAST_BORROW ms; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.screencap(self,serial) @283
+    285: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; BUILD_LIST; LOAD_CONST ('exec-out', 'screencap', '-p'); LIST_EXTEND; LOAD_FAST_BORROW serial; LOAD_SMALL_INT 20; LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+    286: LOAD_FAST_BORROW r; LOAD_ATTR raw; LOAD_ATTR find + NULL|self; LOAD_GLOBAL _PNG_SIG; CALL; STORE_FAST i
+    287: LOAD_FAST_BORROW i; LOAD_SMALL_INT 0; COMPARE_OP bool(<); POP_JUMP_IF_FALSE ->144
+    288: LOAD_GLOBAL AdbError + NULL; LOAD_CONST 'La TV no devolvió una imagen válida (¿pantalla protegida o apagada?)'; CALL; RAISE_VARARGS
+    289: <L144>; LOAD_FAST_BORROW r; LOAD_ATTR raw; LOAD_FAST_BORROW i; LOAD_CONST None; BINARY_SLICE; RETURN_VALUE
+
+    DEF Adb.packages(self,serial,scope) @292
+    294: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'pm list packages '; LOAD_FAST_BORROW scope; FORMAT_SIMPLE; BUILD_STRING; LOAD_ATTR strip + NULL|self; CALL; LOAD_SMALL_INT 30; LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+    295: LOAD_GLOBAL sorted + NULL; LOAD_CONST <code Adb.packages.<locals>.<genexpr>>; MAKE_FUNCTION; LOAD_FAST_BORROW r; LOAD_ATTR out; LOAD_ATTR splitlines + NULL|self; CALL; GET_ITER; CALL; CALL; RETURN_VALUE
+
+      DEF Adb.packages.<locals>.<genexpr>(.0) @295
+      295: RETURN_GENERATOR; LOAD_FAST .0; <L8>; FOR_ITER ->150; STORE_FAST l
+      296: LOAD_FAST_BORROW l; LOAD_ATTR startswith + NULL|self; LOAD_CONST 'package:'; CALL; TO_BOOL
+      295: POP_JUMP_IF_TRUE ->64; JUMP_BACKWARD ->8; <L64>; LOAD_FAST_BORROW l; LOAD_ATTR split + NULL|self; LOAD_CONST ':'; LOAD_SMALL_INT 1; CALL; LOAD_SMALL_INT 1; BINARY_OP []; LOAD_ATTR strip + NULL|self; CALL; YIELD_VALUE; JUMP_BACKWARD ->8; <L150>; END_FOR; POP_ITER; LOAD_CONST None; RETURN_VALUE
+      None: CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR; RERAISE
+
+    DEF Adb.launch(self,serial,package) @298
+    299: LOAD_CONST ('android.intent.category.LEANBACK_LAUNCHER', 'android.intent.category.LAUNCHER'); GET_ITER; <L6>; FOR_ITER ->146; STORE_FAST cat
+    301: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'monkey -p '; LOAD_FAST_BORROW package; FORMAT_SIMPLE; LOAD_CONST ' -c '; LOAD_FAST_BORROW cat; FORMAT_SIMPLE; LOAD_CONST ' 1'; BUILD_STRING; CALL; STORE_FAST r
+    302: LOAD_CONST 'No activities found'; LOAD_FAST_BORROW r; LOAD_ATTR out; CONTAINS_OP not in; POP_JUMP_IF_TRUE ->100; JUMP_BACKWARD ->6; <L100>; LOAD_CONST 'monkey aborted'; LOAD_FAST_BORROW r; LOAD_ATTR out; CONTAINS_OP not in; POP_JUMP_IF_TRUE ->138; JUMP_BACKWARD ->6
+    303: <L138>; LOAD_FAST_BORROW r; SWAP; RETURN_VALUE
+    299: <L146>; END_FOR; POP_ITER
+    304: LOAD_FAST_CHECK r; RETURN_VALUE
+
+    DEF Adb.force_stop(self,serial,package) @306
+    307: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'am force-stop '; LOAD_FAST_BORROW package; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.clear_data(self,serial,package) @309
+    310: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'pm clear '; LOAD_FAST_BORROW package; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.uninstall(self,serial,package) @312
+    313: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'uninstall'; LOAD_FAST_BORROW package; BUILD_LIST; LOAD_FAST_BORROW serial; LOAD_SMALL_INT 60; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.install(self,serial,apk) @315
+    316: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'install'; LOAD_CONST '-r'; LOAD_FAST_BORROW apk; BUILD_LIST; LOAD_FAST_BORROW serial; LOAD_CONST 600; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.open_settings(self,serial,action) @318
+    319: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'am start -a '; LOAD_FAST_BORROW action; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.foreground(self,serial) @321
+    323: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self
+    324: LOAD_FAST_BORROW serial
+    325: LOAD_CONST "dumpsys power | grep -m1 mWakefulness=; echo @@; dumpsys activity activities | grep -m1 -E 'topResumedActivity|mResumedActivity'"
+    327: LOAD_SMALL_INT 30
+    323: LOAD_CONST ('timeout',); CALL_KW
+    327: LOAD_ATTR out
+    323: STORE_FAST out
+    328: LOAD_FAST_BORROW out; LOAD_ATTR partition + NULL|self; LOAD_CONST '@@'; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST wake_part, _; STORE_FAST act_part
+    329: LOAD_CONST '='; LOAD_FAST_BORROW wake_part; CONTAINS_OP in; POP_JUMP_IF_FALSE ->192; LOAD_FAST_BORROW wake_part; LOAD_ATTR split + NULL|self; LOAD_CONST '='; CALL; LOAD_CONST -1; BINARY_OP []; LOAD_ATTR strip + NULL|self; CALL; JUMP_FORWARD ->194; <L192>; LOAD_CONST ''; <L194>; STORE_FAST wake
+    330: LOAD_GLOBAL re; LOAD_ATTR search; LOAD_CONST '\\bu\\d+\\s+([\\w.]+)/'; LOAD_FAST_BORROW act_part; CALL; STORE_FAST m
+    331: LOAD_FAST_LOAD_FAST wake, m; TO_BOOL; POP_JUMP_IF_FALSE ->294; LOAD_FAST_BORROW m; LOAD_ATTR group + NULL|self; LOAD_SMALL_INT 1; CALL; BUILD_TUPLE; RETURN_VALUE; <L294>; LOAD_CONST ''; BUILD_TUPLE; RETURN_VALUE
+
+    DEF Adb.display_info(self,serial) @333
+    335: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'wm size; wm density'; CALL; LOAD_ATTR out; STORE_FAST out
+    336: LOAD_CONST 'width'; LOAD_CONST 1920; LOAD_CONST 'height'; LOAD_CONST 1080; LOAD_CONST 'physical_dpi'; LOAD_SMALL_INT 0; LOAD_CONST 'current_dpi'; LOAD_SMALL_INT 0; BUILD_MAP; STORE_FAST info
+    337: LOAD_GLOBAL re; LOAD_ATTR search; LOAD_CONST 'Physical size:\\s*(\\d+)x(\\d+)'; LOAD_FAST_BORROW out; CALL; STORE_FAST m
+    338: LOAD_FAST_BORROW m; TO_BOOL; POP_JUMP_IF_FALSE ->226
+    339: LOAD_GLOBAL int + NULL; LOAD_FAST_BORROW m; LOAD_SMALL_INT 1; BINARY_OP []; CALL; LOAD_GLOBAL int + NULL; LOAD_FAST_BORROW m; LOAD_SMALL_INT 2; BINARY_OP []; CALL; SWAP; LOAD_FAST_BORROW info; LOAD_CONST 'width'; STORE_SUBSCR; LOAD_FAST_BORROW info; LOAD_CONST 'height'; STORE_SUBSCR
+    340: <L226>; LOAD_GLOBAL re; LOAD_ATTR search; LOAD_CONST 'Physical density:\\s*(\\d+)'; LOAD_FAST_BORROW out; CALL; STORE_FAST m
+    341: LOAD_FAST_BORROW m; TO_BOOL; POP_JUMP_IF_FALSE ->340
+    342: LOAD_GLOBAL int + NULL; LOAD_FAST_BORROW m; LOAD_SMALL_INT 1; BINARY_OP []; CALL; COPY; LOAD_FAST_BORROW info; LOAD_CONST 'physical_dpi'; STORE_SUBSCR; LOAD_FAST_BORROW info; LOAD_CONST 'current_dpi'; STORE_SUBSCR
+    343: <L340>; LOAD_GLOBAL re; LOAD_ATTR search; LOAD_CONST 'Override density:\\s*(\\d+)'; LOAD_FAST_BORROW out; CALL; STORE_FAST m
+    344: LOAD_FAST_BORROW m; TO_BOOL; POP_JUMP_IF_FALSE ->444
+    345: LOAD_GLOBAL int + NULL; LOAD_FAST_BORROW m; LOAD_SMALL_INT 1; BINARY_OP []; CALL; LOAD_FAST_BORROW info; LOAD_CONST 'current_dpi'; STORE_SUBSCR
+    346: <L444>; LOAD_FAST_BORROW info; RETURN_VALUE
+
+    DEF Adb.set_density(self,serial,dpi) @348
+    349: LOAD_SMALL_INT 72; LOAD_FAST dpi; SWAP; COPY; COMPARE_OP bool(<=); POP_JUMP_IF_FALSE ->34; LOAD_CONST 640; COMPARE_OP bool(<=); POP_JUMP_IF_TRUE ->58; JUMP_FORWARD ->36
+    350: <L36>; LOAD_GLOBAL AdbError + NULL; LOAD_CONST 'La densidad debe estar entre 72 y 640 dpi'; CALL; RAISE_VARARGS
+    351: <L58>; LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'wm density '; LOAD_FAST_BORROW dpi; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.reset_density(self,serial) @353
+    354: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'wm density reset'; CALL; RETURN_VALUE
+
+    DEF Adb.boot_completed(self,serial) @356
+    357: LOAD_FAST_BORROW self; LOAD_ATTR getprop + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'sys.boot_completed'; CALL; LOAD_ATTR strip + NULL|self; CALL; LOAD_CONST '1'; COMPARE_OP ==; RETURN_VALUE
+
+    DEF Adb.kiosk_launch(self,serial,url,package) @359
+    362: LOAD_FAST_BORROW package; LOAD_GLOBAL FULLY_PACKAGES; CONTAINS_OP in; POP_JUMP_IF_FALSE ->36; LOAD_CONST '-n '; LOAD_FAST_BORROW package; FORMAT_SIMPLE; LOAD_CONST '/de.ozerov.fully.MainActivity'; BUILD_STRING; JUMP_FORWARD ->62
+    363: <L36>; LOAD_CONST '-p '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW package; CALL; FORMAT_SIMPLE; BUILD_STRING
+    362: <L62>; STORE_FAST target
+    364: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'am start -a android.intent.action.VIEW -d '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW url; CALL; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_FAST_BORROW target; FORMAT_SIMPLE; BUILD_STRING
+    365: LOAD_SMALL_INT 30
+    364: LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+    366: LOAD_CONST 'Error'; LOAD_FAST_BORROW r; LOAD_ATTR text; CONTAINS_OP in; POP_JUMP_IF_TRUE ->202; LOAD_CONST 'Exception'; LOAD_FAST_BORROW r; LOAD_ATTR text; CONTAINS_OP in; POP_JUMP_IF_FALSE ->334
+    367: <L202>; LOAD_GLOBAL AdbError + NULL; LOAD_FAST_BORROW r; LOAD_ATTR text; TO_BOOL; POP_JUMP_IF_FALSE ->322; LOAD_FAST_BORROW r; LOAD_ATTR text; LOAD_ATTR splitlines + NULL|self; CALL; LOAD_CONST -1; BINARY_OP []; CALL; RAISE_VARARGS; <L322>; LOAD_CONST 'am start falló'; CALL; RAISE_VARARGS
+    368: <L334>; LOAD_FAST_BORROW r; RETURN_VALUE
+
+    DEF Adb.resolve_on_tv(self,serial,host) @370
+    372: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'ping -c 1 -W 3 '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW host; CALL; FORMAT_SIMPLE; LOAD_CONST ' 2>&1 | head -n 3'; BUILD_STRING; LOAD_SMALL_INT 20; LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+    373: LOAD_GLOBAL re; LOAD_ATTR search; LOAD_CONST 'PING \\S+ \\(([\\d.]+)\\)'; LOAD_FAST_BORROW r; LOAD_ATTR out; CALL; STORE_FAST m
+    374: LOAD_FAST_BORROW m; TO_BOOL; POP_JUMP_IF_FALSE ->208; LOAD_FAST_BORROW m; LOAD_ATTR group + NULL|self; LOAD_SMALL_INT 1; CALL; LOAD_FAST_BORROW r; LOAD_ATTR out; BUILD_TUPLE; RETURN_VALUE; <L208>; LOAD_CONST None; LOAD_FAST_BORROW r; LOAD_ATTR out; BUILD_TUPLE; RETURN_VALUE
+
+    DEF Adb.http_status_from_tv(self,serial,ip,host,port,path) @376
+    377: LOAD_CONST 'GET '; LOAD_FAST_BORROW path; FORMAT_SIMPLE; LOAD_CONST ' HTTP/1.0\\r\\nHost: '; LOAD_FAST_BORROW host; FORMAT_SIMPLE; LOAD_CONST '\\r\\n\\r\\n'; BUILD_STRING; STORE_FAST req
+    378: LOAD_CONST 'printf '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW req; CALL; FORMAT_SIMPLE; LOAD_CONST ' | toybox nc -w 5 '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW ip; CALL; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_FAST_BORROW port; FORMAT_SIMPLE; LOAD_CONST ' | head -n 1'; BUILD_STRING; STORE_FAST cmd
+    379: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW_LOAD_FAST_BORROW serial, cmd; LOAD_SMALL_INT 20; LOAD_CONST ('timeout',); CALL_KW; LOAD_ATTR out; LOAD_ATTR strip + NULL|self; CALL; RETURN_VALUE
+
+    DEF Adb.settings_list(self,serial,namespace) @382
+    383: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'settings list '; LOAD_FAST_BORROW namespace; FORMAT_SIMPLE; BUILD_STRING; LOAD_SMALL_INT 30; LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+    384: BUILD_MAP; STORE_FAST out
+    385: LOAD_FAST_BORROW r; LOAD_ATTR out; LOAD_ATTR splitlines + NULL|self; CALL; GET_ITER; <L104>; FOR_ITER ->180; STORE_FAST line
+    386: LOAD_CONST '='; LOAD_FAST_BORROW line; CONTAINS_OP in; POP_JUMP_IF_TRUE ->128; JUMP_BACKWARD ->104
+    387: <L128>; LOAD_FAST_BORROW line; LOAD_ATTR split + NULL|self; LOAD_CONST '='; LOAD_SMALL_INT 1; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST k, v
+    388: LOAD_FAST_BORROW_LOAD_FAST_BORROW v, out; LOAD_FAST_BORROW k; STORE_SUBSCR; JUMP_BACKWARD ->104
+    385: <L180>; END_FOR; POP_ITER
+    389: LOAD_FAST_BORROW out; RETURN_VALUE
+
+    DEF Adb.settings_put(self,serial,namespace,key,value) @391
+    392: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'settings put '; LOAD_FAST_BORROW namespace; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW key; CALL; FORMAT_SIMPLE; LOAD_CONST ' '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW value; CALL; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.ls(self,serial,path) @395
+    397: LOAD_FAST_BORROW path; LOAD_ATTR rstrip + NULL|self; LOAD_CONST '/'; CALL; LOAD_CONST '/'; BINARY_OP +; STORE_FAST path
+    398: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'ls -la '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW path; CALL; FORMAT_SIMPLE; BUILD_STRING; LOAD_SMALL_INT 20; LOAD_CONST ('timeout',); CALL_KW; STORE_FAST r
+    399: LOAD_FAST_BORROW r; LOAD_ATTR ok; TO_BOOL; POP_JUMP_IF_TRUE ->248; LOAD_FAST_BORROW r; LOAD_ATTR out; TO_BOOL; POP_JUMP_IF_TRUE ->248
+    400: LOAD_GLOBAL AdbError + NULL; LOAD_FAST_BORROW r; LOAD_ATTR err; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->238; LOAD_CONST 'No se pudo listar la carpeta'; <L238>; CALL; RAISE_VARARGS
+    401: <L248>; BUILD_LIST; STORE_FAST entries
+    402: LOAD_FAST_BORROW r; LOAD_ATTR out; LOAD_ATTR splitlines + NULL|self; CALL; GET_ITER; <L304>; FOR_ITER ->742; STORE_FAST line
+    403: LOAD_GLOBAL re; LOAD_ATTR match; LOAD_CONST '^([\\-dlbcps][rwxsStT\\-]{9})\\s+\\d+\\s+\\S+\\s+\\S+\\s+(\\d+)?\\s*(\\d{4}-\\d{2}-\\d{2}\\s+\\d{2}:\\d{2})\\s+(.+)$'
+    404: LOAD_FAST_BORROW line
+    403: CALL; STORE_FAST m
+    405: LOAD_FAST_BORROW m; TO_BOOL; POP_JUMP_IF_TRUE ->376
+    406: JUMP_BACKWARD ->304
+    407: <L376>; LOAD_FAST_BORROW m; LOAD_ATTR groups + NULL|self; CALL; UNPACK_SEQUENCE; STORE_FAST_STORE_FAST perms, size; STORE_FAST_STORE_FAST date, name
+    408: LOAD_FAST_BORROW name; LOAD_CONST ('.', '..'); CONTAINS_OP in; POP_JUMP_IF_FALSE ->432
+    409: JUMP_BACKWARD ->304
+    410: <L432>; LOAD_FAST_BORROW perms; LOAD_ATTR startswith + NULL|self; LOAD_CONST 'd'; CALL; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->564; LOAD_FAST_BORROW perms; LOAD_ATTR startswith + NULL|self; LOAD_CONST 'l'; CALL; COPY; TO_BOOL; POP_JUMP_IF_FALSE ->564; LOAD_FAST_BORROW name; LOAD_ATTR endswith + NULL|self; LOAD_CONST '/'; CALL; <L564>; STORE_FAST is_dir
+    411: LOAD_FAST_BORROW perms; LOAD_ATTR startswith + NULL|self; LOAD_CONST 'l'; CALL; TO_BOOL; POP_JUMP_IF_FALSE ->678; LOAD_CONST ' -> '; LOAD_FAST_BORROW name; CONTAINS_OP in; POP_JUMP_IF_FALSE ->678
+    412: LOAD_FAST_BORROW name; LOAD_ATTR split + NULL|self; LOAD_CONST ' -> '; CALL; LOAD_SMALL_INT 0; BINARY_OP []; STORE_FAST name
+    413: LOAD_CONST True; STORE_FAST is_dir
+    414: <L678>; LOAD_FAST entries; LOAD_ATTR append + NULL|self; LOAD_FAST_LOAD_FAST name, is_dir; LOAD_FAST size; COPY; TO_BOOL; POP_JUMP_IF_TRUE ->724; LOAD_CONST ''; <L724>; LOAD_FAST_BORROW date; BUILD_TUPLE; CALL; JUMP_BACKWARD ->304
+    402: <L742>; END_FOR; POP_ITER
+    415: LOAD_FAST_BORROW entries; LOAD_ATTR sort + NULL|self; LOAD_CONST <code Adb.ls.<locals>.<lambda>>; MAKE_FUNCTION; LOAD_CONST ('key',); CALL_KW
+    416: LOAD_FAST_BORROW entries; RETURN_VALUE
+
+      DEF Adb.ls.<locals>.<lambda>(e) @415
+      415: LOAD_FAST_BORROW e; LOAD_SMALL_INT 1; BINARY_OP []; TO_BOOL; UNARY_NOT; LOAD_FAST_BORROW e; LOAD_SMALL_INT 0; BINARY_OP []; LOAD_ATTR lower + NULL|self; CALL; BUILD_TUPLE; RETURN_VALUE
+
+    DEF Adb.pull(self,serial,remote,local) @418
+    419: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'pull'; LOAD_FAST_BORROW_LOAD_FAST_BORROW remote, local; BUILD_LIST; LOAD_FAST_BORROW serial; LOAD_CONST 600; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.push(self,serial,local,remote) @421
+    422: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'push'; LOAD_FAST_BORROW_LOAD_FAST_BORROW local, remote; BUILD_LIST; LOAD_FAST_BORROW serial; LOAD_CONST 600; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.remove(self,serial,remote) @424
+    425: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'rm -rf '; LOAD_GLOBAL shell_quote + NULL; LOAD_FAST_BORROW remote; CALL; FORMAT_SIMPLE; BUILD_STRING; CALL; RETURN_VALUE
+
+    DEF Adb.reboot(self,serial) @428
+    429: LOAD_FAST_BORROW self; LOAD_ATTR run + NULL|self; LOAD_CONST 'reboot'; BUILD_LIST; LOAD_FAST_BORROW serial; LOAD_SMALL_INT 10; LOAD_CONST ('timeout',); CALL_KW; RETURN_VALUE
+
+    DEF Adb.power_off(self,serial) @431
+    432: LOAD_FAST_BORROW self; LOAD_ATTR shell + NULL|self; LOAD_FAST_BORROW serial; LOAD_CONST 'reboot -p'; CALL; RETURN_VALUE
+
+  DEF save_bytes(path,data) @435
+  436: LOAD_FAST_BORROW path; LOAD_ATTR parent; LOAD_ATTR mkdir + NULL|self; LOAD_CONST True; LOAD_CONST True; LOAD_CONST ('parents', 'exist_ok'); CALL_KW
+  437: LOAD_FAST_BORROW path; LOAD_ATTR write_bytes + NULL|self; LOAD_FAST_BORROW data; CALL; LOAD_CONST None; RETURN_VALUE

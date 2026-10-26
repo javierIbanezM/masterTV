@@ -1,0 +1,18 @@
+<module>()  line 1
+    FoldedCase()  line 7
+        FoldedCase.__lt__(self, other)  line 67
+        FoldedCase.__gt__(self, other)  line 70
+        FoldedCase.__eq__(self, other)  line 73
+        FoldedCase.__ne__(self, other)  line 76
+        FoldedCase.__hash__(self)  line 79
+        FoldedCase.__contains__(self, other)  line 82
+        FoldedCase.in_(self, other)  line 85
+        FoldedCase.lower(self)  line 90
+        FoldedCase.index(self, sub)  line 94
+        FoldedCase.split(self, splitter, maxsplit)  line 97
+
+--- strings ---
+'FoldedCase'
+'\nA case insensitive string class; behaves just like str\nexcept compares equal when the only variation is case.\n\n>>> s = FoldedCase(\'hello world\')\n\n>>> s == \'Hello World\'\nTrue\n\n>>> \'Hello World\' == s\nTrue\n\n>>> s != \'Hello World\'\nFalse\n\n>>> s.index(\'O\')\n4\n\n>>> s.split(\'O\')\n[\'hell\', \' w\', \'rld\']\n\n>>> sorted(map(FoldedCase, [\'GAMMA\', \'alpha\', \'Beta\']))\n[\'alpha\', \'Beta\', \'GAMMA\']\n\nSequence membership is straightforward.\n\n>>> "Hello World" in [s]\nTrue\n>>> s in ["Hello World"]\nTrue\n\nYou may test for set inclusion, but candidate and elements\nmust both be folded.\n\n>>> FoldedCase("Hello World") in {s}\nTrue\n>>> s in {FoldedCase("Hello World")}\nTrue\n\nString inclusion works as long as the FoldedCase object\nis on the right.\n\n>>> "hello" in FoldedCase("Hello World")\nTrue\n\nBut not if the FoldedCase object is on the left:\n\n>>> FoldedCase(\'hello\') in \'Hello World\'\nFalse\n\nIn that case, use in_:\n\n>>> FoldedCase(\'hello\').in_(\'Hello World\')\nTrue\n\n>>> FoldedCase(\'hello\') > FoldedCase(\'Hello\')\nFalse\n'
+'Does self appear in other?'
+'FoldedCase'

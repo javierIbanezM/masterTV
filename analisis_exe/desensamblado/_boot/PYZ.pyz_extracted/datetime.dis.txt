@@ -1,0 +1,43 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('Specific date/time and related types.\n\nSee https://data.iana.org/time-zones/tz-link.html for\ntime zone and DST data sources.\n')
+               STORE_NAME               0 (__doc__)
+
+   7           NOP
+
+   8   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('*',))
+               IMPORT_NAME              1 (_datetime)
+               CALL_INTRINSIC_1         2 (INTRINSIC_IMPORT_STAR)
+               POP_TOP
+
+  12   L2:     LOAD_CONST               3 (('date', 'datetime', 'time', 'timedelta', 'timezone', 'tzinfo', 'MINYEAR', 'MAXYEAR', 'UTC'))
+               STORE_NAME               4 (__all__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+   9           LOAD_NAME                2 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        9 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  10           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (('*',))
+               IMPORT_NAME              3 (_pydatetime)
+               CALL_INTRINSIC_1         2 (INTRINSIC_IMPORT_STAR)
+               POP_TOP
+       L4:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 18 (to L2)
+
+   9   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti

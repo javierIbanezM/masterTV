@@ -1,0 +1,120 @@
+<module>()  line 1
+    _get_copy_blocksize(infd)  line 24
+    _ficlone(source_fd, target_fd)  line 44
+    _fcopyfile(source_fd, target_fd)  line 56
+    _copy_file_range(source_fd, target_fd)  line 67
+    _sendfile(source_fd, target_fd)  line 88
+    copyfile2(source, target)  line 105
+    copyfileobj(source_f, target_f)  line 114
+    magic_open(path, mode, buffering, encoding, errors, newline)  line 169
+        magic_open.<locals>.<genexpr>(.0)  line 185
+    ensure_distinct_paths(source, target)  line 213
+    ensure_different_files(source, target)  line 233
+    copy_info(info, target, follow_symlinks)  line 255
+    _PathInfoBase()  line 314
+        _PathInfoBase.__init__(self, path)  line 317
+        _PathInfoBase.__repr__(self)  line 320
+        _PathInfoBase._stat(self, follow_symlinks, ignore_errors)  line 324
+        _PathInfoBase._posix_permissions(self, follow_symlinks)  line 358
+        _PathInfoBase._file_id(self, follow_symlinks)  line 362
+        _PathInfoBase._access_time_ns(self, follow_symlinks)  line 367
+        _PathInfoBase._mod_time_ns(self, follow_symlinks)  line 371
+        _PathInfoBase._bsd_flags(self, follow_symlinks)  line 376
+        _PathInfoBase._xattrs(self, follow_symlinks)  line 381
+    _WindowsPathInfo()  line 394
+        _WindowsPathInfo.exists(self, follow_symlinks)  line 399
+        _WindowsPathInfo.is_dir(self, follow_symlinks)  line 413
+        _WindowsPathInfo.is_file(self, follow_symlinks)  line 427
+        _WindowsPathInfo.is_symlink(self)  line 441
+    _PosixPathInfo()  line 450
+        _PosixPathInfo.exists(self, follow_symlinks)  line 455
+        _PosixPathInfo.is_dir(self, follow_symlinks)  line 462
+        _PosixPathInfo.is_file(self, follow_symlinks)  line 469
+        _PosixPathInfo.is_symlink(self)  line 476
+    DirEntryInfo()  line 487
+        DirEntryInfo.__init__(self, entry)  line 493
+        DirEntryInfo._stat(self, follow_symlinks, ignore_errors)  line 497
+        DirEntryInfo.exists(self, follow_symlinks)  line 505
+        DirEntryInfo.is_dir(self, follow_symlinks)  line 511
+        DirEntryInfo.is_file(self, follow_symlinks)  line 518
+        DirEntryInfo.is_symlink(self)  line 525
+
+--- strings ---
+'\nLow-level OS functionality wrappers used by pathlib.\n'
+"Determine blocksize for fastcopying on Linux.\nHopefully the whole file will be copied in a single call.\nThe copying itself should be performed in a loop 'till EOF is\nreached (0 return) so a blocksize smaller or bigger than the actual\nfile size should not make any difference, also in case the file\ncontent changes while being copied.\n"
+'FICLONE'
+'\nPerform a lightweight copy of two files, where the data blocks are\ncopied only when modified. This is known as Copy on Write (CoW),\ninstantaneous copy or reflink.\n'
+'_fcopyfile'
+'\nCopy a regular file content using high-performance fcopyfile(3)\nsyscall (macOS).\n'
+'copy_file_range'
+'\nCopy data from one regular mmap-like fd to another by using a\nhigh-performance copy_file_range(2) syscall that gives filesystems\nan opportunity to implement the use of reflinks or server-side\ncopy.\nThis should work on Linux >= 4.5 only.\n'
+'sendfile'
+'Copy data from one regular mmap-like fd to another by using\nhigh-performance sendfile(2) syscall.\nThis should work on Linux >= 2.6.33 only.\n'
+'CopyFile2'
+'\nCopy from one file to another using CopyFile2 (Windows only).\n'
+'\nCopy data from file-like object source_f to file-like object target_f.\n'
+'\nOpen the file pointed to by this path and return a file object, as\nthe built-in open() function does.\n'
+'bt'
+'__open_'
+'__'
+"binary mode doesn't take an encoding argument"
+"binary mode doesn't take an errors argument"
+"binary mode doesn't take a newline argument"
+'b__'
+" can't be opened with mode "
+'\nRaise OSError(EINVAL) if the other path is within this path.\n'
+'Source and target are the same path'
+'Source path is a parent of target path'
+'\nRaise OSError(EINVAL) if both paths refer to the same file.\n'
+'Source and target are the same file'
+'Copy metadata from the given PathInfo to the given local path.'
+'_access_time_ns'
+'_mod_time_ns'
+'_xattrs'
+'setxattr'
+'_posix_permissions'
+'_bsd_flags'
+'chflags'
+'_PathInfoBase'
+'nt'
+'WindowsPath'
+'PosixPath'
+'.info>'
+'follow_symlinks'
+'ignore_errors'
+'Return the status as an os.stat_result, or None if stat() fails and\nignore_errors is true.'
+'Return the POSIX file permissions.'
+'Returns the identifier of the file.'
+'Return the access time in nanoseconds.'
+'Return the modify time in nanoseconds.'
+'st_flags'
+'Return the flags.'
+'listxattr'
+"Return the xattrs as a list of (attr, value) pairs, or an empty\nlist if extended attributes aren't supported."
+'_PathInfoBase'
+'_WindowsPathInfo'
+"Implementation of pathlib.types.PathInfo that provides status\ninformation for Windows paths. Don't try to construct it yourself."
+'follow_symlinks'
+'Whether this path exists.'
+'Whether this path is a directory.'
+'Whether this path is a regular file.'
+'Whether this path is a symbolic link.'
+'_WindowsPathInfo'
+'_PosixPathInfo'
+"Implementation of pathlib.types.PathInfo that provides status\ninformation for POSIX paths. Don't try to construct it yourself."
+'follow_symlinks'
+'Whether this path exists.'
+'Whether this path is a directory.'
+'Whether this path is a regular file.'
+'Whether this path is a symbolic link.'
+'_PosixPathInfo'
+'nt'
+'DirEntryInfo'
+"Implementation of pathlib.types.PathInfo that provides status\ninformation by querying a wrapped os.DirEntry object. Don't try to\nconstruct it yourself."
+'follow_symlinks'
+'ignore_errors'
+'Whether this path exists.'
+'Whether this path is a directory.'
+'Whether this path is a regular file.'
+'Whether this path is a symbolic link.'
+'DirEntryInfo'

@@ -1,0 +1,2754 @@
+   0            RESUME                   0
+
+   1            LOAD_CONST               0 ('\nLow-level OS functionality wrappers used by pathlib.\n')
+                STORE_NAME               0 (__doc__)
+
+   5            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (('*',))
+                IMPORT_NAME              1 (errno)
+                CALL_INTRINSIC_1         2 (INTRINSIC_IMPORT_STAR)
+                POP_TOP
+
+   6            LOAD_SMALL_INT           0
+                LOAD_CONST               2 (('TextIOWrapper', 'text_encoding'))
+                IMPORT_NAME              2 (io)
+                IMPORT_FROM              3 (TextIOWrapper)
+                STORE_NAME               3 (TextIOWrapper)
+                IMPORT_FROM              4 (text_encoding)
+                STORE_NAME               4 (text_encoding)
+                POP_TOP
+
+   7            LOAD_SMALL_INT           0
+                LOAD_CONST               3 (('S_ISDIR', 'S_ISREG', 'S_ISLNK', 'S_IMODE'))
+                IMPORT_NAME              5 (stat)
+                IMPORT_FROM              6 (S_ISDIR)
+                STORE_NAME               6 (S_ISDIR)
+                IMPORT_FROM              7 (S_ISREG)
+                STORE_NAME               7 (S_ISREG)
+                IMPORT_FROM              8 (S_ISLNK)
+                STORE_NAME               8 (S_ISLNK)
+                IMPORT_FROM              9 (S_IMODE)
+                STORE_NAME               9 (S_IMODE)
+                POP_TOP
+
+   8            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (None)
+                IMPORT_NAME             10 (os)
+                STORE_NAME              10 (os)
+
+   9            LOAD_SMALL_INT           0
+                LOAD_CONST               4 (None)
+                IMPORT_NAME             11 (sys)
+                STORE_NAME              11 (sys)
+
+  10            NOP
+
+  11    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               4 (None)
+                IMPORT_NAME             12 (fcntl)
+                STORE_NAME              12 (fcntl)
+
+  14    L2:     NOP
+
+  15    L3:     LOAD_SMALL_INT           0
+                LOAD_CONST               4 (None)
+                IMPORT_NAME             14 (posix)
+                STORE_NAME              14 (posix)
+
+  18    L4:     NOP
+
+  19    L5:     LOAD_SMALL_INT           0
+                LOAD_CONST               4 (None)
+                IMPORT_NAME             15 (_winapi)
+                STORE_NAME              15 (_winapi)
+
+  24    L6:     LOAD_CONST               5 (<code object _get_copy_blocksize at 0x00000204B9F6DBD0, file "pathlib\_os.py", line 24>)
+                MAKE_FUNCTION
+                STORE_NAME              16 (_get_copy_blocksize)
+
+  43            LOAD_NAME               12 (fcntl)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L7)
+                NOT_TAKEN
+                LOAD_NAME               17 (hasattr)
+                PUSH_NULL
+                LOAD_NAME               12 (fcntl)
+                LOAD_CONST               6 ('FICLONE')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L7)
+                NOT_TAKEN
+
+  44            LOAD_CONST               7 (<code object _ficlone at 0x00000204BA103A60, file "pathlib\_os.py", line 44>)
+                MAKE_FUNCTION
+                STORE_NAME              18 (_ficlone)
+                JUMP_FORWARD             2 (to L8)
+
+  52    L7:     LOAD_CONST               4 (None)
+                STORE_NAME              18 (_ficlone)
+
+  55    L8:     LOAD_NAME               14 (posix)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L9)
+                NOT_TAKEN
+                LOAD_NAME               17 (hasattr)
+                PUSH_NULL
+                LOAD_NAME               14 (posix)
+                LOAD_CONST               8 ('_fcopyfile')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L9)
+                NOT_TAKEN
+
+  56            LOAD_CONST               9 (<code object _fcopyfile at 0x00000204BA0A7CF0, file "pathlib\_os.py", line 56>)
+                MAKE_FUNCTION
+                STORE_NAME              19 (_fcopyfile)
+                JUMP_FORWARD             2 (to L10)
+
+  63    L9:     LOAD_CONST               4 (None)
+                STORE_NAME              19 (_fcopyfile)
+
+  66   L10:     LOAD_NAME               17 (hasattr)
+                PUSH_NULL
+                LOAD_NAME               10 (os)
+                LOAD_CONST              10 ('copy_file_range')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L11)
+                NOT_TAKEN
+
+  67            LOAD_CONST              11 (<code object _copy_file_range at 0x00000204BA0BB4B0, file "pathlib\_os.py", line 67>)
+                MAKE_FUNCTION
+                STORE_NAME              20 (_copy_file_range)
+                JUMP_FORWARD             2 (to L12)
+
+  84   L11:     LOAD_CONST               4 (None)
+                STORE_NAME              20 (_copy_file_range)
+
+  87   L12:     LOAD_NAME               17 (hasattr)
+                PUSH_NULL
+                LOAD_NAME               10 (os)
+                LOAD_CONST              12 ('sendfile')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L13)
+                NOT_TAKEN
+
+  88            LOAD_CONST              13 (<code object _sendfile at 0x00000204BA0BB8A0, file "pathlib\_os.py", line 88>)
+                MAKE_FUNCTION
+                STORE_NAME              21 (_sendfile)
+                JUMP_FORWARD             2 (to L14)
+
+ 101   L13:     LOAD_CONST               4 (None)
+                STORE_NAME              21 (_sendfile)
+
+ 104   L14:     LOAD_NAME               15 (_winapi)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       20 (to L15)
+                NOT_TAKEN
+                LOAD_NAME               17 (hasattr)
+                PUSH_NULL
+                LOAD_NAME               15 (_winapi)
+                LOAD_CONST              14 ('CopyFile2')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE        5 (to L15)
+                NOT_TAKEN
+
+ 105            LOAD_CONST              15 (<code object copyfile2 at 0x00000204BA0FECD0, file "pathlib\_os.py", line 105>)
+                MAKE_FUNCTION
+                STORE_NAME              22 (copyfile2)
+                JUMP_FORWARD             2 (to L16)
+
+ 111   L15:     LOAD_CONST               4 (None)
+                STORE_NAME              22 (copyfile2)
+
+ 114   L16:     LOAD_CONST              16 (<code object copyfileobj at 0x00000204B9D4E570, file "pathlib\_os.py", line 114>)
+                MAKE_FUNCTION
+                STORE_NAME              23 (copyfileobj)
+
+ 169            LOAD_CONST              30 (('r', -1, None, None, None))
+                LOAD_CONST              17 (<code object magic_open at 0x00000204BA388300, file "pathlib\_os.py", line 169>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME              24 (magic_open)
+
+ 213            LOAD_CONST              18 (<code object ensure_distinct_paths at 0x00000204BA129160, file "pathlib\_os.py", line 213>)
+                MAKE_FUNCTION
+                STORE_NAME              25 (ensure_distinct_paths)
+
+ 233            LOAD_CONST              19 (<code object ensure_different_files at 0x00000204BA3E1080, file "pathlib\_os.py", line 233>)
+                MAKE_FUNCTION
+                STORE_NAME              26 (ensure_different_files)
+
+ 255            LOAD_CONST              31 ((True,))
+                LOAD_CONST              20 (<code object copy_info at 0x00000204BA396240, file "pathlib\_os.py", line 255>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME              27 (copy_info)
+
+ 314            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              21 (<code object _PathInfoBase at 0x00000204B9F4F120, file "pathlib\_os.py", line 314>)
+                MAKE_FUNCTION
+                LOAD_CONST              22 ('_PathInfoBase')
+                CALL                     2
+                STORE_NAME              28 (_PathInfoBase)
+
+ 394            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              23 (<code object _WindowsPathInfo at 0x00000204BA102AF0, file "pathlib\_os.py", line 394>)
+                MAKE_FUNCTION
+                LOAD_CONST              24 ('_WindowsPathInfo')
+                LOAD_NAME               28 (_PathInfoBase)
+                CALL                     3
+                STORE_NAME              29 (_WindowsPathInfo)
+
+ 450            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              25 (<code object _PosixPathInfo at 0x00000204BA101B80, file "pathlib\_os.py", line 450>)
+                MAKE_FUNCTION
+                LOAD_CONST              26 ('_PosixPathInfo')
+                LOAD_NAME               28 (_PathInfoBase)
+                CALL                     3
+                STORE_NAME              30 (_PosixPathInfo)
+
+ 484            LOAD_NAME               10 (os)
+                LOAD_ATTR               62 (name)
+                LOAD_CONST              27 ('nt')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        3 (to L17)
+                NOT_TAKEN
+                LOAD_NAME               29 (_WindowsPathInfo)
+                JUMP_FORWARD             1 (to L18)
+       L17:     LOAD_NAME               30 (_PosixPathInfo)
+       L18:     STORE_NAME              32 (PathInfo)
+
+ 487            LOAD_BUILD_CLASS
+                PUSH_NULL
+                LOAD_CONST              28 (<code object DirEntryInfo at 0x00000204BA0B8960, file "pathlib\_os.py", line 487>)
+                MAKE_FUNCTION
+                LOAD_CONST              29 ('DirEntryInfo')
+                LOAD_NAME               28 (_PathInfoBase)
+                CALL                     3
+                STORE_NAME              33 (DirEntryInfo)
+                LOAD_CONST               4 (None)
+                RETURN_VALUE
+
+  --   L19:     PUSH_EXC_INFO
+
+  12            LOAD_NAME               13 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L21)
+                NOT_TAKEN
+                POP_TOP
+
+  13            LOAD_CONST               4 (None)
+                STORE_NAME              12 (fcntl)
+       L20:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 238 (to L2)
+
+  12   L21:     RERAISE                  0
+
+  --   L22:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L23:     PUSH_EXC_INFO
+
+  16            LOAD_NAME               13 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L25)
+                NOT_TAKEN
+                POP_TOP
+
+  17            LOAD_CONST               4 (None)
+                STORE_NAME              14 (posix)
+       L24:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 248 (to L4)
+
+  16   L25:     RERAISE                  0
+
+  --   L26:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L27:     PUSH_EXC_INFO
+
+  20            LOAD_NAME               13 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        7 (to L29)
+                NOT_TAKEN
+                POP_TOP
+
+  21            LOAD_CONST               4 (None)
+                STORE_NAME              15 (_winapi)
+       L28:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 259 (to L6)
+
+  20   L29:     RERAISE                  0
+
+  --   L30:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L19 [0]
+  L3 to L4 -> L23 [0]
+  L5 to L6 -> L27 [0]
+  L19 to L20 -> L22 [1] lasti
+  L21 to L22 -> L22 [1] lasti
+  L23 to L24 -> L26 [1] lasti
+  L25 to L26 -> L26 [1] lasti
+  L27 to L28 -> L30 [1] lasti
+  L29 to L30 -> L30 [1] lasti
+
+Disassembly of <code object _get_copy_blocksize at 0x00000204B9F6DBD0, file "pathlib\_os.py", line 24>:
+  24           RESUME                   0
+
+  32           NOP
+
+  33   L1:     LOAD_GLOBAL              1 (max + NULL)
+               LOAD_GLOBAL              2 (os)
+               LOAD_ATTR                4 (fstat)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (infd)
+               CALL                     1
+               LOAD_ATTR                6 (st_size)
+               LOAD_CONST               1 (8388608)
+               CALL                     2
+               STORE_FAST               1 (blocksize)
+
+  38   L2:     LOAD_GLOBAL             10 (sys)
+               LOAD_ATTR               12 (maxsize)
+               LOAD_CONST               3 (4294967296)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       13 (to L3)
+               NOT_TAKEN
+
+  39           LOAD_GLOBAL             15 (min + NULL)
+               LOAD_FAST_BORROW         1 (blocksize)
+               LOAD_CONST               4 (1073741824)
+               CALL                     2
+               STORE_FAST               1 (blocksize)
+
+  40   L3:     LOAD_FAST_BORROW         1 (blocksize)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  34           LOAD_GLOBAL              8 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  35           LOAD_CONST               2 (134217728)
+               STORE_FAST               1 (blocksize)
+       L5:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 50 (to L2)
+
+  34   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object _ficlone at 0x00000204BA103A60, file "pathlib\_os.py", line 44>:
+ 44           RESUME                   0
+
+ 50           LOAD_GLOBAL              0 (fcntl)
+              LOAD_ATTR                2 (ioctl)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (target_fd)
+              LOAD_GLOBAL              0 (fcntl)
+              LOAD_ATTR                4 (FICLONE)
+              LOAD_FAST_BORROW         0 (source_fd)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _fcopyfile at 0x00000204BA0A7CF0, file "pathlib\_os.py", line 56>:
+ 56           RESUME                   0
+
+ 61           LOAD_GLOBAL              0 (posix)
+              LOAD_ATTR                2 (_fcopyfile)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (source_fd, target_fd)
+              LOAD_GLOBAL              0 (posix)
+              LOAD_ATTR                4 (_COPYFILE_DATA)
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _copy_file_range at 0x00000204BA0BB4B0, file "pathlib\_os.py", line 67>:
+ 67           RESUME                   0
+
+ 75           LOAD_GLOBAL              1 (_get_copy_blocksize + NULL)
+              LOAD_FAST_BORROW         0 (source_fd)
+              CALL                     1
+              STORE_FAST               2 (blocksize)
+
+ 76           LOAD_SMALL_INT           0
+              STORE_FAST               3 (offset)
+
+ 77   L1:     NOP
+
+ 78           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                4 (copy_file_range)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (source_fd, target_fd)
+              LOAD_FAST_BORROW         2 (blocksize)
+
+ 79           LOAD_FAST_BORROW         3 (offset)
+
+ 78           LOAD_CONST               1 (('offset_dst',))
+              CALL_KW                  4
+              STORE_FAST               4 (sent)
+
+ 80           LOAD_FAST_BORROW         4 (sent)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+ 81           LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+ 82   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (offset, sent)
+              BINARY_OP               13 (+=)
+              STORE_FAST               3 (offset)
+              JUMP_BACKWARD           45 (to L1)
+
+Disassembly of <code object _sendfile at 0x00000204BA0BB8A0, file "pathlib\_os.py", line 88>:
+ 88           RESUME                   0
+
+ 93           LOAD_GLOBAL              1 (_get_copy_blocksize + NULL)
+              LOAD_FAST_BORROW         0 (source_fd)
+              CALL                     1
+              STORE_FAST               2 (blocksize)
+
+ 94           LOAD_SMALL_INT           0
+              STORE_FAST               3 (offset)
+
+ 95   L1:     NOP
+
+ 96           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                4 (sendfile)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (target_fd, source_fd)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (offset, blocksize)
+              CALL                     4
+              STORE_FAST               4 (sent)
+
+ 97           LOAD_FAST_BORROW         4 (sent)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+ 98           LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 99   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (offset, sent)
+              BINARY_OP               13 (+=)
+              STORE_FAST               3 (offset)
+              JUMP_BACKWARD           43 (to L1)
+
+Disassembly of <code object copyfile2 at 0x00000204BA0FECD0, file "pathlib\_os.py", line 105>:
+105           RESUME                   0
+
+109           LOAD_GLOBAL              0 (_winapi)
+              LOAD_ATTR                2 (CopyFile2)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (source, target)
+              LOAD_SMALL_INT           0
+              CALL                     3
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object copyfileobj at 0x00000204B9D4E570, file "pathlib\_os.py", line 114>:
+ 114            RESUME                   0
+
+ 118            NOP
+
+ 119    L1:     LOAD_FAST_BORROW         0 (source_f)
+                LOAD_ATTR                1 (fileno + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (source_fd)
+
+ 120            LOAD_FAST_BORROW         1 (target_f)
+                LOAD_ATTR                1 (fileno + NULL|self)
+                CALL                     0
+                STORE_FAST               3 (target_fd)
+
+ 124    L2:     NOP
+
+ 126    L3:     LOAD_GLOBAL              2 (_ficlone)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       15 (to L7)
+                NOT_TAKEN
+
+ 127    L4:     NOP
+
+ 128    L5:     LOAD_GLOBAL              3 (_ficlone + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (source_fd, target_fd)
+                CALL                     2
+                POP_TOP
+
+ 129    L6:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 135    L7:     LOAD_GLOBAL             16 (_fcopyfile)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       15 (to L11)
+        L8:     NOT_TAKEN
+
+ 136            NOP
+
+ 137    L9:     LOAD_GLOBAL             17 (_fcopyfile + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (source_fd, target_fd)
+                CALL                     2
+                POP_TOP
+
+ 138   L10:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 142   L11:     LOAD_GLOBAL             22 (_copy_file_range)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       15 (to L15)
+       L12:     NOT_TAKEN
+
+ 143            NOP
+
+ 144   L13:     LOAD_GLOBAL             23 (_copy_file_range + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (source_fd, target_fd)
+                CALL                     2
+                POP_TOP
+
+ 145   L14:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 149   L15:     LOAD_GLOBAL             24 (_sendfile)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       15 (to L19)
+       L16:     NOT_TAKEN
+
+ 150            NOP
+
+ 151   L17:     LOAD_GLOBAL             25 (_sendfile + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (source_fd, target_fd)
+                CALL                     2
+                POP_TOP
+
+ 152   L18:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 149   L19:     NOP
+
+ 163   L20:     LOAD_FAST                0 (source_f)
+                LOAD_ATTR               36 (read)
+                STORE_FAST               5 (read_source)
+
+ 164            LOAD_FAST                1 (target_f)
+                LOAD_ATTR               38 (write)
+                STORE_FAST               6 (write_target)
+
+ 165   L21:     LOAD_FAST                5 (read_source)
+                PUSH_NULL
+                LOAD_CONST               2 (1048576)
+                CALL                     1
+                COPY                     1
+                STORE_FAST               7 (buf)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       11 (to L22)
+                NOT_TAKEN
+
+ 166            LOAD_FAST                6 (write_target)
+                PUSH_NULL
+                LOAD_FAST                7 (buf)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           26 (to L21)
+
+ 165   L22:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L23:     PUSH_EXC_INFO
+
+ 130            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       50 (to L27)
+                NOT_TAKEN
+                STORE_FAST               4 (err)
+
+ 131   L24:     LOAD_FAST                4 (err)
+                LOAD_ATTR                6 (errno)
+                LOAD_GLOBAL              8 (EBADF)
+                LOAD_GLOBAL             10 (EOPNOTSUPP)
+                LOAD_GLOBAL             12 (ETXTBSY)
+                LOAD_GLOBAL             14 (EXDEV)
+                BUILD_TUPLE              4
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        3 (to L25)
+                NOT_TAKEN
+
+ 132            LOAD_FAST                4 (err)
+                RAISE_VARARGS            1
+
+ 131   L25:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                JUMP_BACKWARD_NO_INTERRUPT 186 (to L7)
+
+  --   L26:     LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                RERAISE                  1
+
+ 130   L27:     RERAISE                  0
+
+  --   L28:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L29:     PUSH_EXC_INFO
+
+ 139            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       40 (to L33)
+                NOT_TAKEN
+                STORE_FAST               4 (err)
+
+ 140   L30:     LOAD_FAST                4 (err)
+                LOAD_ATTR                6 (errno)
+                LOAD_GLOBAL             18 (EINVAL)
+                LOAD_GLOBAL             20 (ENOTSUP)
+                BUILD_TUPLE              2
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        3 (to L31)
+                NOT_TAKEN
+
+ 141            LOAD_FAST                4 (err)
+                RAISE_VARARGS            1
+
+ 140   L31:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                JUMP_BACKWARD_NO_INTERRUPT 213 (to L11)
+
+  --   L32:     LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                RERAISE                  1
+
+ 139   L33:     RERAISE                  0
+
+  --   L34:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L35:     PUSH_EXC_INFO
+
+ 146            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       40 (to L39)
+                NOT_TAKEN
+                STORE_FAST               4 (err)
+
+ 147   L36:     LOAD_FAST                4 (err)
+                LOAD_ATTR                6 (errno)
+                LOAD_GLOBAL             12 (ETXTBSY)
+                LOAD_GLOBAL             14 (EXDEV)
+                BUILD_TUPLE              2
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        3 (to L37)
+                NOT_TAKEN
+
+ 148            LOAD_FAST                4 (err)
+                RAISE_VARARGS            1
+
+ 147   L37:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                JUMP_BACKWARD_NO_INTERRUPT 240 (to L15)
+
+  --   L38:     LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                RERAISE                  1
+
+ 146   L39:     RERAISE                  0
+
+  --   L40:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L41:     PUSH_EXC_INFO
+
+ 153            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       35 (to L46)
+                NOT_TAKEN
+                STORE_FAST               4 (err)
+
+ 154   L42:     LOAD_FAST                4 (err)
+                LOAD_ATTR                6 (errno)
+                LOAD_GLOBAL             26 (ENOTSOCK)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE        3 (to L43)
+                NOT_TAKEN
+
+ 155            LOAD_FAST                4 (err)
+                RAISE_VARARGS            1
+
+ 154   L43:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+       L44:     EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 261 (to L20)
+
+  --   L45:     LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                RERAISE                  1
+
+ 153   L46:     RERAISE                  0
+
+  --   L47:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L48:     PUSH_EXC_INFO
+
+ 156            LOAD_GLOBAL              4 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       42 (to L51)
+                NOT_TAKEN
+                STORE_FAST               4 (err)
+
+ 158   L49:     LOAD_FAST                0 (source_f)
+                LOAD_ATTR               28 (name)
+                LOAD_FAST                4 (err)
+                STORE_ATTR              15 (filename)
+
+ 159            LOAD_FAST                1 (target_f)
+                LOAD_ATTR               28 (name)
+                LOAD_FAST                4 (err)
+                STORE_ATTR              16 (filename2)
+
+ 160            LOAD_FAST                4 (err)
+                RAISE_VARARGS            1
+
+  --   L50:     LOAD_CONST               1 (None)
+                STORE_FAST               4 (err)
+                DELETE_FAST              4 (err)
+                RERAISE                  1
+
+ 156   L51:     RERAISE                  0
+
+  --   L52:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L53:     PUSH_EXC_INFO
+
+ 121            LOAD_GLOBAL             34 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L55)
+                NOT_TAKEN
+                POP_TOP
+
+ 122   L54:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 338 (to L20)
+
+ 121   L55:     RERAISE                  0
+
+  --   L56:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L53 [0]
+  L3 to L4 -> L48 [0]
+  L5 to L6 -> L23 [0]
+  L7 to L8 -> L48 [0]
+  L9 to L10 -> L29 [0]
+  L11 to L12 -> L48 [0]
+  L13 to L14 -> L35 [0]
+  L15 to L16 -> L48 [0]
+  L17 to L18 -> L41 [0]
+  L23 to L24 -> L28 [1] lasti
+  L24 to L25 -> L26 [1] lasti
+  L25 to L26 -> L48 [0]
+  L26 to L28 -> L28 [1] lasti
+  L28 to L29 -> L48 [0]
+  L29 to L30 -> L34 [1] lasti
+  L30 to L31 -> L32 [1] lasti
+  L31 to L32 -> L48 [0]
+  L32 to L34 -> L34 [1] lasti
+  L34 to L35 -> L48 [0]
+  L35 to L36 -> L40 [1] lasti
+  L36 to L37 -> L38 [1] lasti
+  L37 to L38 -> L48 [0]
+  L38 to L40 -> L40 [1] lasti
+  L40 to L41 -> L48 [0]
+  L41 to L42 -> L47 [1] lasti
+  L42 to L43 -> L45 [1] lasti
+  L43 to L44 -> L48 [0]
+  L45 to L47 -> L47 [1] lasti
+  L47 to L48 -> L48 [0]
+  L48 to L49 -> L52 [1] lasti
+  L49 to L50 -> L50 [1] lasti
+  L50 to L52 -> L52 [1] lasti
+  L53 to L54 -> L56 [1] lasti
+  L55 to L56 -> L56 [1] lasti
+
+Disassembly of <code object magic_open at 0x00000204BA388300, file "pathlib\_os.py", line 169>:
+ 169            RESUME                   0
+
+ 175            LOAD_CONST               1 ('b')
+                LOAD_FAST_BORROW         1 (mode)
+                CONTAINS_OP              1 (not in)
+                STORE_FAST               6 (text)
+
+ 176            LOAD_FAST_BORROW         6 (text)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       12 (to L1)
+                NOT_TAKEN
+
+ 179            LOAD_GLOBAL              1 (text_encoding + NULL)
+                LOAD_FAST_BORROW         3 (encoding)
+                CALL                     1
+                STORE_FAST               3 (encoding)
+
+ 180    L1:     NOP
+
+ 181    L2:     LOAD_GLOBAL              3 (open + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (path, mode)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (buffering, encoding)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (errors, newline)
+                CALL                     6
+        L3:     RETURN_VALUE
+
+  --    L4:     PUSH_EXC_INFO
+
+ 182            LOAD_GLOBAL              4 (TypeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L6)
+                NOT_TAKEN
+                POP_TOP
+
+ 183    L5:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L8)
+
+ 182    L6:     RERAISE                  0
+
+  --    L7:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 184    L8:     LOAD_GLOBAL              7 (type + NULL)
+                LOAD_FAST                0 (path)
+                CALL                     1
+                STORE_FAST               7 (cls)
+
+ 185            LOAD_CONST               2 ('')
+                LOAD_ATTR                9 (join + NULL|self)
+                LOAD_GLOBAL             11 (sorted + NULL)
+                LOAD_CONST               3 (<code object <genexpr> at 0x00000204BA0FF440, file "pathlib\_os.py", line 185>)
+                MAKE_FUNCTION
+                LOAD_FAST                1 (mode)
+                GET_ITER
+                CALL                     0
+                CALL                     1
+                CALL                     1
+                STORE_FAST               1 (mode)
+
+ 186            LOAD_FAST                6 (text)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       45 (to L15)
+                NOT_TAKEN
+
+ 187            NOP
+
+ 188    L9:     LOAD_GLOBAL             13 (getattr + NULL)
+                LOAD_FAST                7 (cls)
+                LOAD_CONST               4 ('__open_')
+                LOAD_FAST                1 (mode)
+                FORMAT_SIMPLE
+                LOAD_CONST               5 ('__')
+                BUILD_STRING             3
+                CALL                     2
+                STORE_FAST               8 (attr)
+
+ 192   L10:     LOAD_FAST                8 (attr)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST      2 (path, buffering)
+                LOAD_FAST_LOAD_FAST     52 (encoding, errors)
+                LOAD_FAST                5 (newline)
+                CALL                     5
+                RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+ 189            LOAD_GLOBAL             14 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+ 190   L12:     POP_EXCEPT
+                JUMP_FORWARD            49 (to L18)
+
+ 189   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 193   L15:     LOAD_FAST                3 (encoding)
+                POP_JUMP_IF_NONE        12 (to L16)
+                NOT_TAKEN
+
+ 194            LOAD_GLOBAL             17 (ValueError + NULL)
+                LOAD_CONST               6 ("binary mode doesn't take an encoding argument")
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 195   L16:     LOAD_FAST                4 (errors)
+                POP_JUMP_IF_NONE        12 (to L17)
+                NOT_TAKEN
+
+ 196            LOAD_GLOBAL             17 (ValueError + NULL)
+                LOAD_CONST               7 ("binary mode doesn't take an errors argument")
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 197   L17:     LOAD_FAST                5 (newline)
+                POP_JUMP_IF_NONE        12 (to L18)
+                NOT_TAKEN
+
+ 198            LOAD_GLOBAL             17 (ValueError + NULL)
+                LOAD_CONST               8 ("binary mode doesn't take a newline argument")
+                CALL                     1
+                RAISE_VARARGS            1
+
+ 200   L18:     NOP
+
+ 201   L19:     LOAD_GLOBAL             13 (getattr + NULL)
+                LOAD_FAST                7 (cls)
+                LOAD_CONST               4 ('__open_')
+                LOAD_FAST                1 (mode)
+                FORMAT_SIMPLE
+                LOAD_CONST               9 ('b__')
+                BUILD_STRING             3
+                CALL                     2
+                STORE_FAST               8 (attr)
+
+ 205   L20:     LOAD_FAST                8 (attr)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST      2 (path, buffering)
+                CALL                     2
+                STORE_FAST               9 (stream)
+
+ 206            LOAD_FAST                6 (text)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       13 (to L21)
+                NOT_TAKEN
+
+ 207            LOAD_GLOBAL             19 (TextIOWrapper + NULL)
+                LOAD_FAST_LOAD_FAST    147 (stream, encoding)
+                LOAD_FAST_LOAD_FAST     69 (errors, newline)
+                CALL                     4
+                STORE_FAST               9 (stream)
+
+ 208   L21:     LOAD_FAST                9 (stream)
+                RETURN_VALUE
+
+  --   L22:     PUSH_EXC_INFO
+
+ 202            LOAD_GLOBAL             14 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 203   L23:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L26)
+
+ 202   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 210   L26:     LOAD_GLOBAL              5 (TypeError + NULL)
+                LOAD_FAST                7 (cls)
+                LOAD_ATTR               20 (__name__)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (" can't be opened with mode ")
+                LOAD_FAST                1 (mode)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             3
+                CALL                     1
+                RAISE_VARARGS            1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+  L9 to L10 -> L11 [0]
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+  L19 to L20 -> L22 [0]
+  L22 to L23 -> L25 [1] lasti
+  L24 to L25 -> L25 [1] lasti
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FF440, file "pathlib\_os.py", line 185>:
+ 185           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                15 (to L5)
+               STORE_FAST_LOAD_FAST    17 (c, c)
+               LOAD_CONST               0 ('bt')
+               CONTAINS_OP              1 (not in)
+       L3:     POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           11 (to L2)
+       L4:     LOAD_FAST_BORROW         1 (c)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           17 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [0] lasti
+  L4 to L6 -> L6 [0] lasti
+
+Disassembly of <code object ensure_distinct_paths at 0x00000204BA129160, file "pathlib\_os.py", line 213>:
+213           RESUME                   0
+
+222           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (source, target)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       18 (to L1)
+              NOT_TAKEN
+
+223           LOAD_GLOBAL              1 (OSError + NULL)
+              LOAD_GLOBAL              2 (EINVAL)
+              LOAD_CONST               1 ('Source and target are the same path')
+              CALL                     2
+              STORE_FAST               2 (err)
+              JUMP_FORWARD            35 (to L3)
+
+224   L1:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (source, target)
+              LOAD_ATTR                4 (parents)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       18 (to L2)
+              NOT_TAKEN
+
+225           LOAD_GLOBAL              1 (OSError + NULL)
+              LOAD_GLOBAL              2 (EINVAL)
+              LOAD_CONST               2 ('Source path is a parent of target path')
+              CALL                     2
+              STORE_FAST               2 (err)
+              JUMP_FORWARD             2 (to L3)
+
+227   L2:     LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+228   L3:     LOAD_GLOBAL              7 (str + NULL)
+              LOAD_FAST_BORROW         0 (source)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (err)
+              STORE_ATTR               4 (filename)
+
+229           LOAD_GLOBAL              7 (str + NULL)
+              LOAD_FAST_BORROW         1 (target)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (err)
+              STORE_ATTR               5 (filename2)
+
+230           LOAD_FAST_BORROW         2 (err)
+              RAISE_VARARGS            1
+
+Disassembly of <code object ensure_different_files at 0x00000204BA3E1080, file "pathlib\_os.py", line 233>:
+ 233            RESUME                   0
+
+ 237            NOP
+
+ 238    L1:     LOAD_FAST_BORROW         0 (source)
+                LOAD_ATTR                0 (info)
+                LOAD_ATTR                2 (_file_id)
+                STORE_FAST               2 (source_file_id)
+
+ 239            LOAD_FAST_BORROW         1 (target)
+                LOAD_ATTR                0 (info)
+                LOAD_ATTR                2 (_file_id)
+                STORE_FAST               3 (target_file_id)
+
+ 244    L2:     NOP
+
+ 245    L3:     LOAD_FAST_BORROW         2 (source_file_id)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST_BORROW         3 (target_file_id)
+                PUSH_NULL
+                CALL                     0
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE        3 (to L5)
+                NOT_TAKEN
+
+ 246    L4:     LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 245    L5:     NOP
+
+ 249    L6:     LOAD_GLOBAL              5 (OSError + NULL)
+                LOAD_GLOBAL             10 (EINVAL)
+                LOAD_CONST               2 ('Source and target are the same file')
+                CALL                     2
+                STORE_FAST               4 (err)
+
+ 250            LOAD_GLOBAL             13 (str + NULL)
+                LOAD_FAST                0 (source)
+                CALL                     1
+                LOAD_FAST                4 (err)
+                STORE_ATTR               7 (filename)
+
+ 251            LOAD_GLOBAL             13 (str + NULL)
+                LOAD_FAST                1 (target)
+                CALL                     1
+                LOAD_FAST                4 (err)
+                STORE_ATTR               8 (filename2)
+
+ 252            LOAD_FAST                4 (err)
+                RAISE_VARARGS            1
+
+  --    L7:     PUSH_EXC_INFO
+
+ 247            LOAD_GLOBAL              4 (OSError)
+                LOAD_GLOBAL              6 (ValueError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 248    L8:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 247    L9:     RERAISE                  0
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+ 240            LOAD_GLOBAL              8 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       13 (to L14)
+                NOT_TAKEN
+                POP_TOP
+
+ 241            LOAD_FAST_LOAD_FAST      1 (source, target)
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE        4 (to L13)
+                NOT_TAKEN
+
+ 242   L12:     POP_EXCEPT
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+ 241   L13:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 96 (to L6)
+
+ 240   L14:     RERAISE                  0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L11 [0]
+  L3 to L4 -> L7 [0]
+  L7 to L8 -> L10 [1] lasti
+  L9 to L10 -> L10 [1] lasti
+  L11 to L12 -> L15 [1] lasti
+  L14 to L15 -> L15 [1] lasti
+
+Disassembly of <code object copy_info at 0x00000204BA396240, file "pathlib\_os.py", line 255>:
+ 255            RESUME                   0
+
+ 258            LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (info)
+                LOAD_CONST               1 ('_access_time_ns')
+                CALL                     2
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       64 (to L1)
+                NOT_TAKEN
+                POP_TOP
+
+ 259            LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (info)
+                LOAD_CONST               2 ('_mod_time_ns')
+                CALL                     2
+
+ 258            COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       44 (to L1)
+                NOT_TAKEN
+                POP_TOP
+
+ 260            LOAD_FAST                2 (follow_symlinks)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        34 (to L1)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR                4 (utime)
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR                6 (supports_follow_symlinks)
+                CONTAINS_OP              0 (in)
+
+ 257    L1:     STORE_FAST               3 (copy_times_ns)
+
+ 261            LOAD_FAST_BORROW         3 (copy_times_ns)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       63 (to L2)
+                NOT_TAKEN
+
+ 262            LOAD_FAST_BORROW         0 (info)
+                LOAD_ATTR                9 (_access_time_ns + NULL|self)
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  1
+                STORE_FAST               4 (t0)
+
+ 263            LOAD_FAST_BORROW         0 (info)
+                LOAD_ATTR               11 (_mod_time_ns + NULL|self)
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  1
+                STORE_FAST               5 (t1)
+
+ 264            LOAD_GLOBAL              2 (os)
+                LOAD_ATTR                4 (utime)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (target, t0)
+                LOAD_FAST_BORROW         5 (t1)
+                BUILD_TUPLE              2
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               4 (('ns', 'follow_symlinks'))
+                CALL_KW                  3
+                POP_TOP
+
+ 269    L2:     LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (info)
+                LOAD_CONST               5 ('_xattrs')
+                CALL                     2
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       68 (to L3)
+                NOT_TAKEN
+                POP_TOP
+
+ 270            LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_GLOBAL              2 (os)
+                LOAD_CONST               6 ('setxattr')
+                CALL                     2
+
+ 269            COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       44 (to L3)
+                NOT_TAKEN
+                POP_TOP
+
+ 271            LOAD_FAST                2 (follow_symlinks)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        34 (to L3)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR               12 (setxattr)
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR                6 (supports_follow_symlinks)
+                CONTAINS_OP              0 (in)
+
+ 268    L3:     STORE_FAST               6 (copy_xattrs)
+
+ 272            LOAD_FAST_BORROW         6 (copy_xattrs)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       55 (to L8)
+                NOT_TAKEN
+
+ 273            LOAD_FAST_BORROW         0 (info)
+                LOAD_ATTR               15 (_xattrs + NULL|self)
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  1
+                STORE_FAST               7 (xattrs)
+
+ 274            LOAD_FAST_BORROW         7 (xattrs)
+                GET_ITER
+        L4:     FOR_ITER                30 (to L7)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  137 (attr, value)
+
+ 275            NOP
+
+ 276    L5:     LOAD_GLOBAL              2 (os)
+                LOAD_ATTR               12 (setxattr)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 24 (target, attr)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 146 (value, follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  4
+                POP_TOP
+        L6:     JUMP_BACKWARD           32 (to L4)
+
+ 274    L7:     END_FOR
+                POP_ITER
+
+ 282    L8:     LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (info)
+                LOAD_CONST               8 ('_posix_permissions')
+                CALL                     2
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       44 (to L9)
+                NOT_TAKEN
+                POP_TOP
+
+ 283            LOAD_FAST                2 (follow_symlinks)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        34 (to L9)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR               30 (chmod)
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR                6 (supports_follow_symlinks)
+                CONTAINS_OP              0 (in)
+
+ 281    L9:     STORE_FAST              11 (copy_posix_permissions)
+
+ 284            LOAD_FAST_BORROW        11 (copy_posix_permissions)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       44 (to L11)
+                NOT_TAKEN
+
+ 285            LOAD_FAST_BORROW         0 (info)
+                LOAD_ATTR               33 (_posix_permissions + NULL|self)
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  1
+                STORE_FAST              12 (posix_permissions)
+
+ 286            NOP
+
+ 287   L10:     LOAD_GLOBAL              2 (os)
+                LOAD_ATTR               30 (chmod)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 28 (target, posix_permissions)
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  3
+                POP_TOP
+
+ 302   L11:     LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_FAST_BORROW         0 (info)
+                LOAD_CONST               9 ('_bsd_flags')
+                CALL                     2
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       68 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 303            LOAD_GLOBAL              1 (hasattr + NULL)
+                LOAD_GLOBAL              2 (os)
+                LOAD_CONST              10 ('chflags')
+                CALL                     2
+
+ 302            COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       44 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+ 304            LOAD_FAST                2 (follow_symlinks)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        34 (to L12)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR               36 (chflags)
+                LOAD_GLOBAL              2 (os)
+                LOAD_ATTR                6 (supports_follow_symlinks)
+                CONTAINS_OP              0 (in)
+
+ 301   L12:     STORE_FAST              13 (copy_bsd_flags)
+
+ 305            LOAD_FAST_BORROW        13 (copy_bsd_flags)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       46 (to L15)
+                NOT_TAKEN
+
+ 306            LOAD_FAST_BORROW         0 (info)
+                LOAD_ATTR               39 (_bsd_flags + NULL|self)
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  1
+                STORE_FAST              14 (bsd_flags)
+
+ 307            NOP
+
+ 308   L13:     LOAD_GLOBAL              2 (os)
+                LOAD_ATTR               36 (chflags)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 30 (target, bsd_flags)
+                LOAD_FAST_BORROW         2 (follow_symlinks)
+                LOAD_CONST               3 (('follow_symlinks',))
+                CALL_KW                  3
+                POP_TOP
+       L14:     LOAD_CONST               7 (None)
+                RETURN_VALUE
+
+ 305   L15:     LOAD_CONST               7 (None)
+                RETURN_VALUE
+
+  --   L16:     PUSH_EXC_INFO
+
+ 277            LOAD_GLOBAL             16 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       56 (to L20)
+                NOT_TAKEN
+                STORE_FAST              10 (e)
+
+ 278   L17:     LOAD_FAST               10 (e)
+                LOAD_ATTR               18 (errno)
+                LOAD_GLOBAL             20 (EPERM)
+                LOAD_GLOBAL             22 (ENOTSUP)
+                LOAD_GLOBAL             24 (ENODATA)
+                LOAD_GLOBAL             26 (EINVAL)
+                LOAD_GLOBAL             28 (EACCES)
+                BUILD_TUPLE              5
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        2 (to L18)
+                NOT_TAKEN
+
+ 279            RAISE_VARARGS            0
+
+ 278   L18:     POP_EXCEPT
+                LOAD_CONST               7 (None)
+                STORE_FAST              10 (e)
+                DELETE_FAST             10 (e)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          351 (to L4)
+
+  --   L19:     LOAD_CONST               7 (None)
+                STORE_FAST              10 (e)
+                DELETE_FAST             10 (e)
+                RERAISE                  1
+
+ 277   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L22:     PUSH_EXC_INFO
+
+ 288            LOAD_GLOBAL             34 (NotImplementedError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 299   L23:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 224 (to L11)
+
+ 288   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L26:     PUSH_EXC_INFO
+
+ 309            LOAD_GLOBAL             16 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       40 (to L30)
+                NOT_TAKEN
+                STORE_FAST              15 (why)
+
+ 310   L27:     LOAD_FAST               15 (why)
+                LOAD_ATTR               18 (errno)
+                LOAD_GLOBAL             40 (EOPNOTSUPP)
+                LOAD_GLOBAL             22 (ENOTSUP)
+                BUILD_TUPLE              2
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        2 (to L28)
+                NOT_TAKEN
+
+ 311            RAISE_VARARGS            0
+
+ 310   L28:     POP_EXCEPT
+                LOAD_CONST               7 (None)
+                STORE_FAST              15 (why)
+                DELETE_FAST             15 (why)
+                LOAD_CONST               7 (None)
+                RETURN_VALUE
+
+  --   L29:     LOAD_CONST               7 (None)
+                STORE_FAST              15 (why)
+                DELETE_FAST             15 (why)
+                RERAISE                  1
+
+ 309   L30:     RERAISE                  0
+
+  --   L31:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L16 [1]
+  L10 to L11 -> L22 [0]
+  L13 to L14 -> L26 [0]
+  L16 to L17 -> L21 [2] lasti
+  L17 to L18 -> L19 [2] lasti
+  L19 to L21 -> L21 [2] lasti
+  L22 to L23 -> L25 [1] lasti
+  L24 to L25 -> L25 [1] lasti
+  L26 to L27 -> L31 [1] lasti
+  L27 to L28 -> L29 [1] lasti
+  L29 to L31 -> L31 [1] lasti
+
+Disassembly of <code object _PathInfoBase at 0x00000204B9F4F120, file "pathlib\_os.py", line 314>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 314           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_PathInfoBase')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (314)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 315           LOAD_CONST              19 (('_path', '_stat_result', '_lstat_result'))
+               STORE_NAME               4 (__slots__)
+
+ 317           LOAD_CONST               2 (<code object __init__ at 0x00000204BA08AF30, file "pathlib\_os.py", line 317>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+ 320           LOAD_CONST               3 (<code object __repr__ at 0x00000204BA0FFEE0, file "pathlib\_os.py", line 320>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__repr__)
+
+ 324           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               LOAD_CONST               6 ('ignore_errors')
+               LOAD_CONST               7 (False)
+               BUILD_MAP                2
+               LOAD_CONST               8 (<code object _stat at 0x00000204BA442C60, file "pathlib\_os.py", line 324>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               7 (_stat)
+
+ 358           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST               9 (<code object _posix_permissions at 0x00000204BA0A7750, file "pathlib\_os.py", line 358>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               8 (_posix_permissions)
+
+ 362           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST              10 (<code object _file_id at 0x00000204BA102890, file "pathlib\_os.py", line 362>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               9 (_file_id)
+
+ 367           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST              11 (<code object _access_time_ns at 0x00000204BA0FFDD0, file "pathlib\_os.py", line 367>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              10 (_access_time_ns)
+
+ 371           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST              12 (<code object _mod_time_ns at 0x00000204BA0FD020, file "pathlib\_os.py", line 371>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              11 (_mod_time_ns)
+
+ 375           LOAD_NAME               12 (hasattr)
+               PUSH_NULL
+               LOAD_NAME               13 (os)
+               LOAD_ATTR               28 (stat_result)
+               LOAD_CONST              13 ('st_flags')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE        8 (to L1)
+               NOT_TAKEN
+
+ 376           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST              14 (<code object _bsd_flags at 0x00000204BA0FFCC0, file "pathlib\_os.py", line 376>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              15 (_bsd_flags)
+
+ 380   L1:     LOAD_NAME               12 (hasattr)
+               PUSH_NULL
+               LOAD_NAME               13 (os)
+               LOAD_CONST              15 ('listxattr')
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       14 (to L2)
+               NOT_TAKEN
+
+ 381           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST              16 (<code object _xattrs at 0x00000204BA445390, file "pathlib\_os.py", line 381>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              16 (_xattrs)
+               LOAD_CONST              17 (('_lstat_result', '_path', '_stat_result'))
+               STORE_NAME              17 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              18 (__classdictcell__)
+               LOAD_CONST              18 (None)
+               RETURN_VALUE
+
+ 380   L2:     LOAD_CONST              17 (('_lstat_result', '_path', '_stat_result'))
+               STORE_NAME              17 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              18 (__classdictcell__)
+               LOAD_CONST              18 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA08AF30, file "pathlib\_os.py", line 317>:
+317           RESUME                   0
+
+318           LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         1 (path)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_path)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0FFEE0, file "pathlib\_os.py", line 320>:
+320           RESUME                   0
+
+321           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (name)
+              LOAD_CONST               0 ('nt')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               1 ('WindowsPath')
+              JUMP_FORWARD             1 (to L2)
+      L1:     LOAD_CONST               2 ('PosixPath')
+      L2:     STORE_FAST               1 (path_type)
+
+322           LOAD_CONST               3 ('<')
+              LOAD_FAST_BORROW         1 (path_type)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ('.info>')
+              BUILD_STRING             3
+              RETURN_VALUE
+
+Disassembly of <code object _stat at 0x00000204BA442C60, file "pathlib\_os.py", line 324>:
+ 324            RESUME                   0
+
+ 327            LOAD_FAST_BORROW         1 (follow_symlinks)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       79 (to L8)
+                NOT_TAKEN
+
+ 328            NOP
+
+ 329    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_stat_result)
+                STORE_FAST               3 (result)
+
+ 333    L2:     LOAD_FAST_BORROW         2 (ignore_errors)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         5 (to L3)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         3 (result)
+                POP_JUMP_IF_NONE         3 (to L4)
+                NOT_TAKEN
+
+ 334    L3:     LOAD_FAST_BORROW         3 (result)
+                RETURN_VALUE
+
+ 333    L4:     NOP
+
+ 335    L5:     NOP
+
+ 336    L6:     LOAD_GLOBAL              4 (os)
+                LOAD_ATTR                6 (stat)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_path)
+                CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               0 (_stat_result)
+
+ 341    L7:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_stat_result)
+                RETURN_VALUE
+
+ 343    L8:     NOP
+
+ 344    L9:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_lstat_result)
+                STORE_FAST               3 (result)
+
+ 348   L10:     LOAD_FAST_BORROW         2 (ignore_errors)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         5 (to L11)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         3 (result)
+                POP_JUMP_IF_NONE         3 (to L12)
+                NOT_TAKEN
+
+ 349   L11:     LOAD_FAST_BORROW         3 (result)
+                RETURN_VALUE
+
+ 348   L12:     NOP
+
+ 350   L13:     NOP
+
+ 351   L14:     LOAD_GLOBAL              4 (os)
+                LOAD_ATTR               16 (lstat)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_path)
+                CALL                     1
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               7 (_lstat_result)
+
+ 356   L15:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_lstat_result)
+                RETURN_VALUE
+
+  --   L16:     PUSH_EXC_INFO
+
+ 330            LOAD_GLOBAL              2 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L18)
+                NOT_TAKEN
+                POP_TOP
+
+ 331   L17:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 141 (to L5)
+
+ 330   L18:     RERAISE                  0
+
+  --   L19:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L20:     PUSH_EXC_INFO
+
+ 337            LOAD_GLOBAL             10 (OSError)
+                LOAD_GLOBAL             12 (ValueError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       31 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 338            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               0 (_stat_result)
+
+ 339            LOAD_FAST                2 (ignore_errors)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L23)
+       L21:     NOT_TAKEN
+
+ 340   L22:     RAISE_VARARGS            0
+
+ 339   L23:     POP_EXCEPT
+
+ 341            LOAD_FAST                0 (self)
+                LOAD_ATTR                0 (_stat_result)
+                RETURN_VALUE
+
+ 337   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L26:     PUSH_EXC_INFO
+
+ 345            LOAD_GLOBAL              2 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L28)
+                NOT_TAKEN
+                POP_TOP
+
+ 346   L27:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 130 (to L13)
+
+ 345   L28:     RERAISE                  0
+
+  --   L29:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L30:     PUSH_EXC_INFO
+
+ 352            LOAD_GLOBAL             10 (OSError)
+                LOAD_GLOBAL             12 (ValueError)
+                BUILD_TUPLE              2
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       31 (to L34)
+                NOT_TAKEN
+                POP_TOP
+
+ 353            LOAD_CONST               1 (None)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               7 (_lstat_result)
+
+ 354            LOAD_FAST                2 (ignore_errors)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L33)
+       L31:     NOT_TAKEN
+
+ 355   L32:     RAISE_VARARGS            0
+
+ 354   L33:     POP_EXCEPT
+
+ 356            LOAD_FAST                0 (self)
+                LOAD_ATTR               14 (_lstat_result)
+                RETURN_VALUE
+
+ 352   L34:     RERAISE                  0
+
+  --   L35:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L16 [0]
+  L6 to L7 -> L20 [0]
+  L9 to L10 -> L26 [0]
+  L14 to L15 -> L30 [0]
+  L16 to L17 -> L19 [1] lasti
+  L18 to L19 -> L19 [1] lasti
+  L20 to L21 -> L25 [1] lasti
+  L22 to L23 -> L25 [1] lasti
+  L24 to L25 -> L25 [1] lasti
+  L26 to L27 -> L29 [1] lasti
+  L28 to L29 -> L29 [1] lasti
+  L30 to L31 -> L35 [1] lasti
+  L32 to L33 -> L35 [1] lasti
+  L34 to L35 -> L35 [1] lasti
+
+Disassembly of <code object _posix_permissions at 0x00000204BA0A7750, file "pathlib\_os.py", line 358>:
+358           RESUME                   0
+
+360           LOAD_GLOBAL              1 (S_IMODE + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                3 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (('follow_symlinks',))
+              CALL_KW                  1
+              LOAD_ATTR                4 (st_mode)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object _file_id at 0x00000204BA102890, file "pathlib\_os.py", line 362>:
+362           RESUME                   0
+
+364           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (('follow_symlinks',))
+              CALL_KW                  1
+              STORE_FAST               2 (st)
+
+365           LOAD_FAST_BORROW         2 (st)
+              LOAD_ATTR                2 (st_dev)
+              LOAD_FAST_BORROW         2 (st)
+              LOAD_ATTR                4 (st_ino)
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _access_time_ns at 0x00000204BA0FFDD0, file "pathlib\_os.py", line 367>:
+367           RESUME                   0
+
+369           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (('follow_symlinks',))
+              CALL_KW                  1
+              LOAD_ATTR                2 (st_atime_ns)
+              RETURN_VALUE
+
+Disassembly of <code object _mod_time_ns at 0x00000204BA0FD020, file "pathlib\_os.py", line 371>:
+371           RESUME                   0
+
+373           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (('follow_symlinks',))
+              CALL_KW                  1
+              LOAD_ATTR                2 (st_mtime_ns)
+              RETURN_VALUE
+
+Disassembly of <code object _bsd_flags at 0x00000204BA0FFCC0, file "pathlib\_os.py", line 376>:
+376           RESUME                   0
+
+378           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (('follow_symlinks',))
+              CALL_KW                  1
+              LOAD_ATTR                2 (st_flags)
+              RETURN_VALUE
+
+Disassembly of <code object _xattrs at 0x00000204BA445390, file "pathlib\_os.py", line 381>:
+ 381            RESUME                   0
+
+ 384            NOP
+
+ 387    L1:     LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (listxattr)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_path)
+                LOAD_FAST_BORROW         1 (follow_symlinks)
+                LOAD_CONST               1 (('follow_symlinks',))
+                CALL_KW                  2
+                GET_ITER
+
+ 385            LOAD_FAST_AND_CLEAR      2 (attr)
+                SWAP                     2
+        L2:     BUILD_LIST               0
+                SWAP                     2
+
+ 387    L3:     FOR_ITER                39 (to L4)
+                STORE_FAST               2 (attr)
+
+ 386            LOAD_FAST_BORROW         2 (attr)
+                LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                6 (getxattr)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                4 (_path)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (attr, follow_symlinks)
+                LOAD_CONST               1 (('follow_symlinks',))
+                CALL_KW                  3
+                BUILD_TUPLE              2
+                LIST_APPEND              2
+                JUMP_BACKWARD           41 (to L3)
+
+ 387    L4:     END_FOR
+                POP_ITER
+
+ 385    L5:     SWAP                     2
+                STORE_FAST               2 (attr)
+        L6:     RETURN_VALUE
+
+  --    L7:     SWAP                     2
+                POP_TOP
+
+ 385            SWAP                     2
+                STORE_FAST               2 (attr)
+                RERAISE                  0
+
+  --    L8:     PUSH_EXC_INFO
+
+ 388            LOAD_GLOBAL              8 (OSError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       56 (to L14)
+                NOT_TAKEN
+                STORE_FAST               3 (err)
+
+ 389    L9:     LOAD_FAST                3 (err)
+                LOAD_ATTR               10 (errno)
+                LOAD_GLOBAL             12 (EPERM)
+                LOAD_GLOBAL             14 (ENOTSUP)
+                LOAD_GLOBAL             16 (ENODATA)
+                LOAD_GLOBAL             18 (EINVAL)
+                LOAD_GLOBAL             20 (EACCES)
+                BUILD_TUPLE              5
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE        2 (to L10)
+                NOT_TAKEN
+
+ 390            RAISE_VARARGS            0
+
+ 391   L10:     BUILD_LIST               0
+       L11:     SWAP                     2
+       L12:     POP_EXCEPT
+                LOAD_CONST               2 (None)
+                STORE_FAST               3 (err)
+                DELETE_FAST              3 (err)
+                RETURN_VALUE
+
+  --   L13:     LOAD_CONST               2 (None)
+                STORE_FAST               3 (err)
+                DELETE_FAST              3 (err)
+                RERAISE                  1
+
+ 388   L14:     RERAISE                  0
+
+  --   L15:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L8 [0]
+  L2 to L5 -> L7 [2]
+  L5 to L6 -> L8 [0]
+  L7 to L8 -> L8 [0]
+  L8 to L9 -> L15 [1] lasti
+  L9 to L11 -> L13 [1] lasti
+  L11 to L12 -> L15 [1] lasti
+  L13 to L15 -> L15 [1] lasti
+
+Disassembly of <code object _WindowsPathInfo at 0x00000204BA102AF0, file "pathlib\_os.py", line 394>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 394           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_WindowsPathInfo')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (394)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 395           LOAD_CONST               2 ("Implementation of pathlib.types.PathInfo that provides status\ninformation for Windows paths. Don't try to construct it yourself.")
+               STORE_NAME               4 (__doc__)
+
+ 397           LOAD_CONST               9 (('_exists', '_is_dir', '_is_file', '_is_symlink'))
+               STORE_NAME               5 (__slots__)
+
+ 399           LOAD_CONST               3 ('follow_symlinks')
+               LOAD_CONST               4 (True)
+               BUILD_MAP                1
+               LOAD_CONST               5 (<code object exists at 0x00000204B9FA6310, file "pathlib\_os.py", line 399>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               6 (exists)
+
+ 413           LOAD_CONST               3 ('follow_symlinks')
+               LOAD_CONST               4 (True)
+               BUILD_MAP                1
+               LOAD_CONST               6 (<code object is_dir at 0x00000204B9FC23D0, file "pathlib\_os.py", line 413>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               7 (is_dir)
+
+ 427           LOAD_CONST               3 ('follow_symlinks')
+               LOAD_CONST               4 (True)
+               BUILD_MAP                1
+               LOAD_CONST               7 (<code object is_file at 0x00000204B9FC32D0, file "pathlib\_os.py", line 427>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               8 (is_file)
+
+ 441           LOAD_CONST               8 (<code object is_symlink at 0x00000204BA129DE0, file "pathlib\_os.py", line 441>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (is_symlink)
+               LOAD_CONST               9 (('_exists', '_is_dir', '_is_file', '_is_symlink'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST              10 (None)
+               RETURN_VALUE
+
+Disassembly of <code object exists at 0x00000204B9FA6310, file "pathlib\_os.py", line 399>:
+ 399            RESUME                   0
+
+ 401            LOAD_FAST_BORROW         1 (follow_symlinks)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        25 (to L1)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                1 (is_symlink + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+
+ 402            LOAD_CONST               1 (True)
+                RETURN_VALUE
+
+ 403    L1:     NOP
+
+ 404    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_exists)
+        L3:     RETURN_VALUE
+
+  --    L4:     PUSH_EXC_INFO
+
+ 405            LOAD_GLOBAL              4 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       83 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 406            LOAD_GLOBAL              6 (os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               11 (exists + NULL|self)
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (_path)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       11 (to L8)
+        L5:     NOT_TAKEN
+
+ 407    L6:     LOAD_CONST               1 (True)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               1 (_exists)
+
+ 408    L7:     POP_EXCEPT
+                LOAD_CONST               1 (True)
+                RETURN_VALUE
+
+ 410    L8:     LOAD_CONST               2 (False)
+                COPY                     1
+                LOAD_FAST                0 (self)
+                STORE_ATTR               1 (_exists)
+                COPY                     1
+                LOAD_FAST                0 (self)
+                STORE_ATTR               7 (_is_dir)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               8 (_is_file)
+
+ 411    L9:     POP_EXCEPT
+                LOAD_CONST               2 (False)
+                RETURN_VALUE
+
+ 405   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L11 [1] lasti
+  L6 to L7 -> L11 [1] lasti
+  L8 to L9 -> L11 [1] lasti
+  L10 to L11 -> L11 [1] lasti
+
+Disassembly of <code object is_dir at 0x00000204B9FC23D0, file "pathlib\_os.py", line 413>:
+ 413            RESUME                   0
+
+ 415            LOAD_FAST_BORROW         1 (follow_symlinks)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        25 (to L1)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                1 (is_symlink + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+
+ 416            LOAD_CONST               1 (False)
+                RETURN_VALUE
+
+ 417    L1:     NOP
+
+ 418    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_is_dir)
+        L3:     RETURN_VALUE
+
+  --    L4:     PUSH_EXC_INFO
+
+ 419            LOAD_GLOBAL              4 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       76 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 420            LOAD_GLOBAL              6 (os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               11 (isdir + NULL|self)
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (_path)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L8)
+        L5:     NOT_TAKEN
+
+ 421    L6:     LOAD_CONST               2 (True)
+                COPY                     1
+                LOAD_FAST                0 (self)
+                STORE_ATTR               1 (_is_dir)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               7 (_exists)
+
+ 422    L7:     POP_EXCEPT
+                LOAD_CONST               2 (True)
+                RETURN_VALUE
+
+ 424    L8:     LOAD_CONST               1 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               1 (_is_dir)
+
+ 425    L9:     POP_EXCEPT
+                LOAD_CONST               1 (False)
+                RETURN_VALUE
+
+ 419   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L11 [1] lasti
+  L6 to L7 -> L11 [1] lasti
+  L8 to L9 -> L11 [1] lasti
+  L10 to L11 -> L11 [1] lasti
+
+Disassembly of <code object is_file at 0x00000204B9FC32D0, file "pathlib\_os.py", line 427>:
+ 427            RESUME                   0
+
+ 429            LOAD_FAST_BORROW         1 (follow_symlinks)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        25 (to L1)
+                NOT_TAKEN
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                1 (is_symlink + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE        3 (to L1)
+                NOT_TAKEN
+
+ 430            LOAD_CONST               1 (False)
+                RETURN_VALUE
+
+ 431    L1:     NOP
+
+ 432    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_is_file)
+        L3:     RETURN_VALUE
+
+  --    L4:     PUSH_EXC_INFO
+
+ 433            LOAD_GLOBAL              4 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       76 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+ 434            LOAD_GLOBAL              6 (os)
+                LOAD_ATTR                8 (path)
+                LOAD_ATTR               11 (isfile + NULL|self)
+                LOAD_FAST                0 (self)
+                LOAD_ATTR               12 (_path)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       18 (to L8)
+        L5:     NOT_TAKEN
+
+ 435    L6:     LOAD_CONST               2 (True)
+                COPY                     1
+                LOAD_FAST                0 (self)
+                STORE_ATTR               1 (_is_file)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               7 (_exists)
+
+ 436    L7:     POP_EXCEPT
+                LOAD_CONST               2 (True)
+                RETURN_VALUE
+
+ 438    L8:     LOAD_CONST               1 (False)
+                LOAD_FAST                0 (self)
+                STORE_ATTR               1 (_is_file)
+
+ 439    L9:     POP_EXCEPT
+                LOAD_CONST               1 (False)
+                RETURN_VALUE
+
+ 433   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L11 [1] lasti
+  L6 to L7 -> L11 [1] lasti
+  L8 to L9 -> L11 [1] lasti
+  L10 to L11 -> L11 [1] lasti
+
+Disassembly of <code object is_symlink at 0x00000204BA129DE0, file "pathlib\_os.py", line 441>:
+ 441           RESUME                   0
+
+ 443           NOP
+
+ 444   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_is_symlink)
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 445           LOAD_GLOBAL              2 (AttributeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       62 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 446           LOAD_GLOBAL              4 (os)
+               LOAD_ATTR                6 (path)
+               LOAD_ATTR                9 (islink + NULL|self)
+               LOAD_FAST                0 (self)
+               LOAD_ATTR               10 (_path)
+               CALL                     1
+               LOAD_FAST                0 (self)
+               STORE_ATTR               0 (_is_symlink)
+
+ 447           LOAD_FAST                0 (self)
+               LOAD_ATTR                0 (_is_symlink)
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+ 445   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object _PosixPathInfo at 0x00000204BA101B80, file "pathlib\_os.py", line 450>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 450           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_PosixPathInfo')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (450)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 451           LOAD_CONST               2 ("Implementation of pathlib.types.PathInfo that provides status\ninformation for POSIX paths. Don't try to construct it yourself.")
+               STORE_NAME               4 (__doc__)
+
+ 453           LOAD_CONST               9 (())
+               STORE_NAME               5 (__slots__)
+
+ 455           LOAD_CONST               3 ('follow_symlinks')
+               LOAD_CONST               4 (True)
+               BUILD_MAP                1
+               LOAD_CONST               5 (<code object exists at 0x00000204BA0FC7A0, file "pathlib\_os.py", line 455>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               6 (exists)
+
+ 462           LOAD_CONST               3 ('follow_symlinks')
+               LOAD_CONST               4 (True)
+               BUILD_MAP                1
+               LOAD_CONST               6 (<code object is_dir at 0x00000204BA102500, file "pathlib\_os.py", line 462>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               7 (is_dir)
+
+ 469           LOAD_CONST               3 ('follow_symlinks')
+               LOAD_CONST               4 (True)
+               BUILD_MAP                1
+               LOAD_CONST               7 (<code object is_file at 0x00000204BA103470, file "pathlib\_os.py", line 469>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               8 (is_file)
+
+ 476           LOAD_CONST               8 (<code object is_symlink at 0x00000204BA101A50, file "pathlib\_os.py", line 476>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (is_symlink)
+               LOAD_CONST               9 (())
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST              10 (None)
+               RETURN_VALUE
+
+Disassembly of <code object exists at 0x00000204BA0FC7A0, file "pathlib\_os.py", line 455>:
+455           RESUME                   0
+
+457           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('follow_symlinks', 'ignore_errors'))
+              CALL_KW                  2
+              STORE_FAST               2 (st)
+
+458           LOAD_FAST_BORROW         2 (st)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+459           LOAD_CONST               3 (False)
+              RETURN_VALUE
+
+460   L1:     LOAD_CONST               1 (True)
+              RETURN_VALUE
+
+Disassembly of <code object is_dir at 0x00000204BA102500, file "pathlib\_os.py", line 462>:
+462           RESUME                   0
+
+464           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('follow_symlinks', 'ignore_errors'))
+              CALL_KW                  2
+              STORE_FAST               2 (st)
+
+465           LOAD_FAST_BORROW         2 (st)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+466           LOAD_CONST               3 (False)
+              RETURN_VALUE
+
+467   L1:     LOAD_GLOBAL              3 (S_ISDIR + NULL)
+              LOAD_FAST_BORROW         2 (st)
+              LOAD_ATTR                4 (st_mode)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object is_file at 0x00000204BA103470, file "pathlib\_os.py", line 469>:
+469           RESUME                   0
+
+471           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_FAST_BORROW         1 (follow_symlinks)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('follow_symlinks', 'ignore_errors'))
+              CALL_KW                  2
+              STORE_FAST               2 (st)
+
+472           LOAD_FAST_BORROW         2 (st)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+473           LOAD_CONST               3 (False)
+              RETURN_VALUE
+
+474   L1:     LOAD_GLOBAL              3 (S_ISREG + NULL)
+              LOAD_FAST_BORROW         2 (st)
+              LOAD_ATTR                4 (st_mode)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object is_symlink at 0x00000204BA101A50, file "pathlib\_os.py", line 476>:
+476           RESUME                   0
+
+478           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (True)
+              LOAD_CONST               3 (('follow_symlinks', 'ignore_errors'))
+              CALL_KW                  2
+              STORE_FAST               1 (st)
+
+479           LOAD_FAST_BORROW         1 (st)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+480           LOAD_CONST               1 (False)
+              RETURN_VALUE
+
+481   L1:     LOAD_GLOBAL              3 (S_ISLNK + NULL)
+              LOAD_FAST_BORROW         1 (st)
+              LOAD_ATTR                4 (st_mode)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object DirEntryInfo at 0x00000204BA0B8960, file "pathlib\_os.py", line 487>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 487           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DirEntryInfo')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (487)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 488           LOAD_CONST               2 ("Implementation of pathlib.types.PathInfo that provides status\ninformation by querying a wrapped os.DirEntry object. Don't try to\nconstruct it yourself.")
+               STORE_NAME               4 (__doc__)
+
+ 491           LOAD_CONST              13 (('_entry',))
+               STORE_NAME               5 (__slots__)
+
+ 493           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA0A7E10, file "pathlib\_os.py", line 493>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               6 (__init__)
+
+ 497           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               LOAD_CONST               6 ('ignore_errors')
+               LOAD_CONST               7 (False)
+               BUILD_MAP                2
+               LOAD_CONST               8 (<code object _stat at 0x00000204BA0BB360, file "pathlib\_os.py", line 497>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               7 (_stat)
+
+ 505           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST               9 (<code object exists at 0x00000204BA0FC250, file "pathlib\_os.py", line 505>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               8 (exists)
+
+ 511           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST              10 (<code object is_dir at 0x00000204BA103210, file "pathlib\_os.py", line 511>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               9 (is_dir)
+
+ 518           LOAD_CONST               4 ('follow_symlinks')
+               LOAD_CONST               5 (True)
+               BUILD_MAP                1
+               LOAD_CONST              11 (<code object is_file at 0x00000204BA102E80, file "pathlib\_os.py", line 518>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME              10 (is_file)
+
+ 525           LOAD_CONST              12 (<code object is_symlink at 0x00000204BA100290, file "pathlib\_os.py", line 525>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (is_symlink)
+               LOAD_CONST              13 (('_entry',))
+               STORE_NAME              12 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              13 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              14 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7E10, file "pathlib\_os.py", line 493>:
+  --           COPY_FREE_VARS           1
+
+ 493           RESUME                   0
+
+ 494           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               2 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          5 (__init__ + NULL|self)
+               LOAD_FAST_BORROW         1 (entry)
+               LOAD_ATTR                4 (path)
+               CALL                     1
+               POP_TOP
+
+ 495           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (entry, self)
+               STORE_ATTR               3 (_entry)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _stat at 0x00000204BA0BB360, file "pathlib\_os.py", line 497>:
+ 497           RESUME                   0
+
+ 498           NOP
+
+ 499   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_entry)
+               LOAD_ATTR                3 (stat + NULL|self)
+               LOAD_FAST_BORROW         1 (follow_symlinks)
+               LOAD_CONST               0 (('follow_symlinks',))
+               CALL_KW                  1
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 500           LOAD_GLOBAL              4 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       14 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+ 501           LOAD_FAST                2 (ignore_errors)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L6)
+       L4:     NOT_TAKEN
+
+ 502   L5:     RAISE_VARARGS            0
+
+ 503   L6:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 500   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L8 [1] lasti
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object exists at 0x00000204BA0FC250, file "pathlib\_os.py", line 505>:
+505           RESUME                   0
+
+507           LOAD_FAST_BORROW         1 (follow_symlinks)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+508           LOAD_CONST               1 (True)
+              RETURN_VALUE
+
+509   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (_stat + NULL|self)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('ignore_errors',))
+              CALL_KW                  1
+              LOAD_CONST               3 (None)
+              IS_OP                    1 (is not)
+              RETURN_VALUE
+
+Disassembly of <code object is_dir at 0x00000204BA103210, file "pathlib\_os.py", line 511>:
+ 511           RESUME                   0
+
+ 513           NOP
+
+ 514   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_entry)
+               LOAD_ATTR                3 (is_dir + NULL|self)
+               LOAD_FAST_BORROW         1 (follow_symlinks)
+               LOAD_CONST               1 (('follow_symlinks',))
+               CALL_KW                  1
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 515           LOAD_GLOBAL              4 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 516   L4:     POP_EXCEPT
+               LOAD_CONST               2 (False)
+               RETURN_VALUE
+
+ 515   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object is_file at 0x00000204BA102E80, file "pathlib\_os.py", line 518>:
+ 518           RESUME                   0
+
+ 520           NOP
+
+ 521   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_entry)
+               LOAD_ATTR                3 (is_file + NULL|self)
+               LOAD_FAST_BORROW         1 (follow_symlinks)
+               LOAD_CONST               1 (('follow_symlinks',))
+               CALL_KW                  1
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 522           LOAD_GLOBAL              4 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 523   L4:     POP_EXCEPT
+               LOAD_CONST               2 (False)
+               RETURN_VALUE
+
+ 522   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object is_symlink at 0x00000204BA100290, file "pathlib\_os.py", line 525>:
+ 525           RESUME                   0
+
+ 527           NOP
+
+ 528   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_entry)
+               LOAD_ATTR                3 (is_symlink + NULL|self)
+               CALL                     0
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 529           LOAD_GLOBAL              4 (OSError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 530   L4:     POP_EXCEPT
+               LOAD_CONST               1 (False)
+               RETURN_VALUE
+
+ 529   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti

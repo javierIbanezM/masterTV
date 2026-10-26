@@ -1,0 +1,189 @@
+  0           RESUME                   0
+
+  5           LOAD_CONST               0 ('Encodings and related functions.')
+              STORE_NAME               0 (__doc__)
+
+  7           BUILD_LIST               0
+              LOAD_CONST               9 (('encode_7or8bit', 'encode_base64', 'encode_noop', 'encode_quopri'))
+              LIST_EXTEND              1
+              STORE_NAME               1 (__all__)
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('encodebytes',))
+              IMPORT_NAME              2 (base64)
+              IMPORT_FROM              3 (encodebytes)
+              STORE_NAME               4 (_bencode)
+              POP_TOP
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('encodestring',))
+              IMPORT_NAME              5 (quopri)
+              IMPORT_FROM              6 (encodestring)
+              STORE_NAME               7 (_encodestring)
+              POP_TOP
+
+ 19           LOAD_CONST               3 (<code object _qencode at 0x00000204BA083110, file "email\encoders.py", line 19>)
+              MAKE_FUNCTION
+              STORE_NAME               8 (_qencode)
+
+ 25           LOAD_CONST               4 (<code object encode_base64 at 0x00000204BA0B8D50, file "email\encoders.py", line 25>)
+              MAKE_FUNCTION
+              STORE_NAME               9 (encode_base64)
+
+ 36           LOAD_CONST               5 (<code object encode_quopri at 0x00000204BA0AB230, file "email\encoders.py", line 36>)
+              MAKE_FUNCTION
+              STORE_NAME              10 (encode_quopri)
+
+ 47           LOAD_CONST               6 (<code object encode_7or8bit at 0x00000204BA698310, file "email\encoders.py", line 47>)
+              MAKE_FUNCTION
+              STORE_NAME              11 (encode_7or8bit)
+
+ 64           LOAD_CONST               7 (<code object encode_noop at 0x00000204BA0C2170, file "email\encoders.py", line 64>)
+              MAKE_FUNCTION
+              STORE_NAME              12 (encode_noop)
+              LOAD_CONST               8 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _qencode at 0x00000204BA083110, file "email\encoders.py", line 19>:
+ 19           RESUME                   0
+
+ 20           LOAD_GLOBAL              1 (_encodestring + NULL)
+              LOAD_FAST_BORROW         0 (s)
+              LOAD_CONST               0 (True)
+              LOAD_CONST               1 (('quotetabs',))
+              CALL_KW                  2
+              STORE_FAST               1 (enc)
+
+ 22           LOAD_FAST_BORROW         1 (enc)
+              LOAD_ATTR                3 (replace + NULL|self)
+              LOAD_CONST               2 (b' ')
+              LOAD_CONST               3 (b'=20')
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object encode_base64 at 0x00000204BA0B8D50, file "email\encoders.py", line 25>:
+ 25           RESUME                   0
+
+ 30           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                1 (get_payload + NULL|self)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('decode',))
+              CALL_KW                  1
+              STORE_FAST               1 (orig)
+
+ 31           LOAD_GLOBAL              3 (str + NULL)
+              LOAD_GLOBAL              5 (_bencode + NULL)
+              LOAD_FAST_BORROW         1 (orig)
+              CALL                     1
+              LOAD_CONST               3 ('ascii')
+              CALL                     2
+              STORE_FAST               2 (encdata)
+
+ 32           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                7 (set_payload + NULL|self)
+              LOAD_FAST_BORROW         2 (encdata)
+              CALL                     1
+              POP_TOP
+
+ 33           LOAD_CONST               4 ('base64')
+              LOAD_FAST_BORROW         0 (msg)
+              LOAD_CONST               5 ('Content-Transfer-Encoding')
+              STORE_SUBSCR
+              LOAD_CONST               6 (None)
+              RETURN_VALUE
+
+Disassembly of <code object encode_quopri at 0x00000204BA0AB230, file "email\encoders.py", line 36>:
+ 36           RESUME                   0
+
+ 41           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                1 (get_payload + NULL|self)
+              LOAD_CONST               1 (True)
+              LOAD_CONST               2 (('decode',))
+              CALL_KW                  1
+              STORE_FAST               1 (orig)
+
+ 42           LOAD_GLOBAL              3 (_qencode + NULL)
+              LOAD_FAST_BORROW         1 (orig)
+              CALL                     1
+              STORE_FAST               2 (encdata)
+
+ 43           LOAD_FAST_BORROW         0 (msg)
+              LOAD_ATTR                5 (set_payload + NULL|self)
+              LOAD_FAST_BORROW         2 (encdata)
+              CALL                     1
+              POP_TOP
+
+ 44           LOAD_CONST               3 ('quoted-printable')
+              LOAD_FAST_BORROW         0 (msg)
+              LOAD_CONST               4 ('Content-Transfer-Encoding')
+              STORE_SUBSCR
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object encode_7or8bit at 0x00000204BA698310, file "email\encoders.py", line 47>:
+  47           RESUME                   0
+
+  49           LOAD_FAST_BORROW         0 (msg)
+               LOAD_ATTR                1 (get_payload + NULL|self)
+               LOAD_CONST               1 (True)
+               LOAD_CONST               2 (('decode',))
+               CALL_KW                  1
+               STORE_FAST               1 (orig)
+
+  50           LOAD_FAST_BORROW         1 (orig)
+               POP_JUMP_IF_NOT_NONE     8 (to L1)
+               NOT_TAKEN
+
+  52           LOAD_CONST               4 ('7bit')
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_CONST               5 ('Content-Transfer-Encoding')
+               STORE_SUBSCR
+
+  53           LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  56   L1:     NOP
+
+  57   L2:     LOAD_FAST_BORROW         1 (orig)
+               LOAD_ATTR                3 (decode + NULL|self)
+               LOAD_CONST               6 ('ascii')
+               CALL                     1
+               POP_TOP
+
+  61   L3:     LOAD_CONST               4 ('7bit')
+               LOAD_FAST_BORROW         0 (msg)
+               LOAD_CONST               5 ('Content-Transfer-Encoding')
+               STORE_SUBSCR
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+  58           LOAD_GLOBAL              4 (UnicodeError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       10 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  59           LOAD_CONST               7 ('8bit')
+               LOAD_FAST                0 (msg)
+               LOAD_CONST               5 ('Content-Transfer-Encoding')
+               STORE_SUBSCR
+       L5:     POP_EXCEPT
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  58   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object encode_noop at 0x00000204BA0C2170, file "email\encoders.py", line 64>:
+ 64           RESUME                   0
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

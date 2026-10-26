@@ -1,0 +1,34 @@
+<module>()  line 1
+    Error()  line 56
+    copy(x)  line 62
+    deepcopy(x, memo, _nil)  line 110
+    _deepcopy_list(x, memo, deepcopy)  line 172
+    _deepcopy_tuple(x, memo, deepcopy)  line 181
+    _deepcopy_dict(x, memo, deepcopy)  line 198
+    _deepcopy_method(x, memo)  line 206
+    _keep_alive(x, memo)  line 212
+    _reconstruct(x, memo, func, args, state, listiter, dictiter, deepcopy)  line 228
+        _reconstruct.<locals>.<genexpr>(.0)  line 233
+    replace(obj)  line 276
+
+--- strings ---
+'Generic (shallow and deep) copying operations.\n\nInterface summary:\n\n        import copy\n\n        x = copy.copy(y)                # make a shallow copy of y\n        x = copy.deepcopy(y)            # make a deep copy of y\n        x = copy.replace(y, a=1, b=2)   # new object with fields replaced, as defined by `__replace__`\n\nFor module specific errors, copy.Error is raised.\n\nThe difference between shallow and deep copying is only relevant for\ncompound objects (objects that contain other objects, like lists or\nclass instances).\n\n- A shallow copy constructs a new compound object and then (to the\n  extent possible) inserts *the same objects* into it that the\n  original contains.\n\n- A deep copy constructs a new compound object and then, recursively,\n  inserts *copies* into it of the objects found in the original.\n\nTwo problems often exist with deep copy operations that don\'t exist\nwith shallow copy operations:\n\n a) recursive objects (compound objects that, directly or indirectly,\n    contain a reference to themselves) may cause a recursive loop\n\n b) because deep copy copies *everything* it may copy too much, e.g.\n    administrative data structures that should be shared even between\n    copies\n\nPython\'s deep copy operation avoids these problems by:\n\n a) keeping a table of objects already copied during the current\n    copying pass\n\n b) letting user-defined classes override the copying operation or the\n    set of components copied\n\nThis version does not copy types like module, class, function, method,\nnor stack trace, stack frame, nor file, socket, window, nor any\nsimilar types.\n\nClasses can use the same interfaces to control copying that they use\nto control pickling: they can define methods called __getinitargs__(),\n__getstate__() and __setstate__().  See the documentation for module\n"pickle" for information on these methods.\n'
+'Error'
+'Error'
+'deepcopy'
+"Shallow copy operation on arbitrary Python objects.\n\nSee the module's __doc__ string for more info.\n"
+'__copy__'
+'__reduce_ex__'
+'__reduce__'
+'un(shallow)copyable object of type %s'
+"Deep copy operation on arbitrary Python objects.\n\nSee the module's __doc__ string for more info.\n"
+'__deepcopy__'
+'__reduce_ex__'
+'__reduce__'
+'un(deep)copyable object of type %s'
+'Keeps a reference to the object x in the memo.\n\nBecause we remember objects by their id, we have\nto assure that possibly temporary objects are kept\nalive by referencing them.\nWe store a reference at the id of the memo, which should\nnormally not be used unless someone tries to deepcopy\nthe memo itself...\n'
+'__setstate__'
+'Return a new object replacing specified fields with new values.\n\nThis is especially useful for immutable objects, like named tuples or\nfrozen dataclasses.\n'
+'__replace__'
+'replace() does not support '
+' objects'

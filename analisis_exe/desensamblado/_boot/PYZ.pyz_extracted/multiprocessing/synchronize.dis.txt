@@ -1,0 +1,2317 @@
+   0           RESUME                   0
+
+  10           BUILD_LIST               0
+               LOAD_CONST              21 (('Lock', 'RLock', 'Semaphore', 'BoundedSemaphore', 'Condition', 'Event'))
+               LIST_EXTEND              1
+               STORE_NAME               0 (__all__)
+
+  14           LOAD_SMALL_INT           0
+               LOAD_CONST               6 (None)
+               IMPORT_NAME              1 (threading)
+               STORE_NAME               1 (threading)
+
+  15           LOAD_SMALL_INT           0
+               LOAD_CONST               6 (None)
+               IMPORT_NAME              2 (sys)
+               STORE_NAME               2 (sys)
+
+  16           LOAD_SMALL_INT           0
+               LOAD_CONST               6 (None)
+               IMPORT_NAME              3 (tempfile)
+               STORE_NAME               3 (tempfile)
+
+  17           LOAD_SMALL_INT           0
+               LOAD_CONST               6 (None)
+               IMPORT_NAME              4 (_multiprocessing)
+               STORE_NAME               4 (_multiprocessing)
+
+  18           LOAD_SMALL_INT           0
+               LOAD_CONST               6 (None)
+               IMPORT_NAME              5 (time)
+               STORE_NAME               5 (time)
+
+  20           LOAD_SMALL_INT           1
+               LOAD_CONST               7 (('context',))
+               IMPORT_NAME              6
+               IMPORT_FROM              7 (context)
+               STORE_NAME               7 (context)
+               POP_TOP
+
+  21           LOAD_SMALL_INT           1
+               LOAD_CONST               8 (('process',))
+               IMPORT_NAME              6
+               IMPORT_FROM              8 (process)
+               STORE_NAME               8 (process)
+               POP_TOP
+
+  22           LOAD_SMALL_INT           1
+               LOAD_CONST               9 (('util',))
+               IMPORT_NAME              6
+               IMPORT_FROM              9 (util)
+               STORE_NAME               9 (util)
+               POP_TOP
+
+  25           NOP
+
+  26   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST              10 (('SemLock', 'sem_unlink'))
+               IMPORT_NAME              4 (_multiprocessing)
+               IMPORT_FROM             10 (SemLock)
+               STORE_NAME              10 (SemLock)
+               IMPORT_FROM             11 (sem_unlink)
+               STORE_NAME              11 (sem_unlink)
+               POP_TOP
+
+  36   L2:     LOAD_SMALL_INT           0
+               STORE_NAME              13 (RECURSIVE_MUTEX)
+
+  37           LOAD_SMALL_INT           1
+               STORE_NAME              14 (SEMAPHORE)
+
+  39           LOAD_NAME                4 (_multiprocessing)
+               LOAD_ATTR               20 (SemLock)
+               LOAD_ATTR               30 (SEM_VALUE_MAX)
+               STORE_NAME              15 (SEM_VALUE_MAX)
+
+  45           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              11 (<code object SemLock at 0x00000204B9F72C30, file "multiprocessing\synchronize.py", line 45>)
+               MAKE_FUNCTION
+               LOAD_CONST              12 ('SemLock')
+               LOAD_NAME               16 (object)
+               CALL                     3
+               STORE_NAME              10 (SemLock)
+
+ 132           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              13 (<code object Semaphore at 0x00000204BA0FD020, file "multiprocessing\synchronize.py", line 132>)
+               MAKE_FUNCTION
+               LOAD_CONST               2 ('Semaphore')
+               LOAD_NAME               10 (SemLock)
+               CALL                     3
+               STORE_NAME              17 (Semaphore)
+
+ 151           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              14 (<code object BoundedSemaphore at 0x00000204BA08AF30, file "multiprocessing\synchronize.py", line 151>)
+               MAKE_FUNCTION
+               LOAD_CONST               3 ('BoundedSemaphore')
+               LOAD_NAME               17 (Semaphore)
+               CALL                     3
+               STORE_NAME              18 (BoundedSemaphore)
+
+ 168           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              15 (<code object Lock at 0x00000204BA08AD30, file "multiprocessing\synchronize.py", line 168>)
+               MAKE_FUNCTION
+               LOAD_CONST               0 ('Lock')
+               LOAD_NAME               10 (SemLock)
+               CALL                     3
+               STORE_NAME              19 (Lock)
+
+ 193           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              16 (<code object RLock at 0x00000204BA08B130, file "multiprocessing\synchronize.py", line 193>)
+               MAKE_FUNCTION
+               LOAD_CONST               1 ('RLock')
+               LOAD_NAME               10 (SemLock)
+               CALL                     3
+               STORE_NAME              20 (RLock)
+
+ 219           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              17 (<code object Condition at 0x00000204BA0BB9F0, file "multiprocessing\synchronize.py", line 219>)
+               MAKE_FUNCTION
+               LOAD_CONST               4 ('Condition')
+               LOAD_NAME               16 (object)
+               CALL                     3
+               STORE_NAME              21 (Condition)
+
+ 330           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              18 (<code object Event at 0x00000204BA0A6AF0, file "multiprocessing\synchronize.py", line 330>)
+               MAKE_FUNCTION
+               LOAD_CONST               5 ('Event')
+               LOAD_NAME               16 (object)
+               CALL                     3
+               STORE_NAME              22 (Event)
+
+ 372           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              19 (<code object Barrier at 0x00000204BA738310, file "multiprocessing\synchronize.py", line 372>)
+               MAKE_FUNCTION
+               LOAD_CONST              20 ('Barrier')
+               LOAD_NAME                1 (threading)
+               LOAD_ATTR               46 (Barrier)
+               CALL                     3
+               STORE_NAME              23 (Barrier)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  27           LOAD_NAME               12 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       10 (to L4)
+               NOT_TAKEN
+               POP_TOP
+
+  28           LOAD_NAME               12 (ImportError)
+               PUSH_NULL
+               LOAD_CONST              22 ('This platform lacks a functioning sem_open implementation. https://github.com/python/cpython/issues/48020.')
+               CALL                     1
+               RAISE_VARARGS            1
+
+  27   L4:     RERAISE                  0
+
+  --   L5:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L5 -> L5 [1] lasti
+
+Disassembly of <code object SemLock at 0x00000204B9F72C30, file "multiprocessing\synchronize.py", line 45>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  45           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SemLock')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          45
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  47           LOAD_NAME                4 (tempfile)
+               LOAD_ATTR               10 (_RandomNameSequence)
+               PUSH_NULL
+               CALL                     0
+               STORE_NAME               6 (_rand)
+
+  49           LOAD_CONST               1 (<code object __init__ at 0x00000204BA382080, file "multiprocessing\synchronize.py", line 49>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__init__)
+
+  83           LOAD_NAME                8 (staticmethod)
+
+  84           LOAD_CONST               2 (<code object _cleanup at 0x00000204BA0FF440, file "multiprocessing\synchronize.py", line 83>)
+               MAKE_FUNCTION
+
+  83           CALL                     0
+
+  84           STORE_NAME               9 (_cleanup)
+
+  89           LOAD_CONST               3 (<code object _make_methods at 0x00000204BA0BB4B0, file "multiprocessing\synchronize.py", line 89>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (_make_methods)
+
+  93           LOAD_CONST               4 (<code object locked at 0x00000204BA0FECD0, file "multiprocessing\synchronize.py", line 93>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (locked)
+
+  96           LOAD_CONST               5 (<code object __enter__ at 0x00000204BA0FFEE0, file "multiprocessing\synchronize.py", line 96>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (__enter__)
+
+  99           LOAD_CONST               6 (<code object __exit__ at 0x00000204BA0FFDD0, file "multiprocessing\synchronize.py", line 99>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (__exit__)
+
+ 102           LOAD_CONST               7 (<code object __getstate__ at 0x00000204BA36BD40, file "multiprocessing\synchronize.py", line 102>)
+               MAKE_FUNCTION
+               STORE_NAME              14 (__getstate__)
+
+ 116           LOAD_CONST               8 (<code object __setstate__ at 0x00000204B9F6DBD0, file "multiprocessing\synchronize.py", line 116>)
+               MAKE_FUNCTION
+               STORE_NAME              15 (__setstate__)
+
+ 123           LOAD_NAME                8 (staticmethod)
+
+ 124           LOAD_CONST               9 (<code object _make_name at 0x00000204B9F73890, file "multiprocessing\synchronize.py", line 123>)
+               MAKE_FUNCTION
+
+ 123           CALL                     0
+
+ 124           STORE_NAME              16 (_make_name)
+               LOAD_CONST              10 (('_is_fork_ctx', '_semlock', 'acquire', 'release'))
+               STORE_NAME              17 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              18 (__classdictcell__)
+               LOAD_CONST              11 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA382080, file "multiprocessing\synchronize.py", line 49>:
+  49            RESUME                   0
+
+  50            LOAD_FAST_BORROW         4 (ctx)
+                POP_JUMP_IF_NOT_NONE    31 (to L1)
+                NOT_TAKEN
+
+  51            LOAD_GLOBAL              0 (context)
+                LOAD_ATTR                2 (_default_context)
+                LOAD_ATTR                5 (get_context + NULL|self)
+                CALL                     0
+                STORE_FAST               4 (ctx)
+
+  52    L1:     LOAD_FAST_BORROW         4 (ctx)
+                LOAD_ATTR                7 (get_start_method + NULL|self)
+                CALL                     0
+                LOAD_CONST               1 ('fork')
+                COMPARE_OP              72 (==)
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               4 (_is_fork_ctx)
+
+  53            LOAD_GLOBAL             10 (sys)
+                LOAD_ATTR               12 (platform)
+                LOAD_CONST               2 ('win32')
+                COMPARE_OP              72 (==)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE        13 (to L2)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                8 (_is_fork_ctx)
+        L2:     STORE_FAST               5 (unlink_now)
+
+  54            LOAD_GLOBAL             15 (range + NULL)
+                LOAD_SMALL_INT         100
+                CALL                     1
+                GET_ITER
+        L3:     FOR_ITER                48 (to L6)
+                STORE_FAST               6 (i)
+
+  55            NOP
+
+  56    L4:     LOAD_GLOBAL             16 (_multiprocessing)
+                LOAD_ATTR               18 (SemLock)
+                PUSH_NULL
+
+  57            LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (kind, value)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (maxvalue, self)
+                LOAD_ATTR               21 (_make_name + NULL|self)
+                CALL                     0
+
+  58            LOAD_FAST_BORROW         5 (unlink_now)
+
+  56            CALL                     5
+                COPY                     1
+                STORE_FAST_LOAD_FAST   112 (sl, self)
+                STORE_ATTR              11 (_semlock)
+
+  62    L5:     POP_TOP
+                JUMP_FORWARD            13 (to L7)
+
+  54    L6:     END_FOR
+                POP_ITER
+
+  64            LOAD_GLOBAL             25 (FileExistsError + NULL)
+                LOAD_CONST               3 ('cannot find name for semaphore')
+                CALL                     1
+                RAISE_VARARGS            1
+
+  66    L7:     LOAD_GLOBAL             26 (util)
+                LOAD_ATTR               28 (debug)
+                PUSH_NULL
+                LOAD_CONST               4 ('created semlock with handle %s')
+                LOAD_FAST_BORROW         7 (sl)
+                LOAD_ATTR               30 (handle)
+                BINARY_OP                6 (%)
+                CALL                     1
+                POP_TOP
+
+  67            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               33 (_make_methods + NULL|self)
+                CALL                     0
+                POP_TOP
+
+  69            LOAD_GLOBAL             10 (sys)
+                LOAD_ATTR               12 (platform)
+                LOAD_CONST               2 ('win32')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       26 (to L8)
+                NOT_TAKEN
+
+  70            LOAD_CONST               5 (<code object _after_fork at 0x00000204BA0FF550, file "multiprocessing\synchronize.py", line 70>)
+                MAKE_FUNCTION
+                STORE_FAST               8 (_after_fork)
+
+  72            LOAD_GLOBAL             26 (util)
+                LOAD_ATTR               34 (register_after_fork)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 8 (self, _after_fork)
+                CALL                     2
+                POP_TOP
+
+  74    L8:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               22 (_semlock)
+                LOAD_ATTR               36 (name)
+                POP_JUMP_IF_NONE        99 (to L9)
+                NOT_TAKEN
+
+  78            LOAD_SMALL_INT           1
+                LOAD_CONST               6 (('register',))
+                IMPORT_NAME             19 (resource_tracker)
+                IMPORT_FROM             20 (register)
+                STORE_FAST               9 (register)
+                POP_TOP
+
+  79            LOAD_FAST_BORROW         9 (register)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               22 (_semlock)
+                LOAD_ATTR               36 (name)
+                LOAD_CONST               7 ('semaphore')
+                CALL                     2
+                POP_TOP
+
+  80            LOAD_GLOBAL             26 (util)
+                LOAD_ATTR               42 (Finalize)
+                PUSH_NULL
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_GLOBAL             18 (SemLock)
+                LOAD_ATTR               44 (_cleanup)
+                LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               22 (_semlock)
+                LOAD_ATTR               36 (name)
+                BUILD_TUPLE              1
+
+  81            LOAD_SMALL_INT           0
+
+  80            LOAD_CONST               8 (('exitpriority',))
+                CALL_KW                  4
+                POP_TOP
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  74    L9:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --   L10:     PUSH_EXC_INFO
+
+  59            LOAD_GLOBAL             24 (FileExistsError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L12)
+                NOT_TAKEN
+                POP_TOP
+
+  60   L11:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          303 (to L3)
+
+  59   L12:     RERAISE                  0
+
+  --   L13:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L10 [1]
+  L10 to L11 -> L13 [2] lasti
+  L12 to L13 -> L13 [2] lasti
+
+Disassembly of <code object _after_fork at 0x00000204BA0FF550, file "multiprocessing\synchronize.py", line 70>:
+ 70           RESUME                   0
+
+ 71           LOAD_FAST_BORROW         0 (obj)
+              LOAD_ATTR                0 (_semlock)
+              LOAD_ATTR                3 (_after_fork + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _cleanup at 0x00000204BA0FF440, file "multiprocessing\synchronize.py", line 83>:
+ 83           RESUME                   0
+
+ 85           LOAD_SMALL_INT           1
+              LOAD_CONST               1 (('unregister',))
+              IMPORT_NAME              0 (resource_tracker)
+              IMPORT_FROM              1 (unregister)
+              STORE_FAST               1 (unregister)
+              POP_TOP
+
+ 86           LOAD_GLOBAL              5 (sem_unlink + NULL)
+              LOAD_FAST_BORROW         0 (name)
+              CALL                     1
+              POP_TOP
+
+ 87           LOAD_FAST_BORROW         1 (unregister)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (name)
+              LOAD_CONST               2 ('semaphore')
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _make_methods at 0x00000204BA0BB4B0, file "multiprocessing\synchronize.py", line 89>:
+ 89           RESUME                   0
+
+ 90           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_semlock)
+              LOAD_ATTR                2 (acquire)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (acquire)
+
+ 91           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_semlock)
+              LOAD_ATTR                4 (release)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (release)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object locked at 0x00000204BA0FECD0, file "multiprocessing\synchronize.py", line 93>:
+ 93           RESUME                   0
+
+ 94           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_semlock)
+              LOAD_ATTR                3 (_is_zero + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204BA0FFEE0, file "multiprocessing\synchronize.py", line 96>:
+ 96           RESUME                   0
+
+ 97           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_semlock)
+              LOAD_ATTR                3 (__enter__ + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA0FFDD0, file "multiprocessing\synchronize.py", line 99>:
+ 99           RESUME                   0
+
+100           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_semlock)
+              LOAD_ATTR                2 (__exit__)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (args)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object __getstate__ at 0x00000204BA36BD40, file "multiprocessing\synchronize.py", line 102>:
+102           RESUME                   0
+
+103           LOAD_GLOBAL              0 (context)
+              LOAD_ATTR                2 (assert_spawning)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+104           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_semlock)
+              STORE_FAST               1 (sl)
+
+105           LOAD_GLOBAL              6 (sys)
+              LOAD_ATTR                8 (platform)
+              LOAD_CONST               0 ('win32')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       48 (to L1)
+              NOT_TAKEN
+
+106           LOAD_GLOBAL              0 (context)
+              LOAD_ATTR               10 (get_spawning_popen)
+              PUSH_NULL
+              CALL                     0
+              LOAD_ATTR               13 (duplicate_for_child + NULL|self)
+              LOAD_FAST_BORROW         1 (sl)
+              LOAD_ATTR               14 (handle)
+              CALL                     1
+              STORE_FAST               2 (h)
+              JUMP_FORWARD            41 (to L3)
+
+108   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               16 (_is_fork_ctx)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+109           LOAD_GLOBAL             19 (RuntimeError + NULL)
+              LOAD_CONST               1 ('A SemLock created in a fork context is being shared with a process in a spawn context. This is not supported. Please use the same context to create multiprocessing objects and Process.')
+              CALL                     1
+              RAISE_VARARGS            1
+
+113   L2:     LOAD_FAST_BORROW         1 (sl)
+              LOAD_ATTR               14 (handle)
+              STORE_FAST               2 (h)
+
+114   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 33 (h, sl)
+              LOAD_ATTR               20 (kind)
+              LOAD_FAST_BORROW         1 (sl)
+              LOAD_ATTR               22 (maxvalue)
+              LOAD_FAST_BORROW         1 (sl)
+              LOAD_ATTR               24 (name)
+              BUILD_TUPLE              4
+              RETURN_VALUE
+
+Disassembly of <code object __setstate__ at 0x00000204B9F6DBD0, file "multiprocessing\synchronize.py", line 116>:
+116           RESUME                   0
+
+117           LOAD_GLOBAL              0 (_multiprocessing)
+              LOAD_ATTR                2 (SemLock)
+              LOAD_ATTR                4 (_rebuild)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (state)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_semlock)
+
+118           LOAD_GLOBAL              8 (util)
+              LOAD_ATTR               10 (debug)
+              PUSH_NULL
+              LOAD_CONST               0 ('recreated blocker with handle %r')
+              LOAD_FAST_BORROW         1 (state)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              BINARY_OP                6 (%)
+              CALL                     1
+              POP_TOP
+
+119           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (_make_methods + NULL|self)
+              CALL                     0
+              POP_TOP
+
+121           LOAD_CONST               1 (False)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_is_fork_ctx)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _make_name at 0x00000204B9F73890, file "multiprocessing\synchronize.py", line 123>:
+123           RESUME                   0
+
+125           LOAD_GLOBAL              0 (process)
+              LOAD_ATTR                2 (current_process)
+              PUSH_NULL
+              CALL                     0
+              LOAD_ATTR                4 (_config)
+              LOAD_CONST               0 ('semprefix')
+              BINARY_OP               26 ([])
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('-')
+
+126           LOAD_GLOBAL              7 (next + NULL)
+              LOAD_GLOBAL              8 (SemLock)
+              LOAD_ATTR               10 (_rand)
+              CALL                     1
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+
+125           BUILD_STRING             3
+              RETURN_VALUE
+
+Disassembly of <code object Semaphore at 0x00000204BA0FD020, file "multiprocessing\synchronize.py", line 132>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 132           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Semaphore')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         132
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 134           LOAD_CONST               6 ((1,))
+               LOAD_CONST               1 (<code object __init__ at 0x00000204BA0A7E10, file "multiprocessing\synchronize.py", line 134>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 137           LOAD_CONST               2 (<code object get_value at 0x00000204BA0FFCC0, file "multiprocessing\synchronize.py", line 137>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (get_value)
+
+ 140           LOAD_CONST               3 (<code object __repr__ at 0x00000204BA738030, file "multiprocessing\synchronize.py", line 140>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__repr__)
+               LOAD_CONST               4 (())
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7E10, file "multiprocessing\synchronize.py", line 134>:
+134           RESUME                   0
+
+135           LOAD_GLOBAL              0 (SemLock)
+              LOAD_ATTR                2 (__init__)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_GLOBAL              4 (SEMAPHORE)
+              LOAD_FAST_BORROW         1 (value)
+              LOAD_GLOBAL              6 (SEM_VALUE_MAX)
+              LOAD_FAST_BORROW         2 (ctx)
+              LOAD_CONST               0 (('ctx',))
+              CALL_KW                  5
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object get_value at 0x00000204BA0FFCC0, file "multiprocessing\synchronize.py", line 137>:
+137           RESUME                   0
+
+138           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_semlock)
+              LOAD_ATTR                3 (_get_value + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA738030, file "multiprocessing\synchronize.py", line 140>:
+ 140           RESUME                   0
+
+ 141           NOP
+
+ 142   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_semlock)
+               LOAD_ATTR                3 (_get_value + NULL|self)
+               CALL                     0
+               STORE_FAST               1 (value)
+
+  --   L2:     LOAD_CONST               1 ('<')
+
+ 145           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (__class__)
+               LOAD_ATTR                8 (__name__)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               2 ('(value=')
+               LOAD_FAST_BORROW         1 (value)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               3 (')>')
+               BUILD_STRING             5
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 143           LOAD_GLOBAL              4 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 144           LOAD_CONST               0 ('unknown')
+               STORE_FAST               1 (value)
+       L4:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 46 (to L2)
+
+ 143   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object BoundedSemaphore at 0x00000204BA08AF30, file "multiprocessing\synchronize.py", line 151>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 151           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BoundedSemaphore')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         151
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 153           LOAD_CONST               5 ((1,))
+               LOAD_CONST               1 (<code object __init__ at 0x00000204BA0A6C10, file "multiprocessing\synchronize.py", line 153>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 156           LOAD_CONST               2 (<code object __repr__ at 0x00000204B9F6DF10, file "multiprocessing\synchronize.py", line 156>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__repr__)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A6C10, file "multiprocessing\synchronize.py", line 153>:
+153           RESUME                   0
+
+154           LOAD_GLOBAL              0 (SemLock)
+              LOAD_ATTR                2 (__init__)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_GLOBAL              4 (SEMAPHORE)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 17 (value, value)
+              LOAD_FAST_BORROW         2 (ctx)
+              LOAD_CONST               0 (('ctx',))
+              CALL_KW                  5
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204B9F6DF10, file "multiprocessing\synchronize.py", line 156>:
+ 156           RESUME                   0
+
+ 157           NOP
+
+ 158   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_semlock)
+               LOAD_ATTR                3 (_get_value + NULL|self)
+               CALL                     0
+               STORE_FAST               1 (value)
+
+  --   L2:     LOAD_CONST               1 ('<')
+
+ 162           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (__class__)
+               LOAD_ATTR                8 (__name__)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               2 ('(value=')
+               LOAD_FAST_BORROW         1 (value)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               3 (', maxvalue=')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_semlock)
+               LOAD_ATTR               10 (maxvalue)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               4 (')>')
+
+ 161           BUILD_STRING             7
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 159           LOAD_GLOBAL              4 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 160           LOAD_CONST               0 ('unknown')
+               STORE_FAST               1 (value)
+       L4:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 70 (to L2)
+
+ 159   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object Lock at 0x00000204BA08AD30, file "multiprocessing\synchronize.py", line 168>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 168           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Lock')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         168
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 170           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0A7510, file "multiprocessing\synchronize.py", line 170>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+ 173           LOAD_CONST               2 (<code object __repr__ at 0x00000204BA387780, file "multiprocessing\synchronize.py", line 173>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__repr__)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A7510, file "multiprocessing\synchronize.py", line 170>:
+170           RESUME                   0
+
+171           LOAD_GLOBAL              0 (SemLock)
+              LOAD_ATTR                2 (__init__)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_GLOBAL              4 (SEMAPHORE)
+              LOAD_SMALL_INT           1
+              LOAD_SMALL_INT           1
+              LOAD_FAST_BORROW         1 (ctx)
+              LOAD_CONST               1 (('ctx',))
+              CALL_KW                  5
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA387780, file "multiprocessing\synchronize.py", line 173>:
+ 173            RESUME                   0
+
+ 174            NOP
+
+ 175    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_semlock)
+                LOAD_ATTR                3 (_is_mine + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE      114 (to L5)
+        L2:     NOT_TAKEN
+
+ 176    L3:     LOAD_GLOBAL              4 (process)
+                LOAD_ATTR                6 (current_process)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR                8 (name)
+                STORE_FAST               1 (name)
+
+ 177            LOAD_GLOBAL             10 (threading)
+                LOAD_ATTR               12 (current_thread)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR                8 (name)
+                LOAD_CONST               0 ('MainThread')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       46 (to L4)
+                NOT_TAKEN
+
+ 178            LOAD_FAST_BORROW         1 (name)
+                LOAD_CONST               1 ('|')
+                LOAD_GLOBAL             10 (threading)
+                LOAD_ATTR               12 (current_thread)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR                8 (name)
+                BINARY_OP                0 (+)
+                BINARY_OP               13 (+=)
+                STORE_FAST               1 (name)
+
+  --    L4:     JUMP_FORWARD            72 (to L13)
+
+ 179    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_semlock)
+                LOAD_ATTR               15 (_is_zero + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         4 (to L9)
+        L6:     NOT_TAKEN
+
+ 180    L7:     LOAD_CONST               2 ('None')
+                STORE_FAST               1 (name)
+        L8:     JUMP_FORWARD            37 (to L13)
+
+ 181    L9:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_semlock)
+                LOAD_ATTR               17 (_count + NULL|self)
+                CALL                     0
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE        4 (to L11)
+                NOT_TAKEN
+
+ 182            LOAD_CONST               3 ('SomeOtherThread')
+                STORE_FAST               1 (name)
+       L10:     JUMP_FORWARD             3 (to L13)
+
+ 184   L11:     LOAD_CONST               4 ('SomeOtherProcess')
+                STORE_FAST               1 (name)
+       L12:     NOP
+
+  --   L13:     LOAD_CONST               6 ('<')
+
+ 187            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (__class__)
+                LOAD_ATTR               22 (__name__)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               7 ('(owner=')
+                LOAD_FAST_BORROW         1 (name)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               8 (')>')
+                BUILD_STRING             5
+                RETURN_VALUE
+
+  --   L14:     PUSH_EXC_INFO
+
+ 185            LOAD_GLOBAL             18 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        6 (to L16)
+                NOT_TAKEN
+                POP_TOP
+
+ 186            LOAD_CONST               5 ('unknown')
+                STORE_FAST               1 (name)
+       L15:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 46 (to L13)
+
+ 185   L16:     RERAISE                  0
+
+  --   L17:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L14 [0]
+  L3 to L4 -> L14 [0]
+  L5 to L6 -> L14 [0]
+  L7 to L8 -> L14 [0]
+  L9 to L10 -> L14 [0]
+  L11 to L12 -> L14 [0]
+  L14 to L15 -> L17 [1] lasti
+  L16 to L17 -> L17 [1] lasti
+
+Disassembly of <code object RLock at 0x00000204BA08B130, file "multiprocessing\synchronize.py", line 193>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 193           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('RLock')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         193
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 195           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0A6550, file "multiprocessing\synchronize.py", line 195>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+ 198           LOAD_CONST               2 (<code object __repr__ at 0x00000204BA449230, file "multiprocessing\synchronize.py", line 198>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__repr__)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A6550, file "multiprocessing\synchronize.py", line 195>:
+195           RESUME                   0
+
+196           LOAD_GLOBAL              0 (SemLock)
+              LOAD_ATTR                2 (__init__)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_GLOBAL              4 (RECURSIVE_MUTEX)
+              LOAD_SMALL_INT           1
+              LOAD_SMALL_INT           1
+              LOAD_FAST_BORROW         1 (ctx)
+              LOAD_CONST               1 (('ctx',))
+              CALL_KW                  5
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA449230, file "multiprocessing\synchronize.py", line 198>:
+ 198            RESUME                   0
+
+ 199            NOP
+
+ 200    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_semlock)
+                LOAD_ATTR                3 (_is_mine + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE      140 (to L6)
+        L2:     NOT_TAKEN
+
+ 201    L3:     LOAD_GLOBAL              4 (process)
+                LOAD_ATTR                6 (current_process)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR                8 (name)
+                STORE_FAST               1 (name)
+
+ 202            LOAD_GLOBAL             10 (threading)
+                LOAD_ATTR               12 (current_thread)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR                8 (name)
+                LOAD_CONST               0 ('MainThread')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       46 (to L4)
+                NOT_TAKEN
+
+ 203            LOAD_FAST_BORROW         1 (name)
+                LOAD_CONST               1 ('|')
+                LOAD_GLOBAL             10 (threading)
+                LOAD_ATTR               12 (current_thread)
+                PUSH_NULL
+                CALL                     0
+                LOAD_ATTR                8 (name)
+                BINARY_OP                0 (+)
+                BINARY_OP               13 (+=)
+                STORE_FAST               1 (name)
+
+ 204    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_semlock)
+                LOAD_ATTR               15 (_count + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (count)
+        L5:     JUMP_FORWARD            75 (to L14)
+
+ 205    L6:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_semlock)
+                LOAD_ATTR               17 (_is_zero + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         5 (to L10)
+        L7:     NOT_TAKEN
+
+ 206    L8:     LOAD_CONST               2 ('None')
+                LOAD_SMALL_INT           0
+                STORE_FAST_STORE_FAST   33 (count, name)
+        L9:     JUMP_FORWARD            39 (to L14)
+
+ 207   L10:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_semlock)
+                LOAD_ATTR               15 (_count + NULL|self)
+                CALL                     0
+                LOAD_SMALL_INT           0
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE        5 (to L12)
+                NOT_TAKEN
+
+ 208            LOAD_CONST               3 ('SomeOtherThread')
+                LOAD_CONST               4 ('nonzero')
+                STORE_FAST_STORE_FAST   33 (count, name)
+       L11:     JUMP_FORWARD             4 (to L14)
+
+ 210   L12:     LOAD_CONST               5 ('SomeOtherProcess')
+                LOAD_CONST               4 ('nonzero')
+                STORE_FAST_STORE_FAST   33 (count, name)
+       L13:     NOP
+
+  --   L14:     LOAD_CONST               7 ('<')
+
+ 213            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               20 (__class__)
+                LOAD_ATTR               22 (__name__)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               8 ('(')
+                LOAD_FAST_BORROW         1 (name)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST               9 (', ')
+                LOAD_FAST_BORROW         2 (count)
+                CONVERT_VALUE            1 (str)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (')>')
+                BUILD_STRING             7
+                RETURN_VALUE
+
+  --   L15:     PUSH_EXC_INFO
+
+ 211            LOAD_GLOBAL             18 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        7 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+ 212            LOAD_CONST               6 ('unknown')
+                LOAD_CONST               6 ('unknown')
+                STORE_FAST_STORE_FAST   33 (count, name)
+       L16:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 51 (to L14)
+
+ 211   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L15 [0]
+  L3 to L5 -> L15 [0]
+  L6 to L7 -> L15 [0]
+  L8 to L9 -> L15 [0]
+  L10 to L11 -> L15 [0]
+  L12 to L13 -> L15 [0]
+  L15 to L16 -> L18 [1] lasti
+  L17 to L18 -> L18 [1] lasti
+
+Disassembly of <code object Condition at 0x00000204BA0BB9F0, file "multiprocessing\synchronize.py", line 219>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 219           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Condition')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         219
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 221           LOAD_CONST              14 ((None,))
+               LOAD_CONST               2 (<code object __init__ at 0x00000204B9F9E6B0, file "multiprocessing\synchronize.py", line 221>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 228           LOAD_CONST               3 (<code object __getstate__ at 0x00000204B9F73B50, file "multiprocessing\synchronize.py", line 228>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__getstate__)
+
+ 233           LOAD_CONST               4 (<code object __setstate__ at 0x00000204B9FEF800, file "multiprocessing\synchronize.py", line 233>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__setstate__)
+
+ 238           LOAD_CONST               5 (<code object __enter__ at 0x00000204BA6D4030, file "multiprocessing\synchronize.py", line 238>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (__enter__)
+
+ 241           LOAD_CONST               6 (<code object __exit__ at 0x00000204BA6D4140, file "multiprocessing\synchronize.py", line 241>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__exit__)
+
+ 244           LOAD_CONST               7 (<code object _make_methods at 0x00000204BA0BB8A0, file "multiprocessing\synchronize.py", line 244>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (_make_methods)
+
+ 248           LOAD_CONST               8 (<code object __repr__ at 0x00000204B9FA6310, file "multiprocessing\synchronize.py", line 248>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__repr__)
+
+ 256           LOAD_CONST              14 ((None,))
+               LOAD_CONST               9 (<code object wait at 0x00000204B9D88B10, file "multiprocessing\synchronize.py", line 256>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              11 (wait)
+
+ 279           LOAD_CONST              15 ((1,))
+               LOAD_CONST              10 (<code object notify at 0x00000204BA591890, file "multiprocessing\synchronize.py", line 279>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              12 (notify)
+
+ 305           LOAD_CONST              11 (<code object notify_all at 0x00000204BA0A7630, file "multiprocessing\synchronize.py", line 305>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (notify_all)
+
+ 308           LOAD_CONST              14 ((None,))
+               LOAD_CONST              12 (<code object wait_for at 0x00000204B9FC23D0, file "multiprocessing\synchronize.py", line 308>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              14 (wait_for)
+               LOAD_CONST              13 (('_lock', '_sleeping_count', '_wait_semaphore', '_woken_count', 'acquire', 'release'))
+               STORE_NAME              15 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              16 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F9E6B0, file "multiprocessing\synchronize.py", line 221>:
+221           RESUME                   0
+
+222           LOAD_FAST                1 (lock)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        17 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_FAST_BORROW         2 (ctx)
+              LOAD_ATTR                1 (RLock + NULL|self)
+              CALL                     0
+      L1:     LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_lock)
+
+223           LOAD_FAST_BORROW         2 (ctx)
+              LOAD_ATTR                5 (Semaphore + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_sleeping_count)
+
+224           LOAD_FAST_BORROW         2 (ctx)
+              LOAD_ATTR                5 (Semaphore + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_woken_count)
+
+225           LOAD_FAST_BORROW         2 (ctx)
+              LOAD_ATTR                5 (Semaphore + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               5 (_wait_semaphore)
+
+226           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               13 (_make_methods + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __getstate__ at 0x00000204B9F73B50, file "multiprocessing\synchronize.py", line 228>:
+228           RESUME                   0
+
+229           LOAD_GLOBAL              0 (context)
+              LOAD_ATTR                2 (assert_spawning)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              POP_TOP
+
+230           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_lock)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_sleeping_count)
+
+231           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_woken_count)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_wait_semaphore)
+
+230           BUILD_TUPLE              4
+              RETURN_VALUE
+
+Disassembly of <code object __setstate__ at 0x00000204B9FEF800, file "multiprocessing\synchronize.py", line 233>:
+233           RESUME                   0
+
+235           LOAD_FAST_BORROW         1 (state)
+
+234           UNPACK_SEQUENCE          4
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_lock)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_sleeping_count)
+
+235           LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_woken_count)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_wait_semaphore)
+
+236           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                9 (_make_methods + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __enter__ at 0x00000204BA6D4030, file "multiprocessing\synchronize.py", line 238>:
+238           RESUME                   0
+
+239           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_lock)
+              LOAD_ATTR                3 (__enter__ + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __exit__ at 0x00000204BA6D4140, file "multiprocessing\synchronize.py", line 241>:
+241           RESUME                   0
+
+242           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_lock)
+              LOAD_ATTR                2 (__exit__)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (args)
+              PUSH_NULL
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object _make_methods at 0x00000204BA0BB8A0, file "multiprocessing\synchronize.py", line 244>:
+244           RESUME                   0
+
+245           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_lock)
+              LOAD_ATTR                2 (acquire)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (acquire)
+
+246           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_lock)
+              LOAD_ATTR                4 (release)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (release)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204B9FA6310, file "multiprocessing\synchronize.py", line 248>:
+ 248           RESUME                   0
+
+ 249           NOP
+
+ 250   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_sleeping_count)
+               LOAD_ATTR                2 (_semlock)
+               LOAD_ATTR                5 (_get_value + NULL|self)
+               CALL                     0
+
+ 251           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_woken_count)
+               LOAD_ATTR                2 (_semlock)
+               LOAD_ATTR                5 (_get_value + NULL|self)
+               CALL                     0
+
+ 250           BINARY_OP               10 (-)
+               STORE_FAST               1 (num_waiters)
+
+  --   L2:     LOAD_CONST               1 ('<')
+
+ 254           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (__class__)
+               LOAD_ATTR               12 (__name__)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               2 ('(')
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               14 (_lock)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               3 (', ')
+               LOAD_FAST_BORROW         1 (num_waiters)
+               CONVERT_VALUE            1 (str)
+               FORMAT_SIMPLE
+               LOAD_CONST               4 (')>')
+               BUILD_STRING             7
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 252           LOAD_GLOBAL              8 (Exception)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        6 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+ 253           LOAD_CONST               0 ('unknown')
+               STORE_FAST               1 (num_waiters)
+       L4:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 60 (to L2)
+
+ 252   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object wait at 0x00000204B9D88B10, file "multiprocessing\synchronize.py", line 256>:
+ 256            RESUME                   0
+
+ 257            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR                2 (_semlock)
+                LOAD_ATTR                5 (_is_mine + NULL|self)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE         8 (to L1)
+                NOT_TAKEN
+                LOAD_COMMON_CONSTANT     0 (AssertionError)
+
+ 258            LOAD_CONST               0 ('must acquire() condition before using wait()')
+
+ 257            CALL                     0
+                RAISE_VARARGS            1
+
+ 261    L1:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                6 (_sleeping_count)
+                LOAD_ATTR                9 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 264            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR                2 (_semlock)
+                LOAD_ATTR               11 (_count + NULL|self)
+                CALL                     0
+                STORE_FAST               2 (count)
+
+ 265            LOAD_GLOBAL             13 (range + NULL)
+                LOAD_FAST_BORROW         2 (count)
+                CALL                     1
+                GET_ITER
+        L2:     FOR_ITER                29 (to L3)
+                STORE_FAST               3 (i)
+
+ 266            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR                9 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+                JUMP_BACKWARD           31 (to L2)
+
+ 265    L3:     END_FOR
+                POP_ITER
+
+ 268            NOP
+
+ 270    L4:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               14 (_wait_semaphore)
+                LOAD_ATTR               17 (acquire + NULL|self)
+                LOAD_CONST               1 (True)
+                LOAD_FAST_BORROW         1 (timeout)
+                CALL                     2
+
+ 273    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               18 (_woken_count)
+                LOAD_ATTR                9 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 276            LOAD_GLOBAL             13 (range + NULL)
+                LOAD_FAST_BORROW         2 (count)
+                CALL                     1
+                GET_ITER
+        L6:     FOR_ITER                29 (to L7)
+                STORE_FAST               3 (i)
+
+ 277            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR               17 (acquire + NULL|self)
+                CALL                     0
+                POP_TOP
+                JUMP_BACKWARD           31 (to L6)
+
+ 276    L7:     END_FOR
+                POP_ITER
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+ 273            LOAD_FAST                0 (self)
+                LOAD_ATTR               18 (_woken_count)
+                LOAD_ATTR                9 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 276            LOAD_GLOBAL             13 (range + NULL)
+                LOAD_FAST                2 (count)
+                CALL                     1
+                GET_ITER
+        L9:     FOR_ITER                29 (to L10)
+                STORE_FAST               3 (i)
+
+ 277            LOAD_FAST                0 (self)
+                LOAD_ATTR                0 (_lock)
+                LOAD_ATTR               17 (acquire + NULL|self)
+                CALL                     0
+                POP_TOP
+                JUMP_BACKWARD           31 (to L9)
+
+ 276   L10:     END_FOR
+                POP_ITER
+                RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L8 [0]
+  L8 to L11 -> L11 [1] lasti
+
+Disassembly of <code object notify at 0x00000204BA591890, file "multiprocessing\synchronize.py", line 279>:
+279            RESUME                   0
+
+280            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_lock)
+               LOAD_ATTR                2 (_semlock)
+               LOAD_ATTR                5 (_is_mine + NULL|self)
+               CALL                     0
+               TO_BOOL
+               POP_JUMP_IF_TRUE         8 (to L1)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+               LOAD_CONST               0 ('lock is not owned')
+               CALL                     0
+               RAISE_VARARGS            1
+
+281    L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_wait_semaphore)
+               LOAD_ATTR                9 (acquire + NULL|self)
+
+282            LOAD_CONST               1 (False)
+
+281            CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        8 (to L2)
+               NOT_TAKEN
+               LOAD_COMMON_CONSTANT     0 (AssertionError)
+
+282            LOAD_CONST               3 ('notify: Should not have been able to acquire _wait_semaphore')
+
+281            CALL                     0
+               RAISE_VARARGS            1
+
+287    L2:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_woken_count)
+               LOAD_ATTR                9 (acquire + NULL|self)
+               LOAD_CONST               1 (False)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       45 (to L4)
+               NOT_TAKEN
+
+288            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_sleeping_count)
+               LOAD_ATTR                9 (acquire + NULL|self)
+               LOAD_CONST               1 (False)
+               CALL                     1
+               STORE_FAST               2 (res)
+
+289            LOAD_FAST_BORROW         2 (res)
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+               JUMP_BACKWARD           70 (to L2)
+       L3:     LOAD_COMMON_CONSTANT     0 (AssertionError)
+               LOAD_CONST               4 ('notify: Bug in sleeping_count.acquire- res should not be False')
+               CALL                     0
+               RAISE_VARARGS            1
+
+292    L4:     LOAD_SMALL_INT           0
+               STORE_FAST               3 (sleepers)
+
+293    L5:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (sleepers, n)
+               COMPARE_OP              18 (bool(<))
+               POP_JUMP_IF_FALSE       71 (to L6)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (_sleeping_count)
+               LOAD_ATTR                9 (acquire + NULL|self)
+               LOAD_CONST               1 (False)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       38 (to L6)
+               NOT_TAKEN
+
+294            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_wait_semaphore)
+               LOAD_ATTR               15 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+
+295            LOAD_FAST_BORROW         3 (sleepers)
+               LOAD_SMALL_INT           1
+               BINARY_OP               13 (+=)
+               STORE_FAST               3 (sleepers)
+               JUMP_BACKWARD           76 (to L5)
+
+297    L6:     LOAD_FAST_BORROW         3 (sleepers)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       82 (to L11)
+               NOT_TAKEN
+
+298            LOAD_GLOBAL             17 (range + NULL)
+               LOAD_FAST_BORROW         3 (sleepers)
+               CALL                     1
+               GET_ITER
+       L7:     FOR_ITER                29 (to L8)
+               STORE_FAST               4 (i)
+
+299            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               10 (_woken_count)
+               LOAD_ATTR                9 (acquire + NULL|self)
+               CALL                     0
+               POP_TOP
+               JUMP_BACKWARD           31 (to L7)
+
+298    L8:     END_FOR
+               POP_ITER
+
+302    L9:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_wait_semaphore)
+               LOAD_ATTR                9 (acquire + NULL|self)
+               LOAD_CONST               1 (False)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L10)
+               NOT_TAKEN
+
+303            JUMP_BACKWARD           35 (to L9)
+
+302   L10:     LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+297   L11:     LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object notify_all at 0x00000204BA0A7630, file "multiprocessing\synchronize.py", line 305>:
+305           RESUME                   0
+
+306           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (notify + NULL|self)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                4 (maxsize)
+              LOAD_CONST               0 (('n',))
+              CALL_KW                  1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object wait_for at 0x00000204B9FC23D0, file "multiprocessing\synchronize.py", line 308>:
+308           RESUME                   0
+
+309           LOAD_FAST_BORROW         1 (predicate)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               3 (result)
+
+310           LOAD_FAST_BORROW         3 (result)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+311           LOAD_FAST_BORROW         3 (result)
+              RETURN_VALUE
+
+312   L1:     LOAD_FAST_BORROW         2 (timeout)
+              POP_JUMP_IF_NONE        30 (to L2)
+              NOT_TAKEN
+
+313           LOAD_GLOBAL              0 (time)
+              LOAD_ATTR                2 (monotonic)
+              PUSH_NULL
+              CALL                     0
+              LOAD_FAST_BORROW         2 (timeout)
+              BINARY_OP                0 (+)
+              STORE_FAST               4 (endtime)
+              JUMP_FORWARD             4 (to L3)
+
+315   L2:     LOAD_CONST               0 (None)
+              STORE_FAST               4 (endtime)
+
+316           LOAD_CONST               0 (None)
+              STORE_FAST               5 (waittime)
+
+317   L3:     LOAD_FAST_BORROW         3 (result)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        69 (to L5)
+              NOT_TAKEN
+
+318           LOAD_FAST_BORROW         4 (endtime)
+              POP_JUMP_IF_NONE        39 (to L4)
+              NOT_TAKEN
+
+319           LOAD_FAST_BORROW         4 (endtime)
+              LOAD_GLOBAL              0 (time)
+              LOAD_ATTR                2 (monotonic)
+              PUSH_NULL
+              CALL                     0
+              BINARY_OP               10 (-)
+              STORE_FAST               5 (waittime)
+
+320           LOAD_FAST_BORROW         5 (waittime)
+              LOAD_SMALL_INT           0
+              COMPARE_OP              58 (bool(<=))
+              POP_JUMP_IF_FALSE        4 (to L4)
+              NOT_TAKEN
+
+321           NOP
+
+324           LOAD_FAST_BORROW         3 (result)
+              RETURN_VALUE
+
+322   L4:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                5 (wait + NULL|self)
+              LOAD_FAST_CHECK          5 (waittime)
+              CALL                     1
+              POP_TOP
+
+323           LOAD_FAST_BORROW         1 (predicate)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               3 (result)
+              JUMP_BACKWARD           76 (to L3)
+
+324   L5:     LOAD_FAST_BORROW         3 (result)
+              RETURN_VALUE
+
+Disassembly of <code object Event at 0x00000204BA0A6AF0, file "multiprocessing\synchronize.py", line 330>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 330           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Event')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (330)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 332           LOAD_CONST               2 (<code object __init__ at 0x00000204BA0BB360, file "multiprocessing\synchronize.py", line 332>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+ 336           LOAD_CONST               3 (<code object is_set at 0x00000204B9F4E810, file "multiprocessing\synchronize.py", line 336>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (is_set)
+
+ 343           LOAD_CONST               4 (<code object set at 0x00000204B9FC3690, file "multiprocessing\synchronize.py", line 343>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (set)
+
+ 349           LOAD_CONST               5 (<code object clear at 0x00000204BA7381A0, file "multiprocessing\synchronize.py", line 349>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (clear)
+
+ 353           LOAD_CONST              10 ((None,))
+               LOAD_CONST               7 (<code object wait at 0x00000204BA37F1E0, file "multiprocessing\synchronize.py", line 353>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               8 (wait)
+
+ 365           LOAD_CONST               8 (<code object __repr__ at 0x00000204B9F72D90, file "multiprocessing\synchronize.py", line 365>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__repr__)
+               LOAD_CONST               9 (('_cond', '_flag'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0BB360, file "multiprocessing\synchronize.py", line 332>:
+332           RESUME                   0
+
+333           LOAD_FAST_BORROW         1 (ctx)
+              LOAD_ATTR                1 (Condition + NULL|self)
+              LOAD_FAST_BORROW         1 (ctx)
+              LOAD_ATTR                3 (Lock + NULL|self)
+              CALL                     0
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_cond)
+
+334           LOAD_FAST_BORROW         1 (ctx)
+              LOAD_ATTR                7 (Semaphore + NULL|self)
+              LOAD_SMALL_INT           0
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_flag)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object is_set at 0x00000204B9F4E810, file "multiprocessing\synchronize.py", line 336>:
+ 336           RESUME                   0
+
+ 337           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_cond)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 338           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_flag)
+               LOAD_ATTR                5 (acquire + NULL|self)
+               LOAD_CONST               0 (False)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       38 (to L3)
+               NOT_TAKEN
+
+ 339           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_flag)
+               LOAD_ATTR                7 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 340           NOP
+
+ 337   L2:     LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               2 (True)
+               RETURN_VALUE
+
+ 341   L3:     NOP
+
+ 337   L4:     LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               0 (False)
+               RETURN_VALUE
+       L5:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L6)
+               NOT_TAKEN
+               RERAISE                  2
+       L6:     POP_TOP
+       L7:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L5 [2] lasti
+  L3 to L4 -> L5 [2] lasti
+  L5 to L7 -> L8 [4] lasti
+
+Disassembly of <code object set at 0x00000204B9FC3690, file "multiprocessing\synchronize.py", line 343>:
+ 343           RESUME                   0
+
+ 344           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_cond)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 345           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_flag)
+               LOAD_ATTR                5 (acquire + NULL|self)
+               LOAD_CONST               0 (False)
+               CALL                     1
+               POP_TOP
+
+ 346           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_flag)
+               LOAD_ATTR                7 (release + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 347           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_cond)
+               LOAD_ATTR                9 (notify_all + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 344   L2:     LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object clear at 0x00000204BA7381A0, file "multiprocessing\synchronize.py", line 349>:
+ 349           RESUME                   0
+
+ 350           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (_cond)
+               COPY                     1
+               LOAD_SPECIAL             1 (__exit__)
+               SWAP                     2
+               SWAP                     3
+               LOAD_SPECIAL             0 (__enter__)
+               CALL                     0
+       L1:     POP_TOP
+
+ 351           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                2 (_flag)
+               LOAD_ATTR                5 (acquire + NULL|self)
+               LOAD_CONST               0 (False)
+               CALL                     1
+               POP_TOP
+
+ 350   L2:     LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               LOAD_CONST               1 (None)
+               CALL                     3
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+       L3:     PUSH_EXC_INFO
+               WITH_EXCEPT_START
+               TO_BOOL
+               POP_JUMP_IF_TRUE         2 (to L4)
+               NOT_TAKEN
+               RERAISE                  2
+       L4:     POP_TOP
+       L5:     POP_EXCEPT
+               POP_TOP
+               POP_TOP
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [2] lasti
+  L3 to L5 -> L6 [4] lasti
+
+Disassembly of <code object wait at 0x00000204BA37F1E0, file "multiprocessing\synchronize.py", line 353>:
+ 353            RESUME                   0
+
+ 354            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_cond)
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L1:     POP_TOP
+
+ 355            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_flag)
+                LOAD_ATTR                5 (acquire + NULL|self)
+                LOAD_CONST               0 (False)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       28 (to L2)
+                NOT_TAKEN
+
+ 356            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_flag)
+                LOAD_ATTR                7 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+                JUMP_FORWARD            27 (to L3)
+
+ 358    L2:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                0 (_cond)
+                LOAD_ATTR                9 (wait + NULL|self)
+                LOAD_FAST_BORROW         1 (timeout)
+                CALL                     1
+                POP_TOP
+
+ 360    L3:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_flag)
+                LOAD_ATTR                5 (acquire + NULL|self)
+                LOAD_CONST               0 (False)
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       38 (to L7)
+        L4:     NOT_TAKEN
+
+ 361    L5:     LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR                2 (_flag)
+                LOAD_ATTR                7 (release + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 362            NOP
+
+ 354    L6:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               2 (True)
+                RETURN_VALUE
+
+ 363    L7:     NOP
+
+ 354    L8:     LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                LOAD_CONST               1 (None)
+                CALL                     3
+                POP_TOP
+                LOAD_CONST               0 (False)
+                RETURN_VALUE
+        L9:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L10)
+                NOT_TAKEN
+                RERAISE                  2
+       L10:     POP_TOP
+       L11:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L12:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L9 [2] lasti
+  L5 to L6 -> L9 [2] lasti
+  L7 to L8 -> L9 [2] lasti
+  L9 to L11 -> L12 [4] lasti
+
+Disassembly of <code object __repr__ at 0x00000204B9F72D90, file "multiprocessing\synchronize.py", line 365>:
+365           RESUME                   0
+
+366           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (is_set + NULL|self)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               0 ('set')
+              JUMP_FORWARD             1 (to L2)
+      L1:     LOAD_CONST               1 ('unset')
+      L2:     STORE_FAST               1 (set_status)
+
+367           LOAD_CONST               2 ('<')
+              LOAD_GLOBAL              3 (type + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_ATTR                4 (__qualname__)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (' at ')
+              LOAD_GLOBAL              7 (id + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_CONST               4 ('#x')
+              FORMAT_WITH_SPEC
+              LOAD_CONST               5 (' ')
+              LOAD_FAST_BORROW         1 (set_status)
+              FORMAT_SIMPLE
+              LOAD_CONST               6 ('>')
+              BUILD_STRING             7
+              RETURN_VALUE
+
+Disassembly of <code object Barrier at 0x00000204BA738310, file "multiprocessing\synchronize.py", line 372>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 372           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Barrier')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (372)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 374           LOAD_CONST              11 ((None, None))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA129DE0, file "multiprocessing\synchronize.py", line 374>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 383           LOAD_CONST               4 (<code object __setstate__ at 0x00000204B9FB5E30, file "multiprocessing\synchronize.py", line 383>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__setstate__)
+
+ 388           LOAD_CONST               5 (<code object __getstate__ at 0x00000204BA0B8960, file "multiprocessing\synchronize.py", line 388>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__getstate__)
+
+ 392           LOAD_NAME                7 (property)
+
+ 393           LOAD_CONST               6 (<code object _state at 0x00000204BA08A530, file "multiprocessing\synchronize.py", line 392>)
+               MAKE_FUNCTION
+
+ 392           CALL                     0
+
+ 393           STORE_NAME               8 (_state)
+
+ 396           LOAD_NAME                8 (_state)
+               LOAD_ATTR               18 (setter)
+
+ 397           LOAD_CONST               7 (<code object _state at 0x00000204BA08B030, file "multiprocessing\synchronize.py", line 396>)
+               MAKE_FUNCTION
+
+ 396           CALL                     0
+
+ 397           STORE_NAME               8 (_state)
+
+ 400           LOAD_NAME                7 (property)
+
+ 401           LOAD_CONST               8 (<code object _count at 0x00000204BA08B330, file "multiprocessing\synchronize.py", line 400>)
+               MAKE_FUNCTION
+
+ 400           CALL                     0
+
+ 401           STORE_NAME              10 (_count)
+
+ 404           LOAD_NAME               10 (_count)
+               LOAD_ATTR               18 (setter)
+
+ 405           LOAD_CONST               9 (<code object _count at 0x00000204BA08AC30, file "multiprocessing\synchronize.py", line 404>)
+               MAKE_FUNCTION
+
+ 404           CALL                     0
+
+ 405           STORE_NAME              10 (_count)
+               LOAD_CONST              10 (('_action', '_array', '_cond', '_count', '_parties', '_state', '_timeout', '_wrapper'))
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA129DE0, file "multiprocessing\synchronize.py", line 374>:
+374           RESUME                   0
+
+375           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (struct)
+              STORE_FAST               5 (struct)
+
+376           LOAD_SMALL_INT           1
+              LOAD_CONST               2 (('BufferWrapper',))
+              IMPORT_NAME              1 (heap)
+              IMPORT_FROM              2 (BufferWrapper)
+              STORE_FAST               6 (BufferWrapper)
+              POP_TOP
+
+377           LOAD_FAST_BORROW         6 (BufferWrapper)
+              PUSH_NULL
+              LOAD_FAST_BORROW         5 (struct)
+              LOAD_ATTR                7 (calcsize + NULL|self)
+              LOAD_CONST               3 ('i')
+              CALL                     1
+              LOAD_SMALL_INT           2
+              BINARY_OP                5 (*)
+              CALL                     1
+              STORE_FAST               7 (wrapper)
+
+378           LOAD_FAST_BORROW         4 (ctx)
+              LOAD_ATTR                9 (Condition + NULL|self)
+              CALL                     0
+              STORE_FAST               8 (cond)
+
+379           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (__setstate__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (parties, action)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 56 (timeout, cond)
+              LOAD_FAST_BORROW         7 (wrapper)
+              BUILD_TUPLE              5
+              CALL                     1
+              POP_TOP
+
+380           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               6 (_state)
+
+381           LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_count)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __setstate__ at 0x00000204B9FB5E30, file "multiprocessing\synchronize.py", line 383>:
+383           RESUME                   0
+
+385           LOAD_FAST_BORROW         1 (state)
+
+384           UNPACK_SEQUENCE          5
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_parties)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               1 (_action)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_timeout)
+
+385           LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (_cond)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (_wrapper)
+
+386           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_wrapper)
+              LOAD_ATTR               11 (create_memoryview + NULL|self)
+              CALL                     0
+              LOAD_ATTR               13 (cast + NULL|self)
+              LOAD_CONST               0 ('i')
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (_array)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __getstate__ at 0x00000204BA0B8960, file "multiprocessing\synchronize.py", line 388>:
+388           RESUME                   0
+
+389           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_parties)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_action)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_timeout)
+
+390           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (_cond)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (_wrapper)
+
+389           BUILD_TUPLE              5
+              RETURN_VALUE
+
+Disassembly of <code object _state at 0x00000204BA08A530, file "multiprocessing\synchronize.py", line 392>:
+392           RESUME                   0
+
+394           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_array)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object _state at 0x00000204BA08B030, file "multiprocessing\synchronize.py", line 396>:
+396           RESUME                   0
+
+398           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (value, self)
+              LOAD_ATTR                0 (_array)
+              LOAD_SMALL_INT           0
+              STORE_SUBSCR
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _count at 0x00000204BA08B330, file "multiprocessing\synchronize.py", line 400>:
+400           RESUME                   0
+
+402           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_array)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object _count at 0x00000204BA08AC30, file "multiprocessing\synchronize.py", line 404>:
+404           RESUME                   0
+
+406           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (value, self)
+              LOAD_ATTR                0 (_array)
+              LOAD_SMALL_INT           1
+              STORE_SUBSCR
+              LOAD_CONST               1 (None)
+              RETURN_VALUE

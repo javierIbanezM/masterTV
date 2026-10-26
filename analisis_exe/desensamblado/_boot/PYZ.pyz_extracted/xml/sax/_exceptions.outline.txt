@@ -1,0 +1,49 @@
+<module>()  line 1
+    SAXException()  line 5
+        SAXException.__init__(self, msg, exception)  line 15
+        SAXException.getMessage(self)  line 22
+        SAXException.getException(self)  line 26
+        SAXException.__str__(self)  line 30
+        SAXException.__getitem__(self, ix)  line 34
+    SAXParseException()  line 42
+        SAXParseException.__init__(self, msg, exception, locator)  line 55
+        SAXParseException.getColumnNumber(self)  line 68
+        SAXParseException.getLineNumber(self)  line 73
+        SAXParseException.getPublicId(self)  line 77
+        SAXParseException.getSystemId(self)  line 81
+        SAXParseException.__str__(self)  line 85
+    SAXNotRecognizedException()  line 101
+    SAXNotSupportedException()  line 111
+    SAXReaderNotAvailable()  line 121
+
+--- strings ---
+'Different kinds of SAX Exceptions'
+'SAXException'
+'Encapsulate an XML error or warning. This class can contain\nbasic error or warning information from either the XML parser or\nthe application: you can subclass it to provide additional\nfunctionality, or to add localization. Note that although you will\nreceive a SAXException as the argument to the handlers in the\nErrorHandler interface, you are not actually required to raise\nthe exception; instead, you can simply read the information in\nit.'
+'Creates an exception. The message is required, but the exception\nis optional.'
+'Return a message for this exception.'
+'Return the embedded exception, or None if there was none.'
+'Create a string representation of the exception.'
+'Avoids weird error messages if someone does exception[ix] by\nmistake, since Exception has __getitem__ defined.'
+'__getitem__'
+'SAXException'
+'SAXParseException'
+'Encapsulate an XML parse error or warning.\n\nThis exception will include information for locating the error in\nthe original XML document. Note that although the application will\nreceive a SAXParseException as the argument to the handlers in the\nErrorHandler interface, the application is not actually required\nto raise the exception; instead, it can simply read the\ninformation in it and take a different action.\n\nSince this exception is a subclass of SAXException, it inherits\nthe ability to wrap another exception.'
+'Creates the exception. The exception parameter is allowed to be None.'
+'The column number of the end of the text where the exception\noccurred.'
+'The line number of the end of the text where the exception occurred.'
+'Get the public identifier of the entity where the exception occurred.'
+'Get the system identifier of the entity where the exception occurred.'
+'Create a string representation of the exception.'
+'<unknown>'
+': '
+'SAXParseException'
+'SAXNotRecognizedException'
+'Exception class for an unrecognized identifier.\n\nAn XMLReader will raise this exception when it is confronted with an\nunrecognized feature or property. SAX applications and extensions may\nuse this class for similar purposes.'
+'SAXNotRecognizedException'
+'SAXNotSupportedException'
+'Exception class for an unsupported operation.\n\nAn XMLReader will raise this exception when a service it cannot\nperform is requested (specifically setting a state or value). SAX\napplications and extensions may use this class for similar\npurposes.'
+'SAXNotSupportedException'
+'SAXReaderNotAvailable'
+'Exception class for a missing driver.\n\nAn XMLReader module (driver) should raise this exception when it\nis first imported, e.g. when a support module cannot be imported.\nIt also may be raised during parsing, e.g. if executing an external\nprogram is not permitted.'
+'SAXReaderNotAvailable'

@@ -1,0 +1,407 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              0 (sys)
+              STORE_NAME               0 (sys)
+
+  2           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('Array', 'Structure', 'Union'))
+              IMPORT_NAME              1 (ctypes)
+              IMPORT_FROM              2 (Array)
+              STORE_NAME               2 (Array)
+              IMPORT_FROM              3 (Structure)
+              STORE_NAME               3 (Structure)
+              IMPORT_FROM              4 (Union)
+              STORE_NAME               4 (Union)
+              POP_TOP
+
+  4           LOAD_NAME                5 (type)
+              PUSH_NULL
+              LOAD_NAME                2 (Array)
+              CALL                     1
+              STORE_NAME               6 (_array_type)
+
+  6           LOAD_CONST               3 (<code object _other_endian at 0x00000204B9F5BA30, file "ctypes\_endian.py", line 6>)
+              MAKE_FUNCTION
+              STORE_NAME               7 (_other_endian)
+
+ 23           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               4 (<code object _swapped_meta at 0x00000204BA0FECD0, file "ctypes\_endian.py", line 23>)
+              MAKE_FUNCTION
+              LOAD_CONST               5 ('_swapped_meta')
+              CALL                     2
+              STORE_NAME               8 (_swapped_meta)
+
+ 34           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object _swapped_struct_meta at 0x00000204BA092F10, file "ctypes\_endian.py", line 34>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 ('_swapped_struct_meta')
+              LOAD_NAME                8 (_swapped_meta)
+              LOAD_NAME                5 (type)
+              PUSH_NULL
+              LOAD_NAME                3 (Structure)
+              CALL                     1
+              CALL                     4
+              STORE_NAME               9 (_swapped_struct_meta)
+
+ 35           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               8 (<code object _swapped_union_meta at 0x00000204BA093000, file "ctypes\_endian.py", line 35>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 ('_swapped_union_meta')
+              LOAD_NAME                8 (_swapped_meta)
+              LOAD_NAME                5 (type)
+              PUSH_NULL
+              LOAD_NAME                4 (Union)
+              CALL                     1
+              CALL                     4
+              STORE_NAME              10 (_swapped_union_meta)
+
+ 43           LOAD_NAME                0 (sys)
+              LOAD_ATTR               22 (byteorder)
+              LOAD_CONST              10 ('little')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       35 (to L1)
+              NOT_TAKEN
+
+ 44           LOAD_CONST              11 ('__ctype_be__')
+              STORE_NAME              12 (_OTHER_ENDIAN)
+
+ 46           LOAD_NAME                3 (Structure)
+              STORE_NAME              13 (LittleEndianStructure)
+
+ 48           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              12 (<code object BigEndianStructure at 0x00000204BA08B130, file "ctypes\_endian.py", line 48>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 ('BigEndianStructure')
+              LOAD_NAME                3 (Structure)
+              LOAD_NAME                9 (_swapped_struct_meta)
+              LOAD_CONST              14 (('metaclass',))
+              CALL_KW                  4
+              STORE_NAME              14 (BigEndianStructure)
+
+ 53           LOAD_NAME                4 (Union)
+              STORE_NAME              15 (LittleEndianUnion)
+
+ 55           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              15 (<code object BigEndianUnion at 0x00000204BA08A530, file "ctypes\_endian.py", line 55>)
+              MAKE_FUNCTION
+              LOAD_CONST              16 ('BigEndianUnion')
+              LOAD_NAME                4 (Union)
+              LOAD_NAME               10 (_swapped_union_meta)
+              LOAD_CONST              14 (('metaclass',))
+              CALL_KW                  4
+              STORE_NAME              16 (BigEndianUnion)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 60   L1:     LOAD_NAME                0 (sys)
+              LOAD_ATTR               22 (byteorder)
+              LOAD_CONST              17 ('big')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       35 (to L2)
+              NOT_TAKEN
+
+ 61           LOAD_CONST              18 ('__ctype_le__')
+              STORE_NAME              12 (_OTHER_ENDIAN)
+
+ 63           LOAD_NAME                3 (Structure)
+              STORE_NAME              14 (BigEndianStructure)
+
+ 65           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              19 (<code object LittleEndianStructure at 0x00000204BA08AD30, file "ctypes\_endian.py", line 65>)
+              MAKE_FUNCTION
+              LOAD_CONST              20 ('LittleEndianStructure')
+              LOAD_NAME                3 (Structure)
+              LOAD_NAME                9 (_swapped_struct_meta)
+              LOAD_CONST              14 (('metaclass',))
+              CALL_KW                  4
+              STORE_NAME              13 (LittleEndianStructure)
+
+ 70           LOAD_NAME                4 (Union)
+              STORE_NAME              16 (BigEndianUnion)
+
+ 72           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              21 (<code object LittleEndianUnion at 0x00000204BA08B330, file "ctypes\_endian.py", line 72>)
+              MAKE_FUNCTION
+              LOAD_CONST              22 ('LittleEndianUnion')
+              LOAD_NAME                4 (Union)
+              LOAD_NAME               10 (_swapped_union_meta)
+              LOAD_CONST              14 (('metaclass',))
+              CALL_KW                  4
+              STORE_NAME              15 (LittleEndianUnion)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+ 78   L2:     LOAD_NAME               17 (RuntimeError)
+              PUSH_NULL
+              LOAD_CONST              23 ('Invalid byteorder')
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object _other_endian at 0x00000204B9F5BA30, file "ctypes\_endian.py", line 6>:
+  6           RESUME                   0
+
+ 13           LOAD_GLOBAL              1 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (typ)
+              LOAD_GLOBAL              2 (_OTHER_ENDIAN)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+
+ 14           LOAD_GLOBAL              5 (getattr + NULL)
+              LOAD_FAST_BORROW         0 (typ)
+              LOAD_GLOBAL              2 (_OTHER_ENDIAN)
+              CALL                     2
+              RETURN_VALUE
+
+ 16   L1:     LOAD_GLOBAL              7 (isinstance + NULL)
+              LOAD_FAST_BORROW         0 (typ)
+              LOAD_GLOBAL              8 (_array_type)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE       39 (to L2)
+              NOT_TAKEN
+
+ 17           LOAD_GLOBAL             11 (_other_endian + NULL)
+              LOAD_FAST_BORROW         0 (typ)
+              LOAD_ATTR               12 (_type_)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (typ)
+              LOAD_ATTR               14 (_length_)
+              BINARY_OP                5 (*)
+              RETURN_VALUE
+
+ 19   L2:     LOAD_GLOBAL             17 (issubclass + NULL)
+              LOAD_FAST_BORROW         0 (typ)
+              LOAD_GLOBAL             18 (Structure)
+              LOAD_GLOBAL             20 (Union)
+              BUILD_TUPLE              2
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+ 20           LOAD_FAST_BORROW         0 (typ)
+              RETURN_VALUE
+
+ 21   L3:     LOAD_GLOBAL             23 (TypeError + NULL)
+              LOAD_CONST               1 ('This type does not support other endian: %s')
+              LOAD_FAST_BORROW         0 (typ)
+              BINARY_OP                6 (%)
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object _swapped_meta at 0x00000204BA0FECD0, file "ctypes\_endian.py", line 23>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+  23           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_swapped_meta')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          23
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+  24           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               1 (<code object __setattr__ at 0x00000204B9F6F770, file "ctypes\_endian.py", line 24>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               4 (__setattr__)
+               LOAD_CONST               2 (())
+               STORE_NAME               5 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME               6 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME               7 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object __setattr__ at 0x00000204B9F6F770, file "ctypes\_endian.py", line 24>:
+  --           COPY_FREE_VARS           1
+
+  24           RESUME                   0
+
+  25           LOAD_FAST_BORROW         1 (attrname)
+               LOAD_CONST               0 ('_fields_')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       76 (to L3)
+               NOT_TAKEN
+
+  26           BUILD_LIST               0
+               STORE_FAST               3 (fields)
+
+  27           LOAD_FAST_BORROW         2 (value)
+               GET_ITER
+       L1:     FOR_ITER                65 (to L2)
+               STORE_FAST               4 (desc)
+
+  28           LOAD_FAST_BORROW         4 (desc)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               STORE_FAST               5 (name)
+
+  29           LOAD_FAST_BORROW         4 (desc)
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               STORE_FAST               6 (typ)
+
+  30           LOAD_FAST_BORROW         4 (desc)
+               LOAD_CONST               1 (slice(2, None, None))
+               BINARY_OP               26 ([])
+               STORE_FAST               7 (rest)
+
+  31           LOAD_FAST_BORROW         3 (fields)
+               LOAD_ATTR                1 (append + NULL|self)
+               LOAD_FAST_BORROW         5 (name)
+               LOAD_GLOBAL              3 (_other_endian + NULL)
+               LOAD_FAST_BORROW         6 (typ)
+               CALL                     1
+               BUILD_TUPLE              2
+               LOAD_FAST_BORROW         7 (rest)
+               BINARY_OP                0 (+)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD           67 (to L1)
+
+  27   L2:     END_FOR
+               POP_ITER
+
+  32           LOAD_FAST                3 (fields)
+               STORE_FAST               2 (value)
+
+  33   L3:     LOAD_GLOBAL              4 (super)
+               LOAD_DEREF               8 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         13 (__setattr__ + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (attrname, value)
+               CALL                     2
+               POP_TOP
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object _swapped_struct_meta at 0x00000204BA092F10, file "ctypes\_endian.py", line 34>:
+ 34           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('_swapped_struct_meta')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          34
+              STORE_NAME               3 (__firstlineno__)
+              LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _swapped_union_meta at 0x00000204BA093000, file "ctypes\_endian.py", line 35>:
+ 35           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('_swapped_union_meta')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          35
+              STORE_NAME               3 (__firstlineno__)
+              LOAD_CONST               1 (())
+              STORE_NAME               4 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object BigEndianStructure at 0x00000204BA08B130, file "ctypes\_endian.py", line 48>:
+ 48           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('BigEndianStructure')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          48
+              STORE_NAME               3 (__firstlineno__)
+
+ 49           LOAD_CONST               1 ('Structure with big endian byte order')
+              STORE_NAME               4 (__doc__)
+
+ 50           LOAD_CONST               3 (())
+              STORE_NAME               5 (__slots__)
+
+ 51           LOAD_CONST               2 (None)
+              STORE_NAME               6 (_swappedbytes_)
+              LOAD_CONST               3 (())
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object BigEndianUnion at 0x00000204BA08A530, file "ctypes\_endian.py", line 55>:
+ 55           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('BigEndianUnion')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          55
+              STORE_NAME               3 (__firstlineno__)
+
+ 56           LOAD_CONST               1 ('Union with big endian byte order')
+              STORE_NAME               4 (__doc__)
+
+ 57           LOAD_CONST               3 (())
+              STORE_NAME               5 (__slots__)
+
+ 58           LOAD_CONST               2 (None)
+              STORE_NAME               6 (_swappedbytes_)
+              LOAD_CONST               3 (())
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object LittleEndianStructure at 0x00000204BA08AD30, file "ctypes\_endian.py", line 65>:
+ 65           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('LittleEndianStructure')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          65
+              STORE_NAME               3 (__firstlineno__)
+
+ 66           LOAD_CONST               1 ('Structure with little endian byte order')
+              STORE_NAME               4 (__doc__)
+
+ 67           LOAD_CONST               3 (())
+              STORE_NAME               5 (__slots__)
+
+ 68           LOAD_CONST               2 (None)
+              STORE_NAME               6 (_swappedbytes_)
+              LOAD_CONST               3 (())
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object LittleEndianUnion at 0x00000204BA08B330, file "ctypes\_endian.py", line 72>:
+ 72           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('LittleEndianUnion')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          72
+              STORE_NAME               3 (__firstlineno__)
+
+ 73           LOAD_CONST               1 ('Union with little endian byte order')
+              STORE_NAME               4 (__doc__)
+
+ 74           LOAD_CONST               3 (())
+              STORE_NAME               5 (__slots__)
+
+ 75           LOAD_CONST               2 (None)
+              STORE_NAME               6 (_swappedbytes_)
+              LOAD_CONST               3 (())
+              STORE_NAME               7 (__static_attributes__)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE

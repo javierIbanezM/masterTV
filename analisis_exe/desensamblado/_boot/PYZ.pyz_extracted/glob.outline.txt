@@ -1,0 +1,102 @@
+<module>()  line 1
+    glob(pathname, root_dir, dir_fd, recursive, include_hidden)  line 16
+    iglob(pathname, root_dir, dir_fd, recursive, include_hidden)  line 34
+    _iglob(pathname, root_dir, dir_fd, recursive, dironly, include_hidden)  line 63
+    _glob1(dirname, pattern, dir_fd, dironly, include_hidden)  line 108
+        _glob1.<locals>.<genexpr>(.0)  line 111
+    _glob0(dirname, basename, dir_fd, dironly, include_hidden)  line 114
+    glob0(dirname, pattern)  line 130
+    glob1(dirname, pattern)  line 135
+    _glob2(dirname, pattern, dir_fd, dironly, include_hidden)  line 143
+    _iterdir(dirname, dir_fd, dironly)  line 152
+    _listdir(dirname, dir_fd, dironly)  line 186
+    _rlistdir(dirname, dir_fd, dironly, include_hidden)  line 191
+    _lexists(pathname, dir_fd)  line 202
+    _isdir(pathname, dir_fd)  line 213
+    _join(dirname, basename)  line 224
+    has_magic(s)  line 233
+    _ishidden(path)  line 240
+    _isrecursive(pattern)  line 243
+    escape(pathname)  line 249
+    translate(pat, recursive, include_hidden, seps)  line 267
+    _compile_pattern(pat, seps, case_sensitive, recursive)  line 322
+    _GlobberBase()  line 331
+        _GlobberBase.__init__(self, sep, case_sensitive, case_pedantic, recursive)  line 335
+        _GlobberBase.lexists(path)  line 343
+        _GlobberBase.scandir(path)  line 349
+        _GlobberBase.concat_path(path, text)  line 355
+        _GlobberBase.compile(self, pat, altsep)  line 363
+        _GlobberBase.selector(self, parts)  line 367
+        _GlobberBase.special_selector(self, part, parts)  line 384
+            _GlobberBase.special_selector.<locals>.select_special(path, exists)  line 391
+        _GlobberBase.literal_selector(self, part, parts)  line 396
+            _GlobberBase.literal_selector.<locals>.select_literal(path, exists)  line 410
+        _GlobberBase.wildcard_selector(self, part, parts)  line 415
+            _GlobberBase.wildcard_selector.<locals>.select_wildcard(path, exists)  line 425
+        _GlobberBase.recursive_selector(self, part, parts)  line 445
+            _GlobberBase.recursive_selector.<locals>.select_recursive(path, exists)  line 468
+            _GlobberBase.recursive_selector.<locals>.select_recursive_step(stack, match_pos)  line 476
+        _GlobberBase.select_exists(self, path, exists)  line 507
+    _StringGlobber()  line 518
+        _StringGlobber.scandir(path)  line 524
+            _StringGlobber.scandir.<locals>.<genexpr>(.0)  line 530
+    _PathGlobber()  line 533
+        _PathGlobber.lexists(path)  line 537
+        _PathGlobber.scandir(path)  line 541
+            _PathGlobber.scandir.<locals>.<genexpr>(.0)  line 543
+        _PathGlobber.concat_path(path, text)  line 545
+
+--- strings ---
+'Filename globbing utility.'
+'root_dir'
+'dir_fd'
+'recursive'
+'include_hidden'
+"Return a list of paths matching a pathname pattern.\n\nThe pattern may contain simple shell-style wildcards a la\nfnmatch. Unlike fnmatch, filenames starting with a\ndot are special cases that are not matched by '*' and '?'\npatterns by default.\n\nIf `include_hidden` is true, the patterns '*', '?', '**'  will match hidden\ndirectories.\n\nIf `recursive` is true, the pattern '**' will match any files and\nzero or more directories and subdirectories.\n"
+"Return an iterator which yields the paths matching a pathname pattern.\n\nThe pattern may contain simple shell-style wildcards a la\nfnmatch. However, unlike fnmatch, filenames starting with a\ndot are special cases that are not matched by '*' and '?'\npatterns.\n\nIf recursive is true, the pattern '**' will match any files and\nzero or more directories and subdirectories.\n"
+'glob.glob'
+'glob.glob/2'
+'{name} is deprecated and will be removed in Python {remove}. Use glob.glob and pass a directory to its root_dir argument instead.'
+'glob.glob0'
+'glob.glob1'
+'ASCII'
+'([*?[])'
+'**'
+'Escape all special characters.\n    '
+'[\\1]'
+'O_DIRECTORY'
+'seps'
+"Translate a pathname with shell wildcards to a regular expression.\n\nIf `recursive` is true, the pattern segment '**' will match any number of\npath segments.\n\nIf `include_hidden` is true, wildcards can match path segments beginning\nwith a dot ('.').\n\nIf a sequence of separator characters is given to `seps`, they will be\nused to split the pattern into segments and match path separators. If not\ngiven, os.path.sep and os.path.altsep (where available) are used.\n"
+'[^'
+'(?:.+'
+')?'
+'.*'
+'.]'
+'(?:'
+')*'
+'**'
+'*?'
+'(?!\\.)'
+'(?s:'
+')\\z'
+'Compile given glob pattern to a re.Pattern object (observing case\nsensitivity).'
+'_GlobberBase'
+'Abstract class providing shell-style pattern matching and globbing.\n    '
+'Implements os.path.lexists().\n        '
+'Like os.scandir(), but generates (entry, name, path) tuples.\n        '
+'Implements path concatenation.\n        '
+'Returns a function that selects from a given path, walking and\nfiltering according to the glob-style pattern parts in *parts*.\n'
+'**'
+'Returns a function that selects special children of the given path.\n        '
+'Returns a function that selects a literal descendant of a path.\n        '
+'Returns a function that selects direct children of a given path,\nfiltering by pattern.\n'
+'Returns a function that selects a given path and all its children,\nrecursively, filtering by pattern.\n'
+'**'
+'Yields the given path, if it exists.\n        '
+'_GlobberBase'
+'_StringGlobber'
+'Provides shell-style pattern matching and globbing for string paths.\n    '
+'_StringGlobber'
+'_PathGlobber'
+'Provides shell-style pattern matching and globbing for pathlib paths.\n    '
+'_PathGlobber'

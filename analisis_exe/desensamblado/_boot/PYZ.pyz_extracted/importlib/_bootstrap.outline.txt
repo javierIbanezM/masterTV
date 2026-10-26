@@ -1,0 +1,283 @@
+<module>()  line 1
+    _object_name(obj)  line 23
+    _wrap(new, old)  line 40
+    _new_module(name)  line 48
+    _List()  line 55
+    _WeakValueDictionary()  line 62
+        _WeakValueDictionary.__init__(self)  line 64
+            _WeakValueDictionary.__init__.<locals>.KeyedRef()  line 70
+                _WeakValueDictionary.__init__.<locals>.KeyedRef.__new__(type, ob, key)  line 74
+                _WeakValueDictionary.__init__.<locals>.KeyedRef.__init__(self, ob, key)  line 79
+                _WeakValueDictionary.__init__.<locals>.KeyedRef.remove(wr)  line 82
+        _WeakValueDictionary.clear(self)  line 96
+        _WeakValueDictionary._commit_removals(self)  line 101
+        _WeakValueDictionary.get(self, key, default)  line 111
+        _WeakValueDictionary.setdefault(self, key, default)  line 124
+    _BlockingOnManager()  line 156
+        _BlockingOnManager.__init__(self, thread_id, lock)  line 158
+        _BlockingOnManager.__enter__(self)  line 162
+        _BlockingOnManager.__exit__(self)  line 173
+    _DeadlockError()  line 178
+    _has_deadlocked(target_id, seen_ids, candidate_ids, blocking_on)  line 183
+    _ModuleLock()  line 226
+        _ModuleLock.__init__(self, name)  line 232
+        _ModuleLock.has_deadlock(self)  line 288
+        _ModuleLock.acquire(self)  line 304
+        _ModuleLock.release(self)  line 372
+        _ModuleLock.locked(self)  line 385
+        _ModuleLock.__repr__(self)  line 388
+    _DummyModuleLock()  line 392
+        _DummyModuleLock.__init__(self, name)  line 396
+        _DummyModuleLock.acquire(self)  line 400
+        _DummyModuleLock.release(self)  line 404
+        _DummyModuleLock.__repr__(self)  line 409
+    _ModuleLockManager()  line 413
+        _ModuleLockManager.__init__(self, name)  line 415
+        _ModuleLockManager.__enter__(self)  line 419
+        _ModuleLockManager.__exit__(self)  line 423
+    _get_module_lock(name)  line 429
+        _get_module_lock.<locals>.cb(ref, name)  line 448
+    _lock_unlock_module(name)  line 466
+    _call_with_frames_removed(f)  line 483
+    _verbose_message(message, verbosity)  line 494
+    _requires_builtin(fxn)  line 502
+        _requires_builtin.<locals>._requires_builtin_wrapper(self, fullname)  line 504
+    _requires_frozen(fxn)  line 513
+        _requires_frozen.<locals>._requires_frozen_wrapper(self, fullname)  line 515
+    _load_module_shim(self, fullname)  line 525
+    _module_repr(module)  line 544
+    ModuleSpec()  line 565
+        ModuleSpec.__init__(self, name, loader, origin, loader_state, is_package)  line 602
+        ModuleSpec.__repr__(self)  line 615
+        ModuleSpec.__eq__(self, other)  line 623
+        ModuleSpec.cached(self)  line 635
+        ModuleSpec.cached(self, cached)  line 644
+        ModuleSpec.parent(self)  line 648
+        ModuleSpec.has_location(self)  line 656
+        ModuleSpec.has_location(self, value)  line 660
+    spec_from_loader(name, loader, origin, is_package)  line 665
+    _spec_from_module(module, loader, origin)  line 694
+    _init_module_attrs(spec, module, override)  line 736
+    module_from_spec(spec)  line 809
+    _module_repr_from_spec(spec)  line 826
+    _exec(spec, module)  line 848
+    _load_backward_compatible(spec)  line 878
+    _load_unlocked(spec)  line 914
+    _load(spec)  line 959
+    BuiltinImporter()  line 974
+        BuiltinImporter.find_spec(cls, fullname, path, target)  line 985
+        BuiltinImporter.create_module(spec)  line 992
+        BuiltinImporter.exec_module(module)  line 1000
+        BuiltinImporter.get_code(cls, fullname)  line 1005
+        BuiltinImporter.get_source(cls, fullname)  line 1011
+        BuiltinImporter.is_package(cls, fullname)  line 1017
+    FrozenImporter()  line 1026
+        FrozenImporter._fix_up_module(cls, module)  line 1037
+        FrozenImporter._resolve_filename(cls, fullname, alias, ispkg)  line 1106
+        FrozenImporter.find_spec(cls, fullname, path, target)  line 1131
+        FrozenImporter.create_module(spec)  line 1161
+        FrozenImporter.exec_module(module)  line 1174
+        FrozenImporter.load_module(cls, fullname)  line 1181
+        FrozenImporter.get_code(cls, fullname)  line 1200
+        FrozenImporter.get_source(cls, fullname)  line 1206
+        FrozenImporter.is_package(cls, fullname)  line 1212
+    _ImportLockContext()  line 1221
+        _ImportLockContext.__enter__(self)  line 1225
+        _ImportLockContext.__exit__(self, exc_type, exc_value, exc_traceback)  line 1229
+    _resolve_name(name, package, level)  line 1234
+    _find_spec(name, path, target)  line 1243
+    _sanity_check(name, package, level)  line 1290
+    _find_and_load_unlocked(name, import_)  line 1308
+    _find_and_load(name, import_)  line 1360
+    _gcd_import(name, package, level)  line 1386
+    _handle_fromlist(module, fromlist, import_, recursive)  line 1401
+    _calc___package__(globals)  line 1438
+    __import__(name, globals, locals, fromlist, level)  line 1465
+    _builtin_from_name(name)  line 1502
+    _setup(sys_module, _imp_module)  line 1509
+    _install(sys_module, _imp_module)  line 1549
+    _install_external_importers()  line 1557
+
+--- strings ---
+'Core implementation of import.\n\nThis module is NOT meant to be directly imported! It has been designed such\nthat it can be bootstrapped into Python as the implementation of import. As\nsuch it requires the injection of specific modules and attributes in order to\nwork. One should use importlib as the public-facing version of this module.\n\n'
+'Simple substitute for functools.update_wrapper.'
+'_List'
+'_List'
+'_WeakValueDictionary'
+'_WeakValueDictionary.__init__.<locals>.KeyedRef'
+'KeyedRef'
+'_WeakValueDictionary'
+'_BlockingOnManager'
+'A context manager responsible to updating ``_blocking_on``.'
+'Mark the running thread as waiting for self.lock. via _blocking_on.'
+"Remove self.lock from this thread's _blocking_on list."
+'_BlockingOnManager'
+'_DeadlockError'
+'_DeadlockError'
+"Check if 'target_id' is holding the same lock as another thread(s).\n\nThe search within 'blocking_on' starts with the threads listed in\n'candidate_ids'.  'seen_ids' contains any threads that are considered\nalready traversed in the search.\n\nKeyword arguments:\ntarget_id     -- The thread id to try to reach.\nseen_ids      -- A set of threads that have already been visited.\ncandidate_ids -- The thread ids from which to begin.\nblocking_on   -- A dict representing the thread/blocking-on graph.  This may\n                 be the same object as the global '_blocking_on' but it is\n                 a parameter to reduce the impact that global mutable\n                 state has on the result of this function.\n"
+'_ModuleLock'
+'A recursive lock implementation which is able to detect deadlocks\n(e.g. thread 1 trying to take locks A then B, and thread 2 trying to\ntake locks B then A).\n'
+'\nAcquire the module lock.  If a potential deadlock is detected,\na _DeadlockError is raised.\nOtherwise, the lock is always acquired and True is returned.\n'
+'deadlock detected by '
+'cannot release un-acquired lock'
+'_ModuleLock('
+') at '
+'_ModuleLock'
+'_DummyModuleLock'
+'A simple _ModuleLock equivalent for Python builds without\nmulti-threading support.'
+'cannot release un-acquired lock'
+'_DummyModuleLock('
+') at '
+'_DummyModuleLock'
+'_ModuleLockManager'
+'_ModuleLockManager'
+'Get or create the module lock for a given module name.\n\nAcquire/release internally the global import lock to protect\n_module_locks.'
+'Acquires then releases the module lock for a given module name.\n\nThis is used to ensure a module is completely initialized, in the\nevent it is being imported by another thread.\n'
+'remove_importlib_frames in import.c will always remove sequences\nof importlib frames that end with a call to this function\n\nUse it instead of a normal call in places where including the importlib\nframes introduces unwanted noise into the traceback (e.g. when executing\nmodule code)\n'
+'verbosity'
+'Print the message to stderr if -v/PYTHONVERBOSE is turned on.'
+'# '
+'Decorator to verify the named module is built-in.'
+' is not a built-in module'
+'Decorator to verify the named module is frozen.'
+' is not a frozen module'
+'Load the specified module into sys.modules and return it.\n\nThis method is deprecated.  Use loader.exec_module() instead.\n\n'
+'the load_module() method is deprecated and slated for removal in Python 3.15; use exec_module() instead'
+'The implementation of ModuleType.__repr__().'
+'__loader__'
+'__spec__'
+'<module '
+' from '
+' ('
+')>'
+'ModuleSpec'
+'The specification for a module, used for loading.\n\nA module\'s spec is the source for information about the module.  For\ndata associated with the module, including source, use the spec\'s\nloader.\n\n`name` is the absolute name of the module.  `loader` is the loader\nto use when loading the module.  `parent` is the name of the\npackage the module is in.  The parent is derived from the name.\n\n`is_package` determines if the module is considered a package or\nnot.  On modules this is reflected by the `__path__` attribute.\n\n`origin` is the specific location used by the loader from which to\nload the module, if that information is available.  When filename is\nset, origin will match.\n\n`has_location` indicates that a spec\'s "origin" reflects a location.\nWhen this is True, `__file__` attribute of the module is set.\n\n`cached` is the location of the cached bytecode file, if any.  It\ncorresponds to the `__cached__` attribute.\n\n`submodule_search_locations` is the sequence of path entries to\nsearch when importing submodules.  If set, is_package should be\nTrue--and False otherwise.\n\nPackages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\nsystem will consider modules loaded from the spec as packages.\n\nOnly finders (see importlib.abc.MetaPathFinder and\nimportlib.abc.PathEntryFinder) should modify ModuleSpec instances.\n\n'
+'origin'
+'loader_state'
+'is_package'
+'name='
+'loader='
+'origin='
+'submodule_search_locations='
+', '
+"The name of the module's parent."
+'ModuleSpec'
+'origin'
+'is_package'
+'Return a module spec based on various loader methods.'
+'_ORIGIN'
+'get_filename'
+'is_package'
+'_ORIGIN'
+'override'
+'__name__'
+'__loader__'
+'__package__'
+'__path__'
+'__file__'
+'__cached__'
+'Create a module based on the provided spec.'
+'create_module'
+'exec_module'
+'loaders that define exec_module() must also define create_module()'
+'Return the repr to use for the module.'
+'<module '
+' (namespace) from '
+' ('
+')>'
+' from '
+"Execute the spec's specified module in an existing module's namespace."
+'module '
+' not in sys.modules'
+'missing loader'
+'exec_module'
+'.exec_module() not found; falling back to load_module()'
+'__loader__'
+'__package__'
+'__path__'
+'__spec__'
+'exec_module'
+'.exec_module() not found; falling back to load_module()'
+'missing loader'
+'import {!r} # {!r}'
+"Return a new module object, loaded by the spec's loader.\n\nThe module is not added to its parent.\n\nIf a module is already in sys.modules, that existing module gets\nclobbered.\n\n"
+'BuiltinImporter'
+'Meta path import for built-in modules.\n\nAll methods are either class or static methods to avoid the need to\ninstantiate the class.\n\n'
+'built-in'
+'Create a built-in module'
+' is not a built-in module'
+'Exec a built-in module'
+'Return None as built-in modules do not have code objects.'
+'Return None as built-in modules do not have source code.'
+'Return False as built-in modules are never packages.'
+'BuiltinImporter'
+'FrozenImporter'
+'Meta path import for frozen modules.\n\nAll methods are either class or static methods to avoid the need to\ninstantiate the class.\n\n'
+'frozen'
+'__origname__'
+'see PyImport_ImportFrozenModuleObject()'
+'__path__'
+'__file__'
+'filename'
+'origname'
+'_stdlib_dir'
+'win32'
+'.__init__'
+'__init__.py'
+'.py'
+'Set __file__, if able.'
+'Load a frozen module.\n\nThis method is deprecated.  Use exec_module() instead.\n\n'
+'__file__'
+'Return the code object for the frozen module.'
+'Return None as frozen modules do not have source code.'
+'Return True if the frozen module is a package.'
+'FrozenImporter'
+'_ImportLockContext'
+'Context manager for the import lock.'
+'Acquire the import lock.'
+'Release the import lock regardless of any raised exceptions.'
+'_ImportLockContext'
+'Resolve a relative module name to an absolute one.'
+'attempted relative import beyond top-level package'
+"Find a module's spec."
+'sys.meta_path is None, Python is likely shutting down'
+'sys.meta_path is empty'
+'Verify arguments are "sane".'
+'module name must be str, not '
+'level must be >= 0'
+'__package__ not set to a string'
+'attempted relative import with no known parent package'
+'Empty module name'
+'No module named '
+'; '
+' is not a package'
+'_initializing'
+'Cannot set an attribute on '
+' for child module '
+'Find and load the module.'
+'__spec__'
+'_initializing'
+'import of '
+' halted; None in sys.modules'
+'Import and return the module based on its name, the package the call is\nbeing made from, and the level adjustment.\n\nThis function represents the greatest common denominator of functionality\nbetween import_module and __import__. This includes setting __package__ if\nthe loader did not.\n\n'
+'recursive'
+"Figure out what __import__ should return.\n\nThe import_ parameter is a callable which takes the name of module to\nimport. It is required to decouple the function from assuming importlib's\nimport implementation is desired.\n\n"
+'.__all__'
+"``from list''"
+'Item in '
+' must be str, not '
+'__all__'
+'Calculate what __package__ should be.\n\n__package__ is not guaranteed to be defined or could be set to None\nto represent that its proper value is unknown.\n\n'
+'__package__'
+'__spec__'
+'__package__ != __spec__.parent ('
+' != '
+"can't resolve package from __spec__ or __package__, falling back on __name__ and __path__"
+'__name__'
+'__path__'
+"Import a module.\n\nThe 'globals' argument is used to infer where the import is occurring from\nto handle relative imports. The 'locals' argument is ignored. The\n'fromlist' argument specifies what should exist as attributes on the module\nbeing imported (e.g. ``from module import <fromlist>``).  The 'level'\nargument represents the package location to import from in a relative\nimport (e.g. ``from ..pkg import mod`` would have a 'level' of 2).\n\n"
+'__path__'
+'no built-in module named '
+'Setup importlib by importing needed built-in modules and injecting them\ninto the global namespace.\n\nAs sys is needed for sys.modules access and _imp is needed to load built-in\nmodules, those two modules must be explicitly passed in.\n\n'
+'Install importers for builtin and frozen modules'
+'Install importers that require external filesystem access'

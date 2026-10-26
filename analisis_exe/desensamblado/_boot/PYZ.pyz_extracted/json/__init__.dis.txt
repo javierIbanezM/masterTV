@@ -1,0 +1,739 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('JSON (JavaScript Object Notation) <https://json.org> is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.\n\n:mod:`json` exposes an API familiar to users of the standard library\n:mod:`marshal` and :mod:`pickle` modules.  It is derived from a\nversion of the externally maintained simplejson library.\n\nEncoding basic Python object hierarchies::\n\n    >>> import json\n    >>> json.dumps([\'foo\', {\'bar\': (\'baz\', None, 1.0, 2)}])\n    \'["foo", {"bar": ["baz", null, 1.0, 2]}]\'\n    >>> print(json.dumps("\\"foo\\bar"))\n    "\\"foo\\bar"\n    >>> print(json.dumps(\'\\u1234\'))\n    "\\u1234"\n    >>> print(json.dumps(\'\\\\\'))\n    "\\\\"\n    >>> print(json.dumps({"c": 0, "b": 0, "a": 0}, sort_keys=True))\n    {"a": 0, "b": 0, "c": 0}\n    >>> from io import StringIO\n    >>> io = StringIO()\n    >>> json.dump([\'streaming API\'], io)\n    >>> io.getvalue()\n    \'["streaming API"]\'\n\nCompact encoding::\n\n    >>> import json\n    >>> mydict = {\'4\': 5, \'6\': 7}\n    >>> json.dumps([1,2,3,mydict], separators=(\',\', \':\'))\n    \'[1,2,3,{"4":5,"6":7}]\'\n\nPretty printing::\n\n    >>> import json\n    >>> print(json.dumps({\'4\': 5, \'6\': 7}, sort_keys=True, indent=4))\n    {\n        "4": 5,\n        "6": 7\n    }\n\nDecoding JSON::\n\n    >>> import json\n    >>> obj = [\'foo\', {\'bar\': [\'baz\', None, 1.0, 2]}]\n    >>> json.loads(\'["foo", {"bar":["baz", null, 1.0, 2]}]\') == obj\n    True\n    >>> json.loads(\'"\\\\"foo\\\\bar"\') == \'"foo\\x08ar\'\n    True\n    >>> from io import StringIO\n    >>> io = StringIO(\'["streaming API"]\')\n    >>> json.load(io)[0] == \'streaming API\'\n    True\n\nSpecializing JSON object decoding::\n\n    >>> import json\n    >>> def as_complex(dct):\n    ...     if \'__complex__\' in dct:\n    ...         return complex(dct[\'real\'], dct[\'imag\'])\n    ...     return dct\n    ...\n    >>> json.loads(\'{"__complex__": true, "real": 1, "imag": 2}\',\n    ...     object_hook=as_complex)\n    (1+2j)\n    >>> from decimal import Decimal\n    >>> json.loads(\'1.1\', parse_float=Decimal) == Decimal(\'1.1\')\n    True\n\nSpecializing JSON object encoding::\n\n    >>> import json\n    >>> def encode_complex(obj):\n    ...     if isinstance(obj, complex):\n    ...         return [obj.real, obj.imag]\n    ...     raise TypeError(f\'Object of type {obj.__class__.__name__} \'\n    ...                     f\'is not JSON serializable\')\n    ...\n    >>> json.dumps(2 + 1j, default=encode_complex)\n    \'[2.0, 1.0]\'\n    >>> json.JSONEncoder(default=encode_complex).encode(2 + 1j)\n    \'[2.0, 1.0]\'\n    >>> \'\'.join(json.JSONEncoder(default=encode_complex).iterencode(2 + 1j))\n    \'[2.0, 1.0]\'\n\n\nUsing json from the shell to validate and pretty-print::\n\n    $ echo \'{"json":"obj"}\' | python -m json\n    {\n        "json": "obj"\n    }\n    $ echo \'{ 1.2:3.4}\' | python -m json\n    Expecting property name enclosed in double quotes: line 1 column 3 (char 2)\n')
+              STORE_NAME               0 (__doc__)
+
+ 98           LOAD_CONST               1 ('2.0.9')
+              STORE_NAME               1 (__version__)
+
+ 99           BUILD_LIST               0
+              LOAD_CONST              29 (('dump', 'dumps', 'load', 'loads', 'JSONDecoder', 'JSONDecodeError', 'JSONEncoder'))
+              LIST_EXTEND              1
+              STORE_NAME               2 (__all__)
+
+104           LOAD_CONST               2 ('Bob Ippolito <bob@redivi.com>')
+              STORE_NAME               3 (__author__)
+
+106           LOAD_SMALL_INT           1
+              LOAD_CONST               3 (('JSONDecoder', 'JSONDecodeError'))
+              IMPORT_NAME              4 (decoder)
+              IMPORT_FROM              5 (JSONDecoder)
+              STORE_NAME               5 (JSONDecoder)
+              IMPORT_FROM              6 (JSONDecodeError)
+              STORE_NAME               6 (JSONDecodeError)
+              POP_TOP
+
+107           LOAD_SMALL_INT           1
+              LOAD_CONST               4 (('JSONEncoder',))
+              IMPORT_NAME              7 (encoder)
+              IMPORT_FROM              8 (JSONEncoder)
+              STORE_NAME               8 (JSONEncoder)
+              POP_TOP
+
+108           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (None)
+              IMPORT_NAME              9 (codecs)
+              STORE_NAME               9 (codecs)
+
+110           LOAD_NAME                8 (JSONEncoder)
+              PUSH_NULL
+
+111           LOAD_CONST               6 (False)
+
+112           LOAD_CONST               7 (True)
+
+113           LOAD_CONST               7 (True)
+
+114           LOAD_CONST               7 (True)
+
+115           LOAD_CONST               5 (None)
+
+116           LOAD_CONST               5 (None)
+
+117           LOAD_CONST               5 (None)
+
+110           LOAD_CONST               8 (('skipkeys', 'ensure_ascii', 'check_circular', 'allow_nan', 'indent', 'separators', 'default'))
+              CALL_KW                  7
+              STORE_NAME              10 (_default_encoder)
+
+120           LOAD_CONST               9 ('skipkeys')
+              LOAD_CONST               6 (False)
+              LOAD_CONST              10 ('ensure_ascii')
+              LOAD_CONST               7 (True)
+              LOAD_CONST              11 ('check_circular')
+              LOAD_CONST               7 (True)
+              LOAD_CONST              12 ('allow_nan')
+
+121           LOAD_CONST               7 (True)
+
+120           LOAD_CONST              13 ('cls')
+
+121           LOAD_CONST               5 (None)
+
+120           LOAD_CONST              14 ('indent')
+
+121           LOAD_CONST               5 (None)
+
+120           LOAD_CONST              15 ('separators')
+
+121           LOAD_CONST               5 (None)
+
+120           LOAD_CONST              16 ('default')
+
+122           LOAD_CONST               5 (None)
+
+120           LOAD_CONST              17 ('sort_keys')
+
+122           LOAD_CONST               6 (False)
+
+120           BUILD_MAP                9
+              LOAD_CONST              18 (<code object dump at 0x00000204BA445170, file "json\__init__.py", line 120>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              STORE_NAME              11 (dump)
+
+183           LOAD_CONST               9 ('skipkeys')
+              LOAD_CONST               6 (False)
+              LOAD_CONST              10 ('ensure_ascii')
+              LOAD_CONST               7 (True)
+              LOAD_CONST              11 ('check_circular')
+              LOAD_CONST               7 (True)
+              LOAD_CONST              12 ('allow_nan')
+
+184           LOAD_CONST               7 (True)
+
+183           LOAD_CONST              13 ('cls')
+
+184           LOAD_CONST               5 (None)
+
+183           LOAD_CONST              14 ('indent')
+
+184           LOAD_CONST               5 (None)
+
+183           LOAD_CONST              15 ('separators')
+
+184           LOAD_CONST               5 (None)
+
+183           LOAD_CONST              16 ('default')
+
+185           LOAD_CONST               5 (None)
+
+183           LOAD_CONST              17 ('sort_keys')
+
+185           LOAD_CONST               6 (False)
+
+183           BUILD_MAP                9
+              LOAD_CONST              19 (<code object dumps at 0x00000204B9FC23D0, file "json\__init__.py", line 183>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              STORE_NAME              12 (dumps)
+
+241           LOAD_NAME                5 (JSONDecoder)
+              PUSH_NULL
+              LOAD_CONST               5 (None)
+              LOAD_CONST               5 (None)
+              LOAD_CONST              20 (('object_hook', 'object_pairs_hook'))
+              CALL_KW                  2
+              STORE_NAME              13 (_default_decoder)
+
+244           LOAD_CONST              21 (<code object detect_encoding at 0x00000204BA387780, file "json\__init__.py", line 244>)
+              MAKE_FUNCTION
+              STORE_NAME              14 (detect_encoding)
+
+274           LOAD_CONST              13 ('cls')
+              LOAD_CONST               5 (None)
+              LOAD_CONST              22 ('object_hook')
+              LOAD_CONST               5 (None)
+              LOAD_CONST              23 ('parse_float')
+              LOAD_CONST               5 (None)
+              LOAD_CONST              24 ('parse_int')
+
+275           LOAD_CONST               5 (None)
+
+274           LOAD_CONST              25 ('parse_constant')
+
+275           LOAD_CONST               5 (None)
+
+274           LOAD_CONST              26 ('object_pairs_hook')
+
+275           LOAD_CONST               5 (None)
+
+274           BUILD_MAP                6
+              LOAD_CONST              27 (<code object load at 0x00000204BA0A7510, file "json\__init__.py", line 274>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              STORE_NAME              15 (load)
+
+299           LOAD_CONST              13 ('cls')
+              LOAD_CONST               5 (None)
+              LOAD_CONST              22 ('object_hook')
+              LOAD_CONST               5 (None)
+              LOAD_CONST              23 ('parse_float')
+              LOAD_CONST               5 (None)
+              LOAD_CONST              24 ('parse_int')
+
+300           LOAD_CONST               5 (None)
+
+299           LOAD_CONST              25 ('parse_constant')
+
+300           LOAD_CONST               5 (None)
+
+299           LOAD_CONST              26 ('object_pairs_hook')
+
+300           LOAD_CONST               5 (None)
+
+299           BUILD_MAP                6
+              LOAD_CONST              28 (<code object loads at 0x00000204BA449230, file "json\__init__.py", line 299>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+              STORE_NAME              16 (loads)
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object dump at 0x00000204BA445170, file "json\__init__.py", line 120>:
+120           RESUME                   0
+
+165           LOAD_FAST_BORROW         2 (skipkeys)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        79 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (ensure_ascii)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       71 (to L1)
+              NOT_TAKEN
+
+166           LOAD_FAST_BORROW         4 (check_circular)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       63 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         5 (allow_nan)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       55 (to L1)
+              NOT_TAKEN
+
+167           LOAD_FAST_BORROW         6 (cls)
+              POP_JUMP_IF_NOT_NONE    51 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         7 (indent)
+              POP_JUMP_IF_NOT_NONE    47 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         8 (separators)
+              POP_JUMP_IF_NOT_NONE    43 (to L1)
+              NOT_TAKEN
+
+168           LOAD_FAST_BORROW         9 (default)
+              POP_JUMP_IF_NOT_NONE    39 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW        10 (sort_keys)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        31 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW        11 (kw)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L1)
+              NOT_TAKEN
+
+169           LOAD_GLOBAL              0 (_default_encoder)
+              LOAD_ATTR                3 (iterencode + NULL|self)
+              LOAD_FAST_BORROW         0 (obj)
+              CALL                     1
+              STORE_FAST              12 (iterable)
+              JUMP_FORWARD            49 (to L3)
+
+171   L1:     LOAD_FAST_BORROW         6 (cls)
+              POP_JUMP_IF_NOT_NONE     7 (to L2)
+              NOT_TAKEN
+
+172           LOAD_GLOBAL              4 (JSONEncoder)
+              STORE_FAST               6 (cls)
+
+173   L2:     LOAD_FAST_BORROW         6 (cls)
+              PUSH_NULL
+              LOAD_CONST              10 (())
+              LOAD_CONST               2 ('skipkeys')
+              LOAD_FAST_BORROW         2 (skipkeys)
+              LOAD_CONST               3 ('ensure_ascii')
+              LOAD_FAST_BORROW         3 (ensure_ascii)
+              LOAD_CONST               4 ('check_circular')
+
+174           LOAD_FAST_BORROW         4 (check_circular)
+
+173           LOAD_CONST               5 ('allow_nan')
+
+174           LOAD_FAST_BORROW         5 (allow_nan)
+
+173           LOAD_CONST               6 ('indent')
+
+174           LOAD_FAST_BORROW         7 (indent)
+
+173           LOAD_CONST               7 ('separators')
+
+175           LOAD_FAST_BORROW         8 (separators)
+
+173           LOAD_CONST               8 ('default')
+
+176           LOAD_FAST_BORROW         9 (default)
+
+173           LOAD_CONST               9 ('sort_keys')
+
+176           LOAD_FAST_BORROW        10 (sort_keys)
+
+173           BUILD_MAP                8
+
+176           LOAD_FAST_BORROW        11 (kw)
+
+173           DICT_MERGE               1
+              CALL_FUNCTION_EX
+
+176           LOAD_ATTR                3 (iterencode + NULL|self)
+              LOAD_FAST_BORROW         0 (obj)
+              CALL                     1
+
+173           STORE_FAST              12 (iterable)
+
+179   L3:     LOAD_FAST_BORROW        12 (iterable)
+              GET_ITER
+      L4:     FOR_ITER                20 (to L5)
+              STORE_FAST              13 (chunk)
+
+180           LOAD_FAST_BORROW         1 (fp)
+              LOAD_ATTR                7 (write + NULL|self)
+              LOAD_FAST_BORROW        13 (chunk)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           22 (to L4)
+
+179   L5:     END_FOR
+              POP_ITER
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object dumps at 0x00000204B9FC23D0, file "json\__init__.py", line 183>:
+183           RESUME                   0
+
+227           LOAD_FAST_BORROW         1 (skipkeys)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        78 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (ensure_ascii)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       70 (to L1)
+              NOT_TAKEN
+
+228           LOAD_FAST_BORROW         3 (check_circular)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       62 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         4 (allow_nan)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       54 (to L1)
+              NOT_TAKEN
+
+229           LOAD_FAST_BORROW         5 (cls)
+              POP_JUMP_IF_NOT_NONE    50 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         6 (indent)
+              POP_JUMP_IF_NOT_NONE    46 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         7 (separators)
+              POP_JUMP_IF_NOT_NONE    42 (to L1)
+              NOT_TAKEN
+
+230           LOAD_FAST_BORROW         8 (default)
+              POP_JUMP_IF_NOT_NONE    38 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         9 (sort_keys)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        30 (to L1)
+              NOT_TAKEN
+              LOAD_FAST_BORROW        10 (kw)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        22 (to L1)
+              NOT_TAKEN
+
+231           LOAD_GLOBAL              0 (_default_encoder)
+              LOAD_ATTR                3 (encode + NULL|self)
+              LOAD_FAST_BORROW         0 (obj)
+              CALL                     1
+              RETURN_VALUE
+
+232   L1:     LOAD_FAST_BORROW         5 (cls)
+              POP_JUMP_IF_NOT_NONE     7 (to L2)
+              NOT_TAKEN
+
+233           LOAD_GLOBAL              4 (JSONEncoder)
+              STORE_FAST               5 (cls)
+
+234   L2:     LOAD_FAST_BORROW         5 (cls)
+              PUSH_NULL
+              LOAD_CONST               9 (())
+              LOAD_CONST               1 ('skipkeys')
+
+235           LOAD_FAST_BORROW         1 (skipkeys)
+
+234           LOAD_CONST               2 ('ensure_ascii')
+
+235           LOAD_FAST_BORROW         2 (ensure_ascii)
+
+234           LOAD_CONST               3 ('check_circular')
+
+236           LOAD_FAST_BORROW         3 (check_circular)
+
+234           LOAD_CONST               4 ('allow_nan')
+
+236           LOAD_FAST_BORROW         4 (allow_nan)
+
+234           LOAD_CONST               5 ('indent')
+
+236           LOAD_FAST_BORROW         6 (indent)
+
+234           LOAD_CONST               6 ('separators')
+
+237           LOAD_FAST_BORROW         7 (separators)
+
+234           LOAD_CONST               7 ('default')
+
+237           LOAD_FAST_BORROW         8 (default)
+
+234           LOAD_CONST               8 ('sort_keys')
+
+237           LOAD_FAST_BORROW         9 (sort_keys)
+
+234           BUILD_MAP                8
+
+238           LOAD_FAST_BORROW        10 (kw)
+
+234           DICT_MERGE               1
+              CALL_FUNCTION_EX
+
+238           LOAD_ATTR                3 (encode + NULL|self)
+              LOAD_FAST_BORROW         0 (obj)
+              CALL                     1
+
+234           RETURN_VALUE
+
+Disassembly of <code object detect_encoding at 0x00000204BA387780, file "json\__init__.py", line 244>:
+244            RESUME                   0
+
+245            LOAD_FAST_BORROW         0 (b)
+               LOAD_ATTR                0 (startswith)
+               STORE_FAST               1 (bstartswith)
+
+246            LOAD_FAST_BORROW         1 (bstartswith)
+               PUSH_NULL
+               LOAD_GLOBAL              2 (codecs)
+               LOAD_ATTR                4 (BOM_UTF32_BE)
+               LOAD_GLOBAL              2 (codecs)
+               LOAD_ATTR                6 (BOM_UTF32_LE)
+               BUILD_TUPLE              2
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L1)
+               NOT_TAKEN
+
+247            LOAD_CONST               0 ('utf-32')
+               RETURN_VALUE
+
+248    L1:     LOAD_FAST_BORROW         1 (bstartswith)
+               PUSH_NULL
+               LOAD_GLOBAL              2 (codecs)
+               LOAD_ATTR                8 (BOM_UTF16_BE)
+               LOAD_GLOBAL              2 (codecs)
+               LOAD_ATTR               10 (BOM_UTF16_LE)
+               BUILD_TUPLE              2
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L2)
+               NOT_TAKEN
+
+249            LOAD_CONST               1 ('utf-16')
+               RETURN_VALUE
+
+250    L2:     LOAD_FAST_BORROW         1 (bstartswith)
+               PUSH_NULL
+               LOAD_GLOBAL              2 (codecs)
+               LOAD_ATTR               12 (BOM_UTF8)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+
+251            LOAD_CONST               2 ('utf-8-sig')
+               RETURN_VALUE
+
+253    L3:     LOAD_GLOBAL             15 (len + NULL)
+               LOAD_FAST_BORROW         0 (b)
+               CALL                     1
+               LOAD_SMALL_INT           4
+               COMPARE_OP             188 (bool(>=))
+               POP_JUMP_IF_FALSE       87 (to L9)
+               NOT_TAKEN
+
+254            LOAD_FAST_BORROW         0 (b)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_TRUE        20 (to L5)
+               NOT_TAKEN
+
+257            LOAD_FAST_BORROW         0 (b)
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L4)
+               NOT_TAKEN
+               LOAD_CONST               3 ('utf-16-be')
+               RETURN_VALUE
+       L4:     LOAD_CONST               4 ('utf-32-be')
+               RETURN_VALUE
+
+258    L5:     LOAD_FAST_BORROW         0 (b)
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_TRUE        35 (to L8)
+               NOT_TAKEN
+
+262            LOAD_FAST_BORROW         0 (b)
+               LOAD_SMALL_INT           2
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_TRUE        16 (to L6)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         0 (b)
+               LOAD_SMALL_INT           3
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_FALSE        3 (to L7)
+               NOT_TAKEN
+       L6:     LOAD_CONST               5 ('utf-16-le')
+               RETURN_VALUE
+       L7:     LOAD_CONST               6 ('utf-32-le')
+               RETURN_VALUE
+
+258    L8:     NOP
+
+271            LOAD_CONST               7 ('utf-8')
+               RETURN_VALUE
+
+263    L9:     LOAD_GLOBAL             15 (len + NULL)
+               LOAD_FAST_BORROW         0 (b)
+               CALL                     1
+               LOAD_SMALL_INT           2
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       35 (to L11)
+               NOT_TAKEN
+
+264            LOAD_FAST_BORROW         0 (b)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L10)
+               NOT_TAKEN
+
+266            LOAD_CONST               3 ('utf-16-be')
+               RETURN_VALUE
+
+267   L10:     LOAD_FAST_BORROW         0 (b)
+               LOAD_SMALL_INT           1
+               BINARY_OP               26 ([])
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L11)
+               NOT_TAKEN
+
+269            LOAD_CONST               5 ('utf-16-le')
+               RETURN_VALUE
+
+271   L11:     LOAD_CONST               7 ('utf-8')
+               RETURN_VALUE
+
+Disassembly of <code object load at 0x00000204BA0A7510, file "json\__init__.py", line 274>:
+274           RESUME                   0
+
+293           LOAD_GLOBAL              1 (loads + NULL)
+              LOAD_FAST_BORROW         0 (fp)
+              LOAD_ATTR                3 (read + NULL|self)
+              CALL                     0
+              BUILD_TUPLE              1
+              LOAD_CONST               1 ('cls')
+
+294           LOAD_FAST_BORROW         1 (cls)
+
+293           LOAD_CONST               2 ('object_hook')
+
+294           LOAD_FAST_BORROW         2 (object_hook)
+
+293           LOAD_CONST               3 ('parse_float')
+
+295           LOAD_FAST_BORROW         3 (parse_float)
+
+293           LOAD_CONST               4 ('parse_int')
+
+295           LOAD_FAST_BORROW         4 (parse_int)
+
+293           LOAD_CONST               5 ('parse_constant')
+
+296           LOAD_FAST_BORROW         5 (parse_constant)
+
+293           LOAD_CONST               6 ('object_pairs_hook')
+
+296           LOAD_FAST_BORROW         6 (object_pairs_hook)
+
+293           BUILD_MAP                6
+
+296           LOAD_FAST_BORROW         7 (kw)
+
+293           DICT_MERGE               1
+              CALL_FUNCTION_EX
+              RETURN_VALUE
+
+Disassembly of <code object loads at 0x00000204BA449230, file "json\__init__.py", line 299>:
+299            RESUME                   0
+
+333            LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         0 (s)
+               LOAD_GLOBAL              2 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       38 (to L2)
+               NOT_TAKEN
+
+334            LOAD_FAST_BORROW         0 (s)
+               LOAD_ATTR                5 (startswith + NULL|self)
+               LOAD_CONST               1 ('\ufeff')
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       14 (to L1)
+               NOT_TAKEN
+
+335            LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+               LOAD_CONST               2 ('Unexpected UTF-8 BOM (decode using utf-8-sig)')
+
+336            LOAD_FAST_BORROW         0 (s)
+               LOAD_SMALL_INT           0
+
+335            CALL                     3
+               RAISE_VARARGS            1
+
+334    L1:     JUMP_FORWARD            89 (to L4)
+
+338    L2:     LOAD_GLOBAL              1 (isinstance + NULL)
+               LOAD_FAST_BORROW         0 (s)
+               LOAD_GLOBAL              8 (bytes)
+               LOAD_GLOBAL             10 (bytearray)
+               BUILD_TUPLE              2
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_TRUE        35 (to L3)
+               NOT_TAKEN
+
+339            LOAD_GLOBAL             13 (TypeError + NULL)
+               LOAD_CONST               3 ('the JSON object must be str, bytes or bytearray, not ')
+
+340            LOAD_FAST_BORROW         0 (s)
+               LOAD_ATTR               14 (__class__)
+               LOAD_ATTR               16 (__name__)
+               FORMAT_SIMPLE
+
+339            BUILD_STRING             2
+               CALL                     1
+               RAISE_VARARGS            1
+
+341    L3:     LOAD_FAST_BORROW         0 (s)
+               LOAD_ATTR               19 (decode + NULL|self)
+               LOAD_GLOBAL             21 (detect_encoding + NULL)
+               LOAD_FAST_BORROW         0 (s)
+               CALL                     1
+               LOAD_CONST               4 ('surrogatepass')
+               CALL                     2
+               STORE_FAST               0 (s)
+
+343    L4:     LOAD_FAST_BORROW         1 (cls)
+               POP_JUMP_IF_NOT_NONE    50 (to L5)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         2 (object_hook)
+               POP_JUMP_IF_NOT_NONE    46 (to L5)
+               NOT_TAKEN
+
+344            LOAD_FAST_BORROW         4 (parse_int)
+               POP_JUMP_IF_NOT_NONE    42 (to L5)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         3 (parse_float)
+               POP_JUMP_IF_NOT_NONE    38 (to L5)
+               NOT_TAKEN
+
+345            LOAD_FAST_BORROW         5 (parse_constant)
+               POP_JUMP_IF_NOT_NONE    34 (to L5)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         6 (object_pairs_hook)
+               POP_JUMP_IF_NOT_NONE    30 (to L5)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         7 (kw)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        22 (to L5)
+               NOT_TAKEN
+
+346            LOAD_GLOBAL             22 (_default_decoder)
+               LOAD_ATTR               19 (decode + NULL|self)
+               LOAD_FAST_BORROW         0 (s)
+               CALL                     1
+               RETURN_VALUE
+
+347    L5:     LOAD_FAST_BORROW         1 (cls)
+               POP_JUMP_IF_NOT_NONE     7 (to L6)
+               NOT_TAKEN
+
+348            LOAD_GLOBAL             24 (JSONDecoder)
+               STORE_FAST               1 (cls)
+
+349    L6:     LOAD_FAST_BORROW         2 (object_hook)
+               POP_JUMP_IF_NONE         5 (to L7)
+               NOT_TAKEN
+
+350            LOAD_FAST_BORROW_LOAD_FAST_BORROW 39 (object_hook, kw)
+               LOAD_CONST               5 ('object_hook')
+               STORE_SUBSCR
+
+351    L7:     LOAD_FAST_BORROW         6 (object_pairs_hook)
+               POP_JUMP_IF_NONE         5 (to L8)
+               NOT_TAKEN
+
+352            LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (object_pairs_hook, kw)
+               LOAD_CONST               6 ('object_pairs_hook')
+               STORE_SUBSCR
+
+353    L8:     LOAD_FAST_BORROW         3 (parse_float)
+               POP_JUMP_IF_NONE         5 (to L9)
+               NOT_TAKEN
+
+354            LOAD_FAST_BORROW_LOAD_FAST_BORROW 55 (parse_float, kw)
+               LOAD_CONST               7 ('parse_float')
+               STORE_SUBSCR
+
+355    L9:     LOAD_FAST_BORROW         4 (parse_int)
+               POP_JUMP_IF_NONE         5 (to L10)
+               NOT_TAKEN
+
+356            LOAD_FAST_BORROW_LOAD_FAST_BORROW 71 (parse_int, kw)
+               LOAD_CONST               8 ('parse_int')
+               STORE_SUBSCR
+
+357   L10:     LOAD_FAST_BORROW         5 (parse_constant)
+               POP_JUMP_IF_NONE         5 (to L11)
+               NOT_TAKEN
+
+358            LOAD_FAST_BORROW_LOAD_FAST_BORROW 87 (parse_constant, kw)
+               LOAD_CONST               9 ('parse_constant')
+               STORE_SUBSCR
+
+359   L11:     LOAD_FAST_BORROW         1 (cls)
+               PUSH_NULL
+               LOAD_CONST              10 (())
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         7 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               LOAD_ATTR               19 (decode + NULL|self)
+               LOAD_FAST_BORROW         0 (s)
+               CALL                     1
+               RETURN_VALUE

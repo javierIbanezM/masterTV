@@ -1,0 +1,694 @@
+<module>()  line 1
+    stn(s, length, encoding, errors)  line 157
+    nts(s, encoding, errors)  line 165
+    nti(s)  line 173
+    itn(n, digits, format)  line 193
+    calc_chksums(buf)  line 223
+    copyfileobj(src, dst, length, exception, bufsize)  line 236
+    _safe_print(s)  line 261
+    TarError()  line 268
+    ExtractError()  line 271
+    ReadError()  line 274
+    CompressionError()  line 277
+    StreamError()  line 280
+    HeaderError()  line 283
+    EmptyHeaderError()  line 286
+    TruncatedHeaderError()  line 289
+    EOFHeaderError()  line 292
+    InvalidHeaderError()  line 295
+    SubsequentHeaderError()  line 298
+    _LowLevelFile()  line 305
+        _LowLevelFile.__init__(self, name, mode)  line 311
+        _LowLevelFile.close(self)  line 320
+        _LowLevelFile.read(self, size)  line 323
+        _LowLevelFile.write(self, s)  line 326
+    _Stream()  line 329
+        _Stream.__init__(self, name, mode, comptype, fileobj, bufsize, compresslevel, preset)  line 341
+        _Stream.__del__(self)  line 422
+        _Stream._init_write_gz(self, compresslevel)  line 426
+        _Stream.write(self, s)  line 443
+        _Stream.__write(self, s)  line 453
+        _Stream.close(self)  line 462
+        _Stream._init_read_gz(self)  line 484
+        _Stream.tell(self)  line 515
+        _Stream.seek(self, pos)  line 520
+        _Stream.read(self, size)  line 533
+        _Stream._read(self, size)  line 540
+        _Stream.__read(self, size)  line 567
+    _StreamProxy()  line 584
+        _StreamProxy.__init__(self, fileobj)  line 589
+        _StreamProxy.read(self, size)  line 593
+        _StreamProxy.getcomptype(self)  line 597
+        _StreamProxy.close(self)  line 609
+    _FileInFile()  line 616
+        _FileInFile.__init__(self, fileobj, offset, size, name, blockinfo)  line 622
+        _FileInFile.flush(self)  line 647
+        _FileInFile.mode(self)  line 650
+        _FileInFile.readable(self)  line 654
+        _FileInFile.writable(self)  line 657
+        _FileInFile.seekable(self)  line 660
+        _FileInFile.tell(self)  line 663
+        _FileInFile.seek(self, position, whence)  line 668
+        _FileInFile.read(self, size)  line 684
+        _FileInFile.readinto(self, b)  line 715
+        _FileInFile.close(self)  line 720
+    ExFileObject()  line 724
+        ExFileObject.__init__(self, tarfile, tarinfo)  line 726
+    FilterError()  line 737
+    AbsolutePathError()  line 740
+        AbsolutePathError.__init__(self, tarinfo)  line 741
+    OutsideDestinationError()  line 745
+        OutsideDestinationError.__init__(self, tarinfo, path)  line 746
+    SpecialFileError()  line 752
+        SpecialFileError.__init__(self, tarinfo)  line 753
+    AbsoluteLinkError()  line 757
+        AbsoluteLinkError.__init__(self, tarinfo)  line 758
+    LinkOutsideDestinationError()  line 762
+        LinkOutsideDestinationError.__init__(self, tarinfo, path)  line 763
+    LinkFallbackError()  line 769
+        LinkFallbackError.__init__(self, tarinfo, path)  line 770
+    _get_filtered_attrs(member, dest_path, for_data)  line 781
+    fully_trusted_filter(member, dest_path)  line 849
+    tar_filter(member, dest_path)  line 852
+    data_filter(member, dest_path)  line 858
+    TarInfo()  line 880
+        TarInfo.__init__(self, name)  line 915
+        TarInfo.tarfile(self)  line 939
+        TarInfo.tarfile(self, tarfile)  line 948
+        TarInfo.path(self)  line 957
+        TarInfo.path(self, name)  line 962
+        TarInfo.linkpath(self)  line 966
+        TarInfo.linkpath(self, linkname)  line 971
+        TarInfo.__repr__(self)  line 975
+        TarInfo.replace(self, name, mtime, mode, linkname, uid, gid, uname, gname, deep, _KEEP)  line 978
+        TarInfo.get_info(self)  line 1006
+        TarInfo.tobuf(self, format, encoding, errors)  line 1034
+        TarInfo.create_ustar_header(self, info, encoding, errors)  line 1051
+        TarInfo.create_gnu_header(self, info, encoding, errors)  line 1064
+        TarInfo.create_pax_header(self, info, encoding)  line 1078
+        TarInfo.create_pax_global_header(cls, pax_headers)  line 1136
+        TarInfo._posix_split_name(self, name, encoding, errors)  line 1142
+        TarInfo._create_header(info, format, encoding, errors)  line 1158
+        TarInfo._create_payload(payload)  line 1200
+        TarInfo._create_gnu_long_header(cls, name, type, encoding, errors)  line 1210
+        TarInfo._create_pax_generic_header(cls, pax_headers, type, encoding)  line 1227
+        TarInfo.frombuf(cls, buf, encoding, errors)  line 1278
+        TarInfo.fromtarfile(cls, tarfile)  line 1341
+        TarInfo._proc_member(self, tarfile)  line 1362
+        TarInfo._proc_builtin(self, tarfile)  line 1375
+        TarInfo._proc_gnulong(self, tarfile)  line 1397
+        TarInfo._proc_sparse(self, tarfile)  line 1424
+        TarInfo._proc_pax(self, tarfile)  line 1452
+        TarInfo._proc_gnusparse_00(self, next, raw_headers)  line 1573
+        TarInfo._proc_gnusparse_01(self, next, pax_headers)  line 1593
+        TarInfo._proc_gnusparse_10(self, next, pax_headers, tarfile)  line 1599
+        TarInfo._apply_pax_info(self, pax_headers, encoding, errors)  line 1615
+        TarInfo._decode_pax_field(self, value, encoding, fallback_encoding, fallback_errors)  line 1638
+        TarInfo._block(self, count)  line 1646
+        TarInfo.isreg(self)  line 1658
+        TarInfo.isfile(self)  line 1662
+        TarInfo.isdir(self)  line 1666
+        TarInfo.issym(self)  line 1670
+        TarInfo.islnk(self)  line 1674
+        TarInfo.ischr(self)  line 1678
+        TarInfo.isblk(self)  line 1682
+        TarInfo.isfifo(self)  line 1686
+        TarInfo.issparse(self)  line 1690
+        TarInfo.isdev(self)  line 1693
+    TarFile()  line 1698
+        TarFile.__init__(self, name, mode, fileobj, format, tarinfo, dereference, ignore_zeros, encoding, errors, pax_headers, debug, errorlevel, copybufsize, stream)  line 1726
+        TarFile.open(cls, name, mode, fileobj, bufsize)  line 1841
+            TarFile.open.<locals>.not_compressed(comptype)  line 1889
+        TarFile.taropen(cls, name, mode, fileobj)  line 1950
+        TarFile.gzopen(cls, name, mode, fileobj, compresslevel)  line 1958
+        TarFile.bz2open(cls, name, mode, fileobj, compresslevel)  line 1991
+        TarFile.xzopen(cls, name, mode, fileobj, preset)  line 2019
+        TarFile.zstopen(cls, name, mode, fileobj, level, options, zstd_dict)  line 2047
+        TarFile.close(self)  line 2094
+        TarFile.getmember(self, name)  line 2115
+        TarFile.getmembers(self)  line 2126
+        TarFile.getnames(self)  line 2136
+        TarFile.gettarinfo(self, name, arcname, fileobj)  line 2142
+        TarFile.list(self, verbose, members)  line 2248
+        TarFile.add(self, name, arcname, recursive, filter)  line 2291
+        TarFile.addfile(self, tarinfo, fileobj)  line 2342
+        TarFile._get_filter_function(self, filter)  line 2370
+        TarFile.extractall(self, path, members, numeric_owner, filter)  line 2388
+            TarFile.extractall.<locals>.<lambda>(a)  line 2423
+        TarFile._log_no_directory_fixup(self, member, reason)  line 2457
+        TarFile.extract(self, member, path, set_attrs, numeric_owner, filter)  line 2461
+        TarFile._get_extract_tarinfo(self, member, filter_function, path)  line 2481
+        TarFile._extract_one(self, tarinfo, path, set_attrs, numeric_owner, filter_function)  line 2511
+        TarFile._handle_nonfatal_error(self, e)  line 2531
+        TarFile._handle_fatal_error(self, e)  line 2538
+        TarFile.extractfile(self, member)  line 2550
+        TarFile._extract_member(self, tarinfo, targetpath, set_attrs, numeric_owner, filter_function, extraction_root)  line 2582
+        TarFile.makedir(self, tarinfo, targetpath)  line 2638
+        TarFile.makefile(self, tarinfo, targetpath)  line 2653
+        TarFile.makeunknown(self, tarinfo, targetpath)  line 2669
+        TarFile.makefifo(self, tarinfo, targetpath)  line 2677
+        TarFile.makedev(self, tarinfo, targetpath)  line 2685
+        TarFile.makelink(self, tarinfo, targetpath)  line 2703
+        TarFile.makelink_with_filter(self, tarinfo, targetpath, filter_function, extraction_root)  line 2706
+        TarFile.chown(self, tarinfo, targetpath, numeric_owner)  line 2756
+        TarFile.chmod(self, tarinfo, targetpath)  line 2790
+        TarFile.utime(self, tarinfo, targetpath)  line 2800
+        TarFile.next(self)  line 2814
+        TarFile._getmember(self, name, tarinfo, normalize)  line 2881
+        TarFile._load(self)  line 2921
+        TarFile._check(self, mode)  line 2930
+        TarFile._find_link_target(self, tarinfo)  line 2939
+        TarFile.__iter__(self)  line 2958
+        TarFile._dbg(self, level, msg)  line 2989
+        TarFile.__enter__(self)  line 2995
+        TarFile.__exit__(self, type, value, traceback)  line 2999
+    is_tarfile(name)  line 3013
+    main()  line 3034
+
+--- strings ---
+'Read from and write to tar format archives.\n'
+'0.9.0'
+'Lars Gustäbel (lars@gustaebel.de)'
+'Gustavo Niemeyer, Niels Gustäbel, Richard Townsend.'
+'TarFile'
+'TarInfo'
+'TarError'
+'ReadError'
+'CompressionError'
+'StreamError'
+'ExtractError'
+'HeaderError'
+'FilterError'
+'AbsoluteLinkError'
+'OutsideDestinationError'
+'SpecialFileError'
+'AbsolutePathError'
+'LinkOutsideDestinationError'
+'LinkFallbackError'
+'size'
+'mtime'
+'uid'
+'gid'
+'atime'
+'ctime'
+'nt'
+'utf-8'
+'Convert a string to a null-terminated bytes object.\n    '
+'metadata cannot contain None'
+'Convert a null-terminated bytes object to a string.\n    '
+'Convert a number field to a python number.\n    '
+'ascii'
+'strict'
+'invalid header'
+'Convert a python number to a number field.\n    '
+'%0*o'
+'ascii'
+'overflow in number field'
+"Calculate the checksum for a member's header by summing up all\ncharacters except for the chksum field which is treated as if\nit was filled with spaces. According to the GNU tar sources,\nsome tars (Sun and NeXT) calculate chksum with signed char,\nwhich will be different if there are chars in the buffer with\nthe high bit set. So we calculate two checksums, unsigned and\nsigned.\n"
+'148B8x356B'
+'148b8x356b'
+'Copy length bytes from fileobj src to fileobj dst.\nIf length is None, copy the entire content.\n'
+'unexpected end of data'
+'encoding'
+'backslashreplace'
+'TarError'
+'Base exception.'
+'ExtractError'
+'General exception for extract errors.'
+'ReadError'
+'Exception for unreadable tar archives.'
+'CompressionError'
+'Exception for unavailable compression methods.'
+'StreamError'
+'Exception for unsupported operations on stream-like TarFiles.'
+'HeaderError'
+'Base exception for header errors.'
+'EmptyHeaderError'
+'Exception for empty headers.'
+'EmptyHeaderError'
+'TruncatedHeaderError'
+'Exception for truncated headers.'
+'TruncatedHeaderError'
+'EOFHeaderError'
+'Exception for end of file headers.'
+'EOFHeaderError'
+'InvalidHeaderError'
+'Exception for invalid headers.'
+'InvalidHeaderError'
+'SubsequentHeaderError'
+'Exception for missing and invalid extended headers.'
+'SubsequentHeaderError'
+'_LowLevelFile'
+'Low-level file object. Supports reading and writing.\nIt is used instead of a regular file object for streaming\naccess.\n'
+'O_BINARY'
+'_LowLevelFile'
+'_Stream'
+'Class that serves as an adapter between TarFile and\na stream-like object.  The stream-like object only\nneeds to have a read() or write() method that works with bytes,\nand the method is accessed blockwise.\nUse of gzip or bzip2 compression is possible.\nA stream-like object could be for example: sys.stdin.buffer,\nsys.stdout.buffer, a socket, a tape device etc.\n\n_Stream is intended to be used only internally.\n'
+'Construct a _Stream object.\n        '
+'gz'
+'zlib module is not available'
+'bz2'
+'bz2 module is not available'
+'xz'
+'lzma module is not available'
+'zst'
+'compression.zstd module is not available'
+'tar'
+'unknown compression type %r'
+'closed'
+'Initialize for writing with gzip compression.\n        '
+'<L'
+'.gz'
+'iso-8859-1'
+'replace'
+'Write string s to the stream.\n        '
+'gz'
+'tar'
+'Write string s to the stream if a whole new block\nis ready to be written.\n'
+'Close the _Stream object. No operation should be\ndone on it afterwards.\n'
+'tar'
+'gz'
+'<L'
+'Initialize for reading a gzip compressed fileobj.\n        '
+'not a gzip file'
+'unsupported compression method'
+"Return the stream's file pointer position.\n        "
+"Set the stream's file pointer to pos. Negative seeking\nis forbidden.\n"
+'seeking backwards is not allowed'
+'Return the next size number of bytes from the stream.'
+'Return size bytes from the stream.\n        '
+'tar'
+'invalid compressed data'
+'Return size bytes from stream. If internal buffer is empty,\nread another block from the stream.\n'
+'_Stream'
+'_StreamProxy'
+"Small proxy class that enables transparent compression\ndetection for the Stream interface (mode 'r|*').\n"
+'gz'
+'bz2'
+'xz'
+'zst'
+'tar'
+'_StreamProxy'
+'_FileInFile'
+'A thin wrapper around an existing file object that\nprovides a part of its data as an individual file\nobject.\n'
+'rb'
+'Return the current file position.\n        '
+'Seek to a position in the file.\n        '
+'Invalid argument'
+'Read data from the file.\n        '
+'unexpected end of data'
+'_FileInFile'
+'ExFileObject'
+'ExFileObject'
+'FilterError'
+'AbsolutePathError'
+'member '
+' has an absolute path'
+'OutsideDestinationError'
+' would be extracted to '
+', '
+'which is outside the destination'
+'SpecialFileError'
+' is a special file'
+'AbsoluteLinkError'
+' is a link to an absolute path'
+'LinkOutsideDestinationError'
+' would link to '
+', '
+'which is outside the destination'
+'LinkFallbackError'
+'link '
+' would be extracted as a '
+'copy of '
+', which was rejected'
+'name'
+'mode'
+'uid'
+'gid'
+'uname'
+'gname'
+'linkname'
+'deep'
+'deep'
+'fully_trusted'
+'tar'
+'data'
+'TarInfo'
+'Informational class which holds the details about an\narchive member given by a tar header block.\nTarInfo objects are returned by TarFile.getmember(),\nTarFile.getmembers() and TarFile.gettarinfo() and are\nusually created internally.\n'
+'name'
+'Name of the archive member.'
+'mode'
+'Permission bits.'
+'uid'
+'User ID of the user who originally stored this member.'
+'gid'
+'Group ID of the user who originally stored this member.'
+'size'
+'Size in bytes.'
+'mtime'
+'Time of last modification.'
+'chksum'
+'Header checksum.'
+'type'
+'File type. type is usually one of these constants: REGTYPE, AREGTYPE, LNKTYPE, SYMTYPE, DIRTYPE, FIFOTYPE, CONTTYPE, CHRTYPE, BLKTYPE, GNUTYPE_SPARSE.'
+'linkname'
+'Name of the target file name, which is only present in TarInfo objects of type LNKTYPE and SYMTYPE.'
+'uname'
+'User name.'
+'gname'
+'Group name.'
+'devmajor'
+'Device major number.'
+'devminor'
+'Device minor number.'
+'offset'
+'The tar header starts here.'
+'offset_data'
+"The file's data starts here."
+'pax_headers'
+'A dictionary containing key-value pairs of an associated pax extended header.'
+'sparse'
+'Sparse member information.'
+'_tarfile'
+'_sparse_structs'
+'_link_target'
+'Construct a TarInfo object. name is the optional name\nof the member.\n'
+'The undocumented "tarfile" attribute of TarInfo objects is deprecated and will be removed in Python 3.16'
+'The undocumented "tarfile" attribute of TarInfo objects is deprecated and will be removed in Python 3.16'
+'In pax headers, "name" is called "path".'
+'In pax headers, "linkname" is called "linkpath".'
+'<%s %r at %#x>'
+'deep'
+'_KEEP'
+'Return a deep copy of self with the given attributes replaced.\n        '
+"Return the TarInfo's attributes as a dictionary.\n        "
+'name'
+'mode'
+'uid'
+'gid'
+'size'
+'mtime'
+'chksum'
+'type'
+'linkname'
+'uname'
+'gname'
+'devmajor'
+'devminor'
+'surrogateescape'
+'Return a tar header as a string of 512 byte blocks.\n        '
+'%s may not be None'
+'invalid format'
+'Return the object as a ustar header block.\n        '
+'magic'
+'linkname'
+'linkname is too long'
+'name'
+'prefix'
+'Return the object as a GNU header block sequence.\n        '
+'magic'
+'linkname'
+'name'
+'Return the object as a ustar header block. If it cannot be\nrepresented this way, prepend a pax extended header sequence\nwith supplement information.\n'
+'magic'
+'name'
+'path'
+'linkname'
+'linkpath'
+'ascii'
+'strict'
+'replace'
+'Return the object as a pax global header block sequence.\n        '
+'utf-8'
+'Split a name longer than 100 chars into a prefix\nand a name part.\n'
+'name is too long'
+'Return a header block. info is a dictionary with file\ninformation, format must be one of the *_FORMAT constants.\n'
+'type'
+'devmajor'
+'devminor'
+'TarInfo.type must not be None'
+'name'
+'mode'
+'uid'
+'gid'
+'size'
+'mtime'
+'linkname'
+'magic'
+'uname'
+'gname'
+'prefix'
+'%ds'
+'%06o\x00'
+'ascii'
+'Return the string payload filled with zero bytes\nup to the next 512 byte border.\n'
+'Return a GNUTYPE_LONGNAME or GNUTYPE_LONGLINK sequence\nfor name.\n'
+'././@LongLink'
+'name'
+'type'
+'size'
+'magic'
+'Return a POSIX.1-2008 extended or global header sequence\nthat contains a list of keyword, value pairs. The values\nmust be strings.\n'
+'utf-8'
+'strict'
+'surrogateescape'
+'ascii'
+'././@PaxHeader'
+'name'
+'type'
+'size'
+'magic'
+'replace'
+'Construct a TarInfo object from a 512 byte bytes object.\n        '
+'empty header'
+'truncated header'
+'end of file header'
+'bad checksum'
+'Return the next TarInfo object from TarFile object\ntarfile.\n'
+'Choose the right processing method depending on\nthe type and call it.\n'
+'Process a builtin type or an unknown type which\nwill be treated as a regular file.\n'
+'Process the blocks that hold a GNU longname\nor longlink member.\n'
+'Process a GNU sparse header plus extra headers.\n        '
+'Process an extended or global header as described in\nPOSIX.1-2008.\n'
+'invalid header'
+'utf-8'
+'GNU.sparse.map'
+'GNU.sparse.size'
+'GNU.sparse.major'
+'GNU.sparse.minor'
+'size'
+'Process a GNU tar extended sparse header, version 0.0.\n        '
+'invalid header'
+'Process a GNU tar extended sparse header, version 0.1.\n        '
+'GNU.sparse.map'
+'Process a GNU tar extended sparse header, version 1.0.\n        '
+'Replace fields with supplemental information from a previous\npax extended or global header.\n'
+'GNU.sparse.name'
+'path'
+'GNU.sparse.size'
+'size'
+'GNU.sparse.realsize'
+'Decode a single field from a pax record.\n        '
+'strict'
+'Round up a byte count by BLOCKSIZE and return it,\ne.g. _block(834) => 1024.\n'
+'invalid offset'
+'Return True if the Tarinfo object is a regular file.'
+'Return True if the Tarinfo object is a regular file.'
+'Return True if it is a directory.'
+'Return True if it is a symbolic link.'
+'Return True if it is a hard link.'
+'Return True if it is a character device.'
+'Return True if it is a block device.'
+'Return True if it is a FIFO.'
+'Return True if it is one of character device, block device or FIFO.'
+'TarFile'
+'The TarFile Class provides an interface to tar archives.\n    '
+"Open an (uncompressed) tar archive 'name'. 'mode' is either 'r' to\nread from an existing archive, 'a' to append data to an existing\nfile or 'w' to create a new file overwriting an existing one. 'mode'\ndefaults to 'r'.\nIf 'fileobj' is given, it is used for reading or writing data. If it\ncan be determined, 'mode' is overridden by 'fileobj's mode.\n'fileobj' is not closed, when TarFile is closed.\n"
+'rb'
+'r+b'
+'wb'
+'xb'
+"mode must be 'r', 'a', 'w' or 'x'"
+'name'
+'mode'
+"Open a tar archive for reading, writing or appending. Return\nan appropriate TarFile class.\n\nmode:\n'r' or 'r:*' open for reading with transparent compression\n'r:'         open for reading exclusively uncompressed\n'r:gz'       open for reading with gzip compression\n'r:bz2'      open for reading with bzip2 compression\n'r:xz'       open for reading with lzma compression\n'r:zst'      open for reading with zstd compression\n'a' or 'a:'  open for appending, creating the file if necessary\n'w' or 'w:'  open for writing without compression\n'w:gz'       open for writing with gzip compression\n'w:bz2'      open for writing with bzip2 compression\n'w:xz'       open for writing with lzma compression\n'w:zst'      open for writing with zstd compression\n\n'x' or 'x:'  create a tarfile exclusively without compression, raise\n             an exception if the file is already created\n'x:gz'       create a gzip compressed tarfile, raise an exception\n             if the file is already created\n'x:bz2'      create a bzip2 compressed tarfile, raise an exception\n             if the file is already created\n'x:xz'       create an lzma compressed tarfile, raise an exception\n             if the file is already created\n'x:zst'      create a zstd compressed tarfile, raise an exception\n             if the file is already created\n\n'r|*'        open a stream of tar blocks with transparent compression\n'r|'         open an uncompressed stream of tar blocks for reading\n'r|gz'       open a gzip compressed stream of tar blocks\n'r|bz2'      open a bzip2 compressed stream of tar blocks\n'r|xz'       open an lzma compressed stream of tar blocks\n'r|zst'      open a zstd compressed stream of tar blocks\n'w|'         open an uncompressed stream for writing\n'w|gz'       open a gzip compressed stream for writing\n'w|bz2'      open a bzip2 compressed stream for writing\n'w|xz'       open an lzma compressed stream for writing\n'w|zst'      open a zstd compressed stream for writing\n"
+'nothing to open'
+'taropen'
+'- method '
+': '
+'file could not be opened successfully:\n'
+'tar'
+'unknown compression type %r'
+"mode must be 'r' or 'w'"
+'compresslevel'
+'compresslevel is only valid for w|gz and w|bz2 modes'
+'preset'
+'preset is only valid for w|xz mode'
+'undiscernible mode'
+'Open uncompressed tar archive name for reading or writing.\n        '
+"mode must be 'r', 'a', 'w' or 'x'"
+'Open gzip compressed tar archive name for reading or writing.\nAppending is not allowed.\n'
+"mode must be 'r', 'w' or 'x'"
+'gzip module is not available'
+'not a gzip file'
+'Open bzip2 compressed tar archive name for reading or writing.\nAppending is not allowed.\n'
+"mode must be 'r', 'w' or 'x'"
+'bz2 module is not available'
+'not a bzip2 file'
+'Open lzma compressed tar archive name for reading or writing.\nAppending is not allowed.\n'
+"mode must be 'r', 'w' or 'x'"
+'lzma module is not available'
+'not an lzma file'
+'Open zstd compressed tar archive name for reading or writing.\nAppending is not allowed.\n'
+"mode must be 'r', 'w' or 'x'"
+'compression.zstd module is not available'
+'not a zstd file'
+'tar'
+'taropen'
+'gz'
+'gzopen'
+'bz2'
+'bz2open'
+'xz'
+'xzopen'
+'zst'
+'zstopen'
+'Close the TarFile. In write-mode, two finishing zero blocks are\nappended to the archive.\n'
+"Return a TarInfo object for member 'name'. If 'name' can not be\nfound in the archive, KeyError is raised. If a member occurs more\nthan once in the archive, its last occurrence is assumed to be the\nmost up-to-date version.\n"
+'filename %r not found'
+'Return the members of the archive as a list of TarInfo objects. The\nlist has the same order as the members in the archive.\n'
+'Return the members of the archive as a list of their names. It has\nthe same order as the list returned by getmembers().\n'
+"Create a TarInfo object from the result of os.stat or equivalent\non an existing file. The file is either named by 'name', or\nspecified as a file object 'fileobj' with a file descriptor. If\ngiven, 'arcname' specifies an alternative name for the file in the\narchive, otherwise, the name is taken from the 'name' attribute of\n'fileobj', or the 'name' argument. The name should be a text\nstring.\n"
+'awx'
+'major'
+'minor'
+'members'
+"Print a table of contents to sys.stdout. If 'verbose' is False, only\nthe names of the members are printed. If it is True, an 'ls -l'-like\noutput is produced. 'members' is optional and must be a subset of the\nlist returned by getmembers().\n"
+'??????????'
+'%10s'
+'%d,%d'
+'%10d'
+'????-??-?? ??:??:??'
+'%d-%02d-%02d %02d:%02d:%02d'
+'-> '
+'link to '
+'filter'
+"Add the file 'name' to the archive. 'name' may be any type of file\n(directory, fifo, symbolic link, etc.). If given, 'arcname'\nspecifies an alternative name for the file in the archive.\nDirectories are added recursively by default. This can be avoided by\nsetting 'recursive' to False. 'filter' is a function\nthat expects a TarInfo object argument and returns the changed\nTarInfo object, if it returns None the TarInfo object will be\nexcluded from the archive.\n"
+'awx'
+'tarfile: Skipped %r'
+'tarfile: Unsupported type %r'
+'tarfile: Excluded %r'
+'rb'
+"Add the TarInfo object 'tarinfo' to the archive. If 'tarinfo' represents\na non zero-size regular file, the 'fileobj' argument should be a binary file,\nand tarinfo.size bytes are read from it and added to the archive.\nYou can create TarInfo objects directly, or by using gettarinfo().\n"
+'awx'
+'fileobj not provided for non zero-size regular file'
+'filter '
+' not found'
+'String names are not supported for TarFile.extraction_filter. Use a function such as tarfile.data_filter directly.'
+'numeric_owner'
+"Extract all members from the archive to the current working\ndirectory and set owner, modification time and permissions on\ndirectories afterwards. 'path' specifies a different directory\nto extract to. 'members' is optional and must be a subset of the\nlist returned by getmembers(). If 'numeric_owner' is True, only\nthe numbers for user/group names are used and not the names.\n\nThe 'filter' function will be called on each member just\nbefore extraction.\nIt can return a changed TarInfo or None to skip the member.\nString names of common filters are accepted.\n"
+'excluded by filter'
+'missing'
+'not a directory'
+'tarfile: Not fixing up directory '
+' ('
+"Extract a member from the archive to the current working directory,\nusing its full name. Its file information is extracted as accurately\nas possible. 'member' may be a filename or a TarInfo object. You can\nspecify a different directory using 'path'. File attributes (owner,\nmtime, mode) are set unless 'set_attrs' is False. If 'numeric_owner'\nis True, only the numbers for user/group names are used and not\nthe names.\n\nThe 'filter' function will be called before extraction.\nIt can return a changed TarInfo or None to skip the member.\nString names of common filters are accepted.\n"
+'Get (filtered, unfiltered) TarInfos from *member*\n\n*member* might be a string.\n\nReturn (None, None) if not found.\n'
+'tarfile: Excluded %r'
+'Extract from filtered tarinfo to disk.\n\nfilter_function is only used when extracting a *different*\nmember (e.g. as fallback to creating a symlink)\n'
+'Handle non-fatal error (ExtractError) according to errorlevel'
+'tarfile: %s'
+'Handle "fatal" error according to self.errorlevel'
+'tarfile: %s'
+'tarfile: '
+"Extract a member from the archive as a file object. 'member' may be\na filename or a TarInfo object. If 'member' is a regular file or\na link, an io.BufferedReader object is returned. For all other\nexisting members, None is returned. If 'member' does not appear\nin the archive, KeyError is raised.\n"
+'cannot extract (sym)link as file object'
+'filter_function'
+'extraction_root'
+'Extract the filtered TarInfo object tarinfo to a physical\nfile called targetpath.\n\nfilter_function is only used when extracting a *different*\nmember (e.g. as fallback to creating a symlink)\n'
+' -> '
+'Make a directory called targetpath.\n        '
+'Make a file called targetpath.\n        '
+'wb'
+'Make a file from a TarInfo object with an unknown type\nat targetpath.\n'
+'tarfile: Unknown file type %r, extracted as regular file.'
+'Make a fifo called targetpath.\n        '
+'mkfifo'
+'fifo not supported by system'
+'Make a character or block device called targetpath.\n        '
+'mknod'
+'makedev'
+'special devices not supported by system'
+'Make a (symbolic) link called targetpath. If it cannot be created\n(platform limitation), we try to make a copy of the referenced file\ninstead of a link.\n\nfilter_function is only used when extracting a *different*\nmember (e.g. as fallback to creating a link).\n'
+'unable to resolve link inside archive'
+'makelink_with_filter: if filter_function is not None, extraction_root must also not be None'
+'Set owner of targetpath according to tarinfo. If numeric_owner\nis True, use .gid/.uid instead of .gname/.uname. If numeric_owner\nis False, fall back to .gid/.uid when the search based on name\nfails.\n'
+'geteuid'
+'lchown'
+'could not change owner'
+'Set file permissions of targetpath according to tarinfo.\n        '
+'could not change mode'
+'Set modification time of targetpath according to tarinfo.\n        '
+'utime'
+'could not change modification time'
+'Return the next member of the archive as a TarInfo object, when\nTarFile is opened for reading. Return None if there is no more\navailable.\n'
+'ra'
+'unexpected end of data'
+'0x%X: %s'
+'empty file'
+'zlib error: '
+'Find an archive member by name from bottom to top.\nIf tarinfo is given, it is used as the starting point.\n'
+'Read through the entire archive file and look for readable\nmembers. This should not run if the file is set to stream.\n'
+"Check if TarFile is still open, and if the operation's mode\ncorresponds to TarFile's mode.\n"
+'%s is closed'
+'bad operation for mode %r'
+'Find the target member of a symlink or hardlink member in the\narchive.\n'
+'linkname %r not found'
+'Provide an iterator object.\n        '
+'Write debugging output to sys.stderr.\n        '
+"Return True if name points to a tar archive that we\nare able to handle, else return False.\n\n'name' should be a string, file, or file-like object.\n"
+'read'
+'A simple command-line interface for tarfile module.'
+'-v'
+'--verbose'
+'store_true'
+'Verbose output'
+'--filter'
+'<filtername>'
+'Filter for extraction'
+'-l'
+'--list'
+'<tarfile>'
+'Show listing of a tarfile'
+'-e'
+'--extract'
+'Extract tarfile into target dir'
+'-c'
+'--create'
+'Create tarfile from sources'
+'-t'
+'--test'
+'Test if a tarfile is valid'
+'--filter is only valid for extraction\n'
+'{!r} is a tar archive.'
+'{!r} is not a tar archive.\n'
+'r:*'
+'{!r} file is extracted.'
+'{!r} file is extracted into {!r} directory.'
+'.gz'
+'gz'
+'.tgz'
+'.xz'
+'xz'
+'.txz'
+'.bz2'
+'bz2'
+'.tbz'
+'.tbz2'
+'.tb2'
+'.zst'
+'zst'
+'.tzst'
+'w:'
+'{!r} file created.'
+'__main__'

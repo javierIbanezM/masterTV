@@ -1,0 +1,579 @@
+   0            RESUME                   0
+
+   1            LOAD_CONST               0 ('A pure Python implementation of import.')
+                STORE_NAME               0 (__doc__)
+
+   2            BUILD_LIST               0
+                LOAD_CONST              14 (('__import__', 'import_module', 'invalidate_caches', 'reload'))
+                LIST_EXTEND              1
+                STORE_NAME               1 (__all__)
+
+  12            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              2 (_imp)
+                STORE_NAME               2 (_imp)
+
+  13            LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              3 (sys)
+                STORE_NAME               3 (sys)
+
+  15            NOP
+
+  16    L1:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME              4 (_frozen_importlib)
+                STORE_NAME               5 (_bootstrap)
+
+  23    L2:     LOAD_CONST               2 ('importlib._bootstrap')
+                LOAD_NAME                5 (_bootstrap)
+                STORE_ATTR               6 (__name__)
+
+  24            LOAD_CONST               3 ('importlib')
+                LOAD_NAME                5 (_bootstrap)
+                STORE_ATTR               7 (__package__)
+
+  25            NOP
+
+  26    L3:     LOAD_NAME                8 (__file__)
+                LOAD_ATTR               19 (replace + NULL|self)
+                LOAD_CONST               4 ('__init__.py')
+                LOAD_CONST               5 ('_bootstrap.py')
+                CALL                     2
+                LOAD_NAME                5 (_bootstrap)
+                STORE_ATTR               8 (__file__)
+
+  31    L4:     LOAD_NAME                5 (_bootstrap)
+                LOAD_NAME                3 (sys)
+                LOAD_ATTR               22 (modules)
+                LOAD_CONST               2 ('importlib._bootstrap')
+                STORE_SUBSCR
+
+  33    L5:     NOP
+
+  34    L6:     LOAD_SMALL_INT           0
+                LOAD_CONST               1 (None)
+                IMPORT_NAME             15 (_frozen_importlib_external)
+                STORE_NAME              16 (_bootstrap_external)
+
+  40    L7:     LOAD_CONST               7 ('importlib._bootstrap_external')
+                LOAD_NAME               16 (_bootstrap_external)
+                STORE_ATTR               6 (__name__)
+
+  41            LOAD_CONST               3 ('importlib')
+                LOAD_NAME               16 (_bootstrap_external)
+                STORE_ATTR               7 (__package__)
+
+  42            NOP
+
+  43    L8:     LOAD_NAME                8 (__file__)
+                LOAD_ATTR               19 (replace + NULL|self)
+                LOAD_CONST               4 ('__init__.py')
+                LOAD_CONST               8 ('_bootstrap_external.py')
+                CALL                     2
+                LOAD_NAME               16 (_bootstrap_external)
+                STORE_ATTR               8 (__file__)
+
+  48    L9:     LOAD_NAME               16 (_bootstrap_external)
+                LOAD_NAME                3 (sys)
+                LOAD_ATTR               22 (modules)
+                LOAD_CONST               7 ('importlib._bootstrap_external')
+                STORE_SUBSCR
+
+  51   L10:     LOAD_NAME               16 (_bootstrap_external)
+                LOAD_ATTR               36 (_pack_uint32)
+                STORE_NAME              18 (_pack_uint32)
+
+  52            LOAD_NAME               16 (_bootstrap_external)
+                LOAD_ATTR               38 (_unpack_uint32)
+                STORE_NAME              19 (_unpack_uint32)
+
+  60            LOAD_SMALL_INT           1
+                LOAD_CONST              10 (('__import__',))
+                IMPORT_NAME              5 (_bootstrap)
+                IMPORT_FROM             20 (__import__)
+                STORE_NAME              20 (__import__)
+                POP_TOP
+
+  63            LOAD_CONST              11 (<code object invalidate_caches at 0x00000204BA0BB0C0, file "importlib\__init__.py", line 63>)
+                MAKE_FUNCTION
+                STORE_NAME              21 (invalidate_caches)
+
+  71            LOAD_CONST              15 ((None,))
+                LOAD_CONST              12 (<code object import_module at 0x00000204B9F6F430, file "importlib\__init__.py", line 71>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   1 (defaults)
+                STORE_NAME              22 (import_module)
+
+  91            BUILD_MAP                0
+                STORE_NAME              23 (_RELOADING)
+
+  94            LOAD_CONST              13 (<code object reload at 0x00000204BA338F90, file "importlib\__init__.py", line 94>)
+                MAKE_FUNCTION
+                STORE_NAME              24 (reload)
+                LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --   L11:     PUSH_EXC_INFO
+
+  27            LOAD_NAME               10 (NameError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L13)
+                NOT_TAKEN
+                POP_TOP
+
+  30   L12:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 127 (to L4)
+
+  27   L13:     RERAISE                  0
+
+  --   L14:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L15:     PUSH_EXC_INFO
+
+  17            LOAD_NAME               12 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       29 (to L17)
+                NOT_TAKEN
+                POP_TOP
+
+  18            LOAD_SMALL_INT           1
+                LOAD_CONST               6 (('_bootstrap',))
+                IMPORT_NAME             13
+                IMPORT_FROM              5 (_bootstrap)
+                STORE_NAME               5 (_bootstrap)
+                POP_TOP
+
+  19            LOAD_NAME                5 (_bootstrap)
+                LOAD_ATTR               28 (_setup)
+                PUSH_NULL
+                LOAD_NAME                3 (sys)
+                LOAD_NAME                2 (_imp)
+                CALL                     2
+                POP_TOP
+       L16:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 150 (to L5)
+
+  17   L17:     RERAISE                  0
+
+  --   L18:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L19:     PUSH_EXC_INFO
+
+  44            LOAD_NAME               10 (NameError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L21)
+                NOT_TAKEN
+                POP_TOP
+
+  47   L20:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 120 (to L9)
+
+  44   L21:     RERAISE                  0
+
+  --   L22:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L23:     PUSH_EXC_INFO
+
+  35            LOAD_NAME               12 (ImportError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       35 (to L25)
+                NOT_TAKEN
+                POP_TOP
+
+  36            LOAD_SMALL_INT           1
+                LOAD_CONST               9 (('_bootstrap_external',))
+                IMPORT_NAME             13
+                IMPORT_FROM             16 (_bootstrap_external)
+                STORE_NAME              16 (_bootstrap_external)
+                POP_TOP
+
+  37            LOAD_NAME               16 (_bootstrap_external)
+                LOAD_ATTR               34 (_set_bootstrap_module)
+                PUSH_NULL
+                LOAD_NAME                5 (_bootstrap)
+                CALL                     1
+                POP_TOP
+
+  38            LOAD_NAME               16 (_bootstrap_external)
+                LOAD_NAME                5 (_bootstrap)
+                STORE_ATTR              16 (_bootstrap_external)
+       L24:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 149 (to L10)
+
+  35   L25:     RERAISE                  0
+
+  --   L26:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L15 [0]
+  L3 to L4 -> L11 [0]
+  L6 to L7 -> L23 [0]
+  L8 to L9 -> L19 [0]
+  L11 to L12 -> L14 [1] lasti
+  L13 to L14 -> L14 [1] lasti
+  L15 to L16 -> L18 [1] lasti
+  L17 to L18 -> L18 [1] lasti
+  L19 to L20 -> L22 [1] lasti
+  L21 to L22 -> L22 [1] lasti
+  L23 to L24 -> L26 [1] lasti
+  L25 to L26 -> L26 [1] lasti
+
+Disassembly of <code object invalidate_caches at 0x00000204BA0BB0C0, file "importlib\__init__.py", line 63>:
+ 63           RESUME                   0
+
+ 66           LOAD_GLOBAL              0 (sys)
+              LOAD_ATTR                2 (meta_path)
+              GET_ITER
+      L1:     FOR_ITER                39 (to L3)
+              STORE_FAST               0 (finder)
+
+ 67           LOAD_GLOBAL              5 (hasattr + NULL)
+              LOAD_FAST_BORROW         0 (finder)
+              LOAD_CONST               1 ('invalidate_caches')
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+              JUMP_BACKWARD           23 (to L1)
+
+ 68   L2:     LOAD_FAST_BORROW         0 (finder)
+              LOAD_ATTR                7 (invalidate_caches + NULL|self)
+              CALL                     0
+              POP_TOP
+              JUMP_BACKWARD           41 (to L1)
+
+ 66   L3:     END_FOR
+              POP_ITER
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object import_module at 0x00000204B9F6F430, file "importlib\__init__.py", line 71>:
+ 71           RESUME                   0
+
+ 79           LOAD_SMALL_INT           0
+              STORE_FAST               2 (level)
+
+ 80           LOAD_FAST_BORROW         0 (name)
+              LOAD_ATTR                1 (startswith + NULL|self)
+              LOAD_CONST               1 ('.')
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       51 (to L5)
+              NOT_TAKEN
+
+ 81           LOAD_FAST_BORROW         1 (package)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        16 (to L1)
+              NOT_TAKEN
+
+ 82           LOAD_GLOBAL              3 (TypeError + NULL)
+              LOAD_CONST               2 ("the 'package' argument is required to perform a relative import for ")
+
+ 83           LOAD_FAST_BORROW         0 (name)
+              CONVERT_VALUE            2 (repr)
+              FORMAT_SIMPLE
+
+ 82           BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 84   L1:     LOAD_FAST_BORROW         0 (name)
+              GET_ITER
+      L2:     FOR_ITER                21 (to L4)
+              STORE_FAST               3 (character)
+
+ 85           LOAD_FAST_BORROW         3 (character)
+              LOAD_CONST               1 ('.')
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+ 86           POP_TOP
+              JUMP_FORWARD            13 (to L5)
+
+ 87   L3:     LOAD_FAST_BORROW         2 (level)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              STORE_FAST               2 (level)
+              JUMP_BACKWARD           23 (to L2)
+
+ 84   L4:     END_FOR
+              POP_ITER
+
+ 88   L5:     LOAD_GLOBAL              4 (_bootstrap)
+              LOAD_ATTR                6 (_gcd_import)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (name, level)
+              LOAD_CONST               3 (None)
+              BINARY_SLICE
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (package, level)
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object reload at 0x00000204BA338F90, file "importlib\__init__.py", line 94>:
+  94            RESUME                   0
+
+ 100            NOP
+
+ 101    L1:     LOAD_FAST_BORROW         0 (module)
+                LOAD_ATTR                0 (__spec__)
+                LOAD_ATTR                2 (name)
+                STORE_FAST               1 (name)
+
+ 108    L2:     LOAD_GLOBAL             10 (sys)
+                LOAD_ATTR               12 (modules)
+                LOAD_ATTR               15 (get + NULL|self)
+                LOAD_FAST                1 (name)
+                CALL                     1
+                LOAD_FAST                0 (module)
+                IS_OP                    1 (is not)
+                POP_JUMP_IF_FALSE       18 (to L3)
+                NOT_TAKEN
+
+ 109            LOAD_GLOBAL             17 (ImportError + NULL)
+                LOAD_CONST               3 ('module ')
+                LOAD_FAST                1 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST               4 (' not in sys.modules')
+                BUILD_STRING             3
+                LOAD_FAST                1 (name)
+                LOAD_CONST               5 (('name',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 110    L3:     LOAD_FAST                1 (name)
+                LOAD_GLOBAL             18 (_RELOADING)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       14 (to L4)
+                NOT_TAKEN
+
+ 111            LOAD_GLOBAL             18 (_RELOADING)
+                LOAD_FAST                1 (name)
+                BINARY_OP               26 ([])
+                RETURN_VALUE
+
+ 112    L4:     LOAD_FAST                0 (module)
+                LOAD_GLOBAL             18 (_RELOADING)
+                LOAD_FAST                1 (name)
+                STORE_SUBSCR
+
+ 113            NOP
+
+ 114    L5:     LOAD_FAST                1 (name)
+                LOAD_ATTR               21 (rpartition + NULL|self)
+                LOAD_CONST               6 ('.')
+                CALL                     1
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               2 (parent_name)
+
+ 115            LOAD_FAST                2 (parent_name)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       38 (to L9)
+        L6:     NOT_TAKEN
+
+ 116            NOP
+
+ 117    L7:     LOAD_GLOBAL             10 (sys)
+                LOAD_ATTR               12 (modules)
+                LOAD_FAST                2 (parent_name)
+                BINARY_OP               26 ([])
+                STORE_FAST               3 (parent)
+
+ 122    L8:     LOAD_FAST                3 (parent)
+                LOAD_ATTR               22 (__path__)
+                STORE_FAST               4 (pkgpath)
+                JUMP_FORWARD             2 (to L10)
+
+ 124    L9:     LOAD_CONST               2 (None)
+                STORE_FAST               4 (pkgpath)
+
+ 125   L10:     LOAD_FAST                0 (module)
+                STORE_FAST               5 (target)
+
+ 126            LOAD_GLOBAL             26 (_bootstrap)
+                LOAD_ATTR               28 (_find_spec)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST     20 (name, pkgpath)
+                LOAD_FAST                5 (target)
+                CALL                     3
+                COPY                     1
+                STORE_FAST_LOAD_FAST    96 (spec, module)
+                STORE_ATTR               0 (__spec__)
+
+ 127            LOAD_FAST                6 (spec)
+                POP_JUMP_IF_NOT_NONE    18 (to L11)
+                NOT_TAKEN
+
+ 128            LOAD_GLOBAL             31 (ModuleNotFoundError + NULL)
+                LOAD_CONST               8 ('spec not found for the module ')
+                LOAD_FAST                1 (name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_FAST                1 (name)
+                LOAD_CONST               5 (('name',))
+                CALL_KW                  2
+                RAISE_VARARGS            1
+
+ 129   L11:     LOAD_GLOBAL             26 (_bootstrap)
+                LOAD_ATTR               32 (_exec)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST     96 (spec, module)
+                CALL                     2
+                POP_TOP
+
+ 131            LOAD_GLOBAL             10 (sys)
+                LOAD_ATTR               12 (modules)
+                LOAD_FAST                1 (name)
+                BINARY_OP               26 ([])
+
+ 133   L12:     NOP
+
+ 134   L13:     LOAD_GLOBAL             18 (_RELOADING)
+                LOAD_FAST                1 (name)
+                DELETE_SUBSCR
+       L14:     RETURN_VALUE
+
+  --   L15:     PUSH_EXC_INFO
+
+ 102            LOAD_GLOBAL              4 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       45 (to L22)
+                NOT_TAKEN
+                POP_TOP
+
+ 103   L16:     NOP
+
+ 104   L17:     LOAD_FAST                0 (module)
+                LOAD_ATTR                6 (__name__)
+                STORE_FAST               1 (name)
+       L18:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 289 (to L2)
+
+  --   L19:     PUSH_EXC_INFO
+
+ 105            LOAD_GLOBAL              4 (AttributeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       14 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+ 106            LOAD_GLOBAL              9 (TypeError + NULL)
+                LOAD_CONST               1 ('reload() argument must be a module')
+                CALL                     1
+                LOAD_CONST               2 (None)
+                RAISE_VARARGS            2
+
+ 105   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 102   L22:     RERAISE                  0
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L24:     PUSH_EXC_INFO
+
+ 118            LOAD_GLOBAL             24 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       21 (to L25)
+                NOT_TAKEN
+                POP_TOP
+
+ 119            LOAD_GLOBAL             17 (ImportError + NULL)
+                LOAD_CONST               7 ('parent ')
+                LOAD_FAST                2 (parent_name)
+                CONVERT_VALUE            2 (repr)
+                FORMAT_SIMPLE
+                LOAD_CONST               4 (' not in sys.modules')
+                BUILD_STRING             3
+
+ 120            LOAD_FAST                2 (parent_name)
+
+ 119            LOAD_CONST               5 (('name',))
+                CALL_KW                  2
+
+ 120            LOAD_CONST               2 (None)
+
+ 119            RAISE_VARARGS            2
+
+ 118   L25:     RERAISE                  0
+
+  --   L26:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L27:     PUSH_EXC_INFO
+
+ 135            LOAD_GLOBAL             24 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L29)
+                NOT_TAKEN
+                POP_TOP
+
+ 136   L28:     POP_EXCEPT
+                RETURN_VALUE
+
+ 135   L29:     RERAISE                  0
+
+  --   L30:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L31:     PUSH_EXC_INFO
+
+ 133   L32:     NOP
+
+ 134   L33:     LOAD_GLOBAL             18 (_RELOADING)
+                LOAD_FAST                1 (name)
+                DELETE_SUBSCR
+       L34:     RERAISE                  0
+
+  --   L35:     PUSH_EXC_INFO
+
+ 135            LOAD_GLOBAL             24 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L37)
+                NOT_TAKEN
+                POP_TOP
+
+ 136   L36:     POP_EXCEPT
+                RERAISE                  0
+
+ 135   L37:     RERAISE                  0
+
+  --   L38:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L39:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L15 [0]
+  L5 to L6 -> L31 [0]
+  L7 to L8 -> L24 [0]
+  L8 to L12 -> L31 [0]
+  L13 to L14 -> L27 [1]
+  L15 to L16 -> L23 [1] lasti
+  L17 to L18 -> L19 [1]
+  L19 to L21 -> L21 [2] lasti
+  L21 to L23 -> L23 [1] lasti
+  L24 to L26 -> L26 [1] lasti
+  L26 to L27 -> L31 [0]
+  L27 to L28 -> L30 [2] lasti
+  L29 to L30 -> L30 [2] lasti
+  L31 to L32 -> L39 [1] lasti
+  L33 to L34 -> L35 [2]
+  L34 to L35 -> L39 [1] lasti
+  L35 to L36 -> L38 [3] lasti
+  L36 to L37 -> L39 [1] lasti
+  L37 to L38 -> L38 [3] lasti
+  L38 to L39 -> L39 [1] lasti

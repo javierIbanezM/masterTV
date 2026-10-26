@@ -1,0 +1,1528 @@
+   0           RESUME                   0
+
+   1           LOAD_CONST               0 ('Implementation of JSONDecoder\n')
+               STORE_NAME               0 (__doc__)
+
+   3           LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              1 (re)
+               STORE_NAME               1 (re)
+
+   5           LOAD_SMALL_INT           0
+               LOAD_CONST               2 (('scanner',))
+               IMPORT_NAME              2 (json)
+               IMPORT_FROM              3 (scanner)
+               STORE_NAME               3 (scanner)
+               POP_TOP
+
+   6           NOP
+
+   7   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               3 (('scanstring',))
+               IMPORT_NAME              4 (_json)
+               IMPORT_FROM              5 (scanstring)
+               STORE_NAME               6 (c_scanstring)
+               POP_TOP
+
+  11   L2:     LOAD_CONST               4 ('JSONDecoder')
+               LOAD_CONST               5 ('JSONDecodeError')
+               BUILD_LIST               2
+               STORE_NAME               8 (__all__)
+
+  13           LOAD_NAME                1 (re)
+               LOAD_ATTR               18 (VERBOSE)
+               LOAD_NAME                1 (re)
+               LOAD_ATTR               20 (MULTILINE)
+               BINARY_OP                7 (|)
+               LOAD_NAME                1 (re)
+               LOAD_ATTR               22 (DOTALL)
+               BINARY_OP                7 (|)
+               STORE_NAME              12 (FLAGS)
+
+  15           LOAD_NAME               13 (float)
+               PUSH_NULL
+               LOAD_CONST               6 ('nan')
+               CALL                     1
+               STORE_NAME              14 (NaN)
+
+  16           LOAD_NAME               13 (float)
+               PUSH_NULL
+               LOAD_CONST               7 ('inf')
+               CALL                     1
+               STORE_NAME              15 (PosInf)
+
+  17           LOAD_NAME               13 (float)
+               PUSH_NULL
+               LOAD_CONST               8 ('-inf')
+               CALL                     1
+               STORE_NAME              16 (NegInf)
+
+  20           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST               9 (<code object JSONDecodeError at 0x00000204BA08B130, file "json\decoder.py", line 20>)
+               MAKE_FUNCTION
+               LOAD_CONST               5 ('JSONDecodeError')
+               LOAD_NAME               17 (ValueError)
+               CALL                     3
+               STORE_NAME              18 (JSONDecodeError)
+
+  47           LOAD_CONST              10 ('-Infinity')
+               LOAD_NAME               16 (NegInf)
+
+  48           LOAD_CONST              11 ('Infinity')
+               LOAD_NAME               15 (PosInf)
+
+  49           LOAD_CONST              12 ('NaN')
+               LOAD_NAME               14 (NaN)
+
+  46           BUILD_MAP                3
+               STORE_NAME              19 (_CONSTANTS)
+
+  53           LOAD_NAME                1 (re)
+               LOAD_ATTR               40 (compile)
+               PUSH_NULL
+               LOAD_CONST              13 ('[0-9A-Fa-f]{4}')
+               LOAD_NAME               12 (FLAGS)
+               CALL                     2
+               STORE_NAME              21 (HEXDIGITS)
+
+  54           LOAD_NAME                1 (re)
+               LOAD_ATTR               40 (compile)
+               PUSH_NULL
+               LOAD_CONST              14 ('(.*?)(["\\\\\\x00-\\x1f])')
+               LOAD_NAME               12 (FLAGS)
+               CALL                     2
+               STORE_NAME              22 (STRINGCHUNK)
+
+  56           LOAD_CONST              15 ('"')
+               LOAD_CONST              15 ('"')
+               LOAD_CONST              16 ('\\')
+               LOAD_CONST              16 ('\\')
+               LOAD_CONST              17 ('/')
+               LOAD_CONST              17 ('/')
+
+  57           LOAD_CONST              18 ('b')
+               LOAD_CONST              19 ('\x08')
+               LOAD_CONST              20 ('f')
+               LOAD_CONST              21 ('\x0c')
+               LOAD_CONST              22 ('n')
+               LOAD_CONST              23 ('\n')
+               LOAD_CONST              24 ('r')
+               LOAD_CONST              25 ('\r')
+               LOAD_CONST              26 ('t')
+               LOAD_CONST              27 ('\t')
+
+  55           BUILD_MAP                8
+               STORE_NAME              23 (BACKSLASH)
+
+  60           LOAD_NAME               21 (HEXDIGITS)
+               LOAD_ATTR               48 (match)
+               BUILD_TUPLE              1
+               LOAD_CONST              28 (<code object _decode_uXXXX at 0x00000204B9FF3E00, file "json\decoder.py", line 60>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              25 (_decode_uXXXX)
+
+  70           LOAD_CONST              29 (True)
+
+  71           LOAD_NAME               23 (BACKSLASH)
+               LOAD_NAME               22 (STRINGCHUNK)
+               LOAD_ATTR               48 (match)
+
+  70           BUILD_TUPLE              3
+               LOAD_CONST              30 (<code object py_scanstring at 0x00000204BA463DC0, file "json\decoder.py", line 70>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              26 (py_scanstring)
+
+ 131           LOAD_NAME                6 (c_scanstring)
+               COPY                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L3)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_NAME               26 (py_scanstring)
+       L3:     STORE_NAME               5 (scanstring)
+
+ 133           LOAD_NAME                1 (re)
+               LOAD_ATTR               40 (compile)
+               PUSH_NULL
+               LOAD_CONST              31 ('[ \\t\\n\\r]*')
+               LOAD_NAME               12 (FLAGS)
+               CALL                     2
+               STORE_NAME              27 (WHITESPACE)
+
+ 134           LOAD_CONST              32 (' \t\n\r')
+               STORE_NAME              28 (WHITESPACE_STR)
+
+ 138           LOAD_CONST               1 (None)
+               LOAD_NAME               27 (WHITESPACE)
+               LOAD_ATTR               48 (match)
+               LOAD_NAME               28 (WHITESPACE_STR)
+
+ 137           BUILD_TUPLE              3
+               LOAD_CONST              33 (<code object JSONObject at 0x00000204BA3ACB20, file "json\decoder.py", line 137>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              29 (JSONObject)
+
+ 221           LOAD_NAME               27 (WHITESPACE)
+               LOAD_ATTR               48 (match)
+               LOAD_NAME               28 (WHITESPACE_STR)
+               BUILD_TUPLE              2
+               LOAD_CONST              34 (<code object JSONArray at 0x00000204BA388300, file "json\decoder.py", line 221>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME              30 (JSONArray)
+
+ 262           LOAD_BUILD_CLASS
+               PUSH_NULL
+               LOAD_CONST              35 (<code object JSONDecoder at 0x00000204BA0ABEB0, file "json\decoder.py", line 262>)
+               MAKE_FUNCTION
+               LOAD_CONST               4 ('JSONDecoder')
+               LOAD_NAME               31 (object)
+               CALL                     3
+               STORE_NAME              32 (JSONDecoder)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+   8           LOAD_NAME                7 (ImportError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        7 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+   9           LOAD_CONST               1 (None)
+               STORE_NAME               6 (c_scanstring)
+       L5:     POP_EXCEPT
+               EXTENDED_ARG             1
+               JUMP_BACKWARD_NO_INTERRUPT 276 (to L2)
+
+   8   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object JSONDecodeError at 0x00000204BA08B130, file "json\decoder.py", line 20>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  20           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('JSONDecodeError')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          20
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  21           LOAD_CONST               1 ('Subclass of ValueError with the following additional properties:\n\nmsg: The unformatted error message\ndoc: The JSON document being parsed\npos: The start index of doc where parsing failed\nlineno: The line corresponding to pos\ncolno: The column corresponding to pos\n\n')
+               STORE_NAME               4 (__doc__)
+
+  31           LOAD_CONST               2 (<code object __init__ at 0x00000204B9F9F9F0, file "json\decoder.py", line 31>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__init__)
+
+  42           LOAD_CONST               3 (<code object __reduce__ at 0x00000204B9FEF0E0, file "json\decoder.py", line 42>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__reduce__)
+               LOAD_CONST               4 (('colno', 'doc', 'lineno', 'msg', 'pos'))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               5 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204B9F9F9F0, file "json\decoder.py", line 31>:
+ 31           RESUME                   0
+
+ 32           LOAD_FAST_BORROW         2 (doc)
+              LOAD_ATTR                1 (count + NULL|self)
+              LOAD_CONST               0 ('\n')
+              LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         3 (pos)
+              CALL                     3
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              STORE_FAST               4 (lineno)
+
+ 33           LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (pos, doc)
+              LOAD_ATTR                3 (rfind + NULL|self)
+              LOAD_CONST               0 ('\n')
+              LOAD_SMALL_INT           0
+              LOAD_FAST_BORROW         3 (pos)
+              CALL                     3
+              BINARY_OP               10 (-)
+              STORE_FAST               5 (colno)
+
+ 34           LOAD_CONST               1 ('%s: line %d column %d (char %d)')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (msg, lineno)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 83 (colno, pos)
+              BUILD_TUPLE              4
+              BINARY_OP                6 (%)
+              STORE_FAST               6 (errmsg)
+
+ 35           LOAD_GLOBAL              4 (ValueError)
+              LOAD_ATTR                7 (__init__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 6 (self, errmsg)
+              CALL                     2
+              POP_TOP
+
+ 36           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (msg, self)
+              STORE_ATTR               4 (msg)
+
+ 37           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (doc, self)
+              STORE_ATTR               5 (doc)
+
+ 38           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (pos, self)
+              STORE_ATTR               6 (pos)
+
+ 39           LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (lineno, self)
+              STORE_ATTR               7 (lineno)
+
+ 40           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (colno, self)
+              STORE_ATTR               8 (colno)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __reduce__ at 0x00000204B9FEF0E0, file "json\decoder.py", line 42>:
+ 42           RESUME                   0
+
+ 43           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (__class__)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (msg)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (doc)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (pos)
+              BUILD_TUPLE              3
+              BUILD_TUPLE              2
+              RETURN_VALUE
+
+Disassembly of <code object _decode_uXXXX at 0x00000204B9FF3E00, file "json\decoder.py", line 60>:
+  60           RESUME                   0
+
+  61           LOAD_FAST_BORROW         2 (_m)
+               PUSH_NULL
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (s, pos)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               CALL                     2
+               STORE_FAST               3 (esc)
+
+  62           LOAD_FAST_BORROW         3 (esc)
+               POP_JUMP_IF_NONE        28 (to L3)
+               NOT_TAKEN
+
+  63           NOP
+
+  64   L1:     LOAD_GLOBAL              1 (int + NULL)
+               LOAD_FAST_BORROW         3 (esc)
+               LOAD_ATTR                3 (group + NULL|self)
+               CALL                     0
+               LOAD_SMALL_INT          16
+               CALL                     2
+       L2:     RETURN_VALUE
+
+  67   L3:     LOAD_CONST               1 ('Invalid \\uXXXX escape')
+               STORE_FAST               4 (msg)
+
+  68           LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 64 (msg, s)
+               LOAD_FAST_BORROW         1 (pos)
+               CALL                     3
+               RAISE_VARARGS            1
+
+  --   L4:     PUSH_EXC_INFO
+
+  65           LOAD_GLOBAL              4 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        4 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+  66   L5:     POP_EXCEPT
+               JUMP_BACKWARD_NO_INTERRUPT 27 (to L3)
+
+  65   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object py_scanstring at 0x00000204BA463DC0, file "json\decoder.py", line 70>:
+  70            RESUME                   0
+
+  80            BUILD_LIST               0
+                STORE_FAST               5 (chunks)
+
+  81            LOAD_FAST_BORROW         5 (chunks)
+                LOAD_ATTR                0 (append)
+                STORE_FAST               6 (_append)
+
+  82            LOAD_FAST_BORROW         1 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                STORE_FAST               7 (begin)
+
+  83    L1:     NOP
+
+  84            LOAD_FAST_BORROW         4 (_m)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (s, end)
+                CALL                     2
+                STORE_FAST               8 (chunk)
+
+  85            LOAD_FAST_BORROW         8 (chunk)
+                POP_JUMP_IF_NOT_NONE    13 (to L2)
+                NOT_TAKEN
+
+  86            LOAD_GLOBAL              3 (JSONDecodeError + NULL)
+                LOAD_CONST               2 ('Unterminated string starting at')
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 7 (s, begin)
+                CALL                     3
+                RAISE_VARARGS            1
+
+  87    L2:     LOAD_FAST_BORROW         8 (chunk)
+                LOAD_ATTR                5 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               1 (end)
+
+  88            LOAD_FAST_BORROW         8 (chunk)
+                LOAD_ATTR                7 (groups + NULL|self)
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  154 (content, terminator)
+
+  90            LOAD_FAST_BORROW         9 (content)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        9 (to L3)
+                NOT_TAKEN
+
+  91            LOAD_FAST_BORROW         6 (_append)
+                PUSH_NULL
+                LOAD_FAST_BORROW         9 (content)
+                CALL                     1
+                POP_TOP
+
+  94    L3:     LOAD_FAST_BORROW        10 (terminator)
+                LOAD_CONST               3 ('"')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        2 (to L4)
+                NOT_TAKEN
+
+  95            JUMP_FORWARD           247 (to L18)
+
+  96    L4:     LOAD_FAST_BORROW        10 (terminator)
+                LOAD_CONST               4 ('\\')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       48 (to L6)
+                NOT_TAKEN
+
+  97            LOAD_FAST_BORROW         2 (strict)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       30 (to L5)
+                NOT_TAKEN
+
+  99            LOAD_CONST               5 ('Invalid control character {0!r} at')
+                LOAD_ATTR                9 (format + NULL|self)
+                LOAD_FAST_BORROW        10 (terminator)
+                CALL                     1
+                STORE_FAST              11 (msg)
+
+ 100            LOAD_GLOBAL              3 (JSONDecodeError + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 176 (msg, s)
+                LOAD_FAST_BORROW         1 (end)
+                CALL                     3
+                RAISE_VARARGS            1
+
+ 102    L5:     LOAD_FAST_BORROW         6 (_append)
+                PUSH_NULL
+                LOAD_FAST_BORROW        10 (terminator)
+                CALL                     1
+                POP_TOP
+
+ 103            JUMP_BACKWARD          137 (to L1)
+
+ 104    L6:     NOP
+
+ 105    L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (s, end)
+                BINARY_OP               26 ([])
+                STORE_FAST              12 (esc)
+
+ 110    L8:     LOAD_FAST               12 (esc)
+                LOAD_CONST               6 ('u')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       20 (to L11)
+                NOT_TAKEN
+
+ 111            NOP
+
+ 112    L9:     LOAD_FAST_LOAD_FAST     60 (_b, esc)
+                BINARY_OP               26 ([])
+                STORE_FAST              13 (char)
+
+ 116   L10:     LOAD_FAST                1 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               1 (end)
+                JUMP_FORWARD           147 (to L17)
+
+ 118   L11:     LOAD_GLOBAL             15 (_decode_uXXXX + NULL)
+                LOAD_FAST_LOAD_FAST      1 (s, end)
+                CALL                     2
+                STORE_FAST              14 (uni)
+
+ 119            LOAD_FAST                1 (end)
+                LOAD_SMALL_INT           5
+                BINARY_OP               13 (+=)
+                STORE_FAST               1 (end)
+
+ 120            LOAD_CONST               8 (55296)
+                LOAD_FAST               14 (uni)
+                SWAP                     2
+                COPY                     2
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        8 (to L12)
+                NOT_TAKEN
+                LOAD_CONST               9 (56319)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE      102 (to L16)
+                NOT_TAKEN
+                JUMP_FORWARD             2 (to L13)
+       L12:     POP_TOP
+                JUMP_FORWARD            98 (to L16)
+       L13:     LOAD_FAST_LOAD_FAST      1 (s, end)
+                LOAD_FAST                1 (end)
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST              10 ('\\u')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       83 (to L16)
+                NOT_TAKEN
+
+ 121            LOAD_GLOBAL             15 (_decode_uXXXX + NULL)
+                LOAD_FAST_LOAD_FAST      1 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                STORE_FAST              15 (uni2)
+
+ 122            LOAD_CONST              11 (56320)
+                LOAD_FAST               15 (uni2)
+                SWAP                     2
+                COPY                     2
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE        8 (to L14)
+                NOT_TAKEN
+                LOAD_CONST              12 (57343)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       50 (to L16)
+                NOT_TAKEN
+                JUMP_FORWARD             2 (to L15)
+       L14:     POP_TOP
+                JUMP_FORWARD            46 (to L16)
+
+ 123   L15:     LOAD_CONST              13 (65536)
+                LOAD_FAST               14 (uni)
+                LOAD_CONST               8 (55296)
+                BINARY_OP               10 (-)
+                LOAD_SMALL_INT          10
+                BINARY_OP                3 (<<)
+                LOAD_FAST               15 (uni2)
+                LOAD_CONST              11 (56320)
+                BINARY_OP               10 (-)
+                BINARY_OP                7 (|)
+                BINARY_OP                0 (+)
+                STORE_FAST              14 (uni)
+
+ 124            LOAD_FAST                1 (end)
+                LOAD_SMALL_INT           6
+                BINARY_OP               13 (+=)
+                STORE_FAST               1 (end)
+
+ 125   L16:     LOAD_GLOBAL             17 (chr + NULL)
+                LOAD_FAST               14 (uni)
+                CALL                     1
+                STORE_FAST              13 (char)
+
+ 126   L17:     LOAD_FAST                6 (_append)
+                PUSH_NULL
+                LOAD_FAST               13 (char)
+                CALL                     1
+                POP_TOP
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          330 (to L1)
+
+ 127   L18:     LOAD_CONST              14 ('')
+                LOAD_ATTR               19 (join + NULL|self)
+                LOAD_FAST_BORROW         5 (chunks)
+                CALL                     1
+                LOAD_FAST_BORROW         1 (end)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  --   L19:     PUSH_EXC_INFO
+
+ 106            LOAD_GLOBAL             10 (IndexError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       15 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+ 107            LOAD_GLOBAL              3 (JSONDecodeError + NULL)
+                LOAD_CONST               2 ('Unterminated string starting at')
+
+ 108            LOAD_FAST_LOAD_FAST      7 (s, begin)
+
+ 107            CALL                     3
+
+ 108            LOAD_CONST               1 (None)
+
+ 107            RAISE_VARARGS            2
+
+ 106   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L22:     PUSH_EXC_INFO
+
+ 113            LOAD_GLOBAL             12 (KeyError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       31 (to L23)
+                NOT_TAKEN
+                POP_TOP
+
+ 114            LOAD_CONST               7 ('Invalid \\escape: {0!r}')
+                LOAD_ATTR                9 (format + NULL|self)
+                LOAD_FAST               12 (esc)
+                CALL                     1
+                STORE_FAST              11 (msg)
+
+ 115            LOAD_GLOBAL              3 (JSONDecodeError + NULL)
+                LOAD_FAST_LOAD_FAST    176 (msg, s)
+                LOAD_FAST                1 (end)
+                CALL                     3
+                RAISE_VARARGS            1
+
+ 113   L23:     RERAISE                  0
+
+  --   L24:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L7 to L8 -> L19 [0]
+  L9 to L10 -> L22 [0]
+  L19 to L21 -> L21 [1] lasti
+  L22 to L24 -> L24 [1] lasti
+
+Disassembly of <code object JSONObject at 0x00000204BA3ACB20, file "json\decoder.py", line 137>:
+ 137            RESUME                   0
+
+ 139            LOAD_FAST_BORROW         0 (s_and_end)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  137 (s, end)
+
+ 140            BUILD_LIST               0
+                STORE_FAST              10 (pairs)
+
+ 141            LOAD_FAST_BORROW        10 (pairs)
+                LOAD_ATTR                0 (append)
+                STORE_FAST              11 (pairs_append)
+
+ 143            LOAD_FAST_BORROW         5 (memo)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+
+ 144            BUILD_MAP                0
+                STORE_FAST               5 (memo)
+
+ 145    L1:     LOAD_FAST_BORROW         5 (memo)
+                LOAD_ATTR                2 (setdefault)
+                STORE_FAST              12 (memo_get)
+
+ 148            LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                LOAD_FAST_BORROW         9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST              13 (nextchar)
+
+ 150            LOAD_FAST_BORROW        13 (nextchar)
+                LOAD_CONST               1 ('"')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE      112 (to L6)
+                NOT_TAKEN
+
+ 151            LOAD_FAST_BORROW_LOAD_FAST_BORROW 215 (nextchar, _ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       34 (to L2)
+                NOT_TAKEN
+
+ 152            LOAD_FAST_BORROW         6 (_w)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                CALL                     2
+                LOAD_ATTR                5 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               9 (end)
+
+ 153            LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                LOAD_FAST_BORROW         9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST              13 (nextchar)
+
+ 155    L2:     LOAD_FAST_BORROW        13 (nextchar)
+                LOAD_CONST               2 ('}')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       47 (to L5)
+                NOT_TAKEN
+
+ 156            LOAD_FAST_BORROW         4 (object_pairs_hook)
+                POP_JUMP_IF_NONE        19 (to L3)
+                NOT_TAKEN
+
+ 157            LOAD_FAST_BORROW         4 (object_pairs_hook)
+                PUSH_NULL
+                LOAD_FAST_BORROW        10 (pairs)
+                CALL                     1
+                STORE_FAST              14 (result)
+
+ 158            LOAD_FAST_BORROW_LOAD_FAST_BORROW 233 (result, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 159    L3:     BUILD_MAP                0
+                STORE_FAST              10 (pairs)
+
+ 160            LOAD_FAST_BORROW         3 (object_hook)
+                POP_JUMP_IF_NONE         9 (to L4)
+                NOT_TAKEN
+
+ 161            LOAD_FAST_BORROW         3 (object_hook)
+                PUSH_NULL
+                LOAD_FAST_BORROW        10 (pairs)
+                CALL                     1
+                STORE_FAST              10 (pairs)
+
+ 162    L4:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 169 (pairs, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 163    L5:     LOAD_FAST_BORROW        13 (nextchar)
+                LOAD_CONST               1 ('"')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       13 (to L6)
+                NOT_TAKEN
+
+ 164            LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+
+ 165            LOAD_CONST               3 ('Expecting property name enclosed in double quotes')
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+
+ 164            CALL                     3
+                RAISE_VARARGS            1
+
+ 166    L6:     LOAD_FAST_BORROW         9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               9 (end)
+
+ 167    L7:     NOP
+
+ 168            LOAD_GLOBAL              9 (scanstring + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                LOAD_FAST_BORROW         1 (strict)
+                CALL                     3
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  249 (key, end)
+
+ 169            LOAD_FAST_BORROW        12 (memo_get)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 255 (key, key)
+                CALL                     2
+                STORE_FAST              15 (key)
+
+ 172            LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                LOAD_FAST_BORROW         9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST               4 (':')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       51 (to L8)
+                NOT_TAKEN
+
+ 173            LOAD_FAST_BORROW         6 (_w)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                CALL                     2
+                LOAD_ATTR                5 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               9 (end)
+
+ 174            LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                LOAD_FAST_BORROW         9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                LOAD_CONST               4 (':')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       13 (to L8)
+                NOT_TAKEN
+
+ 175            LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+                LOAD_CONST               5 ("Expecting ':' delimiter")
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                CALL                     3
+                RAISE_VARARGS            1
+
+ 176    L8:     LOAD_FAST_BORROW         9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               9 (end)
+
+ 178            NOP
+
+ 179    L9:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW         7 (_ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       52 (to L10)
+                NOT_TAKEN
+
+ 180            LOAD_FAST_BORROW         9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               9 (end)
+
+ 181            LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW         7 (_ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       30 (to L10)
+                NOT_TAKEN
+
+ 182            LOAD_FAST_BORROW         6 (_w)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 137 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                LOAD_ATTR                5 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               9 (end)
+
+ 186   L10:     NOP
+
+ 187   L11:     LOAD_FAST                2 (scan_once)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST    137 (s, end)
+                CALL                     2
+                UNPACK_SEQUENCE          2
+                STORE_FAST              16 (value)
+                STORE_FAST               9 (end)
+
+ 190   L12:     LOAD_FAST               11 (pairs_append)
+                PUSH_NULL
+                LOAD_FAST               15 (key)
+                LOAD_FAST               16 (value)
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+
+ 191            NOP
+
+ 192   L13:     LOAD_FAST_LOAD_FAST    137 (s, end)
+                BINARY_OP               26 ([])
+                STORE_FAST              13 (nextchar)
+
+ 193            LOAD_FAST_LOAD_FAST    215 (nextchar, _ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       38 (to L14)
+                NOT_TAKEN
+
+ 194            LOAD_FAST                6 (_w)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST    137 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                LOAD_ATTR                5 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               9 (end)
+
+ 195            LOAD_FAST_LOAD_FAST    137 (s, end)
+                BINARY_OP               26 ([])
+                STORE_FAST              13 (nextchar)
+
+ 198   L14:     LOAD_FAST                9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               9 (end)
+
+ 200            LOAD_FAST               13 (nextchar)
+                LOAD_CONST               2 ('}')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        2 (to L15)
+                NOT_TAKEN
+
+ 201            JUMP_FORWARD           126 (to L19)
+
+ 202   L15:     LOAD_FAST               13 (nextchar)
+                LOAD_CONST               8 (',')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       20 (to L16)
+                NOT_TAKEN
+
+ 203            LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+                LOAD_CONST               9 ("Expecting ',' delimiter")
+                LOAD_FAST_LOAD_FAST    137 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                CALL                     3
+                RAISE_VARARGS            1
+
+ 204   L16:     LOAD_FAST                9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                STORE_FAST              18 (comma_idx)
+
+ 205            LOAD_FAST                6 (_w)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST    137 (s, end)
+                CALL                     2
+                LOAD_ATTR                5 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               9 (end)
+
+ 206            LOAD_FAST_LOAD_FAST    137 (s, end)
+                LOAD_FAST                9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST              13 (nextchar)
+
+ 207            LOAD_FAST                9 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               9 (end)
+
+ 208            LOAD_FAST               13 (nextchar)
+                LOAD_CONST               1 ('"')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_TRUE         4 (to L17)
+                NOT_TAKEN
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          341 (to L7)
+
+ 209   L17:     LOAD_FAST               13 (nextchar)
+                LOAD_CONST               2 ('}')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       14 (to L18)
+                NOT_TAKEN
+
+ 210            LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+                LOAD_CONST              10 ('Illegal trailing comma before end of object')
+                LOAD_FAST                8 (s)
+                LOAD_FAST               18 (comma_idx)
+                CALL                     3
+                RAISE_VARARGS            1
+
+ 211   L18:     LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+
+ 212            LOAD_CONST               3 ('Expecting property name enclosed in double quotes')
+                LOAD_FAST_LOAD_FAST    137 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+
+ 211            CALL                     3
+                RAISE_VARARGS            1
+
+ 213   L19:     LOAD_FAST                4 (object_pairs_hook)
+                POP_JUMP_IF_NONE        12 (to L20)
+                NOT_TAKEN
+
+ 214            LOAD_FAST                4 (object_pairs_hook)
+                PUSH_NULL
+                LOAD_FAST               10 (pairs)
+                CALL                     1
+                STORE_FAST              14 (result)
+
+ 215            LOAD_FAST_LOAD_FAST    233 (result, end)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 216   L20:     LOAD_GLOBAL             17 (dict + NULL)
+                LOAD_FAST               10 (pairs)
+                CALL                     1
+                STORE_FAST              10 (pairs)
+
+ 217            LOAD_FAST                3 (object_hook)
+                POP_JUMP_IF_NONE         9 (to L21)
+                NOT_TAKEN
+
+ 218            LOAD_FAST                3 (object_hook)
+                PUSH_NULL
+                LOAD_FAST               10 (pairs)
+                CALL                     1
+                STORE_FAST              10 (pairs)
+
+ 219   L21:     LOAD_FAST_LOAD_FAST    169 (pairs, end)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  --   L22:     PUSH_EXC_INFO
+
+ 183            LOAD_GLOBAL             10 (IndexError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 184   L23:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 272 (to L10)
+
+ 183   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L26:     PUSH_EXC_INFO
+
+ 188            LOAD_GLOBAL             12 (StopIteration)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       30 (to L29)
+                NOT_TAKEN
+                STORE_FAST              17 (err)
+
+ 189   L27:     LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+                LOAD_CONST               6 ('Expecting value')
+                LOAD_FAST                8 (s)
+                LOAD_FAST               17 (err)
+                LOAD_ATTR               14 (value)
+                CALL                     3
+                LOAD_CONST               0 (None)
+                RAISE_VARARGS            2
+
+  --   L28:     LOAD_CONST               0 (None)
+                STORE_FAST              17 (err)
+                DELETE_FAST             17 (err)
+                RERAISE                  1
+
+ 188   L29:     RERAISE                  0
+
+  --   L30:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L31:     PUSH_EXC_INFO
+
+ 196            LOAD_GLOBAL             10 (IndexError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        7 (to L33)
+                NOT_TAKEN
+                POP_TOP
+
+ 197            LOAD_CONST               7 ('')
+                STORE_FAST              13 (nextchar)
+       L32:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 261 (to L14)
+
+ 196   L33:     RERAISE                  0
+
+  --   L34:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L9 to L10 -> L22 [0]
+  L11 to L12 -> L26 [0]
+  L13 to L14 -> L31 [0]
+  L22 to L23 -> L25 [1] lasti
+  L24 to L25 -> L25 [1] lasti
+  L26 to L27 -> L30 [1] lasti
+  L27 to L28 -> L28 [1] lasti
+  L28 to L30 -> L30 [1] lasti
+  L31 to L32 -> L34 [1] lasti
+  L33 to L34 -> L34 [1] lasti
+
+Disassembly of <code object JSONArray at 0x00000204BA388300, file "json\decoder.py", line 221>:
+ 221            RESUME                   0
+
+ 222            LOAD_FAST_BORROW         0 (s_and_end)
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   69 (s, end)
+
+ 223            BUILD_LIST               0
+                STORE_FAST               6 (values)
+
+ 224            LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (s, end)
+                LOAD_FAST_BORROW         5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST               7 (nextchar)
+
+ 225            LOAD_FAST_BORROW_LOAD_FAST_BORROW 115 (nextchar, _ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       41 (to L1)
+                NOT_TAKEN
+
+ 226            LOAD_FAST_BORROW         2 (_w)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                LOAD_ATTR                1 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               5 (end)
+
+ 227            LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (s, end)
+                LOAD_FAST_BORROW         5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST               7 (nextchar)
+
+ 229    L1:     LOAD_FAST_BORROW         7 (nextchar)
+                LOAD_CONST               1 (']')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       11 (to L2)
+                NOT_TAKEN
+
+ 230            LOAD_FAST_BORROW_LOAD_FAST_BORROW 101 (values, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 231    L2:     LOAD_FAST_BORROW         6 (values)
+                LOAD_ATTR                2 (append)
+                STORE_FAST               8 (_append)
+
+ 232    L3:     NOP
+
+ 233            NOP
+
+ 234    L4:     LOAD_FAST_BORROW         1 (scan_once)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 69 (s, end)
+                CALL                     2
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST  149 (value, end)
+
+ 237    L5:     LOAD_FAST                8 (_append)
+                PUSH_NULL
+                LOAD_FAST                9 (value)
+                CALL                     1
+                POP_TOP
+
+ 238            LOAD_FAST_LOAD_FAST     69 (s, end)
+                LOAD_FAST                5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST               7 (nextchar)
+
+ 239            LOAD_FAST_LOAD_FAST    115 (nextchar, _ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       41 (to L6)
+                NOT_TAKEN
+
+ 240            LOAD_FAST                2 (_w)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST     69 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                LOAD_ATTR                1 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               5 (end)
+
+ 241            LOAD_FAST_LOAD_FAST     69 (s, end)
+                LOAD_FAST                5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST               7 (nextchar)
+
+ 242    L6:     LOAD_FAST                5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               5 (end)
+
+ 243            LOAD_FAST                7 (nextchar)
+                LOAD_CONST               1 (']')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE        5 (to L7)
+                NOT_TAKEN
+
+ 244            NOP
+
+ 259            LOAD_FAST_LOAD_FAST    101 (values, end)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+ 245    L7:     LOAD_FAST                7 (nextchar)
+                LOAD_CONST               4 (',')
+                COMPARE_OP             119 (bool(!=))
+                POP_JUMP_IF_FALSE       20 (to L8)
+                NOT_TAKEN
+
+ 246            LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+                LOAD_CONST               5 ("Expecting ',' delimiter")
+                LOAD_FAST_LOAD_FAST     69 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                CALL                     3
+                RAISE_VARARGS            1
+
+ 247    L8:     LOAD_FAST                5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               10 (-)
+                STORE_FAST              11 (comma_idx)
+
+ 248            NOP
+
+ 249    L9:     LOAD_FAST_LOAD_FAST     69 (s, end)
+                BINARY_OP               26 ([])
+                LOAD_FAST                3 (_ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       52 (to L10)
+                NOT_TAKEN
+
+ 250            LOAD_FAST                5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST               5 (end)
+
+ 251            LOAD_FAST_LOAD_FAST     69 (s, end)
+                BINARY_OP               26 ([])
+                LOAD_FAST                3 (_ws)
+                CONTAINS_OP              0 (in)
+                POP_JUMP_IF_FALSE       30 (to L10)
+                NOT_TAKEN
+
+ 252            LOAD_FAST                2 (_w)
+                PUSH_NULL
+                LOAD_FAST_LOAD_FAST     69 (s, end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                LOAD_ATTR                1 (end + NULL|self)
+                CALL                     0
+                STORE_FAST               5 (end)
+
+ 253   L10:     LOAD_FAST_LOAD_FAST     69 (s, end)
+                LOAD_FAST                5 (end)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                BINARY_SLICE
+                STORE_FAST               7 (nextchar)
+
+ 256   L11:     LOAD_FAST                7 (nextchar)
+                LOAD_CONST               1 (']')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_TRUE         3 (to L12)
+                NOT_TAKEN
+                JUMP_BACKWARD          217 (to L3)
+
+ 257   L12:     LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+                LOAD_CONST               6 ('Illegal trailing comma before end of array')
+                LOAD_FAST_LOAD_FAST     75 (s, comma_idx)
+                CALL                     3
+                RAISE_VARARGS            1
+
+  --   L13:     PUSH_EXC_INFO
+
+ 235            LOAD_GLOBAL              4 (StopIteration)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       29 (to L16)
+                NOT_TAKEN
+                STORE_FAST              10 (err)
+
+ 236   L14:     LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+                LOAD_CONST               2 ('Expecting value')
+                LOAD_FAST_LOAD_FAST     74 (s, err)
+                LOAD_ATTR                8 (value)
+                CALL                     3
+                LOAD_CONST               3 (None)
+                RAISE_VARARGS            2
+
+  --   L15:     LOAD_CONST               3 (None)
+                STORE_FAST              10 (err)
+                DELETE_FAST             10 (err)
+                RERAISE                  1
+
+ 235   L16:     RERAISE                  0
+
+  --   L17:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L18:     PUSH_EXC_INFO
+
+ 254            LOAD_GLOBAL             10 (IndexError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+ 255   L19:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 76 (to L11)
+
+ 254   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L13 [0]
+  L9 to L11 -> L18 [0]
+  L13 to L14 -> L17 [1] lasti
+  L14 to L15 -> L15 [1] lasti
+  L15 to L17 -> L17 [1] lasti
+  L18 to L19 -> L21 [1] lasti
+  L20 to L21 -> L21 [1] lasti
+
+Disassembly of <code object JSONDecoder at 0x00000204BA0ABEB0, file "json\decoder.py", line 262>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 262           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('JSONDecoder')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (262)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 263           LOAD_CONST               2 ('Simple JSON <https://json.org> decoder\n\nPerforms the following translations in decoding by default:\n\n+---------------+-------------------+\n| JSON          | Python            |\n+===============+===================+\n| object        | dict              |\n+---------------+-------------------+\n| array         | list              |\n+---------------+-------------------+\n| string        | str               |\n+---------------+-------------------+\n| number (int)  | int               |\n+---------------+-------------------+\n| number (real) | float             |\n+---------------+-------------------+\n| true          | True              |\n+---------------+-------------------+\n| false         | False             |\n+---------------+-------------------+\n| null          | None              |\n+---------------+-------------------+\n\nIt also understands ``NaN``, ``Infinity``, and ``-Infinity`` as\ntheir corresponding ``float`` values, which is outside the JSON spec.\n\n')
+               STORE_NAME               4 (__doc__)
+
+ 292           LOAD_CONST               3 ('object_hook')
+               LOAD_CONST               4 (None)
+               LOAD_CONST               5 ('parse_float')
+               LOAD_CONST               4 (None)
+               LOAD_CONST               6 ('parse_int')
+
+ 293           LOAD_CONST               4 (None)
+
+ 292           LOAD_CONST               7 ('parse_constant')
+
+ 293           LOAD_CONST               4 (None)
+
+ 292           LOAD_CONST               8 ('strict')
+
+ 293           LOAD_CONST               9 (True)
+
+ 292           LOAD_CONST              10 ('object_pairs_hook')
+
+ 294           LOAD_CONST               4 (None)
+
+ 292           BUILD_MAP                6
+               LOAD_CONST              11 (<code object __init__ at 0x00000204BA4459F0, file "json\decoder.py", line 292>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   2 (kwdefaults)
+               STORE_NAME               5 (__init__)
+
+ 340           LOAD_NAME                6 (WHITESPACE)
+               LOAD_ATTR               14 (match)
+               BUILD_TUPLE              1
+               LOAD_CONST              12 (<code object decode at 0x00000204BA0B7230, file "json\decoder.py", line 340>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               8 (decode)
+
+ 351           LOAD_CONST              15 ((0,))
+               LOAD_CONST              13 (<code object raw_decode at 0x00000204B9F731B0, file "json\decoder.py", line 351>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               9 (raw_decode)
+               LOAD_CONST              14 (('memo', 'object_hook', 'object_pairs_hook', 'parse_array', 'parse_constant', 'parse_float', 'parse_int', 'parse_object', 'parse_string', 'scan_once', 'strict'))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA4459F0, file "json\decoder.py", line 292>:
+292           RESUME                   0
+
+327           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (object_hook, self)
+              STORE_ATTR               0 (object_hook)
+
+328           LOAD_FAST                2 (parse_float)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         7 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_GLOBAL              2 (float)
+      L1:     LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (parse_float)
+
+329           LOAD_FAST                3 (parse_int)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE         7 (to L2)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_GLOBAL              6 (int)
+      L2:     LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               4 (parse_int)
+
+330           LOAD_FAST                4 (parse_constant)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        17 (to L3)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_GLOBAL             10 (_CONSTANTS)
+              LOAD_ATTR               12 (__getitem__)
+      L3:     LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               7 (parse_constant)
+
+331           LOAD_FAST_BORROW_LOAD_FAST_BORROW 80 (strict, self)
+              STORE_ATTR               8 (strict)
+
+332           LOAD_FAST_BORROW_LOAD_FAST_BORROW 96 (object_pairs_hook, self)
+              STORE_ATTR               9 (object_pairs_hook)
+
+333           LOAD_GLOBAL             20 (JSONObject)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              11 (parse_object)
+
+334           LOAD_GLOBAL             24 (JSONArray)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              13 (parse_array)
+
+335           LOAD_GLOBAL             28 (scanstring)
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              15 (parse_string)
+
+336           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              16 (memo)
+
+337           LOAD_GLOBAL             34 (scanner)
+              LOAD_ATTR               36 (make_scanner)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR              19 (scan_once)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object decode at 0x00000204BA0B7230, file "json\decoder.py", line 340>:
+340           RESUME                   0
+
+345           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                1 (raw_decode + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (s, _w)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (s)
+              LOAD_SMALL_INT           0
+              CALL                     2
+              LOAD_ATTR                3 (end + NULL|self)
+              CALL                     0
+              LOAD_CONST               1 (('idx',))
+              CALL_KW                  2
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   52 (obj, end)
+
+346           LOAD_FAST_BORROW         2 (_w)
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (s, end)
+              CALL                     2
+              LOAD_ATTR                3 (end + NULL|self)
+              CALL                     0
+              STORE_FAST               4 (end)
+
+347           LOAD_FAST_BORROW         4 (end)
+              LOAD_GLOBAL              5 (len + NULL)
+              LOAD_FAST_BORROW         1 (s)
+              CALL                     1
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE       13 (to L1)
+              NOT_TAKEN
+
+348           LOAD_GLOBAL              7 (JSONDecodeError + NULL)
+              LOAD_CONST               2 ('Extra data')
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (s, end)
+              CALL                     3
+              RAISE_VARARGS            1
+
+349   L1:     LOAD_FAST_BORROW         3 (obj)
+              RETURN_VALUE
+
+Disassembly of <code object raw_decode at 0x00000204B9F731B0, file "json\decoder.py", line 351>:
+ 351           RESUME                   0
+
+ 360           NOP
+
+ 361   L1:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                1 (scan_once + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (s, idx)
+               CALL                     2
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   52 (obj, end)
+
+ 364   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (obj, end)
+               BUILD_TUPLE              2
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 362           LOAD_GLOBAL              2 (StopIteration)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       29 (to L6)
+               NOT_TAKEN
+               STORE_FAST               5 (err)
+
+ 363   L4:     LOAD_GLOBAL              5 (JSONDecodeError + NULL)
+               LOAD_CONST               1 ('Expecting value')
+               LOAD_FAST_LOAD_FAST     21 (s, err)
+               LOAD_ATTR                6 (value)
+               CALL                     3
+               LOAD_CONST               2 (None)
+               RAISE_VARARGS            2
+
+  --   L5:     LOAD_CONST               2 (None)
+               STORE_FAST               5 (err)
+               DELETE_FAST              5 (err)
+               RERAISE                  1
+
+ 362   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L7 [1] lasti
+  L4 to L5 -> L5 [1] lasti
+  L5 to L7 -> L7 [1] lasti

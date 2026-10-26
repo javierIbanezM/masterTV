@@ -1,0 +1,106 @@
+<module>()  line 1
+    pprint(object, stream, indent, width, depth, compact, sort_dicts, underscore_numbers)  line 46
+    pformat(object, indent, width, depth, compact, sort_dicts, underscore_numbers)  line 56
+    pp(object, sort_dicts)  line 64
+    saferepr(object)  line 69
+    isreadable(object)  line 74
+    isrecursive(object)  line 79
+    _safe_key()  line 84
+        _safe_key.__init__(self, obj)  line 96
+        _safe_key.__lt__(self, other)  line 99
+    _safe_tuple(t)  line 107
+    PrettyPrinter()  line 112
+        PrettyPrinter.__init__(self, indent, width, depth, stream, compact, sort_dicts, underscore_numbers)  line 113
+        PrettyPrinter.pprint(self, object)  line 160
+        PrettyPrinter.pformat(self, object)  line 165
+        PrettyPrinter.isrecursive(self, object)  line 170
+        PrettyPrinter.isreadable(self, object)  line 173
+        PrettyPrinter._format(self, object, stream, indent, allowance, context, level)  line 177
+        PrettyPrinter._pprint_dataclass(self, object, stream, indent, allowance, context, level)  line 208
+        PrettyPrinter._pprint_dict(self, object, stream, indent, allowance, context, level)  line 221
+        PrettyPrinter._pprint_ordered_dict(self, object, stream, indent, allowance, context, level)  line 238
+        PrettyPrinter._pprint_list(self, object, stream, indent, allowance, context, level)  line 251
+        PrettyPrinter._pprint_tuple(self, object, stream, indent, allowance, context, level)  line 259
+        PrettyPrinter._pprint_set(self, object, stream, indent, allowance, context, level)  line 268
+        PrettyPrinter._pprint_str(self, object, stream, indent, allowance, context, level)  line 288
+        PrettyPrinter._pprint_bytes(self, object, stream, indent, allowance, context, level)  line 342
+        PrettyPrinter._pprint_bytearray(self, object, stream, indent, allowance, context, level)  line 363
+        PrettyPrinter._pprint_mappingproxy(self, object, stream, indent, allowance, context, level)  line 372
+        PrettyPrinter._pprint_simplenamespace(self, object, stream, indent, allowance, context, level)  line 380
+        PrettyPrinter._format_dict_items(self, items, stream, indent, allowance, context, level)  line 395
+        PrettyPrinter._format_namespace_items(self, items, stream, indent, allowance, context, level)  line 412
+        PrettyPrinter._format_items(self, items, stream, indent, allowance, context, level)  line 431
+        PrettyPrinter._repr(self, object, context, level)  line 472
+        PrettyPrinter.format(self, object, context, maxlevels, level)  line 481
+        PrettyPrinter._pprint_default_dict(self, object, stream, indent, allowance, context, level)  line 488
+        PrettyPrinter._pprint_counter(self, object, stream, indent, allowance, context, level)  line 501
+        PrettyPrinter._pprint_chain_map(self, object, stream, indent, allowance, context, level)  line 517
+        PrettyPrinter._pprint_deque(self, object, stream, indent, allowance, context, level)  line 534
+        PrettyPrinter._pprint_user_dict(self, object, stream, indent, allowance, context, level)  line 554
+        PrettyPrinter._pprint_user_list(self, object, stream, indent, allowance, context, level)  line 559
+        PrettyPrinter._pprint_user_string(self, object, stream, indent, allowance, context, level)  line 564
+        PrettyPrinter._safe_repr(self, object, context, maxlevels, level)  line 569
+    _recursion(object)  line 655
+    _wrap_bytes_repr(object, width, allowance)  line 660
+
+--- strings ---
+"Support to pretty-print lists, tuples, & dictionaries recursively.\n\nVery simple, but useful, especially in debugging data structures.\n\nClasses\n-------\n\nPrettyPrinter()\n    Handle pretty-printing operations onto a stream using a configured\n    set of formatting parameters.\n\nFunctions\n---------\n\npformat()\n    Format a Python object into a pretty-printed representation.\n\npprint()\n    Pretty-print a Python object to a stream [default is sys.stdout].\n\nsaferepr()\n    Generate a 'standard' repr()-like value, but protect against recursive\n    data structures.\n\n"
+'PrettyPrinter'
+'compact'
+'sort_dicts'
+'underscore_numbers'
+'Pretty-print a Python object to a stream [default is sys.stdout].'
+'Format a Python object into a pretty-printed representation.'
+'Pretty-print a Python object'
+'sort_dicts'
+'Version of repr() which can handle recursive data structures.'
+'Determine if saferepr(object) is readable by eval().'
+'Determine if object requires a recursive representation.'
+'_safe_key'
+'Helper function for key functions when sorting unorderable objects.\n\nThe wrapped-object will fallback to a Py2.x style comparison for\nunorderable types (sorting first comparing the type name and then by\nthe obj ids).  Does not work recursively, so dict.items() must have\n_safe_key applied to both the key and the value.\n\n'
+'obj'
+'_safe_key'
+'Helper function for comparing 2-tuples'
+'PrettyPrinter'
+'compact'
+'sort_dicts'
+'underscore_numbers'
+'Handle pretty printing operations onto a stream using a set of\nconfigured parameters.\n\nindent\n    Number of spaces to indent for each level of nesting.\n\nwidth\n    Attempted maximum number of columns in the output.\n\ndepth\n    The maximum depth to print out nested structures.\n\nstream\n    The desired output stream.  If omitted (or false), the standard\n    output stream available at construction will be used.\n\ncompact\n    If true, several items will be combined in one line.\n\nsort_dicts\n    If true, dict keys are sorted.\n\nunderscore_numbers\n    If true, digit groups are separated with underscores.\n\n'
+'indent must be >= 0'
+'depth must be > 0'
+'width must be != 0'
+'__wrapped__'
+'__create_fn__'
+',)'
+'({'
+'})'
+'\\S*\\s*'
+'bytearray('
+'mappingproxy('
+'namespace'
+',\n'
+': '
+',\n'
+'...'
+',\n'
+', '
+"Format object for a specific context, returning a string\nand flags indicating whether the representation is 'readable'\nand whether the object represents a recursive construct.\n"
+',\n'
+'({'
+'})'
+',\n'
+'])'
+'],\n'
+'maxlen='
+'__repr__'
+'_d'
+'{...}'
+': '
+'{%s}'
+', '
+'[%s]'
+'(%s,)'
+'(%s)'
+'...'
+'<Recursion on '
+' with id='

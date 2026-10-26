@@ -1,0 +1,193 @@
+<module>()  line 1
+    __annotate__(format)  line 34
+    find_emm_url()  line 34
+    __annotate__(format)  line 47
+    apk_dir()  line 47
+    __annotate__(format)  line 53
+    apk_info()  line 53
+    <lambda>(m)  line 62
+    __annotate__(format)  line 62
+    download_apk(url, progress)  line 62
+    __annotate__(format)  line 86
+    template_path()  line 86
+    __annotate__(format)  line 90
+    load_template()  line 90
+    __annotate__(format)  line 97
+    save_template(data)  line 97
+    __annotate__(format)  line 103
+    import_template_file(path)  line 103
+    __annotate__(format)  line 109
+    render(template, d)  line 109
+    __annotate__(format)  line 119
+    export_template_from_tv(adb, cfg, serial)  line 119
+        export_template_from_tv.<locals>.<genexpr>(.0)  line 128
+    FullyDeployer()  line 148
+        FullyDeployer.__annotate__(format)  line 152
+        FullyDeployer.__init__(self, adb, cfg, log)  line 152
+        FullyDeployer.__annotate__(format)  line 155
+        FullyDeployer.version_of(self, serial, pkg)  line 155
+        FullyDeployer.__annotate__(format)  line 159
+        FullyDeployer._install(self, serial, apk)  line 159
+        FullyDeployer.__annotate__(format)  line 165
+        FullyDeployer._grant(self, s)  line 165
+        FullyDeployer.__annotate__(format)  line 171
+        FullyDeployer.deploy(self, d, apk, template, disable_play)  line 171
+            FullyDeployer.deploy.<locals>.<genexpr>(.0)  line 210
+
+--- strings ---
+'Despliegue de Fully Kiosk (edición EMM) con una configuración propia.\n\nFlujo oficial de Fully («Legacy Deployment»): exportar los ajustes de una TV de referencia,\ncopiarlos como `fully-once-settings.json` a la raíz del almacenamiento y arrancar la app una vez:\nFully los importa y borra el archivo. La edición EMM es la que puede leer ese archivo en\nAndroid 11+ (la de Google Play no: lo comprobamos en una TV real).\n'
+'https://www.fully-kiosk.com/docs/es/getting-started/downloads'
+'https://www.fully-kiosk.com/files/2026/08/Fully-Kiosk-Browser-v1.61.2-emm.apk'
+'href="(https://www\\.fully-kiosk\\.com/files/[^"]*Fully-Kiosk-Browser-v[\\d.]+-emm\\.apk)"'
+'/sdcard/fully-once-settings.json'
+'/sdcard/Download/fully-settings.json'
+'User-Agent'
+'AndroidTvMaster'
+'return'
+'str'
+'Enlace actual de la APK «EMM Edition» según la página oficial de descargas de Fully.'
+'utf-8'
+'replace'
+'No se pudo leer la página de descargas de Fully: '
+'La página de descargas no ofrece ahora la edición EMM (¿ha cambiado el formato?)'
+'return'
+'Path'
+'tools'
+'fully'
+'return'
+'tuple[Path, int, str] | None'
+'APK EMM ya descargada (la de versión más reciente), con su tamaño y SHA-256.'
+'Fully-Kiosk-Browser-v*-emm.apk'
+'url'
+'str'
+'progress'
+'Callable[[str], None]'
+'return'
+'tuple[Path, int, str]'
+'Descarga la APK EMM de la web oficial de Fully. Devuelve (ruta, bytes, sha256).'
+'.part'
+'wb'
+'Content-Length'
+'Descargando… '
+'.1f'
+' / '
+' MB'
+'La descarga parece incompleta ('
+' bytes)'
+'return'
+'Path'
+'fully-template.json'
+'return'
+'dict | None'
+'utf-8-sig'
+'data'
+'dict'
+'return'
+'None'
+'startURL'
+'No parece un fully-settings.json válido (falta «startURL»)'
+'utf-8'
+'path'
+'str | Path'
+'return'
+'dict'
+'utf-8-sig'
+'template'
+'dict'
+'Device'
+'return'
+'Plantilla + particularidades de cada TV (de momento, su Start URL).'
+'startURL'
+'launchOnBoot'
+'keepScreenOn'
+'adb'
+'Adb'
+'cfg'
+'FullyConfigurator'
+'serial'
+'str'
+'return'
+'dict'
+'Pulsa «Export Settings» en Fully, acepta el selector «Guardar» (carpeta Descargas)\ny descarga el JSON. Escribe `Download/fully-settings.json` en la TV.'
+'Other Settings'
+'Export Settings'
+'GUARDAR'
+'No apareció el selector «Guardar» de Android'
+'fully-settings.json'
+'No se pudo descargar '
+': '
+'utf-8-sig'
+'FullyDeployer'
+'La edición EMM es OTRA app (`com.fullykiosk.emm`): se instala junto a la de Play sin\ntocarla. Para leer el archivo de importación necesita «acceso a todos los archivos».'
+'adb'
+'Adb'
+'cfg'
+'FullyConfigurator'
+'log'
+'Callable[[str], None]'
+'serial'
+'str'
+'pkg'
+'return'
+'dumpsys package '
+' | grep -m1 versionName'
+'versionName='
+'no instalada'
+'serial'
+'str'
+'apk'
+'Path'
+'return'
+'install'
+'-r'
+'-d'
+'Success'
+'La instalación falló: '
+'sin detalle'
+'str'
+'return'
+'None'
+'READ_EXTERNAL_STORAGE'
+'pm grant '
+' android.permission.'
+'appops set '
+' MANAGE_EXTERNAL_STORAGE allow'
+' SYSTEM_ALERT_WINDOW allow'
+'Device'
+'apk'
+'Path'
+'template'
+'dict'
+'disable_play'
+'bool'
+'return'
+'list[str]'
+'Fully Play: '
+' · Fully EMM antes: '
+'fully-once-settings.json'
+'utf-8'
+'No se pudo copiar la configuración a la TV: '
+'Configuración copiada a '
+' (Start URL '
+'startURL'
+'APK EMM instalada: versión '
+'Permisos concedidos: almacenamiento, «todos los archivos» y «mostrar sobre otras apps»'
+'rm -f '
+'am force-stop '
+'No such file'
+'ls '
+' 2>&1'
+'Importación automática: '
+'hecha (Fully consumió el archivo)'
+'NO confirmada (el archivo sigue en la TV)'
+'Verificación: '
+'DESACTIVADO'
+'distinta'
+'Se completa por interfaz lo que faltaba:'
+'  '
+'no instalada'
+'pm disable-user --user 0 '
+'Fully de Play desactivado: '
+'OK'
+'  (se reactiva con: pm enable '
+'FullyDeployer'

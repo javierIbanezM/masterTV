@@ -1,0 +1,2943 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('Representing and manipulating email headers via custom objects.\n\nThis module provides an implementation of the HeaderRegistry API.\nThe implementation is designed to flexibly follow RFC5322 rules.\n')
+              STORE_NAME               0 (__doc__)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('MappingProxyType',))
+              IMPORT_NAME              1 (types)
+              IMPORT_FROM              2 (MappingProxyType)
+              STORE_NAME               2 (MappingProxyType)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('utils',))
+              IMPORT_NAME              3 (email)
+              IMPORT_FROM              4 (utils)
+              STORE_NAME               4 (utils)
+              POP_TOP
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('errors',))
+              IMPORT_NAME              3 (email)
+              IMPORT_FROM              5 (errors)
+              STORE_NAME               5 (errors)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('_header_value_parser',))
+              IMPORT_NAME              3 (email)
+              IMPORT_FROM              6 (_header_value_parser)
+              STORE_NAME               7 (parser)
+              POP_TOP
+
+ 12           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               5 (<code object Address at 0x00000204BA0BB8A0, file "email\headerregistry.py", line 12>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 ('Address')
+              CALL                     2
+              STORE_NAME               8 (Address)
+
+104           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object Group at 0x00000204B9FEF800, file "email\headerregistry.py", line 104>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('Group')
+              CALL                     2
+              STORE_NAME               9 (Group)
+
+156           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object BaseHeader at 0x00000204BA0AB230, file "email\headerregistry.py", line 156>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 ('BaseHeader')
+              LOAD_NAME               10 (str)
+              CALL                     3
+              STORE_NAME              11 (BaseHeader)
+
+256           LOAD_CONST              11 (<code object _reconstruct_header at 0x00000204BA0FC7A0, file "email\headerregistry.py", line 256>)
+              MAKE_FUNCTION
+              STORE_NAME              12 (_reconstruct_header)
+
+260           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              12 (<code object UnstructuredHeader at 0x00000204BA103A60, file "email\headerregistry.py", line 260>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 ('UnstructuredHeader')
+              CALL                     2
+              STORE_NAME              13 (UnstructuredHeader)
+
+271           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              14 (<code object UniqueUnstructuredHeader at 0x00000204BA0930F0, file "email\headerregistry.py", line 271>)
+              MAKE_FUNCTION
+              LOAD_CONST              15 ('UniqueUnstructuredHeader')
+              LOAD_NAME               13 (UnstructuredHeader)
+              CALL                     3
+              STORE_NAME              14 (UniqueUnstructuredHeader)
+
+276           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              16 (<code object DateHeader at 0x00000204BA0BB4B0, file "email\headerregistry.py", line 276>)
+              MAKE_FUNCTION
+              LOAD_CONST              17 ('DateHeader')
+              CALL                     2
+              STORE_NAME              15 (DateHeader)
+
+322           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              18 (<code object UniqueDateHeader at 0x00000204BA092880, file "email\headerregistry.py", line 322>)
+              MAKE_FUNCTION
+              LOAD_CONST              19 ('UniqueDateHeader')
+              LOAD_NAME               15 (DateHeader)
+              CALL                     3
+              STORE_NAME              16 (UniqueDateHeader)
+
+327           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              20 (<code object AddressHeader at 0x00000204BA0BBDE0, file "email\headerregistry.py", line 327>)
+              MAKE_FUNCTION
+              LOAD_CONST              21 ('AddressHeader')
+              CALL                     2
+              STORE_NAME              17 (AddressHeader)
+
+382           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              22 (<code object UniqueAddressHeader at 0x00000204BA093960, file "email\headerregistry.py", line 382>)
+              MAKE_FUNCTION
+              LOAD_CONST              23 ('UniqueAddressHeader')
+              LOAD_NAME               17 (AddressHeader)
+              CALL                     3
+              STORE_NAME              18 (UniqueAddressHeader)
+
+387           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              24 (<code object SingleAddressHeader at 0x00000204BA08A530, file "email\headerregistry.py", line 387>)
+              MAKE_FUNCTION
+              LOAD_CONST              25 ('SingleAddressHeader')
+              LOAD_NAME               17 (AddressHeader)
+              CALL                     3
+              STORE_NAME              19 (SingleAddressHeader)
+
+397           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              26 (<code object UniqueSingleAddressHeader at 0x00000204BA0922E0, file "email\headerregistry.py", line 397>)
+              MAKE_FUNCTION
+              LOAD_CONST              27 ('UniqueSingleAddressHeader')
+              LOAD_NAME               19 (SingleAddressHeader)
+              CALL                     3
+              STORE_NAME              20 (UniqueSingleAddressHeader)
+
+402           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              28 (<code object MIMEVersionHeader at 0x00000204BA6BC030, file "email\headerregistry.py", line 402>)
+              MAKE_FUNCTION
+              LOAD_CONST              29 ('MIMEVersionHeader')
+              CALL                     2
+              STORE_NAME              21 (MIMEVersionHeader)
+
+439           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              30 (<code object ParameterizedMIMEHeader at 0x00000204BA102500, file "email\headerregistry.py", line 439>)
+              MAKE_FUNCTION
+              LOAD_CONST              31 ('ParameterizedMIMEHeader')
+              CALL                     2
+              STORE_NAME              22 (ParameterizedMIMEHeader)
+
+468           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              32 (<code object ContentTypeHeader at 0x00000204B9F72AD0, file "email\headerregistry.py", line 468>)
+              MAKE_FUNCTION
+              LOAD_CONST              33 ('ContentTypeHeader')
+              LOAD_NAME               22 (ParameterizedMIMEHeader)
+              CALL                     3
+              STORE_NAME              23 (ContentTypeHeader)
+
+490           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              34 (<code object ContentDispositionHeader at 0x00000204BA0AA1F0, file "email\headerregistry.py", line 490>)
+              MAKE_FUNCTION
+              LOAD_CONST              35 ('ContentDispositionHeader')
+              LOAD_NAME               22 (ParameterizedMIMEHeader)
+              CALL                     3
+              STORE_NAME              24 (ContentDispositionHeader)
+
+504           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              36 (<code object ContentTransferEncodingHeader at 0x00000204BA0BBC90, file "email\headerregistry.py", line 504>)
+              MAKE_FUNCTION
+              LOAD_CONST              37 ('ContentTransferEncodingHeader')
+              CALL                     2
+              STORE_NAME              25 (ContentTransferEncodingHeader)
+
+525           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              38 (<code object MessageIDHeader at 0x00000204BA103210, file "email\headerregistry.py", line 525>)
+              MAKE_FUNCTION
+              LOAD_CONST              39 ('MessageIDHeader')
+              CALL                     2
+              STORE_NAME              26 (MessageIDHeader)
+
+539           BUILD_MAP                0
+
+540           LOAD_CONST              40 ('subject')
+              LOAD_NAME               14 (UniqueUnstructuredHeader)
+
+539           MAP_ADD                  1
+
+541           LOAD_CONST              41 ('date')
+              LOAD_NAME               16 (UniqueDateHeader)
+
+539           MAP_ADD                  1
+
+542           LOAD_CONST              42 ('resent-date')
+              LOAD_NAME               15 (DateHeader)
+
+539           MAP_ADD                  1
+
+543           LOAD_CONST              43 ('orig-date')
+              LOAD_NAME               16 (UniqueDateHeader)
+
+539           MAP_ADD                  1
+
+544           LOAD_CONST              44 ('sender')
+              LOAD_NAME               20 (UniqueSingleAddressHeader)
+
+539           MAP_ADD                  1
+
+545           LOAD_CONST              45 ('resent-sender')
+              LOAD_NAME               19 (SingleAddressHeader)
+
+539           MAP_ADD                  1
+
+546           LOAD_CONST              46 ('to')
+              LOAD_NAME               18 (UniqueAddressHeader)
+
+539           MAP_ADD                  1
+
+547           LOAD_CONST              47 ('resent-to')
+              LOAD_NAME               17 (AddressHeader)
+
+539           MAP_ADD                  1
+
+548           LOAD_CONST              48 ('cc')
+              LOAD_NAME               18 (UniqueAddressHeader)
+
+539           MAP_ADD                  1
+
+549           LOAD_CONST              49 ('resent-cc')
+              LOAD_NAME               17 (AddressHeader)
+
+539           MAP_ADD                  1
+
+550           LOAD_CONST              50 ('bcc')
+              LOAD_NAME               18 (UniqueAddressHeader)
+
+539           MAP_ADD                  1
+
+551           LOAD_CONST              51 ('resent-bcc')
+              LOAD_NAME               17 (AddressHeader)
+
+539           MAP_ADD                  1
+
+552           LOAD_CONST              52 ('from')
+              LOAD_NAME               18 (UniqueAddressHeader)
+
+539           MAP_ADD                  1
+
+553           LOAD_CONST              53 ('resent-from')
+              LOAD_NAME               17 (AddressHeader)
+
+539           MAP_ADD                  1
+
+554           LOAD_CONST              54 ('reply-to')
+              LOAD_NAME               18 (UniqueAddressHeader)
+
+539           MAP_ADD                  1
+
+555           LOAD_CONST              55 ('mime-version')
+              LOAD_NAME               21 (MIMEVersionHeader)
+
+539           MAP_ADD                  1
+
+556           LOAD_CONST              56 ('content-type')
+              LOAD_NAME               23 (ContentTypeHeader)
+
+539           MAP_ADD                  1
+
+557           LOAD_CONST              57 ('content-disposition')
+              LOAD_NAME               24 (ContentDispositionHeader)
+
+558           LOAD_CONST              58 ('content-transfer-encoding')
+              LOAD_NAME               25 (ContentTransferEncodingHeader)
+
+559           LOAD_CONST              59 ('message-id')
+              LOAD_NAME               26 (MessageIDHeader)
+
+539           BUILD_MAP                3
+              DICT_UPDATE              1
+              STORE_NAME              27 (_default_header_map)
+
+562           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              60 (<code object HeaderRegistry at 0x00000204BA0A7CF0, file "email\headerregistry.py", line 562>)
+              MAKE_FUNCTION
+              LOAD_CONST              61 ('HeaderRegistry')
+              CALL                     2
+              STORE_NAME              28 (HeaderRegistry)
+              LOAD_CONST              62 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Address at 0x00000204BA0BB8A0, file "email\headerregistry.py", line 12>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  12           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Address')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          12
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  14           LOAD_CONST              11 (('', '', '', None))
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA38BBC0, file "email\headerregistry.py", line 14>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+  56           LOAD_NAME                5 (property)
+
+  57           LOAD_CONST               3 (<code object display_name at 0x00000204BA092A60, file "email\headerregistry.py", line 56>)
+               MAKE_FUNCTION
+
+  56           CALL                     0
+
+  57           STORE_NAME               6 (display_name)
+
+  60           LOAD_NAME                5 (property)
+
+  61           LOAD_CONST               4 (<code object username at 0x00000204BA093E10, file "email\headerregistry.py", line 60>)
+               MAKE_FUNCTION
+
+  60           CALL                     0
+
+  61           STORE_NAME               7 (username)
+
+  64           LOAD_NAME                5 (property)
+
+  65           LOAD_CONST               5 (<code object domain at 0x00000204BA0934B0, file "email\headerregistry.py", line 64>)
+               MAKE_FUNCTION
+
+  64           CALL                     0
+
+  65           STORE_NAME               8 (domain)
+
+  68           LOAD_NAME                5 (property)
+
+  69           LOAD_CONST               6 (<code object addr_spec at 0x00000204B9F4E810, file "email\headerregistry.py", line 68>)
+               MAKE_FUNCTION
+
+  68           CALL                     0
+
+  69           STORE_NAME               9 (addr_spec)
+
+  82           LOAD_CONST               7 (<code object __repr__ at 0x00000204B9F72550, file "email\headerregistry.py", line 82>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__repr__)
+
+  87           LOAD_CONST               8 (<code object __str__ at 0x00000204B9FA6310, file "email\headerregistry.py", line 87>)
+               MAKE_FUNCTION
+               STORE_NAME              11 (__str__)
+
+  96           LOAD_CONST               9 (<code object __eq__ at 0x00000204B9F9EA30, file "email\headerregistry.py", line 96>)
+               MAKE_FUNCTION
+               STORE_NAME              12 (__eq__)
+               LOAD_CONST              10 (('_display_name', '_domain', '_username'))
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA38BBC0, file "email\headerregistry.py", line 14>:
+ 14           RESUME                   0
+
+ 31           LOAD_CONST               1 ('')
+              LOAD_ATTR                1 (join + NULL|self)
+              LOAD_GLOBAL              3 (filter + NULL)
+              LOAD_CONST               2 (None)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (display_name, username)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 52 (domain, addr_spec)
+              BUILD_TUPLE              4
+              CALL                     2
+              CALL                     1
+              STORE_FAST               5 (inputs)
+
+ 32           LOAD_CONST               3 ('\r')
+              LOAD_FAST_BORROW         5 (inputs)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_TRUE         8 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               4 ('\n')
+              LOAD_FAST_BORROW         5 (inputs)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+ 33   L1:     LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               5 ('invalid arguments; address parts cannot contain CR or LF')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 39   L2:     LOAD_FAST_BORROW         4 (addr_spec)
+              POP_JUMP_IF_NONE       147 (to L7)
+              NOT_TAKEN
+
+ 40           LOAD_FAST_BORROW         2 (username)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         9 (to L3)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (domain)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L4)
+              NOT_TAKEN
+
+ 41   L3:     LOAD_GLOBAL              7 (TypeError + NULL)
+              LOAD_CONST               6 ('addrspec specified when username and/or domain also specified')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 43   L4:     LOAD_GLOBAL              8 (parser)
+              LOAD_ATTR               10 (get_addr_spec)
+              PUSH_NULL
+              LOAD_FAST_BORROW         4 (addr_spec)
+              CALL                     1
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST  103 (a_s, rest)
+
+ 44           LOAD_FAST_BORROW         7 (rest)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L5)
+              NOT_TAKEN
+
+ 45           LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               7 ("Invalid addr_spec; only '{}' could be parsed from '{}'")
+
+ 46           LOAD_ATTR               13 (format + NULL|self)
+
+ 47           LOAD_FAST_BORROW_LOAD_FAST_BORROW 100 (a_s, addr_spec)
+
+ 46           CALL                     2
+
+ 45           CALL                     1
+              RAISE_VARARGS            1
+
+ 48   L5:     LOAD_FAST_BORROW         6 (a_s)
+              LOAD_ATTR               14 (all_defects)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       20 (to L6)
+              NOT_TAKEN
+
+ 49           LOAD_FAST_BORROW         6 (a_s)
+              LOAD_ATTR               14 (all_defects)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              RAISE_VARARGS            1
+
+ 50   L6:     LOAD_FAST_BORROW         6 (a_s)
+              LOAD_ATTR               16 (local_part)
+              STORE_FAST               2 (username)
+
+ 51           LOAD_FAST_BORROW         6 (a_s)
+              LOAD_ATTR               18 (domain)
+              STORE_FAST               3 (domain)
+
+ 52   L7:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (display_name, self)
+              STORE_ATTR              10 (_display_name)
+
+ 53           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (username, self)
+              STORE_ATTR              11 (_username)
+
+ 54           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (domain, self)
+              STORE_ATTR              12 (_domain)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object display_name at 0x00000204BA092A60, file "email\headerregistry.py", line 56>:
+ 56           RESUME                   0
+
+ 58           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_display_name)
+              RETURN_VALUE
+
+Disassembly of <code object username at 0x00000204BA093E10, file "email\headerregistry.py", line 60>:
+ 60           RESUME                   0
+
+ 62           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_username)
+              RETURN_VALUE
+
+Disassembly of <code object domain at 0x00000204BA0934B0, file "email\headerregistry.py", line 64>:
+ 64           RESUME                   0
+
+ 66           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_domain)
+              RETURN_VALUE
+
+Disassembly of <code object addr_spec at 0x00000204B9F4E810, file "email\headerregistry.py", line 68>:
+ 68           RESUME                   0
+
+ 73           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (username)
+              STORE_FAST               1 (lp)
+
+ 74           LOAD_GLOBAL              2 (parser)
+              LOAD_ATTR                4 (DOT_ATOM_ENDS)
+              LOAD_ATTR                7 (isdisjoint + NULL|self)
+              LOAD_FAST_BORROW         1 (lp)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L1)
+              NOT_TAKEN
+
+ 75           LOAD_GLOBAL              2 (parser)
+              LOAD_ATTR                8 (quote_string)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (lp)
+              CALL                     1
+              STORE_FAST               1 (lp)
+
+ 76   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (domain)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L2)
+              NOT_TAKEN
+
+ 77           LOAD_FAST_BORROW         1 (lp)
+              LOAD_CONST               1 ('@')
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (domain)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+ 78   L2:     LOAD_FAST_BORROW         1 (lp)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L3)
+              NOT_TAKEN
+
+ 79           LOAD_CONST               2 ('<>')
+              RETURN_VALUE
+
+ 80   L3:     LOAD_FAST_BORROW         1 (lp)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204B9F72550, file "email\headerregistry.py", line 82>:
+ 82           RESUME                   0
+
+ 83           LOAD_CONST               0 ('{}(display_name={!r}, username={!r}, domain={!r})')
+              LOAD_ATTR                1 (format + NULL|self)
+
+ 84           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__class__)
+              LOAD_ATTR                4 (__name__)
+
+ 85           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (display_name)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (username)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (domain)
+
+ 83           CALL                     4
+              RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204B9FA6310, file "email\headerregistry.py", line 87>:
+ 87           RESUME                   0
+
+ 88           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (display_name)
+              STORE_FAST               1 (disp)
+
+ 89           LOAD_GLOBAL              2 (parser)
+              LOAD_ATTR                4 (SPECIALS)
+              LOAD_ATTR                7 (isdisjoint + NULL|self)
+              LOAD_FAST_BORROW         1 (disp)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L1)
+              NOT_TAKEN
+
+ 90           LOAD_GLOBAL              2 (parser)
+              LOAD_ATTR                8 (quote_string)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (disp)
+              CALL                     1
+              STORE_FAST               1 (disp)
+
+ 91   L1:     LOAD_FAST_BORROW         1 (disp)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       49 (to L4)
+              NOT_TAKEN
+
+ 92           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (addr_spec)
+              LOAD_CONST               0 ('<>')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+              LOAD_CONST               1 ('')
+              JUMP_FORWARD            11 (to L3)
+      L2:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (addr_spec)
+      L3:     STORE_FAST               2 (addr_spec)
+
+ 93           LOAD_CONST               2 ('{} <{}>')
+              LOAD_ATTR               13 (format + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (disp, addr_spec)
+              CALL                     2
+              RETURN_VALUE
+
+ 94   L4:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (addr_spec)
+              RETURN_VALUE
+
+Disassembly of <code object __eq__ at 0x00000204B9F9EA30, file "email\headerregistry.py", line 96>:
+ 96           RESUME                   0
+
+ 97           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_GLOBAL              2 (Address)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         7 (to L1)
+              NOT_TAKEN
+
+ 98           LOAD_GLOBAL              4 (NotImplemented)
+              RETURN_VALUE
+
+ 99   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (display_name)
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                6 (display_name)
+              COMPARE_OP              72 (==)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       59 (to L2)
+              NOT_TAKEN
+              POP_TOP
+
+100           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (username)
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                8 (username)
+              COMPARE_OP              72 (==)
+
+ 99           COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       26 (to L2)
+              NOT_TAKEN
+              POP_TOP
+
+101           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (domain)
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR               10 (domain)
+              COMPARE_OP              72 (==)
+
+ 99   L2:     RETURN_VALUE
+
+Disassembly of <code object Group at 0x00000204B9FEF800, file "email\headerregistry.py", line 104>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 104           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('Group')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         104
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 106           LOAD_CONST               9 ((None, None))
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA0A9BB0, file "email\headerregistry.py", line 106>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+ 124           LOAD_NAME                5 (property)
+
+ 125           LOAD_CONST               3 (<code object display_name at 0x00000204BA093000, file "email\headerregistry.py", line 124>)
+               MAKE_FUNCTION
+
+ 124           CALL                     0
+
+ 125           STORE_NAME               6 (display_name)
+
+ 128           LOAD_NAME                5 (property)
+
+ 129           LOAD_CONST               4 (<code object addresses at 0x00000204BA092C40, file "email\headerregistry.py", line 128>)
+               MAKE_FUNCTION
+
+ 128           CALL                     0
+
+ 129           STORE_NAME               7 (addresses)
+
+ 132           LOAD_CONST               5 (<code object __repr__ at 0x00000204BA0BB9F0, file "email\headerregistry.py", line 132>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__repr__)
+
+ 137           LOAD_CONST               6 (<code object __str__ at 0x00000204BA36A240, file "email\headerregistry.py", line 137>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__str__)
+
+ 147           LOAD_CONST               7 (<code object __eq__ at 0x00000204B9FB77B0, file "email\headerregistry.py", line 147>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__eq__)
+               LOAD_CONST               8 (('_addresses', '_display_name'))
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0A9BB0, file "email\headerregistry.py", line 106>:
+106           RESUME                   0
+
+121           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (display_name, self)
+              STORE_ATTR               0 (_display_name)
+
+122           LOAD_FAST_BORROW         2 (addresses)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L1)
+              NOT_TAKEN
+              LOAD_GLOBAL              3 (tuple + NULL)
+              LOAD_FAST_BORROW         2 (addresses)
+              CALL                     1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_addresses)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+      L1:     LOAD_GLOBAL              3 (tuple + NULL)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (_addresses)
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object display_name at 0x00000204BA093000, file "email\headerregistry.py", line 124>:
+124           RESUME                   0
+
+126           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_display_name)
+              RETURN_VALUE
+
+Disassembly of <code object addresses at 0x00000204BA092C40, file "email\headerregistry.py", line 128>:
+128           RESUME                   0
+
+130           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_addresses)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA0BB9F0, file "email\headerregistry.py", line 132>:
+132           RESUME                   0
+
+133           LOAD_CONST               0 ('{}(display_name={!r}, addresses={!r}')
+              LOAD_ATTR                1 (format + NULL|self)
+
+134           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__class__)
+              LOAD_ATTR                4 (__name__)
+
+135           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (display_name)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (addresses)
+
+133           CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204BA36A240, file "email\headerregistry.py", line 137>:
+137           RESUME                   0
+
+138           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (display_name)
+              POP_JUMP_IF_NOT_NONE    55 (to L1)
+              NOT_TAKEN
+              LOAD_GLOBAL              3 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (addresses)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       29 (to L1)
+              NOT_TAKEN
+
+139           LOAD_GLOBAL              7 (str + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (addresses)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              CALL                     1
+              RETURN_VALUE
+
+140   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (display_name)
+              STORE_FAST               1 (disp)
+
+141           LOAD_FAST_BORROW         1 (disp)
+              POP_JUMP_IF_NONE        60 (to L2)
+              NOT_TAKEN
+              LOAD_GLOBAL              8 (parser)
+              LOAD_ATTR               10 (SPECIALS)
+              LOAD_ATTR               13 (isdisjoint + NULL|self)
+              LOAD_FAST_BORROW         1 (disp)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        23 (to L2)
+              NOT_TAKEN
+
+142           LOAD_GLOBAL              8 (parser)
+              LOAD_ATTR               14 (quote_string)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (disp)
+              CALL                     1
+              STORE_FAST               1 (disp)
+
+143   L2:     LOAD_CONST               1 (', ')
+              LOAD_ATTR               17 (join + NULL|self)
+              LOAD_CONST               2 (<code object <genexpr> at 0x00000204BA0FECD0, file "email\headerregistry.py", line 143>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (addresses)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+              STORE_FAST               2 (adrstr)
+
+144           LOAD_FAST_BORROW         2 (adrstr)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       10 (to L3)
+              NOT_TAKEN
+              LOAD_CONST               3 (' ')
+              LOAD_FAST_BORROW         2 (adrstr)
+              BINARY_OP                0 (+)
+              JUMP_FORWARD             1 (to L4)
+      L3:     LOAD_FAST                2 (adrstr)
+      L4:     STORE_FAST               2 (adrstr)
+
+145           LOAD_CONST               4 ('{}:{};')
+              LOAD_ATTR               19 (format + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (disp, adrstr)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0FECD0, file "email\headerregistry.py", line 143>:
+ 143           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                16 (to L3)
+               STORE_FAST               1 (x)
+               LOAD_GLOBAL              1 (str + NULL)
+               LOAD_FAST_BORROW         1 (x)
+               CALL                     1
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           18 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object __eq__ at 0x00000204B9FB77B0, file "email\headerregistry.py", line 147>:
+147           RESUME                   0
+
+148           LOAD_GLOBAL              1 (isinstance + NULL)
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_GLOBAL              2 (Group)
+              CALL                     2
+              TO_BOOL
+              POP_JUMP_IF_TRUE         7 (to L1)
+              NOT_TAKEN
+
+149           LOAD_GLOBAL              4 (NotImplemented)
+              RETURN_VALUE
+
+150   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (display_name)
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                6 (display_name)
+              COMPARE_OP              72 (==)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       26 (to L2)
+              NOT_TAKEN
+              POP_TOP
+
+151           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (addresses)
+              LOAD_FAST_BORROW         1 (other)
+              LOAD_ATTR                8 (addresses)
+              COMPARE_OP              72 (==)
+
+150   L2:     RETURN_VALUE
+
+Disassembly of <code object BaseHeader at 0x00000204BA0AB230, file "email\headerregistry.py", line 156>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 156           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('BaseHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT         156
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 158           LOAD_CONST               1 ("Base class for message headers.\n\nImplements generic behavior and provides tools for subclasses.\n\nA subclass must define a classmethod named 'parse' that takes an unfolded\nvalue string and a dictionary as its arguments.  The dictionary will\ncontain one key, 'defects', initialized to an empty list.  After the call\nthe dictionary must contain two additional keys: parse_tree, set to the\nparse tree obtained from parsing the header, and 'decoded', set to the\nstring value of the idealized representation of the data from the value.\n(That is, encoded words are decoded, and values that have canonical\nrepresentations are so represented.)\n\nThe defects key is intended to collect parsing defects, which the message\nparser will subsequently dispose of as appropriate.  The parser should not,\ninsofar as practical, raise any errors.  Defects should be added to the\nlist instead.  The standard header parsers register defects for RFC\ncompliance issues, for obsolete RFC syntax, and for unrecoverable parsing\nerrors.\n\nThe parse method may add additional keys to the dictionary.  In this case\nthe subclass must define an 'init' method, which will be passed the\ndictionary as its keyword arguments.  The method should use (usually by\nsetting them as the value of similarly named attributes) and remove all the\nextra keys added by its parse method, and then use super to call its parent\nclass with the remaining arguments and keywords.\n\nThe subclass should also make sure that a 'max_count' attribute is defined\nthat is either None or 1. XXX: need to better define this API.\n\n")
+               STORE_NAME               4 (__doc__)
+
+ 190           LOAD_CONST               2 (<code object __new__ at 0x00000204B9FA6AD0, file "email\headerregistry.py", line 190>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (__new__)
+
+ 200           LOAD_CONST               3 (<code object init at 0x00000204BA08B330, file "email\headerregistry.py", line 200>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (init)
+
+ 205           LOAD_NAME                7 (property)
+
+ 206           LOAD_CONST               4 (<code object name at 0x00000204BA092D30, file "email\headerregistry.py", line 205>)
+               MAKE_FUNCTION
+
+ 205           CALL                     0
+
+ 206           STORE_NAME               8 (name)
+
+ 209           LOAD_NAME                7 (property)
+
+ 210           LOAD_CONST               5 (<code object defects at 0x00000204BA08AF30, file "email\headerregistry.py", line 209>)
+               MAKE_FUNCTION
+
+ 209           CALL                     0
+
+ 210           STORE_NAME               9 (defects)
+
+ 213           LOAD_CONST               6 (<code object __reduce__ at 0x00000204B9FF3E00, file "email\headerregistry.py", line 213>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__reduce__)
+
+ 223           LOAD_NAME               11 (classmethod)
+
+ 224           LOAD_CONST               7 (<code object _reconstruct at 0x00000204BA08B130, file "email\headerregistry.py", line 223>)
+               MAKE_FUNCTION
+
+ 223           CALL                     0
+
+ 224           STORE_NAME              12 (_reconstruct)
+
+ 227           LOAD_CONST               8 (<code object fold at 0x00000204BA368DC0, file "email\headerregistry.py", line 227>)
+               MAKE_FUNCTION
+               STORE_NAME              13 (fold)
+               LOAD_CONST               9 (('_defects', '_name', '_parse_tree'))
+               STORE_NAME              14 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              15 (__classdictcell__)
+               LOAD_CONST              10 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x00000204B9FA6AD0, file "email\headerregistry.py", line 190>:
+190           RESUME                   0
+
+191           LOAD_CONST               0 ('defects')
+              BUILD_LIST               0
+              BUILD_MAP                1
+              STORE_FAST               3 (kwds)
+
+192           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                1 (parse + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (value, kwds)
+              CALL                     2
+              POP_TOP
+
+193           LOAD_GLOBAL              2 (utils)
+              LOAD_ATTR                4 (_has_surrogates)
+              PUSH_NULL
+              LOAD_FAST_BORROW         3 (kwds)
+              LOAD_CONST               1 ('decoded')
+              BINARY_OP               26 ([])
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       33 (to L1)
+              NOT_TAKEN
+
+194           LOAD_GLOBAL              2 (utils)
+              LOAD_ATTR                6 (_sanitize)
+              PUSH_NULL
+              LOAD_FAST_BORROW         3 (kwds)
+              LOAD_CONST               1 ('decoded')
+              BINARY_OP               26 ([])
+              CALL                     1
+              LOAD_FAST_BORROW         3 (kwds)
+              LOAD_CONST               1 ('decoded')
+              STORE_SUBSCR
+
+195   L1:     LOAD_GLOBAL              8 (str)
+              LOAD_ATTR               11 (__new__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 3 (cls, kwds)
+              LOAD_CONST               1 ('decoded')
+              BINARY_OP               26 ([])
+              CALL                     2
+              STORE_FAST               4 (self)
+
+196           LOAD_FAST_BORROW         3 (kwds)
+              LOAD_CONST               1 ('decoded')
+              DELETE_SUBSCR
+
+197           LOAD_FAST_BORROW         4 (self)
+              LOAD_ATTR               12 (init)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (name)
+              BUILD_TUPLE              1
+              BUILD_MAP                0
+              LOAD_FAST_BORROW         3 (kwds)
+              DICT_MERGE               1
+              CALL_FUNCTION_EX
+              POP_TOP
+
+198           LOAD_FAST_BORROW         4 (self)
+              RETURN_VALUE
+
+Disassembly of <code object init at 0x00000204BA08B330, file "email\headerregistry.py", line 200>:
+200           RESUME                   0
+
+201           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (name, self)
+              STORE_ATTR               0 (_name)
+
+202           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (parse_tree, self)
+              STORE_ATTR               1 (_parse_tree)
+
+203           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (defects, self)
+              STORE_ATTR               2 (_defects)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object name at 0x00000204BA092D30, file "email\headerregistry.py", line 205>:
+205           RESUME                   0
+
+207           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_name)
+              RETURN_VALUE
+
+Disassembly of <code object defects at 0x00000204BA08AF30, file "email\headerregistry.py", line 209>:
+209           RESUME                   0
+
+211           LOAD_GLOBAL              1 (tuple + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_defects)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __reduce__ at 0x00000204B9FF3E00, file "email\headerregistry.py", line 213>:
+213           RESUME                   0
+
+215           LOAD_GLOBAL              0 (_reconstruct_header)
+
+217           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__class__)
+              LOAD_ATTR                4 (__name__)
+
+218           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (__class__)
+              LOAD_ATTR                6 (__bases__)
+
+219           LOAD_GLOBAL              9 (str + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              CALL                     1
+
+216           BUILD_TUPLE              3
+
+221           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               11 (__getstate__ + NULL|self)
+              CALL                     0
+
+214           BUILD_TUPLE              3
+              RETURN_VALUE
+
+Disassembly of <code object _reconstruct at 0x00000204BA08B130, file "email\headerregistry.py", line 223>:
+223           RESUME                   0
+
+225           LOAD_GLOBAL              0 (str)
+              LOAD_ATTR                3 (__new__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (cls, value)
+              CALL                     2
+              RETURN_VALUE
+
+Disassembly of <code object fold at 0x00000204BA368DC0, file "email\headerregistry.py", line 227>:
+227           RESUME                   0
+
+244           LOAD_GLOBAL              0 (parser)
+              LOAD_ATTR                2 (Header)
+              PUSH_NULL
+
+245           LOAD_GLOBAL              0 (parser)
+              LOAD_ATTR                4 (HeaderLabel)
+              PUSH_NULL
+
+246           LOAD_GLOBAL              0 (parser)
+              LOAD_ATTR                6 (ValueTerminal)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (name)
+              LOAD_CONST               1 ('header-name')
+              CALL                     2
+
+247           LOAD_GLOBAL              0 (parser)
+              LOAD_ATTR                6 (ValueTerminal)
+              PUSH_NULL
+              LOAD_CONST               2 (':')
+              LOAD_CONST               3 ('header-sep')
+              CALL                     2
+
+245           BUILD_LIST               2
+              CALL                     1
+
+244           BUILD_LIST               1
+              CALL                     1
+              STORE_FAST               2 (header)
+
+249           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_parse_tree)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       60 (to L1)
+              NOT_TAKEN
+
+250           LOAD_FAST_BORROW         2 (header)
+              LOAD_ATTR               13 (append + NULL|self)
+
+251           LOAD_GLOBAL              0 (parser)
+              LOAD_ATTR               14 (CFWSList)
+              PUSH_NULL
+              LOAD_GLOBAL              0 (parser)
+              LOAD_ATTR               16 (WhiteSpaceTerminal)
+              PUSH_NULL
+              LOAD_CONST               4 (' ')
+              LOAD_CONST               5 ('fws')
+              CALL                     2
+              BUILD_LIST               1
+              CALL                     1
+
+250           CALL                     1
+              POP_TOP
+
+252   L1:     LOAD_FAST_BORROW         2 (header)
+              LOAD_ATTR               13 (append + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR               10 (_parse_tree)
+              CALL                     1
+              POP_TOP
+
+253           LOAD_FAST_BORROW         2 (header)
+              LOAD_ATTR               19 (fold + NULL|self)
+              LOAD_FAST_BORROW         1 (policy)
+              LOAD_CONST               6 (('policy',))
+              CALL_KW                  1
+              RETURN_VALUE
+
+Disassembly of <code object _reconstruct_header at 0x00000204BA0FC7A0, file "email\headerregistry.py", line 256>:
+256           RESUME                   0
+
+257           LOAD_GLOBAL              1 (type + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (cls_name, bases)
+              BUILD_MAP                0
+              CALL                     3
+              LOAD_ATTR                3 (_reconstruct + NULL|self)
+              LOAD_FAST_BORROW         2 (value)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object UnstructuredHeader at 0x00000204BA103A60, file "email\headerregistry.py", line 260>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 260           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('UnstructuredHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (260)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 262           LOAD_CONST               2 (None)
+               STORE_NAME               4 (max_count)
+
+ 263           LOAD_NAME                5 (staticmethod)
+               PUSH_NULL
+               LOAD_NAME                6 (parser)
+               LOAD_ATTR               14 (get_unstructured)
+               CALL                     1
+               STORE_NAME               8 (value_parser)
+
+ 265           LOAD_NAME                9 (classmethod)
+
+ 266           LOAD_CONST               3 (<code object parse at 0x00000204BA1004F0, file "email\headerregistry.py", line 265>)
+               MAKE_FUNCTION
+
+ 265           CALL                     0
+
+ 266           STORE_NAME              10 (parse)
+               LOAD_CONST               4 (())
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA1004F0, file "email\headerregistry.py", line 265>:
+265           RESUME                   0
+
+267           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                1 (value_parser + NULL|self)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               0 ('parse_tree')
+              STORE_SUBSCR
+
+268           LOAD_GLOBAL              3 (str + NULL)
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               0 ('parse_tree')
+              BINARY_OP               26 ([])
+              CALL                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               1 ('decoded')
+              STORE_SUBSCR
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object UniqueUnstructuredHeader at 0x00000204BA0930F0, file "email\headerregistry.py", line 271>:
+271           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('UniqueUnstructuredHeader')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (271)
+              STORE_NAME               3 (__firstlineno__)
+
+273           LOAD_SMALL_INT           1
+              STORE_NAME               4 (max_count)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object DateHeader at 0x00000204BA0BB4B0, file "email\headerregistry.py", line 276>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 276           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('DateHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (276)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 278           LOAD_CONST               2 ("Header whose value consists of a single timestamp.\n\nProvides an additional attribute, datetime, which is either an aware\ndatetime using a timezone, or a naive datetime if the timezone\nin the input string is -0000.  Also accepts a datetime as input.\nThe 'value' attribute is the normalized form of the timestamp,\nwhich means it is the output of format_datetime on the datetime.\n")
+               STORE_NAME               4 (__doc__)
+
+ 287           LOAD_CONST               3 (None)
+               STORE_NAME               5 (max_count)
+
+ 290           LOAD_NAME                6 (staticmethod)
+               PUSH_NULL
+               LOAD_NAME                7 (parser)
+               LOAD_ATTR               16 (get_unstructured)
+               CALL                     1
+               STORE_NAME               9 (value_parser)
+
+ 292           LOAD_NAME               10 (classmethod)
+
+ 293           LOAD_CONST               4 (<code object parse at 0x00000204BA382080, file "email\headerregistry.py", line 292>)
+               MAKE_FUNCTION
+
+ 292           CALL                     0
+
+ 293           STORE_NAME              11 (parse)
+
+ 313           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object init at 0x00000204BA103B90, file "email\headerregistry.py", line 313>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              12 (init)
+
+ 317           LOAD_NAME               13 (property)
+
+ 318           LOAD_CONST               6 (<code object datetime at 0x00000204BA0924C0, file "email\headerregistry.py", line 317>)
+               MAKE_FUNCTION
+
+ 317           CALL                     0
+
+ 318           STORE_NAME              14 (datetime)
+               LOAD_CONST               7 (('_datetime',))
+               STORE_NAME              15 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              16 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              17 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA382080, file "email\headerregistry.py", line 292>:
+ 292           RESUME                   0
+
+ 294           LOAD_FAST_BORROW         1 (value)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        80 (to L1)
+               NOT_TAKEN
+
+ 295           LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               0 ('defects')
+               BINARY_OP               26 ([])
+               LOAD_ATTR                1 (append + NULL|self)
+               LOAD_GLOBAL              2 (errors)
+               LOAD_ATTR                4 (HeaderMissingRequiredValue)
+               PUSH_NULL
+               CALL                     0
+               CALL                     1
+               POP_TOP
+
+ 296           LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               2 ('datetime')
+               STORE_SUBSCR
+
+ 297           LOAD_CONST               3 ('')
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               4 ('decoded')
+               STORE_SUBSCR
+
+ 298           LOAD_GLOBAL              6 (parser)
+               LOAD_ATTR                8 (TokenList)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               5 ('parse_tree')
+               STORE_SUBSCR
+
+ 299           LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 300   L1:     LOAD_GLOBAL             11 (isinstance + NULL)
+               LOAD_FAST_BORROW         1 (value)
+               LOAD_GLOBAL             12 (str)
+               CALL                     2
+               TO_BOOL
+               POP_JUMP_IF_FALSE       28 (to L3)
+               NOT_TAKEN
+
+ 301           LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (value, kwds)
+               LOAD_CONST               4 ('decoded')
+               STORE_SUBSCR
+
+ 302           NOP
+
+ 303   L2:     LOAD_GLOBAL             14 (utils)
+               LOAD_ATTR               16 (parsedate_to_datetime)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (value)
+               CALL                     1
+               STORE_FAST               1 (value)
+
+ 309   L3:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (value, kwds)
+               LOAD_CONST               2 ('datetime')
+               STORE_SUBSCR
+
+ 310           LOAD_GLOBAL             14 (utils)
+               LOAD_ATTR               22 (format_datetime)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               2 ('datetime')
+               BINARY_OP               26 ([])
+               CALL                     1
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               4 ('decoded')
+               STORE_SUBSCR
+
+ 311           LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR               25 (value_parser + NULL|self)
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               4 ('decoded')
+               BINARY_OP               26 ([])
+               CALL                     1
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               5 ('parse_tree')
+               STORE_SUBSCR
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+  --   L4:     PUSH_EXC_INFO
+
+ 304           LOAD_GLOBAL             18 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE       78 (to L6)
+               NOT_TAKEN
+               POP_TOP
+
+ 305           LOAD_FAST                2 (kwds)
+               LOAD_CONST               0 ('defects')
+               BINARY_OP               26 ([])
+               LOAD_ATTR                1 (append + NULL|self)
+               LOAD_GLOBAL              2 (errors)
+               LOAD_ATTR               20 (InvalidDateDefect)
+               PUSH_NULL
+               LOAD_CONST               6 ('Invalid date value or format')
+               CALL                     1
+               CALL                     1
+               POP_TOP
+
+ 306           LOAD_CONST               1 (None)
+               LOAD_FAST                2 (kwds)
+               LOAD_CONST               2 ('datetime')
+               STORE_SUBSCR
+
+ 307           LOAD_GLOBAL              6 (parser)
+               LOAD_ATTR                8 (TokenList)
+               PUSH_NULL
+               CALL                     0
+               LOAD_FAST                2 (kwds)
+               LOAD_CONST               5 ('parse_tree')
+               STORE_SUBSCR
+
+ 308   L5:     POP_EXCEPT
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+ 304   L6:     RERAISE                  0
+
+  --   L7:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L4 [0]
+  L4 to L5 -> L7 [1] lasti
+  L6 to L7 -> L7 [1] lasti
+
+Disassembly of <code object init at 0x00000204BA103B90, file "email\headerregistry.py", line 313>:
+  --           COPY_FREE_VARS           1
+
+ 313           RESUME                   0
+
+ 314           LOAD_FAST_BORROW         2 (kw)
+               LOAD_ATTR                1 (pop + NULL|self)
+               LOAD_CONST               0 ('datetime')
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_datetime)
+
+ 315           LOAD_GLOBAL              4 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         12 (init)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object datetime at 0x00000204BA0924C0, file "email\headerregistry.py", line 317>:
+317           RESUME                   0
+
+319           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_datetime)
+              RETURN_VALUE
+
+Disassembly of <code object UniqueDateHeader at 0x00000204BA092880, file "email\headerregistry.py", line 322>:
+322           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('UniqueDateHeader')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (322)
+              STORE_NAME               3 (__firstlineno__)
+
+324           LOAD_SMALL_INT           1
+              STORE_NAME               4 (max_count)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object AddressHeader at 0x00000204BA0BBDE0, file "email\headerregistry.py", line 327>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 327           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('AddressHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (327)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 329           LOAD_CONST               2 (None)
+               STORE_NAME               4 (max_count)
+
+ 331           LOAD_NAME                5 (staticmethod)
+
+ 332           LOAD_CONST               3 (<code object value_parser at 0x00000204BA103CC0, file "email\headerregistry.py", line 331>)
+               MAKE_FUNCTION
+
+ 331           CALL                     0
+
+ 332           STORE_NAME               6 (value_parser)
+
+ 337           LOAD_NAME                7 (classmethod)
+
+ 338           LOAD_CONST               4 (<code object parse at 0x00000204BA3501A0, file "email\headerregistry.py", line 337>)
+               MAKE_FUNCTION
+
+ 337           CALL                     0
+
+ 338           STORE_NAME               8 (parse)
+
+ 365           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               5 (<code object init at 0x00000204BA0BB0C0, file "email\headerregistry.py", line 365>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               9 (init)
+
+ 370           LOAD_NAME               10 (property)
+
+ 371           LOAD_CONST               6 (<code object groups at 0x00000204BA093C30, file "email\headerregistry.py", line 370>)
+               MAKE_FUNCTION
+
+ 370           CALL                     0
+
+ 371           STORE_NAME              11 (groups)
+
+ 374           LOAD_NAME               10 (property)
+
+ 375           LOAD_CONST               7 (<code object addresses at 0x00000204BA0B7230, file "email\headerregistry.py", line 374>)
+               MAKE_FUNCTION
+
+ 374           CALL                     0
+
+ 375           STORE_NAME              12 (addresses)
+               LOAD_CONST               8 (('_addresses', '_groups'))
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              15 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object value_parser at 0x00000204BA103CC0, file "email\headerregistry.py", line 331>:
+331           RESUME                   0
+
+333           LOAD_GLOBAL              0 (parser)
+              LOAD_ATTR                2 (get_address_list)
+              PUSH_NULL
+              LOAD_FAST_BORROW         0 (value)
+              CALL                     1
+              UNPACK_SEQUENCE          2
+              STORE_FAST_STORE_FAST   16 (address_list, value)
+
+334           LOAD_FAST_BORROW         0 (value)
+              TO_BOOL
+              POP_JUMP_IF_FALSE        8 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     0 (AssertionError)
+              LOAD_CONST               0 ('this should not happen')
+              CALL                     0
+              RAISE_VARARGS            1
+
+335   L1:     LOAD_FAST_BORROW         1 (address_list)
+              RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA3501A0, file "email\headerregistry.py", line 337>:
+ 337            RESUME                   0
+
+ 339            LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         1 (value)
+                LOAD_GLOBAL              2 (str)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE      200 (to L16)
+                NOT_TAKEN
+
+ 342            LOAD_FAST_BORROW         0 (cls)
+                LOAD_ATTR                5 (value_parser + NULL|self)
+                LOAD_FAST_BORROW         1 (value)
+                CALL                     1
+                COPY                     1
+                LOAD_FAST_BORROW         2 (kwds)
+                LOAD_CONST               0 ('parse_tree')
+                STORE_SUBSCR
+                STORE_FAST               3 (address_list)
+
+ 343            BUILD_LIST               0
+                STORE_FAST               4 (groups)
+
+ 344            LOAD_FAST_BORROW         3 (address_list)
+                LOAD_ATTR                6 (addresses)
+                GET_ITER
+        L1:     FOR_ITER               137 (to L15)
+                STORE_FAST               5 (addr)
+
+ 345            LOAD_FAST                4 (groups)
+                LOAD_ATTR                9 (append + NULL|self)
+                LOAD_GLOBAL             11 (Group + NULL)
+                LOAD_FAST_BORROW         5 (addr)
+                LOAD_ATTR               12 (display_name)
+
+ 349            LOAD_FAST_BORROW         5 (addr)
+                LOAD_ATTR               14 (all_mailboxes)
+                GET_ITER
+
+ 346            LOAD_FAST_AND_CLEAR      6 (mb)
+                SWAP                     2
+        L2:     BUILD_LIST               0
+                SWAP                     2
+
+ 349    L3:     FOR_ITER                76 (to L13)
+                STORE_FAST               6 (mb)
+
+ 346            LOAD_GLOBAL             17 (Address + NULL)
+                LOAD_FAST_BORROW         6 (mb)
+                LOAD_ATTR               12 (display_name)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L6)
+        L4:     NOT_TAKEN
+        L5:     POP_TOP
+                LOAD_CONST               1 ('')
+
+ 347    L6:     LOAD_FAST_BORROW         6 (mb)
+                LOAD_ATTR               18 (local_part)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L9)
+        L7:     NOT_TAKEN
+        L8:     POP_TOP
+                LOAD_CONST               1 ('')
+
+ 348    L9:     LOAD_FAST_BORROW         6 (mb)
+                LOAD_ATTR               20 (domain)
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L12)
+       L10:     NOT_TAKEN
+       L11:     POP_TOP
+                LOAD_CONST               1 ('')
+
+ 346   L12:     CALL                     3
+                LIST_APPEND              2
+                JUMP_BACKWARD           78 (to L3)
+
+ 349   L13:     END_FOR
+                POP_ITER
+
+ 346   L14:     SWAP                     2
+                STORE_FAST               6 (mb)
+
+ 345            CALL                     2
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          139 (to L1)
+
+ 344   L15:     END_FOR
+                POP_ITER
+
+ 350            LOAD_GLOBAL             23 (list + NULL)
+                LOAD_FAST_BORROW         3 (address_list)
+                LOAD_ATTR               24 (all_defects)
+                CALL                     1
+                STORE_FAST               7 (defects)
+                JUMP_FORWARD            71 (to L24)
+
+ 353   L16:     LOAD_GLOBAL             27 (hasattr + NULL)
+                LOAD_FAST_BORROW         1 (value)
+                LOAD_CONST               2 ('__iter__')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE         4 (to L17)
+                NOT_TAKEN
+
+ 354            LOAD_FAST_BORROW         1 (value)
+                BUILD_LIST               1
+                STORE_FAST               1 (value)
+
+ 357   L17:     LOAD_FAST_BORROW         1 (value)
+                GET_ITER
+
+ 355            LOAD_FAST_AND_CLEAR      8 (item)
+                SWAP                     2
+       L18:     BUILD_LIST               0
+                SWAP                     2
+
+ 357   L19:     FOR_ITER                36 (to L22)
+                STORE_FAST               8 (item)
+
+ 355            LOAD_GLOBAL             27 (hasattr + NULL)
+                LOAD_FAST_BORROW         8 (item)
+                LOAD_CONST               3 ('addresses')
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_TRUE        14 (to L20)
+                NOT_TAKEN
+                LOAD_GLOBAL             11 (Group + NULL)
+                LOAD_CONST               4 (None)
+                LOAD_FAST_BORROW         8 (item)
+                BUILD_LIST               1
+                CALL                     2
+                JUMP_FORWARD             1 (to L21)
+
+ 356   L20:     LOAD_FAST                8 (item)
+
+ 355   L21:     LIST_APPEND              2
+                JUMP_BACKWARD           38 (to L19)
+
+ 357   L22:     END_FOR
+                POP_ITER
+
+ 355   L23:     STORE_FAST               4 (groups)
+                STORE_FAST               8 (item)
+
+ 358            BUILD_LIST               0
+                STORE_FAST               7 (defects)
+
+ 359   L24:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 66 (groups, kwds)
+                LOAD_CONST               5 ('groups')
+                STORE_SUBSCR
+
+ 360            LOAD_FAST_BORROW_LOAD_FAST_BORROW 114 (defects, kwds)
+                LOAD_CONST               6 ('defects')
+                STORE_SUBSCR
+
+ 361            LOAD_CONST               7 (', ')
+                LOAD_ATTR               29 (join + NULL|self)
+                LOAD_FAST_BORROW         4 (groups)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      8 (item)
+                SWAP                     2
+       L25:     BUILD_LIST               0
+                SWAP                     2
+       L26:     FOR_ITER                14 (to L27)
+                STORE_FAST               8 (item)
+                LOAD_GLOBAL              3 (str + NULL)
+                LOAD_FAST_BORROW         8 (item)
+                CALL                     1
+                LIST_APPEND              2
+                JUMP_BACKWARD           16 (to L26)
+       L27:     END_FOR
+                POP_ITER
+       L28:     SWAP                     2
+                STORE_FAST               8 (item)
+                CALL                     1
+                LOAD_FAST_BORROW         2 (kwds)
+                LOAD_CONST               8 ('decoded')
+                STORE_SUBSCR
+
+ 362            LOAD_CONST               0 ('parse_tree')
+                LOAD_FAST_BORROW         2 (kwds)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_FALSE       30 (to L29)
+                NOT_TAKEN
+
+ 363            LOAD_FAST_BORROW         0 (cls)
+                LOAD_ATTR                5 (value_parser + NULL|self)
+                LOAD_FAST_BORROW         2 (kwds)
+                LOAD_CONST               8 ('decoded')
+                BINARY_OP               26 ([])
+                CALL                     1
+                LOAD_FAST_BORROW         2 (kwds)
+                LOAD_CONST               0 ('parse_tree')
+                STORE_SUBSCR
+                LOAD_CONST               4 (None)
+                RETURN_VALUE
+
+ 362   L29:     LOAD_CONST               4 (None)
+                RETURN_VALUE
+
+  --   L30:     SWAP                     2
+                POP_TOP
+
+ 346            SWAP                     2
+                STORE_FAST               6 (mb)
+                RERAISE                  0
+
+  --   L31:     SWAP                     2
+                POP_TOP
+
+ 355            SWAP                     2
+                STORE_FAST               8 (item)
+                RERAISE                  0
+
+  --   L32:     SWAP                     2
+                POP_TOP
+
+ 361            SWAP                     2
+                STORE_FAST               8 (item)
+                RERAISE                  0
+ExceptionTable:
+  L2 to L4 -> L30 [8]
+  L5 to L7 -> L30 [8]
+  L8 to L10 -> L30 [8]
+  L11 to L14 -> L30 [8]
+  L18 to L23 -> L31 [2]
+  L25 to L28 -> L32 [4]
+
+Disassembly of <code object init at 0x00000204BA0BB0C0, file "email\headerregistry.py", line 365>:
+  --           COPY_FREE_VARS           1
+
+ 365           RESUME                   0
+
+ 366           LOAD_GLOBAL              1 (tuple + NULL)
+               LOAD_FAST_BORROW         2 (kw)
+               LOAD_ATTR                3 (pop + NULL|self)
+               LOAD_CONST               0 ('groups')
+               CALL                     1
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (_groups)
+
+ 367           LOAD_CONST               1 (None)
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_addresses)
+
+ 368           LOAD_GLOBAL              8 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         20 (init)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object groups at 0x00000204BA093C30, file "email\headerregistry.py", line 370>:
+370           RESUME                   0
+
+372           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_groups)
+              RETURN_VALUE
+
+Disassembly of <code object addresses at 0x00000204BA0B7230, file "email\headerregistry.py", line 374>:
+374           RESUME                   0
+
+376           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_addresses)
+              POP_JUMP_IF_NOT_NONE    70 (to L5)
+              NOT_TAKEN
+
+377           LOAD_GLOBAL              2 (tuple)
+              COPY                     1
+              LOAD_COMMON_CONSTANT     2 (tuple)
+              IS_OP                    0 (is)
+              POP_JUMP_IF_FALSE       30 (to L3)
+              NOT_TAKEN
+              POP_TOP
+              BUILD_LIST               0
+              LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0A7750, file "email\headerregistry.py", line 377>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_groups)
+              GET_ITER
+              CALL                     0
+      L1:     FOR_ITER                 3 (to L2)
+              LIST_APPEND              2
+              JUMP_BACKWARD            5 (to L1)
+      L2:     END_FOR
+              POP_ITER
+              CALL_INTRINSIC_1         6 (INTRINSIC_LIST_TO_TUPLE)
+              JUMP_FORWARD            23 (to L4)
+      L3:     PUSH_NULL
+              LOAD_CONST               1 (<code object <genexpr> at 0x00000204BA0A7750, file "email\headerregistry.py", line 377>)
+              MAKE_FUNCTION
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (_groups)
+              GET_ITER
+              CALL                     0
+              CALL                     1
+      L4:     LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (_addresses)
+
+379   L5:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_addresses)
+              RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x00000204BA0A7750, file "email\headerregistry.py", line 377>:
+ 377           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                26 (to L5)
+               STORE_FAST               1 (group)
+
+ 378           LOAD_FAST_BORROW         1 (group)
+               LOAD_ATTR                0 (addresses)
+               GET_ITER
+       L3:     FOR_ITER                 7 (to L4)
+               STORE_FAST               2 (address)
+
+ 377           LOAD_FAST_BORROW         2 (address)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD            9 (to L3)
+
+ 378   L4:     END_FOR
+               POP_ITER
+
+ 377           JUMP_BACKWARD           28 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L6 -> L6 [0] lasti
+
+Disassembly of <code object UniqueAddressHeader at 0x00000204BA093960, file "email\headerregistry.py", line 382>:
+382           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('UniqueAddressHeader')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (382)
+              STORE_NAME               3 (__firstlineno__)
+
+384           LOAD_SMALL_INT           1
+              STORE_NAME               4 (max_count)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object SingleAddressHeader at 0x00000204BA08A530, file "email\headerregistry.py", line 387>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 387           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('SingleAddressHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (387)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 389           LOAD_NAME                4 (property)
+
+ 390           LOAD_CONST               2 (<code object address at 0x00000204B9FB7C30, file "email\headerregistry.py", line 389>)
+               MAKE_FUNCTION
+
+ 389           CALL                     0
+
+ 390           STORE_NAME               5 (address)
+               LOAD_CONST               3 (())
+               STORE_NAME               6 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               7 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object address at 0x00000204B9FB7C30, file "email\headerregistry.py", line 389>:
+389           RESUME                   0
+
+391           LOAD_GLOBAL              1 (len + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (addresses)
+              CALL                     1
+              LOAD_SMALL_INT           1
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE       37 (to L1)
+              NOT_TAKEN
+
+392           LOAD_GLOBAL              5 (ValueError + NULL)
+              LOAD_CONST               1 ('value of single address header {} is not a single address')
+
+393           LOAD_ATTR                7 (format + NULL|self)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                8 (name)
+              CALL                     1
+
+392           CALL                     1
+              RAISE_VARARGS            1
+
+394   L1:     LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (addresses)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object UniqueSingleAddressHeader at 0x00000204BA0922E0, file "email\headerregistry.py", line 397>:
+397           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('UniqueSingleAddressHeader')
+              STORE_NAME               2 (__qualname__)
+              LOAD_CONST               1 (397)
+              STORE_NAME               3 (__firstlineno__)
+
+399           LOAD_SMALL_INT           1
+              STORE_NAME               4 (max_count)
+              LOAD_CONST               2 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object MIMEVersionHeader at 0x00000204BA6BC030, file "email\headerregistry.py", line 402>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 402           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('MIMEVersionHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (402)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 404           LOAD_SMALL_INT           1
+               STORE_NAME               4 (max_count)
+
+ 406           LOAD_NAME                5 (staticmethod)
+               PUSH_NULL
+               LOAD_NAME                6 (parser)
+               LOAD_ATTR               14 (parse_mime_version)
+               CALL                     1
+               STORE_NAME               8 (value_parser)
+
+ 408           LOAD_NAME                9 (classmethod)
+
+ 409           LOAD_CONST               2 (<code object parse at 0x00000204BA36C1C0, file "email\headerregistry.py", line 408>)
+               MAKE_FUNCTION
+
+ 408           CALL                     0
+
+ 409           STORE_NAME              10 (parse)
+
+ 420           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object init at 0x00000204B9FB7630, file "email\headerregistry.py", line 420>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              11 (init)
+
+ 426           LOAD_NAME               12 (property)
+
+ 427           LOAD_CONST               4 (<code object major at 0x00000204BA0914D0, file "email\headerregistry.py", line 426>)
+               MAKE_FUNCTION
+
+ 426           CALL                     0
+
+ 427           STORE_NAME              13 (major)
+
+ 430           LOAD_NAME               12 (property)
+
+ 431           LOAD_CONST               5 (<code object minor at 0x00000204BA0935A0, file "email\headerregistry.py", line 430>)
+               MAKE_FUNCTION
+
+ 430           CALL                     0
+
+ 431           STORE_NAME              14 (minor)
+
+ 434           LOAD_NAME               12 (property)
+
+ 435           LOAD_CONST               6 (<code object version at 0x00000204BA092790, file "email\headerregistry.py", line 434>)
+               MAKE_FUNCTION
+
+ 434           CALL                     0
+
+ 435           STORE_NAME              15 (version)
+               LOAD_CONST               7 (('_major', '_minor', '_version'))
+               STORE_NAME              16 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              17 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              18 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA36C1C0, file "email\headerregistry.py", line 408>:
+408           RESUME                   0
+
+410           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                1 (value_parser + NULL|self)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              COPY                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               0 ('parse_tree')
+              STORE_SUBSCR
+              STORE_FAST               3 (parse_tree)
+
+411           LOAD_GLOBAL              3 (str + NULL)
+              LOAD_FAST_BORROW         3 (parse_tree)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               1 ('decoded')
+              STORE_SUBSCR
+
+412           LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               2 ('defects')
+              BINARY_OP               26 ([])
+              LOAD_ATTR                5 (extend + NULL|self)
+              LOAD_FAST_BORROW         3 (parse_tree)
+              LOAD_ATTR                6 (all_defects)
+              CALL                     1
+              POP_TOP
+
+413           LOAD_FAST_BORROW         3 (parse_tree)
+              LOAD_ATTR                8 (minor)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+              LOAD_CONST               3 (None)
+              JUMP_FORWARD            11 (to L2)
+      L1:     LOAD_FAST_BORROW         3 (parse_tree)
+              LOAD_ATTR               10 (major)
+      L2:     LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               4 ('major')
+              STORE_SUBSCR
+
+414           LOAD_FAST_BORROW         3 (parse_tree)
+              LOAD_ATTR                8 (minor)
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               5 ('minor')
+              STORE_SUBSCR
+
+415           LOAD_FAST_BORROW         3 (parse_tree)
+              LOAD_ATTR                8 (minor)
+              POP_JUMP_IF_NONE        38 (to L3)
+              NOT_TAKEN
+
+416           LOAD_CONST               6 ('{}.{}')
+              LOAD_ATTR               13 (format + NULL|self)
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               4 ('major')
+              BINARY_OP               26 ([])
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               5 ('minor')
+              BINARY_OP               26 ([])
+              CALL                     2
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               7 ('version')
+              STORE_SUBSCR
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+418   L3:     LOAD_CONST               3 (None)
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               7 ('version')
+              STORE_SUBSCR
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object init at 0x00000204B9FB7630, file "email\headerregistry.py", line 420>:
+  --           COPY_FREE_VARS           1
+
+ 420           RESUME                   0
+
+ 421           LOAD_FAST_BORROW         2 (kw)
+               LOAD_ATTR                1 (pop + NULL|self)
+               LOAD_CONST               0 ('version')
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_version)
+
+ 422           LOAD_FAST_BORROW         2 (kw)
+               LOAD_ATTR                1 (pop + NULL|self)
+               LOAD_CONST               1 ('major')
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               2 (_major)
+
+ 423           LOAD_FAST_BORROW         2 (kw)
+               LOAD_ATTR                1 (pop + NULL|self)
+               LOAD_CONST               2 ('minor')
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               3 (_minor)
+
+ 424           LOAD_GLOBAL              8 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         20 (init)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object major at 0x00000204BA0914D0, file "email\headerregistry.py", line 426>:
+426           RESUME                   0
+
+428           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_major)
+              RETURN_VALUE
+
+Disassembly of <code object minor at 0x00000204BA0935A0, file "email\headerregistry.py", line 430>:
+430           RESUME                   0
+
+432           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_minor)
+              RETURN_VALUE
+
+Disassembly of <code object version at 0x00000204BA092790, file "email\headerregistry.py", line 434>:
+434           RESUME                   0
+
+436           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_version)
+              RETURN_VALUE
+
+Disassembly of <code object ParameterizedMIMEHeader at 0x00000204BA102500, file "email\headerregistry.py", line 439>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 439           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ParameterizedMIMEHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (439)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 444           LOAD_SMALL_INT           1
+               STORE_NAME               4 (max_count)
+
+ 446           LOAD_NAME                5 (classmethod)
+
+ 447           LOAD_CONST               2 (<code object parse at 0x00000204BA594790, file "email\headerregistry.py", line 446>)
+               MAKE_FUNCTION
+
+ 446           CALL                     0
+
+ 447           STORE_NAME               6 (parse)
+
+ 459           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object init at 0x00000204BA100290, file "email\headerregistry.py", line 459>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               7 (init)
+
+ 463           LOAD_NAME                8 (property)
+
+ 464           LOAD_CONST               4 (<code object params at 0x00000204BA08AD30, file "email\headerregistry.py", line 463>)
+               MAKE_FUNCTION
+
+ 463           CALL                     0
+
+ 464           STORE_NAME               9 (params)
+               LOAD_CONST               5 (('_params',))
+               STORE_NAME              10 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              11 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              12 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA594790, file "email\headerregistry.py", line 446>:
+ 446           RESUME                   0
+
+ 448           LOAD_FAST_BORROW         0 (cls)
+               LOAD_ATTR                1 (value_parser + NULL|self)
+               LOAD_FAST_BORROW         1 (value)
+               CALL                     1
+               COPY                     1
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               0 ('parse_tree')
+               STORE_SUBSCR
+               STORE_FAST               3 (parse_tree)
+
+ 449           LOAD_GLOBAL              3 (str + NULL)
+               LOAD_FAST_BORROW         3 (parse_tree)
+               CALL                     1
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               1 ('decoded')
+               STORE_SUBSCR
+
+ 450           LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               2 ('defects')
+               BINARY_OP               26 ([])
+               LOAD_ATTR                5 (extend + NULL|self)
+               LOAD_FAST_BORROW         3 (parse_tree)
+               LOAD_ATTR                6 (all_defects)
+               CALL                     1
+               POP_TOP
+
+ 451           LOAD_FAST_BORROW         3 (parse_tree)
+               LOAD_ATTR                8 (params)
+               POP_JUMP_IF_NOT_NONE     8 (to L1)
+               NOT_TAKEN
+
+ 452           BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               4 ('params')
+               STORE_SUBSCR
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+ 457   L1:     LOAD_FAST_BORROW         3 (parse_tree)
+               LOAD_ATTR                8 (params)
+               GET_ITER
+
+ 455           LOAD_FAST_AND_CLEAR      4 (name)
+               LOAD_FAST_AND_CLEAR      1 (value)
+               SWAP                     3
+       L2:     BUILD_MAP                0
+               SWAP                     2
+
+ 457   L3:     FOR_ITER                62 (to L4)
+               UNPACK_SEQUENCE          2
+               STORE_FAST_STORE_FAST   65 (name, value)
+
+ 455           LOAD_GLOBAL             10 (utils)
+               LOAD_ATTR               12 (_sanitize)
+               PUSH_NULL
+               LOAD_FAST_BORROW         4 (name)
+               CALL                     1
+               LOAD_ATTR               15 (lower + NULL|self)
+               CALL                     0
+
+ 456           LOAD_GLOBAL             10 (utils)
+               LOAD_ATTR               12 (_sanitize)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (value)
+               CALL                     1
+
+ 455           MAP_ADD                  2
+               JUMP_BACKWARD           64 (to L3)
+
+ 457   L4:     END_FOR
+               POP_ITER
+
+ 455   L5:     SWAP                     3
+               STORE_FAST               1 (value)
+               STORE_FAST               4 (name)
+               LOAD_FAST_BORROW         2 (kwds)
+               LOAD_CONST               4 ('params')
+               STORE_SUBSCR
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  --   L6:     SWAP                     2
+               POP_TOP
+
+ 455           SWAP                     3
+               STORE_FAST               1 (value)
+               STORE_FAST               4 (name)
+               RERAISE                  0
+ExceptionTable:
+  L2 to L5 -> L6 [3]
+
+Disassembly of <code object init at 0x00000204BA100290, file "email\headerregistry.py", line 459>:
+  --           COPY_FREE_VARS           1
+
+ 459           RESUME                   0
+
+ 460           LOAD_FAST_BORROW         2 (kw)
+               LOAD_ATTR                1 (pop + NULL|self)
+               LOAD_CONST               0 ('params')
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               1 (_params)
+
+ 461           LOAD_GLOBAL              4 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR         12 (init)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object params at 0x00000204BA08AD30, file "email\headerregistry.py", line 463>:
+463           RESUME                   0
+
+465           LOAD_GLOBAL              1 (MappingProxyType + NULL)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (_params)
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object ContentTypeHeader at 0x00000204B9F72AD0, file "email\headerregistry.py", line 468>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 468           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ContentTypeHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (468)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 470           LOAD_NAME                4 (staticmethod)
+               PUSH_NULL
+               LOAD_NAME                5 (parser)
+               LOAD_ATTR               12 (parse_content_type_header)
+               CALL                     1
+               STORE_NAME               7 (value_parser)
+
+ 472           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object init at 0x00000204B9F9F9F0, file "email\headerregistry.py", line 472>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               8 (init)
+
+ 477           LOAD_NAME                9 (property)
+
+ 478           LOAD_CONST               3 (<code object maintype at 0x00000204BA0931E0, file "email\headerregistry.py", line 477>)
+               MAKE_FUNCTION
+
+ 477           CALL                     0
+
+ 478           STORE_NAME              10 (maintype)
+
+ 481           LOAD_NAME                9 (property)
+
+ 482           LOAD_CONST               4 (<code object subtype at 0x00000204BA093870, file "email\headerregistry.py", line 481>)
+               MAKE_FUNCTION
+
+ 481           CALL                     0
+
+ 482           STORE_NAME              11 (subtype)
+
+ 485           LOAD_NAME                9 (property)
+
+ 486           LOAD_CONST               5 (<code object content_type at 0x00000204BA0A7990, file "email\headerregistry.py", line 485>)
+               MAKE_FUNCTION
+
+ 485           CALL                     0
+
+ 486           STORE_NAME              12 (content_type)
+               LOAD_CONST               6 (('_maintype', '_subtype'))
+               STORE_NAME              13 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              14 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              15 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object init at 0x00000204B9F9F9F0, file "email\headerregistry.py", line 472>:
+  --           COPY_FREE_VARS           1
+
+ 472           RESUME                   0
+
+ 473           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (init)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+
+ 474           LOAD_GLOBAL              4 (utils)
+               LOAD_ATTR                6 (_sanitize)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_parse_tree)
+               LOAD_ATTR               10 (maintype)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               6 (_maintype)
+
+ 475           LOAD_GLOBAL              4 (utils)
+               LOAD_ATTR                6 (_sanitize)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_parse_tree)
+               LOAD_ATTR               14 (subtype)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               8 (_subtype)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object maintype at 0x00000204BA0931E0, file "email\headerregistry.py", line 477>:
+477           RESUME                   0
+
+479           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_maintype)
+              RETURN_VALUE
+
+Disassembly of <code object subtype at 0x00000204BA093870, file "email\headerregistry.py", line 481>:
+481           RESUME                   0
+
+483           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_subtype)
+              RETURN_VALUE
+
+Disassembly of <code object content_type at 0x00000204BA0A7990, file "email\headerregistry.py", line 485>:
+485           RESUME                   0
+
+487           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (maintype)
+              LOAD_CONST               0 ('/')
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (subtype)
+              BINARY_OP                0 (+)
+              RETURN_VALUE
+
+Disassembly of <code object ContentDispositionHeader at 0x00000204BA0AA1F0, file "email\headerregistry.py", line 490>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 490           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ContentDispositionHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (490)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 492           LOAD_NAME                4 (staticmethod)
+               PUSH_NULL
+               LOAD_NAME                5 (parser)
+               LOAD_ATTR               12 (parse_content_disposition_header)
+               CALL                     1
+               STORE_NAME               7 (value_parser)
+
+ 494           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               2 (<code object init at 0x00000204B9FB6A30, file "email\headerregistry.py", line 494>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME               8 (init)
+
+ 499           LOAD_NAME                9 (property)
+
+ 500           LOAD_CONST               3 (<code object content_disposition at 0x00000204BA093690, file "email\headerregistry.py", line 499>)
+               MAKE_FUNCTION
+
+ 499           CALL                     0
+
+ 500           STORE_NAME              10 (content_disposition)
+               LOAD_CONST               4 (('_content_disposition',))
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              13 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object init at 0x00000204B9FB6A30, file "email\headerregistry.py", line 494>:
+  --           COPY_FREE_VARS           1
+
+ 494           RESUME                   0
+
+ 495           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               4 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (init)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+
+ 496           LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                4 (_parse_tree)
+               LOAD_ATTR                6 (content_disposition)
+               STORE_FAST               3 (cd)
+
+ 497           LOAD_FAST_BORROW         3 (cd)
+               POP_JUMP_IF_NOT_NONE     9 (to L1)
+               NOT_TAKEN
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (cd, self)
+               STORE_ATTR               6 (_content_disposition)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+       L1:     LOAD_GLOBAL              8 (utils)
+               LOAD_ATTR               10 (_sanitize)
+               PUSH_NULL
+               LOAD_FAST_BORROW         3 (cd)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               6 (_content_disposition)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object content_disposition at 0x00000204BA093690, file "email\headerregistry.py", line 499>:
+499           RESUME                   0
+
+501           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_content_disposition)
+              RETURN_VALUE
+
+Disassembly of <code object ContentTransferEncodingHeader at 0x00000204BA0BBC90, file "email\headerregistry.py", line 504>:
+  --           MAKE_CELL                0 (__class__)
+               MAKE_CELL                1 (__classdict__)
+
+ 504           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('ContentTransferEncodingHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (504)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              1 (__classdict__)
+
+ 506           LOAD_SMALL_INT           1
+               STORE_NAME               4 (max_count)
+
+ 508           LOAD_NAME                5 (staticmethod)
+               PUSH_NULL
+               LOAD_NAME                6 (parser)
+               LOAD_ATTR               14 (parse_content_transfer_encoding_header)
+               CALL                     1
+               STORE_NAME               8 (value_parser)
+
+ 510           LOAD_NAME                9 (classmethod)
+
+ 511           LOAD_CONST               2 (<code object parse at 0x00000204BA6BC1A0, file "email\headerregistry.py", line 510>)
+               MAKE_FUNCTION
+
+ 510           CALL                     0
+
+ 511           STORE_NAME              10 (parse)
+
+ 516           LOAD_FAST_BORROW         0 (__class__)
+               BUILD_TUPLE              1
+               LOAD_CONST               3 (<code object init at 0x00000204B9F73890, file "email\headerregistry.py", line 516>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               STORE_NAME              11 (init)
+
+ 520           LOAD_NAME               12 (property)
+
+ 521           LOAD_CONST               4 (<code object cte at 0x00000204BA093A50, file "email\headerregistry.py", line 520>)
+               MAKE_FUNCTION
+
+ 520           CALL                     0
+
+ 521           STORE_NAME              13 (cte)
+               LOAD_CONST               5 (('_cte',))
+               STORE_NAME              14 (__static_attributes__)
+               LOAD_FAST_BORROW         1 (__classdict__)
+               STORE_NAME              15 (__classdictcell__)
+               LOAD_FAST_BORROW         0 (__class__)
+               COPY                     1
+               STORE_NAME              16 (__classcell__)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA6BC1A0, file "email\headerregistry.py", line 510>:
+510           RESUME                   0
+
+512           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                1 (value_parser + NULL|self)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              COPY                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               0 ('parse_tree')
+              STORE_SUBSCR
+              STORE_FAST               3 (parse_tree)
+
+513           LOAD_GLOBAL              3 (str + NULL)
+              LOAD_FAST_BORROW         3 (parse_tree)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               1 ('decoded')
+              STORE_SUBSCR
+
+514           LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               2 ('defects')
+              BINARY_OP               26 ([])
+              LOAD_ATTR                5 (extend + NULL|self)
+              LOAD_FAST_BORROW         3 (parse_tree)
+              LOAD_ATTR                6 (all_defects)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object init at 0x00000204B9F73890, file "email\headerregistry.py", line 516>:
+  --           COPY_FREE_VARS           1
+
+ 516           RESUME                   0
+
+ 517           LOAD_GLOBAL              0 (super)
+               LOAD_DEREF               3 (__class__)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_SUPER_ATTR          4 (init)
+               PUSH_NULL
+               LOAD_FAST_BORROW         1 (args)
+               BUILD_MAP                0
+               LOAD_FAST_BORROW         2 (kw)
+               DICT_MERGE               1
+               CALL_FUNCTION_EX
+               POP_TOP
+
+ 518           LOAD_GLOBAL              4 (utils)
+               LOAD_ATTR                6 (_sanitize)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                8 (_parse_tree)
+               LOAD_ATTR               10 (cte)
+               CALL                     1
+               LOAD_FAST_BORROW         0 (self)
+               STORE_ATTR               6 (_cte)
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object cte at 0x00000204BA093A50, file "email\headerregistry.py", line 520>:
+520           RESUME                   0
+
+522           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (_cte)
+              RETURN_VALUE
+
+Disassembly of <code object MessageIDHeader at 0x00000204BA103210, file "email\headerregistry.py", line 525>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 525           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('MessageIDHeader')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (525)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 527           LOAD_SMALL_INT           1
+               STORE_NAME               4 (max_count)
+
+ 528           LOAD_NAME                5 (staticmethod)
+               PUSH_NULL
+               LOAD_NAME                6 (parser)
+               LOAD_ATTR               14 (parse_message_id)
+               CALL                     1
+               STORE_NAME               8 (value_parser)
+
+ 530           LOAD_NAME                9 (classmethod)
+
+ 531           LOAD_CONST               2 (<code object parse at 0x00000204BA6BC310, file "email\headerregistry.py", line 530>)
+               MAKE_FUNCTION
+
+ 530           CALL                     0
+
+ 531           STORE_NAME              10 (parse)
+               LOAD_CONST               3 (())
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               4 (None)
+               RETURN_VALUE
+
+Disassembly of <code object parse at 0x00000204BA6BC310, file "email\headerregistry.py", line 530>:
+530           RESUME                   0
+
+532           LOAD_FAST_BORROW         0 (cls)
+              LOAD_ATTR                1 (value_parser + NULL|self)
+              LOAD_FAST_BORROW         1 (value)
+              CALL                     1
+              COPY                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               0 ('parse_tree')
+              STORE_SUBSCR
+              STORE_FAST               3 (parse_tree)
+
+533           LOAD_GLOBAL              3 (str + NULL)
+              LOAD_FAST_BORROW         3 (parse_tree)
+              CALL                     1
+              LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               1 ('decoded')
+              STORE_SUBSCR
+
+534           LOAD_FAST_BORROW         2 (kwds)
+              LOAD_CONST               2 ('defects')
+              BINARY_OP               26 ([])
+              LOAD_ATTR                5 (extend + NULL|self)
+              LOAD_FAST_BORROW         3 (parse_tree)
+              LOAD_ATTR                6 (all_defects)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+Disassembly of <code object HeaderRegistry at 0x00000204BA0A7CF0, file "email\headerregistry.py", line 562>:
+  --           MAKE_CELL                0 (__classdict__)
+
+ 562           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('HeaderRegistry')
+               STORE_NAME               2 (__qualname__)
+               LOAD_CONST               1 (562)
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+ 564           LOAD_CONST               2 ('A header_factory and header registry.')
+               STORE_NAME               4 (__doc__)
+
+ 566           LOAD_NAME                5 (BaseHeader)
+               LOAD_NAME                6 (UnstructuredHeader)
+
+ 567           LOAD_CONST               3 (True)
+
+ 566           BUILD_TUPLE              3
+               LOAD_CONST               4 (<code object __init__ at 0x00000204BA0B8960, file "email\headerregistry.py", line 566>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               7 (__init__)
+
+ 584           LOAD_CONST               5 (<code object map_to_type at 0x00000204BA0FFCC0, file "email\headerregistry.py", line 584>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (map_to_type)
+
+ 590           LOAD_CONST               6 (<code object __getitem__ at 0x00000204BA129480, file "email\headerregistry.py", line 590>)
+               MAKE_FUNCTION
+               STORE_NAME               9 (__getitem__)
+
+ 594           LOAD_CONST               7 (<code object __call__ at 0x00000204BA090D50, file "email\headerregistry.py", line 594>)
+               MAKE_FUNCTION
+               STORE_NAME              10 (__call__)
+               LOAD_CONST               8 (('base_class', 'default_class', 'registry'))
+               STORE_NAME              11 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              12 (__classdictcell__)
+               LOAD_CONST               9 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0B8960, file "email\headerregistry.py", line 566>:
+566           RESUME                   0
+
+578           BUILD_MAP                0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (registry)
+
+579           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (base_class, self)
+              STORE_ATTR               1 (base_class)
+
+580           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (default_class, self)
+              STORE_ATTR               2 (default_class)
+
+581           LOAD_FAST_BORROW         3 (use_default_map)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       34 (to L1)
+              NOT_TAKEN
+
+582           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (registry)
+              LOAD_ATTR                7 (update + NULL|self)
+              LOAD_GLOBAL              8 (_default_header_map)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+581   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object map_to_type at 0x00000204BA0FFCC0, file "email\headerregistry.py", line 584>:
+584           RESUME                   0
+
+588           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (cls, self)
+              LOAD_ATTR                0 (registry)
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_ATTR                3 (lower + NULL|self)
+              CALL                     0
+              STORE_SUBSCR
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __getitem__ at 0x00000204BA129480, file "email\headerregistry.py", line 590>:
+590           RESUME                   0
+
+591           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (registry)
+              LOAD_ATTR                3 (get + NULL|self)
+              LOAD_FAST_BORROW         1 (name)
+              LOAD_ATTR                5 (lower + NULL|self)
+              CALL                     0
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                6 (default_class)
+              CALL                     2
+              STORE_FAST               2 (cls)
+
+592           LOAD_GLOBAL              9 (type + NULL)
+              LOAD_CONST               0 ('_')
+              LOAD_FAST_BORROW         2 (cls)
+              LOAD_ATTR               10 (__name__)
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (cls, self)
+              LOAD_ATTR               12 (base_class)
+              BUILD_TUPLE              2
+              BUILD_MAP                0
+              CALL                     3
+              RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x00000204BA090D50, file "email\headerregistry.py", line 594>:
+594           RESUME                   0
+
+604           LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, name)
+              BINARY_OP               26 ([])
+              PUSH_NULL
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (name, value)
+              CALL                     2
+              RETURN_VALUE

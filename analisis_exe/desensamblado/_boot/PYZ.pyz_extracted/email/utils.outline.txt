@@ -1,0 +1,70 @@
+<module>()  line 1
+    _has_surrogates(s)  line 47
+    _sanitize(string)  line 60
+    formataddr(pair, charset)  line 72
+    _iter_escaped_chars(addr)  line 107
+    _strip_quoted_realnames(addr)  line 122
+    getaddresses(fieldvalues, strict)  line 149
+        getaddresses.<locals>.<genexpr>(.0)  line 168
+    _check_parenthesis(addr)  line 193
+    _pre_parse_validation(email_header_fields)  line 208
+    _post_parse_validation(parsed_email_header_tuples)  line 218
+    _format_timetuple_and_zone(timetuple, zone)  line 230
+    formatdate(timeval, localtime, usegmt)  line 239
+    format_datetime(dt, usegmt)  line 268
+    make_msgid(idstring, domain)  line 287
+    parsedate_to_datetime(data)  line 315
+    parseaddr(addr, strict)  line 326
+    unquote(str)  line 357
+    decode_rfc2231(s)  line 369
+    encode_rfc2231(s, charset, language)  line 377
+    decode_params(params)  line 395
+        decode_params.<locals>.<genexpr>(.0)  line 422
+        decode_params.<locals>.<lambda>(x)  line 427
+    collapse_rfc2231_value(value, errors, fallback_charset)  line 449
+    localtime(dt)  line 475
+
+--- strings ---
+'Miscellaneous utilities.'
+', '
+'\r\n'
+'[][\\\\()<>@,:;".]'
+'[\\\\"]'
+'Return True if s may contain surrogate-escaped binary data.'
+'utf-8'
+'surrogateescape'
+'replace'
+"The inverse of parseaddr(), this takes a 2-tuple of the form\n(realname, email_address) and returns the string value suitable\nfor an RFC 2822 From, To or Cc header.\n\nIf the first element of pair is false, then the second element is\nreturned unmodified.\n\nThe optional charset is the character set that is used to encode\nrealname in case realname is not ASCII safe.  Can be an instance of str or\na Charset-like object which has a header_encode method.  Default is\n'utf-8'.\n"
+'ascii'
+'\\\\\\g<0>'
+' <'
+'Strip real names between quotes.'
+'strict'
+"Return a list of (REALNAME, EMAIL) or ('','') for each fieldvalue.\n\nWhen parsing fails for a fieldvalue, a 2-tuple of ('', '') is returned in\nits place.\n\nIf strict is true, use a strict parser which rejects malformed inputs.\n"
+"('', '')"
+'%s, %02d %s %04d %02d:%02d:%02d %s'
+'Returns a date string as specified by RFC 2822, e.g.:\n\nFri, 09 Nov 2001 01:08:47 -0000\n\nOptional timeval if given is a floating-point time value as accepted by\ngmtime() and localtime(), otherwise the current time is used.\n\nOptional localtime is a flag that when True, interprets timeval, and\nreturns a date relative to the local timezone instead of UTC, properly\ntaking daylight savings time into account.\n\nOptional argument usegmt means that the timezone is written out as\nan ascii string, not numeric one (so "GMT" instead of "+0000"). This\nis needed for HTTP, and is only used when localtime==False.\n'
+"Turn a datetime into a date string as specified in RFC 2822.\n\nIf usegmt is True, dt must be an aware datetime with an offset of zero.  In\nthis case 'GMT' will be rendered instead of the normal +0000 required by\nRFC2822.  This is to support HTTP headers involving date stamps.\n"
+'usegmt option requires a UTC datetime'
+'GMT'
+'-0000'
+'%z'
+"Returns a string suitable for RFC 2822 compliant Message-ID, e.g:\n\n<142480216486.20800.16526388040877946887@nightshade.la.mastaler.com>\n\nOptional idstring if given is a string used to strengthen the\nuniqueness of the message id.  Optional domain if given provides the\nportion of the message id after the '@'.  It defaults to the locally\ndefined hostname.\n"
+'<%d.%d.%d%s@%s>'
+'Invalid date value or format "%s"'
+'tzinfo'
+"\nParse addr into its constituent realname and email address parts.\n\nReturn a tuple of realname and email address, unless the parse fails, in\nwhich case return a 2-tuple of ('', '').\n\nIf strict is True, use a strict parser which rejects malformed inputs.\n"
+'Remove quotes from a string.'
+'\\\\'
+'\\"'
+'Decode string according to RFC 2231'
+'Encode string according to RFC 2231.\n\nIf neither charset nor language is given, then s is returned as-is.  If\ncharset is given but not language, the string is encoded using the empty\nstring for language.\n'
+'ascii'
+'^(?P<name>\\w+)\\*((?P<num>[0-9]+)\\*?)?$'
+'Decode parameters list according to RFC 2231.\n\nparams is a sequence of 2-tuples containing (param name, string value).\n'
+'name'
+'num'
+'"%s"'
+'latin-1'
+'raw-unicode-escape'
+'Return local time as an aware datetime object.\n\nIf called without arguments, return current time.  Otherwise *dt*\nargument should be a datetime instance, and it is converted to the\nlocal time zone according to the system time zone database.  If *dt* is\nnaive (that is, dt.tzinfo is None), it is assumed to be in local time.\n\n'

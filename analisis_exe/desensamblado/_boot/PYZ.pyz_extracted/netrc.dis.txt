@@ -1,0 +1,1173 @@
+  0           RESUME                   0
+
+  1           LOAD_CONST               0 ('An object-oriented interface to .netrc files.')
+              STORE_NAME               0 (__doc__)
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              1 (os)
+              STORE_NAME               1 (os)
+              LOAD_SMALL_INT           0
+              LOAD_CONST               1 (None)
+              IMPORT_NAME              2 (stat)
+              STORE_NAME               2 (stat)
+
+  7           LOAD_CONST               2 ('netrc')
+              LOAD_CONST               3 ('NetrcParseError')
+              BUILD_LIST               2
+              STORE_NAME               3 (__all__)
+
+ 10           LOAD_CONST               4 (<code object _can_security_check at 0x00000204B9FEF0E0, file "netrc.py", line 10>)
+              MAKE_FUNCTION
+              STORE_NAME               4 (_can_security_check)
+
+ 15           LOAD_CONST               5 (<code object _getpwuid at 0x00000204BA0BAF70, file "netrc.py", line 15>)
+              MAKE_FUNCTION
+              STORE_NAME               5 (_getpwuid)
+
+ 23           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               6 (<code object NetrcParseError at 0x00000204BA0FF550, file "netrc.py", line 23>)
+              MAKE_FUNCTION
+              LOAD_CONST               3 ('NetrcParseError')
+              LOAD_NAME                6 (Exception)
+              CALL                     3
+              STORE_NAME               7 (NetrcParseError)
+
+ 35           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               7 (<code object _netrclex at 0x00000204BA0FFDD0, file "netrc.py", line 35>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 ('_netrclex')
+              CALL                     2
+              STORE_NAME               8 (_netrclex)
+
+ 79           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST               9 (<code object netrc at 0x00000204BA0A45D0, file "netrc.py", line 79>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 ('netrc')
+              CALL                     2
+              STORE_NAME               9 (netrc)
+
+198           LOAD_NAME               10 (__name__)
+              LOAD_CONST              10 ('__main__')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       16 (to L1)
+              NOT_TAKEN
+
+199           LOAD_NAME               11 (print)
+              PUSH_NULL
+              LOAD_NAME                9 (netrc)
+              PUSH_NULL
+              CALL                     0
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+198   L1:     LOAD_CONST               1 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _can_security_check at 0x00000204B9FEF0E0, file "netrc.py", line 10>:
+ 10           RESUME                   0
+
+ 12           LOAD_GLOBAL              0 (os)
+              LOAD_ATTR                2 (name)
+              LOAD_CONST               0 ('posix')
+              COMPARE_OP              72 (==)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       17 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_GLOBAL              5 (hasattr + NULL)
+              LOAD_GLOBAL              0 (os)
+              LOAD_CONST               1 ('getuid')
+              CALL                     2
+      L1:     RETURN_VALUE
+
+Disassembly of <code object _getpwuid at 0x00000204BA0BAF70, file "netrc.py", line 15>:
+  15           RESUME                   0
+
+  16           NOP
+
+  17   L1:     LOAD_SMALL_INT           0
+               LOAD_CONST               1 (None)
+               IMPORT_NAME              0 (pwd)
+               STORE_FAST               1 (pwd)
+
+  18           LOAD_FAST_BORROW         1 (pwd)
+               LOAD_ATTR                3 (getpwuid + NULL|self)
+               LOAD_FAST_BORROW         0 (uid)
+               CALL                     1
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+       L2:     RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+  19           LOAD_GLOBAL              4 (ImportError)
+               LOAD_GLOBAL              6 (LookupError)
+               BUILD_TUPLE              2
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        9 (to L5)
+               NOT_TAKEN
+               POP_TOP
+
+  20           LOAD_CONST               2 ('uid ')
+               LOAD_FAST                0 (uid)
+               FORMAT_SIMPLE
+               BUILD_STRING             2
+               SWAP                     2
+       L4:     POP_EXCEPT
+               RETURN_VALUE
+
+  19   L5:     RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L6 [1] lasti
+  L5 to L6 -> L6 [1] lasti
+
+Disassembly of <code object NetrcParseError at 0x00000204BA0FF550, file "netrc.py", line 23>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  23           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('NetrcParseError')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          23
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  24           LOAD_CONST               1 ('Exception raised on syntax errors in the .netrc file.')
+               STORE_NAME               4 (__doc__)
+
+  25           LOAD_CONST               6 ((None, None))
+               LOAD_CONST               3 (<code object __init__ at 0x00000204BA102500, file "netrc.py", line 25>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               5 (__init__)
+
+  31           LOAD_CONST               4 (<code object __str__ at 0x00000204BA1022A0, file "netrc.py", line 31>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (__str__)
+               LOAD_CONST               5 (('filename', 'lineno', 'msg'))
+               STORE_NAME               7 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               8 (__classdictcell__)
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA102500, file "netrc.py", line 25>:
+ 25           RESUME                   0
+
+ 26           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (filename, self)
+              STORE_ATTR               0 (filename)
+
+ 27           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (lineno, self)
+              STORE_ATTR               1 (lineno)
+
+ 28           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (msg, self)
+              STORE_ATTR               2 (msg)
+
+ 29           LOAD_GLOBAL              6 (Exception)
+              LOAD_ATTR                9 (__init__ + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 1 (self, msg)
+              CALL                     2
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __str__ at 0x00000204BA1022A0, file "netrc.py", line 31>:
+ 31           RESUME                   0
+
+ 32           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (msg)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               0 (' (')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                2 (filename)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 (', line ')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (lineno)
+              CONVERT_VALUE            1 (str)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (')')
+              BUILD_STRING             6
+              RETURN_VALUE
+
+Disassembly of <code object _netrclex at 0x00000204BA0FFDD0, file "netrc.py", line 35>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  35           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('_netrclex')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          35
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  36           LOAD_CONST               1 (<code object __init__ at 0x00000204BA0FC7A0, file "netrc.py", line 36>)
+               MAKE_FUNCTION
+               STORE_NAME               4 (__init__)
+
+  42           LOAD_CONST               2 (<code object _read_char at 0x00000204BA0BB4B0, file "netrc.py", line 42>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_read_char)
+
+  48           LOAD_CONST               3 (<code object get_token at 0x00000204BA382080, file "netrc.py", line 48>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (get_token)
+
+  75           LOAD_CONST               4 (<code object push_token at 0x00000204BA0FC250, file "netrc.py", line 75>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (push_token)
+               LOAD_CONST               5 (('instream', 'lineno', 'pushback', 'whitespace'))
+               STORE_NAME               8 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME               9 (__classdictcell__)
+               LOAD_CONST               6 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA0FC7A0, file "netrc.py", line 36>:
+ 36           RESUME                   0
+
+ 37           LOAD_SMALL_INT           1
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               0 (lineno)
+
+ 38           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (fp, self)
+              STORE_ATTR               1 (instream)
+
+ 39           LOAD_CONST               1 ('\n\t\r ')
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               2 (whitespace)
+
+ 40           BUILD_LIST               0
+              LOAD_FAST_BORROW         0 (self)
+              STORE_ATTR               3 (pushback)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object _read_char at 0x00000204BA0BB4B0, file "netrc.py", line 42>:
+ 42           RESUME                   0
+
+ 43           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (instream)
+              LOAD_ATTR                3 (read + NULL|self)
+              LOAD_SMALL_INT           1
+              CALL                     1
+              STORE_FAST               1 (ch)
+
+ 44           LOAD_FAST_BORROW         1 (ch)
+              LOAD_CONST               1 ('\n')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       26 (to L1)
+              NOT_TAKEN
+
+ 45           LOAD_FAST_BORROW         0 (self)
+              COPY                     1
+              LOAD_ATTR                4 (lineno)
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               2 (lineno)
+
+ 46   L1:     LOAD_FAST_BORROW         1 (ch)
+              RETURN_VALUE
+
+Disassembly of <code object get_token at 0x00000204BA382080, file "netrc.py", line 48>:
+ 48            RESUME                   0
+
+ 49            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (pushback)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       28 (to L1)
+               NOT_TAKEN
+
+ 50            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                0 (pushback)
+               LOAD_ATTR                3 (pop + NULL|self)
+               LOAD_SMALL_INT           0
+               CALL                     1
+               RETURN_VALUE
+
+ 51    L1:     LOAD_CONST               1 ('')
+               STORE_FAST               1 (token)
+
+ 52            LOAD_GLOBAL              5 (iter + NULL)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                6 (_read_char)
+               LOAD_CONST               1 ('')
+               CALL                     2
+               STORE_FAST               2 (fiter)
+
+ 53            LOAD_FAST_BORROW         2 (fiter)
+               GET_ITER
+       L2:     FOR_ITER               176 (to L14)
+               STORE_FAST               3 (ch)
+
+ 54            LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (ch, self)
+               LOAD_ATTR                8 (whitespace)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE        3 (to L3)
+               NOT_TAKEN
+
+ 55            JUMP_BACKWARD           21 (to L2)
+
+ 56    L3:     LOAD_FAST_BORROW         3 (ch)
+               LOAD_CONST               2 ('"')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       56 (to L8)
+               NOT_TAKEN
+
+ 57            LOAD_FAST_BORROW         2 (fiter)
+               GET_ITER
+       L4:     FOR_ITER                47 (to L7)
+               STORE_FAST               3 (ch)
+
+ 58            LOAD_FAST_BORROW         3 (ch)
+               LOAD_CONST               2 ('"')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        7 (to L5)
+               NOT_TAKEN
+
+ 59            LOAD_FAST_BORROW         1 (token)
+               SWAP                     2
+               POP_TOP
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 60    L5:     LOAD_FAST_BORROW         3 (ch)
+               LOAD_CONST               3 ('\\')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       17 (to L6)
+               NOT_TAKEN
+
+ 61            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                7 (_read_char + NULL|self)
+               CALL                     0
+               STORE_FAST               3 (ch)
+
+ 62    L6:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (token, ch)
+               BINARY_OP               13 (+=)
+               STORE_FAST               1 (token)
+               JUMP_BACKWARD           49 (to L4)
+
+ 57    L7:     END_FOR
+               POP_ITER
+               JUMP_BACKWARD           83 (to L2)
+
+ 64    L8:     LOAD_FAST_BORROW         3 (ch)
+               LOAD_CONST               3 ('\\')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       17 (to L9)
+               NOT_TAKEN
+
+ 65            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                7 (_read_char + NULL|self)
+               CALL                     0
+               STORE_FAST               3 (ch)
+
+ 66    L9:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (token, ch)
+               BINARY_OP               13 (+=)
+               STORE_FAST               1 (token)
+
+ 67            LOAD_FAST_BORROW         2 (fiter)
+               GET_ITER
+      L10:     FOR_ITER                56 (to L13)
+               STORE_FAST               3 (ch)
+
+ 68            LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (ch, self)
+               LOAD_ATTR                8 (whitespace)
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE        7 (to L11)
+               NOT_TAKEN
+
+ 69            LOAD_FAST_BORROW         1 (token)
+               SWAP                     2
+               POP_TOP
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 70   L11:     LOAD_FAST_BORROW         3 (ch)
+               LOAD_CONST               3 ('\\')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       17 (to L12)
+               NOT_TAKEN
+
+ 71            LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR                7 (_read_char + NULL|self)
+               CALL                     0
+               STORE_FAST               3 (ch)
+
+ 72   L12:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (token, ch)
+               BINARY_OP               13 (+=)
+               STORE_FAST               1 (token)
+               JUMP_BACKWARD           58 (to L10)
+
+ 67   L13:     END_FOR
+               POP_ITER
+               JUMP_BACKWARD          178 (to L2)
+
+ 53   L14:     END_FOR
+               POP_ITER
+
+ 73            LOAD_FAST_BORROW         1 (token)
+               RETURN_VALUE
+
+Disassembly of <code object push_token at 0x00000204BA0FC250, file "netrc.py", line 75>:
+ 75           RESUME                   0
+
+ 76           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (pushback)
+              LOAD_ATTR                3 (append + NULL|self)
+              LOAD_FAST_BORROW         1 (token)
+              CALL                     1
+              POP_TOP
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object netrc at 0x00000204BA0A45D0, file "netrc.py", line 79>:
+  --           MAKE_CELL                0 (__classdict__)
+
+  79           RESUME                   0
+               LOAD_NAME                0 (__name__)
+               STORE_NAME               1 (__module__)
+               LOAD_CONST               0 ('netrc')
+               STORE_NAME               2 (__qualname__)
+               LOAD_SMALL_INT          79
+               STORE_NAME               3 (__firstlineno__)
+               LOAD_LOCALS
+               STORE_DEREF              0 (__classdict__)
+
+  80           LOAD_CONST               8 ((None,))
+               LOAD_CONST               2 (<code object __init__ at 0x00000204BA35C2E0, file "netrc.py", line 80>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+               STORE_NAME               4 (__init__)
+
+  93           LOAD_CONST               3 (<code object _parse at 0x00000204BA381490, file "netrc.py", line 93>)
+               MAKE_FUNCTION
+               STORE_NAME               5 (_parse)
+
+ 157           LOAD_CONST               4 (<code object _security_check at 0x00000204BA447800, file "netrc.py", line 157>)
+               MAKE_FUNCTION
+               STORE_NAME               6 (_security_check)
+
+ 173           LOAD_CONST               5 (<code object authenticators at 0x00000204B9FF3E00, file "netrc.py", line 173>)
+               MAKE_FUNCTION
+               STORE_NAME               7 (authenticators)
+
+ 182           LOAD_CONST               6 (<code object __repr__ at 0x00000204BA381AC0, file "netrc.py", line 182>)
+               MAKE_FUNCTION
+               STORE_NAME               8 (__repr__)
+               LOAD_CONST               7 (('hosts', 'macros'))
+               STORE_NAME               9 (__static_attributes__)
+               LOAD_FAST_BORROW         0 (__classdict__)
+               STORE_NAME              10 (__classdictcell__)
+               LOAD_CONST               1 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x00000204BA35C2E0, file "netrc.py", line 80>:
+  80            RESUME                   0
+
+  81            LOAD_FAST_BORROW         1 (file)
+                LOAD_CONST               0 (None)
+                IS_OP                    0 (is)
+                STORE_FAST               2 (default_netrc)
+
+  82            LOAD_FAST_BORROW         1 (file)
+                POP_JUMP_IF_NOT_NONE    62 (to L1)
+                NOT_TAKEN
+
+  83            LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR                5 (join + NULL|self)
+                LOAD_GLOBAL              0 (os)
+                LOAD_ATTR                2 (path)
+                LOAD_ATTR                7 (expanduser + NULL|self)
+                LOAD_CONST               1 ('~')
+                CALL                     1
+                LOAD_CONST               2 ('.netrc')
+                CALL                     2
+                STORE_FAST               1 (file)
+
+  84    L1:     BUILD_MAP                0
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               4 (hosts)
+
+  85            BUILD_MAP                0
+                LOAD_FAST_BORROW         0 (self)
+                STORE_ATTR               5 (macros)
+
+  86            NOP
+
+  87    L2:     LOAD_GLOBAL             13 (open + NULL)
+                LOAD_FAST_BORROW         1 (file)
+                LOAD_CONST               3 ('utf-8')
+                LOAD_CONST               4 (('encoding',))
+                CALL_KW                  2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+        L3:     STORE_FAST               3 (fp)
+
+  88            LOAD_FAST_BORROW         0 (self)
+                LOAD_ATTR               15 (_parse + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (file, fp)
+                LOAD_FAST_BORROW         2 (default_netrc)
+                CALL                     3
+                POP_TOP
+
+  87    L4:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+        L5:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+        L6:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L7)
+                NOT_TAKEN
+                RERAISE                  2
+        L7:     POP_TOP
+        L8:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+        L9:     LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --   L10:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L11:     PUSH_EXC_INFO
+
+  89            LOAD_GLOBAL             16 (UnicodeDecodeError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       74 (to L20)
+                NOT_TAKEN
+                POP_TOP
+
+  90            LOAD_GLOBAL             13 (open + NULL)
+                LOAD_FAST                1 (file)
+                LOAD_CONST               5 ('locale')
+                LOAD_CONST               4 (('encoding',))
+                CALL_KW                  2
+                COPY                     1
+                LOAD_SPECIAL             1 (__exit__)
+                SWAP                     2
+                SWAP                     3
+                LOAD_SPECIAL             0 (__enter__)
+                CALL                     0
+       L12:     STORE_FAST               3 (fp)
+
+  91            LOAD_FAST                0 (self)
+                LOAD_ATTR               15 (_parse + NULL|self)
+                LOAD_FAST_LOAD_FAST     19 (file, fp)
+                LOAD_FAST                2 (default_netrc)
+                CALL                     3
+                POP_TOP
+
+  90   L13:     LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                LOAD_CONST               0 (None)
+                CALL                     3
+                POP_TOP
+       L14:     POP_EXCEPT
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+       L15:     PUSH_EXC_INFO
+                WITH_EXCEPT_START
+                TO_BOOL
+                POP_JUMP_IF_TRUE         2 (to L16)
+                NOT_TAKEN
+                RERAISE                  2
+       L16:     POP_TOP
+       L17:     POP_EXCEPT
+                POP_TOP
+                POP_TOP
+                POP_TOP
+       L18:     POP_EXCEPT
+                LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --   L19:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+  89   L20:     RERAISE                  0
+
+  --   L21:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L2 to L3 -> L11 [0]
+  L3 to L4 -> L6 [2] lasti
+  L4 to L5 -> L11 [0]
+  L6 to L8 -> L10 [4] lasti
+  L8 to L9 -> L11 [0]
+  L10 to L11 -> L11 [0]
+  L11 to L12 -> L21 [1] lasti
+  L12 to L13 -> L15 [3] lasti
+  L13 to L14 -> L21 [1] lasti
+  L15 to L17 -> L19 [5] lasti
+  L17 to L18 -> L21 [1] lasti
+  L19 to L21 -> L21 [1] lasti
+
+Disassembly of <code object _parse at 0x00000204BA381490, file "netrc.py", line 93>:
+ 93            RESUME                   0
+
+ 94            LOAD_GLOBAL              1 (_netrclex + NULL)
+               LOAD_FAST_BORROW         2 (fp)
+               CALL                     1
+               STORE_FAST               4 (lexer)
+
+ 95    L1:     NOP
+
+ 97            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                2 (lineno)
+               STORE_FAST               5 (saved_lineno)
+
+ 98            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                5 (get_token + NULL|self)
+               CALL                     0
+               COPY                     1
+               STORE_FAST_STORE_FAST  103 (toplevel, tt)
+
+ 99            LOAD_FAST_BORROW         7 (tt)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+
+100            LOAD_CONST              15 (None)
+               RETURN_VALUE
+
+101    L2:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               LOAD_CONST               1 ('#')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       62 (to L4)
+               NOT_TAKEN
+
+102            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                2 (lineno)
+               LOAD_FAST_BORROW         5 (saved_lineno)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       43 (to L3)
+               NOT_TAKEN
+               LOAD_GLOBAL              7 (len + NULL)
+               LOAD_FAST_BORROW         7 (tt)
+               CALL                     1
+               LOAD_SMALL_INT           1
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       27 (to L3)
+               NOT_TAKEN
+
+103            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                8 (instream)
+               LOAD_ATTR               11 (readline + NULL|self)
+               CALL                     0
+               POP_TOP
+
+104    L3:     JUMP_BACKWARD          115 (to L1)
+
+105    L4:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST               2 ('machine')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       18 (to L5)
+               NOT_TAKEN
+
+106            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                5 (get_token + NULL|self)
+               CALL                     0
+               STORE_FAST               8 (entryname)
+               JUMP_FORWARD           181 (to L12)
+
+107    L5:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST               3 ('default')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        4 (to L6)
+               NOT_TAKEN
+
+108            LOAD_CONST               3 ('default')
+               STORE_FAST               8 (entryname)
+               JUMP_FORWARD           171 (to L12)
+
+109    L6:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST               4 ('macdef')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE      136 (to L11)
+               NOT_TAKEN
+
+110            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                5 (get_token + NULL|self)
+               CALL                     0
+               STORE_FAST               8 (entryname)
+
+111            BUILD_LIST               0
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (macros)
+               LOAD_FAST_BORROW         8 (entryname)
+               STORE_SUBSCR
+
+112    L7:     NOP
+
+113            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                8 (instream)
+               LOAD_ATTR               11 (readline + NULL|self)
+               CALL                     0
+               STORE_FAST               9 (line)
+
+114            LOAD_FAST_BORROW         9 (line)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        23 (to L8)
+               NOT_TAKEN
+
+115            LOAD_GLOBAL             15 (NetrcParseError + NULL)
+
+116            LOAD_CONST               5 ('Macro definition missing null line terminator.')
+
+117            LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (file, lexer)
+               LOAD_ATTR                2 (lineno)
+
+115            CALL                     3
+               RAISE_VARARGS            1
+
+118    L8:     LOAD_FAST_BORROW         9 (line)
+               LOAD_CONST               6 ('\n')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE        2 (to L9)
+               NOT_TAKEN
+
+122            JUMP_FORWARD            36 (to L10)
+
+123    L9:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               12 (macros)
+               LOAD_FAST_BORROW         8 (entryname)
+               BINARY_OP               26 ([])
+               LOAD_ATTR               17 (append + NULL|self)
+               LOAD_FAST_BORROW         9 (line)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD          101 (to L7)
+
+124   L10:     EXTENDED_ARG             1
+               JUMP_BACKWARD          291 (to L1)
+
+126   L11:     LOAD_GLOBAL             15 (NetrcParseError + NULL)
+
+127            LOAD_CONST               7 ('bad toplevel token %r')
+               LOAD_FAST_BORROW         7 (tt)
+               BINARY_OP                6 (%)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (file, lexer)
+               LOAD_ATTR                2 (lineno)
+
+126            CALL                     3
+               RAISE_VARARGS            1
+
+129   L12:     LOAD_FAST_BORROW         8 (entryname)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        30 (to L13)
+               NOT_TAKEN
+
+130            LOAD_GLOBAL             15 (NetrcParseError + NULL)
+               LOAD_CONST               8 ('missing %r name')
+               LOAD_FAST_BORROW         7 (tt)
+               BINARY_OP                6 (%)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (file, lexer)
+               LOAD_ATTR                2 (lineno)
+               CALL                     3
+               RAISE_VARARGS            1
+
+133   L13:     LOAD_CONST               9 ('')
+               COPY                     1
+               STORE_FAST              10 (login)
+               COPY                     1
+               STORE_FAST_STORE_FAST  188 (account, password)
+
+134            BUILD_MAP                0
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (hosts)
+               LOAD_FAST_BORROW         8 (entryname)
+               STORE_SUBSCR
+
+135   L14:     NOP
+
+136            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                2 (lineno)
+               STORE_FAST              13 (prev_lineno)
+
+137            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                5 (get_token + NULL|self)
+               CALL                     0
+               STORE_FAST               7 (tt)
+
+138            LOAD_FAST_BORROW         7 (tt)
+               LOAD_ATTR               21 (startswith + NULL|self)
+               LOAD_CONST               1 ('#')
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_FALSE       46 (to L16)
+               NOT_TAKEN
+
+139            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                2 (lineno)
+               LOAD_FAST_BORROW        13 (prev_lineno)
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       27 (to L15)
+               NOT_TAKEN
+
+140            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                8 (instream)
+               LOAD_ATTR               11 (readline + NULL|self)
+               CALL                     0
+               POP_TOP
+
+141   L15:     JUMP_BACKWARD           97 (to L14)
+
+142   L16:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST              16 (frozenset({'', 'macdef', 'machine', 'default'}))
+               CONTAINS_OP              0 (in)
+               POP_JUMP_IF_FALSE       36 (to L17)
+               NOT_TAKEN
+
+143            LOAD_FAST_BORROW_LOAD_FAST_BORROW 171 (login, account)
+               LOAD_FAST_BORROW        12 (password)
+               BUILD_TUPLE              3
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (hosts)
+               LOAD_FAST_BORROW         8 (entryname)
+               STORE_SUBSCR
+
+144            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR               23 (push_token + NULL|self)
+               LOAD_FAST_BORROW         7 (tt)
+               CALL                     1
+               POP_TOP
+
+145            JUMP_FORWARD           111 (to L22)
+
+146   L17:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST              10 ('login')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_TRUE         8 (to L18)
+               NOT_TAKEN
+               LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST              11 ('user')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       19 (to L19)
+               NOT_TAKEN
+
+147   L18:     LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                5 (get_token + NULL|self)
+               CALL                     0
+               STORE_FAST              10 (login)
+               JUMP_BACKWARD          171 (to L14)
+
+148   L19:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST              12 ('account')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       19 (to L20)
+               NOT_TAKEN
+
+149            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                5 (get_token + NULL|self)
+               CALL                     0
+               STORE_FAST              11 (account)
+               JUMP_BACKWARD          196 (to L14)
+
+150   L20:     LOAD_FAST_BORROW         7 (tt)
+               LOAD_CONST              13 ('password')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       19 (to L21)
+               NOT_TAKEN
+
+151            LOAD_FAST_BORROW         4 (lexer)
+               LOAD_ATTR                5 (get_token + NULL|self)
+               CALL                     0
+               STORE_FAST              12 (password)
+               JUMP_BACKWARD          221 (to L14)
+
+153   L21:     LOAD_GLOBAL             15 (NetrcParseError + NULL)
+               LOAD_CONST              14 ('bad follower token %r')
+               LOAD_FAST_BORROW         7 (tt)
+               BINARY_OP                6 (%)
+
+154            LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (file, lexer)
+               LOAD_ATTR                2 (lineno)
+
+153            CALL                     3
+               RAISE_VARARGS            1
+
+155   L22:     LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               25 (_security_check + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (fp, default_netrc)
+               LOAD_FAST_BORROW         0 (self)
+               LOAD_ATTR               18 (hosts)
+               LOAD_FAST_BORROW         8 (entryname)
+               BINARY_OP               26 ([])
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               CALL                     3
+               POP_TOP
+               EXTENDED_ARG             2
+               JUMP_BACKWARD          672 (to L1)
+
+Disassembly of <code object _security_check at 0x00000204BA447800, file "netrc.py", line 157>:
+157           RESUME                   0
+
+158           LOAD_GLOBAL              1 (_can_security_check + NULL)
+              CALL                     0
+              TO_BOOL
+              POP_JUMP_IF_FALSE      217 (to L5)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         2 (default_netrc)
+              TO_BOOL
+              POP_JUMP_IF_FALSE      207 (to L4)
+              NOT_TAKEN
+              LOAD_FAST_BORROW         3 (login)
+              LOAD_CONST               0 ('anonymous')
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE      198 (to L3)
+              NOT_TAKEN
+
+159           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                4 (fstat)
+              PUSH_NULL
+              LOAD_FAST_BORROW         1 (fp)
+              LOAD_ATTR                7 (fileno + NULL|self)
+              CALL                     0
+              CALL                     1
+              STORE_FAST               4 (prop)
+
+160           LOAD_GLOBAL              2 (os)
+              LOAD_ATTR                8 (getuid)
+              PUSH_NULL
+              CALL                     0
+              STORE_FAST               5 (current_user_id)
+
+161           LOAD_FAST_BORROW         4 (prop)
+              LOAD_ATTR               10 (st_uid)
+              LOAD_FAST_BORROW         5 (current_user_id)
+              COMPARE_OP             119 (bool(!=))
+              POP_JUMP_IF_FALSE       51 (to L1)
+              NOT_TAKEN
+
+162           LOAD_GLOBAL             13 (_getpwuid + NULL)
+              LOAD_FAST_BORROW         4 (prop)
+              LOAD_ATTR               10 (st_uid)
+              CALL                     1
+              STORE_FAST               6 (fowner)
+
+163           LOAD_GLOBAL             13 (_getpwuid + NULL)
+              LOAD_FAST_BORROW         5 (current_user_id)
+              CALL                     1
+              STORE_FAST               7 (user)
+
+164           LOAD_GLOBAL             15 (NetrcParseError + NULL)
+
+165           LOAD_CONST               1 ('~/.netrc file owner (')
+              LOAD_FAST_BORROW         6 (fowner)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 (', ')
+              LOAD_FAST_BORROW         7 (user)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (') does not match current user')
+              BUILD_STRING             5
+
+164           CALL                     1
+              RAISE_VARARGS            1
+
+167   L1:     LOAD_FAST_BORROW         4 (prop)
+              LOAD_ATTR               16 (st_mode)
+              LOAD_GLOBAL             18 (stat)
+              LOAD_ATTR               20 (S_IRWXG)
+              LOAD_GLOBAL             18 (stat)
+              LOAD_ATTR               22 (S_IRWXO)
+              BINARY_OP                7 (|)
+              BINARY_OP                1 (&)
+              TO_BOOL
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+168           LOAD_GLOBAL             15 (NetrcParseError + NULL)
+
+169           LOAD_CONST               4 ('~/.netrc access too permissive: access permissions must restrict access to only the owner')
+
+168           CALL                     1
+              RAISE_VARARGS            1
+
+167   L2:     LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+158   L3:     LOAD_CONST               5 (None)
+              RETURN_VALUE
+      L4:     LOAD_CONST               5 (None)
+              RETURN_VALUE
+      L5:     LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object authenticators at 0x00000204B9FF3E00, file "netrc.py", line 173>:
+173           RESUME                   0
+
+175           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (host, self)
+              LOAD_ATTR                0 (hosts)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       20 (to L1)
+              NOT_TAKEN
+
+176           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (hosts)
+              LOAD_FAST_BORROW         1 (host)
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+177   L1:     LOAD_CONST               1 ('default')
+              LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (hosts)
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       20 (to L2)
+              NOT_TAKEN
+
+178           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (hosts)
+              LOAD_CONST               1 ('default')
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+180   L2:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __repr__ at 0x00000204BA381AC0, file "netrc.py", line 182>:
+182           RESUME                   0
+
+184           LOAD_CONST               1 ('')
+              STORE_FAST               1 (rep)
+
+185           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (hosts)
+              LOAD_ATTR                3 (keys + NULL|self)
+              CALL                     0
+              GET_ITER
+      L1:     FOR_ITER               100 (to L3)
+              STORE_FAST               2 (host)
+
+186           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                0 (hosts)
+              LOAD_FAST_BORROW         2 (host)
+              BINARY_OP               26 ([])
+              STORE_FAST               3 (attrs)
+
+187           LOAD_FAST_BORROW         1 (rep)
+              LOAD_CONST               2 ('machine ')
+              LOAD_FAST_BORROW         2 (host)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 ('\n\tlogin ')
+              LOAD_FAST_BORROW         3 (attrs)
+              LOAD_SMALL_INT           0
+              BINARY_OP               26 ([])
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ('\n')
+              BUILD_STRING             5
+              BINARY_OP               13 (+=)
+              STORE_FAST               1 (rep)
+
+188           LOAD_FAST_BORROW         3 (attrs)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              TO_BOOL
+              POP_JUMP_IF_FALSE       21 (to L2)
+              NOT_TAKEN
+
+189           LOAD_FAST_BORROW         1 (rep)
+              LOAD_CONST               5 ('\taccount ')
+              LOAD_FAST_BORROW         3 (attrs)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ('\n')
+              BUILD_STRING             3
+              BINARY_OP               13 (+=)
+              STORE_FAST               1 (rep)
+
+190   L2:     LOAD_FAST_BORROW         1 (rep)
+              LOAD_CONST               6 ('\tpassword ')
+              LOAD_FAST_BORROW         3 (attrs)
+              LOAD_SMALL_INT           2
+              BINARY_OP               26 ([])
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ('\n')
+              BUILD_STRING             3
+              BINARY_OP               13 (+=)
+              STORE_FAST               1 (rep)
+              JUMP_BACKWARD          102 (to L1)
+
+185   L3:     END_FOR
+              POP_ITER
+
+191           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (macros)
+              LOAD_ATTR                3 (keys + NULL|self)
+              CALL                     0
+              GET_ITER
+      L4:     FOR_ITER                59 (to L7)
+              STORE_FAST               4 (macro)
+
+192           LOAD_FAST_BORROW         1 (rep)
+              LOAD_CONST               7 ('macdef ')
+              LOAD_FAST_BORROW         4 (macro)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ('\n')
+              BUILD_STRING             3
+              BINARY_OP               13 (+=)
+              STORE_FAST               1 (rep)
+
+193           LOAD_FAST_BORROW         0 (self)
+              LOAD_ATTR                4 (macros)
+              LOAD_FAST_BORROW         4 (macro)
+              BINARY_OP               26 ([])
+              GET_ITER
+      L5:     FOR_ITER                11 (to L6)
+              STORE_FAST               5 (line)
+
+194           LOAD_FAST_BORROW_LOAD_FAST_BORROW 21 (rep, line)
+              BINARY_OP               13 (+=)
+              STORE_FAST               1 (rep)
+              JUMP_BACKWARD           13 (to L5)
+
+193   L6:     END_FOR
+              POP_ITER
+
+195           LOAD_FAST_BORROW         1 (rep)
+              LOAD_CONST               4 ('\n')
+              BINARY_OP               13 (+=)
+              STORE_FAST               1 (rep)
+              JUMP_BACKWARD           61 (to L4)
+
+191   L7:     END_FOR
+              POP_ITER
+
+196           LOAD_FAST_BORROW         1 (rep)
+              RETURN_VALUE
