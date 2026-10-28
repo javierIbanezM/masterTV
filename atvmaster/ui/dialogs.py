@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import re
 
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtWidgets import (
     QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFileDialog, QFormLayout, QHBoxLayout,
     QLabel, QLineEdit, QListWidget, QListWidgetItem, QPushButton, QSpinBox, QVBoxLayout, QWidget,
@@ -182,6 +182,7 @@ class ScanDialog(QDialog):
         bb.accepted.connect(self.accept)
         bb.rejected.connect(self.reject)
         lay.addWidget(bb)
+        QTimer.singleShot(0, self._scan)  # empieza a buscar al abrir: es lo que se espera de «Descubrir»
 
     def _scan(self):
         cidr = self.subnet.currentText().strip()
@@ -204,18 +205,28 @@ class ScanDialog(QDialog):
             for s in adb.mdns_services(max_age=0):
                 if s["kind"] == "connect":
                     hits.add((s["ip"], s["port"]))
-            todo = [h for h in sorted(hits) if f"{h[0]}:{h[1]}" not in self.known]
+            # `known` lleva «ip:puerto» y también las IP sueltas: el puerto de Android 11+ cambia en cada
+            # activación, y el mismo equipo no debe salir como nuevo por eso.
+            todo = [h for h in sorted(hits) if f"{h[0]}:{h[1]}" not in self.known and h[0] not in self.known]
             with ThreadPoolExecutor(max_workers=8) as ex:
-                return list(ex.map(lambda h: adb.identify(h[0], h[1]), todo)), len(hits)
+                found = list(ex.map(lambda h: adb.identify(h[0], h[1]), todo))
+            # Un mismo equipo puede salir con el 5555 y con el puerto aleatorio de mDNS: una fila por IP,
+            # prefiriendo la que ya está lista y, a igualdad, el puerto fijo 5555.
+            best: dict[str, dict] = {}
+            for dev in found:
+                rank = (dev["state"] != "device", dev["port"] != 5555)
+                if dev["ip"] not in best or rank < best[dev["ip"]]["_rank"]:
+                    best[dev["ip"]] = dict(dev, _rank=rank)
+            return [{k: v for k, v in dev.items() if k != "_rank"} for dev in best.values()], len(hits)
 
         def done(res):
             found, total = res
             self.btn.setEnabled(True)
             labels = {"device": "listo", "unauthorized": "falta autorizar en el dispositivo",
-                      "offline": "sin respuesta", "unreachable": "no responde"}
+                      "offline": "sin respuesta", "unreachable": "no responde", "lan": "en la red, sin ADB"}
             for dev in found:
                 it = QListWidgetItem(f"{dev['model'] or 'Dispositivo'} · {dev['serial']} · "
-                                     f"{labels.get(dev['state'], dev['state'])}")
+                                     f"MAC {dev.get('mac') or '¿?'} · {labels.get(dev['state'], dev['state'])}")
                 it.setFlags(it.flags() | Qt.ItemFlag.ItemIsUserCheckable)
                 it.setCheckState(Qt.CheckState.Checked if dev["state"] in ("device", "unauthorized")
                                  else Qt.CheckState.Unchecked)

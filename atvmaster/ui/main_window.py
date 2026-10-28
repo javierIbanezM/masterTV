@@ -38,6 +38,7 @@ STATE_LABEL = {
     "device": ("En línea", "#3fb950"),
     "unauthorized": ("Falta autorizar en el dispositivo", "#d29922"),
     "offline": ("ADB sin respuesta", "#d29922"),
+    "lan": ("En la red, pero sin ADB", "#58a6ff"),  # encendido y visible, con la depuración apagada
     "unreachable": ("Apagado / sin depuración / desconectado", "#f85149"),
     "unknown": ("Comprobando…", "#8b949e"),
 }
@@ -115,7 +116,7 @@ class MainWindow(QMainWindow):
         lay.addWidget(self.list, 1)
 
         row = QHBoxLayout()
-        for text, slot in (("＋ Añadir", self.add_device), ("🔍 Descubrir", self.discover), ("🌐 Buscar en red", self.scan_network),
+        for text, slot in (("＋ Añadir", self.add_device), ("🔍 Descubrir en red", self.scan_network), ("🔌 Ver USB / ADB", self.discover),
                            ("✎ Editar", self.edit_device), ("✖ Quitar", self.remove_device)):
             b = QPushButton(text)
             b.clicked.connect(slot)
@@ -251,7 +252,9 @@ class MainWindow(QMainWindow):
     def discover(self):
         """Pregunta a adb qué dispositivos ve (USB y red) y deja añadirlos a la lista."""
         def done(found):
-            dlg = DiscoverDialog(self, found, {d.serial for d in self.ctx.store.devices})
+            known = {d.serial for d in self.ctx.store.devices}
+            known |= {dev["serial"] for dev in found if self._already_saved(dev["serial"], dev["usb"])}
+            dlg = DiscoverDialog(self, found, known)
             if not dlg.exec():
                 return
             for dev in dlg.selected():
@@ -264,15 +267,40 @@ class MainWindow(QMainWindow):
     def scan_network(self):
         """Barre una subred buscando dispositivos con ADB por red y propone añadirlos."""
         known = {d.serial for d in self.ctx.store.devices}
+        known |= {d.host for d in self.ctx.store.devices if not d.is_usb}  # IP suelta: el puerto puede cambiar
         dlg = ScanDialog(self, self.ctx, known, self.ctx.adb.local_subnets())
         if dlg.exec():
             for dev in dlg.selected():
-                d = Device(name=dev["model"] or dev["ip"], host=dev["ip"], port=dev["port"])
+                mac = dev.get("mac", "")
+                same = next((x for x in self.ctx.store.devices if mac and x.mac.lower() == mac), None)
+                if same:  # ya lo tenías guardado con esa MAC: solo ha cambiado de IP/puerto
+                    self.ctx.log(f"{same.name}: ahora está en {dev['ip']} (antes {same.host}); IP actualizada")
+                    same.host, same.port = dev["ip"], dev["port"]
+                    self.ctx.store.update(same)
+                    continue
+                default = dev["model"] or dev["ip"]
+                name, ok = QInputDialog.getText(
+                    self, "Nombre del dispositivo",
+                    f"{default} · {dev['ip']} · MAC {mac or '¿?'}\n\nNombre con el que quieres verlo en la lista:",
+                    text=default)
+                d = Device(name=(name.strip() if ok and name.strip() else default), host=dev["ip"],
+                           port=dev["port"], mac=mac)
                 if dev.get("kind"):
                     d.detected_kind = dev["kind"]
                 self.ctx.store.add(d)
             self.refresh_list()
             self.poll()
+
+    def _already_saved(self, serial: str, usb: bool) -> bool:
+        """¿Ese serial de `adb devices` es un equipo que ya está en la lista? Se compara por IP (sin
+        mirar el puerto, que cambia) y, por USB, por el nº de serie del equipo."""
+        ip = "" if usb else serial.rpartition(":")[0]
+        for d in self.ctx.store.devices:
+            if usb and serial in (d.host, d.hw_serial):
+                return True
+            if ip and not d.is_usb and d.host == ip:
+                return True
+        return False
 
     @staticmethod
     def _device_from_adb(dev: dict) -> Device:
@@ -316,6 +344,8 @@ class MainWindow(QMainWindow):
                     return dict(zip((d.id for d in devs),
                                     ex.map(adb.probe_device, devs)))
             known = adb.devices()
+            for d in devs:
+                adb.fix_transport(d, known)
             return {d.id: known.get(d.serial, "unreachable") for d in devs}
 
         def done(states):
@@ -329,6 +359,15 @@ class MainWindow(QMainWindow):
                     self.ctx.store.update(d)
                     self.ctx.log(f"{d.name}: puerto de depuración actualizado a {d.port}")
                     changed = True
+            for d in devs:
+                if getattr(d, "moved_from", ""):  # cambió de IP y se le encontró por serie/MAC
+                    self.ctx.log(f"{d.name}: la IP cambió de {d.moved_from} a {d.host}; reconectado")
+                    d.moved_from = ""
+                    self.ctx.store.update(d)
+                    changed = True
+                elif getattr(d, "learned", False):  # se memorizó su nº de serie / MAC
+                    d.learned = False
+                    self.ctx.store.update(d)
             if changed:
                 self.refresh_list()
                 self.tab_widgets[self.tabs.currentIndex()].on_activated()
@@ -592,6 +631,8 @@ class MainWindow(QMainWindow):
                 return list(ex.map(one, devs))
 
         def done(rows):
+            for d in devs:  # `collect` deja en el dispositivo las versiones que acaba de leer
+                self.ctx.store.update(d)
             inventory.to_csv(rows, path)
             self.ctx.log(f"Inventario guardado en {path}")
             info(self, "Inventario exportado", f"{len(rows)} dispositivo(s) guardados en:\n{path}")
@@ -698,10 +739,11 @@ class MainWindow(QMainWindow):
     # ---------- ADB por Wi-Fi siempre activo ----------
     def _wifi_entry(self, d, ip: str):
         """Crea (si no existe) la entrada de red de un equipo conectado por USB. Devuelve True si se creó."""
-        if not ip or self.ctx.store.find_serial(f"{ip}:5555"):
+        # Se compara por IP sin mirar el puerto: en Android 11+ cambia en cada activación.
+        if not ip or any(not x.is_usb and x.host == ip for x in self.ctx.store.devices):
             return False
         self.ctx.store.add(Device(name=f"{d.name} (Wi-Fi)", host=ip, group=d.group, kind=d.kind,
-                                  detected_kind=d.detected_kind))
+                                  detected_kind=d.detected_kind, hw_serial=d.hw_serial or d.host, mac=d.mac))
         return True
 
     def _b_enable_wifi(self):

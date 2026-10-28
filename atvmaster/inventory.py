@@ -15,7 +15,7 @@ COLUMNS = [
 ]
 
 STATES = {"device": "En línea", "unauthorized": "Falta autorizar", "offline": "Sin respuesta",
-          "unreachable": "Apagado / desconectado", "unknown": "Sin comprobar"}
+          "lan": "En la red, sin ADB", "unreachable": "Apagado / desconectado", "unknown": "Sin comprobar"}
 
 
 def _free_space(adb, serial: str) -> str:
@@ -35,6 +35,10 @@ def collect(adb, d, state: str) -> dict:
         "Kiosco URL": d.kiosk_url, "Revisado": datetime.now().strftime("%Y-%m-%d %H:%M"),
     })
     if state != "device":
+        if d.app_versions:  # sin conexión: la última lectura guardada, con su fecha
+            row["Apps de usuario"] = ", ".join(f"{p} {v}".strip() for p, v in d.app_versions.items())
+            row["Apps de usuario"] += f" (leído {d.app_versions_at})" if d.app_versions_at else ""
+            row["Nº apps de usuario"] = str(len(d.app_versions))
         return row
     s = d.serial
     info = adb.device_info(s)
@@ -51,9 +55,10 @@ def collect(adb, d, state: str) -> dict:
     })
     if info.get("Tipo") and d.effective_kind == "auto":
         row["Tipo"] = KIND_NAME.get(info["Tipo"], info["Tipo"])
-    apps = adb.packages(s, "-3")
-    row["Apps de usuario"] = ", ".join(apps)
+    apps = adb.package_versions(s, "-3")
+    row["Apps de usuario"] = ", ".join(f"{p} {v}".strip() for p, v in apps.items())
     row["Nº apps de usuario"] = str(len(apps))
+    d.app_versions, d.app_versions_at = apps, row["Revisado"]  # la UI lo guarda con el dispositivo
     return row
 
 

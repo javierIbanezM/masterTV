@@ -237,7 +237,7 @@ class TestInventory(unittest.TestCase):
                                "getprop ro.product.model": Result(0, "Memor 11", ""),
                                "ip -o -4 addr": Result(0, "31: wlan0    inet 192.168.60.24/24 brd x", ""),
                                "df -h /data": Result(0, "/dev/x 50G 10G 38G 21% /data", ""),
-                               "pm list packages -3": Result(0, "package:com.aza.scanner\npackage:es.tlsi.mobile", "")})
+                               "pm list packages -3": Result(0, "com.aza.scanner 2.0.0\nes.tlsi.mobile 2.206", "")})
         off = inventory.collect(a, d, "unreachable")
         self.assertEqual((off["Estado"], off["Modelo"], off["Conexión"]), ("Apagado / desconectado", "", "USB"))
         on = inventory.collect(a, d, "device")
@@ -496,6 +496,197 @@ class TestMisc(unittest.TestCase):
         for bad in ("", "ftp://x", "http://a b"):
             with self.assertRaises(ValueError):
                 kiosk.normalize_url(bad)
+
+
+class TestVersionesDeApps(unittest.TestCase):
+    SALIDA = "com.azalogistics.pda 1.5.2\nes.tlsi.mobile 2.206\ncom.sin.version \n## ruido que no es un paquete\n"
+
+    def test_lee_paquete_y_version(self):
+        a = FakeAdb(shell_map={"pm list packages -3": Result(0, self.SALIDA, "")})
+        v = a.package_versions("s")
+        self.assertEqual(v, {"com.azalogistics.pda": "1.5.2", "es.tlsi.mobile": "2.206", "com.sin.version": ""})
+
+    def test_el_inventario_registra_las_versiones_y_las_guarda_en_el_dispositivo(self):
+        a = FakeAdb(shell_map={"pm list packages -3": Result(0, self.SALIDA, "")})
+        d = Device(name="M", host="10.0.0.5")
+        row = inventory.collect(a, d, "device")
+        self.assertIn("com.azalogistics.pda 1.5.2", row["Apps de usuario"])
+        self.assertEqual(d.app_versions["es.tlsi.mobile"], "2.206")
+        # Sin conexión se muestra la última lectura guardada, con su fecha.
+        off = inventory.collect(a, d, "unreachable")
+        self.assertIn("com.azalogistics.pda 1.5.2", off["Apps de usuario"])
+        self.assertIn("leído", off["Apps de usuario"])
+
+
+class TestPresenciaEnRed(unittest.TestCase):
+    class Red(FakeAdb):
+        def __init__(self, presente):
+            super().__init__()
+            self.presente = presente
+
+        def probe(self, host, port):
+            return "unreachable"
+
+        def mdns_port_for(self, ip):
+            return None
+
+        def relocate(self, d):
+            return None
+
+        def on_lan(self, host, mac=""):
+            return self.presente
+
+    def test_encendido_pero_sin_adb(self):
+        self.assertEqual(self.Red(True).probe_device(Device(name="T", host="10.0.0.5")), "lan")
+
+    def test_apagado(self):
+        self.assertEqual(self.Red(False).probe_device(Device(name="T", host="10.0.0.5")), "unreachable")
+
+    def test_solo_ips_y_exige_la_mac_si_se_conoce(self):
+        self.assertFalse(Adb.on_lan("servidor.local"))            # nombres: no se intenta
+        import atvmaster.adb as m
+        original = m.arp_mac
+        try:
+            m.arp_mac = lambda h: "aa:bb:cc:dd:ee:01"
+            self.assertTrue(Adb.on_lan("10.255.255.1", "AA-BB-CC-DD-EE-01"))
+            self.assertFalse(Adb.on_lan("10.255.255.1", "aa:bb:cc:dd:ee:99"))   # otro equipo con esa IP
+        finally:
+            m.arp_mac = original
+
+
+class TestEntradaUsbGuardadaComoRed(unittest.TestCase):
+    def test_serie_usb_guardado_como_red_pasa_a_usb(self):
+        d = Device(name="PDA 99", host="S21L04768")       # transport por defecto: wifi
+        self.assertEqual(d.serial, "S21L04768:5555")       # así nunca coincidiría con `adb devices`
+        self.assertTrue(Adb.fix_transport(d, {"S21L04768": "device"}))
+        self.assertEqual((d.transport, d.serial, d.learned), ("usb", "S21L04768", True))
+
+    def test_no_toca_las_entradas_de_red_ni_otras(self):
+        net = Device(name="TV", host="192.168.60.120")
+        self.assertFalse(Adb.fix_transport(net, {"192.168.60.120:5555": "device"}))
+        self.assertEqual(net.transport, "wifi")
+        lejano = Device(name="X", host="S999")             # serie que adb no lista ahora: se deja como está
+        self.assertFalse(Adb.fix_transport(lejano, {"S21L04768": "device"}))
+        self.assertEqual(lejano.transport, "wifi")
+
+    def test_probe_device_lo_encuentra_por_usb(self):
+        class A(FakeAdb):
+            def devices(self):
+                return {"S21L04768": "device"}
+        d = Device(name="PDA 99", host="S21L04768")
+        self.assertEqual(A().probe_device(d), "device")
+
+
+class TestSinDuplicados(unittest.TestCase):
+    """Descubrir no debe proponer como nuevo un equipo que ya está en la lista aunque cambie el puerto."""
+
+    def saved(self, *devs):
+        from types import SimpleNamespace
+        from atvmaster.ui.main_window import MainWindow
+        stub = SimpleNamespace(ctx=SimpleNamespace(store=SimpleNamespace(devices=list(devs))))
+        return lambda serial, usb: MainWindow._already_saved(stub, serial, usb)
+
+    def test_mismo_equipo_con_otro_puerto(self):
+        f = self.saved(Device(name="M", host="10.0.0.5", port=33777))
+        self.assertTrue(f("10.0.0.5:37413", False))
+        self.assertFalse(f("10.0.0.6:37413", False))
+
+    def test_serie_usb_de_un_equipo_ya_guardado_por_red(self):
+        f = self.saved(Device(name="M", host="10.0.0.5", hw_serial="S123"))
+        self.assertTrue(f("S123", True))
+        self.assertFalse(f("OTRO", True))
+
+    def test_entrada_usb_ya_guardada(self):
+        f = self.saved(Device(name="M", host="S123", transport="usb"))
+        self.assertTrue(f("S123", True))
+
+
+class TestCambioDeIp(unittest.TestCase):
+    """Si el router cambia la IP de un dispositivo, se le sigue la pista por nº de serie (mDNS) o MAC (ARP)."""
+
+    class Red(FakeAdb):
+        """Una red simulada: `vivos` = {ip:puerto: nº de serie del equipo que responde ahí}."""
+
+        def __init__(self, vivos, mdns=()):
+            super().__init__()
+            self.vivos, self._mdns = vivos, list(mdns)
+
+        def probe(self, host, port):
+            return "device" if f"{host}:{port}" in self.vivos else "unreachable"
+
+        def getprop(self, serial, key):
+            return self.vivos.get(serial, "") if key == "ro.serialno" else ""
+
+        def mdns_services(self, max_age=8.0):
+            return self._mdns
+
+        def local_subnets(self):
+            return ["10.0.0.0/24"]
+
+        @staticmethod
+        def scan_subnet(cidr, ports=(5555,), timeout=0.5, workers=128, max_hosts=1024):
+            return []
+
+        def mac(self, serial):
+            return "aa:bb:cc:dd:ee:01"
+
+    def dev(self, **kw):
+        return Device(name="Memor", host="10.0.0.5", **kw)
+
+    def test_lo_encuentra_por_numero_de_serie_en_mdns(self):
+        a = self.Red({"10.0.0.9:41000": "S123"},
+                     mdns=[{"name": "adb-S123-xyz", "kind": "connect", "ip": "10.0.0.9", "port": 41000}])
+        d = self.dev(hw_serial="S123")
+        self.assertEqual(a.probe_device(d), "device")
+        self.assertEqual((d.host, d.port, d.moved_from), ("10.0.0.9", 41000, "10.0.0.5"))
+
+    def test_no_se_confunde_con_otro_equipo(self):
+        # En esa IP responde OTRO dispositivo: no se debe adoptar.
+        a = self.Red({"10.0.0.9:41000": "OTRO"},
+                     mdns=[{"name": "adb-S123-xyz", "kind": "connect", "ip": "10.0.0.9", "port": 41000}])
+        d = self.dev(hw_serial="S123")
+        self.assertEqual(a.probe_device(d), "unreachable")
+        self.assertEqual(d.host, "10.0.0.5")
+
+    def test_lo_encuentra_por_mac(self):
+        import atvmaster.adb as adbmod
+        original, adbmod.arp_table = adbmod.arp_table, lambda: {"aa:bb:cc:dd:ee:01": "10.0.0.77"}
+        try:
+            a = self.Red({"10.0.0.77:5555": "S123"})
+            d = self.dev(hw_serial="S123", mac="AA:BB:CC:DD:EE:01")
+            self.assertEqual(a.probe_device(d), "device")
+            self.assertEqual((d.host, d.moved_from), ("10.0.0.77", "10.0.0.5"))
+        finally:
+            adbmod.arp_table = original
+
+    def test_misma_mac_en_otra_ip_sin_adb_actualiza_la_ip_y_queda_en_la_red(self):
+        # Android 11+: el puerto es aleatorio y no se anuncia por mDNS, pero la MAC delata dónde está.
+        import atvmaster.adb as adbmod
+        original, adbmod.arp_table = adbmod.arp_table, lambda: {"aa:bb:cc:dd:ee:01": "10.0.0.26"}
+        try:
+            a = self.Red({})                       # nada responde por ADB
+            d = self.dev(mac="aa:bb:cc:dd:ee:01")  # estaba en 10.0.0.5
+            self.assertEqual(a.probe_device(d), "lan")
+            self.assertEqual((d.host, d.moved_from), ("10.0.0.26", "10.0.0.5"))
+        finally:
+            adbmod.arp_table = original
+
+    def test_no_busca_a_cada_sondeo(self):
+        a = self.Red({})
+        d = self.dev(hw_serial="S123", mac="aa:bb:cc:dd:ee:01")
+        self.assertEqual(a.probe_device(d), "unreachable")
+        # Aparece ahora en otra IP, pero dentro de RELOCATE_EVERY no se repite la búsqueda (cuesta barrer la red).
+        a.vivos["10.0.0.9:41000"] = "S123"
+        a._mdns = [{"name": "adb-S123-xyz", "kind": "connect", "ip": "10.0.0.9", "port": 41000}]
+        self.assertEqual(a.probe_device(d), "unreachable")
+        a.RELOCATE_EVERY = 0
+        self.assertEqual(a.probe_device(d), "device")
+
+    def test_aprende_su_identidad_la_primera_vez(self):
+        a = self.Red({"10.0.0.5:5555": "S123"})
+        d = self.dev()
+        self.assertEqual(a.probe_device(d), "device")
+        self.assertEqual((d.hw_serial, d.mac, d.learned), ("S123", "aa:bb:cc:dd:ee:01", True))
 
 
 if __name__ == "__main__":

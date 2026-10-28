@@ -17,7 +17,7 @@ se amplió con soporte multi‑dispositivo y comentarios. Detalles de la recuper
 | **Navegar** | Abrir una web en el dispositivo (en el navegador que elijas), atrás/adelante/recargar, desplazar la página, **favoritos** e historial. |
 | **Mando** | D‑pad, volumen/canales, multimedia, escribir texto, tap/swipe, **gestos para móviles/tablets**, atajos a pantallas de ajustes. |
 | **Pantalla y escritorio remoto** | Captura, vista previa en vivo (~1 fps), **control con ratón y teclado dentro de la propia ventana**, escritorio remoto con scrcpy, grabación de pantalla. |
-| **Aplicaciones** | Listar, abrir, forzar cierre, borrar datos, desinstalar, instalar APK. |
+| **Aplicaciones** | Listar (con la **versión** de cada app de usuario), abrir, forzar cierre, borrar datos, desinstalar, instalar APK. La última lectura de versiones **queda guardada con el dispositivo** y se ve también sin conexión (con su fecha); el inventario CSV la incluye en «Apps de usuario». |
 | **Ajustes del sistema** | Apagado de pantalla, animaciones, resolución y densidad (`wm`), editor de `settings`. |
 | **Archivos** | Explorar, descargar al PC, subir, eliminar. |
 | **Shell y logcat** | `adb shell` con confirmación en comandos peligrosos y visor de logcat. |
@@ -272,6 +272,15 @@ vez que se desactiva y reactiva (o al reiniciar). Si un dispositivo guardado dej
 puerto, la app lo busca por mDNS en la misma IP, se reconecta y actualiza el puerto guardado
 (queda anotado en el registro). Esto solo funciona si el PC y el dispositivo están en la misma red
 local (mDNS no atraviesa routers).
+
+**Cuando el router cambia la IP (DHCP).** La primera vez que un dispositivo se conecta, la app memoriza su
+nº de serie y su MAC. Si después deja de responder en su IP, la app lo busca (como mucho una vez cada
+45 s por dispositivo): 1) por mDNS, buscando su nº de serie en el nombre del servicio; 2) barriendo las
+subredes del PC y viendo qué IP tiene ahora su MAC en la tabla ARP. Antes de adoptar la IP nueva comprueba que
+el nº de serie coincide, para no confundirlo con otro equipo, y la guarda (queda anotado en el registro).
+Debe estar en la misma red local que el PC y encendido. Para que sea fiable, **reserva la IP en el router** (DHCP
+estático) o rellena la MAC. Los Android con «dirección MAC privada/aleatoria» por red usan la MAC que usan en
+esa red, que es la que la app lee.
 
 ### Tipo y conexión
 

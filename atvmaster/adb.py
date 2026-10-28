@@ -145,6 +145,22 @@ def arp_mac(host: str) -> str:
     return m.group(1).replace("-", ":").lower() if m else ""
 
 
+def arp_table() -> dict[str, str]:
+    """Caché ARP completa del PC como {mac: ip} (MAC en minúsculas con «:»). Se rellena sola con las
+    IP que han respondido hace poco, p. ej. tras barrer la subred."""
+    try:
+        p = subprocess.run(["arp", "-a"], capture_output=True, timeout=8, creationflags=_NO_WINDOW)
+    except (OSError, subprocess.TimeoutExpired):
+        return {}
+    table: dict[str, str] = {}
+    for ip, mac in re.findall(r"(\d{1,3}(?:\.\d{1,3}){3})\s+([0-9a-f]{2}(?:[-:][0-9a-f]{2}){5})",
+                              p.stdout.decode("utf-8", "replace"), re.I):
+        mac = mac.replace("-", ":").lower()
+        if mac not in ("ff:ff:ff:ff:ff:ff", "00:00:00:00:00:00"):
+            table[mac] = ip
+    return table
+
+
 def luhn_ok(number: str) -> bool:
     """Dígito de control (Luhn) de un IMEI: 15 dígitos y suma de comprobación correcta."""
     if not (number.isdigit() and len(number) == 15):
@@ -342,7 +358,10 @@ class Adb:
         Si el dispositivo aún no ha autorizado este PC, el estado será 'unauthorized' y en su
         pantalla aparecerá el aviso de «Permitir depuración»."""
         state = self.probe(ip, port)
-        info = {"ip": ip, "port": port, "serial": f"{ip}:{port}", "state": state, "model": "", "kind": ""}
+        # La MAC se lee de la caché ARP (el barrido de la subred ya la rellenó): es lo que permite
+        # reconocer el equipo si el router le cambia la IP.
+        info = {"ip": ip, "port": port, "serial": f"{ip}:{port}", "state": state, "model": "", "kind": "",
+                "mac": arp_mac(ip)}
         if state == "device":
             info["model"] = self.getprop(info["serial"], "ro.product.model")
             info["kind"] = self.detect_kind(info["serial"])
@@ -366,9 +385,21 @@ class Adb:
         self.connect(serial, timeout=8)
         return self.devices().get(serial, "offline")
 
+    @staticmethod
+    def fix_transport(d, known: dict) -> bool:
+        """Una entrada guardada como «Red» cuyo host es un nº de serie que adb lista por USB (sin «:») es
+        en realidad un equipo por cable: pasa a USB. Pasa al añadirlo a mano sin cambiar «Conexión».
+        Devuelve True si cambió (la UI lo guarda al ver `d.learned`)."""
+        if not d.is_usb and ":" not in d.host and d.host in known:
+            d.transport = "usb"
+            d.learned = True
+            return True
+        return False
+
     def probe_device(self, d) -> str:
         """Estado de un `store.Device`, sea por red o por USB.
         Por USB no hay nada que conectar: basta con ver si adb lo lista."""
+        self.fix_transport(d, self.devices())
         if d.is_usb:
             return self.devices().get(d.serial, "unreachable")
         state = self.probe(d.host, d.port)
@@ -382,7 +413,94 @@ class Adb:
                     d.port = new
                     d.port_changed = True  # la UI lo guarda en devices.json
                     return state2
+            # El router pudo darle otra IP: se busca por su nº de serie (mDNS) o por su MAC.
+            moved = self.relocate(d)
+            if moved:
+                return moved
+            # Sin ADB, pero ¿sigue encendido y en la red? Se distingue de «apagado».
+            return "lan" if self.on_lan(d.host, d.mac) else state
+        if state == "device" and not d.hw_serial:
+            self._learn_identity(d)
         return state
+
+    @staticmethod
+    def on_lan(host: str, mac: str = "") -> bool:
+        """¿Está `host` presente en la red aunque ADB no responda? Primero un ping; si no contesta (los
+        Android dormidos suelen ignorarlo) se mira la tabla ARP, que el ping acaba de intentar rellenar.
+        Si se conoce la MAC se exige que coincida, para no dar por presente a otro equipo con esa IP."""
+        if not re.fullmatch(r"\d{1,3}(\.\d{1,3}){3}", host):
+            return False
+        pinged = False
+        try:
+            p = subprocess.run(["ping", "-n", "1", "-w", "700", host], capture_output=True, timeout=5,
+                               creationflags=_NO_WINDOW)
+            pinged = p.returncode == 0 and b"TTL=" in p.stdout.upper()
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+        seen = arp_mac(host)
+        if mac:
+            return bool(seen) and seen == mac.lower().replace("-", ":")
+        return pinged or bool(seen)
+
+    RELOCATE_EVERY = 45  # s mínimos entre dos búsquedas de un mismo dispositivo (barrer la red cuesta)
+
+    def _learn_identity(self, d) -> None:
+        """Memoriza el nº de serie y la MAC del equipo conectado: con ellos se le sigue la pista si
+        cambia de IP. La UI guarda el cambio al ver `d.learned`."""
+        serial = self.getprop(d.serial, "ro.serialno").strip()
+        if serial and serial.lower() != "unknown":
+            d.hw_serial = serial
+            d.learned = True
+        if not d.mac:
+            mac = self.mac(d.serial)
+            if mac:
+                d.mac = mac
+                d.learned = True
+
+    def relocate(self, d) -> str | None:
+        """Busca un dispositivo de red que ya no responde en su IP guardada, por si cambió de IP:
+        1) mDNS, buscando su nº de serie en el nombre del servicio; 2) barriendo las subredes del PC
+        y mirando qué IP tiene ahora su MAC en la tabla ARP. Si lo encuentra y es él (el nº de serie
+        coincide), actualiza `d.host`/`d.port`, deja `d.moved_from` y devuelve su estado."""
+        now = time.time()
+        last = getattr(self, "_relocated", None)
+        if last is None:
+            last = self._relocated = {}
+        if now - last.get(d.id, 0) < self.RELOCATE_EVERY:
+            return None
+        last[d.id] = now
+
+        cands: list[tuple[str, int]] = []
+        if d.hw_serial:
+            for s in self.mdns_services():
+                if s["kind"] == "connect" and d.hw_serial.lower() in s["name"].lower() and s["ip"] != d.host:
+                    cands.append((s["ip"], s["port"]))
+        if not cands and d.mac:
+            for cidr in self.local_subnets():
+                try:
+                    self.scan_subnet(cidr, (d.port,), timeout=0.4)  # solo para rellenar la caché ARP
+                except AdbError:
+                    continue
+            ip = arp_table().get(d.mac.lower())
+            if ip and ip != d.host:
+                cands.append((ip, self.mdns_port_for(ip) or d.port))
+
+        for ip, port in cands:
+            state = self.probe(ip, port)
+            if state == "unreachable":
+                # Encontrado por su MAC pero sin ADB en ese puerto: es él (la MAC es de él) y está
+                # encendido en la red; se actualiza la IP y se muestra «en la red, sin ADB».
+                if d.mac and arp_table().get(d.mac.lower()) == ip:
+                    d.moved_from, d.host = d.host, ip
+                    return "lan"
+                continue
+            if state == "device" and d.hw_serial:  # que sea realmente él y no otro equipo
+                if self.getprop(f"{ip}:{port}", "ro.serialno").strip().lower() != d.hw_serial.lower():
+                    self.disconnect(f"{ip}:{port}")
+                    continue
+            d.moved_from, d.host, d.port = d.host, ip, port
+            return state
+        return None
 
     # ------------------------------------------------------------ información
 
@@ -816,6 +934,19 @@ class Adb:
         r = self.shell(serial, f"pm list packages {scope}".strip(), timeout=30)
         return sorted(l.split(":", 1)[1].strip() for l in r.out.splitlines()
                       if l.startswith("package:"))
+
+    def package_versions(self, serial: str, scope: str = "-3") -> dict[str, str]:
+        """{paquete: versión} de las apps instaladas (por defecto las de usuario), en una sola llamada
+        a adb. La versión es el `versionName` (p. ej. «1.5.2»); vacía si el paquete no la declara."""
+        script = (f"for p in $(pm list packages {scope} | sed 's/^package://'); do "
+                  "echo \"$p $(dumpsys package $p 2>/dev/null | grep -m1 versionName | sed 's/.*versionName=//')\"; done")
+        r = self.shell(serial, script, timeout=90)
+        out = {}
+        for line in r.out.splitlines():
+            name, _, ver = line.strip().partition(" ")
+            if re.fullmatch(r"[A-Za-z0-9._]+", name):
+                out[name] = ver.strip()
+        return dict(sorted(out.items()))
 
     def launch(self, serial: str, package: str) -> Result:
         """Abre una app por su paquete. Se prueba primero el lanzador de Android TV

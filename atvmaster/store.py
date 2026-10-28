@@ -37,6 +37,12 @@ class Device:
     transport: str = "wifi"     # ver TRANSPORTS
     detected_kind: str = ""     # último tipo detectado por ADB (se guarda para tener menú offline)
     keep_wifi_adb: bool = False  # reactivar el ADB por Wi-Fi cada vez que se conecte por USB
+    hw_serial: str = ""         # nº de serie del equipo (ro.serialno), aprendido solo: sirve para
+                                # reencontrarlo por mDNS si el router le cambia la IP
+
+    # Última lectura de las versiones de las apps de usuario {paquete: versión}: se ve también sin conexión.
+    app_versions: dict = field(default_factory=dict)
+    app_versions_at: str = ""   # cuándo se leyó (AAAA-MM-DD HH:MM)
 
     # --- Modo kiosco ---
     kiosk_url: str = ""

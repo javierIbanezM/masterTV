@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+from datetime import datetime
+
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
-    QComboBox, QFileDialog, QHBoxLayout, QLabel, QLineEdit, QListWidget, QPushButton, QVBoxLayout,
+    QComboBox, QFileDialog, QHBoxLayout, QLabel, QLineEdit, QListWidget, QListWidgetItem, QPushButton,
+    QVBoxLayout,
 )
 
 from ..base_tab import DeviceTab
@@ -19,6 +23,8 @@ class AppsTab(DeviceTab):
         super().__init__(ctx)
         self.third = set()
         self.allpk = []
+        self.versions: dict[str, str] = {}   # {paquete: versión} de las apps de usuario
+        self._fresh = False                  # False = lo que se ve es la última lectura guardada
         lay = QVBoxLayout(self)
 
         top = QHBoxLayout()
@@ -52,23 +58,34 @@ class AppsTab(DeviceTab):
 
     def on_device_changed(self):
         self.list.clear()
-        self.allpk = []
-        self.third = set()
+        self.allpk, self.third, self.versions, self._fresh = [], set(), {}, False
         self.count.setText("")
+        d = self.ctx.current
+        if d and d.app_versions:  # última lectura guardada: se ve aunque el dispositivo esté apagado
+            self.versions = dict(d.app_versions)
+            self.third = set(self.versions)
+            self.allpk = sorted(self.versions)
+            self._fill()
 
     def on_activated(self):
-        if self.ctx.current and self.is_online() and not self.allpk:
+        if self.ctx.current and self.is_online() and not self._fresh:
             self.refresh()
 
     def refresh(self):
         def work(s):
             a = self.ctx.adb
-            return a.packages(s, "-3"), a.packages(s, "")
+            return a.package_versions(s, "-3"), a.packages(s, "")
 
         def done(res):
-            third, allp = res
-            self.third = set(third)
+            versions, allp = res
+            self.versions, self._fresh = versions, True
+            self.third = set(versions)
             self.allpk = allp
+            d = self.ctx.current
+            if d:  # se registra con el dispositivo: queda visible sin conexión y en el inventario
+                d.app_versions = dict(versions)
+                d.app_versions_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+                self.ctx.store.update(d)
             self._fill()
 
         self.call(work, done)
@@ -79,15 +96,25 @@ class AppsTab(DeviceTab):
         items = [p for p in self.allpk
                  if (mode == 2 or (mode == 0) == (p in self.third)) and txt in p.lower()]
         self.list.clear()
-        self.list.addItems(items)
-        self.count.setText(f"{len(items)} paquetes")
+        for p in items:
+            ver = self.versions.get(p, "")
+            it = QListWidgetItem(f"{p}    ·    v{ver}" if ver else p)
+            it.setData(Qt.ItemDataRole.UserRole, p)  # el nombre del paquete, sin el texto de la versión
+            self.list.addItem(it)
+        d = self.ctx.current
+        note = ""
+        if not self._fresh and d and d.app_versions_at:
+            note = f" · última lectura guardada: {d.app_versions_at} (sin conexión)"
+        elif d and d.app_versions_at:
+            note = f" · leído: {d.app_versions_at}"
+        self.count.setText(f"{len(items)} paquetes{note}")
 
     def _pkg(self) -> str | None:
         it = self.list.currentItem()
         if not it:
             warn(self, "Sin selección", "Selecciona un paquete de la lista.")
             return None
-        return it.text()
+        return it.data(Qt.ItemDataRole.UserRole) or it.text()
 
     def launch(self):
         p = self._pkg()
