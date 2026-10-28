@@ -56,6 +56,7 @@ class MainWindow(QMainWindow):
         self._polling = False
         self._detecting: set[str] = set()   # dispositivos cuyo tipo se está detectando
         self._wifi_keep: dict[str, float] = {}  # id -> instante del último intento de reactivar el ADB por Wi-Fi
+        self._announced_usb: set[str] = set()    # nº de serie USB ya avisados como «no está en la lista»
         self.show_all = False               # Ver → Mostrar todas las funciones
 
         split = QSplitter()
@@ -341,12 +342,17 @@ class MainWindow(QMainWindow):
             adb = self.ctx.adb
             if auto:
                 with ThreadPoolExecutor(max_workers=8) as ex:
-                    return dict(zip((d.id for d in devs),
-                                    ex.map(adb.probe_device, devs)))
-            known = adb.devices()
-            for d in devs:
-                adb.fix_transport(d, known)
-            return {d.id: known.get(d.serial, "unreachable") for d in devs}
+                    states = dict(zip((d.id for d in devs), ex.map(adb.probe_device, devs)))
+                known = adb.devices()
+            else:
+                known = adb.devices()
+                for d in devs:
+                    adb.fix_transport(d, known)
+                states = {d.id: known.get(d.serial, "unreachable") for d in devs}
+            # Equipos conectados por cable que no están en la lista: la app solo muestra los guardados.
+            saved = {x for d in devs for x in (d.host, d.hw_serial)}
+            self._unsaved_usb = [s for s, st in known.items() if ":" not in s and st == "device" and s not in saved]
+            return states
 
         def done(states):
             self._polling = False
@@ -368,6 +374,12 @@ class MainWindow(QMainWindow):
                 elif getattr(d, "learned", False):  # se memorizó su nº de serie / MAC
                     d.learned = False
                     self.ctx.store.update(d)
+            for s in getattr(self, "_unsaved_usb", []):  # se avisa una sola vez por equipo y sesión
+                if s not in self._announced_usb:
+                    self._announced_usb.add(s)
+                    self.ctx.log(f"Dispositivo conectado por USB que no está en la lista: {s}. "
+                                 "Pulsa «🔌 Ver USB / ADB» para añadirlo.")
+                    self.statusBar().showMessage(f"Nuevo dispositivo por USB ({s}): pulsa «Ver USB / ADB» para añadirlo", 15000)
             if changed:
                 self.refresh_list()
                 self.tab_widgets[self.tabs.currentIndex()].on_activated()

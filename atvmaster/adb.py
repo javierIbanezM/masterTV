@@ -399,7 +399,8 @@ class Adb:
     def probe_device(self, d) -> str:
         """Estado de un `store.Device`, sea por red o por USB.
         Por USB no hay nada que conectar: basta con ver si adb lo lista."""
-        self.fix_transport(d, self.devices())
+        if not d.is_usb and "." not in d.host:  # solo si parece un nº de serie, no una IP o un host con dominio
+            self.fix_transport(d, self.devices())
         if d.is_usb:
             return self.devices().get(d.serial, "unreachable")
         state = self.probe(d.host, d.port)

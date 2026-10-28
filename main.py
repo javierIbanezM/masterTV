@@ -2,6 +2,7 @@ import sys
 import traceback
 from datetime import datetime
 
+from PyQt6.QtCore import QLockFile
 from PyQt6.QtGui import QColor, QPalette
 from PyQt6.QtWidgets import QApplication, QMessageBox
 
@@ -64,6 +65,12 @@ def main() -> int:
     app = QApplication(sys.argv)
     app.setApplicationName(APP_NAME)
     apply_dark(app)
+    # Una sola copia a la vez: dos ventanas escribiendo devices.json se pisarían los cambios.
+    lock = QLockFile(str(paths.data_dir() / "app.lock"))
+    lock.setStaleLockTime(0)  # un bloqueo de un proceso que ya no existe se considera caducado
+    if not lock.tryLock(200):
+        QMessageBox.information(None, APP_NAME, f"{APP_NAME} ya está abierta (mira la barra de tareas o la bandeja).")
+        return 0
     ctx = AppContext()
     win = MainWindow(ctx)
     win.show()

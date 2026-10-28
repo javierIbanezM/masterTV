@@ -163,6 +163,41 @@ Datalogic Memor 11 con Android 13; `cmd phone get-imei` salía «Permission deni
 15 dígitos con **dígito de control (Luhn) correcto**; si el equipo no lo permite, la fila queda vacía (no se
 inventa nada). Es un identificador del dispositivo: tenlo en cuenta al compartir el CSV del inventario.
 
+### Usarlo desde la consola o desde tu propio programa
+
+`atv.py` maneja los dispositivos de tu lista sin abrir la ventana (misma lista y mismo código que la
+aplicación; no modifica `devices.json`). El dispositivo se indica por nombre (o parte), IP o id; `all` = todos;
+varios separados por comas.
+
+```
+python atv.py list                                  # estado de todos
+python atv.py info "PDA 99"
+python atv.py apps "TV ROC"                         # apps de usuario con su versión (--todas = también del sistema)
+python atv.py install "PDA 99,PDA 100" mi_app.apk   # también .xapk / .apks / .apkm
+python atv.py uninstall "PDA 99" com.ejemplo.app    # solo apps de usuario; las del sistema están protegidas
+python atv.py open "TV ROC" org.videolan.vlc
+python atv.py url "TV ROC" http://servidor/pagina
+python atv.py key "TV ROC" KEYCODE_HOME
+python atv.py shell "PDA 99" "getprop ro.build.version.release"   # los comandos peligrosos piden --forzar
+python atv.py screenshot "PDA 99" captura.png
+python atv.py reboot "PDA 99" --yes
+```
+
+Desde Python puedes usar el mismo módulo como librería:
+
+```python
+from atvmaster import paths
+from atvmaster.adb import Adb
+adb = Adb(lambda: paths.find_adb())
+adb.connect("192.168.60.120:5555")
+adb.install_any("192.168.60.120:5555", r"C:\apks\mi_app.apk")
+adb.uninstall("192.168.60.120:5555", "com.ejemplo.app")
+print(adb.shell("192.168.60.120:5555", "dumpsys battery").text)
+```
+
+Desde cualquier otro lenguaje basta con llamar a `adb.exe` (en `tools\platform-tools`): `adb -s IP:5555 install -r app.apk`,
+`adb -s IP:5555 uninstall paquete`, `adb -s IP:5555 shell <comando>`.
+
 ### Inventario
 *Aplicación → Exportar inventario a Excel (CSV)…*: una fila por dispositivo (marcados, o todos) con
 tipo, fabricante, modelo, Android, parche de seguridad, nº de serie, MAC, IP, batería, pantalla,
