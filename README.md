@@ -198,6 +198,26 @@ print(adb.shell("192.168.60.120:5555", "dumpsys battery").text)
 Desde cualquier otro lenguaje basta con llamar a `adb.exe` (en `tools\platform-tools`): `adb -s IP:5555 install -r app.apk`,
 `adb -s IP:5555 uninstall paquete`, `adb -s IP:5555 shell <comando>`.
 
+### Órdenes remotas a las PDA Datalogic (sin ADB)
+
+Con el launcher **`com.azalogistics.pda` 1.6.0 o superior** se pueden **instalar, desinstalar y cerrar apps en silencio**
+aunque la PDA no tenga ADB (p. ej. una Memor 10 tras reiniciar). El PC publica órdenes **firmadas** en el servidor de
+actualizaciones y la PDA las recoge sola en menos de un minuto, sin importar su IP:
+
+```
+python atv.py orden-instalar "PDA 99,PDA 100" C:\apks\mi_app.apk --paquete com.ejemplo.app
+python atv.py orden-desinstalar "PDA 99" com.ejemplo.app
+python atv.py orden-cerrar all com.ejemplo.app
+python atv.py orden-estado "PDA 99"          # resultado (lee por ADB)
+```
+
+- La clave privada que firma las órdenes está en `ordenes_keys/ordenes_privada.pem` (**secreta**, ignorada por git): quien la
+  tenga puede instalar y desinstalar apps en todas las PDA. Haz copia de seguridad en un gestor de secretos.
+- Solo terminales **Datalogic** (usa su instalador silencioso). Verificado en una Memor 10 (Android 10).
+- Detalles, formato de las órdenes y seguridad: `docs/ORDENES_REMOTAS.md` en el proyecto del launcher
+  (`C:\apk funciona dia 25 v1`, rama `feature/ordenes-remotas`).
+- Código del PC: `atvmaster/ordenes.py` (+ pruebas en `tests/test_ordenes.py`). Necesita `cryptography`.
+
 ### Inventario
 *Aplicación → Exportar inventario a Excel (CSV)…*: una fila por dispositivo (marcados, o todos) con
 tipo, fabricante, modelo, Android, parche de seguridad, nº de serie, MAC, IP, batería, pantalla,

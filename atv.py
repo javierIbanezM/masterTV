@@ -15,19 +15,36 @@ Ejemplos (el dispositivo se indica por nombre, parte del nombre, IP o id; «all�
     python atv.py shell "PDA 99" "getprop ro.build.version.release"
     python atv.py screenshot "PDA 99" captura.png
     python atv.py reboot "PDA 99" --yes
+
+Órdenes remotas a las PDA Datalogic (launcher 1.6.0+): instalan/desinstalan/cierran apps SIN ADB. Se publican
+firmadas en el servidor de actualizaciones y la PDA las recoge sola en menos de un minuto:
+    python atv.py orden-instalar "PDA 99,PDA 100" C:\\apks\\mi_app.apk
+    python atv.py orden-desinstalar "PDA 99" com.ejemplo.app
+    python atv.py orden-cerrar all com.ejemplo.app
+    python atv.py orden-estado "PDA 99"          # resultado de las órdenes (necesita ADB)
+(--servidor y --url-base eligen otro servidor, p. ej. uno de pruebas; --solo-mostrar no escribe nada.)
 """
 from __future__ import annotations
 
 import argparse
+import json
+import os
+import shutil
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from urllib.parse import quote
 
-from atvmaster import paths
+from atvmaster import ordenes, paths
 from atvmaster.adb import Adb, is_dangerous_shell
 from atvmaster.store import Device, DeviceStore
 
 OK, FAIL = "✔", "✖"
+# Mismo servidor al que publica el despliegue del launcher (githooks/post-commit) y desde el que lee versionPDA.json.
+SERVIDOR_POR_DEFECTO = r"\\SRVAutoN8N.zar.local\c$\Users\administrador.ZAR\Desktop\ConfigN8N\printer\updates"
+URL_BASE_POR_DEFECTO = "http://SRVAutoN8N.zar.local:5000/updates"
+CLAVE_POR_DEFECTO = Path(__file__).resolve().parent / "ordenes_keys" / "ordenes_privada.pem"
+APP_PDA = "com.azalogistics.pda"
 
 
 def pick(store: DeviceStore, spec: str) -> list[Device]:
@@ -72,6 +89,28 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("dev"); p.add_argument("salida", nargs="?", default="")
     p = sub.add_parser("reboot", help="reinicia el dispositivo")
     p.add_argument("dev"); p.add_argument("--yes", action="store_true", help="confirma el reinicio")
+
+    def opciones_orden(p):
+        p.add_argument("--servidor", default=os.environ.get("ATV_SERVIDOR", SERVIDOR_POR_DEFECTO),
+                       help="carpeta del servidor de actualizaciones donde se publica (ruta de red o local)")
+        p.add_argument("--url-base", default=os.environ.get("ATV_URL_BASE", URL_BASE_POR_DEFECTO),
+                       help="URL con la que las PDA ven esa carpeta")
+        p.add_argument("--clave", default=os.environ.get("ATV_CLAVE_ORDENES", str(CLAVE_POR_DEFECTO)),
+                       help="clave privada que firma las órdenes")
+        p.add_argument("--horas", type=float, default=ordenes.HORAS_POR_DEFECTO, help="vigencia de las órdenes")
+        p.add_argument("--solo-mostrar", action="store_true", help="enseña lo que publicaría y no escribe nada")
+
+    p = sub.add_parser("orden-instalar", help="orden remota: instala un APK en las PDA (sin ADB)")
+    p.add_argument("dev"); p.add_argument("archivo")
+    p.add_argument("--paquete", default="", help="nombre del paquete que debe tener el APK (recomendado)")
+    opciones_orden(p)
+    for name, helptext in (("orden-desinstalar", "orden remota: desinstala una app de usuario"),
+                           ("orden-cerrar", "orden remota: fuerza el cierre de una app")):
+        p = sub.add_parser(name, help=helptext)
+        p.add_argument("dev"); p.add_argument("paquete")
+        opciones_orden(p)
+    p = sub.add_parser("orden-estado", help="resultado de las órdenes remotas de la PDA (lee por ADB)")
+    p.add_argument("dev")
     a = ap.parse_args(argv)
 
     adb_path = paths.find_adb()
@@ -95,10 +134,53 @@ def main(argv: list[str] | None = None) -> int:
         for d, s in zip(devs, ex.map(adb.probe_device, devs)):
             ready[d.id] = s
 
+    def publicar_orden(d: Device) -> tuple[bool, str]:
+        """Publica un fichero de órdenes firmado para este terminal (no necesita que esté conectado)."""
+        serie = d.hw_serial or (d.host if d.is_usb else "")
+        if not ordenes.SERIE_RE.match(serie):
+            return False, "no se conoce su nº de serie: conéctalo una vez para que la aplicación lo memorice"
+        try:
+            if a.cmd == "orden-instalar":
+                apk = Path(a.archivo)
+                if not apk.is_file():
+                    return False, f"no existe {apk}"
+                sha = ordenes.sha256_archivo(apk)
+                nombre = f"{sha[:12]}_{apk.name.replace(' ', '_')}"
+                orden = ordenes.orden_instalar(f"{a.url_base.rstrip('/')}/apps/{quote(nombre)}", sha, a.paquete)
+                if not a.solo_mostrar:
+                    destino_apk = Path(a.servidor) / "apps" / nombre
+                    destino_apk.parent.mkdir(parents=True, exist_ok=True)
+                    if not destino_apk.exists():
+                        shutil.copyfile(apk, destino_apk)
+            elif a.cmd == "orden-desinstalar":
+                orden = ordenes.orden_desinstalar(a.paquete)
+            else:
+                orden = ordenes.orden_cerrar(a.paquete)
+            texto = ordenes.fichero_firmado(serie, [orden], a.clave, a.horas)
+            if a.solo_mostrar:
+                return True, f"publicaría para {serie}: {json.dumps(orden, ensure_ascii=False)}"
+            ruta = ordenes.publicar(a.servidor, serie, texto)
+        except (ordenes.OrdenError, OSError) as e:
+            return False, str(e)
+        return True, f"orden {orden['id']} publicada para {serie} ({ruta}); la PDA la recoge en menos de un minuto"
+
+    def estado_ordenes(d: Device) -> tuple[bool, str]:
+        r = adb.shell(d.serial, f"cat /sdcard/Android/data/{APP_PDA}/files/ordenes_resultados.json 2>/dev/null")
+        try:
+            res = json.loads(r.out)
+        except ValueError:
+            return True, "sin resultados todavía (¿launcher 1.6.0+ y alguna orden recibida?)"
+        return True, "\n" + "\n".join(f"  {k:36} {'OK' if v.get('ok') else 'ERROR':5} {v.get('detalle', '')}"
+                                      for k, v in sorted(res.items()))
+
     def run(d: Device) -> tuple[bool, str]:
+        if a.cmd in ("orden-instalar", "orden-desinstalar", "orden-cerrar"):
+            return publicar_orden(d)
         if ready[d.id] != "device":
             return False, f"sin conexión ADB ({ready[d.id]})"
         s = d.serial
+        if a.cmd == "orden-estado":
+            return estado_ordenes(d)
         if a.cmd == "info":
             return True, "\n".join(f"  {k}: {v}" for k, v in adb.device_info(s).items())
         if a.cmd == "apps":
